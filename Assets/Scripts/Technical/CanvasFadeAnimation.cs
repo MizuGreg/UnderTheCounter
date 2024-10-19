@@ -5,7 +5,7 @@ public class CanvasFadeAnimation : MonoBehaviour
 {
     private bool _fadeIn, _fadeOut;
     
-    [Range(0.0f, 10.0f)]
+    [Range(0.1f, 10.0f)]
     public float fadeSpeed = 1f;
     
     public CanvasGroup canvasGroup;
