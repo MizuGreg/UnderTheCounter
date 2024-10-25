@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CanvasFadeAnimation : MonoBehaviour
 {
-    private bool _fadeIn, _fadeOut;
+    private bool _isFading = false;
     
     [Range(0.1f, 10.0f)]
     public float fadeSpeed = 1f;
@@ -25,8 +25,8 @@ public class CanvasFadeAnimation : MonoBehaviour
     
     private IEnumerator FadeInCoroutine()
     {
-        if (IsFading()) yield break;
-        _fadeIn = true;
+        if (_isFading) yield break;
+        _isFading = true;
         
         canvasGroup.alpha = 0.0f;
         while (canvasGroup.alpha < 1.0f)
@@ -35,13 +35,13 @@ public class CanvasFadeAnimation : MonoBehaviour
             yield return null;
         }
 
-        _fadeIn = false;
+        _isFading = false;
     }
 
     private IEnumerator FadeOutCoroutine()
     {
-        if (IsFading()) yield break;
-        _fadeOut = true;
+        if (_isFading) yield break;
+        _isFading = true;
 
         canvasGroup.alpha = 1.0f;
         while (canvasGroup.alpha > 0.0f)
@@ -50,14 +50,10 @@ public class CanvasFadeAnimation : MonoBehaviour
             yield return null;
         }
 
-        _fadeOut = false;
+        _isFading = false;
         
         // deactivates object when done fading inside the coroutine
         gameObject.SetActive(false);
     }
-
-    private bool IsFading()
-    {
-        return _fadeIn || _fadeOut;
-    }
+    
 }
