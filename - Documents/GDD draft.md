@@ -11,15 +11,15 @@ Under the Counter is a simulation game in which you impersonate a bartender tryi
 
 In Under the Counter you play as the owner of a bustling bar in a 20's retro-inspired city called Korgis. You will have to manage the sale of alcoholic beverages as prohibition law sets in, trying to maximize your revenue while keeping the illegal operation hidden from the authorities.
 
-> The overall mood is determined, challenging and courageous,
+The overall mood is dynamic, challenging, pressuring and clever, while the setting is 20's retro, fancy, jazzy and old-fashioned.
 
-while the setting is 20's retro and old-fashioned.
-
-The game is divided into several days, which are played consecutively until the last day is completed, or until the player loses. The objective of each day is to avoid going into the red by the end of the shift, and avoid getting caught serving alcohol and getting arrested.
+The game is divided into several days, which are played consecutively until the last day is completed, or until the player loses. The objective of each day is to avoid going into the red by the end of the shift, and avoid getting caught serving alcohol.
 
 To reach the end of the day safely, the player needs to
-> - **earn enough**: for example through tips, by serving the right drinks to customers, in order to be able to afford keeping the bar open another day
-> - **avoid getting caught**: for example by not making people drink too much (because drunkards attract attention), by setting up an inconspicuous façade, or by spotting potential undercover policemen.
+- **earn enough**: for example through tips, by serving the right drinks to customers, in order to be able to afford keeping the bar open another day
+- **avoid getting caught**: for example by not making people drink too much (because drunkards attract attention), by setting up an inconspicuous façade,
+
+> or by spotting potential undercover policemen.
 
 Choice is important in this game: the player's strategical decision will play a fundamental role in determining whether they will have what it takes to survive the day.
 
@@ -32,15 +32,19 @@ Lastly, the focus of the development of the game is set on making the game somew
 
 > The main character is the bartender, which we initially know very little of. TBD
 
+> Old bar owner, also member of the bartenders union TBD
+
 > Another recurring character is the inspector. TBD
 
-> Old bar owner / member of bartenders' union
+> 10 customers max for the prototype (for the beta maybe 20?)
+
+> Super customers
 
 > Mafia goon
 
 ## Story
 
-> TBD mafia? ispettore? ex proprietario bar?
+> TBD ex proprietario bar che ti fa da tutorial, mafia (ma non troppa!), ispettore, undercover cop, ...
 
 ## World
 
@@ -68,42 +72,52 @@ Lastly, when the shift ends, the player can take a glance at all the expenses an
 
 ### Shop window
 
-> **Elements**: posters and texts, (eventually, maybe: pavement sign, ...)
+> **Elements**: posters and texts, occasionally a letter (eventually, maybe: pavement sign, ...)
 
 **Gameplay**: the player/bar owner will be able to tear down or hang posters with different purposes:
 - advertising the sale of alcohol directly (e.g. a Martini poster) or covertly (e.g. "now selling Daisies and Turnscrews", referring to the Margarita and Screwdriver cocktails)
 - using secret codes between bartenders in Korgis to let customers know that this bar sells alcohol
 - possibly more.
 
-These changes can affect the amount of customers who enter the bar, how easy to achieve a police blitz is, the amount of tips left, and possibly more.
+These changes can affect
+- the amount of customers who enter the bar, 
+- how easy to achieve a police blitz is,
+- the amount of tips left,
 
-> Posters may be bought, or some may be unlocked after a certain day.
+> - the difficulty of the blitz minigame
+> - the duration of the day
+
+and possibly more.
+
+Posters may be bought, or some may be unlocked after a certain day.
 
 ### Bar view
 
-> **Elements**: area under the counter, counter (decorated with e.g. toothpick boxes, tip jar, etc.), tables and chairs, door and windows (review feasibility...)
+**Elements**: area under the counter, counter (decorated with various items),
 
-**Gameplay**: the customers will show up at the counter and ask for a drink, occasionally having a small chat. They will pay for the cocktail upfront, and possibly tip afterwards.
+> tables and chairs, door and windows (review feasibility...)
+
+**Gameplay**: the customers will show up at the counter, say a couple lines and then order a drink. They will pay for the cocktail after receiving it and possibly add a variable tip.
 
 > Interesting individuals may also enter the bar apart from customers: someone with special tastes in drinks, the police inspector, mafia goons, and more.
 
 ### Cocktail preparation
 
-> **Elements**: clickable objects like alcoholic drinks (gin, vermouth, whiskey), non-alcoholic beverages (club soda, lemon juice, tap water) put alongside non-interactable objects like glasses, garnishes, recipe book
+> **Elements**: clickable objects like alcoholic drinks (Verlan, Caledon Ridge, Ferrucci), non-alcoholic beverages (Gryte, shaddock juice, tap water) put alongside non-interactable objects like glasses, garnishes, recipe book
 
 **Gameplay**: in the area under the counter, the player will be able to create a cocktail out of the available ingredients, to satisfy each customer's request. The player may consult the recipe book to know which ingredient(s) to use.
 
 - If the drink is what the customer asked for
 
->(and is served in a timely manner?)
+>(and is served in a timely manner? but this bonus needs to be totally extra, not something needed to reach the end of the day. also this bonus is pretty useless if you don't have the means to spend this extra money, like posters!)
 
-the bartender will be also tipped.
+the bartender will be also tipped generously.
 
-- If the bartender makes the wrong cocktail, the customer may get angry because of the incorrect order, not tip, and leave (but they will still get tipsy if the drink is alcoholic).
+- If the bartender makes the wrong cocktail, the customer may get angry because of the incorrect order, not tip, and leave (but they will still get drunk if the drink is alcoholic).
 
-- Finally, serving a correct but watered down cocktail (by adding tap water) serves as a way to keep the customer from getting drunk: if the customer is already tipsy they won't notice, whereas if they're sober, they may tip less.
+- Finally, serving a correct but watered down cocktail (by adding tap water) serves as a way to keep the customer from getting drunk: they will tip less and leave, but without getting too upset.
 
-FARLO A TABELLA
+FARLO A TABELLA (?)
 
 ### Police blitz
 
@@ -116,7 +130,7 @@ FARLO A TABELLA
 
 > In this case TBD.
 
-> An inspection will make the current customer leave without tipping (dipende da che tipo di minigioco è!)
+> An inspection will make the current customer leave without tipping (però dipende da che tipo di minigioco è!)
 
 and scare off future ones for a few seconds.
 
@@ -141,20 +155,25 @@ and scare off future ones for a few seconds.
 ## Media list
 
 Sprites:
-- ...
-
-Tile maps:
-- ...
+- old former bartender
+- police inspector
+- 10 customers
+- boh
 
 Sound:
-- ...
+- sounds effects for
+    - recipe book
+    - drinks (shaker, water/liquids pouring)
+    - posters
+    - dialogs?
+    - clicking on buttons?
 
 OST:
-- Menu
-- Shop window
-- Bar
-- End of day
-- Win/lose screens
+- Menu (medium length)
+- Shop window (short/medium length)
+- Bar (high length)
+- End of day (short length)
+- Win/lose tracks (short? possibly)
 
 ## Technical specifications
 
@@ -193,7 +212,19 @@ OST:
 - defined in-game events and outlined game story
 - outlined recurring and important characters
 - discussed how characters and events intertwine with and influence the gameplay
-- talked SO MUCH ALL DAY (meeting lasted from 9:30 to 20:00)
+- note: meeting lasted from 9:30 till 20:30
+
+### Meeting - 24/10
+- defined cocktails and cocktail ingredients
+- draft of cocktail creation area
+- defined and sketched the 10 customers + 2 special characters present in the prototype, and fleshed out their personality and dialogues
+- specified amount of customers and duration in minutes in each day
+
+### Meeting - 25/10
+- reviewed GDD draft
+- brainstorming blitz minigame
+- finalized bar layout and developed cocktail creation layout 
+- set up Trello board and started organizing coding tasks
 
 ### Deadline (GDD and GitHub repo) - 04/11
 
