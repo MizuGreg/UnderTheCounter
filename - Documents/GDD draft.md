@@ -17,9 +17,7 @@ The game is divided into several days, which are played consecutively until the 
 
 To reach the end of the day safely, the player needs to
 - **earn enough**: for example through tips, by serving the right drinks to customers, in order to be able to afford keeping the bar open another day
-- **avoid getting caught**: for example by not making people drink too much (because drunkards attract attention), by setting up an inconspicuous façade,
-
-> or by spotting potential undercover policemen.
+- **avoid getting caught**: for example by not making people drink too much (because drunkards attract attention), by setting up an inconspicuous façade, and more.
 
 Choice is important in this game: the player's strategical decision will play a fundamental role in determining whether they will have what it takes to survive the day.
 
@@ -30,28 +28,30 @@ Lastly, the focus of the development of the game is set on making the game somew
 
 ## Characters
 
-> The main character is the bartender, which we initially know very little of. TBD
+The main character is the bartender, which we know very little of since they never speak.
 
-> Old bar owner, also member of the bartenders union TBD
+The former bar owner, an old man, teaches the player the basics of bartending. He is also a member of the bartenders union.
 
-> Another recurring character is the inspector. TBD
+Another recurring character is the inspector. They will warn the player of the instatiation of the prohibition law.
 
-> 10 customers max for the prototype (for the beta maybe 20?)
+There will be a few customers for the prototype, but a couple more customers are planned to be added for the next releases.
 
-> Super customers
+Super customers, that is, customers with special interests or interactions, are planned to be added in the future.
 
-> Mafia goon
+Characters belonging to the local criminal organizations may be added in the future.
 
 ## Story
 
-> TBD ex proprietario bar che ti fa da tutorial, mafia (ma non troppa!), ispettore, undercover cop, ...
+The main outline of the story is that the protagonist buys a new bar, but shortly after settling in, prohibition strikes, making the sale of alcohol illegal. The bartender will thus have to start operating in a more careful way while continuing to serve alcoholic beverages. Some factions in the city of Korgis may help or hinder them: among these are the bartenders union and the local mafia.
 
 ## World
 
 The game world does not adhere perfectly to a historical period, but it's inspired by the prohibition era of the 1920s and 30s in the United States of America. The bar is located in a city called Korgis, situated in an unspecified region of the US.
 As the game develops, various events unfold in this fictional world, first of all being a prohibition law which forbids shops from selling and distributing alcohol in any form. 
 
-> TBD quanta mafia c'è in Korgis? chi ci vive? quanta ricchezza ci gira?
+The city of Korgis is a fair one, where the police protects its citizens while fighting organized crime. Prohibition breaks this balance, making police operations harsher and more frequent, while at the same time often leaving bars and pubs at the mercy of mafia clans, which try to extort money or acquire control.
+
+Korgis is fairly multicultural, and hosts several artistic and musical events on a daily basis. The protagonist's bar will thus be visited by customers of varying social background and economic status.
 
 ---
 ---
@@ -64,15 +64,13 @@ Each day except the first one starts with setting up the shop window, deciding w
 
 Scripted events will happen during the shift, which will require the player to make a decision.
 
-Based on the amount of alcoholic drinks sold, the authorities may increasingly notice that the bar is selling alcohol (by seeing drunk people come out of it), a blitz will become more and more likely this way. Arrest can be avoided if the bartender avoids getting people too drunk on their drinks (see bar mechanic below),
-
-> or alternatively, if they successfully evade incriminating questions or hide evidence during the blitz/inspection.
+Based on the amount of alcoholic drinks sold, the authorities may increasingly notice that the bar is selling alcohol (by seeing drunk people come out of it), a blitz will become more and more likely this way. Arrest can be avoided if the bartender avoids getting people too drunk on their drinks (see bar mechanic below), or alternatively, if they hide evidence and successfully evade incriminating questions during the blitz.
 
 Lastly, when the shift ends, the player can take a glance at all the expenses and earnings of the day and gain awareness on their economical situation.
 
 ### Shop window
 
-> **Elements**: posters and texts, occasionally a letter (eventually, maybe: pavement sign, ...)
+**Elements**: posters and texts, occasionally a letter (possibly in the future: pavement sign, ...)
 
 **Gameplay**: the player/bar owner will be able to tear down or hang posters with different purposes:
 - advertising the sale of alcohol directly (e.g. a Martini poster) or covertly (e.g. "now selling Daisies and Turnscrews", referring to the Margarita and Screwdriver cocktails)
@@ -80,12 +78,10 @@ Lastly, when the shift ends, the player can take a glance at all the expenses an
 - possibly more.
 
 These changes can affect
-- the amount of customers who enter the bar, 
-- how easy to achieve a police blitz is,
-- the amount of tips left,
-
-> - the difficulty of the blitz minigame
-> - the duration of the day
+- how easy to achieve a police blitz is (e.g. a poster advertising alcohol will make the police far more alert),
+- the amount of tips left (e.g. "Tip your local barkeeper <3"),
+- the difficulty and/or duration of the blitz minigame (e.g. "We respect the police in this establishment!")
+- the duration of the day (e.g. "Bar open until late today!")
 
 and possibly more.
 
@@ -93,61 +89,70 @@ Posters may be bought, or some may be unlocked after a certain day.
 
 ### Bar view
 
-**Elements**: area under the counter, counter (decorated with various items),
-
-> tables and chairs, door and windows (review feasibility...)
+**Elements**: area under the counter, counter (decorated with various items), (according to time and feasibility: tables and chairs, door and windows)
 
 **Gameplay**: the customers will show up at the counter, say a couple lines and then order a drink. They will pay for the cocktail after receiving it and possibly add a variable tip.
 
-> Interesting individuals may also enter the bar apart from customers: someone with special tastes in drinks, the police inspector, mafia goons, and more.
+In the future, interesting individuals may also enter the bar apart from customers: someone with special tastes in drinks, the police inspector, mafia goons, and more.
 
 ### Cocktail preparation
 
-> **Elements**: clickable objects like alcoholic drinks (Verlan, Caledon Ridge, Ferrucci), non-alcoholic beverages (Gryte, shaddock juice, tap water) put alongside non-interactable objects like glasses, garnishes, recipe book
+**Elements**: clickable objects like alcoholic drinks (Verlan, Caledon Ridge, Ferrucci), non-alcoholic beverages (Gryte, shaddock juice, tap water) put alongside non-interactable objects like glasses, garnishes, recipe book
 
-**Gameplay**: in the area under the counter, the player will be able to create a cocktail out of the available ingredients, to satisfy each customer's request. The player may consult the recipe book to know which ingredient(s) to use.
+**Gameplay**: in the cocktail creation area, the player will be able to create a cocktail out of the available ingredients, to satisfy each customer's request. The player may consult the recipe book to know which ingredient(s) to use.
 
-- If the drink is what the customer asked for
-
->(and is served in a timely manner? but this bonus needs to be totally extra, not something needed to reach the end of the day. also this bonus is pretty useless if you don't have the means to spend this extra money, like posters!)
-
-the bartender will be also tipped generously.
+- If the drink is what the customer asked for the bartender will be also tipped. Preparing the cocktail in a timely manner will increase the tip.
 
 - If the bartender makes the wrong cocktail, the customer may get angry because of the incorrect order, not tip, and leave (but they will still get drunk if the drink is alcoholic).
 
 - Finally, serving a correct but watered down cocktail (by adding tap water) serves as a way to keep the customer from getting drunk: they will tip less and leave, but without getting too upset.
 
-FARLO A TABELLA (?)
+Summary:
+
+|                          | CUSTOMER OUTCOME              | TIP                                                               | DRUNKENNESS                          |   |
+|--------------------------|-------------------------------|-------------------------------------------------------------------|--------------------------------------|---|
+| CORRECT DRINK            | customer **satisfied**        | **yes**; **additional** tip if cocktail is served **fast enough** | **yes**                              |   |
+| INCORRECT                | customer **angry/upset**      | **no**                                                            | **yes** if cocktail is **alcoholic** |   |
+| CORRECT BUT WATERED DOWN | customer **mildly satisfied** | **little**                                                        | **no**                               |   |
 
 ### Police blitz
 
-> **Elements**: inspector, undercover cop, ...
+**Elements**: inspector, bottle-hiding minigame, dialogue with choices ...
 
-**Gameplay**: a police blitz may happen at some point starting from the 3rd day: this can be caused by:
-- the bartender selling too much alcoholic drinks to customers
+**Gameplay**: a police blitz may happen at some point starting from the 4th day: this can be caused by:
+- the bartender selling too many alcoholic drinks to customers (each day has a scripted maximum amount of drunk people which triggers the blitz)
 - an incriminating poster outside
-> - possibly more? (tipo undercover cop)
+- possibly more
 
-> In this case TBD.
+If the right conditions are satisfied the blitz will take place immediately.
 
-> An inspection will make the current customer leave without tipping (però dipende da che tipo di minigioco è!)
+In this case a custom interface will appear, letting the player know they need to hide evidence of selling alcohol before the police enters the bar.
 
-and scare off future ones for a few seconds.
+1) First, the player will need to hide the alcoholic ingredients inside a safe within a specified time (a time bar will appear on screen for this purpose)
+
+2) Then, upon entering, the inspector will ask a couple trick questions to the bartender.
+
+If the player hasn't hidden all evidence in time, or responded wrongly to a question, the bar will be closed and the game ends. Otherwise the player has survived the blitz and can continue as usual. This will reset the blitz conditions.
+
+In either case, blitz are planned to be time-consuming, so as to make the bartender lose time (and subsequently money).
+
+An inspection will make the current customer leave and scare off future ones for a few seconds.
 
 ## Other gameplay elements
 
 ### Dialogues
 
-> The bartender may occasionally engage in conversations with customers, which may either reveal important information (e.g. future prohibition laws being discussed, secret codes for alcohol-serving bars, how to spot undercover cops) or just serve as a distraction during the game (e.g. conversations fleshing out the bartender's life and family, or the outside world). Short dialogues will be fundamental in quickly fleshing out the customer's personality and habits.
-> Dialog lines will require a click to proceed to the next one; double click to display all the text at once
+The bartender will engage in very small conversations with customers, which may either reveal important information (e.g. future prohibition laws being discussed, secret codes for alcohol-serving bars, how to spot undercover cops) or just serve as a small distraction during the game. Such short dialogues can be fundamental in quickly fleshing out the customer's personality and habits.
+
+Dialog lines will require a click to proceed to the next one; double click to display all the text at once.
 
 ### Decisions
 
-> During dialogues or indirectly by playing, the player may have to make decisions which impact what happens during the rest of the day. A correct decision in a dialogue may make a customer a regular, whereas a wrong decision while setting up the window shop may decrease the flow of customers for the day.
+Decisions are pragmatic in this game, in the sense that the player can make strategic decisions based on their actions. During the blitz minigame, the bartender can choose among a list of possible answers to the inspector's questions.
 
 ### Gameplay modes and other features
 
-> An "endless mode" is being considered, where there is no story-related event and no limit on the number of days. The days progressively get harder as the player needs to avoid bankrupt and arrest.
+No additional game modes are planned at the moment.
 
 ---
 ---
@@ -157,16 +162,20 @@ and scare off future ones for a few seconds.
 Sprites:
 - old former bartender
 - police inspector
-- 10 customers
-- boh
+- customers (hopefully 10)
+- cocktail ingredients, cocktails, glasses, shaker
+- counter
+- possibly more in the future
+
+Images:
+- backgrounds for bar, shop window, menu
 
 Sound:
 - sounds effects for
     - recipe book
     - drinks (shaker, water/liquids pouring)
     - posters
-    - dialogs?
-    - clicking on buttons?
+    - possibly UI-related sounds
 
 OST:
 - Menu (medium length)
@@ -212,7 +221,7 @@ OST:
 - defined in-game events and outlined game story
 - outlined recurring and important characters
 - discussed how characters and events intertwine with and influence the gameplay
-- note: meeting lasted from 9:30 till 20:30
+- note: meeting lasted with varying participants from 9:30 till 20:30
 
 ### Meeting - 24/10
 - defined cocktails and cocktail ingredients
@@ -225,6 +234,14 @@ OST:
 - brainstorming blitz minigame
 - finalized bar layout and developed cocktail creation layout 
 - set up Trello board and started organizing coding tasks
+
+### Meeting - 27/10
+- finalized inspection mechanic
+- finalized some details on inspection and cocktail preparation layout
+- finalized GDD (but final revision needed)
+
+### Meeting - 29/10
+- ???
 
 ### Deadline (GDD and GitHub repo) - 04/11
 
