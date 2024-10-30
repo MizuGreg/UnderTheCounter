@@ -162,7 +162,7 @@ No additional game modes are planned at the moment.
 Sprites:
 - old former bartender
 - police inspector
-- customers (hopefully 10)
+- customers (hopefully 10 in the prototype)
 - cocktail ingredients, cocktails, glasses, shaker
 - counter
 - possibly more in the future
@@ -186,7 +186,7 @@ OST:
 
 ## Technical specifications
 
-...
+None yet.
 
 ## Team
 1. Gloria Gaggelli (project leader, game designer, artist) 
@@ -231,17 +231,21 @@ OST:
 
 ### Meeting - 25/10
 - reviewed GDD draft
-- brainstorming blitz minigame
+- brainstorming of blitz minigame
 - finalized bar layout and developed cocktail creation layout 
 - set up Trello board and started organizing coding tasks
 
 ### Meeting - 27/10
-- finalized inspection mechanic
+- finalized inspection mechanic and the two blitz minigames
 - finalized some details on inspection and cocktail preparation layout
-- finalized GDD (but final revision needed)
+- completed GDD (but final revision needed)
+- completed character designs
+- completed setup of Trello board and GitHub repo to all 5 team members
 
 ### Meeting - 29/10
-- ???
+- final revision of GDD, ready for [04/11 deadline](#deadline-gdd-and-github-repo---0411)
+- creation and assignment of coding tasks to developers
+- creation of Gantt chart for development until beta deadline
 
 ### Deadline (GDD and GitHub repo) - 04/11
 
