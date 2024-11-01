@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -19,6 +17,12 @@ public class MenuManager : MonoBehaviour
         
     }
 
+    public void StartNewGame()
+    {
+        SceneManager.LoadScene("Scenes/BarView");
+    }
+    
+    
     public void QuitGame()
     {
         #if UNITY_EDITOR
