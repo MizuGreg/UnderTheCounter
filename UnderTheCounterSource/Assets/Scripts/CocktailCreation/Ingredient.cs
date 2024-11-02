@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace CocktailCreation
 {
@@ -19,11 +18,9 @@ namespace CocktailCreation
             _pouringPosition = targetPosition.GetComponent<RectTransform>().anchoredPosition;
         }
 
-        public override void OnEndDrag(PointerEventData eventData)
+        protected override void EndDragBehaviour()
         {
-            CanvasGroup.blocksRaycasts = true;
-            
-            if (RectTransformUtility.RectangleContainsScreenPoint(dropSlot, Input.mousePosition, canvas.worldCamera))
+            if (RectTransformUtility.RectangleContainsScreenPoint(dropSlot, Input.mousePosition, Canvas.worldCamera))
             {
                 StartCoroutine(ReturnAfterDelay(delay));
             }

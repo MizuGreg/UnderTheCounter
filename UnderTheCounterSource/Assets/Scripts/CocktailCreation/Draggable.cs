@@ -5,34 +5,49 @@ namespace CocktailCreation
 {
     public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        [SerializeField] protected Canvas canvas;
-
-        protected CanvasGroup CanvasGroup;
+        [SerializeField] private bool resetAfterDrop;
+        
+        protected Canvas Canvas;
+        private CanvasGroup _canvasGroup;
         protected RectTransform RectTransform;
+        private int _originalSiblingIndex;
         private Vector3 _initialPosition;
         private Quaternion _initialRotation;
 
         protected virtual void Awake()
         {
+            Canvas = GetComponentInParent<Canvas>();
             RectTransform = GetComponent<RectTransform>();
-            CanvasGroup = GetComponent<CanvasGroup>();
+            _canvasGroup = GetComponent<CanvasGroup>();
+            _originalSiblingIndex = transform.GetSiblingIndex();
             _initialPosition = RectTransform.anchoredPosition;
             _initialRotation = RectTransform.rotation;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            CanvasGroup.blocksRaycasts = false;
+            _canvasGroup.blocksRaycasts = false;
+            RectTransform.SetAsLastSibling();
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            RectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+            RectTransform.anchoredPosition += eventData.delta / Canvas.scaleFactor;
         }
 
         public virtual void OnEndDrag(PointerEventData eventData)
         {
-            CanvasGroup.blocksRaycasts = true;
+            _canvasGroup.blocksRaycasts = true;
+            
+            EndDragBehaviour();
+            
+            RectTransform.SetSiblingIndex(_originalSiblingIndex);
+            
+        }
+
+        protected virtual void EndDragBehaviour()
+        {
+            if(resetAfterDrop) ReturnToInitialPosition();
         }
 
         protected void ReturnToInitialPosition()

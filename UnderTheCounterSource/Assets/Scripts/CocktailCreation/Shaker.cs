@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,17 +33,15 @@ namespace CocktailCreation
                 
             }
         }
-        
-        public override void OnEndDrag(PointerEventData eventData)
+
+        protected override void EndDragBehaviour()
         {
-            CanvasGroup.blocksRaycasts = true;
-            
-            if (RectTransformUtility.RectangleContainsScreenPoint(sink, Input.mousePosition, canvas.worldCamera))
+            if (RectTransformUtility.RectangleContainsScreenPoint(sink, Input.mousePosition, Canvas.worldCamera))
             {
                 _ingredientsInShaker.Add(IngredientType.Water);
                 StartCoroutine(ReturnAfterDelay(delay));
             }
-            else if (RectTransformUtility.RectangleContainsScreenPoint(bin, Input.mousePosition, canvas.worldCamera))
+            else if (RectTransformUtility.RectangleContainsScreenPoint(bin, Input.mousePosition, Canvas.worldCamera))
             {
                 _ingredientsInShaker.Clear();
                 ReturnToInitialPosition();

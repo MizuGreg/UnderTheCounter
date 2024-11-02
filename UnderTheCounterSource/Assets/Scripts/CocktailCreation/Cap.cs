@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace CocktailCreation
 {
@@ -15,11 +13,9 @@ namespace CocktailCreation
             _gameController = GameObject.FindGameObjectWithTag("GameController");
         }
 
-        public override void OnEndDrag(PointerEventData eventData)
+        protected override void EndDragBehaviour()
         {
-            CanvasGroup.blocksRaycasts = true;
-            
-            if (RectTransformUtility.RectangleContainsScreenPoint(dropSlot, Input.mousePosition, canvas.worldCamera))
+            if (RectTransformUtility.RectangleContainsScreenPoint(dropSlot, Input.mousePosition, Canvas.worldCamera))
             {
                 _gameController.GetComponent<CocktailManager>().MakeCocktail(dropSlot.GetComponent<Shaker>().GetIngredients());
                 dropSlot.gameObject.SetActive(false);
