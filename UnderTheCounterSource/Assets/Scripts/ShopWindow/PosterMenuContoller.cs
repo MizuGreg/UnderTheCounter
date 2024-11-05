@@ -28,19 +28,5 @@ public class PosterMenuController : MonoBehaviour
         _isMenuOpen = !_isMenuOpen;
         overlayPanel.SetActive(true); // Make sure panel is visible when starting animation
         panelAnimator.SetBool("IsOpen", _isMenuOpen);
-
-        // If closing the menu, disable panel after animation duration
-        if (!_isMenuOpen) 
-        {
-            StartCoroutine(HidePanelAfterAnimation());
-        }
     }
-
-    private IEnumerator HidePanelAfterAnimation()
-    {
-        yield return new WaitForSeconds(1f); // Adjust based on "SlideIn" animation length
-        overlayPanel.SetActive(false); // Hide panel after animation completes
-    }
-
-
 }
