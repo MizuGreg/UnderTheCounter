@@ -1,0 +1,50 @@
+{
+    "day1": [
+        {
+            "sprite": "Margaret",
+            "order": "SpringBee",
+            "lines": {
+                "greet": "Hi, how's it going?",
+                "order": "I'd like a Spring Bee now.",
+                "leaveCorrect": "Great cocktail, thank you!",
+                "leaveWrong": "Wrong cocktail...",
+                "leaveWater": "Not bad, thanks."
+            }
+        },
+        {
+            "sprite": "Margaret",
+            "order": "SpringBee",
+            "lines": {
+                "greet": "Hi, how's it going?",
+                "order": "I'd like a Spring Bee now.",
+                "leaveCorrect": "Great cocktail, thank you!",
+                "leaveWrong": "Wrong cocktail...",
+                "leaveWater": "Not bad, thanks."
+            }
+        }
+    ],
+    "day2": [
+        {
+            "sprite": "Margaret",
+            "order": "SpringBee",
+            "lines": {
+                "greet": "Hi, how's it going?",
+                "order": "I'd like a Spring Bee now.",
+                "leaveCorrect": "Great cocktail, thank you!",
+                "leaveWrong": "Wrong cocktail...",
+                "leaveWater": "Not bad, thanks."
+            }
+        },
+        {
+            "sprite": "Margaret",
+            "order": "SpringBee",
+            "lines": {
+                "greet": "Hi, how's it going?",
+                "order": "I'd like a Spring Bee now.",
+                "leaveCorrect": "Great cocktail, thank you!",
+                "leaveWrong": "Wrong cocktail...",
+                "leaveWater": "Not bad, thanks."
+            }
+        }
+    ]
+}
