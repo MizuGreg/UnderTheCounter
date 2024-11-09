@@ -35,7 +35,7 @@ public class CCAManager : MonoBehaviour
 
     public void Start()
     {
-        EventSystemManager.onMakeCocktail += setupPreparation;
+        EventSystemManager.OnMakeCocktail += setupPreparation;
     }
 
     public void showCCA()
@@ -51,15 +51,27 @@ public class CCAManager : MonoBehaviour
     public void setupPreparation(Cocktail cocktail)
     {
         showCCA();
-        showPostIt(cocktail);
+        setupPostIt(cocktail);
         // todo: prepare lil squares, etc.
+        showCCA();
     }
     
     // todo: many more functions for ingredients, watering down, mixing etc.
 
-    public void showPostIt(Cocktail cocktail)
+    public void setupPostIt(Cocktail cocktail)
     {
-        
+        // todo
+        showPostIt();
+    }
+    
+    public void showPostIt()
+    {
+        // todo
+    }
+
+    public void hidePostIt()
+    {
+        // todo
     }
 
     public void cocktailMade(Cocktail cocktail)

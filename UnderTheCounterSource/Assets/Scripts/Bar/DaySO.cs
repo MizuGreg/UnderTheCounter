@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using ShopWindow;
 using UnityEngine;
 
 namespace Bar
@@ -6,5 +8,9 @@ namespace Bar
     {
         public static int currentDay;
         public static int drunkCustomers;
+        public static int maxDrunkCustomers = 5; // hardcoded for now
+        public static List<PosterManager.Poster> currentPosters;
+        public static float savings;
+        public static float todayEarnings;
     }
 }

@@ -1,6 +1,8 @@
+using UnityEngine;
+
 namespace Bar
 {
-    public class RecipeBookManager
+    public class RecipeBookManager : MonoBehaviour
     {
         
     }

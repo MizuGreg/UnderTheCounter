@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    public CanvasGroup dialogueCanvas;
+    
     public void customerGreet(string line)
     {
         // todo

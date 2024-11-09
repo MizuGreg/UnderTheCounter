@@ -8,6 +8,9 @@ public class CustomerManager : MonoBehaviour
 {
     private List<Customer> dailyCustomers;
     private Customer currentCustomer;
+    private DialogueManager dialogueManager;
+
+    public CanvasGroup customerCanvas;
     
     public enum CustomerType
     {
@@ -37,9 +40,9 @@ public class CustomerManager : MonoBehaviour
     void Start()
     {
         loadDailyCustomers(DaySO.currentDay);
-        EventSystemManager.onTimeUp += timeoutCustomers;
-        EventSystemManager.onPreparationStart += prepareCCA;
-        EventSystemManager.onCocktailMade += serveCustomer;
+        EventSystemManager.OnTimeUp += timeoutCustomers;
+        EventSystemManager.OnPreparationStart += prepareCCA;
+        EventSystemManager.OnCocktailMade += serveCustomer;
         EventSystemManager.OnCustomerLeave += farewellCustomer;
     }
 
@@ -72,11 +75,13 @@ public class CustomerManager : MonoBehaviour
     public void serveCustomer(CCAManager.Cocktail cocktail)
     {
         // todo: compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
+        // if not watered down, we throw onDrunkCustomer event
     }
     
 
     public void playTutorial()
     {
-        // todo tutorial with ex bar owner
+        // todo: tutorial with ex bar owner. for now it's just a simple customer, but it can become something more custom
+        greetCustomer();
     }
 }
