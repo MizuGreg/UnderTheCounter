@@ -2,9 +2,11 @@ namespace CocktailCreation
 {
     public enum IngredientType
     {
-        Prosecco,
-        Campari,
-        Vermouth,
+        Verlan,
+        Caledon,
+        Ferrucci,
+        Gryte,
+        Shaddock,
         Water
     }
 }

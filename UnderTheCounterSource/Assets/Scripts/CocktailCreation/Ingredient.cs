@@ -11,16 +11,19 @@ namespace CocktailCreation
         [SerializeField] private GameObject targetPosition;
         [SerializeField] private float delay;
 
+        private GameObject _shaker;
         private Vector2 _pouringPosition;
 
         private void Start()
         {
+            _shaker = GameObject.FindGameObjectWithTag("Shaker");
             _pouringPosition = targetPosition.GetComponent<RectTransform>().anchoredPosition;
         }
 
         protected override void EndDragBehaviour()
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(dropSlot, Input.mousePosition, Canvas.worldCamera))
+            if (RectTransformUtility.RectangleContainsScreenPoint(dropSlot, Input.mousePosition, Canvas.worldCamera) &&
+                !_shaker.GetComponent<Shaker>().CheckIfIsFull())
             {
                 StartCoroutine(ReturnAfterDelay(delay));
             }

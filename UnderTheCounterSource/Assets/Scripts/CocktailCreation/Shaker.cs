@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace CocktailCreation
         [SerializeField] private GameObject targetPosition;
         [SerializeField] private RectTransform bin;
         [SerializeField] private float delay;
+        [SerializeField] private int numIngredients = 5;
+        [SerializeField] private GameObject mixButton;
         
         private readonly List<IngredientType> _ingredientsInShaker = new List<IngredientType>();
         private Vector2 _fillingPosition;
@@ -20,10 +23,18 @@ namespace CocktailCreation
             _fillingPosition = targetPosition.GetComponent<RectTransform>().anchoredPosition;
         }
 
+        private void Update()
+        {
+            if (_ingredientsInShaker.Count == numIngredients)
+            {
+                mixButton.SetActive(true);
+            }
+        }
+
         public void OnDrop(PointerEventData eventData)
         {
             // Check if the dropped object is an ingredient
-            if(eventData.pointerDrag!.CompareTag("Ingredient"))
+            if(eventData.pointerDrag!.CompareTag("Ingredient") && !CheckIfIsFull())
             {
                 Ingredient ingredient = eventData.pointerDrag.GetComponent<Ingredient>();
                 _ingredientsInShaker.Add(ingredient.GetIngredientType());
@@ -36,7 +47,8 @@ namespace CocktailCreation
 
         protected override void EndDragBehaviour()
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(sink, Input.mousePosition, Canvas.worldCamera))
+            if (RectTransformUtility.RectangleContainsScreenPoint(sink, Input.mousePosition, Canvas.worldCamera)
+                && !CheckIfIsFull())
             {
                 _ingredientsInShaker.Add(IngredientType.Water);
                 StartCoroutine(ReturnAfterDelay(delay));
@@ -65,6 +77,18 @@ namespace CocktailCreation
         public List<IngredientType> GetIngredients()
         {
             return new List<IngredientType>(_ingredientsInShaker);
+        }
+
+
+        public bool CheckIfIsFull()
+        {
+            if (_ingredientsInShaker.Count <= numIngredients) return false;
+            else return true;
+        }
+
+        public void EmptyShaker()
+        {
+            _ingredientsInShaker.Clear();
         }
         
         
