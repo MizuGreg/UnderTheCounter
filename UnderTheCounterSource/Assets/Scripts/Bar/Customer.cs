@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Bar
 {
@@ -36,7 +34,7 @@ namespace Bar
         public CustomerType sprite;
         public CocktailType order;
         
-        public Dictionary<string, string> lines;
+        public Dictionary<string, Queue<string>> lines;
         
         public float tip;
 
@@ -44,7 +42,7 @@ namespace Bar
         {
             try
             {
-                return $"Sprite: {sprite}, Order: {order}, Greet line: {lines["greet"]}, Tip: {tip}";
+                return $"Sprite: {sprite}, Order: {order}, Greet line: {lines["greet"].Peek()}, Tip: {tip}";
             }
             catch (Exception e)
             {

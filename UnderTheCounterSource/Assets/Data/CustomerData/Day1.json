@@ -4,11 +4,20 @@
             "sprite": "Charles",
             "order": "Everest",
             "lines": {
-                "greet": "Hi, how's it going? This is a tutorial.",
-                "order": "Let's see if you can make an Everest. Just drag the ingredients into the shaker, mix, and serve.",
-                "leaveCorrect": "Great cocktail, thank you! The tutorial is over.",
-                "leaveWrong": "Wrong cocktail... The tutorial is over.",
-                "leaveWater": "Not bad, thanks. The tutorial is over."
+                "greet": [
+                    "Hi, how's it going? This is a tutorial."
+                ],
+                "order": [
+                    "Let's see if you can make an Everest. Just drag the ingredients into the shaker, mix, and serve."
+                ],
+                "leaveCorrect": [
+                    "Great cocktail, thank you! The tutorial is over."
+                ],
+                "leaveWrong": ["Wrong cocktail... The tutorial is over."
+                ],
+                "leaveWater": [
+                    "Not bad, thanks. The tutorial is over."
+                ]
             },
             "tip": 1
         },
