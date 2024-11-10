@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8456033075082271292}
   - component: {fileID: 309905239109866587}
   m_Layer: 0
-  m_Name: Ripple
+  m_Name: Everest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 697ce708984294fc286de09882d9ed06, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01c51f41ff95d48ed8468ff30c0ac8b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -102,4 +102,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
-  cocktailType: 0
+  cocktailType: 1
