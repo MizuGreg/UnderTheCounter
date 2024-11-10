@@ -1,7 +1,7 @@
 {
-    "day1": [
+    "customers": [
         {
-            "sprite": "Ernest",
+            "sprite": "Charles",
             "order": "Everest",
             "lines": {
                 "greet": "Hi, how's it going? This is a tutorial.",
@@ -14,10 +14,10 @@
         },
         {
             "sprite": "Margaret",
-            "order": "SpringBee",
+            "order": "Everest",
             "lines": {
                 "greet": "Hi, how's it going?",
-                "order": "I'd like a Spring Bee now.",
+                "order": "I'd like an Everest now.",
                 "leaveCorrect": "Great cocktail, thank you!",
                 "leaveWrong": "Wrong cocktail...",
                 "leaveWater": "Not bad, thanks."
@@ -35,32 +35,6 @@
                 "leaveWater": "Not bad, thanks."
             },
             "tip": 3
-        }
-    ],
-    "day2": [
-        {
-            "sprite": "Margaret",
-            "order": "SpringBee",
-            "lines": {
-                "greet": "Hi, how's it going?",
-                "order": "I'd like a Spring Bee now.",
-                "leaveCorrect": "Great cocktail, thank you!",
-                "leaveWrong": "Wrong cocktail...",
-                "leaveWater": "Not bad, thanks."
-            },
-            "tip": 5
-        },
-        {
-            "sprite": "Margaret",
-            "order": "SpringBee",
-            "lines": {
-                "greet": "Hi, how's it going?",
-                "order": "I'd like a Spring Bee now.",
-                "leaveCorrect": "Great cocktail, thank you!",
-                "leaveWrong": "Wrong cocktail...",
-                "leaveWater": "Not bad, thanks."
-            },
-            "tip": 4
         }
     ]
 }
