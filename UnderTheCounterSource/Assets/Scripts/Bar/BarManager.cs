@@ -36,13 +36,16 @@ namespace Bar
             if (DaySO.currentDay == 1) customerManager.playTutorial();
             else customerManager.greetCustomer();
             timerManager.startTimer();
+            print($"Timer has started for day {DaySO.currentDay}");
         
         }
 
         public void endDay()
         {
             // todo: fade out day, then switch to end of day summary
-            print("Day has ended!");
+            print($"Day has ended! Today's earnings: {DaySO.todayEarnings}");
+            DaySO.savings += DaySO.todayEarnings;
+            DaySO.todayEarnings = 0;
             EventSystemManager.OnDayEnd();
             DaySO.currentDay++;
         }

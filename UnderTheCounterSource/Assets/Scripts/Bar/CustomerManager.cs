@@ -121,7 +121,8 @@ namespace Bar
             else if (cocktail.wateredDown) dialogueManager.customerServe(currentCustomer.lines["leaveWater"]);
             else dialogueManager.customerServe(currentCustomer.lines["leaveCorrect"]);
             
-            // todo: add money system
+            DaySO.todayEarnings += 5 + currentCustomer.tip;
+            print($"Current earnings: {DaySO.todayEarnings}");
             
             // if not watered down, we throw onDrunkCustomer event
             if (!cocktail.wateredDown) EventSystemManager.OnDrunkCustomerLeave();

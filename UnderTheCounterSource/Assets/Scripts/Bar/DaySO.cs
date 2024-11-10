@@ -10,8 +10,8 @@ namespace Bar
         public static int drunkCustomers;
         public static int maxDrunkCustomers = 5; // hardcoded for now
         public static List<PosterManager.Poster> currentPosters;
-        public static float savings;
-        public static float todayEarnings;
+        public static float savings = 0;
+        public static float todayEarnings = 0;
     }
     
 }
