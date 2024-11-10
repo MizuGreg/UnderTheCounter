@@ -1,4 +1,4 @@
-using UnityEngine;
+using Bar;
 using UnityEngine.Events;
 
 public static class EventSystemManager
@@ -13,6 +13,6 @@ public static class EventSystemManager
     public static UnityAction OnCustomersDepleted;
     
     public static UnityAction OnPreparationStart;
-    public static UnityAction<CCAManager.Cocktail> OnMakeCocktail;
-    public static UnityAction<CCAManager.Cocktail> OnCocktailMade;
+    public static UnityAction<Cocktail> OnMakeCocktail;
+    public static UnityAction<Cocktail> OnCocktailMade;
 }

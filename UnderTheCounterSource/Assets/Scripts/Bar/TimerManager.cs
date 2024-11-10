@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Bar
 {
@@ -8,8 +7,11 @@ namespace Bar
         public float timeRemaining = 120; // 2 minutes
         public bool isRunning = false;
 
+        public CanvasGroup timerCanvas;
+        
         public void startTimer()
         {
+            timeRemaining = 120;
             isRunning = true;
         }
 
@@ -27,6 +29,7 @@ namespace Bar
                     timeRemaining = 0;
                     isRunning = false;
                     EventSystemManager.OnTimeUp();
+                    // todo: stop clock arm as well
                 }
             }
         }

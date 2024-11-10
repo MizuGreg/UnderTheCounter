@@ -6,11 +6,12 @@ namespace Bar
 {
     public class DaySO : ScriptableObject
     {
-        public static int currentDay;
+        public static int currentDay = 1;
         public static int drunkCustomers;
         public static int maxDrunkCustomers = 5; // hardcoded for now
         public static List<PosterManager.Poster> currentPosters;
         public static float savings;
         public static float todayEarnings;
     }
+    
 }
