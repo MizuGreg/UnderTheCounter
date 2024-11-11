@@ -15,7 +15,7 @@ namespace Bar
         Kenneth,
         Kathryn,
         Willie,
-        Louis,
+        Gaston,
         Ernest, // ex-bar owner
         Howard, // inspector
         Unspecified
