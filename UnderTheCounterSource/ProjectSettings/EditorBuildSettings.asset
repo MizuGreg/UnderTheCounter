@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f3cdaa95d17675246aef8798cefd9e42
+  - enabled: 1
+    path: Assets/Scenes/BarView.unity
+    guid: 5ee3f29004b76de47bfd27b89ebf0930
   m_configObjects: {}
