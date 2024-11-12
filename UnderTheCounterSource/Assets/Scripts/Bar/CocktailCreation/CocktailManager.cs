@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
-using CocktailCreation;
 using UnityEngine;
 
-namespace CocktailCreation
+namespace Bar.CocktailCreation
 {
     public class CocktailManager : MonoBehaviour
     {
@@ -12,7 +9,7 @@ namespace CocktailCreation
         [SerializeField] private GameObject mixButton;
         [SerializeField] private GameObject cocktailCreationArea;
         [SerializeField] private GameObject cocktailServingArea;
-        [SerializeField] private bool slideInArea;
+        [SerializeField] private bool slideInArea = false;
 
         
         private readonly Dictionary<IngredientType, int> _ingredientsInShaker = new Dictionary<IngredientType, int>();
@@ -40,7 +37,9 @@ namespace CocktailCreation
             _springBeePrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/SpringBee");
             _partiPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Parti");
             _magazinePrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Magazine");
-            
+
+            EventSystemManager.OnMakeCocktail += showArea;
+
         }
 
 
@@ -50,6 +49,17 @@ namespace CocktailCreation
             else _cocktailCreationAreaAnimator.SetBool("slideIn", false);
         }
 
+        public void showArea()
+        {
+            // todo: show cocktail creation area
+            slideInArea = true;
+        }
+
+        public void hideArea()
+        {
+            // todo: hide cocktail creation area
+            // this also hides the overlay that displayed the cocktail in big (we need to reset it somehow maybe)
+        }
 
         public void MakeCocktail()
         {
@@ -59,10 +69,12 @@ namespace CocktailCreation
             
             //debug
             //PrintIngredientsDictionary();
-            
+
+            // todo: make Cocktail object and call event with that as parameter
             // todo: use a json file instead of hardcoding recipes here
+            
             if (_ingredientsInShaker[IngredientType.Verlan] == 2 && _ingredientsInShaker[IngredientType.Shaddock] == 2
-                && _ingredientsInShaker[IngredientType.Gryte] == 1)
+                                                                 && _ingredientsInShaker[IngredientType.Gryte] == 1)
             {
                 _cocktail = Instantiate(_ripplePrefab, spawnPoint.position, spawnPoint.rotation, _cocktailServingAreaRectTransform);
             }
@@ -79,7 +91,7 @@ namespace CocktailCreation
                 _cocktail = Instantiate(_partiPrefab, spawnPoint.position, spawnPoint.rotation, _cocktailServingAreaRectTransform);
             }
             else if (_ingredientsInShaker[IngredientType.Verlan] == 3 && _ingredientsInShaker[IngredientType.Ferrucci] == 1
-                     && _ingredientsInShaker[IngredientType.Shaddock] == 1)
+                                                                      && _ingredientsInShaker[IngredientType.Shaddock] == 1)
             {
                 _cocktail = Instantiate(_magazinePrefab, spawnPoint.position, spawnPoint.rotation, _cocktailServingAreaRectTransform);
             }
@@ -88,6 +100,14 @@ namespace CocktailCreation
                 _shaker.SetActive(true);
             }
             
+        }
+
+        public void cocktailMade()
+        {
+            // prende il cocktail attualmente fatto
+            // lancia evento onCocktailMade<il cocktail in questione>
+            // chiama inoltre questa funzione:
+            hideArea();
         }
         
         

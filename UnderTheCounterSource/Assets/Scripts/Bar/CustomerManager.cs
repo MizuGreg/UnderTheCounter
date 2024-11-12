@@ -24,7 +24,6 @@ namespace Bar
         {
             loadDailyCustomers(DaySO.currentDay);
             EventSystemManager.OnTimeUp += timeoutCustomers;
-            EventSystemManager.OnPreparationStart += prepareCCA;
             EventSystemManager.OnCocktailMade += serveCustomer;
             EventSystemManager.OnCustomerLeave += farewellCustomer;
         
@@ -49,7 +48,6 @@ namespace Bar
             
             dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             
-            print(dailyCustomers[0]);
         }
 
         public void greetCustomer()
@@ -91,10 +89,10 @@ namespace Bar
         {
             yield return new WaitForSeconds(3);
             print(currentCustomer);
-            // todo: dialogueManager.customerGreet(currentCustomer.lines["greet"]);
             dialogueManager.StartDialogue(new Dialogue(
                 currentCustomer.sprite.ToString(),
                 currentCustomer.lines["greet"].Concat(currentCustomer.lines["order"]).ToList()));
+            // merge these two fields in the future, in json and anywhere else
         }
 
         public void farewellCustomer()
@@ -109,12 +107,6 @@ namespace Bar
         {
             yield return new WaitForSeconds(timeBetweenCustomers);
             greetCustomer();
-        }
-
-        public void prepareCCA()
-        {
-            // we throw event onMakeCocktail with current customer's cocktail order, with wateredDown false by default
-            EventSystemManager.OnMakeCocktail(new Cocktail(currentCustomer.order, wateredDown: false));
         }
 
         public void serveCustomer(Cocktail cocktail)

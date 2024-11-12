@@ -6,10 +6,40 @@
   <component name="ChangeListManager">
     <list default="true" id="a42803f7-fdfa-47ac-abc8-c211373dcde8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/CocktailCreationArea.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/CocktailCreationArea.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/SlideIn.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/SlideIn.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/SlideOut.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/SlideOut.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DialogueBox_Close.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DialogueBox_Close.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DialogueBox_Open.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DialogueBox_Open.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LinePanel.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LinePanel.controller.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/BarManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/BarManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/CCAManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/CCAManager.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/Dialogue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/Dialogue.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/DialogueManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Cocktail.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Cocktail.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailsEnumeration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailsEnumeration.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Draggable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Draggable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Ingredient.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Ingredient.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/IngredientsEnumeration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/IngredientsEnumeration.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Shaker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Shaker.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +131,7 @@
       <workItem from="1731342740416" duration="152000" />
       <workItem from="1731343018873" duration="111000" />
       <workItem from="1731343151172" duration="1184000" />
-      <workItem from="1731405416571" duration="3866000" />
+      <workItem from="1731405416571" duration="8728000" />
     </task>
     <servers />
   </component>

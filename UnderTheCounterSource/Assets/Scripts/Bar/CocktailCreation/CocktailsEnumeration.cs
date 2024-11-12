@@ -1,4 +1,4 @@
-namespace CocktailCreation
+namespace Bar.CocktailCreation
 {
     public enum CocktailType
     {

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace CocktailCreation
+namespace Bar.CocktailCreation
 {
     public class Ingredient : Draggable
     {

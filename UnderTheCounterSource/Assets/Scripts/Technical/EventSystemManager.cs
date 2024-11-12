@@ -13,6 +13,6 @@ public static class EventSystemManager
     public static UnityAction OnCustomersDepleted;
     
     public static UnityAction OnPreparationStart;
-    public static UnityAction<Cocktail> OnMakeCocktail;
+    public static UnityAction OnMakeCocktail;
     public static UnityAction<Cocktail> OnCocktailMade;
 }
