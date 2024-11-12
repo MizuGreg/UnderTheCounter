@@ -90,7 +90,7 @@ namespace Bar
         {
             yield return new WaitForSeconds(3);
             print(currentCustomer);
-            dialogueManager.customerGreet(currentCustomer.lines["greet"]);
+            // todo: dialogueManager.customerGreet(currentCustomer.lines["greet"]);
         }
 
         public void farewellCustomer()
@@ -117,9 +117,18 @@ namespace Bar
         {
             // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
             CocktailType order = currentCustomer.order;
-            if (cocktail.type != order) dialogueManager.customerServe(currentCustomer.lines["leaveWrong"]);
-            else if (cocktail.wateredDown) dialogueManager.customerServe(currentCustomer.lines["leaveWater"]);
-            else dialogueManager.customerServe(currentCustomer.lines["leaveCorrect"]);
+            if (cocktail.type != order)
+            {
+                // todo: dialogueManager.startDialogue(new DialoguecurrentCustomer.lines["leaveWrong"]);
+            }
+            else if (cocktail.wateredDown)
+            {
+                // todo: dialogueManager.customerServe(currentCustomer.lines["leaveWater"]);
+            }
+            else
+            {
+                // todo: dialogueManager.customerServe(currentCustomer.lines["leaveCorrect"]);
+            }
             
             DaySO.todayEarnings += 5 + currentCustomer.tip;
             print($"Current earnings: {DaySO.todayEarnings}");
