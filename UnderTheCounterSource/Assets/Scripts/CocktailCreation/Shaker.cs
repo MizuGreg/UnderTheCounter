@@ -6,28 +6,24 @@ using UnityEngine.EventSystems;
 
 namespace CocktailCreation
 {
-    public class Shaker : Draggable, IDropHandler
+    public class Shaker : MonoBehaviour, IDropHandler
     {
-        [SerializeField] private RectTransform sink;
-        [SerializeField] private GameObject targetPosition;
-        [SerializeField] private RectTransform bin;
-        [SerializeField] private float delay;
         [SerializeField] private int numIngredients = 5;
         [SerializeField] private GameObject mixButton;
         
         private readonly List<IngredientType> _ingredientsInShaker = new List<IngredientType>();
-        private Vector2 _fillingPosition;
-
-        private void Start()
-        {
-            _fillingPosition = targetPosition.GetComponent<RectTransform>().anchoredPosition;
-        }
+        
 
         private void Update()
         {
+            // todo: is not necessary do this every frame
             if (_ingredientsInShaker.Count == numIngredients)
             {
                 mixButton.SetActive(true);
+            }
+            else
+            {
+                mixButton.SetActive(false);
             }
         }
 
@@ -43,34 +39,6 @@ namespace CocktailCreation
                 //PrintIngredients(_ingredientsInShaker);
                 
             }
-        }
-
-        protected override void EndDragBehaviour()
-        {
-            if (RectTransformUtility.RectangleContainsScreenPoint(sink, Input.mousePosition, Canvas.worldCamera)
-                && !CheckIfIsFull())
-            {
-                _ingredientsInShaker.Add(IngredientType.Water);
-                StartCoroutine(ReturnAfterDelay(delay));
-            }
-            else if (RectTransformUtility.RectangleContainsScreenPoint(bin, Input.mousePosition, Canvas.worldCamera))
-            {
-                _ingredientsInShaker.Clear();
-                ReturnToInitialPosition();
-            }
-            else
-            {
-                ReturnToInitialPosition();
-            }
-        }
-        
-        private IEnumerator ReturnAfterDelay(float t)
-        {
-            RectTransform.anchoredPosition = _fillingPosition;
-            
-            yield return new WaitForSeconds(t);
-
-            ReturnToInitialPosition();
         }
         
         
@@ -93,7 +61,7 @@ namespace CocktailCreation
         
         
         // Debug method to print on console the list of ingredients present in the shaker
-        private static void PrintIngredients(List<IngredientType> ingredientList)
+        private void PrintIngredients(List<IngredientType> ingredientList)
         {
             foreach (var t in ingredientList)
             {
