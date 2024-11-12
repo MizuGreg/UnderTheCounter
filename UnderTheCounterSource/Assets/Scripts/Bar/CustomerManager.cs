@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
@@ -91,6 +92,9 @@ namespace Bar
             yield return new WaitForSeconds(3);
             print(currentCustomer);
             // todo: dialogueManager.customerGreet(currentCustomer.lines["greet"]);
+            dialogueManager.StartDialogue(new Dialogue(
+                currentCustomer.sprite.ToString(),
+                currentCustomer.lines["greet"].Concat(currentCustomer.lines["order"]).ToList()));
         }
 
         public void farewellCustomer()
