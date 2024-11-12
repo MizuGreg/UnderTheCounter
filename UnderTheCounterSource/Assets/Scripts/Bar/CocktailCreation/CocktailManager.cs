@@ -10,6 +10,7 @@ namespace Bar.CocktailCreation
         [SerializeField] private GameObject cocktailCreationArea;
         [SerializeField] private GameObject cocktailServingArea;
         [SerializeField] private bool slideInArea = false;
+        [SerializeField] private GameObject fullnessBar;
 
         
         private readonly Dictionary<IngredientType, int> _ingredientsInShaker = new Dictionary<IngredientType, int>();
@@ -61,10 +62,16 @@ namespace Bar.CocktailCreation
             // this also hides the overlay that displayed the cocktail in big (we need to reset it somehow maybe)
         }
 
+        public void UpdateFullnessBar(int index, IngredientType ingredient)
+        {
+            fullnessBar.GetComponent<FullnessBar>().ColorBarSlot(index,ingredient);
+        }
+
         public void MakeCocktail()
         {
             CreateIngredientsDictionary(_shaker.GetComponent<Shaker>().GetIngredients());
             _shaker.GetComponent<Shaker>().EmptyShaker();
+            fullnessBar.GetComponent<FullnessBar>().ResetBar();
             DeactivateMixButton();
             
             //debug
