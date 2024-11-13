@@ -7,9 +7,9 @@ public class Dialogue
     public string name;
 
     [TextArea(3, 10)]
-    public List<string> sentences;
+    public Queue<string> sentences;
 
-    public Dialogue(string name, List<string> sentences)
+    public Dialogue(string name, Queue<string> sentences)
     {
         this.name = name;
         this.sentences = sentences;

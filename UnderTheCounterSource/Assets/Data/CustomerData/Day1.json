@@ -11,9 +11,7 @@
                     "Ah, the Everest, an all-time classic. <b>3 parts Caledon Ridge, 2 parts Gryte</b>, poured on a big ice cube inside a rocks glass.",
                     "Don't worry, you can always check the recipe book for guidance. I left it somewhere there, under the counter.",
                     "If you mess the preparation up, you can throw the contents of the mixer into the bin, no problem. And...",
-                    "If you want to prevent someone from getting too drunk, you could always water down the drink a bit. Just put the mixer under the tap water faucet."
-                ],
-                "order": [
+                    "If you want to prevent someone from getting too drunk, you could always water down the drink a bit. Just put the mixer under the tap water faucet.",
                     "Alrighty, let's see you prepare an <b>Everest</b>, young one!"
                 ],
                 "leaveCorrect": [
@@ -36,9 +34,7 @@
             "lines": {
                 "greet": [
                     "<i>*sigh* If only my life wasn't so busy... Maybe I could convince him...</i>",
-                    "Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts. Would you be so kind as to get me a sweet drink? Maybe that will distract me from my career...I'm an <b>actress</b>, you see."
-                ],
-                "order": [
+                    "Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts. Would you be so kind as to get me a sweet drink? Maybe that will distract me from my career...I'm an <b>actress</b>, you see.",
                     "A sweet <b>Spring Bee</b> for me, with extra honey on top, please!"
                 ],
                 "leaveCorrect": [
@@ -58,9 +54,7 @@
             "order": "Magazine",
             "lines": {
                 "greet": [
-                    "It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression, though the <b>window outside</b> could be improved somehow.<br><i>Ugh</i>, how exhausting it is to not know which opera to attend tonight..."
-                ],
-                "order": [
+                    "It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression, though the <b>window outside</b> could be improved somehow.<br><i>Ugh</i>, how exhausting it is to not know which opera to attend tonight...",
                     "Good evening bartender, I'd like to order a <b>Magazine</b>, please."
                 ],
                 "leaveCorrect": [
@@ -81,9 +75,7 @@
             "order": "Parti",
             "lines": {
                 "greet": [
-                    "Yes, dear. We are in a bit of a hurry tonight, after all. And I shouldn't go to bed too late tonight."
-                ],
-                "order": [
+                    "Yes, dear. We are in a bit of a hurry tonight, after all. And I shouldn't go to bed too late tonight.",
                     "Good evening, bartender. One <b>Parti</b> for me, please."
                 ],
                 "leaveCorrect": [
@@ -104,9 +96,7 @@
             "lines": {
                 "greet": [
                     "Hi there, ...bartender. With these thick glasses I can't make out whether you're a miss or a mister.<br>In any case, do me a favor and stay away from men, or you'll end up like me and my ex husband.",
-                    "<size=50%>I did get all the money from the divorce though... hehe.<size=100%>"
-                ],
-                "order": [
+                    "<size=50%>I did get all the money from the divorce though... hehe.<size=100%>",
                     "Give me an <b>Everest</b>. As cold as his heart."
                 ],
                 "leaveCorrect": [
@@ -126,9 +116,7 @@
             "order": "Ripple",
             "lines": {
                 "greet": [
-                    "TBD"
-                ],
-                "order": [
+                    "TBD",
                     "Ripple"
                 ],
                 "leaveCorrect": [
@@ -148,9 +136,7 @@
             "order": "Ripple",
             "lines": {
                 "greet": [
-                    "TBD"
-                ],
-                "order": [
+                    "TBD",
                     "Ripple"
                 ],
                 "leaveCorrect": [
@@ -170,9 +156,7 @@
             "order": "Everest",
             "lines": {
                 "greet": [
-                    "Good evening, fella. This is a war veteran you're talking to. I'd like an Everest on the rocks.<br>You see, the correct way to make it is to shake it clockwise. And of course, pour half Caledon first, half at the end."
-                ],
-                "order": [
+                    "Good evening, fella. This is a war veteran you're talking to. I'd like an Everest on the rocks.<br>You see, the correct way to make it is to shake it clockwise. And of course, pour half Caledon first, half at the end.",
                     "My drink now, fella. Everest on the rocks. But don't put too much ice in the glass! I know these tricks that young people do..."
                 ],
                 "leaveCorrect": [
@@ -192,9 +176,7 @@
             "order": "Parti",
             "lines": {
                 "greet": [
-                    "TBD"
-                ],
-                "order": [
+                    "TBD",
                     "Parti"
                 ],
                 "leaveCorrect": [
@@ -215,9 +197,7 @@
             "lines": {
                 "greet": [
                     "Well hello hello there! Hope you've read the latest edition of Rogue, it's got some hefty tips on how to dress stylishly! Say, do you like ballet?",
-                    "Actually, don't answer! Mysterious is better. Besides, I shouldn't squander too much time before my next competition."
-                ],
-                "order": [
+                    "Actually, don't answer! Mysterious is better. Besides, I shouldn't squander too much time before my next competition.",
                     "Honey, make me a <b>Ripple</b>! With a drop of honey on the rim like a Spring Bee."
                 ],
                 "leaveCorrect": [
@@ -238,9 +218,7 @@
             "lines": {
                 "greet": [
                     "<i>Bonsoir, barman</i>. This establishment was recommended to me by a trusted client.",
-                    "You may want to consider investing in alcohol stocks by the way... Prices have been increasing lately, what with the debates in the government."
-                ],
-                "order": [
+                    "You may want to consider investing in alcohol stocks by the way... Prices have been increasing lately, what with the debates in the government.",
                     "I would like to try out a <b>Magazine</b> now, <i>s'il vous plaît</i>."
                 ],
                 "leaveCorrect": [

@@ -34,7 +34,7 @@ namespace Bar
         public CustomerType sprite;
         public CocktailType order;
         
-        public Dictionary<string, Queue<string>> lines; //todo: fix
+        public Dictionary<string, Queue<string>> lines;
         
         public float tip;
 
