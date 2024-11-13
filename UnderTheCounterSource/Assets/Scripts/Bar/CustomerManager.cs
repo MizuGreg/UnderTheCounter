@@ -17,8 +17,11 @@ namespace Bar
         private DialogueManager dialogueManager;
 
         public CanvasGroup customerCanvas;
-        
+        [Range (0.1f, 3f)]
         public float timeBetweenCustomers = 2.5f;
+
+        [Range(0.1f, 3f)]
+        public float timeBeforeDialogue = 1f;
 
         void Start()
         {
@@ -87,8 +90,7 @@ namespace Bar
 
         private IEnumerator waitAndGreet()
         {
-            yield return new WaitForSeconds(3);
-            print(currentCustomer);
+            yield return new WaitForSeconds(timeBeforeDialogue);
             dialogueManager.StartDialogue(new Dialogue(
                 currentCustomer.sprite.ToString(),
                 currentCustomer.lines["greet"].Concat(currentCustomer.lines["order"]).ToList()));

@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour {
+    private static readonly int IsOpen = Animator.StringToHash("IsOpen");
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
 
     private Queue<string> sentences;
+    [Range(1f, 50.0f)]
+    public float textSpeed;
+
+    [Range(0.5f, 2.0f)]
+    public float timeBeforeFirstSentence;
 
     // Initialization
     void Start() {
@@ -19,7 +24,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartDialogue(Dialogue dialogue) 
     {
-        animator.SetBool("IsOpen", true);
+        animator.SetBool(IsOpen, true);
         nameText.text = dialogue.name;
 
         sentences.Clear();
@@ -29,6 +34,13 @@ public class DialogueManager : MonoBehaviour {
             sentences.Enqueue(sentence);
         }
 
+        StartCoroutine(DisplayFirstSentence());
+    }
+
+    private IEnumerator DisplayFirstSentence()
+    {
+        dialogueText.text = "";
+        yield return new WaitForSeconds(timeBeforeFirstSentence);
         DisplayNextSentence();
     }
 
@@ -46,19 +58,20 @@ public class DialogueManager : MonoBehaviour {
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence(string sentence) 
+    private IEnumerator TypeSentence(string sentence) 
     {
-        dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray()) 
+        dialogueText.text = sentence;
+        dialogueText.maxVisibleCharacters = 0;
+        foreach (char letter in sentence) 
         {
-            dialogueText.text += letter;
-            yield return null;
+            dialogueText.maxVisibleCharacters++;
+            yield return new WaitForSeconds(1 / (textSpeed));
         }
     }
 
-    void EndDialogue() 
+    private void EndDialogue() 
     {
-        animator.SetBool("IsOpen", false);
+        animator.SetBool(IsOpen, false);
     }
 
 }
