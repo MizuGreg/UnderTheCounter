@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour {
     private static readonly int IsOpen = Animator.StringToHash("IsOpen");
@@ -16,6 +17,8 @@ public class DialogueManager : MonoBehaviour {
 
     [Range(0.5f, 2.0f)]
     public float timeBeforeFirstSentence;
+
+    private bool _allTextIsVisible;
 
     // Initialization
     void Start() {
@@ -44,7 +47,16 @@ public class DialogueManager : MonoBehaviour {
         DisplayNextSentence();
     }
 
-    public void DisplayNextSentence() 
+    public void OnNextButtonPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (_allTextIsVisible) DisplayNextSentence();
+        else DisplayAllText();
+        }
+}
+
+    private void DisplayNextSentence() 
     {
 
         if (sentences.Count == 0) {
@@ -58,14 +70,35 @@ public class DialogueManager : MonoBehaviour {
         StartCoroutine(TypeSentence(sentence));
     }
 
+    private void DisplayAllText()
+    {
+        dialogueText.maxVisibleCharacters = dialogueText.text.Length;
+        _allTextIsVisible = true;
+    }
+
+    private void showIcon()
+    {
+        if (sentences.Count == 0)
+        {
+            // show either cocktail or exit sign?
+        }
+        else
+        {
+            // show normal arrow
+        }
+    }
+
     private IEnumerator TypeSentence(string sentence) 
     {
         dialogueText.text = sentence;
         dialogueText.maxVisibleCharacters = 0;
-        foreach (char letter in sentence) 
+        _allTextIsVisible = false;
+
+        while (!_allTextIsVisible)
         {
             dialogueText.maxVisibleCharacters++;
             yield return new WaitForSeconds(1 / (textSpeed));
+            if (dialogueText.maxVisibleCharacters >= dialogueText.text.Length) _allTextIsVisible = true;
         }
     }
 

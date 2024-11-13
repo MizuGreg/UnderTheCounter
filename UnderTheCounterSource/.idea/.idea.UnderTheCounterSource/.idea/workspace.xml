@@ -6,12 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a42803f7-fdfa-47ac-abc8-c211373dcde8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Dialogue/DialogueBox.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Dialogue/DialogueBox.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Dialogue/DialogueBox_Close.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Dialogue/DialogueBox_Close.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Dialogue/DialogueBox_Open.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Dialogue/DialogueBox_Open.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/CustomerData/Day1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/CustomerData/Day1.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/BarManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/BarManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/Customer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/Dialogue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/Dialogue.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/DialogueManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,18 +34,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\Under The Counter.exe" />
@@ -104,7 +107,7 @@
       <workItem from="1731343018873" duration="111000" />
       <workItem from="1731343151172" duration="1184000" />
       <workItem from="1731405416571" duration="9439000" />
-      <workItem from="1731507229094" duration="3946000" />
+      <workItem from="1731507229094" duration="8468000" />
     </task>
     <servers />
   </component>
