@@ -24,7 +24,6 @@ namespace Settings
 
         public void SetVolume(float volume)
         {
-            Mixer.SetFloat("SoundEffectsVolume", Mathf.Log10(volume)*20); // or maybe it should be just "Volume"? idk
             audioSource.volume = volume;
         }
     }
