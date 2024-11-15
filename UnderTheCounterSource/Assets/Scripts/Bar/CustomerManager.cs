@@ -25,7 +25,6 @@ namespace Bar
 
         void Start()
         {
-            LoadDailyCustomers(DaySO.currentDay);
             EventSystemManager.OnTimeUp += TimeoutCustomers;
             EventSystemManager.OnCocktailMade += ServeCustomer;
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
@@ -43,6 +42,13 @@ namespace Bar
             _dailyCustomers.Clear(); // depletes daily customers
         }
 
+        public void StartDay()
+        {
+            LoadDailyCustomers(DaySO.currentDay);
+            if (DaySO.currentDay == 1) PlayTutorial();
+            else GreetCustomer();
+        }
+
         private void LoadDailyCustomers(int currentDay)
         {
             // read DailyCustomers json and create daily customers list
@@ -51,6 +57,14 @@ namespace Bar
             
             _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             
+        }
+        
+        private IEnumerator WaitAndGreetDialogue()
+        {
+            StartCoroutine(_dialogueManager.StartDialogue(
+                new Dialogue(_customerName, _currentCustomer.lines["greet"]),
+                DialogueType.Greet));
+            yield return null;
         }
 
         public void GreetCustomer()
@@ -65,7 +79,7 @@ namespace Bar
             
                 _currentImage.sprite = GetSpriteFromCustomerType(_currentCustomer.sprite);
                 customerCanvas.GetComponent<CanvasFadeAnimation>().FadeIn();
-                StartCoroutine(WaitAndGreet());
+                StartCoroutine(WaitAndGreetDialogue());
                 EventSystemManager.OnCustomerEnter();
             }
             else
@@ -89,13 +103,7 @@ namespace Bar
         
         }
 
-        private IEnumerator WaitAndGreet()
-        {
-            yield return new WaitForSeconds(timeBeforeDialogue);
-            _dialogueManager.StartDialogue(new Dialogue(
-                _customerName,
-                _currentCustomer.lines["greet"]));
-        }
+
 
         private void FarewellCustomer()
         {
@@ -115,18 +123,20 @@ namespace Bar
         {
             // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
             CocktailType order = _currentCustomer.order;
+            Dialogue dialogue;
             if (cocktail.type != order)
             {
-                _dialogueManager.StartDialogue(new Dialogue(_customerName, _currentCustomer.lines["leaveWrong"]));
+                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWrong"]);
             }
             else if (cocktail.wateredDown)
             {
-                // todo: dialogueManager.customerServe(currentCustomer.lines["leaveWater"]);
+                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWater"]);
             }
             else
             {
-                // todo: dialogueManager.customerServe(currentCustomer.lines["leaveCorrect"]);
+                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveCorrect"]);
             }
+            _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
             
             DaySO.todayEarnings += 5 + _currentCustomer.tip;
             print($"Current earnings: {DaySO.todayEarnings}");

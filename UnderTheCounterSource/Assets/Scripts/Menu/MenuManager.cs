@@ -1,30 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuManager : MonoBehaviour
+namespace Menu
 {
-    public CanvasGroup mainMenuCanvas;
-    
-    // Start is called before the first frame update
-    void Start()
+    public class MenuManager : MonoBehaviour
     {
-        mainMenuCanvas.GetComponent<CanvasFadeAnimation>().FadeIn();
-    }
+        public CanvasGroup mainMenuCanvas;
+    
+        void Start()
+        {
+            mainMenuCanvas.GetComponent<CanvasFadeAnimation>().FadeIn();
+            EventSystemManager.OnLoadMainMenu();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void StartNewGame()
-    {
-        SceneManager.LoadScene("Scenes/BarView");
-    }
+        public void StartNewGame()
+        {
+            SceneManager.LoadScene("Scenes/BarView");
+        }
     
     
-    public void QuitGame()
-    {
-        Technical.QuitGame.Quit();
+        public void QuitGame()
+        {
+            Technical.QuitGame.Quit();
+        }
     }
 }

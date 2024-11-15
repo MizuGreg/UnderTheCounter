@@ -5,7 +5,7 @@
             "order": "Ripple",
             "lines": {
                 "greet": [
-                    "<i>(Placeholder customer) *sigh* If only my life wasn't so busy... Maybe I could convince him...</i>",
+                    "(Placeholder customer) <i>*sigh* If only my life wasn't so busy... Maybe I could convince him...</i>",
                     "Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts. Would you be so kind as to get me a sweet drink? Maybe that will distract me from my career...I'm an <b>actress</b>, you see."
                 ],
                 "order": [
