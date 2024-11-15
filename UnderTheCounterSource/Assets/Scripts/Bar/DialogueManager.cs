@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Bar;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,10 +12,14 @@ public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI dialogueText;
     public Animator animator;
 
-    private Queue<string> sentences;
+    private Queue<string> _sentences;
+    private DialogueType _dialogueType;
+    
+    
     [Range(1f, 50.0f)]
     public float textSpeed;
-
+    [Range(0.5f, 2.0f)]
+    public float timeBeforeDialogueBox;
     [Range(0.5f, 2.0f)]
     public float timeBeforeFirstSentence;
 
@@ -22,22 +27,26 @@ public class DialogueManager : MonoBehaviour {
 
     // Initialization
     void Start() {
-        sentences = new Queue<string>();
+        _sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue) 
+    public IEnumerator StartDialogue(Dialogue dialogue, DialogueType dialogueType) 
     {
+        yield return new WaitForSeconds(timeBeforeDialogueBox);
         animator.SetBool(IsOpen, true);
         nameText.text = dialogue.name;
+        _dialogueType = dialogueType;
 
-        sentences.Clear();
+        _sentences.Clear();
 
         foreach (string sentence in dialogue.sentences) 
         {
-            sentences.Enqueue(sentence);
+            _sentences.Enqueue(sentence);
         }
 
-        StartCoroutine(DisplayFirstSentence());
+        dialogueText.text = "";
+        yield return new WaitForSeconds(timeBeforeFirstSentence);
+        DisplayNextSentence();
     }
 
     private IEnumerator DisplayFirstSentence()
@@ -52,20 +61,25 @@ public class DialogueManager : MonoBehaviour {
         if (context.performed)
         {
             if (_allTextIsVisible) DisplayNextSentence();
-        else DisplayAllText();
+            else DisplayAllText();
         }
-}
+    }
 
     private void DisplayNextSentence() 
     {
 
-        if (sentences.Count == 0) {
+        if (_sentences.Count == 0) {
             EndDialogue();
             EventSystemManager.OnMakeCocktail();
             return;
         }
 
-        string sentence = sentences.Dequeue();
+        if (_sentences.Count == 1)
+        {
+            // todo: change arrow into customized icon based on dialogue type
+        }
+
+        string sentence = _sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
@@ -78,14 +92,17 @@ public class DialogueManager : MonoBehaviour {
 
     private void showIcon()
     {
-        if (sentences.Count == 0)
-        {
-            // show either cocktail or exit sign?
-        }
-        else
-        {
-            // show normal arrow
-        }
+        // todo: make icon visible
+    }
+
+    private void hideIcon()
+    {
+        // todo: make icon invisible
+    }
+
+    private void updateIcon()
+    {
+        // todo: update icon based on dialogue type
     }
 
     private IEnumerator TypeSentence(string sentence) 
