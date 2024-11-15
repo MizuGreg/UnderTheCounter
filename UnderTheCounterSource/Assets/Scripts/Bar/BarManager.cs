@@ -30,12 +30,12 @@ namespace Bar
             EventSystemManager.OnCustomersDepleted += EndDay;
         
             barContainer.GetComponent<CanvasFadeAnimation>().FadeIn();
+            EventSystemManager.OnLoadBarView();
         }
 
         public void StartDay()
         {
-            if (DaySO.currentDay == 1) _customerManager.PlayTutorial();
-            else _customerManager.GreetCustomer();
+            _customerManager.StartDay();
             _timerManager.startTimer();
             print($"Timer has started for day {DaySO.currentDay}");
         
@@ -67,6 +67,11 @@ namespace Bar
         {
             // todo: display actual loss screen
             print("Loss By Blitz");
+        }
+
+        public void backToMainMenu()
+        {
+            // todo
         }
 
         public void QuitGame()

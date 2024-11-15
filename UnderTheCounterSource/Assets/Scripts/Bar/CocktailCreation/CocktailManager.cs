@@ -51,14 +51,18 @@ namespace Bar.CocktailCreation
 
         public void showArea()
         {
-            // todo: show cocktail creation area
             slideInArea = true;
         }
 
         public void hideArea()
         {
-            // todo: hide cocktail creation area
+            slideInArea = false;
             // this also hides the overlay that displayed the cocktail in big (we need to reset it somehow maybe)
+        }
+
+        public void toggleArea()
+        {
+            slideInArea = !slideInArea;
         }
 
         public void MakeCocktail()
