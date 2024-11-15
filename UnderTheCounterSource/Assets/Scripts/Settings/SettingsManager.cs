@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Hellmade.Sound;
+using Technical;
 
 namespace Settings
 {
@@ -8,8 +9,8 @@ namespace Settings
     {
         [SerializeField] private Slider musicVolumeSlider;
         [SerializeField] private Slider soundEffectsVolumeSlider;
-        [SerializeField] private BackgroundMusicController backgroundMusicController;
-        [SerializeField] private SoundEffectController soundEffectController;
+        [SerializeField] private SoundManager soundManager;
+        [SerializeField] private Toggle fullscreenToggle;
 
         void Start() 
         {
@@ -17,48 +18,41 @@ namespace Settings
             {
                 PlayerPrefs.SetFloat("MusicVolume", 1);
             }
-            if (!PlayerPrefs.HasKey("SoundEffectsVolume")) 
+            if (!PlayerPrefs.HasKey("FXVolume")) 
             {
-                PlayerPrefs.SetFloat("SoundEffectsVolume", 1);
+                PlayerPrefs.SetFloat("FXVolume", 1);
             }
 
-            LoadVolumes();
+            LoadVolumesOnStartup();
+            SetVolumesOnSliders();
         }
 
         public void SetMusicVolume(float volume) 
         {
-            backgroundMusicController.SetVolume(musicVolumeSlider.value); // Chiama SetVolume
-            SaveMusicVolume();
+            soundManager.SetMusicVolume(volume);
         }
 
-        public void SetSoundEffectsVolume(float volume) 
+        public void SetFXVolume(float volume) 
         {
-            soundEffectController.SetVolume(soundEffectsVolumeSlider.value); 
-            SaveSoundEffectsVolume();
+            soundManager.SetFXVolume(volume);
         }
 
-        private void SaveMusicVolume() 
+        private void LoadVolumesOnStartup() 
         {
-            PlayerPrefs.SetFloat("MusicVolume", musicVolumeSlider.value);
+            SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
+            SetFXVolume(PlayerPrefs.GetFloat("FXVolume"));
         }
 
-        private void SaveSoundEffectsVolume() 
-        {
-            PlayerPrefs.SetFloat("SoundEffectsVolume", soundEffectsVolumeSlider.value);
-        }
-
-        private void LoadVolumes() 
+        private void SetVolumesOnSliders()
         {
             musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
             soundEffectsVolumeSlider.value = PlayerPrefs.GetFloat("SoundEffectsVolume");
-
-            backgroundMusicController.SetVolume(musicVolumeSlider.value);
-            soundEffectController.SetVolume(soundEffectsVolumeSlider.value);
         }
 
         public void ToggleFullScreen()
         {
             Screen.fullScreen = !Screen.fullScreen;
+            fullscreenToggle.isOn = Screen.fullScreen;
             Debug.Log(Screen.fullScreen ? "Screen is set to fullscreen" : "Screen is windowed");
         }
     }

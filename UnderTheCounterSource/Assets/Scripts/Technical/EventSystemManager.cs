@@ -15,4 +15,7 @@ public static class EventSystemManager
     public static UnityAction OnPreparationStart;
     public static UnityAction OnMakeCocktail;
     public static UnityAction<Cocktail> OnCocktailMade;
+
+    public static UnityAction OnLoadMainMenu;
+    public static UnityAction OnLoadBarView;
 }
