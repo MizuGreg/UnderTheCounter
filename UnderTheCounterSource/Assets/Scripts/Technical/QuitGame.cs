@@ -2,9 +2,8 @@ using UnityEngine;
 
 namespace Technical
 {
-    public class QuitGame
+    public abstract class QuitGame
     {
-        // absolutely temporary class! bad name, bad location, bad namespace. needs to be refactored in the future
         public static void Quit()
         {
             #if UNITY_EDITOR

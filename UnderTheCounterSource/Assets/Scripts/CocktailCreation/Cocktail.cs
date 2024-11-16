@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Bar.CocktailCreation
+namespace CocktailCreation
 {
     public class Cocktail : MonoBehaviour
     {

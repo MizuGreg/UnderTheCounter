@@ -1,4 +1,4 @@
-namespace Bar.CocktailCreation
+namespace CocktailCreation
 {
     public enum IngredientType
     {

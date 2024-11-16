@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Bar.CocktailCreation
+namespace CocktailCreation
 {
     public class Shaker : MonoBehaviour, IDropHandler
     {

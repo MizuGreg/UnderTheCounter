@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Bar.CocktailCreation
+namespace CocktailCreation
 {
     public class FullnessBar : MonoBehaviour
     {

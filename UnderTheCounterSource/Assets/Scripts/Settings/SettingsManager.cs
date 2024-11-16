@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Hellmade.Sound;
 using Technical;
 
 namespace Settings
@@ -8,23 +7,13 @@ namespace Settings
     public class SettingsManager : MonoBehaviour 
     {
         [SerializeField] private Slider musicVolumeSlider;
-        [SerializeField] private Slider soundEffectsVolumeSlider;
+        [SerializeField] private Slider sfxVolumeSlider;
         [SerializeField] private SoundManager soundManager;
         [SerializeField] private Toggle fullscreenToggle;
 
-        void Start() 
+        public void Start()
         {
-            if (!PlayerPrefs.HasKey("MusicVolume")) 
-            {
-                PlayerPrefs.SetFloat("MusicVolume", 1);
-            }
-            if (!PlayerPrefs.HasKey("FXVolume")) 
-            {
-                PlayerPrefs.SetFloat("FXVolume", 1);
-            }
-
-            LoadVolumesOnStartup();
-            SetVolumesOnSliders();
+            fullscreenToggle.isOn = Screen.fullScreen;
         }
 
         public void SetMusicVolume(float volume) 
@@ -35,18 +24,6 @@ namespace Settings
         public void SetFXVolume(float volume) 
         {
             soundManager.SetFXVolume(volume);
-        }
-
-        private void LoadVolumesOnStartup() 
-        {
-            SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
-            SetFXVolume(PlayerPrefs.GetFloat("FXVolume"));
-        }
-
-        private void SetVolumesOnSliders()
-        {
-            musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
-            soundEffectsVolumeSlider.value = PlayerPrefs.GetFloat("SoundEffectsVolume");
         }
 
         public void ToggleFullScreen()

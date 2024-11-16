@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Bar.CocktailCreation
+namespace CocktailCreation
 {
     public class BarSlot : MonoBehaviour
     {

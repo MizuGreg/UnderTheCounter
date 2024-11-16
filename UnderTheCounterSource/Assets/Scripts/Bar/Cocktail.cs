@@ -2,6 +2,7 @@ using System;
 
 namespace Bar
 {
+    // Deprecated class. To be merged with CocktailCreation/Cocktail instead
     [Serializable]
     public enum Ingredient
     {

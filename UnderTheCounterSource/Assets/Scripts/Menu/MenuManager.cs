@@ -15,9 +15,9 @@ namespace Menu
 
         public void StartNewGame()
         {
+            mainMenuCanvas.GetComponent<CanvasFadeAnimation>().FadeOut();
             SceneManager.LoadScene("Scenes/BarView");
         }
-    
     
         public void QuitGame()
         {

@@ -1,4 +1,3 @@
-using System;
 using Hellmade.Sound;
 using UnityEngine;
 
@@ -17,12 +16,6 @@ namespace Technical
             EventSystemManager.OnCustomerEnter += OnCustomerEnterSound;
             EventSystemManager.OnCustomerLeave += OnCustomerLeaveSound;
             EventSystemManager.OnDayEnd += OnDayEndSound;
-            
-        }
-        
-        private void Start()
-        {
-            
         }
 
         public void SetMusicVolume(float volume)
@@ -50,13 +43,11 @@ namespace Technical
         private void OnCustomerEnterSound()
         {
             EazySoundManager.PlaySound(soundData.customerEnterSound, soundData.FXVolume);
-
         }
         
         private void OnCustomerLeaveSound()
         {
             EazySoundManager.PlaySound(soundData.customerLeaveSound, soundData.FXVolume);
-
         }
 
         private void OnDayEndSound()

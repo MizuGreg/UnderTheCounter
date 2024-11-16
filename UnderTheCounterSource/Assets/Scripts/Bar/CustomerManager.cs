@@ -17,13 +17,15 @@ namespace Bar
         private DialogueManager _dialogueManager;
 
         public CanvasGroup customerCanvas;
-        [Range (0.1f, 3f)]
+        
+        [Range (0.0f, 3f)]
         public float timeBetweenCustomers = 2.5f;
-
-        [Range(0.1f, 3f)]
+        [Range(0.0f, 3f)]
         public float timeBeforeDialogue = 1f;
+        [Range(0.0f, 3f)]
+        public float timeBeforeFadeout = 1f;
 
-        void Start()
+        private void Start()
         {
             EventSystemManager.OnTimeUp += TimeoutCustomers;
             EventSystemManager.OnCocktailMade += ServeCustomer;
@@ -61,9 +63,9 @@ namespace Bar
         
         private IEnumerator WaitAndGreetDialogue()
         {
-            StartCoroutine(_dialogueManager.StartDialogue(
+            _dialogueManager.StartDialogue(
                 new Dialogue(_customerName, _currentCustomer.lines["greet"]),
-                DialogueType.Greet));
+                DialogueType.Greet);
             yield return null;
         }
 
@@ -103,14 +105,16 @@ namespace Bar
         
         }
 
-
-
         private void FarewellCustomer()
         {
-            // fade out customer, wait a bit, then call greetCustomer for next customer
-            customerCanvas.GetComponent<CanvasFadeAnimation>().FadeOut();
-            EventSystemManager.OnCustomerLeave();
+            StartCoroutine(WaitBeforeFadeOut());
             StartCoroutine(WaitBeforeNextCustomer());
+        }
+
+        private IEnumerator WaitBeforeFadeOut()
+        {
+            yield return new WaitForSeconds(timeBeforeFadeout);
+            customerCanvas.GetComponent<CanvasFadeAnimation>().FadeOut();
         }
 
         private IEnumerator WaitBeforeNextCustomer()

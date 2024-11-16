@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Bar.CocktailCreation
+namespace CocktailCreation
 {
     public class CocktailManager : MonoBehaviour
     {
@@ -89,6 +89,7 @@ namespace Bar.CocktailCreation
                                                                  && _ingredientsInShaker[IngredientType.Gryte] == 1)
             {
                 _cocktail = Instantiate(_ripplePrefab, spawnPoint.position, spawnPoint.rotation, _cocktailServingAreaRectTransform);
+                Debug.Log("Made a Ripple");
             }
             else if (_ingredientsInShaker[IngredientType.Caledon] == 3 && _ingredientsInShaker[IngredientType.Gryte] == 2)
             {
@@ -114,11 +115,14 @@ namespace Bar.CocktailCreation
             
         }
 
-        public void cocktailMade()
+        public void ServeCocktail()
         {
             // prende il cocktail attualmente fatto
             // lancia evento onCocktailMade<il cocktail in questione>
-            // chiama inoltre questa funzione:
+            //placeholder: Everest
+            EventSystemManager.OnCocktailMade(new Bar.Cocktail(Bar.CocktailType.Ripple, false));
+            // chiama inoltre hideArea()
+            cocktailServingArea.SetActive(false);
             hideArea();
         }
         

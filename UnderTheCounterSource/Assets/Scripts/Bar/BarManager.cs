@@ -1,4 +1,3 @@
-using Bar.CocktailCreation;
 using UnityEngine;
 
 namespace Bar
@@ -6,7 +5,6 @@ namespace Bar
     public class BarManager : MonoBehaviour
     {
         private CustomerManager _customerManager;
-        private CocktailManager _cocktailManager;
         private RecipeBookManager _recipeBookManager;
         private TimerManager _timerManager;
         private DialogueManager _dialogueManager;
@@ -19,7 +17,6 @@ namespace Bar
         void Start()
         {
             _customerManager = GetComponent<CustomerManager>();
-            _cocktailManager = GetComponent<CocktailManager>();
             _recipeBookManager = GetComponent<RecipeBookManager>();
             _timerManager = GetComponent<TimerManager>();
             _dialogueManager = GetComponent<DialogueManager>();
