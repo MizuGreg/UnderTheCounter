@@ -44,8 +44,8 @@ namespace Bar
 
         public void StartDay()
         {
-            LoadDailyCustomers(Day.currentDay);
-            if (Day.currentDay == 1) PlayTutorial();
+            LoadDailyCustomers(Day.CurrentDay);
+            if (Day.CurrentDay == 1) PlayTutorial();
             else GreetCustomer();
         }
 
@@ -138,8 +138,8 @@ namespace Bar
             }
             _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
             
-            Day.todayEarnings += 5 + _currentCustomer.tip;
-            print($"Current earnings: {Day.todayEarnings}");
+            Day.TodayEarnings += 5 + _currentCustomer.tip;
+            print($"Current earnings: {Day.TodayEarnings}");
             
             // if not watered down, we throw onDrunkCustomer event
             if (!cocktail.wateredDown) EventSystemManager.OnDrunkCustomerLeave();
