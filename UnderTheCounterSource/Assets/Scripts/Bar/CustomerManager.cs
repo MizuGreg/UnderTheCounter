@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,57 +10,76 @@ namespace Bar
 {
     public class CustomerManager : MonoBehaviour
     {
-        private List<Customer> dailyCustomers;
-        private Customer currentCustomer;
-        private Image currentImage;
-        private DialogueManager dialogueManager;
+        private List<Customer> _dailyCustomers;
+        private Customer _currentCustomer;
+        private string _customerName;
+        private Image _currentImage;
+        private DialogueManager _dialogueManager;
 
         public CanvasGroup customerCanvas;
-        
+        [Range (0.1f, 3f)]
         public float timeBetweenCustomers = 2.5f;
+
+        [Range(0.1f, 3f)]
+        public float timeBeforeDialogue = 1f;
 
         void Start()
         {
-            loadDailyCustomers(DaySO.currentDay);
-            EventSystemManager.OnTimeUp += timeoutCustomers;
-            EventSystemManager.OnCocktailMade += serveCustomer;
-            EventSystemManager.OnCustomerLeave += farewellCustomer;
+            EventSystemManager.OnTimeUp += TimeoutCustomers;
+            EventSystemManager.OnCocktailMade += ServeCustomer;
+            EventSystemManager.OnCustomerLeave += FarewellCustomer;
         
-            currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
+            _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
         }
 
-        public void attachDialogueManager(DialogueManager dialogueManager)
+        public void AttachDialogueManager(DialogueManager dialogueManager)
         {
-            this.dialogueManager = dialogueManager;
+            this._dialogueManager = dialogueManager;
         }
 
-        private void timeoutCustomers()
+        private void TimeoutCustomers()
         {
-            dailyCustomers.Clear(); // depletes daily customers
+            _dailyCustomers.Clear(); // depletes daily customers
         }
 
-        private void loadDailyCustomers(int currentDay)
+        public void StartDay()
+        {
+            LoadDailyCustomers(Day.CurrentDay);
+            if (Day.CurrentDay == 1) PlayTutorial();
+            else GreetCustomer();
+        }
+
+        private void LoadDailyCustomers(int currentDay)
         {
             // read DailyCustomers json and create daily customers list
             string jsonString = File.ReadAllText("Assets/Data/CustomerData/Day" + currentDay + ".json");
             // dailyCustomers = JsonUtility.FromJson<CustomerList>(jsonString).customers;
             
-            dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
+            _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             
         }
+        
+        private IEnumerator WaitAndGreetDialogue()
+        {
+            StartCoroutine(_dialogueManager.StartDialogue(
+                new Dialogue(_customerName, _currentCustomer.lines["greet"]),
+                DialogueType.Greet));
+            yield return null;
+        }
 
-        public void greetCustomer()
+        public void GreetCustomer()
         {
             // pick the first customer from the list and set it to current. if empty we throw onCustomersDepleted
             // otherwise send out lines to display to the dialogue manager
-            if (dailyCustomers.Count > 0)
+            if (_dailyCustomers.Count > 0)
             {
-                currentCustomer = dailyCustomers[0];
-                dailyCustomers.RemoveAt(0);
+                _currentCustomer = _dailyCustomers[0];
+                _customerName = _currentCustomer.sprite.ToString();
+                _dailyCustomers.RemoveAt(0);
             
-                currentImage.sprite = getSpriteFromCustomerType(currentCustomer.sprite);
+                _currentImage.sprite = GetSpriteFromCustomerType(_currentCustomer.sprite);
                 customerCanvas.GetComponent<CanvasFadeAnimation>().FadeIn();
-                StartCoroutine(waitAndGreet());
+                StartCoroutine(WaitAndGreetDialogue());
                 EventSystemManager.OnCustomerEnter();
             }
             else
@@ -70,7 +88,7 @@ namespace Bar
             }
         }
 
-        private Sprite getSpriteFromCustomerType(CustomerType customerType)
+        private Sprite GetSpriteFromCustomerType(CustomerType customerType)
         {
             // assumes that the file name is just the same as the customer type, for now
             try
@@ -85,60 +103,54 @@ namespace Bar
         
         }
 
-        private IEnumerator waitAndGreet()
-        {
-            yield return new WaitForSeconds(3);
-            print(currentCustomer);
-            dialogueManager.StartDialogue(new Dialogue(
-                currentCustomer.sprite.ToString(),
-                currentCustomer.lines["greet"].Concat(currentCustomer.lines["order"]).ToList()));
-            // merge these two fields in the future, in json and anywhere else
-        }
 
-        public void farewellCustomer()
+
+        private void FarewellCustomer()
         {
             // fade out customer, wait a bit, then call greetCustomer for next customer
             customerCanvas.GetComponent<CanvasFadeAnimation>().FadeOut();
             EventSystemManager.OnCustomerLeave();
-            StartCoroutine(waitBeforeNextCustomer());
+            StartCoroutine(WaitBeforeNextCustomer());
         }
 
-        private IEnumerator waitBeforeNextCustomer()
+        private IEnumerator WaitBeforeNextCustomer()
         {
             yield return new WaitForSeconds(timeBetweenCustomers);
-            greetCustomer();
+            GreetCustomer();
         }
 
-        public void serveCustomer(Cocktail cocktail)
+        private void ServeCustomer(Cocktail cocktail)
         {
             // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
-            CocktailType order = currentCustomer.order;
+            CocktailType order = _currentCustomer.order;
+            Dialogue dialogue;
             if (cocktail.type != order)
             {
-                // todo: dialogueManager.startDialogue(new DialoguecurrentCustomer.lines["leaveWrong"]);
+                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWrong"]);
             }
             else if (cocktail.wateredDown)
             {
-                // todo: dialogueManager.customerServe(currentCustomer.lines["leaveWater"]);
+                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWater"]);
             }
             else
             {
-                // todo: dialogueManager.customerServe(currentCustomer.lines["leaveCorrect"]);
+                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveCorrect"]);
             }
+            _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
             
-            DaySO.todayEarnings += 5 + currentCustomer.tip;
-            print($"Current earnings: {DaySO.todayEarnings}");
+            Day.TodayEarnings += 5 + _currentCustomer.tip;
+            print($"Current earnings: {Day.TodayEarnings}");
             
             // if not watered down, we throw onDrunkCustomer event
             if (!cocktail.wateredDown) EventSystemManager.OnDrunkCustomerLeave();
         }
     
 
-        public void playTutorial()
+        public void PlayTutorial()
         {
             // todo: tutorial with ex bar owner. for now it's just a simple customer, but it could become something more
             // complex in the future if need be
-            greetCustomer();
+            GreetCustomer();
         }
     }
 }

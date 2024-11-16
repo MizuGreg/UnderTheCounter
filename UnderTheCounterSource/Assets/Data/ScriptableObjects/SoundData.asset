@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecd7a411d594b7c8f811325601fe5cb, type: 3}
+  m_Name: SoundData
+  m_EditorClassIdentifier: 
+  backgroundMusicVolume: 1
+  FXVolume: 1
+  UIFXVolume: 1
+  mainMenuMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
+  shopWindowMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
+  barMusic: {fileID: 8300000, guid: 61073dd9091e2b04fbee6f260906b345, type: 3}
+  blitzMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
+  daySummaryMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
+  winMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
+  loseMusic: {fileID: 0}
+  buttonClickSound: {fileID: 0}
+  customerEnterSound: {fileID: 8300000, guid: 50769b5fe2613144fb876460e932e504, type: 3}
+  customerLeaveSound: {fileID: 8300000, guid: 5c8311d05a062fa45852a5bf5f90b25e, type: 3}
+  posterHangSound: {fileID: 0}
+  posterTearDownSound: {fileID: 0}

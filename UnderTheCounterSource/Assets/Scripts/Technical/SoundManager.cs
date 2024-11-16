@@ -1,37 +1,69 @@
+using System;
+using Hellmade.Sound;
 using UnityEngine;
 
 namespace Technical
 {
     public class SoundManager : MonoBehaviour
     {
-        // todo. will need to be a singleton. will use events to play sounds
         
-        private static SoundManager instance;
+        public SoundData soundData;
 
-        public void Awake()
+        private void Awake()
         {
-            instance = this;
+            EventSystemManager.OnLoadMainMenu += OnLoadMainMenuSound;
+            EventSystemManager.OnLoadBarView += OnLoadBarViewSound;
+            
+            EventSystemManager.OnCustomerEnter += OnCustomerEnterSound;
+            EventSystemManager.OnCustomerLeave += OnCustomerLeaveSound;
+            EventSystemManager.OnDayEnd += OnDayEndSound;
+            
+        }
+        
+        private void Start()
+        {
+            
         }
 
-        public static void playSound()
+        public void SetMusicVolume(float volume)
         {
-            // todo. will retrieve from a dictionary in the future, easier to work with than a thousand functions
+            EazySoundManager.GlobalMusicVolume = volume;
+            PlayerPrefs.SetFloat("MusicVolume", volume);
         }
 
-        public SoundManager()
+        public void SetFXVolume(float volume)
         {
-            EventSystemManager.OnCustomerEnter += onCustomerEnterSound;
-            EventSystemManager.OnDayEnd += onDayEndSound;
+            EazySoundManager.GlobalSoundsVolume = volume;
+            PlayerPrefs.SetFloat("FXVolume", volume);
         }
 
-        public void onCustomerEnterSound()
+        private void OnLoadMainMenuSound()
+        {
+            EazySoundManager.PlayMusic(soundData.mainMenuMusic, soundData.backgroundMusicVolume, true, true, 30, 5);
+        }
+
+        private void OnLoadBarViewSound()
+        {
+            EazySoundManager.PlayMusic(soundData.barMusic, soundData.backgroundMusicVolume, true, true, 10, 5);
+        }
+
+        private void OnCustomerEnterSound()
+        {
+            EazySoundManager.PlaySound(soundData.customerEnterSound, soundData.FXVolume);
+
+        }
+        
+        private void OnCustomerLeaveSound()
+        {
+            EazySoundManager.PlaySound(soundData.customerLeaveSound, soundData.FXVolume);
+
+        }
+
+        private void OnDayEndSound()
         {
             // todo
         }
-
-        public void onDayEndSound()
-        {
-            // todo
-        }
+        
+        // I want to parameterize this instead of having a hundred different functions... is it overkill? probably
     }
 }

@@ -1,17 +1,30 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Dialogue
+namespace Bar
 {
-    public string name;
-
-    [TextArea(3, 10)]
-    public List<string> sentences;
-
-    public Dialogue(string name, List<string> sentences)
+    [Serializable]
+    public class Dialogue
     {
-        this.name = name;
-        this.sentences = sentences;
+        public string name;
+
+        [TextArea(3, 10)]
+        public Queue<string> sentences;
+
+        public Dialogue(string name, Queue<string> sentences)
+        {
+            this.name = name;
+            this.sentences = sentences;
+        }
+        
+    }
+    
+    [Serializable]
+    public enum DialogueType
+    {
+        Greet,
+        Leave,
+        Inspector
     }
 }

@@ -5,11 +5,11 @@ namespace Bar
 {
     public class BarManager : MonoBehaviour
     {
-        private CustomerManager customerManager;
-        private CocktailManager cocktailManager;
-        private RecipeBookManager recipeBookManager;
-        private TimerManager timerManager;
-        private DialogueManager dialogueManager;
+        private CustomerManager _customerManager;
+        private CocktailManager _cocktailManager;
+        private RecipeBookManager _recipeBookManager;
+        private TimerManager _timerManager;
+        private DialogueManager _dialogueManager;
 
         public CanvasGroup barContainer;
         public CanvasGroup barCanvas;
@@ -18,58 +18,63 @@ namespace Bar
         // Start is called before the first frame update
         void Start()
         {
-            customerManager = GetComponent<CustomerManager>();
-            cocktailManager = GetComponent<CocktailManager>();
-            recipeBookManager = GetComponent<RecipeBookManager>();
-            timerManager = GetComponent<TimerManager>();
-            dialogueManager = GetComponent<DialogueManager>();
-            customerManager.attachDialogueManager(dialogueManager);
+            _customerManager = GetComponent<CustomerManager>();
+            _cocktailManager = GetComponent<CocktailManager>();
+            _recipeBookManager = GetComponent<RecipeBookManager>();
+            _timerManager = GetComponent<TimerManager>();
+            _dialogueManager = GetComponent<DialogueManager>();
+            _customerManager.AttachDialogueManager(_dialogueManager);
         
-            EventSystemManager.OnDayStart += startDay;
-            EventSystemManager.OnDrunkCustomerLeave += checkDrunk;
-            EventSystemManager.OnCustomersDepleted += endDay;
+            EventSystemManager.OnDayStart += StartDay;
+            EventSystemManager.OnDrunkCustomerLeave += CheckDrunk;
+            EventSystemManager.OnCustomersDepleted += EndDay;
         
             barContainer.GetComponent<CanvasFadeAnimation>().FadeIn();
+            EventSystemManager.OnLoadBarView();
         }
 
-        public void startDay()
+        public void StartDay()
         {
-            if (DaySO.currentDay == 1) customerManager.playTutorial();
-            else customerManager.greetCustomer();
-            timerManager.startTimer();
-            print($"Timer has started for day {DaySO.currentDay}");
+            _customerManager.StartDay();
+            _timerManager.startTimer();
+            print($"Timer has started for day {Day.CurrentDay}");
         
         }
 
-        public void endDay()
+        private void EndDay()
         {
             // todo: fade out day, then switch to end of day summary
-            print($"Day has ended! Today's earnings: {DaySO.todayEarnings}");
-            DaySO.savings += DaySO.todayEarnings;
-            DaySO.todayEarnings = 0;
+            print($"Day has ended! Today's earnings: {Day.TodayEarnings}");
+            Day.Savings += Day.TodayEarnings;
+            Day.TodayEarnings = 0;
             EventSystemManager.OnDayEnd();
-            DaySO.currentDay++;
+            Day.CurrentDay++;
         }
 
-        private void checkDrunk()
+        private void CheckDrunk()
         {
-            if (DaySO.drunkCustomers++ >= DaySO.maxDrunkCustomers) callBlitz();
+            if (Day.DrunkCustomers++ >= Day.MaxDrunkCustomers) CallBlitz();
         }
 
-        private void callBlitz()
+        private void CallBlitz()
         {
             // todo blitz. should probably be a coroutine
             // for now:
-            lossByBlitz();
+            LossByBlitz();
         }
 
-        private void lossByBlitz()
+        private void LossByBlitz()
         {
             // todo: display actual loss screen
             print("Loss By Blitz");
         }
 
-        public void quitGame()
+        public void backToMainMenu()
+        {
+            // todo
+        }
+
+        public void QuitGame()
         {
             Technical.QuitGame.Quit();
         }

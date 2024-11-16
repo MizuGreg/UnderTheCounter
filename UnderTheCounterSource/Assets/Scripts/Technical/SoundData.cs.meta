@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: fecd7a411d594b7c8f811325601fe5cb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mainMenuMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
+  - shopWindowMusic: {instanceID: 0}
+  - barMusic: {instanceID: 0}
+  - blitzMusic: {instanceID: 0}
+  - daySummaryMusic: {instanceID: 0}
+  - winMusic: {instanceID: 0}
+  - loseMusic: {instanceID: 0}
+  - WIP: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
