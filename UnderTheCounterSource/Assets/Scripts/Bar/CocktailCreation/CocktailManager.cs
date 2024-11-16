@@ -69,7 +69,8 @@ namespace Bar.CocktailCreation
 
         public void UpdateFullnessBar(int index, IngredientType ingredient)
         {
-            fullnessBar.GetComponent<FullnessBar>().ColorBarSlot(index,ingredient);
+            fullnessBar.GetComponent<FullnessBar>().ColorBarSlot(index, ingredient);
+        }
 
         public void MakeCocktail()
         {
