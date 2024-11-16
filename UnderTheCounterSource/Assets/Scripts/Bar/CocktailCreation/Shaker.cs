@@ -6,6 +6,7 @@ namespace Bar.CocktailCreation
 {
     public class Shaker : MonoBehaviour, IDropHandler
     {
+        [SerializeField] private GameObject cocktailManager;
         [SerializeField] private int numIngredients = 5;
         [SerializeField] private GameObject mixButton;
         
@@ -32,6 +33,7 @@ namespace Bar.CocktailCreation
             {
                 Ingredient ingredient = eventData.pointerDrag.GetComponent<Ingredient>();
                 _ingredientsInShaker.Add(ingredient.GetIngredientType());
+                cocktailManager.GetComponent<CocktailManager>().UpdateFullnessBar(_ingredientsInShaker.Count, ingredient.GetIngredientType());
                 
                 //DEBUG
                 //PrintIngredients(_ingredientsInShaker);
