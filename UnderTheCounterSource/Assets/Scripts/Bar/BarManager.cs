@@ -37,23 +37,23 @@ namespace Bar
         {
             _customerManager.StartDay();
             _timerManager.startTimer();
-            print($"Timer has started for day {DaySO.currentDay}");
+            print($"Timer has started for day {Day.currentDay}");
         
         }
 
         private void EndDay()
         {
             // todo: fade out day, then switch to end of day summary
-            print($"Day has ended! Today's earnings: {DaySO.todayEarnings}");
-            DaySO.savings += DaySO.todayEarnings;
-            DaySO.todayEarnings = 0;
+            print($"Day has ended! Today's earnings: {Day.todayEarnings}");
+            Day.savings += Day.todayEarnings;
+            Day.todayEarnings = 0;
             EventSystemManager.OnDayEnd();
-            DaySO.currentDay++;
+            Day.currentDay++;
         }
 
         private void CheckDrunk()
         {
-            if (DaySO.drunkCustomers++ >= DaySO.maxDrunkCustomers) CallBlitz();
+            if (Day.drunkCustomers++ >= Day.maxDrunkCustomers) CallBlitz();
         }
 
         private void CallBlitz()
