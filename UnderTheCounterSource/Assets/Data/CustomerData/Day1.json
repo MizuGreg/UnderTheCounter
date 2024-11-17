@@ -5,12 +5,12 @@
             "order": "Everest",
             "lines": {
                 "greet": [
-                    "... and these are your keys, young one. That will be all! This is officially your bar now. With the energy you have, I'm sure you won't have any trouble serving customers and taking good care of the place.",
-                    "Actually, let me be your first customer for the day. I wouldn't mind sipping on an ice-cold <b>Everest</b> right now...",
+                    "… and these are your keys, young one. That will be all! This is officially your bar now. With the energy you have, I'm sure you won't have any trouble serving customers and taking good care of the place.",
+                    "Actually, let me be your first customer for the day. I wouldn't mind sipping on an ice-cold <b>Everest</b> right now…",
                     "You know how to make a cocktail, right? <b>Drag the ingredients the right amount of times</b> into the shaker, <b>mix</b>, and <b>serve</b> on the counter.",
                     "Ah, the Everest, an all-time classic. <b>3 parts Caledon Ridge, 2 parts Gryte</b>, poured on a big ice cube inside a rocks glass.",
                     "Don't worry, you can always check the recipe book for guidance. I left it somewhere there, under the counter.",
-                    "If you mess the preparation up, you can throw the contents of the mixer into the bin, no problem. And...",
+                    "If you mess the preparation up, you can throw the contents of the mixer into the bin, no problem. And…",
                     "If you want to prevent someone from getting too drunk, you could always water down the drink a bit. Just put the mixer under the tap water faucet.",
                     "Alrighty, let's see you prepare an <b>Everest</b>, young one!"
                 ],
@@ -18,7 +18,7 @@
                     "That was an excellent drink, young one! And what a fine Caledon. Take this tip, you've earned it.<br>I should get going now, but I wish you the best of luck with the place!"
                 ],
                 "leaveWrong": [
-                    "Well, that tasted quite different from the Everest I'm used to. Maybe it's an innovative recipe... Don't forget to check the recipe book if you're not familiar with a cocktail.",
+                    "Well, that tasted quite different from the Everest I'm used to. Maybe it's an innovative recipe… Don't forget to check the recipe book if you're not familiar with a cocktail.",
                     "I must get going now, but good luck with your first shift today, young one!"  
                 ],
                 "leaveWater": [
@@ -33,18 +33,18 @@
             "order": "SpringBee",
             "lines": {
                 "greet": [
-                    "<i>*sigh* If only my life wasn't so busy... Maybe I could convince him...</i>",
-                    "Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts. Would you be so kind as to get me a sweet drink? Maybe that will distract me from my career...I'm an <b>actress</b>, you see.",
+                    "<i>*sigh* If only my life wasn't so busy… Maybe I could convince him…</i>",
+                    "Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts. Would you be so kind as to get me a sweet drink? Maybe that will distract me from my career…I'm an <b>actress</b>, you see.",
                     "A sweet <b>Spring Bee</b> for me, with extra honey on top, please!"
                 ],
                 "leaveCorrect": [
                     "Oh, how wonderful, dear bartender. I think I even tasted a little bit of romance in this drink.<br>I shall get back to work now, but thank you truly! Goodnight!"
                 ],
                 "leaveWrong": [
-                    "Oh... That wasn't what I expected. Maybe it was fate that didn't want to give me this tiny satisfaction.<br>It's alright, I'll come back another day... Goodnight, bartender!"  
+                    "Oh… That wasn't what I expected. Maybe it was fate that didn't want to give me this tiny satisfaction.<br>It's alright, I'll come back another day… Goodnight, bartender!"  
                 ],
                 "leaveWater": [
-                    "Thank you, dear bartender. I thought I'd tasted a hint of love in this drink, but it was very faint...<br>I shall get back to work now, goodbye!"
+                    "Thank you, dear bartender. I thought I'd tasted a hint of love in this drink, but it was very faint…<br>I shall get back to work now, goodbye!"
                 ]
             },
             "tip": 5
@@ -54,18 +54,18 @@
             "order": "Magazine",
             "lines": {
                 "greet": [
-                    "It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression, though the <b>window outside</b> could be improved somehow.<br><i>Ugh</i>, how exhausting it is to not know which opera to attend tonight...",
+                    "It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression, though the <b>window outside</b> could be improved somehow.<br><i>Ugh</i>, how exhausting it is to not know which opera to attend tonight…",
                     "Good evening bartender, I'd like to order a <b>Magazine</b>, please."
                 ],
                 "leaveCorrect": [
-                    "Lovely cocktail, I'm sure you must've used a... a titanium mixing spoon, and you probably mixed ripe and unripe shaddocks for the juice.",
+                    "Lovely cocktail, I'm sure you must've used a… a titanium mixing spoon, and you probably mixed ripe and unripe shaddocks for the juice.",
                     "Here's a little something for the service. We will surely come back. Charles?"
                 ],
                 "leaveWrong": [
-                    "My, my! Why would you serve a cocktail of such lowly quality to a woman of my status! There is simply no art, no technique in this!<br>...Farewell! Charles, I will be waiting outside!"  
+                    "My, my! Why would you serve a cocktail of such lowly quality to a woman of my status! There is simply no art, no technique in this!<br>…Farewell! Charles, I will be waiting outside!"  
                 ],
                 "leaveWater": [
-                    "The individual ingredients had a discrete quality, but I noted a lack of synergy... Maybe the glass was impure. Charles?"
+                    "The individual ingredients had a discrete quality, but I noted a lack of synergy… Maybe the glass was impure. Charles?"
                 ]
             },
             "tip": 10
@@ -85,7 +85,7 @@
                     "This is hardly a Parti. I'm afraid you haven't followed the recipe that well. At any rate, farewell and have a nice day."  
                 ],
                 "leaveWater": [
-                    "Hmm...<br>Not bad all in all, but hopefully it'll be better next time. Farewell."
+                    "Hmm…<br>Not bad all in all, but hopefully it'll be better next time. Farewell."
                 ]
             },
             "tip": 4
@@ -95,8 +95,8 @@
             "order": "Everest",
             "lines": {
                 "greet": [
-                    "Hi there, ...bartender. With these thick glasses I can't make out whether you're a miss or a mister.<br>In any case, do me a favor and stay away from men, or you'll end up like me and my ex husband.",
-                    "<size=50%>I did get all the money from the divorce though... hehe.<size=100%>",
+                    "Hi there, …bartender. With these thick glasses I can't make out whether you're a miss or a mister.<br>In any case, do me a favor and stay away from men, or you'll end up like me and my ex husband.",
+                    "<size=50%>I did get all the money from the divorce though… hehe.<size=100%>",
                     "Give me an <b>Everest</b>. As cold as his heart."
                 ],
                 "leaveCorrect": [
@@ -157,13 +157,13 @@
             "lines": {
                 "greet": [
                     "Good evening, fella. This is a war veteran you're talking to. I'd like an Everest on the rocks.<br>You see, the correct way to make it is to shake it clockwise. And of course, pour half Caledon first, half at the end.",
-                    "My drink now, fella. Everest on the rocks. But don't put too much ice in the glass! I know these tricks that young people do..."
+                    "My drink now, fella. Everest on the rocks. But don't put too much ice in the glass! I know these tricks that young people do…"
                 ],
                 "leaveCorrect": [
                     "Aaah, how refreshing. This one's especially good, probably because you followed my advice. Hah!<br>At ease, fella! Goodnight!"
                 ],
                 "leaveWrong": [
-                    "Mmm, I'm not sure you followed my instructions. Actually, this tastes like another drink altogether...<br>At ease, fella! Goodnight!"
+                    "Mmm, I'm not sure you followed my instructions. Actually, this tastes like another drink altogether…<br>At ease, fella! Goodnight!"
                 ],
                 "leaveWater": [
                     "Refreshing, but a bit watered down. Maybe it's the way that the newer generations do it.<br>In any case, at ease, fella! Goodnight!"
@@ -204,7 +204,7 @@
                     "Oh my, oh my! Just how I love it. If I didn't know any better I'd think you were trying to make an impression on me!<br>Well, I'll definitely be coming back then! See you!"
                 ],
                 "leaveWrong": [
-                    "...Well, it seems you've prepared a different cocktail to gain my attention... and you've succeded! It wasn't bad after all.<br>I'll be seeing you some other time then!"
+                    "…Well, it seems you've prepared a different cocktail to gain my attention… and you've succeded! It wasn't bad after all.<br>I'll be seeing you some other time then!"
                 ],
                 "leaveWater": [
                     "Oh my! Just how I love it, though it seems you've held back on the alcohol a bit. I'll be definitely coming back in the future then, see if your cocktails get better and better over time. See you!"
@@ -218,11 +218,11 @@
             "lines": {
                 "greet": [
                     "<i>Bonsoir, barman</i>. This establishment was recommended to me by a trusted client.",
-                    "You may want to consider investing in alcohol stocks by the way... Prices have been increasing lately, what with the debates in the government.",
+                    "You may want to consider investing in alcohol stocks by the way… Prices have been increasing lately, what with the debates in the government.",
                     "I would like to try out a <b>Magazine</b> now, <i>s'il vous plaît</i>."
                 ],
                 "leaveCorrect": [
-                    "Excellent cocktail, barman. It seems I'll recommend this place to someone else in turn. <size=50%>I wonder if I could spend some bonding time with my son here...<size=100%><br><i>Bonne nuit</i>, barman."
+                    "Excellent cocktail, barman. It seems I'll recommend this place to someone else in turn. <size=50%>I wonder if I could spend some bonding time with my son here…<size=100%><br><i>Bonne nuit</i>, barman."
                 ],
                 "leaveWrong": [
                     "I'm confused. I thought this was a different type of bar. Maybe you've made the wrong cocktail because you got afraid of me.<br>I may retry in the future. <i>Au revoir</i>."

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ingredient
   - Shaker
+  - BarManager
   layers:
   - Default
   - TransparentFX

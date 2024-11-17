@@ -12,51 +12,67 @@ namespace Bar
 
         public TextMeshProUGUI nameText;
         public TextMeshProUGUI dialogueText;
+        private TMP_TextInfo textInfo;
         public Animator animator;
 
         private Queue<string> _sentences;
         private DialogueType _dialogueType;
-
+        private Coroutine _typeSentenceCoroutine;
         private bool _isBoxActive;
-    
+
+        private float textSpeed;
         [Range(1f, 50.0f)]
-        public float textSpeed;
-        [Range(0.5f, 2.0f)]
+        public float normalTextSpeed;
+        [Range(50f, 500.0f)]
+        public float skipTextSpeed;
+        [Range(5f, 50.0f)]
+        public float punctuationWaitMultiplier;
+        
+        [Range(0.1f, 3.0f)]
         public float timeBeforeDialogueBox;
-        [Range(0.5f, 2.0f)]
+        [Range(0.1f, 3.0f)]
         public float timeBeforeFirstSentence;
 
         private bool _allTextIsVisible;
-
+        
         // Initialization
         void Start() {
             dialogueText.transform.parent.gameObject.SetActive(true);
             _sentences = new Queue<string>();
+            textInfo = dialogueText.textInfo;
+        }
+
+        public void SetNormalTextSpeed(float speed)
+        {
+            normalTextSpeed = speed;
+            textSpeed = speed; // so this also stops the skipping animation, as a side effect
         }
 
         public void StartDialogue(Dialogue dialogue, DialogueType dialogueType)
         {
-            StartCoroutine(Wait(timeBeforeDialogueBox));
+            StartCoroutine(WaitBeforeDialogueBox(dialogue, dialogueType));
+        }
+
+        private IEnumerator WaitBeforeDialogueBox(Dialogue dialogue, DialogueType dialogueType)
+        {
+            yield return new WaitForSeconds(timeBeforeDialogueBox);
             animator.SetBool(IsOpen, true);
             nameText.text = dialogue.name;
             _dialogueType = dialogueType;
-
-            _sentences.Clear();
-
+            
             foreach (string sentence in dialogue.sentences) 
             {
                 _sentences.Enqueue(sentence);
             }
-
             dialogueText.text = "";
-            StartCoroutine(Wait(timeBeforeFirstSentence));
-            _isBoxActive = true;
-            DisplayNextSentence();
+            StartCoroutine(WaitBeforeFirstSentence());
         }
 
-        private IEnumerator Wait(float seconds)
+        private IEnumerator WaitBeforeFirstSentence()
         {
-            yield return new WaitForSeconds(seconds);
+            yield return new WaitForSeconds(timeBeforeFirstSentence);
+            _isBoxActive = true;
+            DisplayNextSentence();
         }
 
         public void OnNextButtonPressed(InputAction.CallbackContext context)
@@ -64,12 +80,13 @@ namespace Bar
             if (_isBoxActive & context.performed)
             {
                 if (_allTextIsVisible) DisplayNextSentence();
-                else DisplayAllText();
+                else SkipText();
             }
         }
 
-        private void DisplayNextSentence() 
+        private void DisplayNextSentence()
         {
+            textSpeed = normalTextSpeed;
             if (_sentences.Count == 0) {
                 _isBoxActive = false;
                 EndDialogue();
@@ -89,17 +106,51 @@ namespace Bar
                 {
                     // todo: change arrow into customized icon based on dialogue type
                 }
-
                 string sentence = _sentences.Dequeue();
-                StopAllCoroutines();
+                if (_typeSentenceCoroutine != null) StopCoroutine(_typeSentenceCoroutine);
                 StartCoroutine(TypeSentence(sentence));
             }
         }
 
-        private void DisplayAllText()
+        private IEnumerator TypeSentence(string sentence) 
         {
-            dialogueText.maxVisibleCharacters = dialogueText.text.Length;
-            _allTextIsVisible = true;
+            _allTextIsVisible = false;
+            dialogueText.text = sentence; // sentence is fed into box
+            dialogueText.ForceMeshUpdate(); // force correct calculation of characters
+            
+            dialogueText.maxVisibleCharacters = 0;
+            int currentVisibleCharIndex = 0;
+
+            while (!_allTextIsVisible)
+            {
+                if (currentVisibleCharIndex >= textInfo.characterCount - 1) // means we're displaying the last character
+                {
+                    dialogueText.maxVisibleCharacters++;
+                    _allTextIsVisible = true;
+                    yield break;
+                }
+                // otherwise, get current character
+                var character = textInfo.characterInfo[currentVisibleCharIndex].character;
+                dialogueText.maxVisibleCharacters++; // shows character
+                if (character is ',' or ';')
+                {
+                    yield return new WaitForSeconds(punctuationWaitMultiplier / textSpeed);
+                }
+                else if (character is '.' or '!' or '?' or '…')
+                {
+                    yield return new WaitForSeconds(punctuationWaitMultiplier*3 / textSpeed);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(1 / textSpeed);
+                }
+                currentVisibleCharIndex++;
+            }
+        }
+        
+        private void SkipText()
+        {
+            textSpeed = skipTextSpeed;
         }
 
         private void showIcon()
@@ -109,26 +160,12 @@ namespace Bar
 
         private void hideIcon()
         {
-            // todo: make icon invisible
+            // todo: hide icon
         }
 
         private void updateIcon()
         {
             // todo: update icon based on dialogue type
-        }
-
-        private IEnumerator TypeSentence(string sentence) 
-        {
-            dialogueText.text = sentence;
-            dialogueText.maxVisibleCharacters = 0;
-            _allTextIsVisible = false;
-
-            while (!_allTextIsVisible)
-            {
-                dialogueText.maxVisibleCharacters++;
-                yield return new WaitForSeconds(1 / (textSpeed));
-                if (dialogueText.maxVisibleCharacters >= dialogueText.text.Length) _allTextIsVisible = true;
-            }
         }
 
         private void EndDialogue()

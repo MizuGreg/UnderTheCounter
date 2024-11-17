@@ -109,13 +109,13 @@ namespace Bar
         private void FarewellCustomer()
         {
             StartCoroutine(WaitBeforeFadeOut());
-            StartCoroutine(WaitBeforeNextCustomer());
         }
 
         private IEnumerator WaitBeforeFadeOut()
         {
             yield return new WaitForSeconds(timeBeforeFadeout);
             customerCanvas.GetComponent<CanvasFadeAnimation>().FadeOut();
+            yield return WaitBeforeNextCustomer();
         }
 
         private IEnumerator WaitBeforeNextCustomer()
