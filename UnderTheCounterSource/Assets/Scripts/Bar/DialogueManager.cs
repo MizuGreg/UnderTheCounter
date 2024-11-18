@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Technical;
@@ -18,7 +19,7 @@ namespace Bar
         private Queue<string> _sentences;
         private DialogueType _dialogueType;
         private Coroutine _typeSentenceCoroutine;
-        private bool _isBoxActive;
+        private bool IsBoxActive;
 
         private float textSpeed;
         [Range(1f, 50.0f)]
@@ -37,9 +38,17 @@ namespace Bar
         
         // Initialization
         void Start() {
-            dialogueText.transform.parent.gameObject.SetActive(true);
-            _sentences = new Queue<string>();
-            textInfo = dialogueText.textInfo;
+            if (dialogueText != null) // we initialize correctly only if we're in the proper scene
+            {
+                dialogueText.transform.parent.gameObject.SetActive(true);
+                _sentences = new Queue<string>();
+                textInfo = dialogueText.textInfo;
+            }
+        }
+
+        public void setDialogueBoxActive(bool active)
+        {
+            IsBoxActive = active;
         }
 
         public void SetNormalTextSpeed(float speed)
@@ -71,24 +80,28 @@ namespace Bar
         private IEnumerator WaitBeforeFirstSentence()
         {
             yield return new WaitForSeconds(timeBeforeFirstSentence);
-            _isBoxActive = true;
+            IsBoxActive = true;
             DisplayNextSentence();
         }
 
         public void OnNextButtonPressed(InputAction.CallbackContext context)
         {
-            if (_isBoxActive & context.performed)
-            {
-                if (_allTextIsVisible) DisplayNextSentence();
-                else SkipText();
-            }
+            if (context.performed) // works only when spacebar is lifted
+                OnNextButtonPressed();
+        }
+
+        public void OnNextButtonPressed()
+        {
+            if (!IsBoxActive) return; // works only when the dialogue box is fully displayed and running
+            if (_allTextIsVisible) DisplayNextSentence();
+            else SkipText();
         }
 
         private void DisplayNextSentence()
         {
             textSpeed = normalTextSpeed;
             if (_sentences.Count == 0) {
-                _isBoxActive = false;
+                IsBoxActive = false;
                 EndDialogue();
                 switch (_dialogueType)
                 {

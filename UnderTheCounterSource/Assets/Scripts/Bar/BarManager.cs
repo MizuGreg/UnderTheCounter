@@ -27,7 +27,7 @@ namespace Bar
             EventSystemManager.OnDrunkCustomerLeave += CheckDrunk;
             EventSystemManager.OnCustomersDepleted += EndDay;
         
-            barContainer.GetComponent<CanvasFadeAnimation>().FadeIn();
+            barContainer.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadBarView();
         }
 
@@ -35,7 +35,6 @@ namespace Bar
         {
             _customerManager.StartDay();
             _timerManager.startTimer();
-            print($"Timer has started for day {Day.CurrentDay}");
         
         }
 

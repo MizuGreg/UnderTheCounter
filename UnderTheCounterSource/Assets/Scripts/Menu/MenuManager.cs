@@ -10,13 +10,13 @@ namespace Menu
     
         void Start()
         {
-            mainMenuCanvas.GetComponent<CanvasFadeAnimation>().FadeIn();
+            mainMenuCanvas.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadMainMenu();
         }
 
         public void StartNewGame()
         {
-            mainMenuCanvas.GetComponent<CanvasFadeAnimation>().FadeOut();
+            mainMenuCanvas.GetComponent<FadeCanvas>().FadeOut();
             SceneManager.LoadScene("Scenes/BarView");
         }
     

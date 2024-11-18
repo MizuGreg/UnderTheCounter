@@ -81,7 +81,7 @@ namespace Bar
                 _dailyCustomers.RemoveAt(0);
             
                 _currentImage.sprite = GetSpriteFromCustomerType(_currentCustomer.sprite);
-                customerCanvas.GetComponent<CanvasFadeAnimation>().FadeIn();
+                customerCanvas.GetComponent<FadeCanvas>().FadeIn();
                 StartCoroutine(WaitAndGreetDialogue());
                 EventSystemManager.OnCustomerEnter();
             }
@@ -114,7 +114,7 @@ namespace Bar
         private IEnumerator WaitBeforeFadeOut()
         {
             yield return new WaitForSeconds(timeBeforeFadeout);
-            customerCanvas.GetComponent<CanvasFadeAnimation>().FadeOut();
+            customerCanvas.GetComponent<FadeCanvas>().FadeOut();
             yield return WaitBeforeNextCustomer();
         }
 

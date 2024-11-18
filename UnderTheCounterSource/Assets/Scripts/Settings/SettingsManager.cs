@@ -73,5 +73,23 @@ namespace Settings
             dialogueManager.SetNormalTextSpeed(speed);
             PlayerPrefs.SetFloat("TextSpeed", speed);
         }
+
+        public void reduceMusicWhenSettingsOpen()
+        {
+            float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
+            float fxVolume = PlayerPrefs.GetFloat("FXVolume");
+            
+            SetMusicVolume(musicVolume/2);
+            SetFXVolume(fxVolume/2);
+        }
+
+        public void revertMusicWhenSettingsClosed()
+        {
+            float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
+            float fxVolume = PlayerPrefs.GetFloat("FXVolume");
+            
+            SetMusicVolume(musicVolume);
+            SetFXVolume(fxVolume);
+        }
     }
 }
