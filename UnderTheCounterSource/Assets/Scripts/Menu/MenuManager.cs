@@ -1,3 +1,4 @@
+using System.Collections;
 using Technical;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,6 +18,12 @@ namespace Menu
         public void StartNewGame()
         {
             mainMenuCanvas.GetComponent<FadeCanvas>().FadeOut();
+            StartCoroutine(WaitBeforeNewGame());
+        }
+
+        private IEnumerator WaitBeforeNewGame()
+        {
+            yield return new WaitForSeconds(1f);
             SceneManager.LoadScene("Scenes/BarView");
         }
     

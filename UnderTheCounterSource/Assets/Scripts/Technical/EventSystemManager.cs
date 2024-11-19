@@ -1,4 +1,5 @@
 using Bar;
+using CocktailCreation;
 using UnityEngine.Events;
 
 namespace Technical
@@ -17,6 +18,9 @@ namespace Technical
         public static UnityAction OnPreparationStart;
         public static UnityAction OnMakeCocktail;
         public static UnityAction<Cocktail> OnCocktailMade;
+
+        public static UnityAction OnBlitzCalled;
+        public static UnityAction OnBlitzTimerEnded;
 
         public static UnityAction OnLoadMainMenu;
         public static UnityAction OnLoadBarView;

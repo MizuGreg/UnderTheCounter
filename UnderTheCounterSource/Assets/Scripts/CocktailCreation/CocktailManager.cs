@@ -10,7 +10,6 @@ namespace CocktailCreation
         [SerializeField] private GameObject mixButton;
         [SerializeField] private GameObject cocktailCreationArea;
         [SerializeField] private GameObject cocktailServingArea;
-        [SerializeField] private bool slideInArea = false;
         [SerializeField] private GameObject fullnessBar;
 
         
@@ -44,27 +43,26 @@ namespace CocktailCreation
 
         }
 
-
         private void Update()
         {
-            if (slideInArea) _cocktailCreationAreaAnimator.SetBool("slideIn", true);
-            else _cocktailCreationAreaAnimator.SetBool("slideIn", false);
+            
         }
 
         public void showArea()
         {
-            slideInArea = true;
+            _cocktailCreationAreaAnimator.SetBool("slideIn", true);
         }
 
         public void hideArea()
         {
-            slideInArea = false;
-            // this also hides the overlay that displayed the cocktail in big (we need to reset it somehow maybe)
+            _cocktailCreationAreaAnimator.SetBool("slideIn", false);
+            cocktailServingArea.SetActive(false);
         }
         
         public void toggleArea()
         {
-            slideInArea = !slideInArea;
+            if (_cocktailCreationAreaAnimator.GetBool("slideIn")) hideArea();
+            else showArea();
         }
 
 
@@ -90,7 +88,6 @@ namespace CocktailCreation
                                                                  && _ingredientsInShaker[IngredientType.Gryte] == 1)
             {
                 _cocktail = Instantiate(_ripplePrefab, spawnPoint.position, spawnPoint.rotation, _cocktailServingAreaRectTransform);
-                Debug.Log("Made a Ripple");
             }
             else if (_ingredientsInShaker[IngredientType.Caledon] == 3 && _ingredientsInShaker[IngredientType.Gryte] == 2)
             {
@@ -118,19 +115,16 @@ namespace CocktailCreation
 
         public void ServeCocktail()
         {
-            // prende il cocktail attualmente fatto
-            // lancia evento onCocktailMade<il cocktail in questione>
-            //placeholder: Everest
-            EventSystemManager.OnCocktailMade(new Bar.Cocktail(Bar.CocktailType.Ripple, false));
-            // chiama inoltre hideArea()
-            cocktailServingArea.SetActive(false);
+            CocktailScript cocktailItem = _cocktail.GetComponent<CocktailScript>();
+            EventSystemManager.OnCocktailMade(_cocktail.GetComponent<CocktailScript>().cocktail);
+            
             hideArea();
         }
         
         
         public void WaterDownCocktail()
         {
-            _cocktail.GetComponent<Cocktail>().WaterDownCocktail();
+            _cocktail.GetComponent<CocktailScript>().WaterDownCocktail();
         }
 
 

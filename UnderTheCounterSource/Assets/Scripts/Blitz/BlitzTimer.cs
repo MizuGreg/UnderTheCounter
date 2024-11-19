@@ -1,7 +1,8 @@
+using Technical;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimerBar : MonoBehaviour
+public class BlitzTimer : MonoBehaviour
 {
     public Image timerBarImage;  // Riferimento all'immagine della barra di progresso
     public float timerDuration = 10f; // Durata totale del timer in secondi
@@ -10,10 +11,14 @@ public class TimerBar : MonoBehaviour
 
     void Start()
     {
-        // Imposta il tempo iniziale al valore massimo (inizia piena)
-        timeRemaining = timerDuration;
+        
+    }
+    
+    public void StartTimer()
+    {
+        timeRemaining = timerDuration; // Imposta il tempo iniziale al valore massimo
         isTimerRunning = true;
-        timerBarImage.fillAmount = 1f; // Imposta la barra come completamente piena
+        timerBarImage.fillAmount = 1f;  // Imposta la barra come completamente piena
     }
 
     void Update()
@@ -35,6 +40,7 @@ public class TimerBar : MonoBehaviour
                 isTimerRunning = false;
                 // Puoi aggiungere logica extra qui, ad esempio fine partita o azione specifica
                 Debug.Log("Tempo scaduto!");
+                EventSystemManager.OnBlitzTimerEnded();
             }
         }
     }

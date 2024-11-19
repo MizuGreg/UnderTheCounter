@@ -101,5 +101,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffaf601f685d7490bb622df6b45bd975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetAfterDrop: 0
-  cocktailType: 1
+  cocktail: {fileID: 11400000, guid: 3365bd2e8c70b94408cd151f9b08332f, type: 2}
+  sprite: {fileID: 21300000, guid: 01c51f41ff95d48ed8468ff30c0ac8b2, type: 3}

@@ -1,5 +1,7 @@
+using System.Collections;
 using Technical;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Bar
 {
@@ -12,9 +14,9 @@ namespace Bar
 
         public CanvasGroup barContainer;
         public CanvasGroup barCanvas;
-        // todo: pocket watch canvas
-    
-        // Start is called before the first frame update
+        
+        [SerializeField] private CanvasGroup timerCanvas;
+        
         void Start()
         {
             _customerManager = GetComponent<CustomerManager>();
@@ -50,25 +52,25 @@ namespace Bar
 
         private void CheckDrunk()
         {
-            if (Day.DrunkCustomers++ >= Day.MaxDrunkCustomers) CallBlitz();
+            if (Day.DrunkCustomers++ >= Day.MaxDrunkCustomers) EventSystemManager.OnBlitzCalled();
         }
 
-        private void CallBlitz()
-        {
-            // todo blitz. should probably be a coroutine
-            // for now:
-            LossByBlitz();
-        }
-
-        private void LossByBlitz()
+        public void LossByBlitz()
         {
             // todo: display actual loss screen
             print("Loss By Blitz");
         }
 
-        public void backToMainMenu()
+        public void BackToMainMenu()
         {
-            // todo
+            barContainer.GetComponent<FadeCanvas>().FadeOut();
+            StartCoroutine(WaitBeforeMenu());
+        }
+        
+        private IEnumerator WaitBeforeMenu()
+        {
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene("MainMenu");
         }
 
         public void QuitGame()

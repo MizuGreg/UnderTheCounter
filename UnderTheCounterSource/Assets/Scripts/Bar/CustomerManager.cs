@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using CocktailCreation;
 using Newtonsoft.Json;
 using Technical;
 using UnityEngine;
@@ -19,9 +20,11 @@ namespace Bar
 
         public CanvasGroup customerCanvas;
         
-        [Range (0.0f, 3f)]
+        [SerializeField] private PricePopup pricePopup;
+        
+        [Range (0.1f, 5f)]
         public float timeBetweenCustomers = 2.5f;
-        [Range(0.0f, 3f)]
+        [Range(0.1f, 5f)]
         public float timeBeforeDialogue = 1f;
         [Range(0.0f, 3f)]
         public float timeBeforeFadeout = 1f;
@@ -33,6 +36,7 @@ namespace Bar
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
+            pricePopup.gameObject.SetActive(true);
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -61,14 +65,6 @@ namespace Bar
             _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             
         }
-        
-        private IEnumerator WaitAndGreetDialogue()
-        {
-            _dialogueManager.StartDialogue(
-                new Dialogue(_customerName, _currentCustomer.lines["greet"]),
-                DialogueType.Greet);
-            yield return null;
-        }
 
         public void GreetCustomer()
         {
@@ -89,6 +85,14 @@ namespace Bar
             {
                 EventSystemManager.OnCustomersDepleted();
             }
+        }
+        
+        private IEnumerator WaitAndGreetDialogue()
+        {
+            yield return new WaitForSeconds(timeBeforeDialogue);
+            _dialogueManager.StartDialogue(
+                new Dialogue(_customerName, _currentCustomer.lines["greet"]),
+                DialogueType.Greet);
         }
 
         private Sprite GetSpriteFromCustomerType(CustomerType customerType)
@@ -126,28 +130,34 @@ namespace Bar
 
         private void ServeCustomer(Cocktail cocktail)
         {
+            // referenziare la lista degli ingredienti per controllare correttezza
             // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
             CocktailType order = _currentCustomer.order;
             Dialogue dialogue;
+            float earning;
             if (cocktail.type != order)
             {
                 dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWrong"]);
+                earning = 5 + _currentCustomer.tip / 5;
             }
-            else if (cocktail.wateredDown)
+            else if (cocktail.isWatered)
             {
                 dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWater"]);
+                earning = 5 + _currentCustomer.tip / 4;
             }
             else
             {
                 dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveCorrect"]);
+                earning = 5 + _currentCustomer.tip;
             }
             _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
-            
-            Day.TodayEarnings += 5 + _currentCustomer.tip;
+
+            pricePopup.DisplayPrice(earning);
+            Day.TodayEarnings += earning;
             print($"Current earnings: {Day.TodayEarnings}");
             
             // if not watered down, we throw onDrunkCustomer event
-            if (!cocktail.wateredDown) EventSystemManager.OnDrunkCustomerLeave();
+            if (!cocktail.isWatered) EventSystemManager.OnDrunkCustomerLeave();
         }
     
 

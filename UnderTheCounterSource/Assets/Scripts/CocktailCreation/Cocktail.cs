@@ -2,23 +2,17 @@ using UnityEngine;
 
 namespace CocktailCreation
 {
-    public class Cocktail : MonoBehaviour
+    [CreateAssetMenu(fileName = "new Cocktail", menuName = "Cocktail")]
+    public class Cocktail : ScriptableObject
     {
-        [SerializeField] private CocktailType cocktailType;
+        public CocktailType type;
+        public bool isWatered;
+        
 
-        private bool _isWatered = false;
-
-        public Cocktail(CocktailType cocktailType, bool isWatered)
+        public Cocktail(CocktailType type, bool isWatered)
         {
-            this.cocktailType = cocktailType;
-            this._isWatered = isWatered;
+            this.type = type;
+            this.isWatered = isWatered;
         }
-
-        public void WaterDownCocktail()
-        {
-            _isWatered = true;
-            Debug.Log("Cocktail watered");
-        }
-
     }
 }
