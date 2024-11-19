@@ -10,6 +10,7 @@ TagManager:
   - MenuDialog
   - Garnish
   - Debug
+  - Placeholder
   layers:
   - Default
   - TransparentFX
