@@ -16,6 +16,9 @@ namespace Technical
         public static UnityAction OnCustomersDepleted;
     
         public static UnityAction OnPreparationStart;
+        public static UnityAction<int,IngredientType> OnIngredientAdded;
+        public static UnityAction OnShakerFull;
+        public static UnityAction OnGarnishAdded;
         public static UnityAction OnMakeCocktail;
         public static UnityAction<Cocktail> OnCocktailMade;
 

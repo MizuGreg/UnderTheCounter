@@ -22,8 +22,8 @@ namespace CocktailCreation
 
         protected override void EndDragBehaviour()
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(dropSlot, Input.mousePosition, Canvas.worldCamera) &&
-                !_shaker.GetComponent<Shaker>().CheckIfIsFull())
+            if (RectTransformUtility.RectangleContainsScreenPoint(dropSlot, Input.mousePosition, Canvas.worldCamera) 
+                && !_shaker.GetComponent<Shaker>().CheckIfIsFull())
             {
                 StartCoroutine(ReturnAfterDelay(delay));
             }
