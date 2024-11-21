@@ -103,14 +103,15 @@ namespace CocktailCreation
             fullnessBar.GetComponent<FullnessBar>().ResetBar();
             DeactivateMixButton();
             
-            //debug
-            PrintIngredientsDictionary(_ingredientsInShaker);
+            // Debug
+            //PrintIngredientsDictionary(_ingredientsInShaker);
             
             GameObject cocktailPrefab = _wrongPrefab;
 
             foreach (RecipeItem ri in _validRecipes)
             {
-                PrintIngredientsDictionary(ri.Ingredients);
+                // Debug
+                //PrintIngredientsDictionary(ri.Ingredients);
                 if (CheckForValidRecipe(_ingredientsInShaker, ri.Ingredients))
                 {
                     cocktailPrefab = ri.CocktailPrefab;
@@ -189,6 +190,7 @@ namespace CocktailCreation
             EventSystemManager.OnCocktailMade(_cocktail.GetComponent<CocktailScript>().cocktail);
             
             HideArea();
+            TrashCocktail();
         }
         
         
@@ -219,8 +221,7 @@ namespace CocktailCreation
                 _validRecipes.Add(item);
             }
             
-            
-            // DEBUG
+            // Debug
             //PrintRecipes();
         }
 
@@ -258,7 +259,7 @@ namespace CocktailCreation
 
         private void CreateIngredientsDictionary(List<IngredientType> list)
         {
-            ResetIngredientsDictionary(_ingredientsInShaker);
+            _ingredientsInShaker.Clear();
             
             foreach (var ingredient in list)
             {
@@ -271,11 +272,6 @@ namespace CocktailCreation
                     _ingredientsInShaker[ingredient] = 1;
                 }
             }
-        }
-
-        private void ResetIngredientsDictionary(Dictionary<IngredientType, int> ingredients)
-        {
-            ingredients.Clear();
         }
         
         private void PrintIngredientsDictionary(Dictionary<IngredientType, int> dictionary)
