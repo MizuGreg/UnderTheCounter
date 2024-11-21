@@ -16,10 +16,13 @@ namespace CocktailCreation
         [SerializeField] private GameObject trashButton;
         [SerializeField] private GameObject waterButton;
         [SerializeField] private GameObject serveButton;
+        [SerializeField] private Recipes recipes;
         
 
         
         private readonly Dictionary<IngredientType, int> _ingredientsInShaker = new Dictionary<IngredientType, int>();
+        // _validRecipes is a list of couples ( dict<ingrType,int>, cocktailPrefab )
+        private readonly List<RecipeItem> _validRecipes = new List<RecipeItem>();
         private GameObject _shaker;
         private RectTransform _cocktailServingAreaRectTransform;
         private Animator _cocktailCreationAreaAnimator;
@@ -32,6 +35,7 @@ namespace CocktailCreation
         private GameObject _springBeePrefab;
         private GameObject _partiPrefab;
         private GameObject _magazinePrefab;
+        private GameObject _wrongPrefab;
         
         private GameObject _rippleGarnishPrefab;
         private GameObject _everestGarnishPrefab;
@@ -45,12 +49,13 @@ namespace CocktailCreation
             _cocktailServingAreaRectTransform = cocktailServingArea.GetComponent<RectTransform>();
             _cocktailCreationAreaAnimator = cocktailCreationArea.GetComponent<Animator>();
             
-            // Carica il prefab dalla cartella Resources
+            // Load prefabs from Resources folder
             _ripplePrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Ripple");
             _everestPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Everest");
             _springBeePrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/SpringBee");
             _partiPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Parti");
             _magazinePrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Magazine");
+            _wrongPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Wrong");
             
             _rippleGarnishPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/RippleGarnish");
             _everestGarnishPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/EverestGarnish");
@@ -58,11 +63,14 @@ namespace CocktailCreation
             _partiGarnishPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/PartiGarnish");
             _magazineGarnishPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/MagazineGarnish");
 
+            // Subscribe to events
             EventSystemManager.OnMakeCocktail += ShowArea;
             EventSystemManager.OnIngredientAdded += UpdateFullnessBar;
             EventSystemManager.OnShakerFull += ActivateMixButton;
             EventSystemManager.OnGarnishAdded += ServeCocktail;
-
+            
+            // Initialize recipes 
+            InitializeRecipes();
         }
 
         public void ShowArea()
@@ -96,43 +104,40 @@ namespace CocktailCreation
             DeactivateMixButton();
             
             //debug
-            //PrintIngredientsDictionary();
+            PrintIngredientsDictionary(_ingredientsInShaker);
+            
+            GameObject cocktailPrefab = _wrongPrefab;
 
-            // todo: use a json file instead of hardcoding recipes here
-            
-            // todo: fix this (it has to spawn the default wrong cocktail, not ripple)
-            GameObject cocktailPrefab = _ripplePrefab;
-            
-            // Ripple
-            if (_ingredientsInShaker[IngredientType.Verlan] == 2 && _ingredientsInShaker[IngredientType.Shaddock] == 2
-                                                                 && _ingredientsInShaker[IngredientType.Gryte] == 1)
+            foreach (RecipeItem ri in _validRecipes)
             {
-                cocktailPrefab = _ripplePrefab;
-            }
-            // Everest
-            else if (_ingredientsInShaker[IngredientType.Caledon] == 3 && _ingredientsInShaker[IngredientType.Gryte] == 2)
-            {
-                cocktailPrefab = _everestPrefab;
-            }
-            // SpringBee
-            else if (_ingredientsInShaker[IngredientType.Verlan] == 3 && _ingredientsInShaker[IngredientType.Shaddock] == 2)
-            {
-                cocktailPrefab = _springBeePrefab;
-            }
-            // Parti
-            else if (_ingredientsInShaker[IngredientType.Verlan] == 2 && _ingredientsInShaker[IngredientType.Ferrucci] == 3)
-            {
-                cocktailPrefab = _partiPrefab;
-            }
-            // Magazine
-            else if (_ingredientsInShaker[IngredientType.Verlan] == 3 && _ingredientsInShaker[IngredientType.Ferrucci] == 1
-                                                                      && _ingredientsInShaker[IngredientType.Shaddock] == 1)
-            {
-                cocktailPrefab = _magazinePrefab;
+                PrintIngredientsDictionary(ri.Ingredients);
+                if (CheckForValidRecipe(_ingredientsInShaker, ri.Ingredients))
+                {
+                    cocktailPrefab = ri.CocktailPrefab;
+                    break;
+                }
             }
             
             _cocktail = Instantiate(cocktailPrefab, spawnPoint.position, spawnPoint.rotation, _cocktailServingAreaRectTransform);
             
+        }
+
+        private bool CheckForValidRecipe(Dictionary<IngredientType,int> A, Dictionary<IngredientType,int> B)
+        {
+            // Check if the dictionaries have the same number of elements
+            if (A.Count != B.Count)
+                return false;
+
+            // Confront every key-value couple in the dictionaries
+            foreach (var kvp in A)
+            {
+                if (!B.TryGetValue(kvp.Key, out int value) || value != kvp.Value)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public void SpawnGarnish()
@@ -200,6 +205,55 @@ namespace CocktailCreation
             GameObject.Destroy(_cocktail);
             GameObject.Destroy(_garnish);
         }
+
+        private void InitializeRecipes()
+        {
+            // _validRecipes is a list of RecipeItem, i.e. couples ( Dictionary<IngredientType,int>, GameObject )
+            // RecipeItem is a struct containing a Dictionary<IngredientType,int> and a GameObject for the cocktail prefab
+            // recipes is a list objects Recipe
+            // Recipe is an object containing a List<IngredientType> and a GameObject for the cocktail prefab
+            
+            foreach (Recipe r in recipes)
+            {
+                RecipeItem item = new RecipeItem(CreateRecipeDictionary(r.ingredients),r.cocktailPrefab);
+                _validRecipes.Add(item);
+            }
+            
+            
+            // DEBUG
+            //PrintRecipes();
+        }
+
+        private void PrintRecipes()
+        {
+            foreach (RecipeItem r in _validRecipes)
+            {
+                Debug.Log($"{r.CocktailPrefab}");
+                foreach (var entry in r.Ingredients)
+                {
+                    Debug.Log($"{entry.Key}: {entry.Value}");
+                }
+            }
+        }
+        
+        private Dictionary<IngredientType,int> CreateRecipeDictionary(List<IngredientType> list)
+        {
+            Dictionary<IngredientType, int> t = new Dictionary<IngredientType, int>();
+            
+            foreach (var ingredient in list)
+            {
+                if (t.ContainsKey(ingredient))
+                {
+                    t[ingredient]++;
+                }
+                else
+                {
+                    t[ingredient] = 1;
+                }
+            }
+
+            return t;
+        }
         
 
         private void CreateIngredientsDictionary(List<IngredientType> list)
@@ -221,17 +275,14 @@ namespace CocktailCreation
 
         private void ResetIngredientsDictionary(Dictionary<IngredientType, int> ingredients)
         {
-            foreach (IngredientType ingredient in System.Enum.GetValues(typeof(IngredientType)))
-            {
-                ingredients[ingredient] = 0;
-            }
+            ingredients.Clear();
         }
         
-        private void PrintIngredientsDictionary()
+        private void PrintIngredientsDictionary(Dictionary<IngredientType, int> dictionary)
         {
             Debug.Log("Ingredients in the dictionary:");
 
-            foreach (var entry in _ingredientsInShaker)
+            foreach (var entry in dictionary)
             {
                 Debug.Log($"{entry.Key}: {entry.Value}");
             }
@@ -265,5 +316,17 @@ namespace CocktailCreation
             mixButton.SetActive(false);
         }
         
+    }
+    
+    public struct RecipeItem
+    {
+        public Dictionary<IngredientType, int> Ingredients;
+        public GameObject CocktailPrefab;
+
+        public RecipeItem(Dictionary<IngredientType, int> ingredients, GameObject cocktailPrefab)
+        {
+            Ingredients = ingredients;
+            CocktailPrefab = cocktailPrefab;
+        }
     }
 }

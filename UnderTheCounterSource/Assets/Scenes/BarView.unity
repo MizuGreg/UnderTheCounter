@@ -568,6 +568,7 @@ MonoBehaviour:
   trashButton: {fileID: 2068671661}
   waterButton: {fileID: 1929773449}
   serveButton: {fileID: 541510384}
+  recipes: {fileID: 11400000, guid: 4b25ee95a157143cd8bca2302fbfd87f, type: 2}
 --- !u!1 &65839551
 GameObject:
   m_ObjectHideFlags: 0

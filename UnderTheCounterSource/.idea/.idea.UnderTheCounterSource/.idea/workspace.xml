@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a42803f7-fdfa-47ac-abc8-c211373dcde8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Draggable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Draggable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Ingredient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Ingredient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Shaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Shaker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +34,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bar/BarManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Recipe.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Recipes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Settings/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -153,8 +147,18 @@
       <workItem from="1732026530703" duration="1341000" />
       <workItem from="1732047902993" duration="6946000" />
       <workItem from="1732097552274" duration="2952000" />
-      <workItem from="1732110407455" duration="956000" />
+      <workItem from="1732110407455" duration="1657000" />
+      <workItem from="1732177321993" duration="9231000" />
     </task>
+    <task id="LOCAL-00001" summary="- New feature: now the player has to drag and drop a garnish on the cocktail to serve it.&#10;&#10;- Code improvements: some polishing, use of events.">
+      <option name="closed" value="true" />
+      <created>1732111571281</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732111571282</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +174,8 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="- New feature: now the player has to drag and drop a garnish on the cocktail to serve it.&#10;&#10;- Code improvements: some polishing, use of events." />
+    <option name="LAST_COMMIT_MESSAGE" value="- New feature: now the player has to drag and drop a garnish on the cocktail to serve it.&#10;&#10;- Code improvements: some polishing, use of events." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
