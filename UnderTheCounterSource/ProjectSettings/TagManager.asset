@@ -9,6 +9,7 @@ TagManager:
   - BarManager
   - MenuDialog
   - Garnish
+  - Debug
   layers:
   - Default
   - TransparentFX

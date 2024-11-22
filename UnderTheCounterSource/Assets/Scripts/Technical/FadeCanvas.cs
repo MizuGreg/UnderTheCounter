@@ -5,12 +5,11 @@ namespace Technical
 {
     public class FadeCanvas : MonoBehaviour
     {
+        public CanvasGroup canvasGroup;
         private bool _isFading = false;
     
         [Range(0.1f, 10.0f)]
         public float fadeSpeed = 1f;
-    
-        public CanvasGroup canvasGroup;
 
         public void FadeIn()
         {

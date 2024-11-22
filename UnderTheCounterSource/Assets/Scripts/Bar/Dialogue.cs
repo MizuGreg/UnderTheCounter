@@ -10,9 +10,9 @@ namespace Bar
         public string name;
 
         [TextArea(3, 10)]
-        public Queue<string> sentences;
+        public List<string> sentences;
 
-        public Dialogue(string name, Queue<string> sentences)
+        public Dialogue(string name, List<string> sentences)
         {
             this.name = name;
             this.sentences = sentences;

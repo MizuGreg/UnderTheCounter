@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using CocktailCreation;
 
 namespace Bar
@@ -35,7 +36,7 @@ namespace Bar
         public CustomerType sprite;
         public CocktailType order;
         
-        public Dictionary<string, Queue<string>> lines;
+        public SerializedDictionary<string, List<string>> lines;
         
         public float tip;
 
@@ -43,7 +44,7 @@ namespace Bar
         {
             try
             {
-                return $"Sprite: {sprite}, Order: {order}, Greet line: {lines["greet"].Peek()}, Tip: {tip}";
+                return $"Sprite: {sprite}, Order: {order}, Greet line: {lines["greet"][0]}, Tip: {tip}";
             }
             catch (Exception e)
             {
