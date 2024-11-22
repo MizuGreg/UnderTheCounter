@@ -6,6 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a42803f7-fdfa-47ac-abc8-c211373dcde8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Everest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Everest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Magazine.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Magazine.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Parti.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Parti.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Ripple.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Ripple.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/SpringBee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/SpringBee.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Wrong.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Wrong.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Disappear.anim" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Disappear.anim.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Stationary.anim" beforeDir="false" />
@@ -36,6 +45,9 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bar/BarManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Recipe.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Recipes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Settings/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -55,7 +67,7 @@
   &quot;keyToString&quot;: {
     &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;speco-adding-features&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -76,7 +88,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.48f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.48f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Users\Greg\Desktop\Coding &amp; game design\Unity\UnderTheCounter\UnderTheCounterSource&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Greg\Desktop\Coding &amp; game design\Unity\UnderTheCounter\UnderTheCounterSource" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -84,7 +96,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.48f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.48f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\Greg\Desktop\Coding &amp; game design\Unity\UnderTheCounter\UnderTheCounterSource&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Greg\Desktop\Coding &amp; game design\Unity\UnderTheCounter\UnderTheCounterSource" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -144,10 +156,42 @@
       <workItem from="1731939980782" duration="12378000" />
       <workItem from="1731969789930" duration="737000" />
       <workItem from="1732010150685" duration="8577000" />
+      <workItem from="1732026530703" duration="1341000" />
+      <workItem from="1732047902993" duration="6946000" />
+      <workItem from="1732097552274" duration="2952000" />
+      <workItem from="1732110407455" duration="1657000" />
+      <workItem from="1732177321993" duration="9942000" />
+      <workItem from="1732187965044" duration="618000" />
+      <workItem from="1732260122065" duration="2830000" />
       <workItem from="1732028769166" duration="809000" />
       <workItem from="1732115606589" duration="369000" />
       <workItem from="1732265439523" duration="1658000" />
     </task>
+    <task id="LOCAL-00001" summary="- New feature: now the player has to drag and drop a garnish on the cocktail to serve it.&#10;&#10;- Code improvements: some polishing, use of events.">
+      <option name="closed" value="true" />
+      <created>1732111571281</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732111571282</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Code improvements: now the recipes are scriptable objects and, when the player presses the mix button, the check for the corresponding recipe is more clean (no more hardcoding)">
+      <option name="closed" value="true" />
+      <created>1732186993576</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732186993576</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Minor fixes">
+      <option name="closed" value="true" />
+      <created>1732188555303</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732188555303</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +207,10 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="- New feature: now the player has to drag and drop a garnish on the cocktail to serve it.&#10;&#10;- Code improvements: some polishing, use of events." />
+    <MESSAGE value="Code improvements: now the recipes are scriptable objects and, when the player presses the mix button, the check for the corresponding recipe is more clean (no more hardcoding)" />
+    <MESSAGE value="Minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -103,3 +103,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cocktail: {fileID: 11400000, guid: 35a871038eb1f0042b8a5948dae7953f, type: 2}
   sprite: {fileID: 21300000, guid: 40b518e0b175840afb7fcb458f893f7e, type: 3}
+  garnish: {fileID: 6593797786935200129, guid: c67c6fe9b2b1b41a0b59ea8e84f494fd, type: 3}
