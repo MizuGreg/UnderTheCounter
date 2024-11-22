@@ -6,6 +6,7 @@ namespace CocktailCreation
         EverestGarnish,
         SpringBeeGarnish,
         PartiGarnish,
-        MagazineGarnish
+        MagazineGarnish,
+        WrongGarnish
     }
 }

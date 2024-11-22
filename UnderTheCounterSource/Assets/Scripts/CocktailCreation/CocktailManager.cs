@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Technical;
 using UnityEngine;
@@ -18,10 +17,11 @@ namespace CocktailCreation
         [SerializeField] private GameObject serveButton;
         [SerializeField] private Recipes recipes;
         
-
+        
+        private static readonly int SlideIn = Animator.StringToHash("slideIn");
         
         private readonly Dictionary<IngredientType, int> _ingredientsInShaker = new Dictionary<IngredientType, int>();
-        // _validRecipes is a list of couples ( dict<ingrType,int>, cocktailPrefab )
+        // _validRecipes is a list of RecipeItem which are couples ( Dictionary<IngredientType,int>, cocktailPrefab )
         private readonly List<RecipeItem> _validRecipes = new List<RecipeItem>();
         private GameObject _shaker;
         private RectTransform _cocktailServingAreaRectTransform;
@@ -30,18 +30,8 @@ namespace CocktailCreation
         private GameObject _cocktail;
         private GameObject _garnish;
         
-        private GameObject _ripplePrefab;
-        private GameObject _everestPrefab;
-        private GameObject _springBeePrefab;
-        private GameObject _partiPrefab;
-        private GameObject _magazinePrefab;
         private GameObject _wrongPrefab;
         
-        private GameObject _rippleGarnishPrefab;
-        private GameObject _everestGarnishPrefab;
-        private GameObject _springBeeGarnishPrefab;
-        private GameObject _partiGarnishPrefab;
-        private GameObject _magazineGarnishPrefab;
 
         private void Start()
         {
@@ -50,18 +40,8 @@ namespace CocktailCreation
             _cocktailCreationAreaAnimator = cocktailCreationArea.GetComponent<Animator>();
             
             // Load prefabs from Resources folder
-            _ripplePrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Ripple");
-            _everestPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Everest");
-            _springBeePrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/SpringBee");
-            _partiPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Parti");
-            _magazinePrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Magazine");
             _wrongPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/Wrong");
             
-            _rippleGarnishPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/RippleGarnish");
-            _everestGarnishPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/EverestGarnish");
-            _springBeeGarnishPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/SpringBeeGarnish");
-            _partiGarnishPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/PartiGarnish");
-            _magazineGarnishPrefab = Resources.Load<GameObject>("Prefabs/CocktailCreation/MagazineGarnish");
 
             // Subscribe to events
             EventSystemManager.OnMakeCocktail += ShowArea;
@@ -73,20 +53,20 @@ namespace CocktailCreation
             InitializeRecipes();
         }
 
-        public void ShowArea()
+        private void ShowArea()
         {
-            _cocktailCreationAreaAnimator.SetBool("slideIn", true);
+            _cocktailCreationAreaAnimator.SetBool(SlideIn, true);
         }
 
-        public void HideArea()
+        private void HideArea()
         {
-            _cocktailCreationAreaAnimator.SetBool("slideIn", false);
+            _cocktailCreationAreaAnimator.SetBool(SlideIn, false);
             cocktailServingArea.SetActive(false);
         }
         
         public void ToggleArea()
         {
-            if (_cocktailCreationAreaAnimator.GetBool("slideIn")) HideArea();
+            if (_cocktailCreationAreaAnimator.GetBool(SlideIn)) HideArea();
             else ShowArea();
         }
 
@@ -123,16 +103,16 @@ namespace CocktailCreation
             
         }
 
-        private bool CheckForValidRecipe(Dictionary<IngredientType,int> A, Dictionary<IngredientType,int> B)
+        private bool CheckForValidRecipe(Dictionary<IngredientType,int> a, Dictionary<IngredientType,int> b)
         {
             // Check if the dictionaries have the same number of elements
-            if (A.Count != B.Count)
+            if (a.Count != b.Count)
                 return false;
 
             // Confront every key-value couple in the dictionaries
-            foreach (var kvp in A)
+            foreach (var kvp in a)
             {
-                if (!B.TryGetValue(kvp.Key, out int value) || value != kvp.Value)
+                if (!b.TryGetValue(kvp.Key, out int value) || value != kvp.Value)
                 {
                     return false;
                 }
@@ -147,41 +127,9 @@ namespace CocktailCreation
             ToggleCsaButtons(false);
             
             // spawn the correct garnish based on the current cocktail
-            if (_cocktail != null)
-            {
-                // todo: is there a better way to do it?
-                GameObject garnishPrefab;
-                
-                switch (_cocktail.GetComponent<CocktailScript>().cocktail.type)
-                {
-                    case CocktailType.Everest:
-                        garnishPrefab = _everestGarnishPrefab;
-                        break;
-                    
-                    case CocktailType.Magazine:
-                        garnishPrefab = _magazineGarnishPrefab;
-                        break;
-                    
-                    case CocktailType.Parti:
-                        garnishPrefab = _partiGarnishPrefab;
-                        break;
-                    
-                    case CocktailType.Ripple:
-                        garnishPrefab = _rippleGarnishPrefab;
-                        break;
-                    
-                    case CocktailType.SpringBee:
-                        garnishPrefab = _springBeeGarnishPrefab;
-                        break;
-                    
-                    default:
-                        garnishPrefab = _rippleGarnishPrefab;
-                        break;
-                }
-                
-                _garnish = Instantiate(garnishPrefab, garnishSpawnPoint.position,
+            _garnish = Instantiate(_cocktail.GetComponent<CocktailScript>().GetGarnish(), garnishSpawnPoint.position,
                     garnishSpawnPoint.rotation, _cocktailServingAreaRectTransform);
-            }
+            
         }
 
         private void ServeCocktail()

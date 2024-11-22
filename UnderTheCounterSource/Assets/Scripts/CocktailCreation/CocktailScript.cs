@@ -8,6 +8,7 @@ namespace CocktailCreation
     {
         public Cocktail cocktail;
         [SerializeField] private Sprite sprite;
+        [SerializeField] private GameObject garnish;
 
         public void WaterDownCocktail()
         {
@@ -22,6 +23,11 @@ namespace CocktailCreation
             {
                 EventSystemManager.OnGarnishAdded();
             }
+        }
+
+        public GameObject GetGarnish()
+        {
+            return this.garnish;
         }
 
     }
