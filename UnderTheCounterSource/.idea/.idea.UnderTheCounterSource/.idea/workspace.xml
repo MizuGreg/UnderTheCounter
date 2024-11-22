@@ -15,6 +15,10 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Disappear.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Disappear.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Stationary.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Stationary.anim.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +163,9 @@
       <workItem from="1732177321993" duration="9942000" />
       <workItem from="1732187965044" duration="618000" />
       <workItem from="1732260122065" duration="2830000" />
+      <workItem from="1732028769166" duration="809000" />
+      <workItem from="1732115606589" duration="369000" />
+      <workItem from="1732265439523" duration="1658000" />
     </task>
     <task id="LOCAL-00001" summary="- New feature: now the player has to drag and drop a garnish on the cocktail to serve it.&#10;&#10;- Code improvements: some polishing, use of events.">
       <option name="closed" value="true" />
