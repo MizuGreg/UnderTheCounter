@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Technical;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,25 +7,10 @@ namespace CocktailCreation
 {
     public class Shaker : MonoBehaviour, IDropHandler
     {
-        [SerializeField] private GameObject cocktailManager;
         [SerializeField] private int numIngredients = 5;
-        [SerializeField] private GameObject mixButton;
         
         private readonly List<IngredientType> _ingredientsInShaker = new List<IngredientType>();
         
-
-        private void Update()
-        {
-            // todo: is not necessary do this every frame
-            if (_ingredientsInShaker.Count == numIngredients)
-            {
-                mixButton.SetActive(true);
-            }
-            else
-            {
-                mixButton.SetActive(false);
-            }
-        }
 
         public void OnDrop(PointerEventData eventData)
         {
@@ -33,7 +19,13 @@ namespace CocktailCreation
             {
                 Ingredient ingredient = eventData.pointerDrag.GetComponent<Ingredient>();
                 _ingredientsInShaker.Add(ingredient.GetIngredientType());
-                cocktailManager.GetComponent<CocktailManager>().UpdateFullnessBar(_ingredientsInShaker.Count, ingredient.GetIngredientType());
+                
+                EventSystemManager.OnIngredientAdded(_ingredientsInShaker.Count, ingredient.GetIngredientType());
+                
+                if (_ingredientsInShaker.Count == numIngredients)
+                {
+                    EventSystemManager.OnShakerFull();
+                }
                 
                 //DEBUG
                 //PrintIngredients(_ingredientsInShaker);
@@ -50,7 +42,7 @@ namespace CocktailCreation
 
         public bool CheckIfIsFull()
         {
-            if (_ingredientsInShaker.Count <= numIngredients) return false;
+            if (_ingredientsInShaker.Count < numIngredients) return false;
             else return true;
         }
 

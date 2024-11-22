@@ -6,6 +6,7 @@ namespace CocktailCreation
         Everest,
         SpringBee,
         Parti,
-        Magazine
+        Magazine,
+        Wrong
     }
 }

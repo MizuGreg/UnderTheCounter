@@ -420,6 +420,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1582893179}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &12312996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,10 +560,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1522103604}
+  garnishSpawnPoint: {fileID: 2086244119}
   mixButton: {fileID: 1582893179}
   cocktailCreationArea: {fileID: 3219683}
   cocktailServingArea: {fileID: 447462791}
   fullnessBar: {fileID: 1295785635}
+  trashButton: {fileID: 2068671661}
+  waterButton: {fileID: 1929773449}
+  serveButton: {fileID: 541510384}
+  recipes: {fileID: 11400000, guid: 4b25ee95a157143cd8bca2302fbfd87f, type: 2}
 --- !u!1 &65839551
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,11 +840,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
+  fixedX: 0
+  fixedY: 0
   ingredientType: 3
   dropSlot: {fileID: 1072665946}
   itemRotation: 45
   targetPosition: {fileID: 1007714172}
-  delay: 1
+  delay: 0.5
 --- !u!225 &125804162
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1828,11 +1847,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
+  fixedX: 0
+  fixedY: 0
   ingredientType: 4
   dropSlot: {fileID: 1072665946}
   itemRotation: 45
   targetPosition: {fileID: 1007714172}
-  delay: 1
+  delay: 0.5
 --- !u!225 &296838706
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2315,6 +2336,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1522103604}
+  - {fileID: 2086244119}
   - {fileID: 1929773450}
   - {fileID: 2068671662}
   - {fileID: 541510385}
@@ -2415,11 +2438,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
+  fixedX: 0
+  fixedY: 0
   ingredientType: 1
   dropSlot: {fileID: 1072665946}
   itemRotation: 45
   targetPosition: {fileID: 1007714172}
-  delay: 1
+  delay: 0.5
 --- !u!225 &462463669
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2688,8 +2713,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 44644223}
-        m_TargetAssemblyTypeName: Bar.CocktailCreation.CocktailManager, Assembly-CSharp
-        m_MethodName: ServeCocktail
+        m_TargetAssemblyTypeName: CocktailCreation.CocktailManager, Assembly-CSharp
+        m_MethodName: SpawnGarnish
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2850,7 +2875,6 @@ RectTransform:
   m_Children:
   - {fileID: 1007714173}
   - {fileID: 3219684}
-  - {fileID: 1522103604}
   - {fileID: 447462792}
   m_Father: {fileID: 2093279210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3463,9 +3487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32ff64c4f640475798ca24adbc80231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cocktailManager: {fileID: 44644221}
   numIngredients: 5
-  mixButton: {fileID: 1582893179}
 --- !u!225 &1072665943
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3969,7 +3991,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 44644223}
         m_TargetAssemblyTypeName: CocktailCreation.CocktailManager, Assembly-CSharp
-        m_MethodName: toggleArea
+        m_MethodName: ToggleArea
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4680,11 +4702,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
+  fixedX: 0
+  fixedY: 0
   ingredientType: 0
   dropSlot: {fileID: 1072665946}
   itemRotation: 45
   targetPosition: {fileID: 1007714172}
-  delay: 1
+  delay: 0.5
 --- !u!225 &1477890523
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4758,16 +4782,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522103603}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 749229144}
+  m_Father: {fileID: 447462792}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -470, y: 0}
+  m_AnchoredPosition: {x: 12.628296, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1562009327
@@ -5087,10 +5111,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 447462791}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 44644223}
+        m_TargetAssemblyTypeName: CocktailCreation.CocktailManager, Assembly-CSharp
+        m_MethodName: ActivateCocktailServingArea
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6252,11 +6276,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
+  fixedX: 0
+  fixedY: 0
   ingredientType: 2
   dropSlot: {fileID: 1072665946}
   itemRotation: 45
   targetPosition: {fileID: 1007714172}
-  delay: 1
+  delay: 0.5
 --- !u!225 &1783012867
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7890,6 +7916,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077318719}
   m_CullTransparentMesh: 1
+--- !u!1 &2086244118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2086244119}
+  m_Layer: 0
+  m_Name: GarnishSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2086244119
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086244118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 447462792}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 12.628296, y: 381}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2093279204
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ TagManager:
   - Shaker
   - BarManager
   - MenuDialog
+  - Garnish
   layers:
   - Default
   - TransparentFX
