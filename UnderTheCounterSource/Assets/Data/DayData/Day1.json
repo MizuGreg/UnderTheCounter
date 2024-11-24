@@ -24,7 +24,7 @@
             "order": "Everest",
             "lines": {
                 "greet": [
-                    "… and these are your keys, young one. That will be all! This is officially your bar now. With the energy you have, I'm sure you won't have any trouble serving customers and taking good care of the place.",
+                    "… and these are your keys, young one. That will be all! This is officially your bar now. With the energy you have, I'm sure you won't have any trouble taking good care of the place.",
                     "Actually, let me be your first customer for the day. I wouldn't mind sipping on an ice-cold <b>Everest</b> right now…",
                     "You know how to make a cocktail, right? <b>Drag the ingredients the right amount of times</b> into the shaker, <b>mix</b>, and <b>serve</b> on the counter.",
                     "Ah, the Everest, an all-time classic. <b>3 parts Caledon Ridge, 2 parts Gryte</b>, poured on a big ice cube inside a rocks glass.",
@@ -34,7 +34,8 @@
                     "Alrighty, let's see you prepare an <b>Everest</b>, young one!"
                 ],
                 "leaveCorrect": [
-                    "That was an excellent drink, young one! And what a fine Caledon. Take this tip, you've earned it.<br>I should get going now, but I wish you the best of luck with the place!"
+                    "That was an excellent drink, young one! And what a fine Caledon. Take this tip, you've earned it.",
+                    "I should get going now, but I wish you the best of luck with the place!"
                 ],
                 "leaveWrong": [
                     "Well, that tasted quite different from the Everest I'm used to. Maybe it's an innovative recipe… Don't forget to check the recipe book if you're not familiar with a cocktail.",
@@ -52,8 +53,8 @@
             "order": "SpringBee",
             "lines": {
                 "greet": [
-                    "<i>*sigh* If only my life wasn't so busy… Maybe I could convince him…</i>",
-                    "Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts. Would you be so kind as to get me a sweet drink? Maybe that will distract me from my career…I'm an <b>actress</b>, you see.",
+                    "<size=50%><i>*sigh* If only my life wasn't so busy… Maybe I could convince him…</i><size=100%><br>Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts.",
+                    "Would you be so kind as to get me a sweet drink? Maybe that will distract me from my career…I'm an <b>actress</b>, you see.",
                     "A sweet <b>Spring Bee</b> for me, with extra honey on top, please!"
                 ],
                 "leaveCorrect": [
@@ -73,8 +74,9 @@
             "order": "Magazine",
             "lines": {
                 "greet": [
-                    "It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression, though the <b>window outside</b> could be improved somehow.<br><i>Ugh</i>, how exhausting it is to not know which opera to attend tonight…",
-                    "Good evening bartender, I'd like to order a <b>Magazine</b>, please."
+                    "It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression, though the <b>window outside</b> could be improved somehow.",
+                    "<i>Ugh</i>, how exhausting it is to not know which opera to attend tonight…",
+                    "Anyway, good evening bartender, I'd like to order a <b>Magazine</b>, please."
                 ],
                 "leaveCorrect": [
                     "Lovely cocktail, I'm sure you must've used a… a titanium mixing spoon, and you probably mixed ripe and unripe shaddocks for the juice.",
@@ -114,7 +116,8 @@
             "order": "Everest",
             "lines": {
                 "greet": [
-                    "Hi there, …bartender. With these thick glasses I can't make out whether you're a miss or a mister.<br>In any case, do me a favor and stay away from men, or you'll end up like me and my ex husband.",
+                    "Hi there, …bartender. With these thick glasses I can't make out whether you're a miss or a mister.",
+                    "In any case, do me a favor and stay away from men, or you'll end up like me and my ex husband.",
                     "<size=50%>I did get all the money from the divorce though… hehe.<size=100%>",
                     "Give me an <b>Everest</b>. As cold as his heart."
                 ],
@@ -175,7 +178,8 @@
             "order": "Everest",
             "lines": {
                 "greet": [
-                    "Good evening, fella. This is a war veteran you're talking to. I'd like an Everest on the rocks.<br>You see, the correct way to make it is to shake it clockwise. And of course, pour half Caledon first, half at the end.",
+                    "Good evening, fella. This is a war veteran you're talking to. I'd like an Everest on the rocks.",
+                    "You see, the correct way to make it is to shake it clockwise. And of course, pour half Caledon first, half at the end.",
                     "My drink now, fella. Everest on the rocks. But don't put too much ice in the glass! I know these tricks that young people do…"
                 ],
                 "leaveCorrect": [
@@ -226,7 +230,8 @@
                     "…Well, it seems you've prepared a different cocktail to gain my attention… and you've succeded! It wasn't bad after all.<br>I'll be seeing you some other time then!"
                 ],
                 "leaveWater": [
-                    "Oh my! Just how I love it, though it seems you've held back on the alcohol a bit. I'll be definitely coming back in the future then, see if your cocktails get better and better over time. See you!"
+                    "Oh my! Just how I love it, though it seems you've held back on the alcohol a bit.",
+                    "I'll be definitely coming back in the future then, see if your cocktails get better and better over time. See you!"
                 ]
             },
             "tip": 5
