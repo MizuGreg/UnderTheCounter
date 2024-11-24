@@ -5,7 +5,7 @@ namespace Technical
 {
     public class DebugLogger : MonoBehaviour
     {
-        uint qsize = 15;  // number of messages to keep
+        uint qsize = 10;  // number of messages to keep
         Queue myLogQueue = new Queue();
 
         void Start() {
