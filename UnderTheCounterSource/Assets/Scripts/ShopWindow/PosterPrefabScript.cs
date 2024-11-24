@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +21,21 @@ public class PosterPrefabScript : MonoBehaviour
         posterPriceText.text = price;
         posterIcon.sprite = icon;
         posterBuff = buff;
-        posterNerf = nerf;  
+        posterNerf = nerf;
         posterDescription.text = description;
+    }
+    
+    //Hide or Show Poster Price for when in placeholder or when in menu
+    public void TogglePosterDetails(bool show)
+    {
+        foreach (Transform child in transform.GetComponentsInChildren<Transform>())
+        {
+            // Check if the GameObject has the "PosterDetail" tag
+            if (child.CompareTag("PosterDetail"))
+            {
+                // Enable or disable the entire GameObject
+                child.gameObject.SetActive(show);
+            }
+        }
     }
 }

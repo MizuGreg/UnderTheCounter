@@ -8,7 +8,6 @@ public class UIDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Canvas canvas;
     private Vector2 originalPosition;
     private Vector3 originalScale;
-    private Vector2 originalSize;
     private Transform originalParent;
     public List<RectTransform> restrictionAreas = new List<RectTransform>();
     private bool isPlaced = false;
@@ -38,9 +37,10 @@ public class UIDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Save the original position and parent
+        // Save the original position and parent and size
         originalPosition = rectTransform.anchoredPosition;
         originalParent = rectTransform.parent;
+        // originalScale = rectTransform.sizeDelta;
 
         // Reset scale and size to the original state while dragging
         rectTransform.localScale = originalScale;
@@ -76,14 +76,20 @@ public class UIDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             rectTransform.anchoredPosition = Vector2.zero; // Center in placeholder
             rectTransform.sizeDelta = Vector2.zero; // Reset size adjustments
             rectTransform.localScale = Vector3.one; // Ensure uniform scaling
-
+            
             isPlaced = true;
+            
+            rectTransform.GetComponent<PosterPrefabScript>().TogglePosterDetails(!isPlaced);
         }
         else
         {
             // Return to original parent and position on invalid drop
             rectTransform.SetParent(originalParent, true);
             rectTransform.anchoredPosition = originalPosition;
+            if (originalParent.CompareTag("Placeholder"))
+                rectTransform.sizeDelta = originalParent.GetComponent<RectTransform>().sizeDelta;
+            else
+                rectTransform.sizeDelta = new Vector2(180, 200);
             // Do NOT reset the size or scale here to retain the current size
         }
     }

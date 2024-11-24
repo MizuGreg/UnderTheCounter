@@ -11,6 +11,7 @@ TagManager:
   - Garnish
   - Debug
   - Placeholder
+  - PosterDetail
   layers:
   - Default
   - TransparentFX
