@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a42803f7-fdfa-47ac-abc8-c211373dcde8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Everest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Everest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Magazine.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Magazine.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Parti.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Parti.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Ripple.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Ripple.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/SpringBee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/SpringBee.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Wrong.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/Wrong.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Disappear.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Disappear.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Stationary.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup_Stationary.anim.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
