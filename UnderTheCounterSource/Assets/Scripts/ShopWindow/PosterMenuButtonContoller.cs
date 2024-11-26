@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PosterMenuController : MonoBehaviour
+public class PosterMenuButtonController : MonoBehaviour
 {
     private static readonly int IsOpen = Animator.StringToHash("isOpen");
     public Button openButton; // Reference to the button that will open the menu

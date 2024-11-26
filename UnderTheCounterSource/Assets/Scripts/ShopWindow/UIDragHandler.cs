@@ -89,7 +89,7 @@ public class UIDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             if (originalParent.CompareTag("Placeholder"))
                 rectTransform.sizeDelta = originalParent.GetComponent<RectTransform>().sizeDelta;
             else
-                rectTransform.sizeDelta = new Vector2(180, 200);
+                rectTransform.sizeDelta = new Vector2(205, 253);
             // Do NOT reset the size or scale here to retain the current size
         }
     }
