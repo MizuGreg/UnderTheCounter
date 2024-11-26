@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Bar;
+using UnityEngine.SceneManagement;
 
 namespace EndOfDay
 {
@@ -45,7 +46,7 @@ namespace EndOfDay
         void Start()
         {
             popupPanel.SetActive(false);
-            nextDayButton.SetActive(false);
+            nextDayButton.gameObject.SetActive(false);
 
             populateData();
             ShowPopupFromData();
@@ -158,7 +159,7 @@ namespace EndOfDay
             // Scala finale esatta
             stampImage.transform.localScale = endScale;
 
-            nextDayButton.SetActive(true);
+            nextDayButton.gameObject.SetActive(true);
         }
 
         public void NextDay()
@@ -167,6 +168,7 @@ namespace EndOfDay
             Day.Savings += Day.TodayEarnings;
             Day.TodayEarnings = 0;
             Day.CurrentDay++;
+        
             SceneManager.LoadScene("ShopWindowView");
         }
     }
