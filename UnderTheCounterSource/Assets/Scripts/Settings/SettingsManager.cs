@@ -1,4 +1,5 @@
 using Bar;
+using Hellmade.Sound;
 using UnityEngine;
 using UnityEngine.UI;
 using Technical;
@@ -21,14 +22,14 @@ namespace Settings
 
         void Start()
         {
-            fullscreenToggle.isOn = Screen.fullScreen;
-            
             if (!PlayerPrefs.HasKey("MusicVolume")) PlayerPrefs.SetFloat("MusicVolume", 1);
             if (!PlayerPrefs.HasKey("FXVolume")) PlayerPrefs.SetFloat("FXVolume", 1);
             if (!PlayerPrefs.HasKey("TextSpeed")) PlayerPrefs.SetFloat("TextSpeed", 20);
+            if (!PlayerPrefs.HasKey("Fullscreen")) PlayerPrefs.SetInt("Fullscreen", 1);
 
             LoadVolumesOnStartup();
             LoadTextSpeedOnStartup();
+            LoadFullscreenOnStartup();
         }
 
         private void LoadVolumesOnStartup()
@@ -37,10 +38,10 @@ namespace Settings
             float fxVolume = PlayerPrefs.GetFloat("FXVolume");
             
             
-            SetMusicVolume(musicVolume);
+            // SetMusicVolume(musicVolume);
             musicVolumeSlider.value = musicVolume;
             
-            SetFXVolume(fxVolume);
+            // SetFXVolume(fxVolume);
             sfxVolumeSlider.value = fxVolume;
         }
 
@@ -51,6 +52,12 @@ namespace Settings
             textSpeedSlider.value = textSpeed;
         }
 
+        private void LoadFullscreenOnStartup()
+        {
+            fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen") == 1;
+            ToggleFullScreen();
+        }
+
         public void SetMusicVolume(float volume) 
         {
             soundManager.SetMusicVolume(volume);
@@ -59,13 +66,13 @@ namespace Settings
         public void SetFXVolume(float volume) 
         {
             soundManager.SetFXVolume(volume);
+            if (sfxVolumeSlider.gameObject.activeInHierarchy) soundManager.PlaySampleSound();
         }
 
         public void ToggleFullScreen()
         {
-            Screen.fullScreen = !Screen.fullScreen;
-            fullscreenToggle.isOn = Screen.fullScreen;
-            Debug.Log(Screen.fullScreen ? "Screen is set to fullscreen" : "Screen is windowed");
+            Screen.fullScreen = fullscreenToggle.isOn;
+            PlayerPrefs.SetInt("Fullscreen", fullscreenToggle.isOn ? 1 : 0);
         }
 
         public void SetTextSpeed(float speed)
@@ -74,7 +81,7 @@ namespace Settings
             PlayerPrefs.SetFloat("TextSpeed", speed);
         }
 
-        public void reduceMusicWhenSettingsOpen()
+        public void ReduceMusicWhenUnfocused()
         {
             float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
             float fxVolume = PlayerPrefs.GetFloat("FXVolume");
@@ -83,7 +90,7 @@ namespace Settings
             SetFXVolume(fxVolume/2);
         }
 
-        public void revertMusicWhenSettingsClosed()
+        public void RevertMusicWhenUnfocused()
         {
             float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
             float fxVolume = PlayerPrefs.GetFloat("FXVolume");
@@ -91,5 +98,6 @@ namespace Settings
             SetMusicVolume(musicVolume);
             SetFXVolume(fxVolume);
         }
+        
     }
 }

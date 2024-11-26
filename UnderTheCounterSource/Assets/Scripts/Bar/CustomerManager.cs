@@ -37,6 +37,11 @@ namespace Bar
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
+            
+            #if !UNITY_EDITOR
+            GameObject.FindWithTag("Debug").SetActive(true);
+            #endif
+            
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -59,8 +64,11 @@ namespace Bar
         private void LoadDailyCustomers(int currentDay)
         {
             // read DailyCustomers json and create daily customers list
-            string jsonString = File.ReadAllText("Assets/Data/CustomerData/Day" + currentDay + ".json");
-            // dailyCustomers = JsonUtility.FromJson<CustomerList>(jsonString).customers;
+            #if UNITY_EDITOR
+            string jsonString = File.ReadAllText("Assets/Data/DayData/Day" + currentDay + ".json");
+            #else
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + currentDay + ".json");
+            #endif
             
             _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             

@@ -6,7 +6,7 @@ namespace Technical
     public class SoundData : ScriptableObject
 
     {
-        [Header("Volumes")]
+        [Header("[Deprecated] Volumes")]
         public float backgroundMusicVolume;
         public float FXVolume;
         
@@ -24,6 +24,7 @@ namespace Technical
         public AudioClip customerLeaveSound;
         public AudioClip posterHangSound;
         public AudioClip posterTearDownSound;
+        public AudioClip sampleSound;
 
     }
 }
