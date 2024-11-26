@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Bar;
 
 namespace EndOfDay
 {
@@ -12,6 +13,8 @@ namespace EndOfDay
         public TextMeshProUGUI messageText;
         public TextMeshProUGUI[] incomeOutcomeTexts;
         public Image stampImage;
+
+        public Button nextDayButton;
 
         public float timeBeforeLines = 1f;
         public float timeBetweenLines = 0.5f;
@@ -30,11 +33,11 @@ namespace EndOfDay
         public class PopupData
         {
             public int day;
-            public int earnings;
-            public int savings;
-            public int rent;
-            public int food;
-            public int alcohol;
+            public float earnings;
+            public float savings;
+            public float rent;
+            public float food;
+            public float alcohol;
         }
 
         public PopupData popupData;
@@ -42,12 +45,18 @@ namespace EndOfDay
         void Start()
         {
             popupPanel.SetActive(false);
+            nextDayButton.SetActive(false);
+
             populateData();
+            ShowPopupFromData();
         }
 
         private void populateData()
         {
-            // todo: take from DaySO
+            popupData.day = Day.CurrentDay;
+            popupData.earnings = Day.TodayEarnings;
+            popupData.savings = Day.Savings;
+            // todo rent, food, alcohol
         }
 
         public void ShowPopupFromData()
@@ -55,7 +64,7 @@ namespace EndOfDay
             ShowPopup(popupData.day, popupData.earnings, popupData.savings, popupData.rent, popupData.food, popupData.alcohol);
         }
 
-        public void ShowPopup(int day, int earnings, int savings, int rent, int food, int alcohol)
+        public void ShowPopup(int day, float earnings, float savings, float rent, float food, float alcohol)
         {
             stampImage.gameObject.SetActive(false);
 
@@ -90,7 +99,7 @@ namespace EndOfDay
 
         private IEnumerator DisplayTextsOneByOne()
         {
-            yield return new WaitForSeconds(timeBeforeLines);
+            yield return new WaitForSeconds(3f);
             foreach (TextMeshProUGUI text in incomeOutcomeTexts)
             {
                 text.gameObject.SetActive(true);
@@ -148,11 +157,17 @@ namespace EndOfDay
 
             // Scala finale esatta
             stampImage.transform.localScale = endScale;
+
+            nextDayButton.SetActive(true);
         }
 
         public void NextDay()
         {
             popupPanel.SetActive(false);
+            Day.Savings += Day.TodayEarnings;
+            Day.TodayEarnings = 0;
+            Day.CurrentDay++;
+            SceneManager.LoadScene("ShopWindowView");
         }
     }
 }

@@ -33,6 +33,13 @@ namespace Bar
             EventSystemManager.OnLoadBarView();
         }
 
+        private void OnDestroy()
+        {
+            EventSystemManager.OnDayStart -= StartDay;
+            EventSystemManager.OnDrunkCustomerLeave -= CheckDrunk;
+            EventSystemManager.OnCustomersDepleted -= EndDay;
+        }
+
         public void StartDay()
         {
             _customerManager.StartDay();
@@ -42,12 +49,14 @@ namespace Bar
 
         private void EndDay()
         {
-            // todo: fade out day, then switch to end of day summary
-            print($"Day has ended! Today's earnings: {Day.TodayEarnings}");
-            Day.Savings += Day.TodayEarnings;
-            Day.TodayEarnings = 0;
-            EventSystemManager.OnDayEnd();
-            Day.CurrentDay++;
+            barCanvas.GetComponent<FadeCanvas>().FadeOut();
+            StartCoroutine(WaitThenEndDay());
+        }
+
+        private IEnumerator WaitThenEndDay()
+        {
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene("EndOfDay");
         }
 
         private void CheckDrunk()

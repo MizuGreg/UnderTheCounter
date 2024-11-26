@@ -15,6 +15,12 @@ namespace Blitz
             EventSystemManager.OnBlitzTimerEnded += EndHideMinigame;
         }
 
+        private void OnDestroy()
+        {
+            EventSystemManager.OnBlitzCalled -= CallBlitz;
+            EventSystemManager.OnBlitzTimerEnded -= EndHideMinigame;
+        }
+
         public void CallBlitz()
         {
             blitzCanvas.GetComponent<FadeCanvas>().FadeIn();

@@ -44,6 +44,13 @@ namespace Bar
             
         }
 
+        private void OnDestroy()
+        {
+            EventSystemManager.OnTimeUp -= TimeoutCustomers;
+            EventSystemManager.OnCocktailMade -= ServeCustomer;
+            EventSystemManager.OnCustomerLeave -= FarewellCustomer;
+        }
+
         public void AttachDialogueManager(DialogueManager dialogueManager)
         {
             this._dialogueManager = dialogueManager;

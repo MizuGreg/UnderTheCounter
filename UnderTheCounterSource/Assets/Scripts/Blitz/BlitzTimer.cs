@@ -8,11 +8,6 @@ public class BlitzTimer : MonoBehaviour
     public float timerDuration = 10f; // Durata totale del timer in secondi
     private float timeRemaining;
     private bool isTimerRunning;
-
-    void Start()
-    {
-        
-    }
     
     public void StartTimer()
     {

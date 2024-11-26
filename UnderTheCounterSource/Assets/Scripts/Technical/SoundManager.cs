@@ -22,6 +22,16 @@ namespace Technical
             EventSystemManager.OnDayEnd += OnDayEndSound;
         }
 
+        private void OnDestroy()
+        {
+            EventSystemManager.OnLoadMainMenu -= OnLoadMainMenuSound;
+            EventSystemManager.OnLoadBarView -= OnLoadBarViewSound;
+            
+            EventSystemManager.OnCustomerEnter -= OnCustomerEnterSound;
+            EventSystemManager.OnCustomerLeave -= OnCustomerLeaveSound;
+            EventSystemManager.OnDayEnd -= OnDayEndSound;
+        }
+
         public void SetMusicVolume(float volume)
         {
             EazySoundManager.GlobalMusicVolume = volume;
