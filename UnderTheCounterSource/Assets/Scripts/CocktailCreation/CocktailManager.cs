@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Technical;
 using UnityEngine;
@@ -51,6 +52,15 @@ namespace CocktailCreation
             
             // Initialize recipes 
             InitializeRecipes();
+        }
+
+        private void OnDestroy()
+        {
+            // Unsubscribe from events
+            EventSystemManager.OnMakeCocktail -= ShowArea;
+            EventSystemManager.OnIngredientAdded -= UpdateFullnessBar;
+            EventSystemManager.OnShakerFull -= ActivateMixButton;
+            EventSystemManager.OnGarnishAdded -= ServeCocktail;
         }
 
         private void ShowArea()

@@ -1,4 +1,5 @@
 using System.Collections;
+using Technical;
 using UnityEngine;
 
 namespace CocktailCreation
@@ -23,8 +24,9 @@ namespace CocktailCreation
         protected override void EndDragBehaviour()
         {
             if (RectTransformUtility.RectangleContainsScreenPoint(dropSlot, Input.mousePosition, Canvas.worldCamera) 
-                && !_shaker.GetComponent<Shaker>().CheckIfIsFull())
+                && _shaker.GetComponent<Shaker>().CanAddIngredient())
             {
+                EventSystemManager.OnIngredientPouring();
                 StartCoroutine(ReturnAfterDelay(delay));
             }
             else
@@ -41,6 +43,7 @@ namespace CocktailCreation
             yield return new WaitForSeconds(t);
 
             ReturnToInitialPosition();
+            EventSystemManager.OnIngredientPoured(ingredientType);
         }
 
         public IngredientType GetIngredientType()
