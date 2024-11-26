@@ -1,36 +1,59 @@
+using System;
 using System.Collections.Generic;
 using Technical;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace CocktailCreation
 {
-    public class Shaker : MonoBehaviour, IDropHandler
+    public class Shaker : MonoBehaviour
     {
         [SerializeField] private int numIngredients = 5;
         
         private readonly List<IngredientType> _ingredientsInShaker = new List<IngredientType>();
-        
 
-        public void OnDrop(PointerEventData eventData)
+        private bool _isBusy;
+
+
+        private void Start()
         {
-            // Check if the dropped object is an ingredient
-            if(eventData.pointerDrag!.CompareTag("Ingredient") && !CheckIfIsFull())
+            // Subscribe to events
+            EventSystemManager.OnIngredientPouring += SetShakerBusy;
+            EventSystemManager.OnIngredientPoured += AddIngredient;
+        }
+
+        private void OnDestroy()
+        {
+            // Unsubscribe from events
+            EventSystemManager.OnIngredientPouring -= SetShakerBusy;
+            EventSystemManager.OnIngredientPoured -= AddIngredient;
+        }
+
+        private void AddIngredient(IngredientType ingredient)
+        {
+            // Add the ingredient in the shaker and update the UI Ingredients Bar
+            _ingredientsInShaker.Add(ingredient);
+            EventSystemManager.OnIngredientAdded(_ingredientsInShaker.Count, ingredient);
+            
+            SetShakerNotBusy();
+                
+            // If the shaker is full, tell it to the CocktailManager
+            if (_ingredientsInShaker.Count == numIngredients)
             {
-                Ingredient ingredient = eventData.pointerDrag.GetComponent<Ingredient>();
-                _ingredientsInShaker.Add(ingredient.GetIngredientType());
-                
-                EventSystemManager.OnIngredientAdded(_ingredientsInShaker.Count, ingredient.GetIngredientType());
-                
-                if (_ingredientsInShaker.Count == numIngredients)
-                {
-                    EventSystemManager.OnShakerFull();
-                }
-                
-                //DEBUG
-                //PrintIngredients(_ingredientsInShaker);
-                
+                EventSystemManager.OnShakerFull();
             }
+            
+            //DEBUG
+            //PrintIngredients(_ingredientsInShaker);
+        }
+
+        private void SetShakerBusy()
+        {
+            this._isBusy = true;
+        }
+        
+        private void SetShakerNotBusy()
+        {
+            this._isBusy = false;
         }
         
         
@@ -40,10 +63,16 @@ namespace CocktailCreation
         }
 
 
-        public bool CheckIfIsFull()
+         private bool IsFull()
         {
             if (_ingredientsInShaker.Count < numIngredients) return false;
             else return true;
+        }
+
+        public bool CanAddIngredient()
+        {
+            if (!IsFull() && !_isBusy) return true;
+            else return false;
         }
 
         public void EmptyShaker()
