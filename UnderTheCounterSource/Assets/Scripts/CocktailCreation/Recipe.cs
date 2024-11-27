@@ -7,6 +7,7 @@ namespace CocktailCreation
     public class Recipe : ScriptableObject
     {
         public List<IngredientType> ingredients;
+        
         public GameObject cocktailPrefab;
     }
 }

@@ -48,7 +48,7 @@ namespace Settings
         private void LoadTextSpeedOnStartup()
         {
             float textSpeed = PlayerPrefs.GetFloat("TextSpeed");
-            dialogueManager.SetNormalTextSpeed(textSpeed);
+            if (dialogueManager != null) dialogueManager.SetNormalTextSpeed(textSpeed);
             textSpeedSlider.value = textSpeed;
         }
 
@@ -77,7 +77,7 @@ namespace Settings
 
         public void SetTextSpeed(float speed)
         {
-            dialogueManager.SetNormalTextSpeed(speed);
+            if (dialogueManager != null) dialogueManager.SetNormalTextSpeed(speed);
             PlayerPrefs.SetFloat("TextSpeed", speed);
         }
 

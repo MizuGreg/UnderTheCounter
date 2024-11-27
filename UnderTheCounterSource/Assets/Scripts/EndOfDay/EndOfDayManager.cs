@@ -169,7 +169,7 @@ namespace EndOfDay
             Day.TodayEarnings = 0;
             Day.CurrentDay++;
         
-            SceneManager.LoadScene("ShopWindowView");
+            SceneManager.LoadScene("ShopWindow");
         }
     }
 }

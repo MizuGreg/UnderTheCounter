@@ -1,15 +1,43 @@
 using System;
 using Technical;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Bar
 {
     public class TimerManager : MonoBehaviour
     {
-        public float timeRemaining; // 2 minutes
+        public float initialTime;
+        private float timeRemaining; // 2 minutes
         public bool isRunning = false;
 
         public CanvasGroup timerCanvas;
+        [SerializeField] private Image pocketWatchBase;
+        [SerializeField] private Image pocketWatchHand;
+
+        void Start() {
+            timeRemaining = initialTime;
+        }
+
+        void Update()
+        {
+            if (isRunning)
+            {
+                if (timeRemaining > 0)
+                {
+                    timeRemaining -= Time.deltaTime;
+                    float rotationAngle = 360 * timeRemaining/initialTime;
+                    pocketWatchHand.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+                }
+                else
+                {
+                    print("Time has run out!");
+                    timeRemaining = 0;
+                    isRunning = false;
+                    EventSystemManager.OnTimeUp();
+                }
+            }
+        }
         
         public void startTimer()
         {
@@ -28,25 +56,6 @@ namespace Bar
         {
             if (timeRemaining > 0) isRunning = true;
             print($"Timer resumed. Time remaining: {timeRemaining}");
-        }
-
-        void Update()
-        {
-            if (isRunning)
-            {
-                if (timeRemaining > 0)
-                {
-                    timeRemaining -= Time.deltaTime;
-                }
-                else
-                {
-                    print("Time has run out!");
-                    timeRemaining = 0;
-                    isRunning = false;
-                    EventSystemManager.OnTimeUp();
-                    // todo: stop clock arm as well
-                }
-            }
         }
     }
 }

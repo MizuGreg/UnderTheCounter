@@ -9,7 +9,22 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: f3cdaa95d17675246aef8798cefd9e42
   - enabled: 1
+    path: Assets/Scenes/IntroductionScreen.unity
+    guid: 52c70dd081540b74a91fde5b93820a77
+  - enabled: 1
+    path: Assets/Scenes/ShopWindow.unity
+    guid: 739809a4f3f53f943af2bd073da98695
+  - enabled: 1
     path: Assets/Scenes/BarView.unity
-    guid: 5ee3f29004b76de47bfd27b89ebf0930
+    guid: c0a8fe49e1c07e7469a27afce4f833dc
+  - enabled: 1
+    path: Assets/Scenes/EndOfDay.unity
+    guid: 436ea23e1f0350a479242e3392dfa8f0
+  - enabled: 1
+    path: Assets/Scenes/VictoryScreen.unity
+    guid: 3533816d01280c94c87803039e0c48b1
+  - enabled: 1
+    path: Assets/Scenes/BarView_Timer.unity
+    guid: d03e80bb26b98fe4b8abaeacce0ef9a3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 7b736697820a8ff41814b41f148065ee, type: 3}

@@ -1,6 +1,6 @@
 namespace ShopWindow
 {
-    public class PosterManager
+    public class ShopWindowManager
     {
         public struct Poster
         {

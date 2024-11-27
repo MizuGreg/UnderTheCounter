@@ -18,9 +18,11 @@ namespace Bar
         private Image _currentImage;
         private DialogueManager _dialogueManager;
 
-        public CanvasGroup customerCanvas;
+        [SerializeField] private CanvasGroup customerCanvas;
         
         [SerializeField] private PricePopup pricePopup;
+
+        [SerializeField] private GameObject customerCocktail;
         
         [Range (0.1f, 5f)]
         public float timeBetweenCustomers = 2.5f;
@@ -34,6 +36,7 @@ namespace Bar
             EventSystemManager.OnTimeUp += TimeoutCustomers;
             EventSystemManager.OnCocktailMade += ServeCustomer;
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
+            EventSystemManager.OnPreparationStart += StartPreparation;
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
@@ -49,6 +52,7 @@ namespace Bar
             EventSystemManager.OnTimeUp -= TimeoutCustomers;
             EventSystemManager.OnCocktailMade -= ServeCustomer;
             EventSystemManager.OnCustomerLeave -= FarewellCustomer;
+            EventSystemManager.OnPreparationStart -= StartPreparation;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -125,6 +129,10 @@ namespace Bar
         
         }
 
+        private void StartPreparation() {
+            EventSystemManager.OnMakeCocktail(_currentCustomer.order);
+        }
+
         private void FarewellCustomer()
         {
             StartCoroutine(WaitBeforeFadeOut());
@@ -133,6 +141,7 @@ namespace Bar
         private IEnumerator WaitBeforeFadeOut()
         {
             yield return new WaitForSeconds(timeBeforeFadeout);
+            customerCocktail.GetComponent<FadeCanvas>().FadeOut();
             customerCanvas.GetComponent<FadeCanvas>().FadeOut();
             yield return WaitBeforeNextCustomer();
         }
@@ -144,10 +153,12 @@ namespace Bar
         }
 
         private void ServeCustomer(Cocktail cocktail)
-        {
-            // referenziare la lista degli ingredienti per controllare correttezza
-            // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
+        {            
             CocktailType order = _currentCustomer.order;
+            customerCocktail.GetComponent<Image>().sprite = Resources.Load("Sprites/CocktailCreation/" + cocktail.type, typeof(Sprite)) as Sprite;
+            customerCocktail.GetComponent<FadeCanvas>().FadeIn();
+            
+            // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
             Dialogue dialogue;
             float earning;
             if (cocktail.type != order)
@@ -165,11 +176,11 @@ namespace Bar
                 dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveCorrect"]);
                 earning = 5 + _currentCustomer.tip;
             }
-            _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
 
             pricePopup.DisplayPrice(earning);
+            _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
+
             Day.TodayEarnings += earning;
-            print($"Current earnings: {Day.TodayEarnings}");
             
             // if not watered down, we throw onDrunkCustomer event
             if (!cocktail.isWatered) EventSystemManager.OnDrunkCustomerLeave();

@@ -13,10 +13,7 @@ namespace Bar
         private DialogueManager _dialogueManager;
 
         public CanvasGroup barContainer;
-        public CanvasGroup barCanvas;
-        
-        [SerializeField] private CanvasGroup timerCanvas;
-        
+                
         void Start()
         {
             _customerManager = GetComponent<CustomerManager>();
@@ -49,7 +46,7 @@ namespace Bar
 
         private void EndDay()
         {
-            barCanvas.GetComponent<FadeCanvas>().FadeOut();
+            barContainer.GetComponent<FadeCanvas>().FadeOut();
             StartCoroutine(WaitThenEndDay());
         }
 

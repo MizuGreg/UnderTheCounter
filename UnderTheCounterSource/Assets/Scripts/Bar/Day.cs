@@ -10,9 +10,18 @@ namespace Bar
         public static int CurrentDay = 1;
         public static int DrunkCustomers;
         public static int MaxDrunkCustomers = 5;
-        public static List<PosterManager.Poster> CurrentPosters;
+        public static List<ShopWindowManager.Poster> CurrentPosters;
         public static float Savings = 0;
         public static float TodayEarnings = 0;
+
+        public static void Initialize()
+        {
+            CurrentDay = 1;
+            DrunkCustomers = 0;
+            CurrentPosters = new();
+            Savings = 0;
+            TodayEarnings = 0;
+        }
     }
     
 }

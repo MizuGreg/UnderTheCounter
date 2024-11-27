@@ -24,8 +24,7 @@ namespace Bar
         private float textSpeed;
         [Range(1f, 50.0f)]
         public float normalTextSpeed;
-        [Range(50f, 500.0f)]
-        public float skipTextSpeed;
+
         [Range(5f, 50.0f)]
         public float punctuationWaitMultiplier;
         
@@ -106,7 +105,7 @@ namespace Bar
                 switch (_dialogueType)
                 {
                     case DialogueType.Greet:
-                        EventSystemManager.OnMakeCocktail();
+                        EventSystemManager.OnPreparationStart();
                         break;
                     case DialogueType.Leave:
                         EventSystemManager.OnCustomerLeave();
@@ -163,7 +162,8 @@ namespace Bar
         
         private void SkipText()
         {
-            textSpeed = skipTextSpeed;
+            _allTextIsVisible = true;
+            dialogueText.maxVisibleCharacters = dialogueText.text.Length;
         }
 
         private void showIcon()

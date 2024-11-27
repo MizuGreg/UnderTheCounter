@@ -1,4 +1,5 @@
 using System.Collections;
+using Bar;
 using Technical;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,13 +19,14 @@ namespace Menu
         public void StartNewGame()
         {
             mainMenuCanvas.GetComponent<FadeCanvas>().FadeOut();
+            Day.Initialize();
             StartCoroutine(WaitBeforeNewGame());
         }
 
         private IEnumerator WaitBeforeNewGame()
         {
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene("Scenes/BarView");
+            SceneManager.LoadScene("Scenes/IntroductionScreen");
         }
     
         public void QuitGame()

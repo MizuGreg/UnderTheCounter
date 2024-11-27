@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Bar;
 using Technical;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace CocktailCreation
         [SerializeField] private GameObject waterButton;
         [SerializeField] private GameObject serveButton;
         [SerializeField] private Recipes recipes;
+
+        [SerializeField] private PostIt postIt;
         
         
         private static readonly int SlideIn = Animator.StringToHash("slideIn");
@@ -63,21 +66,23 @@ namespace CocktailCreation
             EventSystemManager.OnGarnishAdded -= ServeCocktail;
         }
 
-        private void ShowArea()
+        private void ShowArea(CocktailType cocktailType)
         {
             _cocktailCreationAreaAnimator.SetBool(SlideIn, true);
+            postIt.WriteCocktail(cocktailType);
         }
 
         private void HideArea()
         {
             _cocktailCreationAreaAnimator.SetBool(SlideIn, false);
             cocktailServingArea.SetActive(false);
+            postIt.HidePostIt();
         }
         
         public void ToggleArea()
         {
             if (_cocktailCreationAreaAnimator.GetBool(SlideIn)) HideArea();
-            else ShowArea();
+            else ShowArea(CocktailType.Wrong);
         }
 
 

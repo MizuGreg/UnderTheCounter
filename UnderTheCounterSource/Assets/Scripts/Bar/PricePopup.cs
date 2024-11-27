@@ -10,6 +10,10 @@ namespace Bar
         [SerializeField] private TextMeshProUGUI priceText;
         [SerializeField] private Animator animator;
 
+        private void Start() {
+            gameObject.SetActive(true);
+        }
+
         public void DisplayPrice(float earning)
         {
             priceText.text = $"${earning:F}";
