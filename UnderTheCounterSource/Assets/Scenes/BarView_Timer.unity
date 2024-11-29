@@ -6422,7 +6422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -282
+      value: -260
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6442,7 +6442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3484263413896642004, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4026470018005492304, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -10186,7 +10186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9078576693153832001, guid: 6c6430153b3a81a4da7f6737ff0f7f24, type: 3}
       propertyPath: m_Name
-      value: RecipeBook
+      value: RecipeBookCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 9078576693153832001, guid: 6c6430153b3a81a4da7f6737ff0f7f24, type: 3}
       propertyPath: m_IsActive
