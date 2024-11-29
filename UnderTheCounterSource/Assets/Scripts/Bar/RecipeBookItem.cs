@@ -8,9 +8,10 @@ namespace Bar
         [SerializeField] private CocktailType cocktailType;
         [SerializeField] private RecipeBookManager recipeBookManager;
 
-        public void SetCurrentCocktailToThis()
+        public void ShowThisCocktail()
         {
             recipeBookManager.SetCurrentCocktail(cocktailType);
+            recipeBookManager.ShowCurrentCocktail();
         }
     }
 }
