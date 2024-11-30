@@ -53,6 +53,8 @@ namespace CocktailCreation
             EventSystemManager.OnShakerFull += ActivateMixButton;
             EventSystemManager.OnGarnishAdded += ServeCocktail;
             
+            EventSystemManager.HideCCA += HideArea;
+            
             // Initialize recipes 
             InitializeRecipes();
         }
@@ -64,6 +66,8 @@ namespace CocktailCreation
             EventSystemManager.OnIngredientAdded -= UpdateFullnessBar;
             EventSystemManager.OnShakerFull -= ActivateMixButton;
             EventSystemManager.OnGarnishAdded -= ServeCocktail;
+
+            EventSystemManager.HideCCA -= HideArea;
         }
 
         private void ShowArea(CocktailType cocktailType)

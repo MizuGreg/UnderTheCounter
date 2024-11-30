@@ -1,5 +1,6 @@
 using System.Collections;
 using Technical;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ namespace Bar
 {
     public class BarManager : MonoBehaviour
     {
+        private TutorialManager1 _tutorialManager1;
         private CustomerManager _customerManager;
         private RecipeBookManager _recipeBookManager;
         private TimerManager _timerManager;
@@ -16,11 +18,13 @@ namespace Bar
                 
         void Start()
         {
+            _tutorialManager1 = GetComponent<TutorialManager1>();
             _customerManager = GetComponent<CustomerManager>();
             _recipeBookManager = GetComponent<RecipeBookManager>();
             _timerManager = GetComponent<TimerManager>();
             _dialogueManager = GetComponent<DialogueManager>();
             _customerManager.AttachDialogueManager(_dialogueManager);
+            _tutorialManager1.AttachDialogueManager(_dialogueManager);
         
             EventSystemManager.OnDayStart += StartDay;
             EventSystemManager.OnDrunkCustomerLeave += CheckDrunk;
@@ -39,9 +43,15 @@ namespace Bar
 
         public void StartDay()
         {
-            _customerManager.StartDay();
-            _timerManager.startTimer();
-        
+            if (Day.CurrentDay == 1)
+            {
+                _tutorialManager1.StartTutorial();
+            }
+            else
+            {
+                _customerManager.StartDay();
+                _timerManager.startTimer();
+            }
         }
 
         private void EndDay()

@@ -33,6 +33,7 @@ namespace Bar
 
         private void Start()
         {
+            EventSystemManager.OnTutorial1End += StartDay;
             EventSystemManager.OnTimeUp += TimeoutCustomers;
             EventSystemManager.OnCocktailMade += ServeCustomer;
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
@@ -49,6 +50,7 @@ namespace Bar
 
         private void OnDestroy()
         {
+            EventSystemManager.OnTutorial1End -= StartDay;
             EventSystemManager.OnTimeUp -= TimeoutCustomers;
             EventSystemManager.OnCocktailMade -= ServeCustomer;
             EventSystemManager.OnCustomerLeave -= FarewellCustomer;
@@ -68,8 +70,7 @@ namespace Bar
         public void StartDay()
         {
             LoadDailyCustomers(Day.CurrentDay);
-            if (Day.CurrentDay == 1) PlayTutorial();
-            else GreetCustomer();
+            GreetCustomer();
         }
 
         private void LoadDailyCustomers(int currentDay)
@@ -130,7 +131,14 @@ namespace Bar
         }
 
         private void StartPreparation() {
-            EventSystemManager.OnMakeCocktail(_currentCustomer.order);
+            if (_currentCustomer != null)
+            {
+                EventSystemManager.OnMakeCocktail(_currentCustomer.order);
+            }
+            else
+            {
+                EventSystemManager.OnMakeCocktail(CocktailType.Wrong);
+            }
         }
 
         private void FarewellCustomer()
@@ -153,7 +161,9 @@ namespace Bar
         }
 
         private void ServeCustomer(Cocktail cocktail)
-        {            
+        {    
+            // TODO: per il tutorial wrappa questo codice in if(currentCustomer != null) o copia incolla e sistema
+            
             CocktailType order = _currentCustomer.order;
             customerCocktail.GetComponent<Image>().sprite = Resources.Load("Sprites/CocktailCreation/" + cocktail.type, typeof(Sprite)) as Sprite;
             customerCocktail.GetComponent<FadeCanvas>().FadeIn();
@@ -184,14 +194,6 @@ namespace Bar
             
             // if not watered down, we throw onDrunkCustomer event
             if (!cocktail.isWatered) EventSystemManager.OnDrunkCustomerLeave();
-        }
-    
-
-        public void PlayTutorial()
-        {
-            // todo: tutorial with ex bar owner. for now it's just a simple customer, but it could become something more
-            // complex in the future if need be
-            GreetCustomer();
         }
     }
 }

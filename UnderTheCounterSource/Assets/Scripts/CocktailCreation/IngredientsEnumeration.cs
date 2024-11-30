@@ -6,6 +6,7 @@ namespace CocktailCreation
         Caledon,
         Ferrucci,
         Gryte,
-        Shaddock
+        Shaddock,
+        Unspecified
     }
 }

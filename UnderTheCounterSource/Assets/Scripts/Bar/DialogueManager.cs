@@ -15,6 +15,10 @@ namespace Bar
         public TextMeshProUGUI dialogueText;
         private TMP_TextInfo textInfo;
         public Animator animator;
+        
+        // Pop-up messages
+        public TextMeshProUGUI popUpNameText;
+        public TextMeshProUGUI popUpDialogueText;
 
         private Queue<string> _sentences;
         private DialogueType _dialogueType;
@@ -58,7 +62,35 @@ namespace Bar
 
         public void StartDialogue(Dialogue dialogue, DialogueType dialogueType)
         {
+            //DANGER
+            _sentences.Clear();
+            //DANGER
+            
+            
             StartCoroutine(WaitBeforeDialogueBox(dialogue, dialogueType));
+        }
+
+        public void StartPopUp(Dialogue dialogue)
+        {
+            popUpNameText.text = dialogue.name;
+            foreach (string sentence in dialogue.sentences) 
+            {
+                _sentences.Enqueue(sentence);
+            }
+            popUpDialogueText.text = "";
+            popUpDialogueText.text = dialogue.sentences[0]; // sentence is fed into box
+            popUpDialogueText.ForceMeshUpdate(); // force correct calculation of characters
+            
+            popUpDialogueText.transform.parent.gameObject.SetActive(true);
+            
+            StartCoroutine(EndPopUpAfterAWhile());
+        }
+
+        private IEnumerator EndPopUpAfterAWhile()
+        {
+            yield return new WaitForSeconds(5);
+            popUpDialogueText.transform.parent.gameObject.SetActive(false);
+            EventSystemManager.NextTutorialStep();
         }
 
         private IEnumerator WaitBeforeDialogueBox(Dialogue dialogue, DialogueType dialogueType)
@@ -109,6 +141,9 @@ namespace Bar
                         break;
                     case DialogueType.Leave:
                         EventSystemManager.OnCustomerLeave();
+                        break;
+                    case DialogueType.Tutorial:
+                        EventSystemManager.NextTutorialStep();
                         break;
                 }
             }

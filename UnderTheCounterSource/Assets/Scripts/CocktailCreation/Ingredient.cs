@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Technical;
 using UnityEngine;
@@ -19,6 +20,20 @@ namespace CocktailCreation
         {
             _shaker = GameObject.FindGameObjectWithTag("Shaker");
             _pouringPosition = targetPosition.GetComponent<RectTransform>().anchoredPosition;
+
+            EventSystemManager.MakeIngredientInteractable += MakeInteractable;
+
+        }
+
+        private void OnDestroy()
+        {
+            EventSystemManager.MakeIngredientInteractable -= MakeInteractable;
+        }
+
+        private void MakeInteractable(IngredientType type)
+        {
+            if (type == ingredientType) CanvasGroup.blocksRaycasts = true;
+            else CanvasGroup.blocksRaycasts = false;
         }
 
         protected override void EndDragBehaviour()
