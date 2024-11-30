@@ -1,32 +1,10 @@
-{
-  "customers": [
-    {
-      "lines": {
-        "greet": [
-          "Hey! this is your new bar, let me guide you."
-        ]
-      }
-    },
-    {
-      "lines": {
-        "greet": [
-          "This is the cocktail creation area."
-        ]
-      }
-    },
-    {
-      "lines": {
-        "greet": [
-          "Let’s put hands on and make your first cocktail. Make me a <b>Ripple</b>!"
-        ]
-      }
-    },
-    {
-      "lines": {
-        "greet": [
-          "The order will appear here"
-        ]
-      }
-    }
-  ]
-}
+[
+  ["Hey! This is your new bar, let me guide you."],
+  ["This is the cocktail creation area.", "This is where the magic happens, young one!"],
+  ["Let’s go hands-on and make your first cocktail now. Make me a <b>Ripple</b>!"],
+  ["The order will appear here"],
+  ["Let's check the recipe book"],
+  ["Well, you need..."],
+  ["Close the recipe book"],
+  ["Drag and drop the Verlan onto the shaker"]
+]

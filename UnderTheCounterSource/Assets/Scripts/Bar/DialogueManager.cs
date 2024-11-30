@@ -19,6 +19,7 @@ namespace Bar
         // Pop-up messages
         public TextMeshProUGUI popUpNameText;
         public TextMeshProUGUI popUpDialogueText;
+        private bool isPopupActive;
 
         private Queue<string> _sentences;
         private DialogueType _dialogueType;
@@ -49,7 +50,7 @@ namespace Bar
             }
         }
 
-        public void setDialogueBoxActive(bool active)
+        public void SetDialogueBoxActive(bool active)
         {
             IsBoxActive = active;
         }
@@ -57,7 +58,7 @@ namespace Bar
         public void SetNormalTextSpeed(float speed)
         {
             normalTextSpeed = speed;
-            textSpeed = speed; // so this also stops the skipping animation, as a side effect
+            textSpeed = speed;
         }
 
         public void StartDialogue(Dialogue dialogue, DialogueType dialogueType)
@@ -72,23 +73,37 @@ namespace Bar
 
         public void StartPopUp(Dialogue dialogue)
         {
+            isPopupActive = true;
             popUpNameText.text = dialogue.name;
+            
+            _sentences.Clear();
             foreach (string sentence in dialogue.sentences) 
             {
                 _sentences.Enqueue(sentence);
             }
+            
             popUpDialogueText.text = "";
-            popUpDialogueText.text = dialogue.sentences[0]; // sentence is fed into box
-            popUpDialogueText.ForceMeshUpdate(); // force correct calculation of characters
-            
             popUpDialogueText.transform.parent.gameObject.SetActive(true);
-            
-            StartCoroutine(EndPopUpAfterAWhile());
+            ShowNextPopUp();
+        }
+
+        public void ShowNextPopUp()
+        {
+            if (_sentences.Count > 0)
+            {
+                popUpDialogueText.text = _sentences.Dequeue();
+            }
+            if (_sentences.Count == 0)
+            {
+                StopAllCoroutines();
+                StartCoroutine(EndPopUpAfterAWhile());
+            }
         }
 
         private IEnumerator EndPopUpAfterAWhile()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3f);
+            isPopupActive = false;
             popUpDialogueText.transform.parent.gameObject.SetActive(false);
             EventSystemManager.NextTutorialStep();
         }
@@ -123,9 +138,17 @@ namespace Bar
 
         public void OnNextButtonPressed()
         {
-            if (!IsBoxActive) return; // works only when the dialogue box is fully displayed and running
-            if (_allTextIsVisible) DisplayNextSentence();
-            else SkipText();
+            if (isPopupActive)
+            {
+                ShowNextPopUp();
+                return;
+            }
+            
+            if (IsBoxActive) // so this works only when the dialogue box is fully displayed and running
+            {
+                if (_allTextIsVisible) DisplayNextSentence();
+                else SkipText();
+            }
         }
 
         private void DisplayNextSentence()

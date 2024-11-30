@@ -21,8 +21,8 @@ namespace Tutorial
         
         private DialogueManager _dialogueManager;
         private Image _currentImage;
-        private List<Customer> _steps;
-        private Customer _currentStep;
+        private List<List<string>> _steps;
+        private List<string> _currentStep;
         private int _actualStep = -1;
         
         private void Start()
@@ -60,7 +60,7 @@ namespace Tutorial
             #endif
             
             //_steps = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
-            _steps = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
+            _steps = JsonConvert.DeserializeObject<List<List<string>>>(jsonString);
             
         }
 
@@ -97,6 +97,7 @@ namespace Tutorial
             EventSystemManager.OnCustomerEnter();
         }
 
+        // Ernest explains the CCA to the player
         private void Step1()
         {
             Debug.Log("Step 1");
@@ -112,6 +113,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp());
         }
 
+        // Ernest returns to the dialogue view and tells the player to make their first cocktail
         private void Step2()
         {
             Debug.Log("Step 2");
@@ -127,6 +129,7 @@ namespace Tutorial
             EventSystemManager.OnCustomerEnter();
         }
 
+        // Shows the order post-it
         private void Step3()
         {
             Debug.Log("Step 3");
@@ -145,7 +148,7 @@ namespace Tutorial
             yield return new WaitForSeconds(timeBeforeDialogue);
             
             _dialogueManager.StartDialogue(
-                new Dialogue("Ernest", _currentStep.lines["greet"]),
+                new Dialogue("Ernest", _currentStep),
                 DialogueType.Tutorial);
             
         }
@@ -154,13 +157,13 @@ namespace Tutorial
         {
             yield return new WaitForSeconds(timeBeforeDialogue);
             
-            _dialogueManager.StartPopUp(new Dialogue("Ernest", _currentStep.lines["greet"]));
+            _dialogueManager.StartPopUp(new Dialogue("Ernest", _currentStep));
             
         }
 
         private void StartPopUp()
         {
-            _dialogueManager.StartPopUp(new Dialogue("Ernest", _currentStep.lines["greet"]));
+            _dialogueManager.StartPopUp(new Dialogue("Ernest", _currentStep));
         }
         
         
