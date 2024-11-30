@@ -29,5 +29,10 @@ namespace Technical
 
         public static UnityAction OnLoadMainMenu;
         public static UnityAction OnLoadBarView;
+
+        public static UnityAction NextTutorialStep;
+        public static UnityAction HideCCA;
+        public static UnityAction<IngredientType> MakeIngredientInteractable;
+        public static UnityAction OnTutorial1End;
     }
 }

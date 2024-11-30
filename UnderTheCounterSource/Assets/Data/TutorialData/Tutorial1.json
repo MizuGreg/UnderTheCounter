@@ -1,0 +1,32 @@
+{
+  "customers": [
+    {
+      "lines": {
+        "greet": [
+          "Hey! this is your new bar, let me guide you."
+        ]
+      }
+    },
+    {
+      "lines": {
+        "greet": [
+          "This is the cocktail creation area."
+        ]
+      }
+    },
+    {
+      "lines": {
+        "greet": [
+          "Let’s put hands on and make your first cocktail. Make me a <b>Ripple</b>!"
+        ]
+      }
+    },
+    {
+      "lines": {
+        "greet": [
+          "The order will appear here"
+        ]
+      }
+    }
+  ]
+}

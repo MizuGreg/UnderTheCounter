@@ -10,7 +10,7 @@ namespace CocktailCreation
         [SerializeField] private bool fixedY;
         
         protected Canvas Canvas;
-        private CanvasGroup _canvasGroup;
+        protected CanvasGroup CanvasGroup;
         protected RectTransform RectTransform;
         private int _originalSiblingIndex;
         private Vector2 _actualPosition;
@@ -21,7 +21,7 @@ namespace CocktailCreation
         {
             Canvas = GetComponentInParent<Canvas>();
             RectTransform = GetComponent<RectTransform>();
-            _canvasGroup = GetComponent<CanvasGroup>();
+            CanvasGroup = GetComponent<CanvasGroup>();
             _originalSiblingIndex = transform.GetSiblingIndex();
             _initialPosition = RectTransform.anchoredPosition;
             _initialRotation = RectTransform.rotation;
@@ -31,7 +31,7 @@ namespace CocktailCreation
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _canvasGroup.blocksRaycasts = false;
+            CanvasGroup.blocksRaycasts = false;
             RectTransform.SetAsLastSibling();
         }
 
@@ -51,7 +51,7 @@ namespace CocktailCreation
 
         public virtual void OnEndDrag(PointerEventData eventData)
         {
-            _canvasGroup.blocksRaycasts = true;
+            CanvasGroup.blocksRaycasts = true;
             
             EndDragBehaviour();
             
