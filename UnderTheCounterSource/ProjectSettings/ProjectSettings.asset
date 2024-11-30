@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: UtC Team
   productName: Under The Counter
-  defaultCursor: {fileID: 2800000, guid: d714822d66f49bd42a3012eedeac2b32, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -143,8 +143,9 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: alpha-1.0
-  preloadedAssets: []
+  bundleVersion: alpha-1.2
+  preloadedAssets:
+  - {fileID: -944628639613478452, guid: 7b736697820a8ff41814b41f148065ee, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -291,7 +292,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 0661776473545b349955509b3ec5d487, type: 3}
+      m_Icon: {fileID: 2800000, guid: bcfb168493089aa48b5e47fda3b6bdde, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

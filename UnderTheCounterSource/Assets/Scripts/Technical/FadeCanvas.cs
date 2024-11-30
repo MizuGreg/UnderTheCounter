@@ -11,6 +11,11 @@ namespace Technical
         [Range(0.1f, 10.0f)]
         public float fadeSpeed = 1f;
 
+        public void Awake()
+        {
+            if (canvasGroup == null) GetComponent<CanvasGroup>();
+        }
+        
         public void FadeIn()
         {
             // activates object to start fading

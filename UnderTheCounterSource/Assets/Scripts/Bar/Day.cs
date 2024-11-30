@@ -9,7 +9,7 @@ namespace Bar
         public static float DailyTime = 120;
         public static int CurrentDay = 1;
         public static int DrunkCustomers;
-        public static int MaxDrunkCustomers = 5;
+        public static int MaxDrunkCustomers = 3;
         public static List<ShopWindowManager.Poster> CurrentPosters;
         public static float Savings = 0;
         public static float TodayEarnings = 0;

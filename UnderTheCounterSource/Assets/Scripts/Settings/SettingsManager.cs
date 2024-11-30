@@ -37,12 +37,11 @@ namespace Settings
             float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
             float fxVolume = PlayerPrefs.GetFloat("FXVolume");
             
-            
-            // SetMusicVolume(musicVolume);
             musicVolumeSlider.value = musicVolume;
-            
-            // SetFXVolume(fxVolume);
             sfxVolumeSlider.value = fxVolume;
+            
+            SetMusicVolume(musicVolume);
+            SetFXVolume(fxVolume);
         }
 
         private void LoadTextSpeedOnStartup()

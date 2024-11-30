@@ -22,7 +22,7 @@ namespace IntroductionScreen
 
         private IEnumerator ShowButton() {
             startDayButtonCanvas.gameObject.SetActive(false);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             startDayButtonCanvas.GetComponent<FadeCanvas>().FadeIn();
         }
 

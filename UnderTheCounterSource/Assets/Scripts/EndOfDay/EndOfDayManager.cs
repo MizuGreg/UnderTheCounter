@@ -3,12 +3,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Bar;
+using Technical;
 using UnityEngine.SceneManagement;
 
 namespace EndOfDay
 {
     public class EndOfDayManager : MonoBehaviour
     {
+        public FadeCanvas endOfDayCanvas;
         public GameObject popupPanel;
         public TextMeshProUGUI dayText;
         public TextMeshProUGUI messageText;
@@ -31,7 +33,7 @@ namespace EndOfDay
         };
 
         [System.Serializable]
-        public class PopupData
+        public struct PopupData
         {
             public int day;
             public float earnings;
@@ -41,18 +43,19 @@ namespace EndOfDay
             public float alcohol;
         }
 
-        public PopupData popupData;
+        private PopupData popupData;
 
         void Start()
         {
+            endOfDayCanvas.FadeIn();
             popupPanel.SetActive(false);
             nextDayButton.gameObject.SetActive(false);
 
-            populateData();
-            ShowPopupFromData();
+            PopulateData();
+            StartCoroutine(ShowPopup());
         }
 
-        private void populateData()
+        private void PopulateData()
         {
             popupData.day = Day.CurrentDay;
             popupData.earnings = Day.TodayEarnings;
@@ -60,16 +63,11 @@ namespace EndOfDay
             // todo rent, food, alcohol
         }
 
-        public void ShowPopupFromData()
-        {
-            ShowPopup(popupData.day, popupData.earnings, popupData.savings, popupData.rent, popupData.food, popupData.alcohol);
-        }
-
-        public void ShowPopup(int day, float earnings, float savings, float rent, float food, float alcohol)
+        private IEnumerator ShowPopup()
         {
             stampImage.gameObject.SetActive(false);
 
-            dayText.text = "Day " + day;
+            dayText.text = "Day " + popupData.day;
 
             string randomMessage = GetRandomMessage();
             messageText.text = randomMessage;
@@ -79,13 +77,15 @@ namespace EndOfDay
                 text.text = "";
                 text.gameObject.SetActive(false);
             }
+            
+            yield return new WaitForSeconds(1f);
 
-            incomeOutcomeTexts[0].text = "Earnings: <b>$" + earnings + "</b>";
-            incomeOutcomeTexts[1].text = "Savings: <b>$" + savings + "</b>";
-            incomeOutcomeTexts[2].text = "Rent: <b>-$" + rent + "</b>";
-            incomeOutcomeTexts[3].text = "Food: <b>-$" + food + "</b>";
-            incomeOutcomeTexts[4].text = "Alcohol: <b>-$" + alcohol + "</b>";
-            incomeOutcomeTexts[5].text = "Total: <b>$" + (earnings + savings - rent - food - alcohol) + "</b>";
+            incomeOutcomeTexts[0].text = $"Earnings: <b>${popupData.earnings}</b>";
+            incomeOutcomeTexts[1].text = $"Savings: <b>${popupData.savings}</b>";
+            incomeOutcomeTexts[2].text = $"Rent: <b>-${popupData.rent}</b>";
+            incomeOutcomeTexts[3].text = $"Food: <b>-${popupData.food}</b>";
+            incomeOutcomeTexts[4].text = $"Alcohol: <b>-${popupData.alcohol}</b>";
+            incomeOutcomeTexts[5].text = $"Total: <b>${popupData.earnings + popupData.savings - popupData.rent -popupData.food - popupData.alcohol}</b>";
 
             popupPanel.SetActive(true);
 
@@ -100,7 +100,7 @@ namespace EndOfDay
 
         private IEnumerator DisplayTextsOneByOne()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(timeBeforeLines);
             foreach (TextMeshProUGUI text in incomeOutcomeTexts)
             {
                 text.gameObject.SetActive(true);
