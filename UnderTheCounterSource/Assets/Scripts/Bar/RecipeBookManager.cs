@@ -48,16 +48,16 @@ namespace Bar
                 case CocktailType.Ripple:
                     cocktailName.text = "Ripple";
                     cocktailSprite.sprite = Resources.Load<Sprite>("Sprites/CocktailCreation/Ripple");
-                    ingredientsList.text = "- 1 oz whatever<br>- 2 oz whatever<br> - 2 oz whatever";
+                    ingredientsList.text = "1 oz whatever<br>2 oz whatever<br>2 oz whatever";
                     cocktailDescription.text =
-                        "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.";
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.";
                     break;
                 case CocktailType.Everest:
                     cocktailName.text = "Everest";
                     cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/CocktailCreation/Everest");
-                    ingredientsList.text = "- 1 oz caledon<br>- 2 oz drugs<br> - 2 oz water";
+                    ingredientsList.text = "1 oz caledon<br>2 oz drugs<br>2 oz water";
                     cocktailDescription.text =
-                        "AQEWSRDRYTYHIUOIJHIGYFRDSWAESRDTYGYHIUOJPKMJNHYGVTYFDESRWEDTRYGUYHJOIJPOBVYCFXDSRXDTY";
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip";
                     break;
                 case CocktailType.SpringBee:
                     break;
