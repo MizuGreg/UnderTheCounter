@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a77787bdb1346e2ae8e18f044565fd, type: 3}
   m_Name: RippleRecipe
   m_EditorClassIdentifier: 
-  ingredients: 0000000000000000040000000400000003000000
+  ingredients: 0100000001000000040000000400000003000000
   cocktailPrefab: {fileID: 3257329603769025049, guid: 18705d781d40d4ff5b3057db030ce2ac, type: 3}
