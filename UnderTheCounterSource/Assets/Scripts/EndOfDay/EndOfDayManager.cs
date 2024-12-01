@@ -25,14 +25,7 @@ namespace EndOfDay
         public float timeBetweenLines = 0.5f;
         public float timeAfterLines = 1f;
 
-        public string[] randomMessages = 
-        {
-            "Random message 1",
-            "Random message 2",
-            "Random message 3",
-            "Random message 4",
-            "Random message 5"
-        };
+        public string[] summaryMessages;
 
         [System.Serializable]
         public struct PopupData
@@ -71,8 +64,8 @@ namespace EndOfDay
 
             dayText.text = "Day " + popupData.day;
 
-            string randomMessage = GetRandomMessage();
-            messageText.text = randomMessage;
+            string summaryMessage = summaryMessages[popupData.day-1];
+            messageText.text = summaryMessage;
 
             foreach (TextMeshProUGUI text in amountTexts)
             {
@@ -96,8 +89,8 @@ namespace EndOfDay
 
         private string GetRandomMessage()
         {
-            int index = Random.Range(0, randomMessages.Length);
-            return randomMessages[index];
+            int index = Random.Range(0, summaryMessages.Length);
+            return summaryMessages[index];
         }
 
         private IEnumerator DisplayTextsOneByOne()

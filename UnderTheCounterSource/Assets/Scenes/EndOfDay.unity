@@ -1048,7 +1048,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2349,6 +2349,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
+--- !u!1 &1015105788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1015105789}
+  - component: {fileID: 1015105790}
+  m_Layer: 0
+  m_Name: DebugLogger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1015105789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015105788}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2136037499}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1015105790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015105788}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bbbd2ca889cc74283824158db817e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1028600521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2809,13 +2853,13 @@ MonoBehaviour:
   timeBeforeLines: 2
   timeBetweenLines: 0.6
   timeAfterLines: 0.5
-  randomMessages:
-  - Random message 1
-  - Random message 2
-  - Random message 3
-  - Random message 4
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqua.
+  summaryMessages:
+  - How does it feel to have your own little bar? Nice? Good, because it will stay
+    this way for quite some time! Keep it up.
+  - <i>Business</i> is booming, as they say. Keep going and you'll see what the future
+    has in store for you!
+  - Here's to hoping it won't be as tough from now on... Prohibition is doomed to
+    shape all our lives, whether we like it or not.
 --- !u!114 &1323415564 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1240139551227905833, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
@@ -3897,6 +3941,7 @@ Transform:
   m_Children:
   - {fileID: 1337454162}
   - {fileID: 836593108}
+  - {fileID: 1015105789}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807

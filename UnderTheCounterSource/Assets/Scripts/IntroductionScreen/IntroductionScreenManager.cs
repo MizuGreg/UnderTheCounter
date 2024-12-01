@@ -33,7 +33,7 @@ namespace IntroductionScreen
         private IEnumerator WaitThenStartDay() {
             mainCanvas.GetComponent<FadeCanvas>().FadeOut();
             yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene("Scenes/BarView_Timer");
+            SceneManager.LoadScene("Scenes/TutorialDay1");
         }
     }
 }

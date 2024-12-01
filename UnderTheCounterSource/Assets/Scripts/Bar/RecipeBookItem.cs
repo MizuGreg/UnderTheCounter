@@ -29,13 +29,11 @@ namespace Bar
 
         public void HighlightName()
         {
-            this.gameObject.GetComponent<TextMeshProUGUI>().text = $"<u>{cocktailType}";
             this.transform.Find("Triangle").GetComponent<Image>().sprite = blackTriangle;
         }
         
         public void DehighlightName()
         {
-            this.gameObject.GetComponent<TextMeshProUGUI>().text = $"{cocktailType}";
             this.transform.Find("Triangle").GetComponent<Image>().sprite = emptyTriangle;
         }
     }
