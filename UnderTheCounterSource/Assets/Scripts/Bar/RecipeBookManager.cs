@@ -10,7 +10,7 @@ namespace Bar
     public class RecipeBookManager : MonoBehaviour
     {
         public CanvasGroup recipeBook;
-        public CocktailType currentCocktail;
+        public CocktailType currentCocktail = CocktailType.Ripple;
 
         [SerializeField] private CanvasGroup currentCocktailCanvas;
         [SerializeField] private TextMeshProUGUI cocktailName;
@@ -31,7 +31,7 @@ namespace Bar
         public void ShowRecipeBook()
         {
             recipeBook.GetComponent<FadeCanvas>().FadeIn();
-
+            ShowCurrentCocktail();
         }
 
         public void HideRecipeBook()
