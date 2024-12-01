@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <u>start</u>
+  m_text: <u>NEXT DAY</u>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 5227b1b7515f0024bb826316a2b2c4fe, type: 2}

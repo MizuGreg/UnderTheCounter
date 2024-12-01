@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Bar;
 using Technical;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace EndOfDay
 {
@@ -14,7 +15,8 @@ namespace EndOfDay
         public GameObject popupPanel;
         public TextMeshProUGUI dayText;
         public TextMeshProUGUI messageText;
-        public TextMeshProUGUI[] incomeOutcomeTexts;
+        public TextMeshProUGUI[] entryTexts;
+        public TextMeshProUGUI[] amountTexts;
         public Image stampImage;
 
         public Button nextDayButton;
@@ -40,7 +42,7 @@ namespace EndOfDay
             public float savings;
             public float rent;
             public float food;
-            public float alcohol;
+            public float supplies;
         }
 
         private PopupData popupData;
@@ -72,7 +74,7 @@ namespace EndOfDay
             string randomMessage = GetRandomMessage();
             messageText.text = randomMessage;
 
-            foreach (TextMeshProUGUI text in incomeOutcomeTexts)
+            foreach (TextMeshProUGUI text in amountTexts)
             {
                 text.text = "";
                 text.gameObject.SetActive(false);
@@ -80,12 +82,12 @@ namespace EndOfDay
             
             yield return new WaitForSeconds(1f);
 
-            incomeOutcomeTexts[0].text = $"Earnings: <b>${popupData.earnings}</b>";
-            incomeOutcomeTexts[1].text = $"Savings: <b>${popupData.savings}</b>";
-            incomeOutcomeTexts[2].text = $"Rent: <b>-${popupData.rent}</b>";
-            incomeOutcomeTexts[3].text = $"Food: <b>-${popupData.food}</b>";
-            incomeOutcomeTexts[4].text = $"Alcohol: <b>-${popupData.alcohol}</b>";
-            incomeOutcomeTexts[5].text = $"Total: <b>${popupData.earnings + popupData.savings - popupData.rent -popupData.food - popupData.alcohol}</b>";
+            amountTexts[0].text = $"<b>${popupData.earnings}</b>";
+            amountTexts[1].text = $"<b>${popupData.savings}</b>";
+            amountTexts[2].text = $"<b>-${popupData.rent}</b>";
+            amountTexts[3].text = $"<b>-${popupData.food}</b>";
+            amountTexts[4].text = $"<b>-${popupData.supplies}</b>";
+            amountTexts[5].text = $"<b>${popupData.earnings + popupData.savings - popupData.rent -popupData.food - popupData.supplies}</b>";
 
             popupPanel.SetActive(true);
 
@@ -101,10 +103,15 @@ namespace EndOfDay
         private IEnumerator DisplayTextsOneByOne()
         {
             yield return new WaitForSeconds(timeBeforeLines);
-            foreach (TextMeshProUGUI text in incomeOutcomeTexts)
+            for (var i = 0; i < amountTexts.Length; i++)
             {
-                text.gameObject.SetActive(true);
+                entryTexts[i].gameObject.SetActive(true);
+                amountTexts[i].gameObject.SetActive(true);
                 yield return new WaitForSeconds(timeBetweenLines);
+                if (i == amountTexts.Length - 2) // waits a little bit more before the final entry
+                {
+                    yield return new WaitForSeconds(timeBetweenLines);
+                }
             }
 
             yield return new WaitForSeconds(timeAfterLines);
@@ -128,7 +135,7 @@ namespace EndOfDay
             stampImage.transform.localPosition = startPosition; // Posizione iniziale
             stampImage.transform.localScale = startScale; // Scala iniziale
 
-            float duration = 0.2f; // Durata del movimento principale
+            float duration = 0.3f; // Durata del movimento principale
             float bounceDuration = 0.1f; // Durata del rimbalzo
             float elapsedTime = 0;
 
@@ -164,11 +171,16 @@ namespace EndOfDay
 
         public void NextDay()
         {
-            popupPanel.SetActive(false);
+            StartCoroutine(LoadNextScene());
             Day.Savings += Day.TodayEarnings;
             Day.TodayEarnings = 0;
             Day.CurrentDay++;
-        
+        }
+
+        private IEnumerator LoadNextScene()
+        {
+            endOfDayCanvas.FadeOut();
+            yield return new WaitForSeconds(1f);
             SceneManager.LoadScene("ShopWindow");
         }
     }
