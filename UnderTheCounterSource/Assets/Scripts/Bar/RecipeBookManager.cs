@@ -3,14 +3,16 @@ using UnityEngine;
 using CocktailCreation;
 using Technical;
 using TMPro;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Bar
 {
     public class RecipeBookManager : MonoBehaviour
     {
-        public CanvasGroup recipeBook;
-        public CocktailType currentCocktail = CocktailType.Ripple;
+        [SerializeField] private CanvasGroup recipeBook;
+        [SerializeField] private CocktailType currentCocktail;
+        [SerializeField] private RecipeBookItem[] recipes;
 
         [SerializeField] private CanvasGroup currentCocktailCanvas;
         [SerializeField] private TextMeshProUGUI cocktailName;
@@ -26,38 +28,20 @@ namespace Bar
         public void SetCurrentCocktail(CocktailType cocktailType)
         {
             currentCocktail = cocktailType;
-        }
-
-        public void ShowRecipeBook()
-        {
-            recipeBook.GetComponent<FadeCanvas>().FadeIn();
             ShowCurrentCocktail();
         }
 
-        public void HideRecipeBook()
+        private string GenerateIngredientsList(CocktailType cocktailType)
         {
-            recipeBook.GetComponent<FadeCanvas>().FadeOut();
-        }
-
-        public void ShowCurrentCocktail()
-        {
-            currentCocktailCanvas.GetComponent<FadeCanvas>().FadeIn();
-            // this switch case will become generalized later on
-            switch (currentCocktail)
+            Recipe example = Resources.FindObjectsOfTypeAll<Recipe>()[0];
+            print(example.ingredients);
+            
+            // hardcoded for now
+            switch (cocktailType)
             {
                 case CocktailType.Ripple:
-                    cocktailName.text = "Ripple";
-                    cocktailSprite.sprite = Resources.Load<Sprite>("Sprites/CocktailCreation/Ripple");
-                    ingredientsList.text = "1 oz whatever<br>2 oz whatever<br>2 oz whatever";
-                    cocktailDescription.text =
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.";
                     break;
                 case CocktailType.Everest:
-                    cocktailName.text = "Everest";
-                    cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/CocktailCreation/Everest");
-                    ingredientsList.text = "1 oz caledon<br>2 oz drugs<br>2 oz water";
-                    cocktailDescription.text =
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip";
                     break;
                 case CocktailType.SpringBee:
                     break;
@@ -68,8 +52,53 @@ namespace Bar
                 case CocktailType.Wrong:
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(cocktailType), cocktailType, null);
             }
+            
+            return example.ingredients.ToString();
+        }
+
+        private string RetrieveDescription(CocktailType cocktailType)
+        {
+            Recipe exampleDescription = Resources.FindObjectsOfTypeAll<Recipe>()[0];
+            print(exampleDescription.cocktailPrefab.GetComponent<CocktailScript>().cocktail.description);
+            
+            // hardcoded for now
+            string description;
+            switch (cocktailType) {
+                case CocktailType.Ripple:
+                    description = "(placeholder description!!!) A classic cocktail made with tequila, triple sec, and lime juice.";
+                    break;
+                case CocktailType.Everest:
+                    description = "(placeholder description!!!) A traditional Cuban highball made with white rum, sugar, lime juice, soda water, and mint.";
+                    break;
+                case CocktailType.SpringBee:
+                    description = "(placeholder description!!!) A sweet cocktail made with rum, coconut cream or coconut milk, and pineapple juice.";
+                    break;
+                case CocktailType.Parti:
+                    description = "(placeholder description!!!) A family of cocktails whose main ingredients are rum, citrus juice, and sugar.";
+                    break;
+                case CocktailType.Magazine:
+                    description = "(placeholder description!!!) A cocktail made with rum, lime juice, orgeat syrup, and orange liqueur.";
+                    break;
+                default:
+                    description = "(placeholder description!!!) A cocktail made with rum, lime juice, orgeat syrup, and orange liqueur.";
+                    break;
+            }
+            return description;
+        }
+
+        public void ShowCurrentCocktail()
+        {
+            foreach (RecipeBookItem recipe in recipes)
+            {
+                if (recipe.GetComponent<RecipeBookItem>().cocktailType == currentCocktail) recipe.HighlightName();
+                else recipe.DehighlightName();
+            }
+            cocktailName.text = currentCocktail.ToString();
+            cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/CocktailCreation/{currentCocktail}");
+            ingredientsList.text = GenerateIngredientsList(currentCocktail);
+            cocktailDescription.text = RetrieveDescription(currentCocktail);
         }
     }
 }
