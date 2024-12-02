@@ -1,10 +1,58 @@
 [
-  ["Hey! This is your new bar, let me guide you."],
-  ["This is the cocktail creation area.", "This is where the magic happens, young one!"],
-  ["Let’s go hands-on and make your first cocktail now. Make me a <b>Ripple</b>!"],
-  ["The order will appear here"],
-  ["Let's check the recipe book"],
-  ["Well, you need..."],
-  ["Close the recipe book"],
-  ["Drag and drop the Verlan onto the shaker"]
+    [
+        "… and these are your keys, young one. That will be all! This is officially your bar now. With the energy you have, I'm sure you won't have any trouble taking good care of the place.",
+        "Here, let me guide you. I'll show you what you need to do during your shift."
+    ],
+    [
+        "This is the <b>cocktail creation area</b>. This is where the magic happens, young one!",
+        "In the upper part you see a few ingredients. Down there you have your faithful <b>shaker</b>, a guide for the dosages, and a button to mix the contents of the shaker."
+    ],
+    [
+        "Let's get hands-on and make your first cocktail now. I'm feeling young today, so make me a <b>Ripple</b>!"
+    ],
+    [
+        "The order will appear here, on the <b>post-it</b>."
+    ],
+    [
+        "A Ripple... Let's check the <b>recipe book</b> for the ingredients."
+    ],
+    [
+        "Well, you're gonna need..."
+    ],
+    [
+        "Close the recipe book now."
+    ],
+    [
+        "Drag and drop the bottle of <b>Caledon Ridge</b> onto the shaker."
+    ],
+    [
+        "Once more..."
+    ],
+    [
+        "Now onto the shaddock juice."
+    ],
+    [
+        "Again..."
+    ],
+    [
+        "And finally some Gryte, which is what gives the Ripple its bubbles."
+    ],
+    [
+        "Mix well now!"
+    ],
+    [
+        "At this point, if you realize you've made the wrong cocktail, you can start over by clicking the <b>Trash</b> button."
+    ],
+    [
+        "You might also choose to <b>water down</b> the cocktail. It's not the best of choices, but who knows, it might come useful during trying times."
+    ],
+    [
+        "Let's add the finishing touches and serve it now."
+    ],
+    [
+        "Carefully drag the garnish onto the glass..."
+    ],
+    [
+        "That's all! Excellent!!!"
+    ]
 ]

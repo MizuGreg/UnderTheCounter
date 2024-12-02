@@ -76,11 +76,7 @@ namespace Bar
         private void LoadDailyCustomers(int currentDay)
         {
             // read DailyCustomers json and create daily customers list
-            #if UNITY_EDITOR
-            string jsonString = File.ReadAllText("Assets/Data/DayData/Day" + currentDay + ".json");
-            #else
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + currentDay + ".json");
-            #endif
             
             _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             

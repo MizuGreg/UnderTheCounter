@@ -53,11 +53,7 @@ namespace Tutorial
         private void LoadSteps()
         {
             // read Tutorial Steps json and create steps list
-            #if UNITY_EDITOR
-            string jsonString = File.ReadAllText("Assets/Data/TutorialData/Tutorial1.json");
-            #else
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/TutorialData/Tutorial1.json");
-            #endif
             
             //_steps = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             _steps = JsonConvert.DeserializeObject<List<List<string>>>(jsonString);
