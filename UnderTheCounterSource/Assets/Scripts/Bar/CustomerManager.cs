@@ -165,7 +165,7 @@ namespace Bar
             // TODO: per il tutorial wrappa questo codice in if(currentCustomer != null) o copia incolla e sistema
             
             CocktailType order = _currentCustomer.order;
-            customerCocktail.GetComponent<Image>().sprite = Resources.Load("Sprites/CocktailCreation/" + cocktail.type, typeof(Sprite)) as Sprite;
+            customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{cocktail.type}/{cocktail.type}_tot.png");
             customerCocktail.GetComponent<FadeCanvas>().FadeIn();
             
             // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly

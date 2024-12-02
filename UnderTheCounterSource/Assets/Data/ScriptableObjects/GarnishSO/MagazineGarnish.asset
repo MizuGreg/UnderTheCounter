@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MagazineGarnish
   m_EditorClassIdentifier: 
   type: 4
-  sprite: {fileID: 21300000, guid: 4967e3a575bf2432698aca09372f3562, type: 3}
+  sprite: {fileID: 21300000, guid: 18979d5aba21b1c4d9cc28e5a07d26ca, type: 3}

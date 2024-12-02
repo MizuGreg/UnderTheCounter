@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SpringBeeGarnish
   m_EditorClassIdentifier: 
   type: 2
-  sprite: {fileID: 21300000, guid: 4967e3a575bf2432698aca09372f3562, type: 3}
+  sprite: {fileID: 21300000, guid: d74eb1fb6de99394fba4bd56fdd0cdb5, type: 3}
