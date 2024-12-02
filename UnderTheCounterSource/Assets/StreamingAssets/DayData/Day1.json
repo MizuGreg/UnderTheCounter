@@ -85,32 +85,12 @@
             "tip": 2
         },
         {
-            "sprite": "Eugene",
-            "order": "Ripple",
+            "sprite": "Kathryn",
+            "order": "Parti",
             "lines": {
                 "greet": [
                     "TBD",
-                    "Ripple"
-                ],
-                "leaveCorrect": [
-                    "TBD"
-                ],
-                "leaveWrong": [
-                    "TBD"
-                ],
-                "leaveWater": [
-                    "TBD"
-                ]
-            },
-            "tip": 4
-        },
-        {
-            "sprite": "Doris",
-            "order": "Ripple",
-            "lines": {
-                "greet": [
-                    "TBD",
-                    "Ripple"
+                    "Parti"
                 ],
                 "leaveCorrect": [
                     "TBD"

@@ -1,24 +1,92 @@
 {
     "customers": [
         {
-            "sprite": "Margaret",
+            "sprite": "Howard",
+            "order": "Wrong",
+            "lines": {
+                "greet": [
+                    "[LUCA][IDEA FOR DIALOGUE] Take care, the prohibition laws have passed. I better not see any drunk person coming out of this bar!"
+                ]
+            },
+            "tip": 5
+        },
+        {
+            "sprite": "Helene",
+            "order": "SpringBee",
+            "lines": {
+                "greet": [
+                    "[IDEA FOR DIALOGUE] She says she knows prohibition laws have passed, but that she will keep it discreet"
+                ]
+            },
+            "tip": 8
+        },
+        {
+            "sprite": "Doris",
             "order": "Ripple",
             "lines": {
                 "greet": [
-                    "(Placeholder customer) <i>*sigh* If only my life wasn't so busy... Maybe I could convince him...</i>",
-                    "Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts. Would you be so kind as to get me a sweet drink? Maybe that will distract me from my career...I'm an <b>actress</b>, you see."
-                ],
-                "order": [
-                    "A sweet <b>Spring Bee</b> for me, with extra honey on top, please!"
+                    "[LUCA][IDEA FOR DIALOGUE] By the way, who was that young lady on her way out just now?"
+                ]
+            },
+            "tip": 3
+        },
+        {
+            "sprite": "Eugene",
+            "order": "Ripple",
+            "lines": {
+                "greet": [
+                    "[LUCA][IDEA FOR DIALOGUE] Will thank bartender for staying open despite the laws"
+                ]
+            },
+            "tip": 3
+        },
+        {
+            "sprite": "Willie",
+            "order": "SpringBee",
+            "lines": {
+                "greet": [
+                    "Well hello hello there! Hope you've read the latest edition of Rogue, it's got some hefty tips on how to dress stylishly! Say, do you like ballet?",
+                    "Actually, don't answer! Mysterious is better. Besides, I shouldn't squander too much time before my next competition.",
+                    "Honey, make me a <b>Ripple</b>! Maybe with a drop of honey on the rim, like a Spring Bee."
                 ],
                 "leaveCorrect": [
-                    "Oh, how wonderful, dear bartender. I think I even tasted a little bit of romance in this drink.<br>I shall get back to work now, but thank you truly! Goodnight!"
+                    "Oh my, oh my! Just how I love it. If I didn't know any better I'd think you were trying to make an impression on me!<br>Well, I'll definitely be coming back then! See you!"
                 ],
                 "leaveWrong": [
-                    "Oh... That wasn't what I expected. Maybe it was fate that didn't want to give me this tiny satisfaction.<br>It's alright, I'll come back another day... Goodnight, bartender!"  
+                    "…Well, it seems you've prepared a different cocktail to gain my attention… and you've succeded! It wasn't bad after all.<br>I'll be seeing you some other time then!"
                 ],
                 "leaveWater": [
-                    "Thank you, dear bartender. I thought I'd tasted a hint of love in this drink, but it was very faint...<br>I shall get back to work now, goodbye!"
+                    "Oh my! Just how I love it, though it seems you've held back on the alcohol a bit.",
+                    "I'll be definitely coming back in the future then, see if your cocktails get better and better over time. See you!"
+                ]
+            },
+            "tip": 5
+        },
+        {
+            "sprite": "Margaret",
+            "order": "Parti",
+            "lines": {
+                "greet": [
+                    "TBD"
+                ]
+            },
+            "tip": 3
+        },{
+            "sprite": "Ernest",
+            "order": "Everest",
+            "lines": {
+                "greet": [
+                    "[IDEA FOR DIALOGUE] Will ask how the player is faring after their first 3 days"
+                ]
+            },
+            "tip": 3
+        },
+        {
+            "sprite": "Gaston",
+            "order": "Magazine",
+            "lines": {
+                "greet": [
+                    "TBD"
                 ]
             },
             "tip": 5
