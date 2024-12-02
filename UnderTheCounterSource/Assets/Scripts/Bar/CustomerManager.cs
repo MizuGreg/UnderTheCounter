@@ -50,7 +50,7 @@ namespace Bar
 
         private void OnDestroy()
         {
-            EventSystemManager.OnTutorial1End -= StartDay;
+            EventSystemManager.OnTutorial1End -= FarewellCustomer;
             EventSystemManager.OnTimeUp -= TimeoutCustomers;
             EventSystemManager.OnCocktailMade -= ServeCustomer;
             EventSystemManager.OnCustomerLeave -= FarewellCustomer;
@@ -158,38 +158,51 @@ namespace Bar
 
         private void ServeCustomer(Cocktail cocktail)
         {    
-            // TODO: per il tutorial wrappa questo codice in if(currentCustomer != null) o copia incolla e sistema
-            
-            CocktailType order = _currentCustomer.order;
-            customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{cocktail.type}/{cocktail.type}_tot.png");
-            customerCocktail.GetComponent<FadeCanvas>().FadeIn();
-            
-            // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
-            Dialogue dialogue;
-            float earning;
-            if (cocktail.type != order)
+            if (_currentCustomer != null)
             {
-                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWrong"]);
-                earning = 5 + _currentCustomer.tip / 5;
-            }
-            else if (cocktail.isWatered)
-            {
-                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWater"]);
-                earning = 5 + _currentCustomer.tip / 4;
+                CocktailType order = _currentCustomer.order;
+                customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{cocktail.type}/{cocktail.type}_tot.png");
+                customerCocktail.GetComponent<FadeCanvas>().FadeIn();
+            
+                // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
+                Dialogue dialogue;
+                float earning;
+                if (cocktail.type != order)
+                {
+                    dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWrong"]);
+                    earning = 5 + _currentCustomer.tip / 5;
+                }
+                else if (cocktail.isWatered)
+                {
+                    dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWater"]);
+                    earning = 5 + _currentCustomer.tip / 4;
+                }
+                else
+                {
+                    dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveCorrect"]);
+                    earning = 5 + _currentCustomer.tip;
+                }
+
+                pricePopup.DisplayPrice(earning);
+                _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
+
+                Day.TodayEarnings += earning;
+            
+                // if not watered down, we throw onDrunkCustomer event
+                if (!cocktail.isWatered) EventSystemManager.OnDrunkCustomerLeave();
             }
             else
             {
-                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveCorrect"]);
-                earning = 5 + _currentCustomer.tip;
+                // The control flow enters here in case of tutorial
+                
+                customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/Ripple/Ripple_tot.png");
+                customerCocktail.GetComponent<FadeCanvas>().FadeIn();
+
+                float earning = 10;
+                pricePopup.DisplayPrice(earning);
+                Day.TodayEarnings += earning;
             }
-
-            pricePopup.DisplayPrice(earning);
-            _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
-
-            Day.TodayEarnings += earning;
             
-            // if not watered down, we throw onDrunkCustomer event
-            if (!cocktail.isWatered) EventSystemManager.OnDrunkCustomerLeave();
         }
     }
 }

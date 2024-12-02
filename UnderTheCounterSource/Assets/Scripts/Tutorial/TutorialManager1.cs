@@ -16,6 +16,11 @@ namespace Tutorial
         [SerializeField] private CanvasGroup customerCanvas;
         [SerializeField] private Sprite ernestSprite;
         [SerializeField] private GameObject recipeBookIcon;
+        [SerializeField] private Button recipeBookClosingIcon;
+        [SerializeField] private Button resetButton;
+        [SerializeField] private Button serveButton;
+        [SerializeField] private Button trashButton;
+        [SerializeField] private Button waterButton;
         
         [Range(0.1f, 5f)]
         public float timeBeforeDialogue = 1f;
@@ -32,8 +37,15 @@ namespace Tutorial
             EventSystemManager.OnRecipeBookOpened += RecipeBookOpenedFirstTime;
             EventSystemManager.OnRecipeBookClosed += RecipeBookClosedFirstTime;
             EventSystemManager.OnIngredientPoured += IngredientPoured;
+            EventSystemManager.OnGarnishAdded += EndPopUp;
             
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
+            
+            recipeBookClosingIcon.interactable = false;
+            resetButton.interactable = false;
+            trashButton.interactable = false;
+            waterButton.interactable = false;
+            serveButton.interactable = false;
         }
 
         private void OnDestroy()
@@ -42,6 +54,7 @@ namespace Tutorial
             EventSystemManager.OnRecipeBookOpened -= RecipeBookOpenedFirstTime;
             EventSystemManager.OnRecipeBookClosed -= RecipeBookClosedFirstTime;
             EventSystemManager.OnIngredientPoured -= IngredientPoured;
+            EventSystemManager.OnGarnishAdded -= EndPopUp;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -100,6 +113,18 @@ namespace Tutorial
                 case 11: Step11();
                     break;
                 case 12: Step12();
+                    break;
+                case 13: Step13();
+                    break;
+                case 14: Step14();
+                    break;
+                case 15: Step15();
+                    break;
+                case 16: Step16();
+                    break;
+                case 17: Step17();
+                    break;
+                case 18: EndTutorial();
                     break;
                 default:
                     break;
@@ -183,6 +208,9 @@ namespace Tutorial
         {
             Debug.Log("Step 6");
             
+            // Make X button interactable
+            recipeBookClosingIcon.interactable = true;
+            
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));
         }
@@ -252,6 +280,71 @@ namespace Tutorial
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));
         }
+
+        // Ernest explains the trash button
+        private void Step13()
+        {
+            Debug.Log("Step 13");
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(false));
+        }
+        
+        // Ernest explains the water down button
+        private void Step14()
+        {
+            Debug.Log("Step 14");
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(false));
+        }
+        
+        // Ernest asking to serve
+        private void Step15()
+        {
+            Debug.Log("Step 15");
+            
+            // Make serve button interactable
+            serveButton.interactable = true;
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
+        }
+        
+        // Ernest asking to drag and drop the garnish
+        private void Step16()
+        {
+            Debug.Log("Step 16");
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
+        }
+        
+        // Ernest congrats the player for its first cocktail
+        private void Step17()
+        {
+            Debug.Log("Step 17");
+            
+            // Ernest dialogue
+            StartCoroutine(WaitAndGreetDialogue());
+        }
+        
+        private void EndTutorial()
+        {
+            Debug.Log("Tutorial ended");
+            
+            // Make all ingredients interactable again
+            EventSystemManager.MakeAllIngredientsInteractable();
+            
+            // Make all buttons interactable again
+            resetButton.interactable = true;
+            trashButton.interactable = true;
+            waterButton.interactable = true;
+            
+            // Start the day
+            EventSystemManager.OnTutorial1End();
+            //EventSystemManager.OnCustomerLeave();
+        }
         
         private IEnumerator WaitAndGreetDialogue()
         {
@@ -271,7 +364,7 @@ namespace Tutorial
             
         }
 
-        private void EndPopUp()
+        public void EndPopUp()
         {
             _dialogueManager.EndPopUp();
         }
@@ -295,7 +388,10 @@ namespace Tutorial
         // Note: the argument here is only needed in order to re-use an already existing event
         private void IngredientPoured(IngredientType ingredient)
         {
-            EndPopUp();
+            if (_actualStep >= 7 && _actualStep <= 11)
+            {
+                EndPopUp();
+            }
         }
         
         

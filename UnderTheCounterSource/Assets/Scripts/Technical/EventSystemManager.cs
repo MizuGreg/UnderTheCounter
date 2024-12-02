@@ -36,6 +36,7 @@ namespace Technical
         public static UnityAction NextTutorialStep;
         public static UnityAction HideCCA;
         public static UnityAction<IngredientType> MakeIngredientInteractable;
+        public static UnityAction MakeAllIngredientsInteractable;
         public static UnityAction OnTutorial1End;
     }
 }

@@ -22,12 +22,19 @@ namespace CocktailCreation
             _pouringPosition = targetPosition.GetComponent<RectTransform>().anchoredPosition;
 
             EventSystemManager.MakeIngredientInteractable += MakeInteractable;
+            EventSystemManager.MakeAllIngredientsInteractable += SetInteractable;
 
         }
 
         private void OnDestroy()
         {
             EventSystemManager.MakeIngredientInteractable -= MakeInteractable;
+            EventSystemManager.MakeAllIngredientsInteractable -= SetInteractable;
+        }
+
+        private void SetInteractable()
+        {
+            CanvasGroup.blocksRaycasts = true;
         }
 
         private void MakeInteractable(IngredientType type)

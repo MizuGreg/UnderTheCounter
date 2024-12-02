@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a42803f7-fdfa-47ac-abc8-c211373dcde8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TutorialDay1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TutorialDay1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/DialogueManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/RecipeBookManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/RecipeBookManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager1.cs" afterDir="false" />
-    </list>
+    <list default="true" id="a42803f7-fdfa-47ac-abc8-c211373dcde8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732631323592</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Working on tutorial day 1:&#10;- 12 steps of the tutorial done&#10;- now some pop-up messages are skippable by pressing space and others can be closed only after a specific user action.">
+      <option name="closed" value="true" />
+      <created>1733164822079</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733164822079</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +237,8 @@
     <MESSAGE value="Code improvements: now the recipes are scriptable objects and, when the player presses the mix button, the check for the corresponding recipe is more clean (no more hardcoding)" />
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="- added the unsubscription from the events when CocktailManager is destroyed." />
-    <option name="LAST_COMMIT_MESSAGE" value="- added the unsubscription from the events when CocktailManager is destroyed." />
+    <MESSAGE value="Working on tutorial day 1:&#10;- 12 steps of the tutorial done&#10;- now some pop-up messages are skippable by pressing space and others can be closed only after a specific user action." />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on tutorial day 1:&#10;- 12 steps of the tutorial done&#10;- now some pop-up messages are skippable by pressing space and others can be closed only after a specific user action." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
