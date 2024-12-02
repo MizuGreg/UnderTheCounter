@@ -23,6 +23,7 @@ namespace Bar
         public TextMeshProUGUI popUpNameText;
         public TextMeshProUGUI popUpDialogueText;
         private bool isPopupActive;
+        private bool _isActionNeeded;
 
         private Queue<string> _sentences;
         private DialogueType _dialogueType;
@@ -78,10 +79,11 @@ namespace Bar
             StartCoroutine(WaitBeforeDialogueBox(dialogue, dialogueType));
         }
 
-        public void StartPopUp(Dialogue dialogue)
+        public void StartPopUp(Dialogue dialogue, bool isActionNeeded)
         {
             isPopupActive = true;
             popUpNameText.text = dialogue.name;
+            _isActionNeeded = isActionNeeded;
             
             _sentences.Clear();
             foreach (string sentence in dialogue.sentences) 
@@ -103,8 +105,21 @@ namespace Bar
             if (_sentences.Count == 0)
             {
                 StopAllCoroutines();
-                StartCoroutine(EndPopUpAfterAWhile());
+                //StartCoroutine(EndPopUpAfterAWhile());
+                //EndPopUp();
+                if (Input.GetKeyDown(KeyCode.Space) && !_isActionNeeded)
+                {
+                    EndPopUp();
+                }
             }
+        }
+
+        public void EndPopUp()
+        {
+            isPopupActive = false;
+            popUpDialogueText.transform.parent.gameObject.SetActive(false);
+            _isActionNeeded = false;
+            EventSystemManager.NextTutorialStep();
         }
 
         private IEnumerator EndPopUpAfterAWhile()

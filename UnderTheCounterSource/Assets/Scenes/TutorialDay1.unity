@@ -7323,7 +7323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1607710338
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7390,6 +7390,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2106159911}
         m_TargetAssemblyTypeName: Technical.FadeCanvas, Assembly-CSharp
         m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 623126691}
+        m_TargetAssemblyTypeName: Bar.RecipeBookManager, Assembly-CSharp
+        m_MethodName: TriggerEventRecipeBookOpened
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7810,6 +7822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customerCanvas: {fileID: 283263436}
   ernestSprite: {fileID: 21300000, guid: f4e346f9ca97e8640a3f0a63baca4be4, type: 3}
+  recipeBookIcon: {fileID: 1607710337}
   timeBeforeDialogue: 1
 --- !u!1 &1735794937
 GameObject:
@@ -10615,16 +10628,48 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2106159911}
+    - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 623126691}
+    - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FadeOut
       objectReference: {fileID: 0}
     - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TriggerEventRecipeBookClosed
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Technical.FadeCanvas, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Bar.RecipeBookManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228153324919861682, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6323646345487330281, guid: 6e8879ad51e55e948a122053403ac48e, type: 3}
       propertyPath: m_Name

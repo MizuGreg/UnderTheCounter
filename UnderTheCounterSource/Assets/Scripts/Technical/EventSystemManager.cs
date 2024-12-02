@@ -30,6 +30,9 @@ namespace Technical
         public static UnityAction OnLoadMainMenu;
         public static UnityAction OnLoadBarView;
 
+        public static UnityAction OnRecipeBookOpened;
+        public static UnityAction OnRecipeBookClosed;
+
         public static UnityAction NextTutorialStep;
         public static UnityAction HideCCA;
         public static UnityAction<IngredientType> MakeIngredientInteractable;

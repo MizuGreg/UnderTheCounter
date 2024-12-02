@@ -15,6 +15,7 @@ namespace Tutorial
     {
         [SerializeField] private CanvasGroup customerCanvas;
         [SerializeField] private Sprite ernestSprite;
+        [SerializeField] private GameObject recipeBookIcon;
         
         [Range(0.1f, 5f)]
         public float timeBeforeDialogue = 1f;
@@ -28,6 +29,9 @@ namespace Tutorial
         private void Start()
         {
             EventSystemManager.NextTutorialStep += NextStep;
+            EventSystemManager.OnRecipeBookOpened += RecipeBookOpenedFirstTime;
+            EventSystemManager.OnRecipeBookClosed += RecipeBookClosedFirstTime;
+            EventSystemManager.OnIngredientPoured += IngredientPoured;
             
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
         }
@@ -35,6 +39,9 @@ namespace Tutorial
         private void OnDestroy()
         {
             EventSystemManager.NextTutorialStep -= NextStep;
+            EventSystemManager.OnRecipeBookOpened -= RecipeBookOpenedFirstTime;
+            EventSystemManager.OnRecipeBookClosed -= RecipeBookClosedFirstTime;
+            EventSystemManager.OnIngredientPoured -= IngredientPoured;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -64,6 +71,7 @@ namespace Tutorial
         private void NextStep()
         {
             _actualStep++;
+            _currentStep = _steps[_actualStep];
             
             switch (_actualStep)
             {
@@ -75,6 +83,24 @@ namespace Tutorial
                     break;
                 case 3: Step3();
                     break;
+                case 4: Step4();
+                    break;
+                case 5: Step5();
+                    break;
+                case 6: Step6();
+                    break;
+                case 7: Step7();
+                    break;
+                case 8: Step8();
+                    break;
+                case 9: Step9();
+                    break;
+                case 10: Step10();
+                    break;
+                case 11: Step11();
+                    break;
+                case 12: Step12();
+                    break;
                 default:
                     break;
             }
@@ -84,8 +110,6 @@ namespace Tutorial
         private void Step0()
         {
             Debug.Log("Step 0");
-            //_currentStep = _steps[_actualStep];
-            _currentStep = _steps[0];
             
             _currentImage.sprite = ernestSprite;
             customerCanvas.GetComponent<FadeCanvas>().FadeIn();
@@ -97,7 +121,6 @@ namespace Tutorial
         private void Step1()
         {
             Debug.Log("Step 1");
-            _currentStep = _steps[1];
             
             // CCA slides in 
             EventSystemManager.OnMakeCocktail(CocktailType.Wrong);
@@ -106,37 +129,128 @@ namespace Tutorial
             EventSystemManager.MakeIngredientInteractable(IngredientType.Unspecified);
 
             // Ernest pop up message
-            StartCoroutine(WaitAndPopUp());
+            StartCoroutine(WaitAndPopUp(false));
         }
 
         // Ernest returns to the dialogue view and tells the player to make their first cocktail
         private void Step2()
         {
             Debug.Log("Step 2");
-            _currentStep = _steps[2];
             
             // CCA slides out
             EventSystemManager.HideCCA();
             
             // Ernest asks to make a Ripple
-            _currentImage.sprite = ernestSprite;
-            customerCanvas.GetComponent<FadeCanvas>().FadeIn();
             StartCoroutine(WaitAndGreetDialogue());
-            EventSystemManager.OnCustomerEnter();
         }
 
         // Shows the order post-it
         private void Step3()
         {
             Debug.Log("Step 3");
-            _currentStep = _steps[3];
             
             // CCA slides in
             EventSystemManager.OnMakeCocktail(CocktailType.Ripple);
             
             // Ernest pop up message
-            StartCoroutine(WaitAndPopUp());
+            StartCoroutine(WaitAndPopUp(false));
             
+        }
+        
+        // Ernest tells the player to open the recipe book
+        private void Step4()
+        {
+            Debug.Log("Step 4");
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
+            
+            // Activate Recipe Book Button
+            recipeBookIcon.SetActive(true);
+        }
+
+        // Ernest showing the recipe book to the player
+        private void Step5()
+        {
+            Debug.Log("Step 5");
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(false));
+        }
+        
+        // Ernest asking the player to close the recipe book
+        private void Step6()
+        {
+            Debug.Log("Step 6");
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
+        }
+
+        // Ernest asking to put the Caledon onto the shaker
+        private void Step7()
+        {
+            Debug.Log("Step 7");
+            
+            // Caledon ingredient becomes interactable
+            EventSystemManager.MakeIngredientInteractable(IngredientType.Caledon);
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
+        }
+        
+        // Ernest asking to put the Caledon onto the shaker again
+        private void Step8()
+        {
+            Debug.Log("Step 8");
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
+        }
+        
+        // Ernest asking to put the Shaddock onto the shaker
+        private void Step9()
+        {
+            Debug.Log("Step 9");
+            
+            // Shaddock ingredient becomes interactable
+            EventSystemManager.MakeIngredientInteractable(IngredientType.Shaddock);
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
+        }
+        
+        // Ernest asking to put the Shaddock onto the shaker again
+        private void Step10()
+        {
+            Debug.Log("Step 10");
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
+        }
+        
+        // Ernest asking to put the Gryte onto the shaker
+        private void Step11()
+        {
+            Debug.Log("Step 11");
+            
+            // Shaddock ingredient becomes interactable
+            EventSystemManager.MakeIngredientInteractable(IngredientType.Gryte);
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
+        }
+        
+        // Ernest asking to mix
+        private void Step12()
+        {
+            Debug.Log("Step 12");
+            
+            // Ingredient become not interactable
+            EventSystemManager.MakeIngredientInteractable(IngredientType.Unspecified);
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
         }
         
         private IEnumerator WaitAndGreetDialogue()
@@ -149,17 +263,39 @@ namespace Tutorial
             
         }
 
-        private IEnumerator WaitAndPopUp()
+        private IEnumerator WaitAndPopUp(bool isActionNeeded)
         {
             yield return new WaitForSeconds(timeBeforeDialogue);
             
-            _dialogueManager.StartPopUp(new Dialogue("Ernest", _currentStep));
+            _dialogueManager.StartPopUp(new Dialogue("Ernest", _currentStep), isActionNeeded);
             
         }
 
-        private void StartPopUp()
+        private void EndPopUp()
         {
-            _dialogueManager.StartPopUp(new Dialogue("Ernest", _currentStep));
+            _dialogueManager.EndPopUp();
+        }
+
+        private void RecipeBookOpenedFirstTime()
+        {
+            if (_actualStep == 4)
+            {
+                EndPopUp();
+            }
+        }
+
+        private void RecipeBookClosedFirstTime()
+        {
+            if (_actualStep == 6)
+            {
+                EndPopUp();
+            }
+        }
+
+        // Note: the argument here is only needed in order to re-use an already existing event
+        private void IngredientPoured(IngredientType ingredient)
+        {
+            EndPopUp();
         }
         
         
