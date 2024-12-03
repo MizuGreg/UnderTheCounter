@@ -5,7 +5,13 @@
             "order": "Wrong",
             "lines": {
                 "greet": [
-                    "[LUCA][IDEA FOR DIALOGUE] Take care, the prohibition laws have passed. I better not see any drunk person coming out of this bar!"
+                    "Bartender! Hope I will not see anyone drunk here! The prohibition laws have just passed, and hopefully I will add!",
+                    "You know, alcohol is a poison, and I'm glad that the government has finally realized that.",
+                    "Before you ask, I'm Howard, but you can call me law. I'm the law. And I will have my revenge on the alcohol industry.",
+                    "You will remember my name, bartender.",
+                    "I'm Howard.",
+                    "Yeah",
+                    "The law of this city."
                 ]
             },
             "tip": 5
