@@ -19,7 +19,7 @@ namespace Bar
             blackTriangle = Resources.Load<Sprite>("Sprites/UI/Recipe book/SPRITE SELEZ ON");
             
             // this ensures that the recipe book always opens up with a cocktail in the beginning:
-            if (cocktailType == CocktailType.Everest) ShowThisCocktail();
+            if (cocktailType == CocktailType.Ripple) ShowThisCocktail();
         }
         
         public void ShowThisCocktail()
