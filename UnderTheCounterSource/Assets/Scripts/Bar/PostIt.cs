@@ -8,7 +8,7 @@ namespace Bar
     {
         [SerializeField] private TextMeshProUGUI cocktailName;
         [SerializeField] private Animator animator;
-        private static readonly int IsOpen = Animator.StringToHash("IsPostItOpen");
+        private static readonly int IsPostItShown = Animator.StringToHash("IsPostItShown");
 
         private void Awake()
         {
@@ -20,12 +20,12 @@ namespace Bar
                 cocktailName.text = cocktailType.ToString();
                 // edge case here... should be handled better and not hardcoded
                 if (cocktailName.text == "SpringBee") cocktailName.text = "Spring Bee";
-                animator.SetBool(IsOpen, true);
+                animator.SetBool(IsPostItShown, true);
             }
         }
 
         public void HidePostIt() {
-            animator.SetBool(IsOpen, false);
+            animator.SetBool(IsPostItShown, false);
         }
         
     }
