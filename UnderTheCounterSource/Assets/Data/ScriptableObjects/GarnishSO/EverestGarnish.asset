@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EverestGarnish
   m_EditorClassIdentifier: 
   type: 1
-  sprite: {fileID: 21300000, guid: bd16670c4e806a145aa84c424c48823f, type: 3}
+  sprite: {fileID: 21300000, guid: d760f4bb1d418a34a9dfb3fe19c2a147, type: 3}
