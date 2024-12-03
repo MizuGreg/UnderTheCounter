@@ -14,9 +14,16 @@ namespace Tutorial
     public class TutorialManager1 : MonoBehaviour
     {
         [SerializeField] private CanvasGroup customerCanvas;
+        [SerializeField] private CanvasGroup customerCocktail;
         [SerializeField] private Sprite ernestSprite;
+        [SerializeField] private Image postIt;
         [SerializeField] private GameObject recipeBookIcon;
+        [SerializeField] private CanvasGroup ingredientSquare;
         [SerializeField] private Button recipeBookClosingIcon;
+        [SerializeField] private Image caledonImage;
+        [SerializeField] private Image shaddockImage;
+        [SerializeField] private Image gryteImage;
+        [SerializeField] private Button mixButton;
         [SerializeField] private Button resetButton;
         [SerializeField] private Button serveButton;
         [SerializeField] private Button trashButton;
@@ -180,6 +187,9 @@ namespace Tutorial
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(false));
             
+            // Outline post-it
+            postIt.transform.Find("Outline").gameObject.SetActive(true);
+            
         }
         
         // Ernest tells the player to open the recipe book
@@ -187,17 +197,29 @@ namespace Tutorial
         {
             Debug.Log("Step 4");
             
-            // Ernest pop up message
-            StartCoroutine(WaitAndPopUp(true));
+            // Deactivate previous outline
+            postIt.transform.Find("Outline").gameObject.SetActive(false);
             
             // Activate Recipe Book Button
             recipeBookIcon.SetActive(true);
+            
+            // Ernest pop up message
+            StartCoroutine(WaitAndPopUp(true));
+            
+            // Outline recipe book button
+            recipeBookIcon.transform.Find("Outline").gameObject.SetActive(true);
         }
 
-        // Ernest showing the recipe book to the player
+        // Ernest showing the recipe's ingredients to the player
         private void Step5()
         {
             Debug.Log("Step 5");
+            
+            // Show outline square
+            ingredientSquare.gameObject.SetActive(true);
+            
+            // Deactivate previous outline
+            recipeBookIcon.transform.Find("Outline").gameObject.SetActive(false);
             
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(false));
@@ -208,11 +230,17 @@ namespace Tutorial
         {
             Debug.Log("Step 6");
             
-            // Make X button interactable
+            // Hide outline square
+            ingredientSquare.gameObject.SetActive(false);
+            
+            // Make X button interactable and outline it
             recipeBookClosingIcon.interactable = true;
             
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));
+            
+            // Outline button
+            recipeBookClosingIcon.transform.Find("Outline").gameObject.SetActive(true);
         }
 
         // Ernest asking to put the Caledon onto the shaker
@@ -220,11 +248,17 @@ namespace Tutorial
         {
             Debug.Log("Step 7");
             
+            // Deactivate previous outline
+            recipeBookClosingIcon.transform.Find("Outline").gameObject.SetActive(false);
+            
             // Caledon ingredient becomes interactable
             EventSystemManager.MakeIngredientInteractable(IngredientType.Caledon);
             
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));
+            
+            // Outline Caledon
+            caledonImage.transform.Find("Outline").gameObject.SetActive(true);
         }
         
         // Ernest asking to put the Caledon onto the shaker again
@@ -241,11 +275,17 @@ namespace Tutorial
         {
             Debug.Log("Step 9");
             
+            // Deactivate Caledon outline
+            caledonImage.transform.Find("Outline").gameObject.SetActive(false);
+            
             // Shaddock ingredient becomes interactable
             EventSystemManager.MakeIngredientInteractable(IngredientType.Shaddock);
             
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));
+            
+            // Outline shaddock
+            shaddockImage.transform.Find("Outline").gameObject.SetActive(true);
         }
         
         // Ernest asking to put the Shaddock onto the shaker again
@@ -262,11 +302,17 @@ namespace Tutorial
         {
             Debug.Log("Step 11");
             
+            // Deactivate shaddock outline
+            shaddockImage.transform.Find("Outline").gameObject.SetActive(false);
+            
             // Shaddock ingredient becomes interactable
             EventSystemManager.MakeIngredientInteractable(IngredientType.Gryte);
             
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));
+            
+            // Outline Gryte
+            gryteImage.transform.Find("Outline").gameObject.SetActive(true);
         }
         
         // Ernest asking to mix
@@ -274,11 +320,17 @@ namespace Tutorial
         {
             Debug.Log("Step 12");
             
-            // Ingredient become not interactable
+            // Deactivate Gryte outline
+            gryteImage.transform.Find("Outline").gameObject.SetActive(false);
+            
+            // Ingredient becomes not interactable
             EventSystemManager.MakeIngredientInteractable(IngredientType.Unspecified);
             
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));
+            
+            // Outline mix button
+            mixButton.transform.Find("Outline").gameObject.SetActive(true);
         }
 
         // Ernest explains the trash button
@@ -286,8 +338,15 @@ namespace Tutorial
         {
             Debug.Log("Step 13");
             
+            // Deactivate mix button outline
+            mixButton.transform.Find("Outline").gameObject.SetActive(false);
+            
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(false));
+            
+            // Outline trash button
+            trashButton.transform.Find("Outline").gameObject.SetActive(true);
+            
         }
         
         // Ernest explains the water down button
@@ -295,8 +354,14 @@ namespace Tutorial
         {
             Debug.Log("Step 14");
             
+            // Deactivate outline trash button
+            trashButton.transform.Find("Outline").gameObject.SetActive(false);
+            
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(false));
+            
+            // Outline water down button
+            waterButton.transform.Find("Outline").gameObject.SetActive(true);
         }
         
         // Ernest asking to serve
@@ -304,11 +369,17 @@ namespace Tutorial
         {
             Debug.Log("Step 15");
             
+            // Deactivate outline water button
+            waterButton.transform.Find("Outline").gameObject.SetActive(false);
+            
             // Make serve button interactable
             serveButton.interactable = true;
             
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));
+            
+            // Outline serve button
+            serveButton.transform.Find("Outline").gameObject.SetActive(true);
         }
         
         // Ernest asking to drag and drop the garnish
@@ -316,8 +387,14 @@ namespace Tutorial
         {
             Debug.Log("Step 16");
             
+            // Deactivate serve button
+            serveButton.transform.Find("Outline").gameObject.SetActive(false);
+            
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));
+            
+            // Outline garnish
+            // todo
         }
         
         // Ernest congrats the player for its first cocktail
@@ -342,6 +419,9 @@ namespace Tutorial
             waterButton.interactable = true;
             
             // serveButton.onClick.RemoveListener(this.CocktailServed);
+            
+            customerCanvas.GetComponent<FadeCanvas>().FadeOut();
+            customerCocktail.GetComponent<FadeCanvas>().FadeOut();
             
             // Start the day
             EventSystemManager.OnTutorial1End();

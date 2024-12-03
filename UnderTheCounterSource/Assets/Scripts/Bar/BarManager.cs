@@ -29,6 +29,7 @@ namespace Bar
             EventSystemManager.OnDayStart += StartDay;
             EventSystemManager.OnDrunkCustomerLeave += CheckDrunk;
             EventSystemManager.OnCustomersDepleted += EndDay;
+            EventSystemManager.OnTutorial1End += StartTimer;
         
             barContainer.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadBarView();
@@ -50,8 +51,13 @@ namespace Bar
             else
             {
                 _customerManager.StartDay();
-                _timerManager.startTimer();
+                StartTimer();
             }
+        }
+
+        private void StartTimer()
+        {
+            _timerManager.startTimer();
         }
 
         private void EndDay()

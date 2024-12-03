@@ -197,19 +197,6 @@ namespace Bar
             }
             else
             {
-                if (_sentences.Count == 1)
-                {
-                    // idea: change arrow into customized icon based on dialogue type
-                    switch (_dialogueType)
-                    {
-                        case DialogueType.Greet:
-                            arrow.GetComponent<Image>().sprite = makeCocktailArrow;
-                            break;
-                        case DialogueType.Leave:
-                            arrow.GetComponent<Image>().sprite = leaveArrow;
-                            break;
-                    }
-                }
                 string sentence = _sentences.Dequeue();
                 if (_typeSentenceCoroutine != null) StopCoroutine(_typeSentenceCoroutine);
                 StartCoroutine(TypeSentence(sentence));
