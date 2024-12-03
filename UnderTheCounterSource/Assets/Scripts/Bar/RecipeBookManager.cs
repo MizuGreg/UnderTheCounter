@@ -107,5 +107,15 @@ namespace Bar
             ingredientsList.text = GenerateIngredientsList(currentCocktail);
             cocktailDescription.text = RetrieveDescription(currentCocktail);
         }
+
+        public void TriggerEventRecipeBookOpened()
+        {
+            EventSystemManager.OnRecipeBookOpened();
+        }
+
+        public void TriggerEventRecipeBookClosed()
+        {
+            EventSystemManager.OnRecipeBookClosed();
+        }
     }
 }

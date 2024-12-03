@@ -6,75 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a42803f7-fdfa-47ac-abc8-c211373dcde8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Ingredient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Ingredient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Shaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Shaker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/Disappear.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/PricePopup/Disappear.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/PricePopup/PricePopup.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PricePopup/Stationary.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/PricePopup/Stationary.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/CustomerData.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/CustomerData/Day1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/CustomerData/Day1.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/CustomerData/Day2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/CustomerData/Day2.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/ScriptableObjects/SoundData.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/ScriptableObjects/SoundData.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/UndergroundNF SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/UndergroundNF SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/FadeableCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/FadeableCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/MenuDialog.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/MenuDialog.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/QuitGameDialog.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/QuitGameDialog.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/SettingsDialog.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/SettingsDialog.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Characters/Ernest.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Characters/Ernest.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Characters/Ernest.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Characters/Ernest.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/UI/mixing spoon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/UI/mixing spoon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/Customer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/Dialogue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/Dialogue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/PricePopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/PricePopup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/SettingsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/SettingsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/DebugLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/DebugLogger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/FadeCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/FadeCanvas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/SoundData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/SoundData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/SoundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Campari.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Campari.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Everest.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Everest.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Magazine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Magazine.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Martini.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Martini.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Parti.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Parti.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Ripple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/Ripple.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/SpringBee.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/SpringBee.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/counter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/counter.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/empty_shaker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/empty_shaker.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/full_shaker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/full_shaker.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/juice.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/juice.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/olives.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/olives.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/sprite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/sprite.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/wine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CocktailCreationTest/wine.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +65,7 @@
   &quot;keyToString&quot;: {
     &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;speco-tutorial-day-1-continued&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -173,9 +106,6 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
-      <option name="runtimes">
-        <list />
-      </option>
       <option name="selectedOptions">
         <list />
       </option>
@@ -186,9 +116,6 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
-      <option name="runtimes">
-        <list />
-      </option>
       <option name="selectedOptions">
         <list />
       </option>
@@ -242,6 +169,9 @@
       <workItem from="1732305410197" duration="213000" />
       <workItem from="1732310541634" duration="3740000" />
       <workItem from="1732314369817" duration="17000" />
+      <workItem from="1733168040988" duration="6566000" />
+      <workItem from="1733228597543" duration="571000" />
+      <workItem from="1733229642844" duration="2802000" />
     </task>
     <task id="LOCAL-00001" summary="- New feature: now the player has to drag and drop a garnish on the cocktail to serve it.&#10;&#10;- Code improvements: some polishing, use of events.">
       <option name="closed" value="true" />
@@ -275,7 +205,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732631323592</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Working on tutorial day 1:&#10;- 12 steps of the tutorial done&#10;- now some pop-up messages are skippable by pressing space and others can be closed only after a specific user action.">
+      <option name="closed" value="true" />
+      <created>1733164822079</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733164822079</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Working on tutorial day 1:&#10;- All tutorial steps done">
+      <option name="closed" value="true" />
+      <created>1733174617744</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733174617744</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +252,9 @@
     <MESSAGE value="Code improvements: now the recipes are scriptable objects and, when the player presses the mix button, the check for the corresponding recipe is more clean (no more hardcoding)" />
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="- added the unsubscription from the events when CocktailManager is destroyed." />
-    <option name="LAST_COMMIT_MESSAGE" value="- added the unsubscription from the events when CocktailManager is destroyed." />
+    <MESSAGE value="Working on tutorial day 1:&#10;- 12 steps of the tutorial done&#10;- now some pop-up messages are skippable by pressing space and others can be closed only after a specific user action." />
+    <MESSAGE value="Working on tutorial day 1:&#10;- All tutorial steps done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on tutorial day 1:&#10;- All tutorial steps done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
