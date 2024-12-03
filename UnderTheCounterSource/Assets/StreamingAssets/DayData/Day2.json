@@ -144,11 +144,11 @@
             "order": "Parti",
             "lines": {
                 "greet": [
-                    "TBD",
-                    "Parti"
+                    "Hello again! I'm not sure what brought me to this street again today, but I sure am glad to be here. This bar's energy is a mystery I want to solve.",
+                    "I'm not a sophisticate drinker <size=75%>(I usually down pints in England...)<size=100%> but I've been pushing my boundaries a bit. Can you get me a <b>Parti</b>?"
                 ],
                 "leaveCorrect": [
-                    "TBD"
+                    "Cheers! Better than a pint, innit?<br>Listen, I need to "
                 ],
                 "leaveWrong": [
                     "TBD"

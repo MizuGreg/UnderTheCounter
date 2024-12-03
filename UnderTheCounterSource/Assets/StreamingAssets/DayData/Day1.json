@@ -89,17 +89,17 @@
             "order": "Parti",
             "lines": {
                 "greet": [
-                    "TBD",
-                    "Parti"
+                    "Hiya! I think it's lovely that my adventures led me to this city, and to this very bar tonight.<br> I'm Kathryn, by the way.",
+                    "Can you get me a <b>Parti</b>, mate?"
                 ],
                 "leaveCorrect": [
-                    "TBD"
+                    "Cheers! Way to go. You've made a good impression on me for sure, and I'm keen to come back. I like the atmosphere...<br>Take care. "
                 ],
                 "leaveWrong": [
-                    "TBD"
+                    "Blimey! Are you positive this is a Parti at all? No matter, at least I like the atmosphere here...<br>Take care. "
                 ],
                 "leaveWater": [
-                    "TBD"
+                    "Cheers! Still better than a cheeky pint back home, you know?<br>Take care."
                 ]
             },
             "tip": 3
@@ -109,8 +109,8 @@
             "order": "Everest",
             "lines": {
                 "greet": [
-                    "Good evening, fella. This is a war veteran you're talking to. I'd like an Everest on the rocks.<br>You see, the correct way to make it is to shake it clockwise. And of course, pour half Caledon first, half at the end.",
-                    "My drink now, fella. Everest on the rocks. But don't put too much ice in the glass! I know these tricks that young people do…"
+                    "Good evening, fella. This is a war veteran you're talking to. I'd like an <b>Everest</b> on the rocks.<br>You see, the correct way to make it is to shake it clockwise. And of course, pour half Caledon first, half at the end.",
+                    "My drink now, fella. <b>Everest</b> on the rocks. But don't put too much ice in the glass! I know these tricks that young people do…"
                 ],
                 "leaveCorrect": [
                     "Aaah, how refreshing. This one's especially good, probably because you followed my advice. Hah!<br>At ease, fella! Goodnight!"
