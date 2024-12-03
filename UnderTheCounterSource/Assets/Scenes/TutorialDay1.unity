@@ -2960,7 +2960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6478090358380046592, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: EndPopUp
+      value: CocktailMixed
       objectReference: {fileID: 0}
     - target: {fileID: 6478090358380046592, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -10268,7 +10268,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1725047613}
         m_TargetAssemblyTypeName: Tutorial.TutorialManager1, Assembly-CSharp
-        m_MethodName: EndPopUp
+        m_MethodName: CocktailServed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
