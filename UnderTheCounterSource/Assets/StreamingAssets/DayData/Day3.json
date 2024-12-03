@@ -25,7 +25,21 @@
             "order": "Ripple",
             "lines": {
                 "greet": [
-                    "[LUCA][IDEA FOR DIALOGUE] By the way, who was that young lady on her way out just now?"
+                    "I really like the poster you have outside. You know, I work in a book printing factory, so I know a good poster when I see one.", 
+                    "Anyway, good to see you again, bartender. Just heard the news about the prohibition laws. I'm glad you're still open, I was worried for you.",
+                    "May I ask you for a <b>Ripple</b>, even if it's a bit risky?"
+                ],
+                "leaveCorrect": [
+                    "A perfect Ripple, indeed. I'm glad you are still here, take care of yourself.",
+                    "May I ask you for another one for my husband, Eugene? He's waiting for me at the table."
+                ],
+                "leaveWrong": [
+                    "I really understand the situation, and that you are a bit nervous, but this is not a Ripple.",
+                    "By the way I won't tell anyone about this, don't worry. Oh, look, my husband is coming."
+                ],
+                "leaveWater": [
+                    "Excuse me if I asked for a Ripple, but I understand the situation. I'll just have this water then.",
+                    "My husband doesn't know about the prohibition laws yet, I don't want to worry him. He's a very sensitive person."
                 ]
             },
             "tip": 3
@@ -35,7 +49,20 @@
             "order": "Ripple",
             "lines": {
                 "greet": [
-                    "[LUCA][IDEA FOR DIALOGUE] Will thank bartender for staying open despite the laws"
+                    "HEEEEELLO BARTENDER! Oh honey, why the long face?",
+                    "WHAAAAT? Prohibition laws? Oh, I see. Well, I'm glad you're still open.",
+                    "So can I really get a <b>Ripple</b> here? If it's not too much trouble, of course. In that case... I can just... pass."
+                ],
+                "leaveCorrect": [
+                    "THIS IS A RIPPLE! <size=75%><i>Oh, I mean, this is a Ripple.</i><size=100%>",
+                    "See you soon for another cup of water, you know what I mean? <size=75%><i>wink wink</i><size=100%>"
+                ],
+                "leaveWrong": [
+                    "Oh man, your drinks are always good. I mean, it's not like the one I'm used to, but alcohol is alcohol, right?"
+                ],
+                "leaveWater": [
+                    "Oh, I see. I understand if you can't make alcohol anymore. I'll just have this water then.",
+                    "And I mean, I really like it. It's a good cup of water. A very good cup of water."
                 ]
             },
             "tip": 3

@@ -5,16 +5,18 @@
             "order": "Ripple",
             "lines": {
                 "greet": [
-                    "[LUCA]"
+                    "Evening gentle bartender! Just come back from the honeymoon with my sweetie, I'm happy to see a new face!",
+                    "The previous owner was suuuper nice, but you look like a really good person too!",
+                    "Can I kindly ask for a <b>Ripple</b>?"
                 ],
                 "leaveCorrect": [
-                    "TBD"
+                    "THIS IS THE BEST RIPPLE I'VE EVER HAD! I'm so happy to have come here tonight! Honey, you should try it too!"
                 ],
                 "leaveWrong": [
-                    "TBD"
+                    "Oh, I like it. I mean, it's not like the one the previous owner used to make, but it's still good."
                 ],
                 "leaveWater": [
-                    "TBD"
+                    "Thank you gentle man! I like it, just a bit more alcochol and it would be PERFECT! See you soon!"
                 ]
             },
             "tip": 4
@@ -24,16 +26,21 @@
             "order": "Ripple",
             "lines": {
                 "greet": [
-                    "[LUCA]"
+                    "Good evening bartender. I'm Doris, by the way. I'm a regular here, but I've never seen you before.",
+                    "You have already met my enthusiastic husband, Eugene. Isn't he a darling?",
+                    "I would like to try a <b>Ripple>/b> too, please."
                 ],
                 "leaveCorrect": [
-                    "TBD"
+                    "Thank you gentle man, this is a very good Ripple. The balance of ingredients is perfect, a real delight.",
+                    "We'll be back soon, I'm sure of it. Nice posters out there, by the way."
                 ],
                 "leaveWrong": [
-                    "TBD"
+                    "It's not bad, but it's not a Ripple. I'm sure you'll get it right next time.",
+                    "Oh, and always remember to clean the counter wood after spilling the drink, by the way!"
                 ],
                 "leaveWater": [
-                    "TBD"
+                    "Not a perfect balance of ingredients, but it's still a good drink. See you next time, bartender.",
+                    "Eugene, we have to go honey. You will continue dancing with me at home."
                 ]
             },
             "tip": 3
@@ -44,7 +51,7 @@
             "lines": {
                 "greet": [
                     "Oh, wonderful to see you again, dear bartender! My day was so busy that I almost forgot to come here.",
-                    "But it improved when I found out Davidine Betty will attend the ball tonight, right here in Korgis City. If only I could attend too...",
+                    "But it improved when I found out Davidine Betty will attend the ball tonight, right here in Korgis. If only I could attend too...",
                     "May I get a <b>Spring Bee</b>, please?"
                 ],
                 "leaveCorrect": [
