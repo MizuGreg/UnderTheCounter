@@ -15,8 +15,8 @@ namespace Bar
 
         private void Start()
         {
-            emptyTriangle = Resources.Load<Sprite>("Sprites/-Final/Recipe book/SPRITE SELEZ OFF");
-            blackTriangle = Resources.Load<Sprite>("Sprites/-Final/Recipe book/SPRITE SELEZ ON");
+            emptyTriangle = Resources.Load<Sprite>("Sprites/UI/Recipe book/SPRITE SELEZ OFF");
+            blackTriangle = Resources.Load<Sprite>("Sprites/UI/Recipe book/SPRITE SELEZ ON");
             
             // this ensures that the recipe book always opens up with a cocktail in the beginning:
             if (cocktailType == CocktailType.Everest) ShowThisCocktail();
