@@ -1,17 +1,19 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class DropTarget : MonoBehaviour, IDropHandler
+namespace ShopWindow
 {
-    public void OnDrop(PointerEventData eventData)
+    public class DropTarget : MonoBehaviour
     {
-        // Check if the dragged object is a poster
-        var draggedObject = eventData.pointerDrag;
-        if (draggedObject != null && draggedObject.GetComponent<DraggablePoster>() != null)
+        private bool _occupied = false; // Tracks if the placeholder is occupied
+
+        public bool IsOccupied()
         {
-            // Move the poster to this placeholder
-            RectTransform draggedRect = draggedObject.GetComponent<RectTransform>();
-            draggedRect.anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            return _occupied;
+        }
+
+        public void SetOccupied(bool state)
+        {
+            _occupied = state;
         }
     }
 }

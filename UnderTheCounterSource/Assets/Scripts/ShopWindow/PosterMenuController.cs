@@ -1,48 +1,53 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PosterMenuController : MonoBehaviour
+namespace ShopWindow
 {
-    public GameObject[] submenus; // Array to hold the 3 submenus
-    public Image[] bullets; // Array to hold the 3 bullet images
-    public Button leftArrow; // Reference to the left arrow button
-    public Button rightArrow; // Reference to the right arrow button
-
-    private int currentMenuIndex = 0; // Tracks the currently active submenu
-
-    void Start()
+    public class PosterMenuController : MonoBehaviour
     {
-        // Initialize by showing the first submenu
-        UpdateMenu();
-    }
+        public GameObject[] submenus; // Array to hold the 3 submenus
+        public Image[] bullets; // Array to hold the 3 bullet images
+        public Button leftArrow; // Reference to the left arrow button
+        public Button rightArrow; // Reference to the right arrow button
+        public Sprite activeSprite;
+        public Sprite inactiveSprite;
 
-    // Method to show the next submenu
-    public void ShowNextMenu()
-    {
-        currentMenuIndex = (currentMenuIndex + 1) % submenus.Length;
-        UpdateMenu();
-    }
+        private int _currentMenuIndex = 0; // Tracks the currently active submenu
 
-    // Method to show the previous submenu
-    public void ShowPreviousMenu()
-    {
-        currentMenuIndex = (currentMenuIndex - 1 + submenus.Length) % submenus.Length;
-        UpdateMenu();
-    }
-
-    // Method to update the active submenu and bullets
-    private void UpdateMenu()
-    {
-        // Enable the current submenu and disable others
-        for (int i = 0; i < submenus.Length; i++)
+        private void Start()
         {
-            submenus[i].SetActive(i == currentMenuIndex);
+            // Initialize by showing the first submenu
+            UpdateMenu();
         }
 
-        // Update the bullets (white for active, black for inactive)
-        for (int i = 0; i < bullets.Length; i++)
+        // Method to show the next submenu
+        public void ShowNextMenu()
         {
-            bullets[i].color = (i == currentMenuIndex) ? Color.white : Color.black;
+            _currentMenuIndex = (_currentMenuIndex + 1) % submenus.Length;
+            UpdateMenu();
+        }
+
+        // Method to show the previous submenu
+        public void ShowPreviousMenu()
+        {
+            _currentMenuIndex = (_currentMenuIndex - 1 + submenus.Length) % submenus.Length;
+            UpdateMenu();
+        }
+
+        // Method to update the active submenu and bullets
+        private void UpdateMenu()
+        {
+            // Enable the current submenu and disable others
+            for (int i = 0; i < submenus.Length; i++)
+            {
+                submenus[i].SetActive(i == _currentMenuIndex);
+            }
+
+            // Update the bullets by changing the sprite
+            for (int i = 0; i < bullets.Length; i++)
+            {
+                bullets[i].sprite = (i == _currentMenuIndex) ? activeSprite : inactiveSprite;
+            }
         }
     }
 }
