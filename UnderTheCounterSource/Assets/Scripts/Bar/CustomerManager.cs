@@ -69,6 +69,12 @@ namespace Bar
 
         public void StartDay()
         {
+            StartCoroutine(WaitAndStartDay());
+        }
+
+        private IEnumerator WaitAndStartDay()
+        {
+            yield return new WaitForSeconds(2f);
             LoadDailyCustomers(Day.CurrentDay);
             GreetCustomer();
         }
@@ -161,7 +167,7 @@ namespace Bar
             if (_currentCustomer != null)
             {
                 CocktailType order = _currentCustomer.order;
-                customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{cocktail.type}/{cocktail.type}_tot.png");
+                customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{cocktail.type}/{cocktail.type}_tot");
                 customerCocktail.GetComponent<FadeCanvas>().FadeIn();
             
                 // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
@@ -195,7 +201,7 @@ namespace Bar
             {
                 // The control flow enters here in case of tutorial
                 
-                customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/Ripple/Ripple_tot.png");
+                customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/Ripple/Ripple_tot");
                 customerCocktail.GetComponent<FadeCanvas>().FadeIn();
 
                 float earning = 10;

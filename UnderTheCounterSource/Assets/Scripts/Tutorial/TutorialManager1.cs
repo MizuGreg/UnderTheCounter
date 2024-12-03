@@ -37,7 +37,7 @@ namespace Tutorial
             EventSystemManager.OnRecipeBookOpened += RecipeBookOpenedFirstTime;
             EventSystemManager.OnRecipeBookClosed += RecipeBookClosedFirstTime;
             EventSystemManager.OnIngredientPoured += IngredientPoured;
-            EventSystemManager.OnGarnishAdded += EndPopUp;
+            EventSystemManager.OnGarnishAdded += GarnishAdded;
             
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             
@@ -341,9 +341,11 @@ namespace Tutorial
             trashButton.interactable = true;
             waterButton.interactable = true;
             
+            // serveButton.onClick.RemoveListener(this.CocktailServed);
+            
             // Start the day
             EventSystemManager.OnTutorial1End();
-            //EventSystemManager.OnCustomerLeave();
+            
         }
         
         private IEnumerator WaitAndGreetDialogue()
@@ -389,6 +391,30 @@ namespace Tutorial
         private void IngredientPoured(IngredientType ingredient)
         {
             if (_actualStep >= 7 && _actualStep <= 11)
+            {
+                EndPopUp();
+            }
+        }
+
+        public void CocktailMixed()
+        {
+            if (_actualStep == 12)
+            {
+                EndPopUp();
+            }
+        }
+
+        public void CocktailServed()
+        {
+            if (_actualStep == 15)
+            {
+                EndPopUp();
+            }
+        }
+
+        private void GarnishAdded()
+        {
+            if (_actualStep == 16)
             {
                 EndPopUp();
             }
