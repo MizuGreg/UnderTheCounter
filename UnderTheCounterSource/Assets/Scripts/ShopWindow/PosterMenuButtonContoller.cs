@@ -16,7 +16,6 @@ namespace ShopWindow
 
         private void Start()
         {
-            Debug.Log("Start called");
             // Initially set the panel's animation state to hidden
             panelAnimator.SetBool("IsOpen", _isMenuOpen);
 
@@ -27,17 +26,14 @@ namespace ShopWindow
         private void ToggleMenu()
         {
             _isMenuOpen = !_isMenuOpen;
-            Debug.Log("Button Clicked In New Way");
 
             if (_isMenuOpen)
             {
-                Debug.Log("Open Menu");
                 // Save the positions of all the posters before opening the menu
                 panelAnimator.SetBool("IsOpen", true);  // Play opening animation
             }
             else
             {
-                Debug.Log("Close Menu");
                 panelAnimator.SetBool("IsOpen", false); // Play closing animation
             }
         }
