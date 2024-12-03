@@ -31,68 +31,47 @@ namespace Bar
             ShowCurrentCocktail();
         }
 
-        private string GenerateIngredientsList(CocktailType cocktailType)
-        {
-            Recipe example = Resources.FindObjectsOfTypeAll<Recipe>()[0];
-            print(example.ingredients);
+       private string GenerateIngredientsList(CocktailType cocktailType)
+       {
+            Recipe[] recipes = Resources.FindObjectsOfTypeAll<Recipe>();
+            string ingredientsText = "";
 
-            string ingredients;
-            // hardcoded for now
-            switch (cocktailType)
+            foreach (Recipe recipe in recipes)
             {
-                case CocktailType.Ripple:
-                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
-                    break;
-                case CocktailType.Everest:
-                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
-                    break;
-                case CocktailType.SpringBee:
-                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
-                    break;
-                case CocktailType.Parti:
-                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
-                    break;
-                case CocktailType.Magazine:
-                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
-                    break;
-                case CocktailType.Wrong:
-                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(cocktailType), cocktailType, null);
+                if (recipe.cocktailPrefab.GetComponent<CocktailScript>().cocktail.type == cocktailType)
+                {
+                    var dictionary = new System.Collections.Generic.Dictionary<IngredientType, int>(5);
+                    foreach (IngredientType ingredient in recipe.ingredients)
+                    {
+                        if (dictionary.ContainsKey(ingredient)) dictionary[ingredient]++;
+                        else dictionary.Add(ingredient, 1);
+                    }
+
+                    foreach (var pair in dictionary)
+                    {
+                        ingredientsText += $"{pair.Value} oz {pair.Key}\n";
+                    }
+
+                    return ingredientsText;
+                }
             }
-            
-            return ingredients;
+
+            return "No ingredients found.";
         }
 
         private string RetrieveDescription(CocktailType cocktailType)
         {
-            CocktailScript exampleScript = Resources.FindObjectsOfTypeAll<CocktailScript>()[0];
-            print(exampleScript.cocktail.description);
-            
-            // hardcoded for now
-            string description;
-            switch (cocktailType) {
-                case CocktailType.Ripple:
-                    description = "(placeholder description!!!) A classic cocktail made with tequila, triple sec, and lime juice.";
-                    break;
-                case CocktailType.Everest:
-                    description = "(placeholder description!!!) A traditional Cuban highball made with white rum, sugar, lime juice, soda water, and mint.";
-                    break;
-                case CocktailType.SpringBee:
-                    description = "(placeholder description!!!) A sweet cocktail made with rum, coconut cream or coconut milk, and pineapple juice.";
-                    break;
-                case CocktailType.Parti:
-                    description = "(placeholder description!!!) A family of cocktails whose main ingredients are rum, citrus juice, and sugar.";
-                    break;
-                case CocktailType.Magazine:
-                    description = "(placeholder description!!!) A cocktail made with rum, lime juice, orgeat syrup, and orange liqueur.";
-                    break;
-                default:
-                    description = "(placeholder description!!!) A cocktail made with rum, lime juice, orgeat syrup, and orange liqueur.";
-                    break;
+            CocktailScript[] cocktailScripts = Resources.FindObjectsOfTypeAll<CocktailScript>();
+
+            foreach (CocktailScript script in cocktailScripts)
+            {
+                if (script.cocktail.type == cocktailType)
+                {
+                    return script.cocktail.description;
+                }
             }
-            return description;
+
+            return "No description found.";
         }
 
         public void ShowCurrentCocktail()
@@ -103,7 +82,7 @@ namespace Bar
                 else recipe.DehighlightName();
             }
             cocktailName.text = currentCocktail.ToString();
-            cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/CocktailCreation/{currentCocktail}");
+            cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{currentCocktail}/{currentCocktail}_tot");
             ingredientsList.text = GenerateIngredientsList(currentCocktail);
             cocktailDescription.text = RetrieveDescription(currentCocktail);
         }
