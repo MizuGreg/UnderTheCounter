@@ -8,7 +8,7 @@ namespace Bar
     {
         [SerializeField] private TextMeshProUGUI cocktailName;
         [SerializeField] private Animator animator;
-        private static readonly int IsOpen = Animator.StringToHash("IsOpen");
+        private static readonly int IsOpen = Animator.StringToHash("IsPostItOpen");
 
         private void Awake()
         {

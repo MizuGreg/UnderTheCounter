@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SlideIn
+  m_Name: PostIt_SlideOut
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -24,21 +24,12 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: -778
-        inSlope: -0.00087685435
-        outSlope: -0.00087685435
-        tangentMode: 0
-        weightedMode: 2
-        inWeight: 0.33333334
-        outWeight: 0.20882085
-      - serializedVersion: 3
-        time: 1
-        value: -540
-        inSlope: 0.8850857
-        outSlope: 0.8850857
-        tangentMode: 0
-        weightedMode: 1
-        inWeight: 0.68676865
-        outWeight: 0.33333334
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -70,7 +61,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -93,21 +84,12 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: -778
-        inSlope: -0.00087685435
-        outSlope: -0.00087685435
-        tangentMode: 0
-        weightedMode: 2
-        inWeight: 0.33333334
-        outWeight: 0.20882085
-      - serializedVersion: 3
-        time: 1
-        value: -540
-        inSlope: 0.8850857
-        outSlope: 0.8850857
-        tangentMode: 0
-        weightedMode: 1
-        inWeight: 0.68676865
-        outWeight: 0.33333334
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4

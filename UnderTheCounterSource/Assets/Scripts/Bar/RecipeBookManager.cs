@@ -35,33 +35,40 @@ namespace Bar
         {
             Recipe example = Resources.FindObjectsOfTypeAll<Recipe>()[0];
             print(example.ingredients);
-            
+
+            string ingredients;
             // hardcoded for now
             switch (cocktailType)
             {
                 case CocktailType.Ripple:
+                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
                     break;
                 case CocktailType.Everest:
+                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
                     break;
                 case CocktailType.SpringBee:
+                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
                     break;
                 case CocktailType.Parti:
+                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
                     break;
                 case CocktailType.Magazine:
+                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
                     break;
                 case CocktailType.Wrong:
+                    ingredients = "- 1 oz Verlan<br>- 2 oz Caledon Ridge<br>- 2 oz shaddock juice";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(cocktailType), cocktailType, null);
             }
             
-            return example.ingredients.ToString();
+            return ingredients;
         }
 
         private string RetrieveDescription(CocktailType cocktailType)
         {
-            Recipe exampleDescription = Resources.FindObjectsOfTypeAll<Recipe>()[0];
-            print(exampleDescription.cocktailPrefab.GetComponent<CocktailScript>().cocktail.description);
+            CocktailScript exampleScript = Resources.FindObjectsOfTypeAll<CocktailScript>()[0];
+            print(exampleScript.cocktail.description);
             
             // hardcoded for now
             string description;
