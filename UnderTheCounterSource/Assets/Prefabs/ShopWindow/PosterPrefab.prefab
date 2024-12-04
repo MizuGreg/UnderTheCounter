@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6232379044599659091}
   - component: {fileID: 9060569061723109281}
   - component: {fileID: 4251077398112901296}
+  - component: {fileID: 6799317547851610011}
   m_Layer: 5
   m_Name: PosterImage
   m_TagString: Untagged
@@ -76,6 +77,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &6799317547851610011
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680261441019363295}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1278436377982716957
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9151700566435716543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -252,6 +265,9 @@ MonoBehaviour:
   posterDescription: 
   currencyIcon: {fileID: 21300000, guid: 785f54af09effe842b209b94065fe2e5, type: 3}
   posterPopUpPrefab: {fileID: 0}
+  isLocked: 0
+  posterImageUI: {fileID: 0}
+  canvasGroup: {fileID: 0}
 --- !u!114 &1776925063934189285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restrictionAreas: []
+  _lastPlacedPlaceholder: {fileID: 0}
 --- !u!114 &-829237223500652286
 MonoBehaviour:
   m_ObjectHideFlags: 0
