@@ -74,13 +74,18 @@ namespace Bar
             return "No description found.";
         }
 
+        public string FormatCocktailName(string cocktailName)
+        {
+            return System.Text.RegularExpressions.Regex.Replace(cocktailName, @"([a-z])([A-Z])", "$1 $2");
+        }
+
         public void ShowCurrentCocktail()
         {
             foreach (RecipeBookItem recipe in recipes)
             {
                 if (recipe.GetComponent<RecipeBookItem>().cocktailType != currentCocktail) recipe.Deselect();
             }
-            cocktailName.text = currentCocktail.ToString();
+            cocktailName.text = FormatCocktailName(currentCocktail.ToString());
             cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{currentCocktail}/{currentCocktail}_tot");
             ingredientsList.text = GenerateIngredientsList(currentCocktail);
             cocktailDescription.text = RetrieveDescription(currentCocktail);
