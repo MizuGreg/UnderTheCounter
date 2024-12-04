@@ -21,17 +21,20 @@ namespace Bar
             
             // this ensures that the recipe book always opens up with a cocktail in the beginning:
             if (cocktailType == CocktailType.Ripple) ShowThisCocktail();
+            else Deselect();
         }
         
         public void ShowThisCocktail()
         {
             selected = true;
+            HighlightName();
             recipeBookManager.SetCurrentCocktail(cocktailType);
         }
 
         public void Deselect()
         {
             selected = false;
+            DehighlightName();
         }
 
         public void PointerEnter()

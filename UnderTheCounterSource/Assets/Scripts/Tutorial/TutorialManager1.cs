@@ -37,7 +37,11 @@ namespace Tutorial
         private List<List<string>> _steps;
         private List<string> _currentStep;
         private int _actualStep = -1;
-        
+
+        private void Awake()
+        {
+            enabled = Day.CurrentDay == 1; // goes to sleep if it's not the first day
+        }
         private void Start()
         {
             EventSystemManager.NextTutorialStep += NextStep;
@@ -47,12 +51,6 @@ namespace Tutorial
             EventSystemManager.OnGarnishAdded += GarnishAdded;
             
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
-            
-            recipeBookClosingIcon.interactable = false;
-            resetButton.interactable = false;
-            trashButton.interactable = false;
-            waterButton.interactable = false;
-            serveButton.interactable = false;
         }
 
         private void OnDestroy()
@@ -75,6 +73,12 @@ namespace Tutorial
             Debug.Log("Tutorial 1 started");
             LoadSteps();
             NextStep();
+            
+            recipeBookClosingIcon.interactable = false;
+            resetButton.interactable = false;
+            trashButton.interactable = false;
+            waterButton.interactable = false;
+            serveButton.interactable = false;
         }
         
         private void LoadSteps()

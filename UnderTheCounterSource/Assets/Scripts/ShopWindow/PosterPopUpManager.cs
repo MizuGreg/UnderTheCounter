@@ -1,3 +1,4 @@
+using Technical;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,7 @@ namespace ShopWindow
         public Image currencyIconUI;      // Image for the currency icon
 
         // Method to display the pop-up with the provided details
-        public void ShowPosterDetails(Sprite image, string name, string description, string buff, string nerf, string price, Sprite currency)
+        public void ShowPosterDetails(Sprite image, string name, string description, string buff, string nerf, float price, Sprite currency)
         {
             // Set the UI elements
             if (posterImageUI != null) posterImageUI.sprite = image;
@@ -30,13 +31,19 @@ namespace ShopWindow
             if (currencyIconUI != null) currencyIconUI.sprite = currency;
 
             // Activate the pop-up
-            if (popUpWindow != null) popUpWindow.SetActive(true);
+            if (popUpWindow != null)
+            {
+                GetComponent<FadeCanvas>().FadeIn();
+            }
         }
 
         // Method to close the pop-up
         public void ClosePopUp()
         {
-            if (popUpWindow != null) popUpWindow.SetActive(false);
+            if (popUpWindow != null)
+            {
+                GetComponent<FadeCanvas>().FadeOut();
+            }
         }
     }
 }

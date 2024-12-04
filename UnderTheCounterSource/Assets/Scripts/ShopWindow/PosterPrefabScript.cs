@@ -6,7 +6,7 @@ namespace ShopWindow
     {
         public Sprite posterImage; // Reference to the image component for the poster
         public string posterNameText; // Reference to the text component for the poster name
-        public string posterPriceText; // Reference to the text component for the poster price
+        public float posterPrice; // Reference to the poster price
         public string posterBuff; // Reference to the poster buff percentage
         public string posterNerf; // Reference to the poster nerf percentage
         public string posterDescription; // Reference to the text for the poster description
@@ -17,11 +17,11 @@ namespace ShopWindow
         private bool _isDragging = false; // Track whether the item is being dragged
 
         // Method to set poster data
-        public void SetPosterData(Sprite image, string name, string price, string buff, string nerf, string description)
+        public void SetPosterData(Sprite image, string name, float price, string buff, string nerf, string description)
         {
             posterImage = image;
             posterNameText = name;
-            posterPriceText = price;
+            posterPrice = price;
             posterBuff = buff;
             posterNerf = nerf;
             posterDescription = description;
@@ -57,7 +57,7 @@ namespace ShopWindow
                     posterDescription,
                     posterBuff,
                     posterNerf,
-                    posterPriceText,
+                    posterPrice,
                     currencyIcon
                 );
             }

@@ -882,13 +882,45 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3743747325131084355, guid: bba1231338ebaeb458e495d2e2fe7f3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 140316795}
+    - targetCorrespondingSourceObject: {fileID: 3743747325131084355, guid: bba1231338ebaeb458e495d2e2fe7f3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 140316794}
   m_SourcePrefab: {fileID: 100100000, guid: bba1231338ebaeb458e495d2e2fe7f3d, type: 3}
 --- !u!224 &140316792 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2008028414489553871, guid: bba1231338ebaeb458e495d2e2fe7f3d, type: 3}
   m_PrefabInstance: {fileID: 140316791}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &140316794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128930710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee87621b6181084293368ff831ceac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 140316795}
+  fadeSpeed: 1
+--- !u!225 &140316795
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128930710}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &158713748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -897,6 +929,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 584973333}
     m_Modifications:
+    - target: {fileID: 1278436377982716957, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2789064678060741216, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -977,6 +1013,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_text
+      value: OWNED
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6530262217958661659, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4037601544572563306, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Name
       value: PosterPrefab (3)
@@ -1032,6 +1084,10 @@ PrefabInstance:
     - target: {fileID: 6232379044599659091, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307013188285345947, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNerf
@@ -1784,6 +1840,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 584973333}
     m_Modifications:
+    - target: {fileID: 1278436377982716957, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2789064678060741216, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1864,6 +1924,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_text
+      value: OWNED
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6530262217958661659, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4037601544572563306, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Name
       value: PosterPrefab (1)
@@ -1920,6 +1996,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6307013188285345947, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 71.99998
+      objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterBuff
       value: more ???
@@ -1961,6 +2041,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 584973333}
     m_Modifications:
+    - target: {fileID: 1278436377982716957, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2789064678060741216, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2041,6 +2125,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_text
+      value: OWNED
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6530262217958661659, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4037601544572563306, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Name
       value: PosterPrefab (2)
@@ -2108,6 +2208,10 @@ PrefabInstance:
     - target: {fileID: 6232379044599659091, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307013188285345947, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 71.99998
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNerf
@@ -6521,6 +6625,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 584973333}
     m_Modifications:
+    - target: {fileID: 1278436377982716957, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2789064678060741216, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6601,6 +6709,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_text
+      value: OWNED
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6530262217958661659, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
+    - target: {fileID: 2919129357056302668, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4037601544572563306, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Name
       value: PosterPrefab
@@ -6673,6 +6797,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6307013188285345947, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 71.99998
+      objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterBuff
       value: More Customer
@@ -6685,6 +6813,10 @@ PrefabInstance:
       propertyPath: posterImage
       value: 
       objectReference: {fileID: 21300000, guid: 57fd0cfbe623aad4d8ff31de33d7df78, type: 3}
+    - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+      propertyPath: posterPrice
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNameText
       value: Poster 1
