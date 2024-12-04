@@ -1514,7 +1514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 540
+      value: 503
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2003,8 +2003,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 52.879}
-  m_SizeDelta: {x: 1598.918, y: 562.412}
+  m_AnchoredPosition: {x: 0, y: 65}
+  m_SizeDelta: {x: 1676.849, y: 731.757}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2067866171
 MonoBehaviour:
@@ -2026,12 +2026,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Raga ma \xE8 qui che vendete
-    quella roba? mi serve un po\u2019 di cosiddetta dai giovani bamba..."
+  m_text: '<size=125%>After many adventures lived and favors asked...
+
+    you find
+    yourself on high ground for once.<size=100%>
+
+
+    Moving to <b>Korgis</b> wasn''t
+    a breeze, but you managed to find an occupation you like: the young and proud
+    owner of a bar in the <b>art district</b>. It won''t be easy, but you''re not
+    willing to let this opportunity go to waste. The <b>Roaring Twenties</b> offer
+    opportunities to people of all kinds, after all!
+
+
+    With the help of your
+    uncles you''ve secured yourself a few supplies for the bar, and your meeting
+    with the <b>former bar owner</b> Ernest is coming up. Are you prepared to face
+    this challenge?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
-  m_sharedMaterial: {fileID: -6530262217958661659, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 5227b1b7515f0024bb826316a2b2c4fe, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2055,7 +2069,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 41.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2067,7 +2081,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
