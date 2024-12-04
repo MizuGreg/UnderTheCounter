@@ -1,3 +1,5 @@
+using System.Globalization;
+using TMPro;
 using UnityEngine;
 
 namespace ShopWindow
@@ -29,6 +31,49 @@ namespace ShopWindow
             posterNerf = poster.nerf;
             posterDescription = poster.description;
         }
+        
+        private void Awake()
+        {
+            // Initialize UI based on poster values
+            UpdateUI();
+        }
+
+        private void UpdateUI()
+        {
+            // Find the "posterImage" child first
+            var posterImageTransform = transform.Find("PosterImage");
+            if (posterImageTransform != null)
+            {
+                // Find the "posterPrice" child under "posterImage"
+                var posterPriceTransform = posterImageTransform.Find("PosterPrice");
+                if (posterPriceTransform != null)
+                {
+                    // Get the TextMeshProUGUI component
+                    var priceTextUI = posterPriceTransform.GetComponent<TextMeshProUGUI>();
+                    if (priceTextUI != null)
+                    {
+                        // Update the text based on the poster price
+                        priceTextUI.text = posterPrice >= 0 
+                            ? $"{posterPrice.ToString(CultureInfo.InvariantCulture)}$" 
+                            : "Owned";
+                    }
+                    else
+                    {
+                        Debug.LogWarning("TextMeshProUGUI component not found on posterPrice.");
+                    }
+
+                    // Find the "PriceIcon" child under "posterPrice"
+                    var priceIconTransform = posterPriceTransform.Find("PriceIcon");
+                    if (priceIconTransform != null)
+                    {
+                        // Activate or deactivate the PriceIcon based on poster price
+                        priceIconTransform.gameObject.SetActive(posterPrice >= 0);
+                    }
+                }
+            }
+        }
+
+
     
         //Hide or Show Poster Price for when in placeholder or when in menu
         public void TogglePosterDetails(bool show)
@@ -47,6 +92,17 @@ namespace ShopWindow
         public void OnPosterClicked()
         {
             if (_isDragging) return; // Only show popup if no drag is in progress
+
+            // Check if the poster price is less than 0
+            var displayPrice = posterPrice.ToString(CultureInfo.InvariantCulture);
+            var displayIcon = currencyIcon;
+
+            if (float.TryParse(posterPrice.ToString(CultureInfo.InvariantCulture), out var priceValue) && priceValue < 0)
+            {
+                displayPrice = "Owned"; // Set to "Owned" if the price is less than 0
+                displayIcon = null;     // Remove the currency icon
+            }
+
             // Enable the pop-up
             posterPopUpPrefab.SetActive(true);
 
@@ -60,11 +116,12 @@ namespace ShopWindow
                     posterDescription,
                     posterBuff,
                     posterNerf,
-                    posterPrice,
-                    currencyIcon
+                    displayPrice, // Use the modified display price
+                    displayIcon   // Use the modified currency icon
                 );
             }
         }
+
         // Method to set isDragging flag when dragging starts
         public void SetIsDragging(bool value)
         {

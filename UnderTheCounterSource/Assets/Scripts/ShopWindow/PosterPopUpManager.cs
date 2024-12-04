@@ -19,7 +19,7 @@ namespace ShopWindow
         public Image currencyIconUI;      // Image for the currency icon
 
         // Method to display the pop-up with the provided details
-        public void ShowPosterDetails(Sprite image, string name, string description, string buff, string nerf, float price, Sprite currency)
+        public void ShowPosterDetails(Sprite image, string name, string description, string buff, string nerf, string price, Sprite currency)
         {
             // Set the UI elements
             if (posterImageUI != null) posterImageUI.sprite = image;
@@ -27,7 +27,7 @@ namespace ShopWindow
             if (posterDescriptionUI != null) posterDescriptionUI.text = description;
             if (buffTextUI != null) buffTextUI.text = $"• + {buff}";
             if (nerfTextUI != null) nerfTextUI.text = $"• - {nerf}";
-            if (priceTextUI != null) priceTextUI.text = $"{price}$";
+            if (priceTextUI != null) priceTextUI.text = price == "Owned" ? price : $"{price}$";
             if (currencyIconUI != null) currencyIconUI.sprite = currency;
 
             // Activate the pop-up
