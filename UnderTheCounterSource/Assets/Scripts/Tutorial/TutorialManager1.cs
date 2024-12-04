@@ -37,7 +37,11 @@ namespace Tutorial
         private List<List<string>> _steps;
         private List<string> _currentStep;
         private int _actualStep = -1;
-        
+
+        private void Awake()
+        {
+            enabled = Day.CurrentDay == 1; // goes to sleep if it's not the first day
+        }
         private void Start()
         {
             EventSystemManager.NextTutorialStep += NextStep;
