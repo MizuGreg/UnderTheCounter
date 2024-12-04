@@ -173,9 +173,7 @@ namespace EndOfDay
 
         private void CheckEndOFDay()
         {
-
-            Day.Savings += dailyBalance;
-            Day.TodayEarnings = 0;
+            Day.EndDay(dailyBalance);
 
             if (Day.Savings < 0)
             {
@@ -195,7 +193,6 @@ namespace EndOfDay
         public void NextDay()
         {
             StartCoroutine(LoadNextScene());
-            Day.CurrentDay++;
         }
 
         private IEnumerator LoadGameOverScene()

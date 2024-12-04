@@ -10,7 +10,7 @@ namespace Bar
         public static int CurrentDay = 1;
         public static int DrunkCustomers;
         public static int MaxDrunkCustomers = 3;
-        public static List<ShopWindowManager.Poster> CurrentPosters;
+        public static List<Poster> CurrentPosters = new();
         public static float Savings = 0;
         public static float TodayEarnings = 0;
 
@@ -21,6 +21,42 @@ namespace Bar
             CurrentPosters = new();
             Savings = 0;
             TodayEarnings = 0;
+        }
+
+        public static void StartDay()
+        {
+            CurrentPosters.Clear(); // Removes all posters/effects
+            switch (CurrentDay)
+            {
+                case 1:
+                    DailyTime = 0;
+                    MaxDrunkCustomers = 99;
+                    break;
+                case 2:
+                    DailyTime = 180;
+                    MaxDrunkCustomers = 99;
+                    break;
+                default:
+                    DailyTime = 240;
+                    MaxDrunkCustomers = 4;
+                    break;
+            }
+        }
+
+        public static bool IsPosterActive(int posterID)
+        {
+            foreach (Poster poster in CurrentPosters)
+            {
+                if (poster.posterID == posterID) return true;
+            }
+            return false;
+        }
+
+        public static void EndDay(float dailyBalance)
+        {
+            Savings += dailyBalance;
+            TodayEarnings = 0;
+            CurrentDay++;
         }
     }
     

@@ -9,6 +9,7 @@ namespace Bar
     {
         public float initialTime;
         private float timeRemaining; // 2 minutes
+        public bool isOn = false;
         public bool isRunning = false;
 
         public CanvasGroup timerCanvas;
@@ -39,21 +40,24 @@ namespace Bar
             }
         }
         
-        public void startTimer()
+        public void StartTimer()
         {
             timeRemaining = Day.DailyTime;
+            isOn = true;
             isRunning = true;
             print($"Timer started. Time remaining: {timeRemaining}");
         }
 
-        public void pauseTimer()
+        public void PauseTimer()
         {
+            if (!isOn) return;
             isRunning = false;
             print($"Timer paused. Time remaining: {timeRemaining}");
         }
 
-        public void resumeTimer()
+        public void ResumeTimer()
         {
+            if (!isOn) return;
             if (timeRemaining > 0) isRunning = true;
             print($"Timer resumed. Time remaining: {timeRemaining}");
         }

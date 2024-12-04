@@ -31,6 +31,8 @@ namespace Bar
         [Range(0.0f, 3f)]
         public float timeBeforeFadeout = 1f;
 
+        private float earningMultiplier;
+
         private void Start()
         {
             EventSystemManager.OnTutorial1End += StartDay;
@@ -45,7 +47,21 @@ namespace Bar
             #if !UNITY_EDITOR
             GameObject.FindWithTag("Debug").SetActive(true);
             #endif
-            
+
+            PosterEffects();
+
+        }
+
+        private void PosterEffects()
+        {
+            if (Day.IsPosterActive(1))
+            {
+                earningMultiplier = 1.5f;
+            }
+            else
+            {
+                earningMultiplier = 1f;
+            }
         }
 
         private void OnDestroy()
@@ -172,21 +188,21 @@ namespace Bar
             
                 // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
                 Dialogue dialogue;
-                float earning;
+                float earning = 5 * earningMultiplier;
                 if (cocktail.type != order)
                 {
                     dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWrong"]);
-                    earning = 5 + _currentCustomer.tip / 5;
+                    earning += 0;
                 }
                 else if (cocktail.isWatered)
                 {
                     dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWater"]);
-                    earning = 5 + _currentCustomer.tip / 4;
+                    earning += _currentCustomer.tip / 4;
                 }
                 else
                 {
                     dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveCorrect"]);
-                    earning = 5 + _currentCustomer.tip;
+                    earning += _currentCustomer.tip;
                 }
 
                 pricePopup.DisplayPrice(earning);

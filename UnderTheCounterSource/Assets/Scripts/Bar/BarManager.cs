@@ -42,8 +42,19 @@ namespace Bar
             EventSystemManager.OnCustomersDepleted -= EndDay;
         }
 
+        private void PosterEffects()
+        {
+            if (Day.IsPosterActive(0))
+            {
+                Day.DailyTime += 60;
+            }
+        }
+
         public void StartDay()
         {
+            Day.StartDay();
+            PosterEffects();
+            
             if (Day.CurrentDay == 1)
             {
                 _tutorialManager1.StartTutorial();
@@ -57,7 +68,7 @@ namespace Bar
 
         private void StartTimer()
         {
-            _timerManager.startTimer();
+            _timerManager.StartTimer();
         }
 
         private void EndDay()

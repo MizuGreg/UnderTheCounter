@@ -20,12 +20,12 @@ namespace Settings
 
         private void OnEnable()
         {
-            if (_timerManager != null) _timerManager.pauseTimer();
+            if (_timerManager != null) _timerManager.PauseTimer();
         }
 
         private void OnDisable()
         {
-            if (_timerManager != null) _timerManager.resumeTimer();
+            if (_timerManager != null) _timerManager.ResumeTimer();
         }
 
         public void OnEscapeButtonPressed()
