@@ -78,8 +78,7 @@ namespace Bar
         {
             foreach (RecipeBookItem recipe in recipes)
             {
-                if (recipe.GetComponent<RecipeBookItem>().cocktailType == currentCocktail) recipe.HighlightName();
-                else recipe.DehighlightName();
+                if (recipe.GetComponent<RecipeBookItem>().cocktailType != currentCocktail) recipe.Deselect();
             }
             cocktailName.text = currentCocktail.ToString();
             cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{currentCocktail}/{currentCocktail}_tot");

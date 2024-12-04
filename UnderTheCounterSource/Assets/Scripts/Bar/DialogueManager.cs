@@ -193,6 +193,9 @@ namespace Bar
                     case DialogueType.Tutorial:
                         EventSystemManager.NextTutorialStep();
                         break;
+                    case DialogueType.Inspector:
+                        EventSystemManager.OnCustomerLeave();
+                        break;
                 }
             }
             else

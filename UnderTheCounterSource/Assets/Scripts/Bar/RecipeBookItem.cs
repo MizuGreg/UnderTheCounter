@@ -9,6 +9,7 @@ namespace Bar
     {
         public CocktailType cocktailType;
         [SerializeField] private RecipeBookManager recipeBookManager;
+        private bool selected;
         
         private Sprite emptyTriangle;
         private Sprite blackTriangle;
@@ -24,7 +25,23 @@ namespace Bar
         
         public void ShowThisCocktail()
         {
+            selected = true;
             recipeBookManager.SetCurrentCocktail(cocktailType);
+        }
+
+        public void Deselect()
+        {
+            selected = false;
+        }
+
+        public void PointerEnter()
+        {
+            if (!selected) HighlightName();
+        }
+
+        public void PointerExit()
+        {
+            if (!selected) DehighlightName();
         }
 
         public void HighlightName()

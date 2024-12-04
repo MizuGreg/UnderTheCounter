@@ -6,7 +6,7 @@ namespace Bar
 {
     public static class Day
     {
-        public static float DailyTime = 120;
+        public static float DailyTime = 180;
         public static int CurrentDay = 1;
         public static int DrunkCustomers;
         public static int MaxDrunkCustomers = 3;

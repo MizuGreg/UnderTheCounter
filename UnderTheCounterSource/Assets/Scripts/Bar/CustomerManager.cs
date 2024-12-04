@@ -114,7 +114,7 @@ namespace Bar
             yield return new WaitForSeconds(timeBeforeDialogue);
             _dialogueManager.StartDialogue(
                 new Dialogue(_customerName, _currentCustomer.lines["greet"]),
-                DialogueType.Greet);
+                _currentCustomer.sprite == CustomerType.Howard ? DialogueType.Inspector : DialogueType.Greet);
         }
 
         private Sprite GetSpriteFromCustomerType(CustomerType customerType)
