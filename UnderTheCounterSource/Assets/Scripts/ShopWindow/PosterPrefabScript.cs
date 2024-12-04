@@ -4,6 +4,9 @@ namespace ShopWindow
 {
     public class PosterPrefabScript : MonoBehaviour
     {
+        [SerializeField] private ShopWindowManager shopWindowManager;
+        
+        public int posterID;
         public Sprite posterImage; // Reference to the image component for the poster
         public string posterNameText; // Reference to the text component for the poster name
         public float posterPrice; // Reference to the poster price
@@ -17,14 +20,14 @@ namespace ShopWindow
         private bool _isDragging = false; // Track whether the item is being dragged
 
         // Method to set poster data
-        public void SetPosterData(Sprite image, string name, float price, string buff, string nerf, string description)
+        public void SetPosterData(Poster poster)
         {
-            posterImage = image;
-            posterNameText = name;
-            posterPrice = price;
-            posterBuff = buff;
-            posterNerf = nerf;
-            posterDescription = description;
+            posterImage = poster.image;
+            posterNameText = poster.name;
+            posterPrice = poster.price;
+            posterBuff = poster.buff;
+            posterNerf = poster.nerf;
+            posterDescription = poster.description;
         }
     
         //Hide or Show Poster Price for when in placeholder or when in menu
@@ -66,6 +69,16 @@ namespace ShopWindow
         public void SetIsDragging(bool value)
         {
             _isDragging = value;
+        }
+
+        public void AddPosterToHungPosters()
+        {
+            shopWindowManager.AddPoster(posterID);
+        }
+
+        public void RemovePosterFromHungPosters()
+        {
+            shopWindowManager.RemovePoster(posterID);
         }
     }
 }

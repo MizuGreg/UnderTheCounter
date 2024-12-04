@@ -12,7 +12,7 @@ namespace ShopWindow
         private Vector3 _originalScale;
         private Transform _originalParent;
         public List<RectTransform> restrictionAreas = new List<RectTransform>();
-        private RectTransform _lastPlacedPlaceholder; 
+        [SerializeField] private RectTransform _lastPlacedPlaceholder; 
         private bool _isPlaced = false;
 
         private void Awake()
@@ -32,10 +32,14 @@ namespace ShopWindow
                     restrictionAreas.Add(placeholderRect);
                 }
             }
+
+            // If I forgot to set the starting slot in which the poster is in, this automatically sets it to the parent
+            // _lastPlacedPlaceholder ??= gameObject.GetComponentInParent<RectTransform>();
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            print("drag begin!");
             // Set the parent to canvas and handle the size/position while dragging
             _rectTransform.SetParent(_canvas.transform, true);
             _rectTransform.localScale = _originalScale;
@@ -61,7 +65,7 @@ namespace ShopWindow
 
             if (validArea != null)
             {
-                var dropTarget = validArea.GetComponent<DropTarget>();
+                DropTarget dropTarget = validArea.GetComponent<DropTarget>();
                 if (dropTarget != null && !dropTarget.IsOccupied())
                 {
                     if (_lastPlacedPlaceholder != null && _lastPlacedPlaceholder != validArea)
@@ -84,16 +88,33 @@ namespace ShopWindow
                     _rectTransform.localScale = Vector3.one;
 
                     _isPlaced = true;
-                    _rectTransform.GetComponent<PosterPrefabScript>().TogglePosterDetails(false);
+                    PosterPrefabScript posterPrefab = _rectTransform.GetComponent<PosterPrefabScript>();
+                    
+                    // adds poster to currently hung posters if the drop slot is a window one
+                    if (dropTarget.isWindowSlot())
+                    {
+                        posterPrefab.AddPosterToHungPosters();
+                        print("added poster to hung ones");
+                        posterPrefab.TogglePosterDetails(false);
+                    }
+                    // removes poster if instead the drop slot is on the side panel
+                    else
+                    {
+                        posterPrefab.RemovePosterFromHungPosters();
+                        print("removed poster from hung ones");
+                        posterPrefab.TogglePosterDetails(true);
+                    }
                 }
                 else
                 {
                     ReturnToOriginalPosition();
+                    print("Return to original position!");
                 }
             }
             else
             {
                 ReturnToOriginalPosition();
+                print("Return to original position!");
             }
 
             // Reset the dragging flag after the drag ends
@@ -119,6 +140,8 @@ namespace ShopWindow
             PosterPrefabScript posterPrefab = _rectTransform.GetComponent<PosterPrefabScript>();
             if (posterPrefab != null)
             {
+                posterPrefab.RemovePosterFromHungPosters();
+                print("removed poster from hung ones");
                 posterPrefab.TogglePosterDetails(true);
             }
         }
