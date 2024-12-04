@@ -19,10 +19,27 @@ namespace Bar
         [SerializeField] private Image cocktailSprite;
         [SerializeField] private TextMeshProUGUI ingredientsList;
         [SerializeField] private TextMeshProUGUI cocktailDescription;
+        
+        private TimerManager timerManager;
 
         void Start()
         {
             recipeBook.gameObject.SetActive(false);
+            timerManager = FindFirstObjectByType<TimerManager>();
+        }
+
+        public void OpenRecipeBook()
+        {
+            EventSystemManager.OnRecipeBookOpened();
+            recipeBook.GetComponent<FadeCanvas>().FadeIn();
+            if (timerManager != null) timerManager.PauseTimer();
+        }
+
+        public void CloseRecipeBook()
+        {
+            EventSystemManager.OnRecipeBookClosed();
+            recipeBook.GetComponent<FadeCanvas>().FadeOut();
+            if (timerManager != null) timerManager.ResumeTimer();
         }
 
         public void SetCurrentCocktail(CocktailType cocktailType)
@@ -89,16 +106,6 @@ namespace Bar
             cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{currentCocktail}/{currentCocktail}_tot");
             ingredientsList.text = GenerateIngredientsList(currentCocktail);
             cocktailDescription.text = RetrieveDescription(currentCocktail);
-        }
-
-        public void TriggerEventRecipeBookOpened()
-        {
-            EventSystemManager.OnRecipeBookOpened();
-        }
-
-        public void TriggerEventRecipeBookClosed()
-        {
-            EventSystemManager.OnRecipeBookClosed();
         }
     }
 }

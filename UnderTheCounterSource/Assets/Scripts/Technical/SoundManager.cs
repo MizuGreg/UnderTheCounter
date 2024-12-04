@@ -16,7 +16,8 @@ namespace Technical
         {
             EventSystemManager.OnLoadMainMenu += OnLoadMainMenuSound;
             EventSystemManager.OnLoadBarView += OnLoadBarViewSound;
-            
+            EventSystemManager.OnRecipeBookOpened += OnRecipeBookOpenedSound;
+            EventSystemManager.OnRecipeBookClosed += OnRecipeBookClosedSound;
             EventSystemManager.OnCustomerEnter += OnCustomerEnterSound;
             EventSystemManager.OnCustomerLeave += OnCustomerLeaveSound;
             EventSystemManager.OnDayEnd += OnDayEndSound;
@@ -26,7 +27,8 @@ namespace Technical
         {
             EventSystemManager.OnLoadMainMenu -= OnLoadMainMenuSound;
             EventSystemManager.OnLoadBarView -= OnLoadBarViewSound;
-            
+            EventSystemManager.OnRecipeBookOpened -= OnRecipeBookOpenedSound;
+            EventSystemManager.OnRecipeBookClosed -= OnRecipeBookClosedSound;
             EventSystemManager.OnCustomerEnter -= OnCustomerEnterSound;
             EventSystemManager.OnCustomerLeave -= OnCustomerLeaveSound;
             EventSystemManager.OnDayEnd -= OnDayEndSound;
@@ -83,6 +85,16 @@ namespace Technical
         private void OnDayEndSound()
         {
             // todo
+        }
+
+        private void OnRecipeBookOpenedSound()
+        {
+            EazySoundManager.PlaySound(soundData.bookOpenSound, EazySoundManager.GlobalSoundsVolume);
+        }
+
+        private void OnRecipeBookClosedSound()
+        {
+            EazySoundManager.PlaySound(soundData.bookCloseSound, EazySoundManager.GlobalSoundsVolume);
         }
         
         // I want to parameterize this instead of having a hundred different functions... is it overkill? probably

@@ -19,7 +19,7 @@ namespace Bar
             CurrentDay = 1;
             DrunkCustomers = 0;
             CurrentPosters = new();
-            Savings = 0;
+            Savings = 50;
             TodayEarnings = 0;
         }
 

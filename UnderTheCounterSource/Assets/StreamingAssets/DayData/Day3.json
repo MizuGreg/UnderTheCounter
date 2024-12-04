@@ -14,17 +14,7 @@
                     "The law of this city."
                 ]
             },
-            "tip": 5
-        },
-        {
-            "sprite": "Helene",
-            "order": "SpringBee",
-            "lines": {
-                "greet": [
-                    "[IDEA FOR DIALOGUE] She says she knows prohibition laws have passed, but that she will keep it discreet"
-                ]
-            },
-            "tip": 8
+            "tip": 0
         },
         {
             "sprite": "Doris",
@@ -97,19 +87,40 @@
         },
         {
             "sprite": "Margaret",
-            "order": "Parti",
+            "order": "SpringBee",
             "lines": {
                 "greet": [
-                    "TBD"
+                    "Oh, wonderful to see you again, dear bartender! My day was so busy that I almost forgot to come here.",
+                    "But it improved when I found out Davidine Betty will attend the ball tonight, right here in Korgis. If only I could attend too...",
+                    "May I get a <b>Spring Bee</b>, please?"
+                ],
+                "leaveCorrect": [
+                    "Perfect cocktail, dear bartender. I wonder when this recipe was invented...<br>I shall go home now, and rehearse some lines. Goodnight!"
+                ],
+                "leaveWrong": [
+                    "Oh... I'm afraid this is not the right cocktail.<br>It's alright, I'll come back another day... Goodnight, bartender!"
+                ],
+                "leaveWater": [
+                    "Thank you, dear bartender.<br>Well, I might go home now and rehearse some lines... Goodnight!"
                 ]
             },
-            "tip": 3
-        },{
-            "sprite": "Ernest",
+            "tip": 5
+        },
+        {
+            "sprite": "Kenneth",
             "order": "Everest",
             "lines": {
                 "greet": [
-                    "[IDEA FOR DIALOGUE] Will ask how the player is faring after their first 3 days"
+                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
+                ],
+                "leaveCorrect": [
+                    "Aaah, just how I like it. Thank you very much, and here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
+                ],
+                "leaveWrong": [
+                    "Argh, this is terrible... Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
+                ],
+                "leaveWater": [
+                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience...<br>In any case, at ease, fella! Goodnight!"
                 ]
             },
             "tip": 3
@@ -119,10 +130,81 @@
             "order": "Magazine",
             "lines": {
                 "greet": [
+                    "<i>Bonsoir, barman</i>. This establishment was recommended to me by a trusted client.",
+                    "You may want to consider investing in alcohol stocks by the way… Prices have been increasing lately, what with the debates in the government.",
+                    "I would like to try out a <b>Magazine</b> now, <i>s'il vous plaît</i>."
+                ],
+                "leaveCorrect": [
+                    "Excellent cocktail, barman. It seems I'll recommend this place to someone else in turn. <size=75%>I wonder if I could spend some bonding time with my son here…<size=100%><br><i>Bonne nuit</i>, barman."
+                ],
+                "leaveWrong": [
+                    "I'm confused. I thought this was a different type of bar. Maybe you've made the wrong cocktail because you got afraid of me.<br>I may retry in the future. <i>Au revoir</i>."
+                ],
+                "leaveWater": [
+                    "Oh. A watered drink.<br>Not the best of impression, and not very polite. But as a fellow <i>entrepreneur</i> I understand the necessity. Have a good night, <i>au revoir</i>."
+                ]
+            },
+            "tip": 3
+        },
+        {
+            "sprite": "Charles",
+            "order": "Parti",
+            "lines": {
+                "greet": [
+                    "Good to see you again there. It seems like this place is picking up the pace with the customers, even though you've new in the neighborhood.",
+                    "One <b>Parti</b> for me, please. And <i>shaken, not stirred</i>, if it's not too much to ask."
+                ],
+                "leaveCorrect": [
+                    "A fantastic drink, no doubt. It's nice to come here after work and find this welcoming atmosphere.<br>Oh, I'm overstaying my welcome. Have a good night."
+                ],
+                "leaveWrong": [
+                    "This is hardly a Parti. I'm afraid you haven't followed the recipe that well. At any rate, farewell and have a nice day."
+                ],
+                "leaveWater": [
+                    "Nice drink. It's nice to come here after work to unwind a little bit. Thank you and have a good night."
+                ]
+            },
+            "tip": 4
+        },
+        {
+            "sprite": "Betty",
+            "order": "Everest",
+            "lines": {
+                "greet": [
+                    "Well, hello again. I didn't notice it before but that plant over there is very pretty. It would fit well in my house.<br><size=75%>...or is it part of the wallpaper? I can't tell.<size=100%>",
+                    "An <b>Everest</b> for me now! I don't have all day."
+                ],
+                "leaveCorrect": [
+                    "You've improved from the last time I was here! But I'll have you know you still have a long way to go.<br>Bye bye!"
+                ],
+                "leaveWrong": [
+                    "Pah! Definitely a downgrade from last time! Heading out now!"
+                ],
+                "leaveWater": [
+                    "You haven't improved much from the last time I was here. I'll have you know you still have a long way to go!<br>Bye bye!"
+                ]
+            },
+            "tip": 2
+        },
+        {
+            "sprite": "Kathryn",
+            "order": "Parti",
+            "lines": {
+                "greet": [
+                    "Hello again! I'm not sure what brought me to this street again today, but I sure am glad to be here. This bar's energy is a mystery I want to solve.",
+                    "I'm not a sophisticate drinker <size=75%>(I usually down pints in England...)<size=100%> but I've been pushing my boundaries a bit. Can you get me a <b>Parti</b>?"
+                ],
+                "leaveCorrect": [
+                    "Cheers! Better than a pint, innit?<br>Listen, I need to "
+                ],
+                "leaveWrong": [
+                    "TBD"
+                ],
+                "leaveWater": [
                     "TBD"
                 ]
             },
-            "tip": 5
+            "tip": 3
         }
     ]
 }

@@ -7,16 +7,23 @@ namespace Bar
 {
     public class TimerManager : MonoBehaviour
     {
-        public float initialTime;
-        private float timeRemaining; // 2 minutes
+        private float initialTime;
+        private float timeRemaining;
         public bool isOn = false;
         public bool isRunning = false;
+        
+        [SerializeField] private Image wallClockHour;
+        [SerializeField] private Image wallClockMinute;
+        private readonly float timeCoherenceRotation = 100f;
 
-        public CanvasGroup timerCanvas;
-        [SerializeField] private Image pocketWatchBase;
-        [SerializeField] private Image pocketWatchHand;
+        void Start()
+        {
+            
+        }
 
-        void Start() {
+        public void SetTime()
+        {
+            initialTime = Day.DailyTime;
             timeRemaining = initialTime;
         }
 
@@ -27,8 +34,9 @@ namespace Bar
                 if (timeRemaining > 0)
                 {
                     timeRemaining -= Time.deltaTime;
-                    float rotationAngle = 360 * timeRemaining/initialTime;
-                    pocketWatchHand.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+                    float rotationAngle = 180 * (timeRemaining/initialTime - 1); // 180 means half a clock
+                    wallClockHour.transform.rotation = Quaternion.Euler(0, 0, timeCoherenceRotation + rotationAngle);
+                    wallClockMinute.transform.rotation = Quaternion.Euler(0, 0, timeCoherenceRotation + rotationAngle*12);
                 }
                 else
                 {

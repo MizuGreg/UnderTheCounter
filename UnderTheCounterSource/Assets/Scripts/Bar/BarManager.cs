@@ -15,6 +15,8 @@ namespace Bar
         private DialogueManager _dialogueManager;
 
         public CanvasGroup barContainer;
+
+        public int forceDay = 2;
                 
         void Start()
         {
@@ -24,12 +26,12 @@ namespace Bar
             _timerManager = GetComponent<TimerManager>();
             _dialogueManager = GetComponent<DialogueManager>();
             _customerManager.AttachDialogueManager(_dialogueManager);
-            _tutorialManager1.AttachDialogueManager(_dialogueManager);
+            if (_tutorialManager1 != null) _tutorialManager1.AttachDialogueManager(_dialogueManager);
         
             EventSystemManager.OnDayStart += StartDay;
             EventSystemManager.OnDrunkCustomerLeave += CheckDrunk;
             EventSystemManager.OnCustomersDepleted += EndDay;
-            EventSystemManager.OnTutorial1End += StartTimer;
+            EventSystemManager.OnTutorial1End += EndDay;
         
             barContainer.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadBarView();
@@ -52,7 +54,9 @@ namespace Bar
 
         public void StartDay()
         {
+            if (forceDay != 0) Day.CurrentDay = forceDay;
             Day.StartDay();
+            _timerManager.SetTime();
             PosterEffects();
             
             if (Day.CurrentDay == 1)

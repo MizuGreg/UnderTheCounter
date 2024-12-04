@@ -35,7 +35,6 @@ namespace Bar
 
         private void Start()
         {
-            EventSystemManager.OnTutorial1End += StartDay;
             EventSystemManager.OnTimeUp += TimeoutCustomers;
             EventSystemManager.OnCocktailMade += ServeCustomer;
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
@@ -49,9 +48,21 @@ namespace Bar
             #endif
 
             PosterEffects();
-
         }
 
+        private void OnDestroy()
+        {
+            EventSystemManager.OnTimeUp -= TimeoutCustomers;
+            EventSystemManager.OnCocktailMade -= ServeCustomer;
+            EventSystemManager.OnCustomerLeave -= FarewellCustomer;
+            EventSystemManager.OnPreparationStart -= StartPreparation;
+        }
+
+        public void AttachDialogueManager(DialogueManager dialogueManager)
+        {
+            this._dialogueManager = dialogueManager;
+        }
+        
         private void PosterEffects()
         {
             if (Day.IsPosterActive(1))
@@ -62,20 +73,6 @@ namespace Bar
             {
                 earningMultiplier = 1f;
             }
-        }
-
-        private void OnDestroy()
-        {
-            EventSystemManager.OnTutorial1End -= FarewellCustomer;
-            EventSystemManager.OnTimeUp -= TimeoutCustomers;
-            EventSystemManager.OnCocktailMade -= ServeCustomer;
-            EventSystemManager.OnCustomerLeave -= FarewellCustomer;
-            EventSystemManager.OnPreparationStart -= StartPreparation;
-        }
-
-        public void AttachDialogueManager(DialogueManager dialogueManager)
-        {
-            this._dialogueManager = dialogueManager;
         }
 
         private void TimeoutCustomers()
