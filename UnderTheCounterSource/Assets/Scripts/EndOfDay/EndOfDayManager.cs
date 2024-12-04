@@ -21,6 +21,8 @@ namespace EndOfDay
 
         public Button nextDayButton;
 
+        public Button gameOverButton;
+
         public float timeBeforeLines = 1f;
         public float timeBetweenLines = 0.5f;
         public float timeAfterLines = 1f;
@@ -38,6 +40,8 @@ namespace EndOfDay
             public float supplies;
         }
 
+        public float dailyBalance;
+
         private PopupData popupData;
 
         void Start()
@@ -45,6 +49,7 @@ namespace EndOfDay
             endOfDayCanvas.FadeIn();
             popupPanel.SetActive(false);
             nextDayButton.gameObject.SetActive(false);
+            gameOverButton.gameObject.SetActive(false);
 
             PopulateData();
             StartCoroutine(ShowPopup());
@@ -56,6 +61,8 @@ namespace EndOfDay
             popupData.earnings = Day.TodayEarnings;
             popupData.savings = Day.Savings;
             // todo rent, food, alcohol
+
+            popupData.rent = 100;
         }
 
         private IEnumerator ShowPopup()
@@ -75,12 +82,14 @@ namespace EndOfDay
             
             yield return new WaitForSeconds(1f);
 
+            dailyBalance = popupData.earnings - popupData.rent - popupData.food - popupData.supplies;
+
             amountTexts[0].text = $"<b>${popupData.earnings}</b>";
             amountTexts[1].text = $"<b>${popupData.savings}</b>";
             amountTexts[2].text = $"<b>-${popupData.rent}</b>";
             amountTexts[3].text = $"<b>-${popupData.food}</b>";
             amountTexts[4].text = $"<b>-${popupData.supplies}</b>";
-            amountTexts[5].text = $"<b>${popupData.earnings + popupData.savings - popupData.rent -popupData.food - popupData.supplies}</b>";
+            amountTexts[5].text = $"<b>${popupData.savings + dailyBalance}</b>";
 
             popupPanel.SetActive(true);
 
@@ -159,15 +168,41 @@ namespace EndOfDay
             // Scala finale esatta
             stampImage.transform.localScale = endScale;
 
-            nextDayButton.gameObject.SetActive(true);
+            CheckEndOFDay();
+        }
+
+        private void CheckEndOFDay()
+        {
+
+            Day.Savings += dailyBalance;
+            Day.TodayEarnings = 0;
+
+            if (Day.Savings < 0)
+            {
+                gameOverButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                nextDayButton.gameObject.SetActive(true);
+            }
+        }
+
+        public void GameOver()
+        {
+            StartCoroutine(LoadGameOverScene());
         }
 
         public void NextDay()
         {
             StartCoroutine(LoadNextScene());
-            Day.Savings += Day.TodayEarnings;
-            Day.TodayEarnings = 0;
             Day.CurrentDay++;
+        }
+
+        private IEnumerator LoadGameOverScene()
+        {
+            endOfDayCanvas.FadeOut();
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene("GameOverScreen");
         }
 
         private IEnumerator LoadNextScene()
