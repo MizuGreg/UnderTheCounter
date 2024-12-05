@@ -160,7 +160,7 @@ namespace Bar
         private IEnumerator WaitBeforeFadeOut()
         {
             yield return new WaitForSeconds(timeBeforeFadeout);
-            customerCocktail.GetComponent<FadeCanvas>().FadeOut();
+            if (customerCocktail.gameObject.activeSelf) customerCocktail.GetComponent<FadeCanvas>().FadeOut();
             customerCanvas.GetComponent<FadeCanvas>().FadeOut();
             yield return WaitBeforeNextCustomer();
         }

@@ -21,7 +21,7 @@ namespace ShopWindow
             tutorialManager2 = GetComponent<TutorialManager2>();
             dayText.text = $"DAY {Day.CurrentDay}";
             savingsText.text = $"${Day.Savings}";
-            if (Day.CurrentDay == 1) StartCoroutine(WaitAndStartTutorial());
+            if (Day.CurrentDay == 2) StartCoroutine(WaitAndStartTutorial());
         }
 
         private IEnumerator WaitAndStartTutorial()

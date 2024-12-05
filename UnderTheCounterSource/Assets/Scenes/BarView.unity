@@ -9953,7 +9953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barContainer: {fileID: 1180806169}
-  forceDay: 2
+  forceDay: 3
 --- !u!114 &1725047609
 MonoBehaviour:
   m_ObjectHideFlags: 0

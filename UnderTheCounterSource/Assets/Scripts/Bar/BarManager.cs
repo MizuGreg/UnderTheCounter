@@ -62,7 +62,7 @@ namespace Bar
         
         public void StartDay()
         {
-            #if !UNITY_EDITOR
+            #if UNITY_EDITOR
             if (forceDay != 0) Day.CurrentDay = forceDay;
             #endif
             
