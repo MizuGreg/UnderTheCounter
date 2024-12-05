@@ -100,7 +100,11 @@ namespace Bar
 
         private void CheckDrunk()
         {
-            if (Day.DrunkCustomers++ >= Day.MaxDrunkCustomers) EventSystemManager.OnBlitzCalled();
+            if (Day.DrunkCustomers++ >= Day.MaxDrunkCustomers)
+            {
+                EventSystemManager.OnBlitzCalled();
+                Day.DrunkCustomers = 0;
+            }
         }
 
         public void LossByBlitz()

@@ -8,6 +8,8 @@ namespace Blitz
     {
         [SerializeField] private CanvasGroup blitzCanvas;
         [SerializeField] private BlitzTimer blitzTimer;
+        
+        private bool blitzActive = false;
 
         private void Start()
         {
@@ -23,8 +25,11 @@ namespace Blitz
 
         public void CallBlitz()
         {
-            blitzCanvas.GetComponent<FadeCanvas>().FadeIn();
-            StartCoroutine(WaitBeforeHideMinigame());
+            if (blitzActive)
+            {
+                blitzCanvas.GetComponent<FadeCanvas>().FadeIn();
+                StartCoroutine(WaitBeforeHideMinigame());
+            }
         }
 
         private IEnumerator WaitBeforeHideMinigame()
