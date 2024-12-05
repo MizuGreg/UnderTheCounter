@@ -17,15 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialDay1.unity
     guid: b62c37c5b3a714546ba827d41912d47f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/BarView.unity
-    guid: c0a8fe49e1c07e7469a27afce4f833dc
+    guid: d48eba6d972e25d4a9c6d3dfc7af0afa
   - enabled: 1
     path: Assets/Scenes/EndOfDay.unity
     guid: 436ea23e1f0350a479242e3392dfa8f0
-  - enabled: 0
-    path: Assets/Scenes/VictoryScreen.unity
-    guid: 3533816d01280c94c87803039e0c48b1
   - enabled: 1
     path: Assets/Scenes/GameOverScreen.unity
     guid: 74b5ff26a18b36e4189aee2f70fa2548
