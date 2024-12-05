@@ -62,7 +62,7 @@ namespace EndOfDay
             popupData.savings = Day.Savings;
             // todo rent, food, alcohol
 
-            popupData.rent = 20;
+            popupData.rent = 10;
             popupData.food = Random.Range(5,10);
             popupData.supplies = Random.Range(10, 15);
         }
