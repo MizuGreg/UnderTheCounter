@@ -26,7 +26,7 @@ namespace Bar
         private bool isPopupActive;
         private bool _isActionNeeded;
 
-        private Queue<string> _sentences;
+        private Queue<string> _sentences = new();
         private DialogueType _dialogueType;
         private Coroutine _typeSentenceCoroutine;
         private bool isBoxActive;
@@ -50,7 +50,6 @@ namespace Bar
             if (dialogueText != null) // we initialize correctly only if we're in the proper scene
             {
                 dialogueText.transform.parent.gameObject.SetActive(true);
-                _sentences = new Queue<string>();
                 textInfo = dialogueText.textInfo;
             }
             
@@ -103,12 +102,11 @@ namespace Bar
             {
                 popUpDialogueText.text = _sentences.Dequeue();
             }
-            if (_sentences.Count == 0)
+            else if (_sentences.Count == 0)
             {
                 StopAllCoroutines();
-                //StartCoroutine(EndPopUpAfterAWhile());
-                //EndPopUp();
-                if (Input.GetKeyDown(KeyCode.Space) && !_isActionNeeded)
+
+                if (!_isActionNeeded)
                 {
                     EndPopUp();
                 }

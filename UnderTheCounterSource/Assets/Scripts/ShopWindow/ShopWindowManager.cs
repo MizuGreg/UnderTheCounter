@@ -2,6 +2,7 @@ using System.Collections;
 using Bar;
 using Technical;
 using TMPro;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,12 +13,21 @@ namespace ShopWindow
         [SerializeField] private CanvasGroup shopWindowCanvas;
         [SerializeField] private TextMeshProUGUI dayText;
         [SerializeField] private TextMeshProUGUI savingsText;
+        private TutorialManager2 tutorialManager2;
 
         private void Start()
         {
             shopWindowCanvas.GetComponent<FadeCanvas>().FadeIn();
+            tutorialManager2 = GetComponent<TutorialManager2>();
             dayText.text = $"DAY {Day.CurrentDay}";
             savingsText.text = $"${Day.Savings}";
+            if (Day.CurrentDay == 1) StartCoroutine(WaitAndStartTutorial());
+        }
+
+        private IEnumerator WaitAndStartTutorial()
+        {
+            yield return new WaitForSeconds(2f);
+            tutorialManager2.StartTutorial();
         }
 
         public void NextScene()

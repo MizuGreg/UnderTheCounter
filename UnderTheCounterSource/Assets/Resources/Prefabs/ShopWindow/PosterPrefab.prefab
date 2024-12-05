@@ -123,7 +123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.758, y: -2.7925}
+  m_AnchoredPosition: {x: 90, y: 0}
   m_SizeDelta: {x: 135.13, y: 115.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1675267097338343506
@@ -263,7 +263,7 @@ MonoBehaviour:
   posterBuff: 
   posterNerf: 0
   posterDescription: 
-  currencyIcon: {fileID: 21300000, guid: 785f54af09effe842b209b94065fe2e5, type: 3}
+  currencyIcon: {fileID: 21300000, guid: 0d1161dab37f0ff48927be47fdc620b1, type: 3}
   posterPopUpPrefab: {fileID: 0}
   isLocked: 0
   posterImageUI: {fileID: 0}
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restrictionAreas: []
-  _lastPlacedPlaceholder: {fileID: 0}
+  lastPlacedPlaceholder: {fileID: 0}
 --- !u!114 &-829237223500652286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,8 +406,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100$
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96e2da2c630dc2544977e7f9ad6b4aab, type: 2}
+  m_sharedMaterial: {fileID: 1571493711251298127, guid: 96e2da2c630dc2544977e7f9ad6b4aab, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
