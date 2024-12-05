@@ -41,6 +41,7 @@ namespace Tutorial
         private void Awake()
         {
             enabled = Day.CurrentDay == 1; // goes to sleep if it's not the first day
+            // update: this line doesn't work...
         }
         private void Start()
         {
