@@ -15,6 +15,8 @@ namespace Bar
         private DialogueManager _dialogueManager;
 
         public CanvasGroup barContainer;
+
+        [SerializeField] public int forceDay = 2;
                 
         void Start()
         {
@@ -24,14 +26,17 @@ namespace Bar
             _timerManager = GetComponent<TimerManager>();
             _dialogueManager = GetComponent<DialogueManager>();
             _customerManager.AttachDialogueManager(_dialogueManager);
-            _tutorialManager1.AttachDialogueManager(_dialogueManager);
+            if (_tutorialManager1 != null) _tutorialManager1.AttachDialogueManager(_dialogueManager);
         
             EventSystemManager.OnDayStart += StartDay;
             EventSystemManager.OnDrunkCustomerLeave += CheckDrunk;
             EventSystemManager.OnCustomersDepleted += EndDay;
+            EventSystemManager.OnTutorial1End += EndDay;
         
             barContainer.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadBarView();
+            
+            StartCoroutine(WaitAndStartDay());
         }
 
         private void OnDestroy()
@@ -41,8 +46,27 @@ namespace Bar
             EventSystemManager.OnCustomersDepleted -= EndDay;
         }
 
+        private void PosterEffects()
+        {
+            if (Day.IsPosterActive(0))
+            {
+                Day.DailyTime += 60;
+            }
+        }
+
+        private IEnumerator WaitAndStartDay()
+        {
+            yield return new WaitForSeconds(1f);
+            StartDay();
+        }
+        
         public void StartDay()
         {
+            if (forceDay != 0) Day.CurrentDay = forceDay;
+            Day.StartDay();
+            _timerManager.SetTime();
+            PosterEffects();
+            
             if (Day.CurrentDay == 1)
             {
                 _tutorialManager1.StartTutorial();
@@ -50,8 +74,13 @@ namespace Bar
             else
             {
                 _customerManager.StartDay();
-                _timerManager.startTimer();
+                StartTimer();
             }
+        }
+
+        private void StartTimer()
+        {
+            _timerManager.StartTimer();
         }
 
         private void EndDay()

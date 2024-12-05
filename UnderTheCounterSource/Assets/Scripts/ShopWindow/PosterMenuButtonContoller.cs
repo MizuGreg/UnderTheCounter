@@ -5,7 +5,7 @@ namespace ShopWindow
 {
     public class PosterMenuButtonController : MonoBehaviour
     {
-        private static readonly int IsOpen = Animator.StringToHash("isOpen");
+        private static readonly int IsOpen = Animator.StringToHash("IsOpen");
         public Button openButton; // Reference to the button that will open the menu
         public GameObject overlayPanel; // Reference to the overlay menu panel
         public Animator panelAnimator; // Reference to the Animator on the panel
@@ -16,9 +16,8 @@ namespace ShopWindow
 
         private void Start()
         {
-            Debug.Log("Start called");
             // Initially set the panel's animation state to hidden
-            panelAnimator.SetBool("IsOpen", _isMenuOpen);
+            panelAnimator.SetBool(IsOpen, _isMenuOpen);
 
             // Add a listener to the button
             openButton.onClick.AddListener(ToggleMenu);
@@ -27,18 +26,15 @@ namespace ShopWindow
         private void ToggleMenu()
         {
             _isMenuOpen = !_isMenuOpen;
-            Debug.Log("Button Clicked In New Way");
 
             if (_isMenuOpen)
             {
-                Debug.Log("Open Menu");
                 // Save the positions of all the posters before opening the menu
-                panelAnimator.SetBool("IsOpen", true);  // Play opening animation
+                panelAnimator.SetBool(IsOpen, true);  // Play opening animation
             }
             else
             {
-                Debug.Log("Close Menu");
-                panelAnimator.SetBool("IsOpen", false); // Play closing animation
+                panelAnimator.SetBool(IsOpen, false); // Play closing animation
             }
         }
     }

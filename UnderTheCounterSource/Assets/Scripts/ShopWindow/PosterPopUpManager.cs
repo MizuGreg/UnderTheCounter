@@ -1,3 +1,4 @@
+using Technical;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,19 +25,34 @@ namespace ShopWindow
             if (posterImageUI != null) posterImageUI.sprite = image;
             if (posterNameUI != null) posterNameUI.text = name;
             if (posterDescriptionUI != null) posterDescriptionUI.text = description;
-            if (buffTextUI != null) buffTextUI.text = $"• + {buff}";
-            if (nerfTextUI != null) nerfTextUI.text = $"• - {nerf}";
-            if (priceTextUI != null) priceTextUI.text = $"{price}$";
-            if (currencyIconUI != null) currencyIconUI.sprite = currency;
+            if (buffTextUI != null) buffTextUI.text = $"<size=150%><b>+</b><size=100%>  {buff}";
+            if (nerfTextUI != null) nerfTextUI.text = $"<size=150%><b>-</b><size=100%>  {nerf}";
+            if (priceTextUI != null) priceTextUI.text = price == "Owned" ? price : $"{price}$";
+            if (currencyIconUI != null)
+            {
+                if (currency != null)
+                {
+                    currencyIconUI.sprite = currency;
+                    currencyIconUI.gameObject.SetActive(true);
+                }
+                else currencyIconUI.gameObject.SetActive(false);
+                
+            }
 
             // Activate the pop-up
-            if (popUpWindow != null) popUpWindow.SetActive(true);
+            if (popUpWindow != null)
+            {
+                GetComponent<FadeCanvas>().FadeIn();
+            }
         }
 
         // Method to close the pop-up
         public void ClosePopUp()
         {
-            if (popUpWindow != null) popUpWindow.SetActive(false);
+            if (popUpWindow != null)
+            {
+                GetComponent<FadeCanvas>().FadeOut();
+            }
         }
     }
 }

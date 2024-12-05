@@ -334,14 +334,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4463cd0c650873343a82385f0c7ee24d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f2f74b53ca07fc49925112324200627, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eb222b89957076e499d57b2c02d98eb7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9153f49b9b838fb4dbac749ad1f27ec3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -520,8 +520,8 @@ Camera:
   m_GameObject: {fileID: 513968500}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -886,6 +886,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee87621b6181084293368ff831ceac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &700902050 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 794683733462051227, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
+  m_PrefabInstance: {fileID: 700902045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &700902051 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5518803052375945273, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
+  m_PrefabInstance: {fileID: 700902045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &700902052 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6906683045920811130, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
+  m_PrefabInstance: {fileID: 700902045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &700902053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7658436434825767479, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
+  m_PrefabInstance: {fileID: 700902045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &776260369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,11 +1233,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManager: {fileID: 1601991357}
-  musicVolumeSlider: {fileID: 0}
-  sfxVolumeSlider: {fileID: 0}
+  musicVolumeSlider: {fileID: 700902053}
+  sfxVolumeSlider: {fileID: 700902052}
   dialogueManager: {fileID: 0}
-  textSpeedSlider: {fileID: 0}
-  fullscreenToggle: {fileID: 0}
+  textSpeedSlider: {fileID: 700902051}
+  fullscreenToggle: {fileID: 700902050}
 --- !u!4 &1170899591
 Transform:
   m_ObjectHideFlags: 0
@@ -1243,7 +1287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1314014969752853797, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 288.671
+      value: 413.324
       objectReference: {fileID: 0}
     - target: {fileID: 1314014969752853797, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1297,6 +1341,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3167920471296828085, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167920471296828085, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167920471296828085, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000015258789
+      objectReference: {fileID: 0}
     - target: {fileID: 6228487217480528163, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Name
       value: StandardButton
@@ -1315,7 +1371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_text
-      value: <u>START DAY</u>
+      value: <u>ENTER THE BAR</u>
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1514,7 +1570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 540
+      value: 503
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2003,8 +2059,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 52.879}
-  m_SizeDelta: {x: 1598.918, y: 562.412}
+  m_AnchoredPosition: {x: 0, y: 65}
+  m_SizeDelta: {x: 1676.849, y: 731.757}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2067866171
 MonoBehaviour:
@@ -2026,12 +2082,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Raga ma \xE8 qui che vendete
-    quella roba? mi serve un po\u2019 di cosiddetta dai giovani bamba..."
+  m_text: '<size=125%>After many adventures lived and favors asked...
+
+    you find
+    yourself on high ground for once.<size=100%>
+
+
+    Moving to <b>Korgis</b> wasn''t
+    a breeze, but you managed to find an occupation you like: the young and proud
+    owner of a bar in the <b>art district</b>. It won''t be easy, but you''re not
+    willing to let this opportunity go to waste. The <b>Roaring Twenties</b> offer
+    opportunities to people of all kinds, after all!
+
+
+    With the help of your
+    uncles you''ve secured yourself a few supplies for the bar, and your meeting
+    with the <b>former bar owner</b> Ernest is coming up. Are you prepared to face
+    this challenge?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
-  m_sharedMaterial: {fileID: -6530262217958661659, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 5227b1b7515f0024bb826316a2b2c4fe, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2055,7 +2125,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 41.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2067,7 +2137,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

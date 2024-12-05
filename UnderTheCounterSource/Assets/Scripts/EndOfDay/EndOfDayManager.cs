@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Bar;
 using Technical;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace EndOfDay
 {
@@ -14,23 +15,19 @@ namespace EndOfDay
         public GameObject popupPanel;
         public TextMeshProUGUI dayText;
         public TextMeshProUGUI messageText;
-        public TextMeshProUGUI[] incomeOutcomeTexts;
+        public TextMeshProUGUI[] entryTexts;
+        public TextMeshProUGUI[] amountTexts;
         public Image stampImage;
 
         public Button nextDayButton;
+
+        public Button gameOverButton;
 
         public float timeBeforeLines = 1f;
         public float timeBetweenLines = 0.5f;
         public float timeAfterLines = 1f;
 
-        public string[] randomMessages = 
-        {
-            "Random message 1",
-            "Random message 2",
-            "Random message 3",
-            "Random message 4",
-            "Random message 5"
-        };
+        public string[] summaryMessages;
 
         [System.Serializable]
         public struct PopupData
@@ -40,8 +37,10 @@ namespace EndOfDay
             public float savings;
             public float rent;
             public float food;
-            public float alcohol;
+            public float supplies;
         }
+
+        public float dailyBalance;
 
         private PopupData popupData;
 
@@ -50,6 +49,7 @@ namespace EndOfDay
             endOfDayCanvas.FadeIn();
             popupPanel.SetActive(false);
             nextDayButton.gameObject.SetActive(false);
+            gameOverButton.gameObject.SetActive(false);
 
             PopulateData();
             StartCoroutine(ShowPopup());
@@ -61,6 +61,10 @@ namespace EndOfDay
             popupData.earnings = Day.TodayEarnings;
             popupData.savings = Day.Savings;
             // todo rent, food, alcohol
+
+            popupData.rent = 20;
+            popupData.food = Random.Range(5,10);
+            popupData.supplies = Random.Range(10, 15);
         }
 
         private IEnumerator ShowPopup()
@@ -69,42 +73,49 @@ namespace EndOfDay
 
             dayText.text = "Day " + popupData.day;
 
-            string randomMessage = GetRandomMessage();
-            messageText.text = randomMessage;
+            string summaryMessage = summaryMessages[popupData.day-1];
+            messageText.text = summaryMessage;
 
-            foreach (TextMeshProUGUI text in incomeOutcomeTexts)
+            foreach (TextMeshProUGUI text in amountTexts)
             {
                 text.text = "";
                 text.gameObject.SetActive(false);
             }
-            
-            yield return new WaitForSeconds(1f);
 
-            incomeOutcomeTexts[0].text = $"Earnings: <b>${popupData.earnings}</b>";
-            incomeOutcomeTexts[1].text = $"Savings: <b>${popupData.savings}</b>";
-            incomeOutcomeTexts[2].text = $"Rent: <b>-${popupData.rent}</b>";
-            incomeOutcomeTexts[3].text = $"Food: <b>-${popupData.food}</b>";
-            incomeOutcomeTexts[4].text = $"Alcohol: <b>-${popupData.alcohol}</b>";
-            incomeOutcomeTexts[5].text = $"Total: <b>${popupData.earnings + popupData.savings - popupData.rent -popupData.food - popupData.alcohol}</b>";
+            dailyBalance = popupData.earnings - popupData.rent - popupData.food - popupData.supplies;
+
+            amountTexts[0].text = $"<b>${popupData.earnings}</b>";
+            amountTexts[1].text = $"<b>${popupData.savings}</b>";
+            amountTexts[2].text = $"<b>-${popupData.rent}</b>";
+            amountTexts[3].text = $"<b>-${popupData.food}</b>";
+            amountTexts[4].text = $"<b>-${popupData.supplies}</b>";
+            amountTexts[5].text = $"<b>${popupData.savings + dailyBalance}</b>";
 
             popupPanel.SetActive(true);
 
             StartCoroutine(DisplayTextsOneByOne());
+            
+            yield return null;
         }
 
         private string GetRandomMessage()
         {
-            int index = Random.Range(0, randomMessages.Length);
-            return randomMessages[index];
+            int index = Random.Range(0, summaryMessages.Length);
+            return summaryMessages[index];
         }
 
         private IEnumerator DisplayTextsOneByOne()
         {
             yield return new WaitForSeconds(timeBeforeLines);
-            foreach (TextMeshProUGUI text in incomeOutcomeTexts)
+            for (var i = 0; i < amountTexts.Length; i++)
             {
-                text.gameObject.SetActive(true);
+                entryTexts[i].gameObject.SetActive(true);
+                amountTexts[i].gameObject.SetActive(true);
                 yield return new WaitForSeconds(timeBetweenLines);
+                if (i == amountTexts.Length - 2) // waits a little bit more before the final entry
+                {
+                    yield return new WaitForSeconds(timeBetweenLines);
+                }
             }
 
             yield return new WaitForSeconds(timeAfterLines);
@@ -128,7 +139,7 @@ namespace EndOfDay
             stampImage.transform.localPosition = startPosition; // Posizione iniziale
             stampImage.transform.localScale = startScale; // Scala iniziale
 
-            float duration = 0.2f; // Durata del movimento principale
+            float duration = 0.3f; // Durata del movimento principale
             float bounceDuration = 0.1f; // Durata del rimbalzo
             float elapsedTime = 0;
 
@@ -159,16 +170,44 @@ namespace EndOfDay
             // Scala finale esatta
             stampImage.transform.localScale = endScale;
 
-            nextDayButton.gameObject.SetActive(true);
+            CheckEndOFDay();
+        }
+
+        private void CheckEndOFDay()
+        {
+            Day.EndDay(dailyBalance);
+
+            if (Day.Savings < 0)
+            {
+                gameOverButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                nextDayButton.gameObject.SetActive(true);
+            }
+        }
+
+        public void GameOver()
+        {
+            StartCoroutine(LoadGameOverScene());
         }
 
         public void NextDay()
         {
-            popupPanel.SetActive(false);
-            Day.Savings += Day.TodayEarnings;
-            Day.TodayEarnings = 0;
-            Day.CurrentDay++;
-        
+            StartCoroutine(LoadNextScene());
+        }
+
+        private IEnumerator LoadGameOverScene()
+        {
+            endOfDayCanvas.FadeOut();
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene("GameOverScreen");
+        }
+
+        private IEnumerator LoadNextScene()
+        {
+            endOfDayCanvas.FadeOut();
+            yield return new WaitForSeconds(1f);
             SceneManager.LoadScene("ShopWindow");
         }
     }

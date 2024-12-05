@@ -1,5 +1,8 @@
+using System;
+
 namespace CocktailCreation
 {
+    [Serializable]
     public enum CocktailType
     {
         Ripple,

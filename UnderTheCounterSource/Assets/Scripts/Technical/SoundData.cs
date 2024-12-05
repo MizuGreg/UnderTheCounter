@@ -20,11 +20,14 @@ namespace Technical
         public AudioClip loseMusic;
         
         [Header("Audio Clips/Sound Effects")]
+        public AudioClip sampleSound;
         public AudioClip customerEnterSound;
         public AudioClip customerLeaveSound;
         public AudioClip posterHangSound;
         public AudioClip posterTearDownSound;
-        public AudioClip sampleSound;
+        public AudioClip bookOpenSound;
+        public AudioClip bookCloseSound;
+        
 
     }
 }

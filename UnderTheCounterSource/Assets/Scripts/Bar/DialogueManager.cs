@@ -5,6 +5,7 @@ using Technical;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Bar
 {
@@ -16,15 +17,19 @@ namespace Bar
         private TMP_TextInfo textInfo;
         public Animator animator;
         
+        [SerializeField] private Image arrow;
+        private Sprite normalArrow, makeCocktailArrow, leaveArrow;
+        
         // Pop-up messages
         public TextMeshProUGUI popUpNameText;
         public TextMeshProUGUI popUpDialogueText;
         private bool isPopupActive;
+        private bool _isActionNeeded;
 
-        private Queue<string> _sentences;
+        private Queue<string> _sentences = new();
         private DialogueType _dialogueType;
         private Coroutine _typeSentenceCoroutine;
-        private bool IsBoxActive;
+        private bool isBoxActive;
 
         private float textSpeed;
         [Range(1f, 50.0f)]
@@ -45,14 +50,17 @@ namespace Bar
             if (dialogueText != null) // we initialize correctly only if we're in the proper scene
             {
                 dialogueText.transform.parent.gameObject.SetActive(true);
-                _sentences = new Queue<string>();
                 textInfo = dialogueText.textInfo;
             }
+            
+            normalArrow = Resources.Load<Sprite>("Sprites/(Old)/UI/arrow");
+            makeCocktailArrow = Resources.Load<Sprite>("Sprites/(Old)/UI/glass");
+            leaveArrow = Resources.Load<Sprite>("Sprites/(Old)/UI/bottle_opener");
         }
 
         public void SetDialogueBoxActive(bool active)
         {
-            IsBoxActive = active;
+            isBoxActive = active;
         }
 
         public void SetNormalTextSpeed(float speed)
@@ -71,10 +79,11 @@ namespace Bar
             StartCoroutine(WaitBeforeDialogueBox(dialogue, dialogueType));
         }
 
-        public void StartPopUp(Dialogue dialogue)
+        public void StartPopUp(Dialogue dialogue, bool isActionNeeded)
         {
             isPopupActive = true;
             popUpNameText.text = dialogue.name;
+            _isActionNeeded = isActionNeeded;
             
             _sentences.Clear();
             foreach (string sentence in dialogue.sentences) 
@@ -83,7 +92,7 @@ namespace Bar
             }
             
             popUpDialogueText.text = "";
-            popUpDialogueText.transform.parent.gameObject.SetActive(true);
+            popUpDialogueText.transform.parent.GetComponent<FadeCanvas>().FadeIn();
             ShowNextPopUp();
         }
 
@@ -93,18 +102,22 @@ namespace Bar
             {
                 popUpDialogueText.text = _sentences.Dequeue();
             }
-            if (_sentences.Count == 0)
+            else if (_sentences.Count == 0)
             {
                 StopAllCoroutines();
-                StartCoroutine(EndPopUpAfterAWhile());
+
+                if (!_isActionNeeded)
+                {
+                    EndPopUp();
+                }
             }
         }
 
-        private IEnumerator EndPopUpAfterAWhile()
+        public void EndPopUp()
         {
-            yield return new WaitForSeconds(3f);
             isPopupActive = false;
-            popUpDialogueText.transform.parent.gameObject.SetActive(false);
+            popUpDialogueText.transform.parent.GetComponent<FadeCanvas>().FadeOut();
+            _isActionNeeded = false;
             EventSystemManager.NextTutorialStep();
         }
 
@@ -114,6 +127,7 @@ namespace Bar
             animator.SetBool(IsOpen, true);
             nameText.text = dialogue.name;
             _dialogueType = dialogueType;
+            arrow.GetComponent<Image>().sprite = normalArrow;
             
             foreach (string sentence in dialogue.sentences) 
             {
@@ -126,7 +140,7 @@ namespace Bar
         private IEnumerator WaitBeforeFirstSentence()
         {
             yield return new WaitForSeconds(timeBeforeFirstSentence);
-            IsBoxActive = true;
+            isBoxActive = true;
             DisplayNextSentence();
         }
 
@@ -144,7 +158,7 @@ namespace Bar
                 return;
             }
             
-            if (IsBoxActive) // so this works only when the dialogue box is fully displayed and running
+            if (isBoxActive) // so this works only when the dialogue box is fully displayed and running
             {
                 if (_allTextIsVisible) DisplayNextSentence();
                 else SkipText();
@@ -153,9 +167,10 @@ namespace Bar
 
         private void DisplayNextSentence()
         {
+            arrow.gameObject.SetActive(false);
             textSpeed = normalTextSpeed;
             if (_sentences.Count == 0) {
-                IsBoxActive = false;
+                isBoxActive = false;
                 EndDialogue();
                 switch (_dialogueType)
                 {
@@ -168,14 +183,13 @@ namespace Bar
                     case DialogueType.Tutorial:
                         EventSystemManager.NextTutorialStep();
                         break;
+                    case DialogueType.Inspector:
+                        EventSystemManager.OnCustomerLeave();
+                        break;
                 }
             }
             else
             {
-                if (_sentences.Count == 1)
-                {
-                    // todo: change arrow into customized icon based on dialogue type
-                }
                 string sentence = _sentences.Dequeue();
                 if (_typeSentenceCoroutine != null) StopCoroutine(_typeSentenceCoroutine);
                 StartCoroutine(TypeSentence(sentence));
@@ -197,7 +211,7 @@ namespace Bar
                 {
                     dialogueText.maxVisibleCharacters++;
                     _allTextIsVisible = true;
-                    yield break;
+                    break;
                 }
                 // otherwise, get current character
                 var character = textInfo.characterInfo[currentVisibleCharIndex].character;
@@ -216,12 +230,14 @@ namespace Bar
                 }
                 currentVisibleCharIndex++;
             }
+            arrow.gameObject.SetActive(true);
         }
         
         private void SkipText()
         {
             _allTextIsVisible = true;
             dialogueText.maxVisibleCharacters = dialogueText.text.Length;
+            arrow.gameObject.SetActive(true);
         }
 
         private void showIcon()

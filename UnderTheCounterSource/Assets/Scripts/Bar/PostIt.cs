@@ -1,20 +1,18 @@
-using System;
 using CocktailCreation;
-using Technical;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Bar
 {
     public class PostIt : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI cocktailName;
+        [SerializeField] private Animator animator;
+        private static readonly int IsPostItShown = Animator.StringToHash("IsPostItShown");
 
-        private void Awake() {
-        }
-
-        private void OnDestroy() {
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
         }
 
         public void WriteCocktail(CocktailType cocktailType) {
@@ -22,12 +20,12 @@ namespace Bar
                 cocktailName.text = cocktailType.ToString();
                 // edge case here... should be handled better and not hardcoded
                 if (cocktailName.text == "SpringBee") cocktailName.text = "Spring Bee";
-                GetComponent<FadeCanvas>().FadeIn();
+                animator.SetBool(IsPostItShown, true);
             }
         }
 
         public void HidePostIt() {
-            if (gameObject.activeSelf) GetComponent<FadeCanvas>().FadeOut();
+            animator.SetBool(IsPostItShown, false);
         }
         
     }

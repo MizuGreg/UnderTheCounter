@@ -3,14 +3,16 @@ using UnityEngine;
 using CocktailCreation;
 using Technical;
 using TMPro;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Bar
 {
     public class RecipeBookManager : MonoBehaviour
     {
-        public CanvasGroup recipeBook;
-        public CocktailType currentCocktail = CocktailType.Ripple;
+        [SerializeField] private CanvasGroup recipeBook;
+        [SerializeField] private CocktailType currentCocktail;
+        [SerializeField] private RecipeBookItem[] recipes;
 
         [SerializeField] private CanvasGroup currentCocktailCanvas;
         [SerializeField] private TextMeshProUGUI cocktailName;
@@ -23,53 +25,82 @@ namespace Bar
             recipeBook.gameObject.SetActive(false);
         }
 
+        public void OpenRecipeBook()
+        {
+            EventSystemManager.OnRecipeBookOpened();
+            recipeBook.GetComponent<FadeCanvas>().FadeIn();
+        }
+
+        public void CloseRecipeBook()
+        {
+            EventSystemManager.OnRecipeBookClosed();
+            recipeBook.GetComponent<FadeCanvas>().FadeOut();
+        }
+
         public void SetCurrentCocktail(CocktailType cocktailType)
         {
             currentCocktail = cocktailType;
-        }
-
-        public void ShowRecipeBook()
-        {
-            recipeBook.GetComponent<FadeCanvas>().FadeIn();
             ShowCurrentCocktail();
         }
 
-        public void HideRecipeBook()
+       private string GenerateIngredientsList(CocktailType cocktailType)
+       {
+            Recipe[] recipes = Resources.FindObjectsOfTypeAll<Recipe>();
+            string ingredientsText = "";
+
+            foreach (Recipe recipe in recipes)
+            {
+                if (recipe.cocktailPrefab.GetComponent<CocktailScript>().cocktail.type == cocktailType)
+                {
+                    var dictionary = new System.Collections.Generic.Dictionary<IngredientType, int>(5);
+                    foreach (IngredientType ingredient in recipe.ingredients)
+                    {
+                        if (dictionary.ContainsKey(ingredient)) dictionary[ingredient]++;
+                        else dictionary.Add(ingredient, 1);
+                    }
+
+                    foreach (var pair in dictionary)
+                    {
+                        ingredientsText += $"{pair.Value} oz {pair.Key}\n";
+                    }
+
+                    return ingredientsText;
+                }
+            }
+
+            return "No ingredients found.";
+        }
+
+        private string RetrieveDescription(CocktailType cocktailType)
         {
-            recipeBook.GetComponent<FadeCanvas>().FadeOut();
+            CocktailScript[] cocktailScripts = Resources.FindObjectsOfTypeAll<CocktailScript>();
+
+            foreach (CocktailScript script in cocktailScripts)
+            {
+                if (script.cocktail.type == cocktailType)
+                {
+                    return script.cocktail.description;
+                }
+            }
+
+            return "No description found.";
+        }
+
+        public string FormatCocktailName(string cocktailName)
+        {
+            return System.Text.RegularExpressions.Regex.Replace(cocktailName, @"([a-z])([A-Z])", "$1 $2");
         }
 
         public void ShowCurrentCocktail()
         {
-            currentCocktailCanvas.GetComponent<FadeCanvas>().FadeIn();
-            // this switch case will become generalized later on
-            switch (currentCocktail)
+            foreach (RecipeBookItem recipe in recipes)
             {
-                case CocktailType.Ripple:
-                    cocktailName.text = "Ripple";
-                    cocktailSprite.sprite = Resources.Load<Sprite>("Sprites/CocktailCreation/Ripple");
-                    ingredientsList.text = "1 oz whatever<br>2 oz whatever<br>2 oz whatever";
-                    cocktailDescription.text =
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.";
-                    break;
-                case CocktailType.Everest:
-                    cocktailName.text = "Everest";
-                    cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/CocktailCreation/Everest");
-                    ingredientsList.text = "1 oz caledon<br>2 oz drugs<br>2 oz water";
-                    cocktailDescription.text =
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip";
-                    break;
-                case CocktailType.SpringBee:
-                    break;
-                case CocktailType.Parti:
-                    break;
-                case CocktailType.Magazine:
-                    break;
-                case CocktailType.Wrong:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                if (recipe.GetComponent<RecipeBookItem>().cocktailType != currentCocktail) recipe.Deselect();
             }
+            cocktailName.text = FormatCocktailName(currentCocktail.ToString());
+            cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{currentCocktail}/{currentCocktail}_tot");
+            ingredientsList.text = GenerateIngredientsList(currentCocktail);
+            cocktailDescription.text = RetrieveDescription(currentCocktail);
         }
     }
 }

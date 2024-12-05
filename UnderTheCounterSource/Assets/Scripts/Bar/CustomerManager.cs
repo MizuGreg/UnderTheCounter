@@ -31,9 +31,10 @@ namespace Bar
         [Range(0.0f, 3f)]
         public float timeBeforeFadeout = 1f;
 
+        private float earningMultiplier;
+
         private void Start()
         {
-            EventSystemManager.OnTutorial1End += StartDay;
             EventSystemManager.OnTimeUp += TimeoutCustomers;
             EventSystemManager.OnCocktailMade += ServeCustomer;
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
@@ -41,16 +42,12 @@ namespace Bar
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
-            
-            #if !UNITY_EDITOR
-            GameObject.FindWithTag("Debug").SetActive(true);
-            #endif
-            
+
+            PosterEffects();
         }
 
         private void OnDestroy()
         {
-            EventSystemManager.OnTutorial1End -= StartDay;
             EventSystemManager.OnTimeUp -= TimeoutCustomers;
             EventSystemManager.OnCocktailMade -= ServeCustomer;
             EventSystemManager.OnCustomerLeave -= FarewellCustomer;
@@ -61,6 +58,18 @@ namespace Bar
         {
             this._dialogueManager = dialogueManager;
         }
+        
+        private void PosterEffects()
+        {
+            if (Day.IsPosterActive(1))
+            {
+                earningMultiplier = 1.5f;
+            }
+            else
+            {
+                earningMultiplier = 1f;
+            }
+        }
 
         private void TimeoutCustomers()
         {
@@ -69,6 +78,12 @@ namespace Bar
 
         public void StartDay()
         {
+            StartCoroutine(WaitAndStartDay());
+        }
+
+        private IEnumerator WaitAndStartDay()
+        {
+            yield return new WaitForSeconds(2f);
             LoadDailyCustomers(Day.CurrentDay);
             GreetCustomer();
         }
@@ -76,11 +91,7 @@ namespace Bar
         private void LoadDailyCustomers(int currentDay)
         {
             // read DailyCustomers json and create daily customers list
-            #if UNITY_EDITOR
-            string jsonString = File.ReadAllText("Assets/Data/DayData/Day" + currentDay + ".json");
-            #else
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + currentDay + ".json");
-            #endif
             
             _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             
@@ -112,7 +123,7 @@ namespace Bar
             yield return new WaitForSeconds(timeBeforeDialogue);
             _dialogueManager.StartDialogue(
                 new Dialogue(_customerName, _currentCustomer.lines["greet"]),
-                DialogueType.Greet);
+                _currentCustomer.sprite == CustomerType.Howard ? DialogueType.Inspector : DialogueType.Greet);
         }
 
         private Sprite GetSpriteFromCustomerType(CustomerType customerType)
@@ -162,38 +173,51 @@ namespace Bar
 
         private void ServeCustomer(Cocktail cocktail)
         {    
-            // TODO: per il tutorial wrappa questo codice in if(currentCustomer != null) o copia incolla e sistema
-            
-            CocktailType order = _currentCustomer.order;
-            customerCocktail.GetComponent<Image>().sprite = Resources.Load("Sprites/CocktailCreation/" + cocktail.type, typeof(Sprite)) as Sprite;
-            customerCocktail.GetComponent<FadeCanvas>().FadeIn();
-            
-            // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
-            Dialogue dialogue;
-            float earning;
-            if (cocktail.type != order)
+            if (_currentCustomer != null)
             {
-                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWrong"]);
-                earning = 5 + _currentCustomer.tip / 5;
-            }
-            else if (cocktail.isWatered)
-            {
-                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWater"]);
-                earning = 5 + _currentCustomer.tip / 4;
+                CocktailType order = _currentCustomer.order;
+                customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{cocktail.type}/{cocktail.type}_tot");
+                customerCocktail.GetComponent<FadeCanvas>().FadeIn();
+            
+                // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
+                Dialogue dialogue;
+                float earning = 5 * earningMultiplier;
+                if (cocktail.type != order)
+                {
+                    dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWrong"]);
+                    earning += 0;
+                }
+                else if (cocktail.isWatered)
+                {
+                    dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWater"]);
+                    earning += _currentCustomer.tip / 4;
+                }
+                else
+                {
+                    dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveCorrect"]);
+                    earning += _currentCustomer.tip;
+                }
+
+                pricePopup.DisplayPrice(earning);
+                _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
+
+                Day.TodayEarnings += earning;
+            
+                // if not watered down, we throw onDrunkCustomer event
+                if (!cocktail.isWatered) EventSystemManager.OnDrunkCustomerLeave();
             }
             else
             {
-                dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveCorrect"]);
-                earning = 5 + _currentCustomer.tip;
+                // The control flow enters here in case of tutorial
+                
+                customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/Ripple/Ripple_tot");
+                customerCocktail.GetComponent<FadeCanvas>().FadeIn();
+
+                float earning = 10;
+                pricePopup.DisplayPrice(earning);
+                Day.TodayEarnings += earning;
             }
-
-            pricePopup.DisplayPrice(earning);
-            _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
-
-            Day.TodayEarnings += earning;
             
-            // if not watered down, we throw onDrunkCustomer event
-            if (!cocktail.isWatered) EventSystemManager.OnDrunkCustomerLeave();
         }
     }
 }

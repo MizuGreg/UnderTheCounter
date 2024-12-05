@@ -1,0 +1,32 @@
+using System;
+using JetBrains.Annotations;
+using UnityEngine;
+
+namespace ShopWindow
+{
+    // Has to be implemented in actual code
+    [Serializable]
+    public class Poster
+    {
+        // private static int maxPosterID = 0;
+        
+        public int posterID;
+        public Sprite image;
+        public string name;
+        public float price;
+        public string buff;
+        public string nerf;
+        public string description;
+
+        public Poster(int posterID, Sprite image, string name, float price, string buff, string nerf, string description)
+        {
+            this.posterID = posterID;
+            this.image = image;
+            this.name = name;
+            this.price = price;
+            this.buff = buff;
+            this.nerf = nerf;
+            this.description = description;
+        }
+    }
+}

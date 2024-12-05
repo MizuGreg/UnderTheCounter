@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RippleGarnish
   m_EditorClassIdentifier: 
   type: 0
-  sprite: {fileID: 21300000, guid: 4967e3a575bf2432698aca09372f3562, type: 3}
+  sprite: {fileID: 21300000, guid: c99d74fbf8ec2e84eb9221bdf8ae5da4, type: 3}

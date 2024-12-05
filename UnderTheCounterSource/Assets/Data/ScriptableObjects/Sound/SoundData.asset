@@ -21,8 +21,10 @@ MonoBehaviour:
   daySummaryMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
   winMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
   loseMusic: {fileID: 0}
+  sampleSound: {fileID: 8300000, guid: 5c8311d05a062fa45852a5bf5f90b25e, type: 3}
   customerEnterSound: {fileID: 8300000, guid: 50769b5fe2613144fb876460e932e504, type: 3}
   customerLeaveSound: {fileID: 8300000, guid: 5c8311d05a062fa45852a5bf5f90b25e, type: 3}
   posterHangSound: {fileID: 0}
   posterTearDownSound: {fileID: 0}
-  sampleSound: {fileID: 8300000, guid: 5c8311d05a062fa45852a5bf5f90b25e, type: 3}
+  bookOpenSound: {fileID: 8300000, guid: e046ca0f67a45f64892c8179307462c3, type: 3}
+  bookCloseSound: {fileID: 8300000, guid: 3949b49b5a7bce449b2a37554f951093, type: 3}
