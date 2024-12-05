@@ -30,7 +30,7 @@ namespace ShopWindow
         {
             shopWindowCanvas.GetComponent<FadeCanvas>().FadeOut();
             yield return new WaitForSeconds(1.1f);
-            SceneManager.LoadScene("Scenes/TutorialDay1");
+            SceneManager.LoadScene("Scenes/BarView");
         }
 
         public void AddPoster(int posterID)
