@@ -57,6 +57,7 @@ namespace CocktailCreation
             
             // Initialize recipes 
             InitializeRecipes();
+            DeactivateMixButton();
         }
 
         private void OnDestroy()

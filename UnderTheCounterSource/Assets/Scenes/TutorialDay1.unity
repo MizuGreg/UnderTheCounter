@@ -3920,7 +3920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6228487217480528163, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6478090358380046592, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_TargetGraphic
@@ -8920,7 +8920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1405180617}
-  fadeSpeed: 5
+  fadeSpeed: 10
 --- !u!114 &1414815933 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6906683045920811130, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
@@ -10117,7 +10117,7 @@ MonoBehaviour:
   serveButton: {fileID: 1304753418}
   trashButton: {fileID: 170692919}
   waterButton: {fileID: 502834211}
-  timeBeforeDialogue: 0.2
+  timeBeforeDialogue: 0.5
 --- !u!1 &1735794937
 GameObject:
   m_ObjectHideFlags: 0

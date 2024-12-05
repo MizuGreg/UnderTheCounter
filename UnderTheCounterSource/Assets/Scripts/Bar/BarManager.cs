@@ -62,7 +62,10 @@ namespace Bar
         
         public void StartDay()
         {
+            #if !UNITY_EDITOR
             if (forceDay != 0) Day.CurrentDay = forceDay;
+            #endif
+            
             Day.StartDay();
             _timerManager.SetTime();
             PosterEffects();
