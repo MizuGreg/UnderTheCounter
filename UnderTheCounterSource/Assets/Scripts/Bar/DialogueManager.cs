@@ -92,7 +92,7 @@ namespace Bar
             }
             
             popUpDialogueText.text = "";
-            popUpDialogueText.transform.parent.gameObject.SetActive(true);
+            popUpDialogueText.transform.parent.GetComponent<FadeCanvas>().FadeIn();
             ShowNextPopUp();
         }
 
@@ -116,16 +116,8 @@ namespace Bar
         public void EndPopUp()
         {
             isPopupActive = false;
-            popUpDialogueText.transform.parent.gameObject.SetActive(false);
+            popUpDialogueText.transform.parent.GetComponent<FadeCanvas>().FadeOut();
             _isActionNeeded = false;
-            EventSystemManager.NextTutorialStep();
-        }
-
-        private IEnumerator EndPopUpAfterAWhile()
-        {
-            yield return new WaitForSeconds(3f);
-            isPopupActive = false;
-            popUpDialogueText.transform.parent.gameObject.SetActive(false);
             EventSystemManager.NextTutorialStep();
         }
 

@@ -52,6 +52,7 @@ namespace Tutorial
             EventSystemManager.OnGarnishAdded += GarnishAdded;
             
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
+            
         }
 
         private void OnDestroy()

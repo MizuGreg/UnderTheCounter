@@ -77,13 +77,17 @@ namespace ShopWindow
         {
             // Prevent drag if the poster is locked
             var posterPrefab = _rectTransform.GetComponent<PosterPrefabScript>();
+            
             if (posterPrefab != null && posterPrefab.isLocked)
             {
                 Debug.Log("exiting OnEndDrag");
                 return; // Exit early if the poster is locked
             }
+            
+            posterPrefab.TogglePosterDetails(false);
+            
             var validArea = GetValidRestrictionArea();
-
+            
             if (validArea != null)
             {
                 var dropTarget = validArea.GetComponent<DropTarget>();
@@ -108,20 +112,8 @@ namespace ShopWindow
                     _rectTransform.sizeDelta = Vector2.zero;
                     _rectTransform.localScale = Vector3.one;
                     
-                    // adds poster to currently hung posters if the drop slot is a window one
-                    if (dropTarget.isWindowSlot())
-                    {
-                        posterPrefab.AddPosterToHungPosters();
-                        print("added poster to hung ones");
-                        posterPrefab.TogglePosterDetails(false);
-                    }
-                    // removes poster if instead the drop slot is on the side panel
-                    else
-                    {
-                        posterPrefab.RemovePosterFromHungPosters();
-                        print("removed poster from hung ones");
-                        posterPrefab.TogglePosterDetails(true);
-                    }
+                    posterPrefab.AddPosterToHungPosters();
+                    print("added poster to hung ones");
                 }
                 else
                 {

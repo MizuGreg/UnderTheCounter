@@ -62,7 +62,9 @@ namespace EndOfDay
             popupData.savings = Day.Savings;
             // todo rent, food, alcohol
 
-            popupData.rent = 100;
+            popupData.rent = 20;
+            popupData.food = Random.Range(5,10);
+            popupData.supplies = Random.Range(10, 15);
         }
 
         private IEnumerator ShowPopup()
@@ -79,8 +81,6 @@ namespace EndOfDay
                 text.text = "";
                 text.gameObject.SetActive(false);
             }
-            
-            yield return new WaitForSeconds(1f);
 
             dailyBalance = popupData.earnings - popupData.rent - popupData.food - popupData.supplies;
 
@@ -94,6 +94,8 @@ namespace EndOfDay
             popupPanel.SetActive(true);
 
             StartCoroutine(DisplayTextsOneByOne());
+            
+            yield return null;
         }
 
         private string GetRandomMessage()

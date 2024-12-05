@@ -24,7 +24,7 @@ namespace Endings
         public IEnumerator ShowButtons()
         {
             yield return new WaitForSeconds(2f);
-            backToMenuButton.gameObject.SetActive(true);
+            backToMenuButton.GetComponent<FadeCanvas>().FadeIn();
         }
 
         public void LoadMainMenu()

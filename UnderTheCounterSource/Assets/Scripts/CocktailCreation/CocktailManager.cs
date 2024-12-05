@@ -79,7 +79,7 @@ namespace CocktailCreation
         private void HideArea()
         {
             _cocktailCreationAreaAnimator.SetBool(SlideIn, false);
-            cocktailServingArea.SetActive(false);
+            DeactivateCocktailServingArea();
             postIt.HidePostIt();
         }
         
@@ -148,6 +148,7 @@ namespace CocktailCreation
             // spawn the correct garnish based on the current cocktail
             _garnish = Instantiate(_cocktail.GetComponent<CocktailScript>().GetGarnish(), garnishSpawnPoint.position,
                     garnishSpawnPoint.rotation, _cocktailServingAreaRectTransform);
+            _garnish.GetComponent<FadeCanvas>().FadeIn();
             
         }
 
@@ -169,7 +170,7 @@ namespace CocktailCreation
 
         public void TrashCocktail()
         {
-            cocktailServingArea.SetActive(false);
+            DeactivateCocktailServingArea();
             _shaker.GetComponent<Shaker>().EmptyShaker();
             GameObject.Destroy(_cocktail);
             GameObject.Destroy(_garnish);
@@ -261,12 +262,12 @@ namespace CocktailCreation
         public void ActivateCocktailServingArea()
         {
             ToggleCsaButtons(true);
-            cocktailServingArea.SetActive(true);
+            cocktailServingArea.GetComponent<FadeCanvas>().FadeIn();
         }
 
         public void DeactivateCocktailServingArea()
         {
-            cocktailServingArea.SetActive(false);
+            if (cocktailServingArea.gameObject.activeSelf) cocktailServingArea.GetComponent<FadeCanvas>().FadeOut();
         }
 
         private void ActivateMixButton()
