@@ -16,7 +16,7 @@ namespace Bar
 
         public CanvasGroup barContainer;
 
-        public int forceDay = 2;
+        [SerializeField] public int forceDay = 2;
                 
         void Start()
         {
@@ -35,6 +35,8 @@ namespace Bar
         
             barContainer.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadBarView();
+            
+            StartCoroutine(WaitAndStartDay());
         }
 
         private void OnDestroy()
@@ -52,6 +54,12 @@ namespace Bar
             }
         }
 
+        private IEnumerator WaitAndStartDay()
+        {
+            yield return new WaitForSeconds(1f);
+            StartDay();
+        }
+        
         public void StartDay()
         {
             if (forceDay != 0) Day.CurrentDay = forceDay;

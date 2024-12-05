@@ -42,10 +42,6 @@ namespace Bar
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
-            
-            #if !UNITY_EDITOR
-            GameObject.FindWithTag("Debug").SetActive(true);
-            #endif
 
             PosterEffects();
         }
