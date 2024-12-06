@@ -84,7 +84,7 @@ namespace Technical
 
         private void OnLoadBarViewSound()
         {
-            AudioClip musicClip = soundData.barMusicTracks[Day.CurrentDay];
+            AudioClip musicClip = soundData.barMusicTracks[Day.CurrentDay-1];
             EazySoundManager.PlayMusic(musicClip, EazySoundManager.GlobalMusicVolume, true, true, 5, 5);
         }
 

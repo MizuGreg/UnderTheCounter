@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Bar;
 using Technical;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CocktailCreation
 {
@@ -57,7 +58,7 @@ namespace CocktailCreation
             
             // Initialize recipes 
             InitializeRecipes();
-            DeactivateMixButton();
+            mixButton.GetComponent<Button>().interactable = false;
         }
 
         private void OnDestroy()
@@ -273,12 +274,12 @@ namespace CocktailCreation
 
         private void ActivateMixButton()
         {
-            mixButton.SetActive(true);
+            mixButton.GetComponent<Button>().interactable = true;
         }
         
         public void DeactivateMixButton()
         {
-            mixButton.SetActive(false);
+            mixButton.GetComponent<Button>().interactable = false;
         }
         
     }
