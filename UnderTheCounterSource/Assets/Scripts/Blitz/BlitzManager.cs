@@ -10,13 +10,13 @@ namespace Blitz
         [SerializeField] private CanvasGroup blitzCanvas;
         [SerializeField] private BlitzTimer blitzTimer;
         
-        [SerializeField] private TextMeshProUGUI blitzPlaceholderText;
+        [SerializeField] private FadeCanvas blitzPlaceholder;
         
         private bool blitzActive = false;
 
         private void Start()
         {
-            blitzPlaceholderText.gameObject.SetActive(false);
+            blitzPlaceholder.gameObject.SetActive(false);
             EventSystemManager.OnBlitzCalled += CallBlitz;
             EventSystemManager.OnBlitzTimerEnded += EndHideMinigame;
         }
@@ -42,9 +42,9 @@ namespace Blitz
 
         private IEnumerator BlinkPlaceholderText()
         {
-            blitzPlaceholderText.GetComponent<FadeCanvas>().FadeIn();
+            blitzPlaceholder.FadeIn();
             yield return new WaitForSeconds(3f);
-            blitzPlaceholderText.GetComponent<FadeCanvas>().FadeOut();
+            blitzPlaceholder.FadeOut();
         }
 
         private IEnumerator WaitBeforeHideMinigame()

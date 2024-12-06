@@ -104,7 +104,8 @@ namespace Bar
             if (_dailyCustomers.Count > 0)
             {
                 _currentCustomer = _dailyCustomers[0];
-                _customerName = _currentCustomer.sprite.ToString();
+                if (_currentCustomer.sprite == CustomerType.Howard) _customerName = "Inspector";
+                else _customerName = _currentCustomer.sprite.ToString();
                 _dailyCustomers.RemoveAt(0);
             
                 _currentImage.sprite = GetSpriteFromCustomerType(_currentCustomer.sprite);
