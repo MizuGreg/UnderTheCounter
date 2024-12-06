@@ -1,4 +1,5 @@
 using System.Collections;
+using Bar;
 using Hellmade.Sound;
 using UnityEngine;
 
@@ -16,6 +17,10 @@ namespace Technical
         {
             EventSystemManager.OnLoadMainMenu += OnLoadMainMenuSound;
             EventSystemManager.OnLoadBarView += OnLoadBarViewSound;
+            EventSystemManager.OnLoadShopWindow += OnLoadShopWindowSound;
+            EventSystemManager.OnLoadEndOfDay += OnLoadEndOfDaySound;
+            EventSystemManager.OnLoadLoseScreen += OnLoadLoseScreenSound;
+            
             EventSystemManager.OnRecipeBookOpened += OnRecipeBookOpenedSound;
             EventSystemManager.OnRecipeBookClosed += OnRecipeBookClosedSound;
             EventSystemManager.OnCustomerEnter += OnCustomerEnterSound;
@@ -66,10 +71,26 @@ namespace Technical
         {
             EazySoundManager.PlayMusic(soundData.mainMenuMusic, EazySoundManager.GlobalMusicVolume, true, true, 10, 5);
         }
+        
+        private void OnLoadShopWindowSound()
+        {
+            EazySoundManager.PlayMusic(soundData.shopWindowMusic, EazySoundManager.GlobalMusicVolume, true, true, 5, 5);
+        }
+        
+        private void OnLoadEndOfDaySound()
+        {
+            EazySoundManager.PlayMusic(soundData.endOfDayMusic, EazySoundManager.GlobalMusicVolume, true, true, 5, 2);
+        }
 
         private void OnLoadBarViewSound()
         {
-            EazySoundManager.PlayMusic(soundData.barMusic, EazySoundManager.GlobalMusicVolume, true, true, 10, 5);
+            AudioClip musicClip = soundData.barMusicTracks[Day.CurrentDay];
+            EazySoundManager.PlayMusic(musicClip, EazySoundManager.GlobalMusicVolume, true, true, 5, 5);
+        }
+
+        private void OnLoadLoseScreenSound()
+        {
+            EazySoundManager.PlayMusic(soundData.loseMusic, EazySoundManager.GlobalMusicVolume, true, true, 2, 5);
         }
 
         private void OnCustomerEnterSound()

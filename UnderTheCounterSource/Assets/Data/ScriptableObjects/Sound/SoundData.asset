@@ -15,12 +15,15 @@ MonoBehaviour:
   backgroundMusicVolume: 1
   FXVolume: 1
   mainMenuMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
-  shopWindowMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
-  barMusic: {fileID: 8300000, guid: 61073dd9091e2b04fbee6f260906b345, type: 3}
+  shopWindowMusic: {fileID: 8300000, guid: 570d186857d018d42bc145cd5c11d6a3, type: 3}
+  barMusicTracks:
+  - {fileID: 8300000, guid: 06efbc56b835fac4dbd4942400c851d0, type: 3}
+  - {fileID: 8300000, guid: 1489b726891dbef4db62d00c68d7399f, type: 3}
+  - {fileID: 8300000, guid: f19bd3e983894174a9ba3c32ad3abd95, type: 3}
   blitzMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
-  daySummaryMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
-  winMusic: {fileID: 8300000, guid: b935ce4911d88e1449808a4d4e9bd4e0, type: 3}
-  loseMusic: {fileID: 0}
+  endOfDayMusic: {fileID: 8300000, guid: 570d186857d018d42bc145cd5c11d6a3, type: 3}
+  winMusic: {fileID: 8300000, guid: 8851ecb3d557e1044aa2bda698608ae7, type: 3}
+  loseMusic: {fileID: 8300000, guid: 8851ecb3d557e1044aa2bda698608ae7, type: 3}
   sampleSound: {fileID: 8300000, guid: 5c8311d05a062fa45852a5bf5f90b25e, type: 3}
   customerEnterSound: {fileID: 8300000, guid: 50769b5fe2613144fb876460e932e504, type: 3}
   customerLeaveSound: {fileID: 8300000, guid: 5c8311d05a062fa45852a5bf5f90b25e, type: 3}
