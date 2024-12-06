@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 459536722}
   - component: {fileID: 459536721}
   m_Layer: 5
-  m_Name: textcomponent
+  m_Name: textComponent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -774,8 +774,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108.952, y: -181.708}
-  m_SizeDelta: {x: 401.177, y: 413.417}
+  m_AnchoredPosition: {x: 85, y: -160.58}
+  m_SizeDelta: {x: 441.99, y: 429.641}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459536721
 MonoBehaviour:
@@ -797,10 +797,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
+  m_sharedMaterial: {fileID: 3181661542133080346, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -824,8 +824,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 41
+  m_fontSizeBase: 41
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1487,18 +1487,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eaf963ad321c4bbb8331f6b5d4ce7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thanksForPlayingCanvas: {fileID: 0}
-  toBeContinuedCanvas: {fileID: 0}
-  backToMenuButton: {fileID: 0}
-  textComponent: {fileID: 0}
+  thanksForPlayingCanvas: {fileID: 876819701}
+  toBeContinuedCanvas: {fileID: 1773978102}
+  backToMenuButton: {fileID: 1873981632}
+  textComponent: {fileID: 459536721}
   phrases:
   - More playable days
   - Unexpected events
   - Blitz mechanic
   - New customers
   - New drinks
-  letterDelay: 0.1
-  phraseDelay: 2
+  letterDelay: 0.05
+  phraseDelay: 1.5
 --- !u!1 &1125476931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,6 +2113,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1873981628}
   fadeSpeed: 1
+--- !u!114 &1873981632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6478090358380046592, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+  m_PrefabInstance: {fileID: 1873981625}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873981627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1902397619
 GameObject:
   m_ObjectHideFlags: 0

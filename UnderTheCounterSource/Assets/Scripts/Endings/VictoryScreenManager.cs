@@ -15,8 +15,9 @@ namespace Endings
         public Button backToMenuButton;
         public TextMeshProUGUI textComponent;
         public string[] phrases;
-        public float letterDelay = 0.1f;
-        public float phraseDelay = 2f;
+        public float letterDelay;
+        public float phraseDelay;
+        // public float lineSpacing;
 
         void Start()
         {
@@ -25,6 +26,7 @@ namespace Endings
             backToMenuButton.gameObject.SetActive(false);
 
             textComponent.gameObject.SetActive(false);
+            // textComponent.lineSpacingAdjustment = lineSpacing;
 
             StartCoroutine(StartTimeBetweenCanvases());
         }
@@ -40,11 +42,14 @@ namespace Endings
             StartCoroutine(DisplayPhrases());
         }
 
+        
         public IEnumerator DisplayPhrases()
         {
-            textComponent.text = ""; // Inizializza il testo vuoto
+            textComponent.gameObject.SetActive(true);
+            textComponent.text = ""; 
             foreach (string phrase in phrases)
             {
+                Debug.Log("Sto scrivendo: " + phrase); // Debug
                 yield return StartCoroutine(DisplayTextOneByOne(phrase));
                 yield return new WaitForSeconds(phraseDelay);
             }
@@ -53,24 +58,23 @@ namespace Endings
 
         private IEnumerator DisplayTextOneByOne(string fullText)
         {
-            string currentText = textComponent.text; // Mantieni il testo attuale
             foreach (char c in fullText)
             {
-                textComponent.text = currentText + c; // Aggiorna il testo progressivamente
+                textComponent.text += c; 
                 yield return new WaitForSeconds(letterDelay);
             }
-            textComponent.text += "\n"; // Aggiungi un'interruzione di riga alla fine della frase
+            textComponent.text += "<line-height=375%>\n"; 
         }
 
         public void LoadMainMenu()
         {
-            Debug.Log("Pulsante premuto! Avvio Coroutine...");
+            Debug.Log("Pulsante premuto! Avvio Coroutine..."); // Debug
             StartCoroutine(LoadMainMenuScene());
         }
 
         public IEnumerator LoadMainMenuScene()
         {
-            Debug.Log("Inizio transizione verso MainMenu...");
+            Debug.Log("Inizio transizione verso MainMenu..."); // Debug
             toBeContinuedCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
             SceneManager.LoadScene("MainMenu");
