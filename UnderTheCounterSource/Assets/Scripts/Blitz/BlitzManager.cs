@@ -1,5 +1,6 @@
 using System.Collections;
 using Technical;
+using TMPro;
 using UnityEngine;
 
 namespace Blitz
@@ -9,10 +10,13 @@ namespace Blitz
         [SerializeField] private CanvasGroup blitzCanvas;
         [SerializeField] private BlitzTimer blitzTimer;
         
+        [SerializeField] private TextMeshProUGUI blitzPlaceholderText;
+        
         private bool blitzActive = false;
 
         private void Start()
         {
+            blitzPlaceholderText.gameObject.SetActive(false);
             EventSystemManager.OnBlitzCalled += CallBlitz;
             EventSystemManager.OnBlitzTimerEnded += EndHideMinigame;
         }
@@ -30,6 +34,17 @@ namespace Blitz
                 blitzCanvas.GetComponent<FadeCanvas>().FadeIn();
                 StartCoroutine(WaitBeforeHideMinigame());
             }
+            else
+            {
+                StartCoroutine(BlinkPlaceholderText());
+            }
+        }
+
+        private IEnumerator BlinkPlaceholderText()
+        {
+            blitzPlaceholderText.GetComponent<FadeCanvas>().FadeIn();
+            yield return new WaitForSeconds(3f);
+            blitzPlaceholderText.GetComponent<FadeCanvas>().FadeOut();
         }
 
         private IEnumerator WaitBeforeHideMinigame()
