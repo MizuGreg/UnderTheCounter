@@ -22,7 +22,7 @@ namespace IntroductionScreen
 
         private IEnumerator ShowButton() {
             startDayButtonCanvas.gameObject.SetActive(false);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             startDayButtonCanvas.GetComponent<FadeCanvas>().FadeIn();
         }
 
@@ -32,7 +32,7 @@ namespace IntroductionScreen
 
         private IEnumerator WaitThenStartDay() {
             mainCanvas.GetComponent<FadeCanvas>().FadeOut();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.4f);
             SceneManager.LoadScene("Scenes/TutorialDay1");
         }
     }

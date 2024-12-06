@@ -15,6 +15,8 @@ namespace Endings
 
         void Start()
         {
+            EventSystemManager.OnLoadLoseScreen();
+            
             gameOverCanvas.FadeIn();
             backToMenuButton.gameObject.SetActive(false);
 

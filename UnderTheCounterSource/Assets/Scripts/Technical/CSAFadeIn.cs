@@ -32,7 +32,7 @@ public class CSAFadeIn : MonoBehaviour
 
     private IEnumerator FadeInGradually()
     {
-        yield return new WaitForSeconds(waitingTime);
+        yield return new WaitForSeconds(waitingTime*2);
         overlay.gameObject.SetActive(true);
         overlay.FadeIn();
         yield return new WaitForSeconds(waitingTime);

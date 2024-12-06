@@ -46,6 +46,8 @@ namespace EndOfDay
 
         void Start()
         {
+            EventSystemManager.OnLoadEndOfDay();
+            
             endOfDayCanvas.FadeIn();
             popupPanel.SetActive(false);
             nextDayButton.gameObject.SetActive(false);

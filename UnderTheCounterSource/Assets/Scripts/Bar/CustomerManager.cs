@@ -144,6 +144,7 @@ namespace Bar
         private void StartPreparation() {
             if (_currentCustomer != null)
             {
+                if (_currentCustomer.sprite == CustomerType.Willie) EventSystemManager.OnOverwritePostIt("Ripple...???");
                 EventSystemManager.OnMakeCocktail(_currentCustomer.order);
             }
             else

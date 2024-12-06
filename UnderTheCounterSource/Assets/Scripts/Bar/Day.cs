@@ -25,7 +25,7 @@ namespace Bar
 
         public static void StartDay()
         {
-            CurrentPosters.Clear(); // Removes all posters/effects
+            DrunkCustomers = 0;
             switch (CurrentDay)
             {
                 case 1:
@@ -57,6 +57,7 @@ namespace Bar
             Savings += dailyBalance;
             TodayEarnings = 0;
             CurrentDay++;
+            CurrentPosters.Clear(); // Removes all posters/effects
         }
     }
     

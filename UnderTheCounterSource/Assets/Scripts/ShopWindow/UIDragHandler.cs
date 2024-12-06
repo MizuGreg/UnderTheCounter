@@ -47,7 +47,6 @@ namespace ShopWindow
             {
                 return; // Exit early if the poster is locked
             }
-            print("drag begin!");
             // Set the parent to canvas and handle the size/position while dragging
             _rectTransform.SetParent(_canvas.transform, true);
             _rectTransform.localScale = _originalScale;
@@ -58,6 +57,9 @@ namespace ShopWindow
 
             // Notify PosterPrefabScript that dragging has started
             posterPrefabScript.SetIsDragging(true);
+            
+            // Hide price/"owned" underneath poster
+            posterPrefabScript.TogglePosterDetails(false);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -66,7 +68,6 @@ namespace ShopWindow
             var posterPrefabScript = _rectTransform.GetComponent<PosterPrefabScript>();
             if (posterPrefabScript != null && posterPrefabScript.isLocked)
             {
-                Debug.Log("exiting OnDrag");
                 return; // Exit early if the poster is locked
             }
             var delta = eventData.delta / _canvas.scaleFactor;
@@ -80,11 +81,8 @@ namespace ShopWindow
             
             if (posterPrefab != null && posterPrefab.isLocked)
             {
-                Debug.Log("exiting OnEndDrag");
                 return; // Exit early if the poster is locked
             }
-            
-            posterPrefab.TogglePosterDetails(false);
             
             var validArea = GetValidRestrictionArea();
             
@@ -113,18 +111,18 @@ namespace ShopWindow
                     _rectTransform.localScale = Vector3.one;
                     
                     posterPrefab.AddPosterToHungPosters();
-                    print("added poster to hung ones");
+
                 }
                 else
                 {
                     ReturnToOriginalPosition();
-                    print("Return to original position!");
+
                 }
             }
             else
             {
                 ReturnToOriginalPosition();
-                print("Return to original position!");
+
             }
 
             // Reset the dragging flag after the drag ends
@@ -150,7 +148,7 @@ namespace ShopWindow
             var posterPrefab = _rectTransform.GetComponent<PosterPrefabScript>();
             if (posterPrefab == null) return;
             posterPrefab.RemovePosterFromHungPosters();
-            print("removed poster from hung ones");
+
             posterPrefab.TogglePosterDetails(true);
         }
 

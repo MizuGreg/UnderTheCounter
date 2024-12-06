@@ -70,13 +70,14 @@
                 "greet": [
                     "Well hello hello there! Hope you've read the latest edition of Rogue, it's got some hefty tips on how to dress stylishly! Say, do you like ballet?",
                     "Actually, don't answer! Mysterious is better. Besides, I shouldn't squander too much time before my next competition.",
-                    "Honey, make me a <b>Ripple</b>! Maybe with a drop of honey on the rim, like a Spring Bee."
+                    "Honey, make me a <b>Ripple</b>! Maybe with a drop of honey on the rim. And with Verlan instead of Caledon, I like the bitterness of it.",
+                    "Oh, and no Gryte... Just add some more Verlan to it."
                 ],
                 "leaveCorrect": [
                     "Oh my, oh my! Just how I love it. If I didn't know any better I'd think you were trying to make an impression on me!<br>Well, I'll definitely be coming back then! See you!"
                 ],
                 "leaveWrong": [
-                    "…Well, it seems you've prepared a different cocktail to gain my attention… and you've succeded! It wasn't bad after all.<br>I'll be seeing you some other time then!"
+                    "…Well, it seems you've prepared a different cocktail to gain my attention… and you've succeeded! It wasn't bad after all.<br>I'll be seeing you some other time then!"
                 ],
                 "leaveWater": [
                     "Oh my! Just how I love it, though it seems you've held back on the alcohol a bit.",
