@@ -10,13 +10,17 @@ namespace Endings
 {
     public class VictoryScreenManager : MonoBehaviour
     {
-        public FadeCanvas thanksForPlayingCanvas;
-        public FadeCanvas toBeContinuedCanvas;
-        public Button backToMenuButton;
-        public TextMeshProUGUI textComponent;
-        public string[] phrases;
-        public float letterDelay;
-        public float phraseDelay;
+        [SerializeField] private FadeCanvas thanksForPlayingCanvas;
+        [SerializeField] private FadeCanvas toBeContinuedCanvas;
+        [SerializeField] private Button backToMenuButton;
+        [SerializeField] private TextMeshProUGUI textComponent;
+        [SerializeField] private string[] phrases;
+        [SerializeField] private float letterDelay;
+        [SerializeField] private float phraseDelay;
+
+        [SerializeField] private Image[] arrows;
+
+        private int currentArrow = 0;
         // public float lineSpacing;
 
         void Start()
@@ -31,6 +35,11 @@ namespace Endings
             // textComponent.lineSpacingAdjustment = lineSpacing;
 
             StartCoroutine(StartTimeBetweenCanvases());
+
+            foreach (Image arrow in arrows)
+            {
+                arrow.gameObject.SetActive(false);
+            }
         }
 
         public IEnumerator StartTimeBetweenCanvases()
@@ -47,6 +56,7 @@ namespace Endings
         
         public IEnumerator DisplayPhrases()
         {
+            
             textComponent.gameObject.SetActive(true);
             textComponent.text = ""; 
             foreach (string phrase in phrases)
@@ -55,11 +65,13 @@ namespace Endings
                 yield return StartCoroutine(DisplayTextOneByOne(phrase));
                 yield return new WaitForSeconds(phraseDelay);
             }
-            backToMenuButton.gameObject.SetActive(true);
+            yield return new WaitForSeconds(phraseDelay); // additional delay before displaying main menu button
+            backToMenuButton.GetComponent<FadeCanvas>().FadeIn();
         }
 
         private IEnumerator DisplayTextOneByOne(string fullText)
         {
+            arrows[currentArrow++].gameObject.SetActive(true);
             foreach (char c in fullText)
             {
                 textComponent.text += c; 

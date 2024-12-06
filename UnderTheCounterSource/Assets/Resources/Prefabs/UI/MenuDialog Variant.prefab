@@ -8,12 +8,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6058986685683355675}
     m_Modifications:
+    - target: {fileID: 1160952948256320510, guid: fe966c60e614dc64dbcdb18948116565, type: 3}
+      propertyPath: m_text
+      value: Do you really want to go back to the main menu?
+      objectReference: {fileID: 0}
     - target: {fileID: 1197911895198386498, guid: fe966c60e614dc64dbcdb18948116565, type: 3}
       propertyPath: m_Name
       value: BackToMainMenuDialog
       objectReference: {fileID: 0}
     - target: {fileID: 1197911895198386498, guid: fe966c60e614dc64dbcdb18948116565, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914064565585753773, guid: fe966c60e614dc64dbcdb18948116565, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 530.4814
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914064565585753773, guid: fe966c60e614dc64dbcdb18948116565, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5227867988449237154, guid: fe966c60e614dc64dbcdb18948116565, type: 3}
@@ -540,7 +552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8799244298530619039, guid: d02651d215b0efc4786db25bb0b70b13, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8913315943011456170, guid: d02651d215b0efc4786db25bb0b70b13, type: 3}
       propertyPath: m_AnchorMax.y
