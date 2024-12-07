@@ -14,7 +14,6 @@ namespace CocktailCreation
         {
             cocktail.isWatered = true;
             Debug.Log("cocktail watered");
-            EventSystemManager.OnCocktailWatered();
         }
 
         public void OnDrop(PointerEventData eventData)

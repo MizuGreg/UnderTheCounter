@@ -24,8 +24,7 @@ namespace Technical
         public static UnityAction<CocktailType> OnMakeCocktail;
         public static UnityAction<Cocktail> OnCocktailMade;
         public static UnityAction<string> OnOverwritePostIt;
-        public static UnityAction OnCocktailWatered;
-        public static UnityAction OnCCAHided;
+
 
         public static UnityAction OnBlitzCalled;
         public static UnityAction OnBlitzTimerEnded;

@@ -502,6 +502,7 @@ namespace Tutorial
 
         private void GarnishAdded()
         {
+            print("Garnish added");
             if (_actualStep == 16)
             {
                 EndPopUp();
