@@ -4269,6 +4269,7 @@ MonoBehaviour:
   arrow: {fileID: 0}
   popUpNameText: {fileID: 758400295}
   popUpDialogueText: {fileID: 1567171251}
+  popUpArrow: {fileID: 1219049930}
   normalTextSpeed: 1
   punctuationWaitMultiplier: 5
   timeBeforeDialogueBox: 0.1
