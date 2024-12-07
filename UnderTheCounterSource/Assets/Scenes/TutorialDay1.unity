@@ -8302,7 +8302,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1259348094265178982, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
       propertyPath: m_Name
-      value: PlayerInput (1)
+      value: PlayerInput
       objectReference: {fileID: 0}
     - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
       propertyPath: m_Camera
@@ -10999,6 +10999,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598910035256831102, guid: 04871e431707385438f47108caa0fda5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838221953475196613, guid: 04871e431707385438f47108caa0fda5, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6690708178395460449, guid: 04871e431707385438f47108caa0fda5, type: 3}
