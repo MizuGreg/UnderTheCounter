@@ -92,7 +92,7 @@ namespace Bar
                 _sentences.Enqueue(sentence);
             }
             
-            popUpDialogueText.text = "";
+            popUpDialogueText.text = _sentences.Dequeue();
             popUpDialogueText.transform.parent.GetComponent<FadeCanvas>().FadeIn();
             popUpArrow.gameObject.SetActive(!isActionNeeded);
             ShowNextPopUp();
