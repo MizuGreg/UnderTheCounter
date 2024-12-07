@@ -198,9 +198,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(false));
             
             // Outline post-it
-            outline = postIt.transform.Find("Outline").gameObject;
-            outline.SetActive(true);
-            StartCoroutine(FadeOutlineContinuous(outline));
+            StartCoroutine(FadeOutlineContinuous(postIt.transform.Find("Outline").gameObject));
         }
         
         // Ernest tells the player to open the recipe book
@@ -218,9 +216,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline recipe book button
-            outline = recipeBookIcon.transform.Find("Outline").gameObject;
-            outline.SetActive(true);
-            StartCoroutine(FadeOutlineContinuous(outline));
+            StartCoroutine(FadeOutlineContinuous(recipeBookIcon.transform.Find("Outline").gameObject));
         }
 
         // Ernest showing the recipe's ingredients to the player
@@ -229,7 +225,7 @@ namespace Tutorial
             Debug.Log("Step 5");
             
             // Show outline square
-            ingredientSquare.gameObject.SetActive(true);
+            StartCoroutine(FadeOutlineContinuous(ingredientSquare.gameObject));
             
             // Deactivate previous outline
             recipeBookIcon.transform.Find("Outline").gameObject.SetActive(false);
@@ -253,9 +249,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline X Button
-            outline = recipeBookClosingIcon.transform.Find("Outline").gameObject;
-            outline.SetActive(true);
-            StartCoroutine(FadeOutlineContinuous(outline));
+            StartCoroutine(FadeOutlineContinuous(recipeBookClosingIcon.transform.Find("Outline").gameObject));
         }
 
         // Ernest asking to put the Caledon onto the shaker
@@ -273,9 +267,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline Caledon
-            outline = caledonImage.transform.Find("Outline").gameObject;
-            outline.SetActive(true);
-            StartCoroutine(FadeOutlineContinuous(outline));
+            StartCoroutine(FadeOutlineContinuous(caledonImage.transform.Find("Outline").gameObject));
         }
         
         // Ernest asking to put the Caledon onto the shaker again
@@ -302,9 +294,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline shaddock
-            outline = shaddockImage.transform.Find("Outline").gameObject;
-            outline.SetActive(true);
-            StartCoroutine(FadeOutlineContinuous(outline));
+            StartCoroutine(FadeOutlineContinuous(shaddockImage.transform.Find("Outline").gameObject));
         }
         
         // Ernest asking to put the Shaddock onto the shaker again
@@ -331,9 +321,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline Gryte
-            outline = gryteImage.transform.Find("Outline").gameObject;
-            outline.SetActive(true);
-            StartCoroutine(FadeOutlineContinuous(outline));
+            StartCoroutine(FadeOutlineContinuous(gryteImage.transform.Find("Outline").gameObject));
         }
         
         // Ernest asking to mix
@@ -351,9 +339,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline mix button
-            outline = mixButton.transform.Find("Outline").gameObject;
-            outline.SetActive(true);
-            StartCoroutine(FadeOutlineContinuous(outline));
+            StartCoroutine(FadeOutlineContinuous(mixButton.transform.Find("Outline").gameObject));
         }
 
         // Ernest explains the trash button
@@ -368,9 +354,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(false));
             
             // Outline trash button
-            outline = trashButton.transform.Find("Outline").gameObject;
-            outline.SetActive(true);
-            StartCoroutine(FadeOutlineContinuous(outline));
+            StartCoroutine(FadeOutlineContinuous(trashButton.transform.Find("Outline").gameObject));
         }
         
         // Ernest explains the water down button
@@ -385,9 +369,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(false));
             
             // Outline water down button
-            outline = waterButton.transform.Find("Outline").gameObject;
-            outline.SetActive(true);
-            StartCoroutine(FadeOutlineContinuous(outline));
+            StartCoroutine(FadeOutlineContinuous(waterButton.transform.Find("Outline").gameObject));
         }
         
         // Ernest asking to serve
@@ -405,9 +387,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline serve button
-            outline = serveButton.transform.Find("Outline").gameObject;
-            outline.SetActive(true);
-            StartCoroutine(FadeOutlineContinuous(outline));
+            StartCoroutine(FadeOutlineContinuous(serveButton.transform.Find("Outline").gameObject));
         }
         
         // Ernest asking to drag and drop the garnish
@@ -530,7 +510,8 @@ namespace Tutorial
 
         private IEnumerator FadeOutlineContinuous(GameObject outlineObject)
         {
-            Image img = outlineObject.GetComponent<Image>();
+            outlineObject.SetActive(true);
+            Image img = outlineObject.GetComponentInChildren<Image>();
             
             float fadeDuration = 1.0f;
             while(true)
