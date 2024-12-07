@@ -25,6 +25,11 @@ namespace Bar
             recipeBook.gameObject.SetActive(false);
         }
 
+        public void OnEscapeButtonPressed()
+        {
+            if (recipeBook.gameObject.activeSelf) CloseRecipeBook();
+        }
+
         public void OpenRecipeBook()
         {
             EventSystemManager.OnRecipeBookOpened();
@@ -61,7 +66,7 @@ namespace Bar
 
                     foreach (var pair in dictionary)
                     {
-                        ingredientsText += $"{pair.Value} oz {pair.Key}\n";
+                        ingredientsText += $"{pair.Value}   oz {pair.Key}\n";
                     }
 
                     return ingredientsText;

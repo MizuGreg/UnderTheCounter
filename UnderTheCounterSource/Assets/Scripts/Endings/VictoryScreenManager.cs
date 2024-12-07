@@ -25,7 +25,7 @@ namespace Endings
 
         void Start()
         {
-            EventSystemManager.OnLoadLoseScreen();
+            EventSystemManager.OnLoadWinScreen();
             
             thanksForPlayingCanvas.FadeIn();
             toBeContinuedCanvas.gameObject.SetActive(false);

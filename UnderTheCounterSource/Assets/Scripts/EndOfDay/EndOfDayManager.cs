@@ -86,12 +86,12 @@ namespace EndOfDay
 
             dailyBalance = popupData.earnings - popupData.rent - popupData.food - popupData.supplies;
 
-            amountTexts[0].text = $"<b>${popupData.earnings}</b>";
-            amountTexts[1].text = $"<b>${popupData.savings}</b>";
-            amountTexts[2].text = $"<b>-${popupData.rent}</b>";
-            amountTexts[3].text = $"<b>-${popupData.food}</b>";
-            amountTexts[4].text = $"<b>-${popupData.supplies}</b>";
-            amountTexts[5].text = $"<b>${popupData.savings + dailyBalance}</b>";
+            amountTexts[0].text = $"<b>${popupData.earnings:N0}</b>";
+            amountTexts[1].text = $"<b>${popupData.savings:N0}</b>";
+            amountTexts[2].text = $"<b>-${popupData.rent:N0}</b>";
+            amountTexts[3].text = $"<b>-${popupData.food:N0}</b>";
+            amountTexts[4].text = $"<b>-${popupData.supplies:N0}</b>";
+            amountTexts[5].text = $"<b>${popupData.savings + dailyBalance:N0}</b>";
 
             popupPanel.SetActive(true);
 

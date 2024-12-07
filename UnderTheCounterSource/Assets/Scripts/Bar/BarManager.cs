@@ -67,8 +67,8 @@ namespace Bar
             #endif
             
             Day.StartDay();
-            _timerManager.SetTime();
             PosterEffects();
+            _timerManager.SetTime();
             
             if (Day.CurrentDay == 1)
             {

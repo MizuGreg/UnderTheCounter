@@ -1827,6 +1827,7 @@ GameObject:
   - component: {fileID: 388916322}
   - component: {fileID: 388916321}
   - component: {fileID: 388916320}
+  - component: {fileID: 388916326}
   m_Layer: 5
   m_Name: PopUpBox
   m_TagString: Untagged
@@ -1993,6 +1994,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388916318}
   m_CullTransparentMesh: 1
+--- !u!114 &388916326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388916318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee87621b6181084293368ff831ceac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 388916323}
+  fadeSpeed: 10
 --- !u!1 &392201370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,11 +2229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterBuff
-      value: more ???
+      value: More tips
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNerf
-      value: less ???
+      value: Attracts attention somewhat
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
@@ -2230,7 +2245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNameText
-      value: Poster 2
+      value: Asti Cinzano
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPriceText
@@ -2238,7 +2253,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterDescription
-      value: Placeholder description 2.
+      value: This intriguing poster is heavily inspired by Baroque paintings, and
+        perhaps reminds us that alcoholic beverages have always been a part of human
+        society.
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPopUpPrefab
@@ -4151,6 +4168,7 @@ MonoBehaviour:
   canvasContainer: {fileID: 1733112874}
   dayText: {fileID: 212445431}
   savingsText: {fileID: 2121432107}
+  forceDay: 2
 --- !u!114 &1009542094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7590,8 +7608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160.52415, y: 336}
-  m_SizeDelta: {x: 99.68, y: 38.173}
+  m_AnchoredPosition: {x: 150.619, y: 336}
+  m_SizeDelta: {x: 121.469, y: 38.173}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2121432107
 MonoBehaviour:
@@ -7884,7 +7902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterBuff
-      value: More tips
+      value: Longer shift
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNerf

@@ -83,7 +83,7 @@ namespace Bar
 
         private IEnumerator WaitAndStartDay()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.5f);
             LoadDailyCustomers(Day.CurrentDay);
             GreetCustomer();
         }
@@ -200,6 +200,7 @@ namespace Bar
                     earning += _currentCustomer.tip;
                 }
 
+                earning = Mathf.Round(earning);
                 pricePopup.DisplayPrice(earning);
                 _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
 

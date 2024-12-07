@@ -15,6 +15,8 @@ namespace ShopWindow
         [SerializeField] private TextMeshProUGUI dayText;
         [SerializeField] private TextMeshProUGUI savingsText;
         private TutorialManager2 tutorialManager2;
+        
+        [SerializeField] public int forceDay = 2;
 
         private void Start()
         {
@@ -22,8 +24,11 @@ namespace ShopWindow
             
             canvasContainer.GetComponent<FadeCanvas>().FadeIn();
             tutorialManager2 = GetComponent<TutorialManager2>();
+            
+            if (forceDay != 0) Day.CurrentDay = forceDay;
+            
             dayText.text = $"DAY {Day.CurrentDay}";
-            savingsText.text = $"${Day.Savings}";
+            savingsText.text = $"${Day.Savings:N0}";
             if (Day.CurrentDay == 2) StartCoroutine(WaitAndStartTutorial());
         }
 
