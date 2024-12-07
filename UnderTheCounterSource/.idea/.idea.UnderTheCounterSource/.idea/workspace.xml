@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2152be63-e350-4f99-9a40-6776f9043691" name="Changes" comment="pop-up fix">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" afterDir="false" />
+    <list default="true" id="2152be63-e350-4f99-9a40-6776f9043691" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
