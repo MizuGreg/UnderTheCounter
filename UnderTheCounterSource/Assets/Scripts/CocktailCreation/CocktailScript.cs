@@ -13,9 +13,9 @@ namespace CocktailCreation
         public void WaterDownCocktail()
         {
             cocktail.isWatered = true;
-            print("Cocktail watered");
+            transform.Find("WateredIconCanvas").GetComponent<FadeCanvas>().FadeIn();
         }
-        
+
         public void OnDrop(PointerEventData eventData)
         {
             // Check if the dropped object is a garnish
