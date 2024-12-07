@@ -229,7 +229,7 @@ namespace Tutorial
             Debug.Log("Step 5");
             
             // Show outline square
-            outline = ingredientSquare.gameObject.SetActive(true);
+            ingredientSquare.gameObject.SetActive(true);
             
             // Deactivate previous outline
             recipeBookIcon.transform.Find("Outline").gameObject.SetActive(false);
