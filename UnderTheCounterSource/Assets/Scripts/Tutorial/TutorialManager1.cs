@@ -63,7 +63,7 @@ namespace Tutorial
             EventSystemManager.OnRecipeBookOpened -= RecipeBookOpenedFirstTime;
             EventSystemManager.OnRecipeBookClosed -= RecipeBookClosedFirstTime;
             EventSystemManager.OnIngredientPoured -= IngredientPoured;
-            EventSystemManager.OnGarnishAdded -= EndPopUp;
+            EventSystemManager.OnGarnishAdded -= GarnishAdded;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
