@@ -7132,6 +7132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1812380246}
   - component: {fileID: 1812380247}
+  - component: {fileID: 1812380248}
   m_Layer: 0
   m_Name: DebugLogger
   m_TagString: Untagged
@@ -7161,9 +7162,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812380245}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47bbbd2ca889cc74283824158db817e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1812380248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812380245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cac6f069b3e6f44c91854ca023d78c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1830703527 stripped
@@ -7957,6 +7970,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 338cfd50-ee36-41bd-a1c3-81b103ce396f
     m_ActionName: UI/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1812380248}
+        m_TargetAssemblyTypeName: ShowDebug, Assembly-CSharp
+        m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 076fea0e-1384-4745-9499-5220fa6d77d5
+    m_ActionName: UI/ShowDebug[/Keyboard/l]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

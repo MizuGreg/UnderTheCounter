@@ -50,7 +50,7 @@ namespace Bar
         {
             if (Day.IsPosterActive(0))
             {
-                Day.DailyTime += 60;
+                Day.DailyTime += 30;
             }
         }
 
