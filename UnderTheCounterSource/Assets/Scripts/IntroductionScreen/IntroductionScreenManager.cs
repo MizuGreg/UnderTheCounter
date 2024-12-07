@@ -47,7 +47,7 @@ namespace IntroductionScreen
 
             // Fade-in pulsante continue
             continueButtonCanvas.gameObject.SetActive(true);
-            yield return FadeCanvasGroupIn(continueButtonCanvas, 1f);
+            yield return FadeCanvasGroupIn(continueButtonCanvas, 0.8f);
         }
 
         public void OnContinuePressed()
@@ -60,7 +60,7 @@ namespace IntroductionScreen
             if (currentStep == 0) 
             {
                 // Fade-out text1 e pulsante continue
-                yield return FadeCanvasGroupOut(continueButtonCanvas, 1f);
+                yield return FadeCanvasGroupOut(continueButtonCanvas, 0.8f);
                 continueButtonCanvas.gameObject.SetActive(false);
 
                 yield return FadeTextOut(text1, 1f);
@@ -70,14 +70,14 @@ namespace IntroductionScreen
 
                 // Fade-in pulsante continue
                 continueButtonCanvas.gameObject.SetActive(true);
-                yield return FadeCanvasGroupIn(continueButtonCanvas, 1f);
+                yield return FadeCanvasGroupIn(continueButtonCanvas, 0.8f);
 
                 currentStep = 1;
             }
             else if (currentStep == 1)
             {
                 // Fade-out text2 e pulsante continue
-                yield return FadeCanvasGroupOut(continueButtonCanvas, 1f);
+                yield return FadeCanvasGroupOut(continueButtonCanvas, 0.8f);
                 continueButtonCanvas.gameObject.SetActive(false);
 
                 yield return FadeTextOut(text2, 1f);

@@ -38,7 +38,7 @@
                     "My husband doesn't know about the prohibition laws yet, I don't want to worry him. He's a very sensitive person."
                 ]
             },
-            "tip": 3
+            "tip": 4
         },
         {
             "sprite": "Eugene",
@@ -84,7 +84,7 @@
                     "I'll be definitely coming back in the future then, see if your cocktails get better and better over time. See you!"
                 ]
             },
-            "tip": 5
+            "tip": 6
         },
         {
             "sprite": "Margaret",
@@ -167,7 +167,7 @@
                     "You haven't improved much from the last time I was here. I'll have you know you still have a long way to go!<br>Bye bye!"
                 ]
             },
-            "tip": 2
+            "tip": 3
         }
     ]
 }

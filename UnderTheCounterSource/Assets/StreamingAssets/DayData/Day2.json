@@ -41,7 +41,7 @@
                     "The individual ingredients had a discrete quality, but I noted a lack of synergy… Charles?"
                 ]
             },
-            "tip": 10
+            "tip": 9
         },
         {
             "sprite": "Charles",
@@ -82,7 +82,7 @@
                     "Not terrible. I'm still not sure if you're a miss or a mister, so I'll be back some other time. I'll be keeping an eye on you!<br>Bye bye!"
                 ]
             },
-            "tip": 2
+            "tip": 3
         },
         {
             "sprite": "Kathryn",

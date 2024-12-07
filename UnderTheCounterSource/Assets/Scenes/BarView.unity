@@ -12788,6 +12788,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4838221953475196613, guid: 04871e431707385438f47108caa0fda5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6690708178395460449, guid: 04871e431707385438f47108caa0fda5, type: 3}
       propertyPath: m_Name
       value: DebugLogger
