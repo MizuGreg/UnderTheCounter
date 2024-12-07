@@ -384,6 +384,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 611378426}
     m_Modifications:
+    - target: {fileID: 244960790492689774, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontSize
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 244960790492689774, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 244960790492689774, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1716411011823130929, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
@@ -500,6 +512,14 @@ PrefabInstance:
       propertyPath: recipeBookManager
       value: 
       objectReference: {fileID: 623126691}
+    - target: {fileID: 6139492337148155068, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 284.941
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139492337148155068, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -153.015
+      objectReference: {fileID: 0}
     - target: {fileID: 6610199540684983143, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeBookManager
       value: 
@@ -3877,7 +3897,7 @@ PrefabInstance:
       objectReference: {fileID: 560190385}
     - target: {fileID: 6478090358380046592, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6478090358380046592, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -8057,7 +8077,7 @@ PrefabInstance:
       objectReference: {fileID: 1304753420}
     - target: {fileID: 6478090358380046592, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6478090358380046592, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

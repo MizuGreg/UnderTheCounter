@@ -44,6 +44,7 @@ namespace Bar
             EventSystemManager.OnDayStart -= StartDay;
             EventSystemManager.OnDrunkCustomerLeave -= CheckDrunk;
             EventSystemManager.OnCustomersDepleted -= EndDay;
+            EventSystemManager.OnTutorial1End -= EndDay;
         }
 
         private void PosterEffects()
