@@ -230,7 +230,7 @@ namespace Tutorial
             recipeBookIcon.transform.Find("Outline").gameObject.SetActive(false);
             
             // Ernest pop up message
-            StartCoroutine(WaitAndPopUp(false));
+            StartCoroutine(WaitAndPopUp(false));    
         }
         
         // Ernest asking the player to close the recipe book
