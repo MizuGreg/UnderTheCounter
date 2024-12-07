@@ -76,7 +76,9 @@ namespace Tutorial
             LoadSteps();
             NextStep();
             
+            recipeBookIcon.SetActive(false);
             recipeBookClosingIcon.interactable = false;
+            mixButton.interactable = false;
             resetButton.interactable = false;
             trashButton.interactable = false;
             waterButton.interactable = false;

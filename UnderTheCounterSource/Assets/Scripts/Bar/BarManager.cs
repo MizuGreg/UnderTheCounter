@@ -62,10 +62,13 @@ namespace Bar
         
         public void StartDay()
         {
+            #if UNITY_EDITOR
             if (forceDay != 0) Day.CurrentDay = forceDay;
+            #endif
+            
             Day.StartDay();
-            _timerManager.SetTime();
             PosterEffects();
+            _timerManager.SetTime();
             
             if (Day.CurrentDay == 1)
             {
@@ -97,7 +100,11 @@ namespace Bar
 
         private void CheckDrunk()
         {
-            if (Day.DrunkCustomers++ >= Day.MaxDrunkCustomers) EventSystemManager.OnBlitzCalled();
+            if (++Day.DrunkCustomers >= Day.MaxDrunkCustomers)
+            {
+                EventSystemManager.OnBlitzCalled();
+                Day.DrunkCustomers = 0;
+            }
         }
 
         public void LossByBlitz()
@@ -114,7 +121,7 @@ namespace Bar
         
         private IEnumerator WaitBeforeMenu()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.1f);
             SceneManager.LoadScene("MainMenu");
         }
 

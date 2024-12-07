@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Technical
 {
@@ -13,9 +14,9 @@ namespace Technical
         [Header("Audio Clips/Music")]
         public AudioClip mainMenuMusic;
         public AudioClip shopWindowMusic;
-        public AudioClip barMusic;
+        public AudioClip[] barMusicTracks;
         public AudioClip blitzMusic;
-        public AudioClip daySummaryMusic;
+        public AudioClip endOfDayMusic;
         public AudioClip winMusic;
         public AudioClip loseMusic;
         

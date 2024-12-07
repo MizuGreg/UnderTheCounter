@@ -23,12 +23,17 @@ namespace Technical
         public static UnityAction OnGarnishAdded;
         public static UnityAction<CocktailType> OnMakeCocktail;
         public static UnityAction<Cocktail> OnCocktailMade;
+        public static UnityAction<string> OnOverwritePostIt;
 
         public static UnityAction OnBlitzCalled;
         public static UnityAction OnBlitzTimerEnded;
 
         public static UnityAction OnLoadMainMenu;
         public static UnityAction OnLoadBarView;
+        public static UnityAction OnLoadShopWindow;
+        public static UnityAction OnLoadEndOfDay;
+        public static UnityAction OnLoadWinScreen;
+        public static UnityAction OnLoadLoseScreen;
 
         public static UnityAction OnRecipeBookOpened;
         public static UnityAction OnRecipeBookClosed;

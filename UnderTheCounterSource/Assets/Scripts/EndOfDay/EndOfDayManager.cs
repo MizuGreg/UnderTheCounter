@@ -46,6 +46,8 @@ namespace EndOfDay
 
         void Start()
         {
+            EventSystemManager.OnLoadEndOfDay();
+            
             endOfDayCanvas.FadeIn();
             popupPanel.SetActive(false);
             nextDayButton.gameObject.SetActive(false);
@@ -62,7 +64,7 @@ namespace EndOfDay
             popupData.savings = Day.Savings;
             // todo rent, food, alcohol
 
-            popupData.rent = 20;
+            popupData.rent = 10;
             popupData.food = Random.Range(5,10);
             popupData.supplies = Random.Range(10, 15);
         }
@@ -84,12 +86,12 @@ namespace EndOfDay
 
             dailyBalance = popupData.earnings - popupData.rent - popupData.food - popupData.supplies;
 
-            amountTexts[0].text = $"<b>${popupData.earnings}</b>";
-            amountTexts[1].text = $"<b>${popupData.savings}</b>";
-            amountTexts[2].text = $"<b>-${popupData.rent}</b>";
-            amountTexts[3].text = $"<b>-${popupData.food}</b>";
-            amountTexts[4].text = $"<b>-${popupData.supplies}</b>";
-            amountTexts[5].text = $"<b>${popupData.savings + dailyBalance}</b>";
+            amountTexts[0].text = $"<b>${popupData.earnings:N0}</b>";
+            amountTexts[1].text = $"<b>${popupData.savings:N0}</b>";
+            amountTexts[2].text = $"<b>-${popupData.rent:N0}</b>";
+            amountTexts[3].text = $"<b>-${popupData.food:N0}</b>";
+            amountTexts[4].text = $"<b>-${popupData.supplies:N0}</b>";
+            amountTexts[5].text = $"<b>${popupData.savings + dailyBalance:N0}</b>";
 
             popupPanel.SetActive(true);
 
@@ -208,7 +210,7 @@ namespace EndOfDay
         {
             endOfDayCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene("ShopWindow");
+            SceneManager.LoadScene(Day.CurrentDay > 3 ? "VictoryScreen" : "ShopWindow");
         }
     }
 }

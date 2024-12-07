@@ -89,7 +89,7 @@
             "order": "Parti",
             "lines": {
                 "greet": [
-                    "Hiya! I think it's lovely that my adventures led me to this city, and to this very bar tonight.<br> I'm Kathryn, by the way.",
+                    "Hiya! I think it's lovely that my adventures led me to this city, and to this very bar tonight.<br>I'm Kathryn, by the way.",
                     "Can you get me a <b>Parti</b>, mate?"
                 ],
                 "leaveCorrect": [
@@ -152,7 +152,7 @@
                 "greet": [
                     "Good evening bartender. I'm Doris, by the way. I'm a regular here, but I've never seen you before.",
                     "You have already met my enthusiastic husband, Eugene. Isn't he a darling?",
-                    "I would like to try a <b>Ripple>/b> too, please."
+                    "I would like to try a <b>Ripple</b> too, please."
                 ],
                 "leaveCorrect": [
                     "Thank you gentle man, this is a very good Ripple. The balance of ingredients is perfect, a real delight.",

@@ -1,4 +1,5 @@
 using System.Collections;
+using Bar;
 using Hellmade.Sound;
 using UnityEngine;
 
@@ -16,6 +17,11 @@ namespace Technical
         {
             EventSystemManager.OnLoadMainMenu += OnLoadMainMenuSound;
             EventSystemManager.OnLoadBarView += OnLoadBarViewSound;
+            EventSystemManager.OnLoadShopWindow += OnLoadShopWindowSound;
+            EventSystemManager.OnLoadEndOfDay += OnLoadEndOfDaySound;
+            EventSystemManager.OnLoadWinScreen += OnLoadWinScreenSound;
+            EventSystemManager.OnLoadLoseScreen += OnLoadLoseScreenSound;
+            
             EventSystemManager.OnRecipeBookOpened += OnRecipeBookOpenedSound;
             EventSystemManager.OnRecipeBookClosed += OnRecipeBookClosedSound;
             EventSystemManager.OnCustomerEnter += OnCustomerEnterSound;
@@ -27,6 +33,11 @@ namespace Technical
         {
             EventSystemManager.OnLoadMainMenu -= OnLoadMainMenuSound;
             EventSystemManager.OnLoadBarView -= OnLoadBarViewSound;
+            EventSystemManager.OnLoadShopWindow -= OnLoadShopWindowSound;
+            EventSystemManager.OnLoadEndOfDay -= OnLoadEndOfDaySound;
+            EventSystemManager.OnLoadWinScreen -= OnLoadWinScreenSound;
+            EventSystemManager.OnLoadLoseScreen -= OnLoadLoseScreenSound;
+            
             EventSystemManager.OnRecipeBookOpened -= OnRecipeBookOpenedSound;
             EventSystemManager.OnRecipeBookClosed -= OnRecipeBookClosedSound;
             EventSystemManager.OnCustomerEnter -= OnCustomerEnterSound;
@@ -64,22 +75,46 @@ namespace Technical
 
         private void OnLoadMainMenuSound()
         {
-            EazySoundManager.PlayMusic(soundData.mainMenuMusic, EazySoundManager.GlobalMusicVolume, true, true, 10, 5);
+
+            EazySoundManager.PlayMusic(soundData.mainMenuMusic, 1, true, true, 5, 3);
+
+        }
+        
+        private void OnLoadShopWindowSound()
+        {
+            // EazySoundManager.PlayMusic(soundData.shopWindowMusic, 1, true, true, 5, 3);
+        }
+        
+        private void OnLoadEndOfDaySound()
+        {
+            EazySoundManager.PlayMusic(soundData.endOfDayMusic, 1, true, true, 3, 1);
         }
 
         private void OnLoadBarViewSound()
         {
-            EazySoundManager.PlayMusic(soundData.barMusic, EazySoundManager.GlobalMusicVolume, true, true, 10, 5);
+            AudioClip musicClip = soundData.barMusicTracks[Day.CurrentDay-1];
+            EazySoundManager.PlayMusic(musicClip, 1, true, true, 5, 3);
+        }
+
+        private void OnLoadWinScreenSound()
+        {
+            EazySoundManager.PlayMusic(soundData.winMusic, 1, true, true, 3, 3);
+
+        }
+
+        private void OnLoadLoseScreenSound()
+        {
+            EazySoundManager.PlayMusic(soundData.loseMusic, 1, true, true, 1, 3);
         }
 
         private void OnCustomerEnterSound()
         {
-            EazySoundManager.PlaySound(soundData.customerEnterSound, EazySoundManager.GlobalSoundsVolume);
+            EazySoundManager.PlaySound(soundData.customerEnterSound, 1);
         }
         
         private void OnCustomerLeaveSound()
         {
-            EazySoundManager.PlaySound(soundData.customerLeaveSound, EazySoundManager.GlobalSoundsVolume);
+            EazySoundManager.PlaySound(soundData.customerLeaveSound, 1);
         }
 
         private void OnDayEndSound()
@@ -89,12 +124,12 @@ namespace Technical
 
         private void OnRecipeBookOpenedSound()
         {
-            EazySoundManager.PlaySound(soundData.bookOpenSound, EazySoundManager.GlobalSoundsVolume);
+            EazySoundManager.PlaySound(soundData.bookOpenSound, 1);
         }
 
         private void OnRecipeBookClosedSound()
         {
-            EazySoundManager.PlaySound(soundData.bookCloseSound, EazySoundManager.GlobalSoundsVolume);
+            EazySoundManager.PlaySound(soundData.bookCloseSound, 1);
         }
         
         // I want to parameterize this instead of having a hundred different functions... is it overkill? probably

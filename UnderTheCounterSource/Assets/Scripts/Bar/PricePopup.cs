@@ -16,7 +16,7 @@ namespace Bar
 
         public void DisplayPrice(float earning)
         {
-            priceText.text = $"${earning:F}";
+            priceText.text = $"${earning:N0}";
             animator.SetTrigger(IsPopping);
         }
     }

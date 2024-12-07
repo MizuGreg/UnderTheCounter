@@ -40,8 +40,8 @@ namespace Settings
             musicVolumeSlider.value = musicVolume;
             sfxVolumeSlider.value = fxVolume;
             
-            SetMusicVolume(musicVolume);
-            SetFXVolume(fxVolume);
+            // SetMusicVolume(musicVolume);
+            // SetFXVolume(fxVolume);
         }
 
         private void LoadTextSpeedOnStartup()

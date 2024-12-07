@@ -12,7 +12,7 @@ namespace Settings
     
         private void Awake()
         {
-            _timerManager = GameObject.FindWithTag("BarManager").transform.GetComponent<TimerManager>();
+            _timerManager = GameObject.FindWithTag("BarManager")?.transform.GetComponent<TimerManager>();
             
             backToMainMenuDialog = transform.Find("BackToMainMenuDialog").gameObject;
             creditsDialog = transform.Find("CreditsDialog").gameObject;

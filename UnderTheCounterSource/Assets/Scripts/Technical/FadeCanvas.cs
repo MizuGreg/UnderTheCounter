@@ -8,7 +8,7 @@ namespace Technical
         public CanvasGroup canvasGroup;
         private bool _isFading = false;
     
-        [Range(0.1f, 10.0f)]
+        [Range(0.1f, 50.0f)]
         public float fadeSpeed = 1f;
 
         public void Awake()
