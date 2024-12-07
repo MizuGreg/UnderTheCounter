@@ -13,9 +13,9 @@ namespace CocktailCreation
         public void WaterDownCocktail()
         {
             cocktail.isWatered = true;
-            print("Cocktail watered");
+            Debug.Log("cocktail watered");
         }
-        
+
         public void OnDrop(PointerEventData eventData)
         {
             // Check if the dropped object is a garnish

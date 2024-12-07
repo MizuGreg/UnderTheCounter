@@ -6,6 +6,7 @@ using Tutorial;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace ShopWindow
 {
@@ -15,6 +16,7 @@ namespace ShopWindow
         [SerializeField] private TextMeshProUGUI dayText;
         [SerializeField] private TextMeshProUGUI savingsText;
         private TutorialManager2 tutorialManager2;
+        [SerializeField] private GameObject newspaper;
         
         [SerializeField] public int forceDay = 2;
 
@@ -25,11 +27,15 @@ namespace ShopWindow
             canvasContainer.GetComponent<FadeCanvas>().FadeIn();
             tutorialManager2 = GetComponent<TutorialManager2>();
             
+            #if UNITY_EDITOR
             if (forceDay != 0) Day.CurrentDay = forceDay;
+            #endif
             
             dayText.text = $"DAY {Day.CurrentDay}";
             savingsText.text = $"${Day.Savings:N0}";
             if (Day.CurrentDay == 2) StartCoroutine(WaitAndStartTutorial());
+            if (Day.CurrentDay == 3) newspaper.SetActive(true);
+            else newspaper.SetActive(false);
         }
 
         private IEnumerator WaitAndStartTutorial()

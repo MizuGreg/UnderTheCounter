@@ -38,7 +38,7 @@
                     "My husband doesn't know about the prohibition laws yet, I don't want to worry him. He's a very sensitive person."
                 ]
             },
-            "tip": 3
+            "tip": 4
         },
         {
             "sprite": "Eugene",
@@ -84,7 +84,7 @@
                     "I'll be definitely coming back in the future then, see if your cocktails get better and better over time. See you!"
                 ]
             },
-            "tip": 5
+            "tip": 6
         },
         {
             "sprite": "Margaret",
@@ -106,25 +106,6 @@
                 ]
             },
             "tip": 5
-        },
-        {
-            "sprite": "Kenneth",
-            "order": "Everest",
-            "lines": {
-                "greet": [
-                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
-                ],
-                "leaveCorrect": [
-                    "Aaah, just how I like it. Thank you very much, and here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
-                ],
-                "leaveWrong": [
-                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
-                ],
-                "leaveWater": [
-                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
-                ]
-            },
-            "tip": 3
         },
         {
             "sprite": "Gaston",
@@ -186,7 +167,7 @@
                     "You haven't improved much from the last time I was here. I'll have you know you still have a long way to go!<br>Bye bye!"
                 ]
             },
-            "tip": 2
+            "tip": 3
         }
     ]
 }

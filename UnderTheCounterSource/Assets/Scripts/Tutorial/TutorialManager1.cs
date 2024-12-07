@@ -38,6 +38,8 @@ namespace Tutorial
         private List<string> _currentStep;
         private int _actualStep = -1;
 
+        private GameObject outline;
+
         private void Awake()
         {
             enabled = Day.CurrentDay == 1; // goes to sleep if it's not the first day
@@ -61,7 +63,7 @@ namespace Tutorial
             EventSystemManager.OnRecipeBookOpened -= RecipeBookOpenedFirstTime;
             EventSystemManager.OnRecipeBookClosed -= RecipeBookClosedFirstTime;
             EventSystemManager.OnIngredientPoured -= IngredientPoured;
-            EventSystemManager.OnGarnishAdded -= EndPopUp;
+            EventSystemManager.OnGarnishAdded -= GarnishAdded;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -196,8 +198,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(false));
             
             // Outline post-it
-            postIt.transform.Find("Outline").gameObject.SetActive(true);
-            
+            StartCoroutine(FadeOutlineContinuous(postIt.transform.Find("Outline").gameObject));
         }
         
         // Ernest tells the player to open the recipe book
@@ -215,7 +216,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline recipe book button
-            recipeBookIcon.transform.Find("Outline").gameObject.SetActive(true);
+            StartCoroutine(FadeOutlineContinuous(recipeBookIcon.transform.Find("Outline").gameObject));
         }
 
         // Ernest showing the recipe's ingredients to the player
@@ -224,13 +225,13 @@ namespace Tutorial
             Debug.Log("Step 5");
             
             // Show outline square
-            ingredientSquare.gameObject.SetActive(true);
+            StartCoroutine(FadeOutlineContinuous(ingredientSquare.gameObject));
             
             // Deactivate previous outline
             recipeBookIcon.transform.Find("Outline").gameObject.SetActive(false);
             
             // Ernest pop up message
-            StartCoroutine(WaitAndPopUp(false));
+            StartCoroutine(WaitAndPopUp(false));    
         }
         
         // Ernest asking the player to close the recipe book
@@ -247,8 +248,8 @@ namespace Tutorial
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));
             
-            // Outline button
-            recipeBookClosingIcon.transform.Find("Outline").gameObject.SetActive(true);
+            // Outline X Button
+            StartCoroutine(FadeOutlineContinuous(recipeBookClosingIcon.transform.Find("Outline").gameObject));
         }
 
         // Ernest asking to put the Caledon onto the shaker
@@ -266,7 +267,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline Caledon
-            caledonImage.transform.Find("Outline").gameObject.SetActive(true);
+            StartCoroutine(FadeOutlineContinuous(caledonImage.transform.Find("Outline").gameObject));
         }
         
         // Ernest asking to put the Caledon onto the shaker again
@@ -293,7 +294,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline shaddock
-            shaddockImage.transform.Find("Outline").gameObject.SetActive(true);
+            StartCoroutine(FadeOutlineContinuous(shaddockImage.transform.Find("Outline").gameObject));
         }
         
         // Ernest asking to put the Shaddock onto the shaker again
@@ -320,7 +321,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline Gryte
-            gryteImage.transform.Find("Outline").gameObject.SetActive(true);
+            StartCoroutine(FadeOutlineContinuous(gryteImage.transform.Find("Outline").gameObject));
         }
         
         // Ernest asking to mix
@@ -338,7 +339,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline mix button
-            mixButton.transform.Find("Outline").gameObject.SetActive(true);
+            StartCoroutine(FadeOutlineContinuous(mixButton.transform.Find("Outline").gameObject));
         }
 
         // Ernest explains the trash button
@@ -353,8 +354,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(false));
             
             // Outline trash button
-            trashButton.transform.Find("Outline").gameObject.SetActive(true);
-            
+            StartCoroutine(FadeOutlineContinuous(trashButton.transform.Find("Outline").gameObject));
         }
         
         // Ernest explains the water down button
@@ -369,7 +369,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(false));
             
             // Outline water down button
-            waterButton.transform.Find("Outline").gameObject.SetActive(true);
+            StartCoroutine(FadeOutlineContinuous(waterButton.transform.Find("Outline").gameObject));
         }
         
         // Ernest asking to serve
@@ -387,7 +387,7 @@ namespace Tutorial
             StartCoroutine(WaitAndPopUp(true));
             
             // Outline serve button
-            serveButton.transform.Find("Outline").gameObject.SetActive(true);
+            StartCoroutine(FadeOutlineContinuous(serveButton.transform.Find("Outline").gameObject));
         }
         
         // Ernest asking to drag and drop the garnish
@@ -502,12 +502,41 @@ namespace Tutorial
 
         private void GarnishAdded()
         {
+            print("Garnish added");
             if (_actualStep == 16)
             {
                 EndPopUp();
             }
         }
-        
+
+        private IEnumerator FadeOutlineContinuous(GameObject outlineObject)
+        {
+            outlineObject.SetActive(true);
+            Image img = outlineObject.GetComponentInChildren<Image>();
+            
+            float fadeDuration = 1.0f;
+            while(true)
+            {
+                yield return StartCoroutine(FadeAlpha(img, 0f, 1f, fadeDuration));
+                yield return StartCoroutine(FadeAlpha(img, 1f, 0f, fadeDuration));
+            }
+        }
+
+        private IEnumerator FadeAlpha(Image img, float startAlpha, float endAlpha, float duration)
+        {
+            float elapsed = 0f;
+            Color c = img.color;
+            while(elapsed < duration)
+            {
+                float t = elapsed / duration;
+                c.a = Mathf.Lerp(startAlpha, endAlpha, t);
+                img.color = c;
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+            c.a = endAlpha;
+            img.color = c;
+        }
         
         
         

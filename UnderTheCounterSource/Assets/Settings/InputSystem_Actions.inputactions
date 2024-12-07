@@ -480,6 +480,15 @@
             "id": "272f6d14-89ba-496f-b7ff-215263d3219f",
             "actions": [
                 {
+                    "name": "ShowDebug",
+                    "type": "Button",
+                    "id": "076fea0e-1384-4745-9499-5220fa6d77d5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "NextDialogueLine",
                     "type": "Button",
                     "id": "c8d17f67-a4e3-47bc-920b-394027ea2e60",
@@ -1026,6 +1035,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "OpenInGameMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc20b421-cc2c-4430-8e7f-cea1d9e38a5f",
+                    "path": "<Keyboard>/#(L)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ShowDebug",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

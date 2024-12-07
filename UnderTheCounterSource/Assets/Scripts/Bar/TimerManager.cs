@@ -60,14 +60,12 @@ namespace Bar
         {
             if (!isOn) return;
             isRunning = false;
-            print($"Timer paused. Time remaining: {timeRemaining}");
         }
 
         public void ResumeTimer()
         {
             if (!isOn) return;
             if (timeRemaining > 0) isRunning = true;
-            print($"Timer resumed. Time remaining: {timeRemaining}");
         }
     }
 }

@@ -17,6 +17,7 @@ namespace CocktailCreation
         [SerializeField] private GameObject fullnessBar;
         [SerializeField] private GameObject trashButton;
         [SerializeField] private GameObject waterButton;
+        [SerializeField] private FadeCanvas waterDownIcon;
         [SerializeField] private GameObject serveButton;
         [SerializeField] private Recipes recipes;
 
@@ -159,14 +160,15 @@ namespace CocktailCreation
             CocktailScript cocktailItem = _cocktail.GetComponent<CocktailScript>();
             EventSystemManager.OnCocktailMade(_cocktail.GetComponent<CocktailScript>().cocktail);
             
-            HideArea();
             TrashCocktail();
+            HideArea();
         }
         
         
         public void WaterDownCocktail()
         {
             _cocktail.GetComponent<CocktailScript>().WaterDownCocktail();
+            waterDownIcon.FadeIn();
         }
 
 
@@ -265,11 +267,21 @@ namespace CocktailCreation
         {
             ToggleCsaButtons(true);
             cocktailServingArea.GetComponent<FadeCanvas>().FadeIn();
+            waterDownIcon.gameObject.SetActive(false);
         }
 
         public void DeactivateCocktailServingArea()
         {
-            if (cocktailServingArea.gameObject.activeSelf) cocktailServingArea.GetComponent<FadeCanvas>().FadeOut();
+            if (cocktailServingArea.gameObject.activeInHierarchy)
+            {
+                if (waterDownIcon.gameObject.activeInHierarchy)
+                {
+                    waterDownIcon.FadeOut();
+                }
+                cocktailServingArea.GetComponent<FadeCanvas>().FadeOut();
+                
+            }
+            
         }
 
         private void ActivateMixButton()

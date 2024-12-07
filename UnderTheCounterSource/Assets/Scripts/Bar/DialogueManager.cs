@@ -23,6 +23,7 @@ namespace Bar
         // Pop-up messages
         public TextMeshProUGUI popUpNameText;
         public TextMeshProUGUI popUpDialogueText;
+        [SerializeField] private Image popUpArrow;
         private bool isPopupActive;
         private bool _isActionNeeded;
 
@@ -93,6 +94,7 @@ namespace Bar
             
             popUpDialogueText.text = "";
             popUpDialogueText.transform.parent.GetComponent<FadeCanvas>().FadeIn();
+            popUpArrow.gameObject.SetActive(!isActionNeeded);
             ShowNextPopUp();
         }
 

@@ -1,0 +1,24 @@
+{
+    "customers": [
+        {
+            "sprite": "Kenneth",
+            "order": "Everest",
+            "lines": {
+                "greet": [
+                    "Good evening, fella. This is a war veteran you're talking to. I'd like an <b>Everest</b> on the rocks.<br>You see, the correct way to make it is to shake it clockwise. And of course, pour half Caledon first, half at the end.",
+                    "My drink now, fella. <b>Everest</b> on the rocks. But don't put too much ice in the glass! I know these tricks that young people do…"
+                ],
+                "leaveCorrect": [
+                    "Aaah, how refreshing. This one's especially good, probably because you followed my advice. Hah!<br>At ease, fella! Goodnight!"
+                ],
+                "leaveWrong": [
+                    "Mmm, I'm not sure you followed my instructions. Actually, this tastes like another drink altogether…<br>At ease, fella! Goodnight!"
+                ],
+                "leaveWater": [
+                    "Refreshing, but a bit watered down. Maybe it's the way that the newer generations do it.<br>In any case, at ease, fella! Goodnight!"
+                ]
+            },
+            "tip": 3
+        }
+    ]
+}
