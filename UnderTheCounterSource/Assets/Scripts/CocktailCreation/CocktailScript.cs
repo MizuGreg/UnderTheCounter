@@ -13,7 +13,8 @@ namespace CocktailCreation
         public void WaterDownCocktail()
         {
             cocktail.isWatered = true;
-            transform.Find("WateredIconCanvas").GetComponent<FadeCanvas>().FadeIn();
+            Debug.Log("cocktail watered");
+            EventSystemManager.OnCocktailWatered();
         }
 
         public void OnDrop(PointerEventData eventData)

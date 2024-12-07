@@ -269,7 +269,12 @@ namespace CocktailCreation
 
         public void DeactivateCocktailServingArea()
         {
-            if (cocktailServingArea.gameObject.activeSelf) cocktailServingArea.GetComponent<FadeCanvas>().FadeOut();
+            if (cocktailServingArea.gameObject.activeSelf)
+            {
+                cocktailServingArea.GetComponent<FadeCanvas>().FadeOut();
+                EventSystemManager.OnCCAHided();
+            }
+            
         }
 
         private void ActivateMixButton()
