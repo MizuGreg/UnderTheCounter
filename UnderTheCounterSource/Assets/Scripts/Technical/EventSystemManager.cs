@@ -32,6 +32,7 @@ namespace Technical
         public static UnityAction OnLoadBarView;
         public static UnityAction OnLoadShopWindow;
         public static UnityAction OnLoadEndOfDay;
+        public static UnityAction OnLoadWinScreen;
         public static UnityAction OnLoadLoseScreen;
 
         public static UnityAction OnRecipeBookOpened;
