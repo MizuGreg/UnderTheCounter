@@ -340,6 +340,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4664701631633082586, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 623126691}
+    - target: {fileID: 4664701631633082586, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseRecipeBook
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664701631633082586, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Bar.RecipeBookManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4891407987545666465, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeBookManager
       value: 
