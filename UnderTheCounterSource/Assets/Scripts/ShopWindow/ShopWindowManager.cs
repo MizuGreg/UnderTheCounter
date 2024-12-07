@@ -25,7 +25,9 @@ namespace ShopWindow
             canvasContainer.GetComponent<FadeCanvas>().FadeIn();
             tutorialManager2 = GetComponent<TutorialManager2>();
             
+            #if UNITY_EDITOR
             if (forceDay != 0) Day.CurrentDay = forceDay;
+            #endif
             
             dayText.text = $"DAY {Day.CurrentDay}";
             savingsText.text = $"${Day.Savings:N0}";
