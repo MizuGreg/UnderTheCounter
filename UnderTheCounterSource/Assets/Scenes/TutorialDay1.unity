@@ -9353,7 +9353,7 @@ MonoBehaviour:
   arrow: {fileID: 1644742727}
   popUpNameText: {fileID: 2059333802}
   popUpDialogueText: {fileID: 1463437685}
-  popUpArrow: {fileID: 0}
+  popUpArrow: {fileID: 1742463898}
   normalTextSpeed: 20
   punctuationWaitMultiplier: 7
   timeBeforeDialogueBox: 0.1

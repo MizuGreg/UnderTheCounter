@@ -4187,7 +4187,7 @@ MonoBehaviour:
   arrow: {fileID: 0}
   popUpNameText: {fileID: 758400295}
   popUpDialogueText: {fileID: 1567171251}
-  popUpArrow: {fileID: 0}
+  popUpArrow: {fileID: 1219049930}
   normalTextSpeed: 1
   punctuationWaitMultiplier: 5
   timeBeforeDialogueBox: 0.1
@@ -4922,6 +4922,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598910035256831102, guid: 04871e431707385438f47108caa0fda5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838221953475196613, guid: 04871e431707385438f47108caa0fda5, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6690708178395460449, guid: 04871e431707385438f47108caa0fda5, type: 3}
