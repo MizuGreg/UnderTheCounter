@@ -1015,7 +1015,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 124416a3eaf224c35bd0cace06701510, type: 3}
     - target: {fileID: 3641593027183486091, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Color.a
-      value: 0.39215687
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3935566714580582139, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Alpha
@@ -1027,7 +1027,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 124416a3eaf224c35bd0cace06701510, type: 3}
     - target: {fileID: 4693611256657533483, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Color.a
-      value: 0.39215687
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6228487217480528163, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Name
@@ -1050,8 +1050,12 @@ PrefabInstance:
       value: CocktailCreation.CocktailManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7007379871160852118, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -12.700004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007379871160852118, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.7
+      value: -4.649998
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_text
@@ -1067,7 +1071,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontColor.a
-      value: 0.39215687
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontColor.b
@@ -1091,7 +1095,7 @@ PrefabInstance:
       objectReference: {fileID: 3181661542133080346, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 1694498815
+      value: 2164260863
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -2984,7 +2988,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 124416a3eaf224c35bd0cace06701510, type: 3}
     - target: {fileID: 3641593027183486091, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Color.a
-      value: 0.39215687
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3641593027183486091, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_PreserveAspect
@@ -3000,7 +3004,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 124416a3eaf224c35bd0cace06701510, type: 3}
     - target: {fileID: 4693611256657533483, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Color.a
-      value: 0.39215687
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4693611256657533483, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_PreserveAspect
@@ -3022,6 +3026,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CocktailCreation.CocktailManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7007379871160852118, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -5.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007379871160852118, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.575
+      objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_text
       value: WATER IT DOWN
@@ -3036,7 +3048,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontColor.a
-      value: 0.39215687
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontColor.b
@@ -3060,7 +3072,7 @@ PrefabInstance:
       objectReference: {fileID: 3181661542133080346, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 1694498815
+      value: 2164260863
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -7937,6 +7949,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7007379871160852118, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -21.000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007379871160852118, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.499999
+      objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_text
       value: SERVE IT
@@ -12436,7 +12456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontColor.a
-      value: 0.5882353
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontSizeBase
@@ -12444,7 +12464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 2516582400
+      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 8189311444935280196, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
