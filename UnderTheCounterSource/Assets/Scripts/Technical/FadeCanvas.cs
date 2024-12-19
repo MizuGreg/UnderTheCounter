@@ -15,6 +15,11 @@ namespace Technical
         {
             if (canvasGroup == null) GetComponent<CanvasGroup>();
         }
+
+        public bool IsFading()
+        {
+            return _isFading;
+        }
         
         public void FadeIn()
         {
