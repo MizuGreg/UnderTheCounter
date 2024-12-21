@@ -415,12 +415,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 575016157}
     - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1308264025}
+    - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
       propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8382147729458506057, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
     - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
       propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Toggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SkipText
       objectReference: {fileID: 0}
     - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
       propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -431,11 +439,19 @@ PrefabInstance:
       value: Technical.ShowDebug, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EndOfDay.EndOfDayManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
       propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Settings.InGameMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
       propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1780380297722937481, guid: de0b9e6955d98544c92a029e2acf9e1f, type: 3}
@@ -582,7 +598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935566714580582139, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6228487217480528163, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Name
@@ -3221,7 +3237,7 @@ MonoBehaviour:
   stampImage: {fileID: 463155450}
   nextDayButton: {fileID: 732869513}
   gameOverButton: {fileID: 1585704859}
-  timeBeforeLines: 2
+  timeBeforeLines: 1.5
   timeBetweenLines: 0.6
   timeAfterLines: 0.5
   summaryMessages:

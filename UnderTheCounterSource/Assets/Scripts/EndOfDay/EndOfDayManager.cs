@@ -23,9 +23,9 @@ namespace EndOfDay
 
         public Button gameOverButton;
 
-        public float timeBeforeLines = 1f;
-        public float timeBetweenLines = 0.5f;
-        public float timeAfterLines = 1f;
+        public float timeBeforeLines;
+        public float timeBetweenLines;
+        public float timeAfterLines;
 
         public string[] summaryMessages;
 
@@ -100,10 +100,11 @@ namespace EndOfDay
             yield return null;
         }
 
-        private string GetRandomMessage()
+        public void SkipText()
         {
-            int index = Random.Range(0, summaryMessages.Length);
-            return summaryMessages[index];
+            timeBeforeLines = 0f;
+            timeBetweenLines = 0f;
+            timeAfterLines = 0f;
         }
 
         private IEnumerator DisplayTextsOneByOne()
@@ -172,10 +173,10 @@ namespace EndOfDay
             // Scala finale esatta
             stampImage.transform.localScale = endScale;
 
-            CheckEndOFDay();
+            CheckEndOfDay();
         }
 
-        private void CheckEndOFDay()
+        private void CheckEndOfDay()
         {
             Day.EndDay(dailyBalance);
 
