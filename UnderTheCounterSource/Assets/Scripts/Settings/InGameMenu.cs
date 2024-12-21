@@ -33,14 +33,21 @@ namespace Settings
 
         public void OnEscapeButtonPressed(InputAction.CallbackContext context)
         {
-            if (!context.performed) return;
-            if (!gameObject.activeSelf)
-            {
-                if (recipeBookManager.isRecipeBookOpen()) recipeBookManager.CloseRecipeBook();
-            }
-            else if (backToMainMenuDialog.activeSelf) backToMainMenuDialog.GetComponent<FadeCanvas>().FadeOut();
-            else if (creditsDialog.activeSelf) creditsDialog.GetComponent<FadeCanvas>().FadeOut();
-            else GetComponent<FadeCanvas>().FadeOut();
+            // In order: closes back to main menu confirmation dialog
+            // else closes credits dialog
+            // else closes in-game menu
+            // else closes recipe book
+            // else opens in-game menu
+            
+            if (backToMainMenuDialog != null && backToMainMenuDialog.activeSelf) backToMainMenuDialog.GetComponent<FadeCanvas>().FadeOut();
+            
+            else if (creditsDialog != null &&creditsDialog.activeSelf) creditsDialog.GetComponent<FadeCanvas>().FadeOut();
+            
+            else if (gameObject.activeSelf) GetComponent<FadeCanvas>().FadeOut();
+            
+            else if (recipeBookManager != null && recipeBookManager.isRecipeBookOpen()) recipeBookManager.CloseRecipeBook();
+            
+            else GetComponent<FadeCanvas>().FadeIn();
         }
     }
 }
