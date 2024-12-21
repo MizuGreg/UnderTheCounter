@@ -61,7 +61,6 @@ namespace Endings
             textComponent.text = ""; 
             foreach (string phrase in phrases)
             {
-                Debug.Log("Sto scrivendo: " + phrase); // Debug
                 yield return StartCoroutine(DisplayTextOneByOne(phrase));
                 yield return new WaitForSeconds(phraseDelay);
             }
@@ -82,13 +81,11 @@ namespace Endings
 
         public void LoadMainMenu()
         {
-            Debug.Log("Pulsante premuto! Avvio Coroutine..."); // Debug
             StartCoroutine(LoadMainMenuScene());
         }
 
         public IEnumerator LoadMainMenuScene()
         {
-            Debug.Log("Inizio transizione verso MainMenu..."); // Debug
             toBeContinuedCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
             SceneManager.LoadScene("MainMenu");
