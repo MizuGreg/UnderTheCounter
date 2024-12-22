@@ -47,13 +47,6 @@ namespace CocktailCreation
                 _actualPosition.y = _initialPosition.y;
             }
             RectTransform.anchoredPosition = _actualPosition;
-            
-            CustomEffect();
-        }
-
-        protected virtual void CustomEffect()
-        {
-            
         }
 
         public virtual void OnEndDrag(PointerEventData eventData)

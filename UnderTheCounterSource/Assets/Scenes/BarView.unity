@@ -180,6 +180,7 @@ MonoBehaviour:
   ingredientType: 4
   dropSlot: {fileID: 1357968470}
   itemRotation: 45
+  targetPosition: {fileID: 819183985}
   delay: 0.5
 --- !u!225 &4587812
 CanvasGroup:
@@ -3238,6 +3239,7 @@ MonoBehaviour:
   ingredientType: 1
   dropSlot: {fileID: 1357968470}
   itemRotation: 45
+  targetPosition: {fileID: 819183985}
   delay: 0.5
 --- !u!225 &476327776
 CanvasGroup:
@@ -5156,6 +5158,7 @@ MonoBehaviour:
   ingredientType: 2
   dropSlot: {fileID: 1357968470}
   itemRotation: 45
+  targetPosition: {fileID: 819183985}
   delay: 0.5
 --- !u!225 &774934548
 CanvasGroup:
@@ -5341,6 +5344,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807317713}
   m_CullTransparentMesh: 1
+--- !u!1 &819183985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819183986}
+  m_Layer: 0
+  m_Name: PouringPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &819183986
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819183985}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1138693662}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -382, y: -185}
+  m_SizeDelta: {x: 235.28, y: 398.8}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &846242879 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 794683733462051227, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
@@ -5410,6 +5448,7 @@ MonoBehaviour:
   ingredientType: 3
   dropSlot: {fileID: 1357968470}
   itemRotation: 45
+  targetPosition: {fileID: 819183985}
   delay: 0.5
 --- !u!225 &879041398
 CanvasGroup:
@@ -7038,6 +7077,7 @@ RectTransform:
   m_LocalScale: {x: 0.99998724, y: 0.99998724, z: 0.99998724}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 819183986}
   - {fileID: 442186929}
   - {fileID: 620561034}
   m_Father: {fileID: 611378426}
@@ -10262,7 +10302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -771.23987, y: 220}
+  m_AnchoredPosition: {x: -771.2399, y: 220}
   m_SizeDelta: {x: 80, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742137672
@@ -10283,6 +10323,7 @@ MonoBehaviour:
   ingredientType: 0
   dropSlot: {fileID: 1357968470}
   itemRotation: 45
+  targetPosition: {fileID: 819183985}
   delay: 0.5
 --- !u!225 &1742137673
 CanvasGroup:
