@@ -27,7 +27,10 @@ namespace Technical
 
 
         public static UnityAction OnBlitzCalled;
+        public static UnityAction OnBlitzCallWarning;
         public static UnityAction OnBlitzTimerEnded;
+        public static UnityAction OnBottlePlaced;
+        public static UnityAction OnPanelClosed;
 
         public static UnityAction OnLoadMainMenu;
         public static UnityAction OnLoadBarView;

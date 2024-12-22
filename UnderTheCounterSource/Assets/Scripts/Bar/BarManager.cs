@@ -29,7 +29,8 @@ namespace Bar
             if (_tutorialManager1 != null) _tutorialManager1.AttachDialogueManager(_dialogueManager);
         
             EventSystemManager.OnDayStart += StartDay;
-            EventSystemManager.OnDrunkCustomerLeave += CheckDrunk;
+            EventSystemManager.OnDrunkCustomerLeave += IncreaseDrunkCustomers;
+            EventSystemManager.OnCustomerLeave += CheckDrunk;
             EventSystemManager.OnCustomersDepleted += EndDay;
             EventSystemManager.OnTutorial1End += EndDay;
         
@@ -42,7 +43,8 @@ namespace Bar
         private void OnDestroy()
         {
             EventSystemManager.OnDayStart -= StartDay;
-            EventSystemManager.OnDrunkCustomerLeave -= CheckDrunk;
+            EventSystemManager.OnDrunkCustomerLeave += IncreaseDrunkCustomers;
+            EventSystemManager.OnCustomerLeave += CheckDrunk;
             EventSystemManager.OnCustomersDepleted -= EndDay;
             EventSystemManager.OnTutorial1End -= EndDay;
         }
@@ -99,19 +101,21 @@ namespace Bar
             SceneManager.LoadScene("EndOfDay");
         }
 
+        private void IncreaseDrunkCustomers()
+        {
+            Day.DrunkCustomers++;
+        }
+
         private void CheckDrunk()
         {
-            if (++Day.DrunkCustomers >= Day.MaxDrunkCustomers)
+            if (Day.DrunkCustomers >= Day.MaxDrunkCustomers)
             {
                 EventSystemManager.OnBlitzCalled();
                 Day.DrunkCustomers = 0;
+            } else if (Day.DrunkCustomers == Day.MaxDrunkCustomers - 1)
+            {
+                EventSystemManager.OnBlitzCallWarning();
             }
-        }
-
-        public void LossByBlitz()
-        {
-            // todo: display actual loss screen
-            print("Loss By Blitz");
         }
 
         public void BackToMainMenu()
