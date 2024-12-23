@@ -104,8 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 1
-  fixedX: 1
-  fixedY: 0
   garnish: {fileID: 11400000, guid: 22aaf4d9ee55d41eaa0393b9dc93f45e, type: 2}
 --- !u!114 &6735392024812754573
 MonoBehaviour:
