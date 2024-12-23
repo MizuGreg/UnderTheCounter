@@ -22,37 +22,28 @@ namespace CocktailCreation
             GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
         }
         
+        
         public override void OnDrag(PointerEventData eventData)
         {
-            Vector2 pointerPosition;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                RectTransform.parent as RectTransform,
-                eventData.position,
-                eventData.pressEventCamera,
-                out pointerPosition
-            );
 
-            if (pointerPosition.y >= _dropSlotPosition.y && pointerPosition.y <= InitialPosition.y)
+            _pointerDelta = eventData.delta / Canvas.scaleFactor;
+
+            if (ActualPosition.y + _pointerDelta.y < _dropSlotPosition.y)
             {
-                _pointerDelta = eventData.delta / Canvas.scaleFactor;
-
-                if (ActualPosition.y + _pointerDelta.y < _dropSlotPosition.y)
-                {
-                    ActualPosition.y = _dropSlotPosition.y;
-                }
-                else if (ActualPosition.y + _pointerDelta.y > InitialPosition.y)
-                {
-                    ActualPosition.y = InitialPosition.y;
-                }
-                else
-                {
-                    ActualPosition.y += _pointerDelta.y;
-                }
-
-                RectTransform.anchoredPosition = ActualPosition;
+                ActualPosition.y = _dropSlotPosition.y;
             }
-        }
+            else if (ActualPosition.y + _pointerDelta.y > InitialPosition.y)
+            {
+                ActualPosition.y = InitialPosition.y;
+            }
+            else
+            {
+                ActualPosition.y += _pointerDelta.y;
+            }
 
+            RectTransform.anchoredPosition = ActualPosition;
+        }
+        
 
         protected override void EndDragBehaviour()
         {
