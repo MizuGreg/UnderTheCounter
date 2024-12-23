@@ -1,4 +1,5 @@
 using System.Globalization;
+using Bar;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -67,7 +68,7 @@ namespace ShopWindow
         }
         
 
-        private void UpdateUI()
+        public void UpdateUI()
         {
             // Update the poster's locked state
             SetLocked(isLocked);
@@ -129,7 +130,8 @@ namespace ShopWindow
     
         public void OnPosterClicked()
         {
-            if (_isDragging || isLocked) return; // Only show popup if no drag is in progress
+            Day.Savings += 200;
+            if (_isDragging ) return; // Only show popup if no drag is in progress
 
             // Check if the poster price is less than 0
             var displayPrice = posterPrice.ToString(CultureInfo.InvariantCulture);
@@ -137,7 +139,7 @@ namespace ShopWindow
 
             if (float.TryParse(posterPrice.ToString(CultureInfo.InvariantCulture), out var priceValue) && priceValue < 0)
             {
-                displayPrice = "Owned"; // Set to "Owned" if the price is less than 0
+                displayPrice = "    Owned"; // Set to "Owned" if the price is less than 0
                 displayIcon = null;     // Remove the currency icon
             }
 
@@ -148,6 +150,8 @@ namespace ShopWindow
             var popUpScript = posterPopUpPrefab.GetComponent<PosterPopUpManager>();
             if (popUpScript != null)
             {
+                Debug.Log(this.GetType());
+                popUpScript.SetCurrentPoster(this);
                 popUpScript.ShowPosterDetails(
                     posterImage,
                     posterNameText,
