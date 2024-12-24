@@ -29,8 +29,9 @@ namespace Bar
             if (_tutorialManager1 != null) _tutorialManager1.AttachDialogueManager(_dialogueManager);
         
             EventSystemManager.OnDayStart += StartDay;
-            EventSystemManager.OnDrunkCustomerLeave += IncreaseDrunkCustomers;
-            EventSystemManager.OnCustomerLeave += CheckDrunk;
+            EventSystemManager.OnDrunkCustomerLeave += CheckBlitzWarning;
+            EventSystemManager.OnCustomerLeft += CheckDrunk;
+            EventSystemManager.OnBlitzEnd += NextCustomer;
             EventSystemManager.OnCustomersDepleted += EndDay;
             EventSystemManager.OnTutorial1End += EndDay;
         
@@ -43,8 +44,9 @@ namespace Bar
         private void OnDestroy()
         {
             EventSystemManager.OnDayStart -= StartDay;
-            EventSystemManager.OnDrunkCustomerLeave += IncreaseDrunkCustomers;
-            EventSystemManager.OnCustomerLeave += CheckDrunk;
+            EventSystemManager.OnDrunkCustomerLeave -= CheckBlitzWarning;
+            EventSystemManager.OnCustomerLeft -= CheckDrunk;
+            EventSystemManager.OnBlitzEnd -= NextCustomer;
             EventSystemManager.OnCustomersDepleted -= EndDay;
             EventSystemManager.OnTutorial1End -= EndDay;
         }
@@ -101,9 +103,12 @@ namespace Bar
             SceneManager.LoadScene("EndOfDay");
         }
 
-        private void IncreaseDrunkCustomers()
+        private void CheckBlitzWarning()
         {
-            Day.DrunkCustomers++;
+            if (Day.DrunkCustomers == Day.MaxDrunkCustomers - 1)
+            {
+                EventSystemManager.OnBlitzCallWarning();
+            }
         }
 
         private void CheckDrunk()
@@ -112,10 +117,16 @@ namespace Bar
             {
                 EventSystemManager.OnBlitzCalled();
                 Day.DrunkCustomers = 0;
-            } else if (Day.DrunkCustomers == Day.MaxDrunkCustomers - 1)
-            {
-                EventSystemManager.OnBlitzCallWarning();
             }
+            else 
+            {
+                NextCustomer();
+            }
+        }
+
+        private void NextCustomer()
+        {
+            StartCoroutine(_customerManager.WaitBeforeNextCustomer());
         }
 
         public void BackToMainMenu()

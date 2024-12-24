@@ -164,10 +164,10 @@ namespace Bar
             yield return new WaitForSeconds(timeBeforeFadeout);
             if (customerCocktail.gameObject.activeSelf) customerCocktail.GetComponent<FadeCanvas>().FadeOut();
             customerCanvas.GetComponent<FadeCanvas>().FadeOut();
-            yield return WaitBeforeNextCustomer();
+            EventSystemManager.OnCustomerLeft();
         }
 
-        private IEnumerator WaitBeforeNextCustomer()
+        public IEnumerator WaitBeforeNextCustomer()
         {
             yield return new WaitForSeconds(timeBetweenCustomers);
             GreetCustomer();
@@ -206,8 +206,12 @@ namespace Bar
 
                 Day.TodayEarnings += earning;
             
-                // if not watered down, we throw onDrunkCustomer event
-                if (!cocktail.isWatered) EventSystemManager.OnDrunkCustomerLeave();
+                // if not watered down, we increase the drunk customers counter
+                if (!cocktail.isWatered)
+                {
+                    Day.DrunkCustomers++;
+                    EventSystemManager.OnDrunkCustomerLeave();
+                }
             }
             else
             {

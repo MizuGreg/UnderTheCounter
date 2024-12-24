@@ -20,8 +20,9 @@ namespace Blitz
         private void Start()
         {
             warningPlaceholder.gameObject.SetActive(false);
-            EventSystemManager.OnBlitzCalled += CallBlitz;
+            
             EventSystemManager.OnBlitzCallWarning += BlitzWarning;
+            EventSystemManager.OnBlitzCalled += CallBlitz;
             EventSystemManager.OnBlitzTimerEnded += LossByBlitz;
             EventSystemManager.OnBottlePlaced += IncreasePlacedBottlesCounter;
             EventSystemManager.OnPanelClosed += CheckBlitzWin;
@@ -29,13 +30,25 @@ namespace Blitz
 
         private void OnDestroy()
         {
-            EventSystemManager.OnBlitzCalled -= CallBlitz;
             EventSystemManager.OnBlitzCallWarning -= BlitzWarning;
+            EventSystemManager.OnBlitzCalled -= CallBlitz;
             EventSystemManager.OnBlitzTimerEnded -= LossByBlitz;
             EventSystemManager.OnBottlePlaced -= IncreasePlacedBottlesCounter;
             EventSystemManager.OnPanelClosed -= CheckBlitzWin;
         }
 
+        private void BlitzWarning()
+        {
+            StartCoroutine(BlinkPlaceholderText());
+        }
+
+        private IEnumerator BlinkPlaceholderText()
+        {
+            warningPlaceholder.FadeIn();
+            yield return new WaitForSeconds(3f);
+            warningPlaceholder.FadeOut();
+        }
+        
         public void CallBlitz()
         {
             StartCoroutine(FadeInBlitz());
@@ -47,18 +60,6 @@ namespace Blitz
             placedBottlesCounter = 0;
             blitzCanvas.GetComponent<FadeCanvas>().FadeIn();
             StartCoroutine(WaitBeforeHideMinigame());
-        }
-
-        public void BlitzWarning()
-        {
-            StartCoroutine(BlinkPlaceholderText());
-        }
-
-        private IEnumerator BlinkPlaceholderText()
-        {
-            warningPlaceholder.FadeIn();
-            yield return new WaitForSeconds(3f);
-            warningPlaceholder.FadeOut();
         }
 
         private IEnumerator WaitBeforeHideMinigame()
@@ -86,9 +87,11 @@ namespace Blitz
 
         private void CheckBlitzWin()
         {
-            if (placedBottlesCounter == 2)
+            if (placedBottlesCounter == 2) // terrible hardcoding, also the ingredients should be 3 not 2
             {
                 blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
+                // panel needs to be not movable anymore
+                // we need some kind of confirmation to show up for the player, then wait a bit, and then fade out
             }
         }
     }
