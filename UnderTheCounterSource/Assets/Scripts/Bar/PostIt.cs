@@ -27,7 +27,6 @@ namespace Bar
         private void OverwritePostIt(string _actualOrder)
         {
             actualOrder = _actualOrder;
-            print("PostIt overwriting");
         }
 
         public void WriteCocktail(CocktailType cocktailType) {
@@ -40,7 +39,6 @@ namespace Bar
                 }
                 else
                 {
-                    print("im here");
                     cocktailName.text = actualOrder;
                     actualOrder = "";
                 }

@@ -29,7 +29,9 @@ namespace Bar
             if (_tutorialManager1 != null) _tutorialManager1.AttachDialogueManager(_dialogueManager);
         
             EventSystemManager.OnDayStart += StartDay;
-            EventSystemManager.OnDrunkCustomerLeave += CheckDrunk;
+            EventSystemManager.OnDrunkCustomerLeave += CheckBlitzWarning;
+            EventSystemManager.OnCustomerLeft += CheckDrunk;
+            EventSystemManager.OnBlitzEnd += NextCustomer;
             EventSystemManager.OnCustomersDepleted += EndDay;
             EventSystemManager.OnTutorial1End += EndDay;
         
@@ -42,7 +44,9 @@ namespace Bar
         private void OnDestroy()
         {
             EventSystemManager.OnDayStart -= StartDay;
-            EventSystemManager.OnDrunkCustomerLeave -= CheckDrunk;
+            EventSystemManager.OnDrunkCustomerLeave -= CheckBlitzWarning;
+            EventSystemManager.OnCustomerLeft -= CheckDrunk;
+            EventSystemManager.OnBlitzEnd -= NextCustomer;
             EventSystemManager.OnCustomersDepleted -= EndDay;
             EventSystemManager.OnTutorial1End -= EndDay;
         }
@@ -99,19 +103,30 @@ namespace Bar
             SceneManager.LoadScene("EndOfDay");
         }
 
+        private void CheckBlitzWarning()
+        {
+            if (Day.DrunkCustomers == Day.MaxDrunkCustomers - 1)
+            {
+                EventSystemManager.OnBlitzCallWarning();
+            }
+        }
+
         private void CheckDrunk()
         {
-            if (++Day.DrunkCustomers >= Day.MaxDrunkCustomers)
+            if (Day.DrunkCustomers >= Day.MaxDrunkCustomers)
             {
                 EventSystemManager.OnBlitzCalled();
                 Day.DrunkCustomers = 0;
             }
+            else 
+            {
+                NextCustomer();
+            }
         }
 
-        public void LossByBlitz()
+        private void NextCustomer()
         {
-            // todo: display actual loss screen
-            print("Loss By Blitz");
+            StartCoroutine(_customerManager.WaitBeforeNextCustomer());
         }
 
         public void BackToMainMenu()

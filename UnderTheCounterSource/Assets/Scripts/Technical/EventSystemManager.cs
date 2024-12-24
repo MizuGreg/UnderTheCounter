@@ -13,6 +13,7 @@ namespace Technical
         public static UnityAction OnCustomerEnter;
         public static UnityAction OnCustomerLeave;
         public static UnityAction OnDrunkCustomerLeave;
+        public static UnityAction OnCustomerLeft;
         public static UnityAction OnCustomersDepleted;
     
         public static UnityAction OnPreparationStart;
@@ -27,7 +28,11 @@ namespace Technical
 
 
         public static UnityAction OnBlitzCalled;
+        public static UnityAction OnBlitzCallWarning;
         public static UnityAction OnBlitzTimerEnded;
+        public static UnityAction OnBottlePlaced;
+        public static UnityAction OnPanelClosed;
+        public static UnityAction OnBlitzEnd;
 
         public static UnityAction OnLoadMainMenu;
         public static UnityAction OnLoadBarView;

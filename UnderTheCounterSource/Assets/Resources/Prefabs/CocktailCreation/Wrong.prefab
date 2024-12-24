@@ -101,6 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffaf601f685d7490bb622df6b45bd975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cocktail: {fileID: 11400000, guid: 10839c3ada1e94c30b22b2e24e3c36e2, type: 2}
+  cocktail:
+    type: 2
+    isWatered: 0
+    description: Terrible cocktail!
   sprite: {fileID: 21300000, guid: b5b50f80b3d9a492dabaae8b3eb74e73, type: 3}
   garnish: {fileID: 6593797786935200129, guid: 0e572df8c6b2b4b099c5154eb881e8d2, type: 3}

@@ -101,6 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffaf601f685d7490bb622df6b45bd975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cocktail: {fileID: 11400000, guid: b3bf228249270fb40b6d19358b392116, type: 2}
+  cocktail:
+    type: 3
+    isWatered: 0
+    description: 'Raise a glass to good times with Parti, a vibrant mix garnished
+      with a stuffed olive, made for unforgettable moments. Bold, smooth, it evokes
+      elegance. With this in hand, you won''t just join the party: you''ll own it.'
   sprite: {fileID: 21300000, guid: 647dd5c81a3a76c40b3f4aafe3f87f1c, type: 3}
   garnish: {fileID: 6593797786935200129, guid: 0db5fc74197f243ce8e672143dceebee, type: 3}

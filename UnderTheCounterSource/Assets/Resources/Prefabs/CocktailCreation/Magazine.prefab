@@ -101,6 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffaf601f685d7490bb622df6b45bd975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cocktail: {fileID: 11400000, guid: 35a871038eb1f0042b8a5948dae7953f, type: 2}
+  cocktail:
+    type: 4
+    isWatered: 0
+    description: 'Step into the spotlight with Magazine: a sophisticated blend of
+      ingredients perfectly rafted for those who love a cocktail with style and substance.
+      With every sip, you''ll feel like the headline for your own story.'
   sprite: {fileID: 21300000, guid: 66144b44b09c4374ca3dd8fad49eff9f, type: 3}
   garnish: {fileID: 6593797786935200129, guid: c67c6fe9b2b1b41a0b59ea8e84f494fd, type: 3}

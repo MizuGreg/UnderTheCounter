@@ -38,7 +38,7 @@ namespace Bar
                     break;
                 default:
                     DailyTime = 240;
-                    MaxDrunkCustomers = 3;
+                    MaxDrunkCustomers = 2;
                     break;
             }
         }

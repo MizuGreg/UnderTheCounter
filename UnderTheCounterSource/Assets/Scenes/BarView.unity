@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 66583020}
   - component: {fileID: 66583019}
   m_Layer: 5
-  m_Name: paolo
+  m_Name: Bottle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5355,7 +5355,7 @@ GameObject:
   - component: {fileID: 807317716}
   - component: {fileID: 807317715}
   m_Layer: 5
-  m_Name: sballoText
+  m_Name: BlitzText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6395,7 +6395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blitzCanvas: {fileID: 1755655608}
   blitzTimer: {fileID: 1871478028}
-  blitzPlaceholder: {fileID: 1568729564}
+  warningPlaceholder: {fileID: 1568729564}
+  barContainer: {fileID: 1180806169}
 --- !u!1001 &1018820846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7124,7 +7125,7 @@ GameObject:
   - component: {fileID: 1123984568}
   - component: {fileID: 1123984567}
   m_Layer: 5
-  m_Name: pokeball
+  m_Name: Placeholder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7498,7 +7499,7 @@ GameObject:
   - component: {fileID: 1207959342}
   - component: {fileID: 1207959341}
   m_Layer: 5
-  m_Name: ultraball
+  m_Name: Placeholder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7890,7 +7891,7 @@ GameObject:
   - component: {fileID: 1259845482}
   - component: {fileID: 1259845481}
   m_Layer: 5
-  m_Name: piero
+  m_Name: Bottle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9237,7 +9238,7 @@ GameObject:
   - component: {fileID: 1568729558}
   - component: {fileID: 1568729564}
   m_Layer: 5
-  m_Name: BlitzPlaceholder
+  m_Name: WarningPlaceholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10139,7 +10140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barContainer: {fileID: 1180806169}
-  forceDay: 2
+  forceDay: 3
 --- !u!114 &1725047609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11480,10 +11481,10 @@ PrefabInstance:
       addedObject: {fileID: 883203843}
     - targetCorrespondingSourceObject: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 66583018}
+      addedObject: {fileID: 1259845480}
     - targetCorrespondingSourceObject: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1259845480}
+      addedObject: {fileID: 66583018}
     - targetCorrespondingSourceObject: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 429632240}

@@ -101,6 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffaf601f685d7490bb622df6b45bd975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cocktail: {fileID: 11400000, guid: bbf09ec1948b8664c8244913f564aab7, type: 2}
+  cocktail:
+    type: 2
+    isWatered: 0
+    description: Spring Bee is the best drink to lift you up when times get tough!
+      Simple, made with few ingredients and with the iconic honey rim, this sweet
+      and tangy cocktail will turn any day around and put a smile on your face.
   sprite: {fileID: 21300000, guid: 1c9ee3deb24365f41a66238840bf7563, type: 3}
   garnish: {fileID: 6593797786935200129, guid: f58fac330d3484681ae80fc9dc184465, type: 3}
