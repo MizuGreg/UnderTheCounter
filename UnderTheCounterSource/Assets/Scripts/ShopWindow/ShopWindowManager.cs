@@ -36,6 +36,29 @@ namespace ShopWindow
             if (Day.CurrentDay == 2) StartCoroutine(WaitAndStartTutorial());
             if (Day.CurrentDay == 3) newspaper.SetActive(true);
             else newspaper.SetActive(false);
+
+            LoadPosters();
+        }
+
+        private void LoadPosters()
+        {
+            // load JSON
+            // deserialize into object
+            
+            // foreach posterprefabscript pps in poster prefab scripts
+            // individual set on pps.poster.isLocked, pps.poster.price... based on their id, and using the JSON object
+            // if hanged != 0 then we place the poster in the placeholder:
+            // (find DropTarget dropTarget with ID = hanged)
+            // perform "actual hanging part" in UIDragHandler component of pps
+            // using validArea = dropTarget with right ID
+            // _rectTransform = RectTransform component of pps
+        }
+
+        public void SavePosters()
+        {
+            // find all pps, copy all their important variables ((id), locked, price, hanged) into an object
+            // transform object into JSON
+            // save JSON
         }
 
         private IEnumerator WaitAndStartTutorial()
@@ -46,8 +69,8 @@ namespace ShopWindow
 
         public void NextScene()
         {
+            SavePosters();
             StartCoroutine(FadeThenNextScene());
-
         }
 
         private IEnumerator FadeThenNextScene()

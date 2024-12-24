@@ -22,6 +22,7 @@ namespace ShopWindow
         public GameObject posterPopUpPrefab; // Reference to the shared PosterPopUp prefab in the scene
         
         public bool isLocked; // Indicates if the poster is locked
+        public int hanged;
     
         private bool _isDragging; // Track whether the item is being dragged
         

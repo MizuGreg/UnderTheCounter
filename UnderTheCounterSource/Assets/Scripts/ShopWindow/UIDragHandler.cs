@@ -100,6 +100,8 @@ namespace ShopWindow
                         }
                     }
 
+                    // ACTUAL HANGING PART - would be better as its separate function, with parameters validArea, dropTarget and rectTransform
+                    
                     _rectTransform.SetParent(validArea, false);
                     dropTarget.SetOccupied(true);
                     lastPlacedPlaceholder = validArea;
