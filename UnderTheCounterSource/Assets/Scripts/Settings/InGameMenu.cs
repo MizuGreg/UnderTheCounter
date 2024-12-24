@@ -1,12 +1,15 @@
 using Bar;
 using Technical;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Settings
 {
     public class InGameMenu : MonoBehaviour
     {
         private TimerManager _timerManager;
+        [SerializeField] private RecipeBookManager recipeBookManager;
         private GameObject backToMainMenuDialog;
         private GameObject creditsDialog;
     
@@ -28,12 +31,23 @@ namespace Settings
             if (_timerManager != null) _timerManager.ResumeTimer();
         }
 
-        public void OnEscapeButtonPressed()
+        public void OnEscapeButtonPressed(InputAction.CallbackContext context)
         {
-            if (!gameObject.activeSelf) GetComponent<FadeCanvas>().FadeIn();
-            else if (backToMainMenuDialog.activeSelf) backToMainMenuDialog.GetComponent<FadeCanvas>().FadeOut();
-            else if (creditsDialog.activeSelf) creditsDialog.GetComponent<FadeCanvas>().FadeOut();
-            else GetComponent<FadeCanvas>().FadeOut();
+            // In order: closes back to main menu confirmation dialog
+            // else closes credits dialog
+            // else closes in-game menu
+            // else closes recipe book
+            // else opens in-game menu
+            
+            if (backToMainMenuDialog != null && backToMainMenuDialog.activeSelf) backToMainMenuDialog.GetComponent<FadeCanvas>().FadeOut();
+            
+            else if (creditsDialog != null &&creditsDialog.activeSelf) creditsDialog.GetComponent<FadeCanvas>().FadeOut();
+            
+            else if (gameObject.activeSelf) GetComponent<FadeCanvas>().FadeOut();
+            
+            else if (recipeBookManager != null && recipeBookManager.isRecipeBookOpen()) recipeBookManager.CloseRecipeBook();
+            
+            else GetComponent<FadeCanvas>().FadeIn();
         }
     }
 }

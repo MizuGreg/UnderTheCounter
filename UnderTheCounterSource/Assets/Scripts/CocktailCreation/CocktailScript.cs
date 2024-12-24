@@ -1,6 +1,7 @@
 using Technical;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace CocktailCreation
 {
@@ -14,6 +15,7 @@ namespace CocktailCreation
         {
             cocktail.isWatered = true;
             Debug.Log("cocktail watered");
+            GetComponent<Image>().color = new Color(0.9f, 0.95f, 1, 1f);
         }
 
         public void OnDrop(PointerEventData eventData)

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using ShopWindow;
-using UnityEngine;
 
 namespace Bar
 {
     public static class Day
     {
+        public static string BarName = "The Chitchat";
         public static float DailyTime = 180;
         public static int CurrentDay = 1;
         public static int DrunkCustomers;
