@@ -92,7 +92,14 @@ namespace Blitz
                 blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
                 // panel needs to be not movable anymore
                 // we need some kind of confirmation to show up for the player, then wait a bit, and then fade out
+                
             }
+        }
+
+        private void InspectorInterrogation()
+        {
+            // start interrogation, then, if all questions answered correctly:
+            EventSystemManager.OnBlitzEnd();
         }
     }
 }
