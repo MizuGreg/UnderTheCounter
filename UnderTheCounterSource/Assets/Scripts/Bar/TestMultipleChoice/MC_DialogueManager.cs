@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour {
+public class MC_DialogueManager : MonoBehaviour {
 
     public Text nameText;
     public Text dialogueText;
@@ -24,27 +24,27 @@ public class DialogueManager : MonoBehaviour {
         choiceButton2.gameObject.SetActive(false);
     }
 
-    public void StartDialogue(Dialogue dialogue) 
+    public void StartDialogue(MC_Dialogue mcDialogue) 
     {
         animator.SetBool("IsOpen", true);
         animator.SetBool("Choice", false);
-        nameText.text = dialogue.name;
+        nameText.text = mcDialogue.name;
 
         choiceButton1.gameObject.SetActive(false);
         choiceButton2.gameObject.SetActive(false);
 
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences) 
+        foreach (string sentence in mcDialogue.sentences) 
         {
             sentences.Enqueue(sentence);
         }
-        choice = dialogue.choices;
+        choice = mcDialogue.choices;
 
         if (choice)
         {
-            choiceSentence1 = dialogue.choicesText[0];
-            choiceSentence2 = dialogue.choicesText[1];
+            choiceSentence1 = mcDialogue.choicesText[0];
+            choiceSentence2 = mcDialogue.choicesText[1];
         }
 
         DisplayNextSentence();
