@@ -130,7 +130,6 @@ namespace ShopWindow
     
         public void OnPosterClicked()
         {
-            Day.Savings += 200;
             if (_isDragging ) return; // Only show popup if no drag is in progress
 
             // Check if the poster price is less than 0
@@ -178,6 +177,13 @@ namespace ShopWindow
         public void RemovePosterFromHungPosters()
         {
             shopWindowManager.RemovePoster(posterID);
+        }
+
+        public void BuyPoster()
+        {
+            isLocked = false;
+            posterPrice = -1; // Mark as owned
+            UpdateUI(); // Refresh the poster UI to show "Owned"
         }
     }
 }

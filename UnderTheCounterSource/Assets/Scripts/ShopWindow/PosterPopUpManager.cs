@@ -119,9 +119,7 @@ namespace ShopWindow
             // Deduct money and mark the poster as purchased
             Day.Savings -= poster.posterPrice;
             ClosePopUp();
-            poster.isLocked = false;
-            poster.posterPrice = -1; // Mark as owned
-            poster.UpdateUI(); // Refresh the poster UI to show "Owned"
+            poster.BuyPoster();
 
             // Hide the confirmation popup
             confirmPurchasePopup.SetActive(false);
