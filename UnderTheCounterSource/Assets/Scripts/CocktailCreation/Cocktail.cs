@@ -1,42 +1,41 @@
+using System;
 using UnityEngine;
 
 namespace CocktailCreation
 {
-    [CreateAssetMenu(fileName = "new Cocktail", menuName = "Cocktail")]
-    public class Cocktail : ScriptableObject
+    
+    [Serializable]
+    public class Cocktail
     {
         public CocktailType type;
         public bool isWatered;
         public string description;
         
-
         public Cocktail(CocktailType type, bool isWatered)
         {
             this.type = type;
             this.isWatered = isWatered;
-
-            string description;
+            
             switch (type) {
                 case CocktailType.Ripple:
-                    description = "(placeholder description!!!) A classic cocktail made with tequila, triple sec, and lime juice.";
+                    this.description = "An all-time classic: light, refreshing and a little bit zesty, perfect for those moments when you need take a break. It's a good excuse to enjoy the simplicity of the moment, and is especially loved by young people.";
                     break;
                 case CocktailType.Everest:
-                    description = "(placeholder description!!!) A traditional Cuban highball made with white rum, sugar, lime juice, soda water, and mint.";
+                    this.description = "Conquer the peak of refreshment with Everest! This bold and refreshing cocktail is perfect for those who seek an intense and balanced taste adorned with the aromas of the Caledon Ridge. So take a sip, and let it take you to the summit.";
                     break;
                 case CocktailType.SpringBee:
-                    description = "(placeholder description!!!) A sweet cocktail made with rum, coconut cream or coconut milk, and pineapple juice.";
+                    this.description = "Spring Bee is the best drink to lift you up when times get tough! Simple, made with few ingredients and with the iconic honey rim, this sweet and tangy cocktail will turn any day around and put a smile on your face.";
                     break;
                 case CocktailType.Parti:
-                    description = "(placeholder description!!!) A family of cocktails whose main ingredients are rum, citrus juice, and sugar.";
+                    this.description = "Raise a glass to good times with Parti, a vibrant mix garnished with a stuffed olive, made for unforgettable moments. Bold, smooth, it evokes elegance. With this in hand, you won't just join the party: you'll own it.";
                     break;
                 case CocktailType.Magazine:
-                    description = "(placeholder description!!!) A cocktail made with rum, lime juice, orgeat syrup, and orange liqueur.";
+                    this.description = "Step into the spotlight with Magazine: a sophisticated blend of ingredients perfectly rafted for those who love a cocktail with style and substance. With every sip, you'll feel like the headline for your own story.";
                     break;
                 default:
-                    description = "(placeholder description!!!) A cocktail made with rum, lime juice, orgeat syrup, and orange liqueur.";
+                    this.description = "Terrible cocktail!";
                     break;
             }
-            this.description = description;
         }
     }
 }
