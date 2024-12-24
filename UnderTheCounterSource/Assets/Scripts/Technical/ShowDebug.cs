@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Technical
 {
@@ -9,8 +10,9 @@ namespace Technical
             GetComponent<DebugLogger>().enabled = PlayerPrefs.GetInt("ShowDebug") == 1;
         }
 
-        public void Toggle()
+        public void Toggle(InputAction.CallbackContext context)
         {
+            if (!context.performed) return;
             GetComponent<DebugLogger>().enabled = !GetComponent<DebugLogger>().enabled;
             PlayerPrefs.SetInt("ShowDebug", GetComponent<DebugLogger>().enabled ? 1 : 0);
         }

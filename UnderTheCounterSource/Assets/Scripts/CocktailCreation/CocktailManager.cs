@@ -260,6 +260,7 @@ namespace CocktailCreation
         {
             trashButton.SetActive(val);
             waterButton.SetActive(val);
+            waterButton.GetComponent<Button>().interactable = val; // otherwise the button is still not interactable if it has been watered in the previous customer
             serveButton.SetActive(val);
         }
 

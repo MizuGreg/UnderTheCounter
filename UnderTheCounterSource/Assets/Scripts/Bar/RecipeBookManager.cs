@@ -25,21 +25,24 @@ namespace Bar
             recipeBook.gameObject.SetActive(false);
         }
 
-        public void OnEscapeButtonPressed()
-        {
-            if (recipeBook.gameObject.activeSelf) CloseRecipeBook();
-        }
-
         public void OpenRecipeBook()
         {
+            if (recipeBook.GetComponent<FadeCanvas>().IsFading()) return;
             EventSystemManager.OnRecipeBookOpened();
             recipeBook.GetComponent<FadeCanvas>().FadeIn();
         }
 
         public void CloseRecipeBook()
         {
+            print("Close recipe book");
+            if (recipeBook.GetComponent<FadeCanvas>().IsFading()) return;
             EventSystemManager.OnRecipeBookClosed();
             recipeBook.GetComponent<FadeCanvas>().FadeOut();
+        }
+
+        public bool isRecipeBookOpen()
+        {
+            return recipeBook.gameObject.activeSelf;
         }
 
         public void SetCurrentCocktail(CocktailType cocktailType)
