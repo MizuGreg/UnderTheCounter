@@ -170,14 +170,14 @@ namespace ShopWindow
             _isDragging = value;
         }
 
-        public void AddPosterToHungPosters()
+        public void AddPosterToPostersList()
         {
-            shopWindowManager.AddPoster(posterID);
+            shopWindowManager.AddPoster(new Poster(posterID, posterImage, name, posterPrice, posterBuff, posterNerf, posterDescription, hanged));
         }
 
-        public void RemovePosterFromHungPosters()
+        public void UpdatePosterInPosterList()
         {
-            shopWindowManager.RemovePoster(posterID);
+            shopWindowManager.UpdatePoster(new Poster(posterID, posterImage, name, posterPrice, posterBuff, posterNerf, posterDescription, hanged));
         }
 
         public void BuyPoster()
@@ -185,6 +185,7 @@ namespace ShopWindow
             isLocked = false;
             posterPrice = -1; // Mark as owned
             UpdateUI(); // Refresh the poster UI to show "Owned"
+            AddPosterToPostersList();
         }
     }
 }

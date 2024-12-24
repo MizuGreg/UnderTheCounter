@@ -6,19 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2152be63-e350-4f99-9a40-6776f9043691" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Technical/PlayerInput.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Technical/PlayerInput.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EndOfDay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/EndOfDay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IntroductionScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IntroductionScreen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ShopWindow.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ShopWindow.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TutorialDay1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TutorialDay1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/Day.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/Day.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IntroductionScreen/IntroductionScreenManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IntroductionScreen/IntroductionScreenManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/InGameMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/InGameMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/DebugLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/DebugLogger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/ShowDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/ShowDebug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem_Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem_Actions.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/Poster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/Poster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/PosterPrefabScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/PosterPrefabScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/ShopWindowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/ShopWindowManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/UIDragHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/UIDragHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +23,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/50e5acd061cd4a73b7fc8eecbf07e915176600/9d/6fcb3822/SceneManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bar/BarManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Recipe.cs" root0="FORCE_HIGHLIGHTING" />
@@ -40,10 +32,20 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Settings/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Technical/ButtonScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Technical/DebugLogger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/SkinningModule/Undo/DisabledUndo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/SkinningModule/UserSettings.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/SpriteLib/SpriteLibraryEditor/UI/CustomElements/GridView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/SpriteLib/SpriteLibraryEditor/WindowController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/IK/Editor/IKEditorManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.aseprite@1.1.6/Editor/Inspector/AsepriteImporterEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.11.2/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/DropdownEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Editor/Canvas/AssertionFailureOnOutputVertexCount.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/NoActiveCameraInSceneDoesNotCrashEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/RectTransformValidAfterEnable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/NestedLayout/SceneWithNestedLayoutElementsLoads.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Framework/Time/Timer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -56,21 +58,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;qol-improvements&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/saving-posters",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.48f1\Editor\Unity.exe" />
@@ -93,9 +95,6 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
-      <option name="runtimes">
-        <list />
-      </option>
       <option name="selectedOptions">
         <list />
       </option>
@@ -106,9 +105,6 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
-      <option name="runtimes">
-        <list />
-      </option>
       <option name="selectedOptions">
         <list />
       </option>

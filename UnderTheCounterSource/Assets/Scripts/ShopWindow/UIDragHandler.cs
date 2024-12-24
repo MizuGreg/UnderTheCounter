@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Technical;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -94,6 +95,7 @@ namespace ShopWindow
                     if (lastPlacedPlaceholder != null && lastPlacedPlaceholder != validArea)
                     {
                         var lastDropTarget = lastPlacedPlaceholder.GetComponent<DropTarget>();
+                        Debug.Log($"lastDropTarget= {lastDropTarget}");
                         if (lastDropTarget != null)
                         {
                             lastDropTarget.SetOccupied(false);
@@ -101,34 +103,39 @@ namespace ShopWindow
                     }
 
                     // ACTUAL HANGING PART - would be better as its separate function, with parameters validArea, dropTarget and rectTransform
-                    
-                    _rectTransform.SetParent(validArea, false);
-                    dropTarget.SetOccupied(true);
-                    lastPlacedPlaceholder = validArea;
-
-                    _rectTransform.anchorMin = Vector2.zero;
-                    _rectTransform.anchorMax = Vector2.one;
-                    _rectTransform.anchoredPosition = Vector2.zero;
-                    _rectTransform.sizeDelta = Vector2.zero;
-                    _rectTransform.localScale = Vector3.one;
-                    
-                    posterPrefab.AddPosterToHungPosters();
-
+                    Debug.Log($"dropTarget = {dropTarget}");
+                    HangPoster(validArea, dropTarget, posterPrefab);
                 }
                 else
                 {
                     ReturnToOriginalPosition();
-
+                    posterPrefab.UpdatePosterInPosterList();
                 }
             }
             else
             {
                 ReturnToOriginalPosition();
-
+                posterPrefab.UpdatePosterInPosterList();
             }
 
             // Reset the dragging flag after the drag ends
             _rectTransform.GetComponent<PosterPrefabScript>().SetIsDragging(false);
+        }
+
+        public void HangPoster(RectTransform validArea, DropTarget dropTarget, PosterPrefabScript posterPrefab)
+        {
+            Debug.Log($"hanging poster {posterPrefab} on placeholder {dropTarget}");
+            _rectTransform.SetParent(validArea, false);
+            dropTarget.SetOccupied(true);
+            lastPlacedPlaceholder = validArea;
+
+            _rectTransform.anchorMin = Vector2.zero;
+            _rectTransform.anchorMax = Vector2.one;
+            _rectTransform.anchoredPosition = Vector2.zero;
+            _rectTransform.sizeDelta = Vector2.zero;
+            _rectTransform.localScale = Vector3.one;
+            posterPrefab.hanged = dropTarget.ID;
+            posterPrefab.UpdatePosterInPosterList();
         }
 
         private void ReturnToOriginalPosition()
@@ -141,7 +148,7 @@ namespace ShopWindow
                     dropTarget.SetOccupied(false);
                 }
             }
-
+            
             _rectTransform.SetParent(_originalParent, false);
             _rectTransform.anchoredPosition = _originalPosition;
             _rectTransform.sizeDelta = new Vector2(205, 253);
@@ -149,7 +156,7 @@ namespace ShopWindow
 
             var posterPrefab = _rectTransform.GetComponent<PosterPrefabScript>();
             if (posterPrefab == null) return;
-            posterPrefab.RemovePosterFromHungPosters();
+            posterPrefab.hanged = 0;
 
             posterPrefab.TogglePosterDetails(true);
         }
