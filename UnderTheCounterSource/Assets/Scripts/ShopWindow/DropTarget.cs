@@ -4,6 +4,7 @@ namespace ShopWindow
 {
     public class DropTarget : MonoBehaviour
     {
+        public int ID;
         [SerializeField] private bool _occupied = false; // Tracks if the placeholder is occupied
         [SerializeField] private bool windowSlot = false;
 

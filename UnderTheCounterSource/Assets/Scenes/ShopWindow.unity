@@ -6566,6 +6566,10 @@ PrefabInstance:
       value: WindowPlaceholder2
       objectReference: {fileID: 0}
     - target: {fileID: 5564553866771696629, guid: cd2c9f188b03d2749a9e4473245d720e, type: 3}
+      propertyPath: ID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564553866771696629, guid: cd2c9f188b03d2749a9e4473245d720e, type: 3}
       propertyPath: windowSlot
       value: 1
       objectReference: {fileID: 0}
@@ -8471,6 +8475,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4126861319093193911, guid: cd2c9f188b03d2749a9e4473245d720e, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564553866771696629, guid: cd2c9f188b03d2749a9e4473245d720e, type: 3}
+      propertyPath: ID
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5564553866771696629, guid: cd2c9f188b03d2749a9e4473245d720e, type: 3}
