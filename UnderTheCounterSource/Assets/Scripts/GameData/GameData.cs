@@ -1,27 +1,26 @@
 using System.Collections.Generic;
 using ShopWindow;
+using UnityEngine;
 
-namespace Bar
+namespace GameData
 {
-    public static class Day
+    public static class GameData
     {
+        // Initialization
+        public static GameLog Log = new();
+        public static GameChoices Choices = new();
+        
         public static string BarName = "The Chitchat";
         public static float DailyTime = 180;
         public static int CurrentDay = 1;
-        public static int DrunkCustomers;
-        public static int MaxDrunkCustomers = 3;
+        public static int DrunkCustomers = 0;
+        public static int MaxDrunkCustomers = 4;
         public static List<Poster> CurrentPosters = new();
-        public static float Savings = 0;
+        public static float Savings = 100;
         public static float TodayEarnings = 0;
-
-        public static void Initialize()
-        {
-            CurrentDay = 1;
-            DrunkCustomers = 0;
-            CurrentPosters = new();
-            Savings = 50;
-            TodayEarnings = 0;
-        }
+        public static int Rent = 20;
+        public static int Food = Random.Range(5, 10);
+        public static int Supplies = Random.Range(10, 15);
 
         public static void StartDay()
         {
@@ -31,14 +30,24 @@ namespace Bar
                 case 1:
                     DailyTime = 0;
                     MaxDrunkCustomers = 99;
+                    Savings = 100;
+                    Rent = 20;
+                    Food = Random.Range(5, 10);
+                    Supplies = Random.Range(10, 15);
                     break;
                 case 2:
-                    DailyTime = 180;
+                    DailyTime = 240;
                     MaxDrunkCustomers = 99;
+                    Rent = 20;
+                    Food = Random.Range(5, 10);
+                    Supplies = Random.Range(10, 15);
                     break;
                 default:
-                    DailyTime = 240;
-                    MaxDrunkCustomers = 2;
+                    DailyTime = 270;
+                    MaxDrunkCustomers = 4;
+                    Rent = 20;
+                    Food = Random.Range(5, 10);
+                    Supplies = Random.Range(15, 30);
                     break;
             }
         }
