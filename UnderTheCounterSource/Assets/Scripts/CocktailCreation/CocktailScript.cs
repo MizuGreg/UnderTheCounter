@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace CocktailCreation
 {
-    public class CocktailScript : MonoBehaviour, IDropHandler
+    public class CocktailScript : MonoBehaviour
     {
         public Cocktail cocktail;
         [SerializeField] private Sprite sprite;
@@ -17,15 +17,6 @@ namespace CocktailCreation
             cocktail.isWatered = true;
             Debug.Log("cocktail watered");
             GetComponent<Image>().color = new Color(0.9f, 0.95f, 1, 1f);
-        }
-
-        public void OnDrop(PointerEventData eventData)
-        {
-            // Check if the dropped object is a garnish
-            if(eventData.pointerDrag!.CompareTag("Garnish"))
-            {
-                EventSystemManager.OnGarnishAdded();
-            }
         }
 
         public GameObject GetGarnish()

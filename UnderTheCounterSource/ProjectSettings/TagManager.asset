@@ -12,6 +12,8 @@ TagManager:
   - Debug
   - Placeholder
   - PosterDetail
+  - WateredIcon
+  - Cocktail
   layers:
   - Default
   - TransparentFX
