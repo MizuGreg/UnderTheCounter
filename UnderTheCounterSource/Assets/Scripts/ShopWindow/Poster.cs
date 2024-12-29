@@ -41,12 +41,14 @@ namespace ShopWindow
         public int id;
         public float price;
         public int hanged;
+        public bool visible;
 
-        public PosterData(int id, float price, int hanged)
+        public PosterData(int id, float price, int hanged, bool visible)
         {
             this.id = id;
             this.price = price;
             this.hanged = hanged;
+            this.visible = visible;
         }
     }
 }

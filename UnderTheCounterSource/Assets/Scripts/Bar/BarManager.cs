@@ -36,6 +36,7 @@ namespace Bar
             EventSystemManager.OnCustomersDepleted += EndDay;
             EventSystemManager.OnTutorial1End += EndDay;
             EventSystemManager.OnTrinketObtained += UpdateTrinkets;
+            EventSystemManager.OnPosterObtained += UnlockPoster;
         
             barContainer.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadBarView();
@@ -143,6 +144,11 @@ namespace Bar
             {
                 print($"Displaying trinket with ID {trinketID}");
             }
+        }
+
+        private void UnlockPoster(int posterID)
+        {
+            GameData.UnlockPoster(posterID);
         }
 
         public void BackToMainMenu()

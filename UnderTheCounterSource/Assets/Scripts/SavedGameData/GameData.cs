@@ -67,6 +67,13 @@ namespace SavedGameData
             }
             return false;
         }
+        
+        public static void UnlockPoster(int posterID)
+        {
+            PosterData posterData = Posters.Find(p => p.id == posterID);
+            if (posterData == null) Debug.LogError("Poster to unlock not found");
+            else posterData.visible = true;
+        }
 
         public static void EndDay(float dailyBalance)
         {

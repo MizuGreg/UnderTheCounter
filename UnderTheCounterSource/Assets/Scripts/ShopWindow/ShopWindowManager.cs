@@ -50,7 +50,7 @@ namespace ShopWindow
             List<PosterData> posterDataList = GameData.Posters;
 
             // Step 2: Get all poster prefab scripts from canvasContainer
-            PosterPrefabScript[] posterPrefabs = canvasContainer.GetComponentsInChildren<PosterPrefabScript>();
+            PosterPrefabScript[] posterPrefabs = canvasContainer.GetComponentsInChildren<PosterPrefabScript>(true);
 
             // Step 3: Iterate through each poster in the prefab scripts
             foreach (PosterPrefabScript pps in posterPrefabs)
@@ -58,7 +58,7 @@ namespace ShopWindow
                 PosterData matchingPosterData = posterDataList.Find(p => p.id == pps.posterID);
                 if (matchingPosterData == null)
                 {
-                    Debug.LogWarning($"No data found for poster ID: {pps.posterID}");
+                    Debug.LogWarning($"No data found for poster ID: {pps.posterID}. PPS will fallback to default values.");
                     continue;
                 }
 
@@ -66,6 +66,9 @@ namespace ShopWindow
                 pps.posterPrice = matchingPosterData.price;
                 if (pps.posterPrice < 0) pps.isLocked = false;
                 pps.UpdateUI();
+                
+                // Set poster visible/invisible
+                pps.gameObject.SetActive(matchingPosterData.visible);
 
                 // Step 5: Handle hanged logic
                 if (matchingPosterData.hanged != 0)
@@ -105,11 +108,11 @@ namespace ShopWindow
         
         public void SavePosters()
         {
-            PosterPrefabScript[] posterPrefabs = canvasContainer.GetComponentsInChildren<PosterPrefabScript>();
+            PosterPrefabScript[] posterPrefabs = canvasContainer.GetComponentsInChildren<PosterPrefabScript>(true);
             List<PosterData> posterDataList = new List<PosterData>();
             foreach (PosterPrefabScript pps in posterPrefabs)
             {
-                posterDataList.Add(new PosterData(pps.posterID, pps.posterPrice, pps.hanged));
+                posterDataList.Add(new PosterData(pps.posterID, pps.posterPrice, pps.hanged, pps.isActiveAndEnabled));
             }
             GameData.Posters = posterDataList;
         }
