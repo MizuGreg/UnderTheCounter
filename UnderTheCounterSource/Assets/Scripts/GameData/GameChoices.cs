@@ -1,7 +1,7 @@
-namespace GameData
+using System.Diagnostics.CodeAnalysis;
+
+[SuppressMessage("ReSharper", "CheckNamespace")]
+public class GameChoices
 {
-    public class GameChoices
-    {
         
-    }
 }
