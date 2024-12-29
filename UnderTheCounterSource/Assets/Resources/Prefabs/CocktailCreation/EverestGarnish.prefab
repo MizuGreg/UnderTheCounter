@@ -104,8 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 1
-  fixedX: 1
-  fixedY: 0
+  dragWithCollider: 1
   garnish: {fileID: 11400000, guid: f72353d3aa17542a0ae17acd2fa0eaa7, type: 2}
 --- !u!114 &3345956626386613347
 MonoBehaviour:

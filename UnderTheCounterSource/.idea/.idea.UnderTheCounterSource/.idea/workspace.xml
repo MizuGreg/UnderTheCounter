@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2152be63-e350-4f99-9a40-6776f9043691" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/EverestGarnish.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CocktailCreation/EverestGarnish.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishDisplay.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +64,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/Downloads/UnderTheCounter (Testing Garnish).app/Contents/MacOS/Under The Counter" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads/UnderTheCounter (Testing Garnish).app/Contents/MacOS" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.48f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;$PROJECT_DIR$&quot; -debugCodeOptimization" />
@@ -119,7 +128,8 @@
       <workItem from="1734879600618" duration="5012000" />
       <workItem from="1734901199378" duration="4647000" />
       <workItem from="1734943981655" duration="4336000" />
-      <workItem from="1734959040723" duration="3561000" />
+      <workItem from="1734959040723" duration="4353000" />
+      <workItem from="1735463594790" duration="3855000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />

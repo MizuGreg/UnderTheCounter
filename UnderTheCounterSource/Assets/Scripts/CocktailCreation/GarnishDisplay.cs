@@ -18,7 +18,7 @@ namespace CocktailCreation
 
         private void Start()
         {
-            this.GetComponent<Image>().sprite = garnish.sprite; 
+            this.GetComponent<Image>().sprite = garnish.sprite;
             GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
         }
         
@@ -59,7 +59,7 @@ namespace CocktailCreation
         
         private IEnumerator SmoothReturnToInitialPosition()
         {
-            float duration = 0.5f;
+            float duration = 0.3f;
             float elapsed = 0f;
             
             CanvasGroup.blocksRaycasts = false;
