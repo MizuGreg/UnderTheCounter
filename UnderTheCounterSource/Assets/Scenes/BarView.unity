@@ -175,8 +175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
-  fixedX: 0
-  fixedY: 0
   ingredientType: 4
   dropSlot: {fileID: 1357968470}
   itemRotation: 45
@@ -3348,8 +3346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
-  fixedX: 0
-  fixedY: 0
   ingredientType: 1
   dropSlot: {fileID: 1357968470}
   itemRotation: 45
@@ -5286,8 +5282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
-  fixedX: 0
-  fixedY: 0
   ingredientType: 2
   dropSlot: {fileID: 1357968470}
   itemRotation: 45
@@ -5576,8 +5570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
-  fixedX: 0
-  fixedY: 0
   ingredientType: 3
   dropSlot: {fileID: 1357968470}
   itemRotation: 45
@@ -10468,8 +10460,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 0
-  fixedX: 0
-  fixedY: 0
   ingredientType: 0
   dropSlot: {fileID: 1357968470}
   itemRotation: 45
