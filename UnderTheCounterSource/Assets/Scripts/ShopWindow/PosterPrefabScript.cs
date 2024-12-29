@@ -28,17 +28,7 @@ namespace ShopWindow
         
         [SerializeField] private Image posterImageUI; // Reference to the Image UI component for poster
         [SerializeField] private CanvasGroup canvasGroup; // Reference for fading effect
-
-        // Method to set poster data
-        public void SetPosterData(Poster poster)
-        {
-            posterImage = poster.image;
-            posterNameText = poster.name;
-            posterPrice = poster.price;
-            posterBuff = poster.buff;
-            posterNerf = poster.nerf;
-            posterDescription = poster.description;
-        }
+        
         
         private void Awake()
         {
@@ -170,22 +160,11 @@ namespace ShopWindow
             _isDragging = value;
         }
 
-        public void AddPosterToPostersList()
-        {
-            shopWindowManager.AddPoster(new Poster(posterID, posterImage, name, posterPrice, posterBuff, posterNerf, posterDescription, hanged));
-        }
-
-        public void UpdatePosterInPosterList()
-        {
-            shopWindowManager.UpdatePoster(new Poster(posterID, posterImage, name, posterPrice, posterBuff, posterNerf, posterDescription, hanged));
-        }
-
         public void BuyPoster()
         {
             isLocked = false;
             posterPrice = -1; // Mark as owned
             UpdateUI(); // Refresh the poster UI to show "Owned"
-            AddPosterToPostersList();
         }
     }
 }

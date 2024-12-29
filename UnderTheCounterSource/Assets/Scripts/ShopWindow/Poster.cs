@@ -1,15 +1,16 @@
 using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
 namespace ShopWindow
 {
-    // Has to be implemented in actual code
+    
     [Serializable]
     public class Poster
     {
         // private static int maxPosterID = 0;
-        
+
         public int posterID;
         public Sprite image;
         public string name;
@@ -19,7 +20,8 @@ namespace ShopWindow
         public string description;
         public int hanged;
 
-        public Poster(int posterID, Sprite image, string name, float price, string buff, string nerf, string description, int hanged)
+        public Poster(int posterID, Sprite image, string name, float price, string buff, string nerf,
+            string description, int hanged)
         {
             this.posterID = posterID;
             this.image = image;
@@ -28,6 +30,22 @@ namespace ShopWindow
             this.buff = buff;
             this.nerf = nerf;
             this.description = description;
+            this.hanged = hanged;
+        }
+    }
+    
+    // Serializable class to store important poster data
+    [System.Serializable]
+    public class PosterData
+    {
+        public int id;
+        public float price;
+        public int hanged;
+
+        public PosterData(int id, float price, int hanged)
+        {
+            this.id = id;
+            this.price = price;
             this.hanged = hanged;
         }
     }

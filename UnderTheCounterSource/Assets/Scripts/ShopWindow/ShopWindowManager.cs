@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Bar;
+using Newtonsoft.Json;
+using SavedGameData;
 using Technical;
 using TMPro;
 using Tutorial;
@@ -12,7 +14,7 @@ using UnityEngine.UI;
 
 namespace ShopWindow
 {
-    public class ShopWindowManager : MonoBehaviour
+    public partial class ShopWindowManager : MonoBehaviour
     {
         [SerializeField] private CanvasGroup canvasContainer;
         [SerializeField] private TextMeshProUGUI dayText;
@@ -30,13 +32,13 @@ namespace ShopWindow
             tutorialManager2 = GetComponent<TutorialManager2>();
             
             #if UNITY_EDITOR
-            if (forceDay != 0) Day.CurrentDay = forceDay;
+            if (forceDay != 0) GameData.CurrentDay = forceDay;
             #endif
             
-            dayText.text = $"DAY {Day.CurrentDay}";
-            savingsText.text = $"${Day.Savings:N0}";
-            if (Day.CurrentDay == 2) StartCoroutine(WaitAndStartTutorial());
-            if (Day.CurrentDay == 3) newspaper.SetActive(true);
+            dayText.text = $"DAY {GameData.CurrentDay}";
+            savingsText.text = $"${GameData.Savings:N0}";
+            if (GameData.CurrentDay == 2) StartCoroutine(WaitAndStartTutorial());
+            if (GameData.CurrentDay == 3) newspaper.SetActive(true);
             else newspaper.SetActive(false);
 
             LoadPosters();
@@ -44,16 +46,8 @@ namespace ShopWindow
 
         private void LoadPosters()
         {
-            // Step 1: Load the JSON file
-            string filePath = Path.Combine(Application.persistentDataPath, "posters.json");
-            if (!File.Exists(filePath))
-            {
-                Debug.LogWarning("No saved posters data found.");
-                return;
-            }
-
-            string json = File.ReadAllText(filePath);
-            PosterDataListWrapper posterDataList = JsonUtility.FromJson<PosterDataListWrapper>(json);
+            // Step 1: fetch poster data
+            List<PosterData> posterDataList = GameData.Posters;
 
             // Step 2: Get all poster prefab scripts from canvasContainer
             PosterPrefabScript[] posterPrefabs = canvasContainer.GetComponentsInChildren<PosterPrefabScript>();
@@ -61,7 +55,7 @@ namespace ShopWindow
             // Step 3: Iterate through each poster in the prefab scripts
             foreach (PosterPrefabScript pps in posterPrefabs)
             {
-                PosterData matchingPosterData = posterDataList.posters.Find(p => p.id == pps.posterID);
+                PosterData matchingPosterData = posterDataList.Find(p => p.id == pps.posterID);
                 if (matchingPosterData == null)
                 {
                     Debug.LogWarning($"No data found for poster ID: {pps.posterID}");
@@ -108,53 +102,18 @@ namespace ShopWindow
                 }
             }
         }
-
+        
         public void SavePosters()
         {
-            // Step 1: Create a list to store poster data
+            PosterPrefabScript[] posterPrefabs = canvasContainer.GetComponentsInChildren<PosterPrefabScript>();
             List<PosterData> posterDataList = new List<PosterData>();
-
-            // Step 2: Loop through all posters in Day.Posters
-            foreach (Poster poster in Day.CurrentPosters)
+            foreach (PosterPrefabScript pps in posterPrefabs)
             {
-                // Copy important variables to a PosterData object
-                PosterData data = new PosterData
-                {
-                    id = poster.posterID,
-                    price = poster.price,
-                    hanged = poster.hanged
-                };
-
-                posterDataList.Add(data);
+                posterDataList.Add(new PosterData(pps.posterID, pps.posterPrice, pps.hanged));
             }
-
-            // Step 3: Convert the list to JSON
-            string json = JsonUtility.ToJson(new PosterDataListWrapper { posters = posterDataList }, true);
-
-            // Step 4: Save JSON to a file
-            string filePath = Path.Combine(Application.persistentDataPath, "posters.json");
-            File.WriteAllText(filePath, json);
-
-            Debug.Log("Posters saved to: " + filePath);
+            GameData.Posters = posterDataList;
         }
 
-        // Serializable class to store poster data
-        [System.Serializable]
-        public class PosterData
-        {
-            public int id;
-            public float price;
-            public int hanged;
-        }
-
-        // Wrapper for the list of posters
-        [System.Serializable]
-        public class PosterDataListWrapper
-        {
-            public List<PosterData> posters;
-        }
-
-        
         private IEnumerator WaitAndStartTutorial()
         {
             yield return new WaitForSeconds(1f);
@@ -184,38 +143,6 @@ namespace ShopWindow
         {
             yield return new WaitForSeconds(1.1f);
             SceneManager.LoadScene("MainMenu");
-        }
-
-        public void AddPoster(int posterID)
-        {
-            if (!Day.IsPosterActive(posterID))
-            {
-                Day.CurrentPosters.Add(new Poster(posterID, null, null, 0, null, null, null, 0));
-            }
-        }
-
-        public void AddPoster(Poster poster)
-        {
-            if (!Day.IsPosterActive(poster.posterID))
-            {
-                Day.CurrentPosters.Add(poster);
-            }
-        }
-
-        public void UpdatePoster(Poster poster)
-        {
-            // Step 1: Find the index of the existing poster with the same ID
-            for (int i = 0; i < Day.CurrentPosters.Count; i++)
-            {
-                if (Day.CurrentPosters[i].posterID == poster.posterID)
-                {
-                    // Step 2: Replace the existing poster with the new one
-                    Day.CurrentPosters[i] = poster;
-                    return; // Exit function since the poster was replaced
-                }
-            }
-            // Step 3: If not found, add the new poster to the list
-            AddPoster(poster);
         }
     }
 }

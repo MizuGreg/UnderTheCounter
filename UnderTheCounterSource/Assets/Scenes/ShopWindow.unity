@@ -470,6 +470,42 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
+--- !u!1 &43686122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 43686123}
+  m_Layer: 5
+  m_Name: Newspapers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &43686123
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43686122}
+  m_LocalRotation: {x: -0, y: -0, z: 0.18223555, w: 0.9832549}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1019830299}
+  m_Father: {fileID: 824337835}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -432, y: -297}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &49265127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1045,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1209216494044312242, guid: bba1231338ebaeb458e495d2e2fe7f3d, type: 3}
+      propertyPath: confirmBuyButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209216494044312242, guid: bba1231338ebaeb458e495d2e2fe7f3d, type: 3}
       propertyPath: posterDescriptionUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209216494044312242, guid: bba1231338ebaeb458e495d2e2fe7f3d, type: 3}
+      propertyPath: confirmPurchasePopup
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209216494044312242, guid: bba1231338ebaeb458e495d2e2fe7f3d, type: 3}
+      propertyPath: insufficientMoneyPopup
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1253994707365136816, guid: bba1231338ebaeb458e495d2e2fe7f3d, type: 3}
@@ -4592,7 +4640,7 @@ GameObject:
   - component: {fileID: 1019830301}
   - component: {fileID: 1019830300}
   m_Layer: 5
-  m_Name: Newspaper
+  m_Name: Prohibition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4605,17 +4653,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019830298}
-  m_LocalRotation: {x: -0, y: -0, z: 0.18223555, w: 0.9832549}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 750398753}
-  m_Father: {fileID: 824337835}
+  m_Father: {fileID: 43686123}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 21}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -428.589, y: -305.741}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: 434.199, y: 334.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1019830300
@@ -7461,7 +7509,7 @@ PrefabInstance:
       addedObject: {fileID: 1333745502}
     - targetCorrespondingSourceObject: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1019830299}
+      addedObject: {fileID: 43686123}
     - targetCorrespondingSourceObject: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1095398177}

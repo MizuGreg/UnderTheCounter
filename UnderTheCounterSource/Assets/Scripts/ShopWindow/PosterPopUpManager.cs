@@ -1,4 +1,5 @@
 using Bar;
+using SavedGameData;
 using Technical;
 using TMPro;
 using UnityEngine;
@@ -102,7 +103,7 @@ namespace ShopWindow
             Debug.Log("Buy Button clicked");
             if (_currentPoster == null || _currentPoster.posterPrice < 0) return;
 
-            if (_currentPoster.posterPrice > Day.Savings)
+            if (_currentPoster.posterPrice > GameData.Savings)
             {
                 // Show insufficient money popup
                 ShowInsufficientMoneyPopup();
@@ -117,7 +118,7 @@ namespace ShopWindow
         private void ConfirmPurchase(PosterPrefabScript poster)
         {
             // Deduct money and mark the poster as purchased
-            Day.Savings -= poster.posterPrice;
+            GameData.Savings -= poster.posterPrice;
             ClosePopUp();
             poster.BuyPoster();
 
@@ -125,7 +126,7 @@ namespace ShopWindow
             confirmPurchasePopup.SetActive(false);
 
             // Optionally update player's money UI here
-            Debug.Log($"Purchased {poster.posterNameText}. Remaining Money: {Day.Savings}$");
+            Debug.Log($"Purchased {poster.posterNameText}. Remaining Money: {GameData.Savings}$");
         }
     }
 }

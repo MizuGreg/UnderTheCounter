@@ -109,13 +109,11 @@ namespace ShopWindow
                 else
                 {
                     ReturnToOriginalPosition();
-                    posterPrefab.UpdatePosterInPosterList();
                 }
             }
             else
             {
                 ReturnToOriginalPosition();
-                posterPrefab.UpdatePosterInPosterList();
             }
 
             // Reset the dragging flag after the drag ends
@@ -135,7 +133,6 @@ namespace ShopWindow
             _rectTransform.sizeDelta = Vector2.zero;
             _rectTransform.localScale = Vector3.one;
             posterPrefab.hanged = dropTarget.ID;
-            posterPrefab.UpdatePosterInPosterList();
         }
 
         private void ReturnToOriginalPosition()
