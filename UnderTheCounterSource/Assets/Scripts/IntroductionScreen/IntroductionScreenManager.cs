@@ -1,5 +1,6 @@
 using System.Collections;
 using Bar;
+using SavedGameData;
 using Technical;
 using TMPro;
 using UnityEngine;
@@ -102,13 +103,13 @@ namespace IntroductionScreen
 
         public void UpdateBarName(string newName)
         {
-            Day.BarName = newName == "" ? "The Chitchat" : newName;
-            print(Day.BarName);
+            GameData.BarName = newName == "" ? "The Chitchat" : newName;
+            print(GameData.BarName);
         }
 
         public void OnStartDayPressed()
         {
-            print(Day.BarName);
+            print(GameData.BarName);
             StartCoroutine(LoadNextScene());
         }
 

@@ -35,6 +35,7 @@ namespace Bar
     {
         public CustomerType sprite;
         public CocktailType order;
+        public string orderOnPostIt;
         
         public SerializedDictionary<string, List<string>> lines;
         

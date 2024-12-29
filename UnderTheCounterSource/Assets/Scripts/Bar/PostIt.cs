@@ -16,35 +16,22 @@ namespace Bar
         private void Awake()
         {
             animator = GetComponent<Animator>();
-            EventSystemManager.OnOverwritePostIt += OverwritePostIt;
+            EventSystemManager.OnWritePostIt += WritePostIt;
         }
 
         private void OnDestroy()
         {
-            EventSystemManager.OnOverwritePostIt -= OverwritePostIt;
+            EventSystemManager.OnWritePostIt -= WritePostIt;
         }
 
-        private void OverwritePostIt(string _actualOrder)
+        private void WritePostIt(string order)
         {
-            actualOrder = _actualOrder;
+            cocktailName.text = order;
         }
 
-        public void WriteCocktail(CocktailType cocktailType) {
-            if (cocktailType != CocktailType.Wrong) {
-                if (actualOrder == "")
-                {
-                    cocktailName.text = cocktailType.ToString();
-                    // edge case here... should be handled better and not hardcoded
-                    if (cocktailName.text == "SpringBee") cocktailName.text = "Spring Bee";
-                }
-                else
-                {
-                    cocktailName.text = actualOrder;
-                    actualOrder = "";
-                }
-
-                animator.SetBool(IsPostItShown, true);
-            }
+        public void ShowPostIt()
+        {
+            animator.SetBool(IsPostItShown, true);
         }
 
         public void HidePostIt() {

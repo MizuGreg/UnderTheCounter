@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Bar;
+using SavedGameData;
 using Technical;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -59,14 +60,12 @@ namespace EndOfDay
 
         private void PopulateData()
         {
-            popupData.day = Day.CurrentDay;
-            popupData.earnings = Day.TodayEarnings;
-            popupData.savings = Day.Savings;
-            // todo rent, food, alcohol
-
-            popupData.rent = 15;
-            popupData.food = Random.Range(5,10);
-            popupData.supplies = Random.Range(10, 15);
+            popupData.day = GameData.CurrentDay;
+            popupData.earnings = GameData.TodayEarnings;
+            popupData.savings = GameData.Savings;
+            popupData.rent = GameData.Rent;
+            popupData.food = GameData.Food;
+            popupData.supplies = GameData.Supplies;
         }
 
         private IEnumerator ShowPopup()
@@ -178,9 +177,9 @@ namespace EndOfDay
 
         private void CheckEndOfDay()
         {
-            Day.EndDay(dailyBalance);
+            GameData.EndDay(dailyBalance);
 
-            if (Day.Savings < 0)
+            if (GameData.Savings < 0)
             {
                 gameOverButton.gameObject.SetActive(true);
             }
@@ -211,7 +210,7 @@ namespace EndOfDay
         {
             endOfDayCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene(Day.CurrentDay > 3 ? "VictoryScreen" : "ShopWindow");
+            SceneManager.LoadScene(GameData.CurrentDay > 3 ? "VictoryScreen" : "ShopWindow");
         }
     }
 }

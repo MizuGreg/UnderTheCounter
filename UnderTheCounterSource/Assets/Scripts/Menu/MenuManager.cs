@@ -19,7 +19,6 @@ namespace Menu
         public void StartNewGame()
         {
             mainMenuCanvas.GetComponent<FadeCanvas>().FadeOut();
-            Day.Initialize();
             StartCoroutine(WaitBeforeNewGame());
         }
 

@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using CocktailCreation;
 using Newtonsoft.Json;
+using SavedGameData;
 using Technical;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +33,8 @@ namespace Bar
         [Range(0.0f, 3f)]
         public float timeBeforeFadeout = 1f;
 
-        private float earningMultiplier;
+        private float earningMultiplier = 1;
+        private float flatEarning = 4;
 
         private void Start()
         {
@@ -61,13 +64,14 @@ namespace Bar
         
         private void PosterEffects()
         {
-            if (Day.IsPosterActive(1))
+            if (GameData.IsPosterActive(1))
             {
-                earningMultiplier = 1.5f;
+                earningMultiplier = 1.3f;
             }
-            else
+
+            if (GameData.IsPosterActive(2))
             {
-                earningMultiplier = 1f;
+                flatEarning += 1;
             }
         }
 
@@ -84,7 +88,7 @@ namespace Bar
         private IEnumerator WaitAndStartDay()
         {
             yield return new WaitForSeconds(1.5f);
-            LoadDailyCustomers(Day.CurrentDay);
+            LoadDailyCustomers(GameData.CurrentDay);
             GreetCustomer();
         }
 
@@ -145,10 +149,19 @@ namespace Bar
         private void StartPreparation() {
             if (_currentCustomer != null)
             {
-                if (_currentCustomer.sprite == CustomerType.Willie) EventSystemManager.OnOverwritePostIt("Ripple...???");
+                if (_currentCustomer.orderOnPostIt != null)
+                {
+                    EventSystemManager.OnWritePostIt(_currentCustomer.orderOnPostIt);
+                }
+                else
+                {
+                    string orderOnPostIt = Regex.Replace(_currentCustomer.order.ToString(),
+                        @"([a-z])([A-Z])", "$1 $2"); // adds a space between words
+                    EventSystemManager.OnWritePostIt(orderOnPostIt);
+                }
                 EventSystemManager.OnMakeCocktail(_currentCustomer.order);
             }
-            else
+            else // special flow, for calling start preparation in a "shortcut" way
             {
                 EventSystemManager.OnMakeCocktail(CocktailType.Wrong);
             }
@@ -178,38 +191,59 @@ namespace Bar
             if (_currentCustomer != null)
             {
                 CocktailType order = _currentCustomer.order;
+                
                 customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{cocktail.type}/{cocktail.type}_tot");
                 customerCocktail.GetComponent<FadeCanvas>().FadeIn();
             
                 // we compare with current customer's cocktail, call dialogue line in dialogue manager accordingly
                 Dialogue dialogue;
-                float earning = 5 * earningMultiplier;
-                if (cocktail.type != order)
+                float earning = flatEarning;
+                
+                if (cocktail.type == order) // correct type
                 {
-                    dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWrong"]);
+                    if (cocktail.isWatered)
+                    {
+                        dialogue = new Dialogue(_customerName, _currentCustomer.lines["water"]);
+                        earning += _currentCustomer.tip / 4;
+                    }
+                    else
+                    {
+                        dialogue = new Dialogue(_customerName, _currentCustomer.lines["correct"]);
+                        earning += _currentCustomer.tip;
+                    }
+                }
+                else if (cocktail.type == CocktailType.Wrong) // completely wrong cocktail
+                {
+                    dialogue = new Dialogue(_customerName, _currentCustomer.lines["wrong"]);
                     earning += 0;
                 }
-                else if (cocktail.isWatered)
+                else // correctly executed cocktail but not the one the customer ordered
                 {
-                    dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveWater"]);
-                    earning += _currentCustomer.tip / 4;
-                }
-                else
-                {
-                    dialogue = new Dialogue(_customerName, _currentCustomer.lines["leaveCorrect"]);
-                    earning += _currentCustomer.tip;
+                    if (_currentCustomer.lines.ContainsKey(cocktail.type.ToString()))
+                    {
+                        dialogue = new Dialogue(_customerName, _currentCustomer.lines[cocktail.type.ToString()]);
+                    }
+                    else if (_currentCustomer.lines.ContainsKey("incorrect"))
+                    {
+                        dialogue = new Dialogue(_customerName, _currentCustomer.lines["incorrect"]);
+                    }
+                    else
+                    {
+                        dialogue = new Dialogue(_customerName, _currentCustomer.lines["wrong"]);
+                    }
+                    earning += _currentCustomer.tip / 3;
                 }
 
-                earning = Mathf.Round(earning);
+                earning = Mathf.Round(earning * earningMultiplier);
                 pricePopup.DisplayPrice(earning);
                 _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
 
-                Day.TodayEarnings += earning;
+                GameData.TodayEarnings += earning;
             
                 // if not watered down, we increase the drunk customers counter
                 if (!cocktail.isWatered)
                 {
-                    Day.DrunkCustomers++;
+                    GameData.DrunkCustomers++;
                     EventSystemManager.OnDrunkCustomerLeave();
                 }
             }
@@ -222,7 +256,7 @@ namespace Bar
 
                 float earning = 10;
                 pricePopup.DisplayPrice(earning);
-                Day.TodayEarnings += earning;
+                GameData.TodayEarnings += earning;
             }
             
         }

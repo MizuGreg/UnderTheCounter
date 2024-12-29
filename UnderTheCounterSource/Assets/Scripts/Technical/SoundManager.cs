@@ -1,6 +1,7 @@
 using System.Collections;
 using Bar;
 using Hellmade.Sound;
+using SavedGameData;
 using UnityEngine;
 
 namespace Technical
@@ -92,7 +93,7 @@ namespace Technical
 
         private void OnLoadBarViewSound()
         {
-            AudioClip musicClip = soundData.barMusicTracks[Day.CurrentDay-1];
+            AudioClip musicClip = soundData.barMusicTracks[GameData.CurrentDay-1];
             EazySoundManager.PlayMusic(musicClip, 1, true, true, 5, 3);
         }
 

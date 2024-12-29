@@ -8,13 +8,13 @@
                     "<size=75%><i>*sigh* If only my life wasn't so busy… Maybe I could convince him…</i><size=100%><br>Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts.",
                     "Would you be so kind as to get me a sweet drink, like a <b>Spring Bee</b>? Maybe that will distract me from my career…I'm an <b>actress</b>, you see."
                 ],
-                "leaveCorrect": [
+                "correct": [
                     "Oh, how wonderful, dear bartender. I think I even tasted a little bit of romance in this drink.<br>I shall get back to work now, but thank you truly! Goodnight!"
                 ],
-                "leaveWrong": [
+                "wrong": [
                     "Oh… That wasn't what I expected. Maybe it was fate that didn't want to give me this tiny satisfaction.<br>It's alright, I'll come back another day… Goodnight, bartender!"
                 ],
-                "leaveWater": [
+                "water": [
                     "Thank you, dear bartender. I thought I'd tasted a hint of love in this drink, but it was very faint…<br>I shall get back to work now, goodbye!"
                 ]
             },
@@ -25,19 +25,19 @@
             "order": "Magazine",
             "lines": {
                 "greet": [
-                    "Good evening bartender. It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression, though the <b>window outside</b> could be improved somehow.",
+                    "Good evening bartender. It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression.",
                     "<i>Ugh</i>, how exhausting it is to not know which opera to attend tonight…",
                     "I'd like to order a <b>Magazine</b> now, please."
                 ],
-                "leaveCorrect": [
+                "correct": [
                     "Lovely cocktail, I'm sure you must've used a… a titanium mixing spoon, and you probably mixed ripe and unripe shaddocks for the juice.",
                     "Here's a little something for the service. We will surely come back. Charles?"
                 ],
-                "leaveWrong": [
+                "wrong": [
                     "My, my! Why would you serve a cocktail of such lowly quality to a woman of my status! There is simply no art, no technique in this!",
                     "…Farewell! Charles, I will be waiting outside!"
                 ],
-                "leaveWater": [
+                "water": [
                     "The individual ingredients had a discrete quality, but I noted a lack of synergy… Charles?"
                 ]
             },
@@ -45,19 +45,20 @@
         },
         {
             "sprite": "Charles",
-            "order": "Parti",
+            "order": "Magazine",
+            "orderOnPostIt": "\"The same\"",
             "lines": {
                 "greet": [
                     "Yes, dear. We are in a bit of a hurry tonight, after all. And I shouldn't go to bed too late tonight.",
-                    "Good evening, bartender. One <b>Parti</b> for me, please."
+                    "Good evening, bartender. <i>The same</i> for me, please."
                 ],
-                "leaveCorrect": [
-                    "Hmm, an excellent Parti indeed. Well, thank you. Farewell and have a nice day."
+                "correct": [
+                    "Hmm, an excellent Magazine indeed. Well, thank you. Farewell and have a nice day."
                 ],
-                "leaveWrong": [
-                    "This is hardly a Parti. I'm afraid you haven't followed the recipe that well. At any rate, farewell and have a nice day."
+                "wrong": [
+                    "This is hardly a Magazine. I'm afraid you haven't followed the recipe that well. At any rate, farewell and have a nice day."
                 ],
-                "leaveWater": [
+                "water": [
                     "Hmm…<br>Not bad all in all, but hopefully it'll be better next time. Farewell."
                 ]
             },
@@ -72,13 +73,13 @@
                     "In any case, do me a favor and stay away from men, or you'll end up like me and my ex husband. <size=75%>I did get all the money from the divorce though… hehe.<size=100%>",
                     "Give me an <b>Everest</b>. As cold as his heart."
                 ],
-                "leaveCorrect": [
+                "correct": [
                     "Mmm, not bad at all for an amateur. Maybe the person behind the counter is a miss after all.<br>Bye bye!"
                 ],
-                "leaveWrong": [
+                "wrong": [
                     "Bleah! Pfft! If my ex husband boiled sausage water it would still taste better than this. There must be a man behind this counter, no doubt.<br>Heading out!"
                 ],
-                "leaveWater": [
+                "water": [
                     "Not terrible. I'm still not sure if you're a miss or a mister, so I'll be back some other time. I'll be keeping an eye on you!<br>Bye bye!"
                 ]
             },
@@ -87,19 +88,25 @@
         {
             "sprite": "Kathryn",
             "order": "Parti",
+            "orderOnPostIt": "Bartender's favorite",
             "lines": {
                 "greet": [
-                    "Hiya! I think it's lovely that my adventures led me to this city, and to this very bar tonight.<br>I'm Kathryn, by the way.",
-                    "Can you get me a <b>Parti</b>, mate?"
+                    "Hiya! Lovely that my adventures led me to this city, and to this very bar tonight.<br>I'm Kathryn, by the way.",
+                    "Whenever I visit a bar in a new city, I always ask for the bartender's favourite drink. Sometimes it leads to a tasty discovery! My cocktail of choice is always the <b>Parti</b>, though.",
+                    "So go ahead, love! Make me <i>your favourite</i>."
                 ],
-                "leaveCorrect": [
-                    "Cheers! Way to go. You've made a good impression on me for sure, and I'm keen to come back. I like the atmosphere…<br>Take care. "
+                "correct": [
+                    "{TRINKET 1}Cheers! So we both have a knack for the same cocktail. You've made a good impression on me for sure, so let me give you a little something. It's a <b>souvenir</b> from my voyages.",
+                    "Take care, love. <i>*wink*</i>"
                 ],
-                "leaveWrong": [
-                    "Blimey! Are you positive this is a Parti at all? No matter, at least I like the atmosphere here…<br>Take care. "
+                "incorrect": [
+                    "Cheers! Not a bad choice at all. I like the atmosphere, so I can't wait to come back.<i>*wink*</i><br>Take care, love."
                 ],
-                "leaveWater": [
-                    "Cheers! Still better than a cheeky pint back home, you know?<br>Take care."
+                "wrong": [
+                    "Blimey! Are you positive this is your favuorite cocktail? Nevermind, I can respect someone with a taste this strong.<br>Take care!"
+                ],
+                "water": [
+                    "Cheers! A fantastic Parti, and definitely better than a cheeky pint back home, you know?<br>Take care, love!"
                 ]
             },
             "tip": 3
@@ -109,17 +116,16 @@
             "order": "Ripple",
             "lines": {
                 "greet": [
-                    "Evening gentle bartender! Just come back from the honeymoon with my sweetie, I'm happy to see a new face!",
-                    "The previous owner was suuuper nice, but you look like a really good person too!",
-                    "Can I kindly ask for a <b>Ripple</b>?"
+                    "Evening gentle bartender! I've just come back from the honeymoon with my sweetie, I'm happy to see a new face!",
+                    "The previous owner was suuuper nice, but you look like a really good person too! Can I kindly ask for a <b>Ripple</b>?"
                 ],
-                "leaveCorrect": [
+                "correct": [
                     "THIS IS THE BEST RIPPLE I'VE EVER HAD! I'm so happy to have come here tonight! Honey, you should try it too!"
                 ],
-                "leaveWrong": [
+                "wrong": [
                     "Oh, I like it. I mean, it's not like the one the previous owner used to make, but it's still good."
                 ],
-                "leaveWater": [
+                "water": [
                     "Thank you gentle man! I like it, just a bit more alcochol and it would be PERFECT! See you soon!"
                 ]
             },
@@ -134,16 +140,16 @@
                     "You have already met my enthusiastic husband, Eugene. Isn't he a darling?",
                     "I would like to try a <b>Ripple</b> too, please."
                 ],
-                "leaveCorrect": [
+                "correct": [
                     "Thank you gentle man, this is a very good Ripple. The balance of ingredients is perfect, a real delight.",
-                    "We'll be back soon, I'm sure of it. Nice posters out there, by the way."
+                    "We'll be back soon, I'm sure of it."
                 ],
-                "leaveWrong": [
+                "wrong": [
                     "It's not bad, but it's not a Ripple. I'm sure you'll get it right next time.",
                     "Oh, and always remember to clean the counter wood after spilling the drink, by the way!"
                 ],
-                "leaveWater": [
-                    "Not a perfect balance of ingredients, but it's still a good drink. See you next time, bartender.",
+                "water": [
+                    "Not the perfect balance of ingredients, but it's still a very good drink. See you next time, bartender.",
                     "Eugene, we have to go honey. You will continue dancing with me at home."
                 ]
             },

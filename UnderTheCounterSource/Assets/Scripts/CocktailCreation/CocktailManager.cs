@@ -76,7 +76,7 @@ namespace CocktailCreation
         private void ShowArea(CocktailType cocktailType)
         {
             _cocktailCreationAreaAnimator.SetBool(SlideIn, true);
-            postIt.WriteCocktail(cocktailType);
+            if (cocktailType != CocktailType.Wrong) postIt.ShowPostIt();
         }
 
         private void HideArea()
