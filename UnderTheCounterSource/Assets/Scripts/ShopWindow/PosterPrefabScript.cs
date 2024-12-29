@@ -1,5 +1,6 @@
 using System.Globalization;
 using Bar;
+using Technical;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,8 @@ namespace ShopWindow
         public Sprite currencyIcon;    // Assign the currency icon
     
         public GameObject posterPopUpPrefab; // Reference to the shared PosterPopUp prefab in the scene
-        
+
+        public bool isVisible = true;
         public bool isLocked; // Indicates if the poster is locked
         public int hanged;
     
@@ -61,8 +63,9 @@ namespace ShopWindow
 
         public void UpdateUI()
         {
-            // Update the poster's locked state
-            SetLocked(isLocked);
+            // Update the poster's locked and visible state
+            SetLocked();
+            SetVisible();
             
             // Find the "posterImage" child first
             var posterImageTransform = transform.Find("PosterImage");
@@ -93,16 +96,20 @@ namespace ShopWindow
             }
         }
 
-        private void SetLocked(bool locked)
+        private void SetLocked()
         {
-            isLocked = locked;
-
             // Update the UI to reflect the locked state
-            if (canvasGroup == null) return;
-            Debug.Log("canvas found");
-            canvasGroup.alpha = locked ? 0.5f : 1f; // Fade effect for locked posters
-            canvasGroup.interactable = !locked; // Disable interaction
-            canvasGroup.blocksRaycasts = !locked; // Prevent clicks on locked posters
+            canvasGroup.interactable = !isLocked; // Disable interaction
+            canvasGroup.blocksRaycasts = !isLocked; // Prevent clicks on locked posters
+        }
+
+        private void SetVisible()
+        {
+            // Update UI to reflect visible state
+            canvasGroup.interactable = !isVisible;
+            canvasGroup.blocksRaycasts = !isVisible;
+            
+            canvasGroup.alpha = isVisible ? 1f : 0.5f; // Fade effect for non-obtainable posters
         }
     
         //Hide or Show Poster Price for when in placeholder or when in menu
@@ -121,7 +128,8 @@ namespace ShopWindow
     
         public void OnPosterClicked()
         {
-            if (_isDragging ) return; // Only show popup if no drag is in progress
+            if (_isDragging) return; // Only show popup if no drag is in progress
+            if (!isVisible) return; // Only show popup if poster is obtained or obtainable
 
             // Check if the poster price is less than 0
             var displayPrice = posterPrice.ToString(CultureInfo.InvariantCulture);
@@ -129,7 +137,7 @@ namespace ShopWindow
 
             if (float.TryParse(posterPrice.ToString(CultureInfo.InvariantCulture), out var priceValue) && priceValue < 0)
             {
-                displayPrice = "    Owned"; // Set to "Owned" if the price is less than 0
+                displayPrice = "Owned"; // Set to "Owned" if the price is less than 0
                 displayIcon = null;     // Remove the currency icon
             }
 
@@ -140,7 +148,6 @@ namespace ShopWindow
             var popUpScript = posterPopUpPrefab.GetComponent<PosterPopUpManager>();
             if (popUpScript != null)
             {
-                Debug.Log(this.GetType());
                 popUpScript.SetCurrentPoster(this);
                 popUpScript.ShowPosterDetails(
                     posterImage,

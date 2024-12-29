@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,8 @@ namespace ShopWindow
 
         private void Start()
         {
+            EventSystemManager.OnPosterBought += UpdateSavings;
+            
             EventSystemManager.OnLoadShopWindow();
             
             canvasContainer.GetComponent<FadeCanvas>().FadeIn();
@@ -36,12 +39,29 @@ namespace ShopWindow
             #endif
             
             dayText.text = $"DAY {GameData.CurrentDay}";
-            savingsText.text = $"${GameData.Savings:N0}";
+            UpdateSavings();
+            
             if (GameData.CurrentDay == 2) StartCoroutine(WaitAndStartTutorial());
-            if (GameData.CurrentDay == 3) newspaper.SetActive(true);
-            else newspaper.SetActive(false);
+            if (GameData.CurrentDay == 3)
+            {
+                newspaper.SetActive(true);
+            }
+            else
+            {
+                newspaper.SetActive(false);
+            }
 
             LoadPosters();
+        }
+        
+        private void OnDestroy()
+        {
+            EventSystemManager.OnPosterBought -= UpdateSavings;
+        }
+
+        private void UpdateSavings()
+        {
+            savingsText.text = $"${GameData.Savings:N0}";
         }
 
         private void LoadPosters()
@@ -65,10 +85,9 @@ namespace ShopWindow
                 // Step 4: Update the poster's price
                 pps.posterPrice = matchingPosterData.price;
                 if (pps.posterPrice < 0) pps.isLocked = false;
-                pps.UpdateUI();
                 
                 // Set poster visible/invisible
-                pps.gameObject.SetActive(matchingPosterData.visible);
+                pps.isVisible = matchingPosterData.visible;
 
                 // Step 5: Handle hanged logic
                 if (matchingPosterData.hanged != 0)
@@ -103,6 +122,8 @@ namespace ShopWindow
                         Debug.LogError($"DropTarget with ID {matchingPosterData.hanged} not found.");
                     }
                 }
+                
+                pps.UpdateUI();
             }
         }
         

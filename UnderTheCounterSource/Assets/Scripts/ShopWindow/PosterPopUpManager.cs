@@ -23,6 +23,8 @@ namespace ShopWindow
         [SerializeField] private GameObject insufficientMoneyPopup;
         [SerializeField] private GameObject confirmPurchasePopup;
         private PosterPrefabScript _currentPoster; // Track the current poster for buying
+
+        [SerializeField] private Button buyButton;
         public Button confirmBuyButton; // Confirm buy button
         
 
@@ -35,7 +37,7 @@ namespace ShopWindow
             if (posterDescriptionUI != null) posterDescriptionUI.text = description;
             if (buffTextUI != null) buffTextUI.text = $"<size=150%><b>+</b><size=100%>  {buff}";
             if (nerfTextUI != null) nerfTextUI.text = $"<size=150%><b>-</b><size=100%>  {nerf}";
-            if (priceTextUI != null) priceTextUI.text = price == "    Owned" ? price : $"{price}$";
+            if (priceTextUI != null) priceTextUI.text = price == "Owned" ? price : $"{price}$";
             if (currencyIconUI != null)
             {
                 if (currency != null)
@@ -52,6 +54,10 @@ namespace ShopWindow
             {
                 GetComponent<FadeCanvas>().FadeIn();
             }
+            
+            // Activate or deactivate buy button
+            if (price == "Owned") buyButton.interactable = false;
+            else buyButton.interactable = true;
         }
 
         // Method to close the pop-up
@@ -121,9 +127,10 @@ namespace ShopWindow
             GameData.Savings -= poster.posterPrice;
             ClosePopUp();
             poster.BuyPoster();
+            EventSystemManager.OnPosterBought();
 
             // Hide the confirmation popup
-            confirmPurchasePopup.SetActive(false);
+            // confirmPurchasePopup.SetActive(false);
 
             // Optionally update player's money UI here
             Debug.Log($"Purchased {poster.posterNameText}. Remaining Money: {GameData.Savings}$");

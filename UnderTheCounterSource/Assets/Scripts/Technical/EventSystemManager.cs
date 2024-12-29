@@ -6,6 +6,9 @@ namespace Technical
 {
     public static class EventSystemManager
     {
+        // Poster events
+        public static UnityAction OnPosterBought;
+        
         // Day-related events
         public static UnityAction OnDayStart;
         public static UnityAction OnDayEnd;
