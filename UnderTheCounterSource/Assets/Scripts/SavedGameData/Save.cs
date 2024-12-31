@@ -1,30 +1,32 @@
     using System;
     using System.Collections.Generic;
     using ShopWindow;
+    using UnityEngine;
 
     namespace SavedGameData
     {
+        [Serializable]
         public class Save
         {
-            private GameLog Log;
-            private GameChoices Choices;
+            [SerializeField] private List<Tuple<string, string>> Log;
+            [SerializeField] private SerializableDictionary<string, bool> Choices;
         
-            private string BarName;
-            private float DailyTime;
-            private int CurrentDay;
-            private int DrunkCustomers;
-            private int MaxDrunkCustomers;
+            [SerializeField] private string BarName;
+            [SerializeField] private float DailyTime;
+            [SerializeField] private int CurrentDay;
+            [SerializeField] private int DrunkCustomers;
+            [SerializeField] private int MaxDrunkCustomers;
     
-            private List<PosterData> Posters;
-            private List<int> Trinkets;
+            [SerializeField] private List<PosterData> Posters;
+            [SerializeField] private List<int> Trinkets;
     
-            private float Savings;
-            private float TodayEarnings;
-            private int Rent;
-            private int Food;
-            private int Supplies;
+            [SerializeField] private float Savings;
+            [SerializeField] private float TodayEarnings;
+            [SerializeField] private int Rent;
+            [SerializeField] private int Food;
+            [SerializeField] private int Supplies;
 
-            private DateTime currentDateTime;
+            [SerializeField] private DateTime currentDateTime;
 
             public Save()
             {

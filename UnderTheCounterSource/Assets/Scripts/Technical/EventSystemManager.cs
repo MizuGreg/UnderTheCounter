@@ -17,7 +17,7 @@ namespace Technical
         // Customer-related events
         public static UnityAction OnCustomerEnter;
         public static UnityAction OnCustomerLeave;
-        public static UnityAction OnDrunkCustomerLeave;
+        public static UnityAction OnDrunkCustomer;
         public static UnityAction OnCustomerLeft;
         public static UnityAction OnCustomersDepleted;
     

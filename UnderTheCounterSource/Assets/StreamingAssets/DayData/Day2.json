@@ -103,10 +103,11 @@
                     "Cheers! Not a bad choice at all. I like the atmosphere, so I can't wait to come back.<i>*wink*</i><br>Take care, love."
                 ],
                 "wrong": [
-                    "Blimey! Are you positive this is your favuorite cocktail? Nevermind, I can respect someone with a taste this strong.<br>Take care!"
+                    "Blimey! Are you positive this is your favourite cocktail? Nevermind, I can respect someone with a taste this strong, I guess.<br>Take care!"
                 ],
                 "water": [
-                    "Cheers! A fantastic Parti, and definitely better than a cheeky pint back home, you know?<br>Take care, love!"
+                    "Cheers! A good enough Parti, and definitely better than a cheeky pint back home, you know?",
+                    "{TRINKET 1}Let me give you a little something. It's a <b>souvenir</b> from my voyages.<br>Take care now, love!"
                 ]
             },
             "tip": 3

@@ -1,18 +1,19 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Newtonsoft.Json;
 using ShopWindow;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace SavedGameData
 {
-    [SuppressMessage("ReSharper", "CheckNamespace")]
     public static class GameData
     {
         // Initialization
-        public static GameLog Log = new();
-        public static GameChoices Choices = new();
+        public static List<Tuple<string, string>> Log = new();
+        public static SerializableDictionary<string, bool> Choices = new();
         
         public static string BarName = "The Chitchat";
         public static float DailyTime = 180;
@@ -28,7 +29,28 @@ namespace SavedGameData
         public static int Rent = 20;
         public static int Food = Random.Range(5, 10);
         public static int Supplies = Random.Range(10, 15);
-    
+
+        public static void Initialize()
+        {
+            Log = new();
+            Choices = new();
+            
+            BarName = "The Chitchat";
+            DailyTime = 180;
+            CurrentDay = 1;
+            DrunkCustomers = 0;
+            MaxDrunkCustomers = 4;
+        
+            Posters = new();
+            Trinkets = new();
+        
+            Savings = 100;
+            TodayEarnings = 0;
+            Rent = 20;
+            Food = Random.Range(5, 10);
+            Supplies = Random.Range(10, 15);
+        }
+        
         public static void StartDay()
         {
             DrunkCustomers = 0;
@@ -48,6 +70,20 @@ namespace SavedGameData
                     Rent = 20;
                     Food = Random.Range(5, 10);
                     Supplies = Random.Range(10, 15);
+                    break;
+                case 3:
+                    DailyTime = 270;
+                    MaxDrunkCustomers = 4;
+                    Rent = 20;
+                    Food = Random.Range(5, 10);
+                    Supplies = Random.Range(15, 30);
+                    break;
+                case 4:
+                    DailyTime = 270;
+                    MaxDrunkCustomers = 4;
+                    Rent = 20;
+                    Food = Random.Range(5, 10);
+                    Supplies = Random.Range(15, 30);
                     break;
                 default:
                     DailyTime = 270;
@@ -80,21 +116,32 @@ namespace SavedGameData
             Savings += dailyBalance;
             TodayEarnings = 0;
             CurrentDay++;
-            SaveToJSON();
+            SaveToJson();
         }
     
-        public static void SaveToJSON()
+        public static void SaveToJson()
         {
             Save save = new();
             string saveJson = JsonConvert.SerializeObject(save);
             File.WriteAllText(Application.streamingAssetsPath + "/GameData/Save.json", saveJson);
         }
     
-        public static void LoadFromJSON()
+        public static void LoadFromJson()
         {
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GameData/Save.json");
-            Save save = JsonConvert.DeserializeObject<Save>(jsonString);
-            save.SetGameData();
+            try
+            {
+                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GameData/Save.json");
+                Save save = JsonConvert.DeserializeObject<Save>(jsonString);
+                save.SetGameData();
+            }
+            catch (Exception e)
+            {
+                Debug.Log("Error while loading game data. Will default to a new game. Error below.");
+                Debug.LogError(e);
+                
+                Initialize();
+            }
+            
         }
     }
 }

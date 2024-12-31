@@ -1,5 +1,6 @@
 using System.Collections;
 using Bar;
+using SavedGameData;
 using Technical;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,7 +26,19 @@ namespace Menu
         private IEnumerator WaitBeforeNewGame()
         {
             yield return new WaitForSeconds(1.5f);
-            SceneManager.LoadScene("Scenes/IntroductionScreen");
+            SceneManager.LoadScene("IntroductionScreen");
+        }
+
+        public void ContinueGame()
+        {
+            GameData.LoadFromJson();
+            StartCoroutine(WaitBeforeContinueGame());
+        }
+
+        private IEnumerator WaitBeforeContinueGame()
+        {
+            yield return new WaitForSeconds(1.5f);
+            SceneManager.LoadScene("ShopWindow");
         }
     
         public void QuitGame()

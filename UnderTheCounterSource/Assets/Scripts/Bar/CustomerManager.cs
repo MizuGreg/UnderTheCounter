@@ -33,8 +33,8 @@ namespace Bar
         [Range(0.0f, 3f)]
         public float timeBeforeFadeout = 1f;
 
-        private float earningMultiplier = 1;
-        private float flatEarning = 4;
+        private float earningMultiplier = 1f;
+        private float flatEarning = 4f;
 
         private void Start()
         {
@@ -199,12 +199,12 @@ namespace Bar
                 Dialogue dialogue;
                 float earning = flatEarning;
                 
-                if (cocktail.type == order) // correct type
+                if (cocktail.type == order) // correct cocktail through and through
                 {
                     if (cocktail.isWatered)
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["water"]);
-                        earning += _currentCustomer.tip / 4;
+                        earning += _currentCustomer.tip / 3;
                     }
                     else
                     {
@@ -212,26 +212,30 @@ namespace Bar
                         earning += _currentCustomer.tip;
                     }
                 }
-                else if (cocktail.type == CocktailType.Wrong) // completely wrong cocktail
+                
+                else if (cocktail.type == CocktailType.Wrong) // completely wrong cocktail, a mess
                 {
                     dialogue = new Dialogue(_customerName, _currentCustomer.lines["wrong"]);
-                    earning += 0;
+                    earning = 0;
                 }
-                else // correctly executed cocktail but not the one the customer ordered
+                
+                else // correctly executed cocktail, but not the one the customer ordered
                 {
-                    if (_currentCustomer.lines.ContainsKey(cocktail.type.ToString()))
+                    if (_currentCustomer.lines.ContainsKey(cocktail.type.ToString())) // if we have a custom line for that cocktail
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines[cocktail.type.ToString()]);
+                        earning += _currentCustomer.tip / 3;
                     }
-                    else if (_currentCustomer.lines.ContainsKey("incorrect"))
+                    else if (_currentCustomer.lines.ContainsKey("incorrect")) // if we have a generic line for an incorrect but well-done cocktail
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["incorrect"]);
+                        earning += _currentCustomer.tip / 3;
                     }
-                    else
+                    else // fallback to standard "wrong cocktail" line
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["wrong"]);
+                        earning = 0;
                     }
-                    earning += _currentCustomer.tip / 3;
                 }
 
                 earning = Mathf.Round(earning * earningMultiplier);
@@ -240,11 +244,11 @@ namespace Bar
 
                 GameData.TodayEarnings += earning;
             
-                // if not watered down, we increase the drunk customers counter
-                if (!cocktail.isWatered)
+                // if not watered down and not a complete mess cocktail, we increase the drunk customers counter
+                if (!cocktail.isWatered && cocktail.type != CocktailType.Wrong)
                 {
                     GameData.DrunkCustomers++;
-                    EventSystemManager.OnDrunkCustomerLeave();
+                    EventSystemManager.OnDrunkCustomer();
                 }
             }
             else

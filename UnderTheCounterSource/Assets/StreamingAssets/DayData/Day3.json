@@ -54,8 +54,11 @@
                     "THIS IS A RIPPLE! <size=75%><i>Oh, I mean, this is a Ripple.</i><size=100%>",
                     "See you soon for another cup of water, you know what I mean? <size=75%><i>*wink wink*</i><size=100%>"
                 ],
-                "wrong": [
+                "incorrect": [
                     "Oh man, your drinks are always good. I mean, it's not like the one I'm used to, but alcohol is alcohol, right?"
+                ],
+                "wrong": [
+                    "Not bad! Mayyybe not my taste though… I mean, it's not like the one I'm used to, but alcohol is alcohol, right?"
                 ],
                 "water": [
                     "Not a bad Ripple at all! Your drinks are always nice!<br>Oh, uh, I mean…",
@@ -73,16 +76,16 @@
                     "Well hello hello there! Hope you've read the latest edition of Rogue, it's got some hefty tips on how to dress stylishly!",
                     "At any rate, I shouldn't squander too much time before my next competition. Honey, make me a <b>Ripple</b>!",
                     "Maybe with a drop of honey on the rim. And with Verlan instead of Caledon, I like the bitterness of it.",
-                    "Oh, and no Gryte... Just add some more Verlan to it."
+                    "Oh, and no Gryte… Just add some more Verlan to it."
                 ],
                 "correct": [
                     "Oh my, oh my! Just how I love it. If I didn't know any better I'd think you were trying to make an impression on me!<br>Well, I'll definitely be coming back then! See you!"
                 ],
                 "Ripple": [
-                    "Oh my! That is not what I asked at all! Is it possible you were… distracted by something else?<br>Well, I'll definitely be coming back then! See you!"
+                    "Oh my! That is not what I asked at all! It tastes like a Ripple. Is it possible you were… distracted by something else?<br>Well, I'll definitely be coming back then! See you!"
                 ],
                 "wrong": [
-                    "…Well, it seems you've prepared a different cocktail to gain my attention… and you've succeeded! It wasn't bad after all.<br>I'll be seeing you some other time then!"
+                    "Well, it seems you've prepared a different cocktail to gain my attention… and you've succeeded! It wasn't bad after all.<br>I'll be seeing you some other time then!"
                 ],
                 "water": [
                     "Oh my! Just how I love it, though it seems you've held back on the alcohol a bit.",
@@ -164,7 +167,7 @@
             "lines": {
                 "greet": [
                     "Oh, wonderful to see you again, dear bartender! My day was so busy that I almost forgot to come here.",
-                    "But it improved when I found out Davidine Betty will attend the ball tonight, right here in Korgis. If only I could attend too…",
+                    "But it improved when I found out <i>Davidine Betty</i> will attend the ball tonight, right here in Korgis. If only I could attend too…",
                     "May I get a <b>Spring Bee</b>, please? I've heard bars are still selling alcohol despite the law…"
                 ],
                 "correct": [

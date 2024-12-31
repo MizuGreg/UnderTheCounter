@@ -30,7 +30,7 @@ namespace Bar
             if (_tutorialManager1 != null) _tutorialManager1.AttachDialogueManager(_dialogueManager);
         
             EventSystemManager.OnDayStart += StartDay;
-            EventSystemManager.OnDrunkCustomerLeave += CheckBlitzWarning;
+            EventSystemManager.OnDrunkCustomer += CheckBlitzWarning;
             EventSystemManager.OnCustomerLeft += CheckDrunk;
             EventSystemManager.OnBlitzEnd += NextCustomer;
             EventSystemManager.OnCustomersDepleted += EndDay;
@@ -46,7 +46,7 @@ namespace Bar
         private void OnDestroy()
         {
             EventSystemManager.OnDayStart -= StartDay;
-            EventSystemManager.OnDrunkCustomerLeave -= CheckBlitzWarning;
+            EventSystemManager.OnDrunkCustomer -= CheckBlitzWarning;
             EventSystemManager.OnCustomerLeft -= CheckDrunk;
             EventSystemManager.OnBlitzEnd -= NextCustomer;
             EventSystemManager.OnCustomersDepleted -= EndDay;
