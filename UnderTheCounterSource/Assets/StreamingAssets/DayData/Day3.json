@@ -2,7 +2,7 @@
     "customers": [
         {
             "sprite": "Howard",
-            "order": "Wrong",
+            "order": "None",
             "lines": {
                 "greet": [
                     "Bartender! Hope I won't see anyone drunk here! The prohibition laws have just passed, and thankfully, might I add!",
@@ -163,12 +163,12 @@
         },
         {
             "sprite": "Margaret",
-            "order": "SpringBee",
+            "order": "Palmera",
             "lines": {
                 "greet": [
                     "Oh, wonderful to see you again, dear bartender! My day was so busy that I almost forgot to come here.",
                     "But it improved when I found out <i>Davidine Betty</i> will attend the ball tonight, right here in Korgis. If only I could attend too…",
-                    "May I get a <b>Spring Bee</b>, please? I've heard bars are still selling alcohol despite the law…"
+                    "May I get a <b>Palmera</b>, please? I've heard bars are still selling alcohol despite the law…"
                 ],
                 "correct": [
                     "Perfect cocktail, dear bartender. I'd like to order another one, but I don't wish to overstay my welcome here… Maybe I'll visit another bar…<br>Goodnight!"

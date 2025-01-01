@@ -195,7 +195,7 @@ namespace Bar
                     case DialogueType.Tutorial:
                         EventSystemManager.NextTutorialStep();
                         break;
-                    case DialogueType.Inspector:
+                    case DialogueType.NoDrink:
                         EventSystemManager.OnCustomerLeave();
                         break;
                 }

@@ -26,6 +26,6 @@ namespace Bar
         Greet,
         Leave,
         Tutorial,
-        Inspector
+        NoDrink
     }
 }

@@ -1,19 +1,152 @@
 {
     "customers": [
         {
+            "sprite": "MafiaGoon",
+            "order": "None",
+            "tip": 0,
+            "lines": {
+                "greet": [
+                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
+                ],
+                "correct": [
+                    "Aaah, just how I like it. Thank you very much, and as always, here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
+                ],
+                "wrong": [
+                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
+                ],
+                "water": [
+                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                ]
+            }
+        },
+        {
+            "sprite": "Willie",
+            "order": "Palmera",
+            "tip": 5,
+            "lines": {
+                "greet": [
+                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
+                ],
+                "correct": [
+                    "{TRINKET 4}"
+                ],
+                "wrong": [
+                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
+                ],
+                "water": [
+                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                ]
+            }
+        },
+        {
+            "sprite": "Eugene",
+            "order": "Ripple",
+            "tip": 4,
+            "lines": {
+                "greet": [
+                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
+                ],
+                "correct": [
+                    "Aaah, just how I like it. Thank you very much, and as always, here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
+                ],
+                "wrong": [
+                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
+                ],
+                "water": [
+                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                ]
+            }
+        },
+        {
+            "sprite": "ErnestUnion",
+            "order": "None",
+            "tip": 0,
+            "lines": {
+                "greet": [
+                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
+                ],
+                "correct": [
+                    "Aaah, just how I like it. Thank you very much, and as always, here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
+                ],
+                "wrong": [
+                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
+                ],
+                "water": [
+                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                ]
+            }
+        },
+        {
+            "sprite": "Margaret",
+            "order": "SpringBee",
+            "tip": 4,
+            "lines": {
+                "greet": [
+                    "drunk or not"
+                ],
+                "correct": [
+                    "Aaah, just how I like it. Thank you very much, and as always, here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
+                ],
+                "wrong": [
+                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
+                ],
+                "water": [
+                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                ]
+            }
+        },
+        {
+            "sprite": "Gaston",
+            "order": "Ripple",
+            "tip": 8,
+            "lines": {
+                "greet": [
+                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
+                ],
+                "correct": [
+                    "Aaah, just how I like it. Thank you very much, and as always, here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
+                ],
+                "wrong": [
+                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
+                ],
+                "water": [
+                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                ]
+            }
+        },
+        {
+            "sprite": "Charles",
+            "order": "Parti",
+            "tip": 7,
+            "lines": {
+                "greet": [
+                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
+                ],
+                "correct": [
+                    "Aaah, just how I like it. Thank you very much, and as always, here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
+                ],
+                "wrong": [
+                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
+                ],
+                "water": [
+                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                ]
+            }
+        },
+        {
             "sprite": "Kenneth",
             "order": "Everest",
             "lines": {
                 "greet": [
                     "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
                 ],
-                "leaveCorrect": [
-                    "Aaah, just how I like it. Thank you very much, and here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
+                "correct": [
+                    "Aaah, just how I like it. Thank you very much, and as always, here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
                 ],
-                "leaveWrong": [
+                "wrong": [
                     "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
                 ],
-                "leaveWater": [
+                "water": [
                     "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
                 ]
             },

@@ -19,7 +19,9 @@ namespace Bar
         Willie,
         Gaston,
         Ernest, // ex-bar owner
+        ErnestUnion, // Ernest's skin as member of the bartenders union
         Howard, // inspector
+        MafiaGoon,
         Unspecified
         
     }
