@@ -57,16 +57,18 @@
             "tip": 4,
             "lines": {
                 "greet": [
-                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
+                    "Heeeeeello bartender!! I'm so happy to be in my favorite bar once again! Did anything interesting happen lately?",
+                    "I'm doing great, but my wifey... She's really down, you know? She's running short on money since she was fired. I really want to help her in some way!",
+                    "But hey, I don't want to talk your ear off. Could you make me a <b>Ripple</b>, kind bartender?"
                 ],
                 "correct": [
-                    "Aaah, just how I like it. Thank you very much, and as always, here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
+                    "YAY!!! Thank you so much as always, kind bartender! And thank you for listening to me! And now... let's go home to Doris! Wheee!"
                 ],
                 "wrong": [
-                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
+                    "Oh! This is very different from the other Ripple you made me! Well, in any case, thank you for listening to me so patiently. And now to Doris... Bye!"
                 ],
                 "water": [
-                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                    "Yay! This is a bit different from the other Ripple you made me, but still tasty! In any case, thank you for listening to me so patiently. And now to Doris... Bye!"
                 ]
             }
         },
@@ -76,16 +78,11 @@
             "tip": 0,
             "lines": {
                 "greet": [
-                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
-                ],
-                "correct": [
-                    "Aaah, just how I like it. Thank you very much, and as always, here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
-                ],
-                "wrong": [
-                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
-                ],
-                "water": [
-                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                    "Look who it is! Still up and running, I see. Hopefully you will find our daily notes helpful. The union is working hard to help all bartenders in Korgis, you know?",
+                    "Hm...? <i>You've seen me somewhere</i>? You must be mistaken, young one, we only met yesterday! Ahem, in any case, uhm...",
+                    "{POSTER 5}Take this poster, and hang it outside tomorrow if you'd like. The necklace on the woman is a <b>secret code</b> among us bartenders.",
+                    "If people see the red necklace, they will know that you still serve alcohol undercover here, and will stop by to drink! More customers!",
+                    "Anyway, I'm off now, goodbye and good luck!"
                 ]
             }
         },
