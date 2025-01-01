@@ -22,7 +22,7 @@
             "lines": {
                 "greet": [
                     "[IF HAS POSTERS]Good evening. I really like the poster you have outside. You know, I work in a book printing factory, so I know a good poster when I see one.",
-                    "[IF HAS POSTERS]{POSTER 1}Here, a spare one from my workplace. We've stopped producing posters with alcoholic beverages on them now, so I don't need it anymore.",
+                    "[IF HAS POSTERS]{POSTER 2}Here, a spare one from my workplace. We've stopped producing posters with alcoholic beverages on them now, so I don't need it anymore.",
                     "[IF DOESN'T HAVE POSTERS]Good evening and good to see you, bartender. Just heard the news about the prohibition laws. I'm glad you're still open, I was worried for you.",
                     "May I ask you for a <b>Ripple</b>, even if it's a bit risky?"
                 ],
