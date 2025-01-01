@@ -6,16 +6,23 @@
             "tip": 0,
             "lines": {
                 "greet": [
-                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
+                    "Hey, boyo! Wassup? What, you've never seen my face around here? Shucks.",
+                    "Let's just say, me and my pals, we're <i>the ones that rule around here</i>. We're honest men, helping out honest men. Ya feel me? Good.",
+                    "You opened up a bar, huh? Then you've noticed how expensive it's getting to buy your supplies. And we don't want that.",
+                    "Look, I'll get straight to the point, cause we don't wanna waste each other's time. I'm offering you a <b>deal</b>, boyo.",
+                    "From today, I'll be your alcohol supplier. Way lower prices than the ones you're paying now, for sure. Plus I get a small profit out of it, too!",
+                    "On top of that, I offer you protection from the cops. And you... you'll just keep up the good work, stay open, and help us out from time to time.",
+                    "So what do ya say?"
                 ],
-                "correct": [
-                    "Aaah, just how I like it. Thank you very much, and as always, here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
+                "choice1": [
+                    "Accept deal",
+                    "Awesome, consider it done! My pal will hand you out the new supplies today.",
+                    "I'll be back. See ya!"
                 ],
-                "wrong": [
-                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
-                ],
-                "water": [
-                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                "choice2": [
+                    "Refuse deal",
+                    "Your loss boyo, not mine... But as I said, we're honest men. We'll give you some time to reconsider the offer and we'll leave you be.",
+                    "For now at least."
                 ]
             }
         },
@@ -25,16 +32,22 @@
             "tip": 5,
             "lines": {
                 "greet": [
-                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
+                    "Honey! How good to see you finally! How are you doing?<br>I feel daring today for some reason, so...",
+                    "My favorite album was on sale at the record store today, so I bought an extra copy. If you make me a drink exactly how I want it, the extra copy is yours!",
+                    "I'd like something <i>spiced</i>, a bit <i>fruity</i>... maybe something with a Latin American flair to it!"
                 ],
                 "correct": [
-                    "{TRINKET 4}"
-                ],
-                "wrong": [
-                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
+                    "{TRINKET 4}Well ain't that just the perfect cocktail! And here's the record for grammophone, as promised. Do give it a listen!",
+                    "<i>\"Ladies with an attitude, fellas that were in the mood... don't just stand there, let's get to it, strike a pose, there's nothing to it...\"</i>"
                 ],
                 "water": [
-                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
+                    "Tasty and very, very refreshing! Almost perfect, I would say. Who knows... Maybe next time you will nail it, and this grammophone record will be yours!"
+                ],
+                "incorrect": [
+                    "Not quite there, I fear... But who knows! Maybe next time you will nail it, and this grammophone record will be yours!"
+                ],
+                "wrong": [
+                    "Honey, not even close! No spices, no fruitiness... And no grammophone record. Sorry! Maybe next time!"
                 ]
             }
         },

@@ -223,6 +223,18 @@ namespace Bar
                     case "IF DOESN'T HAVE POSTERS":
                         if (GameData.Posters.Count == 0) _sentences.Enqueue(strippedSentence);
                         break;
+                    case "IF MARGARET GOT DRUNK":
+                        if (GameData.Choices["MargaretDrunk"]) _sentences.Enqueue(strippedSentence);
+                        break;
+                    case "IF MARGARET DIDN'T GET DRUNK":
+                        if (!GameData.Choices["MargaretDrunk"]) _sentences.Enqueue(strippedSentence);
+                        break;
+                    case "IF MAFIA DEAL ACCEPTED":
+                        if (GameData.Choices["MafiaDeal"]) _sentences.Enqueue(strippedSentence);
+                        break;
+                    case "IF MAFIA DEAL NOT ACCEPTED":
+                        if (!GameData.Choices["MafiaDeal"]) _sentences.Enqueue(strippedSentence);
+                        break;
                     default:
                         break;
                 }
@@ -249,6 +261,15 @@ namespace Bar
                 {
                     int posterID = int.Parse(Regex.Match(tag, @"\d+").Value);
                     EventSystemManager.OnPosterObtained(posterID);
+                }
+                if (tag == "MARGARET GETS DRUNK")
+                {
+                    GameData.Choices["MargaretDrunk"] = true;
+                }
+
+                if (tag == "MAFIA DEAL ACCEPTED")
+                {
+                    GameData.Choices["MafiaDeal"] = true;
                 }
             }
         }

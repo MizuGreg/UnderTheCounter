@@ -67,7 +67,7 @@
                     "But thankfully, you decided to stay open in spite of the prohibition laws. I'm so glad! I could really use a strong <b>Spring Bee</b> right now…"                    
                 ],
                 "correct": [
-                    "Thank you, thank you, thank you! But the dread won't leave my thoughts… What shall I do? Maybe try drinking a little bit more?",
+                    "{MARGARET GETS DRUNK}Thank you, thank you, thank you! But the dread won't leave my thoughts… What shall I do? Maybe try drinking a little bit more?",
                     "No matter… Because for some reason, I feel like I did the right thing, coming here tonight. Au revoir, dearest bartender."
                 ],
                 "water": [
