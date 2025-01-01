@@ -1,5 +1,6 @@
     using System;
     using System.Collections.Generic;
+    using AYellowpaper.SerializedCollections;
     using ShopWindow;
     using UnityEngine;
 
@@ -9,7 +10,7 @@
         public class Save
         {
             [SerializeField] private List<Tuple<string, string>> Log;
-            [SerializeField] private SerializableDictionary<string, bool> Choices;
+            [SerializeField] private SerializedDictionary<string, bool> Choices;
         
             [SerializeField] private string BarName;
             [SerializeField] private float DailyTime;

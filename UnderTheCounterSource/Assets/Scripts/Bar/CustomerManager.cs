@@ -34,7 +34,7 @@ namespace Bar
         public float timeBeforeFadeout = 1f;
 
         private float earningMultiplier = 1f;
-        private float flatEarning = 4f;
+        private float flatEarning = 5f;
 
         private void Start()
         {

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using AYellowpaper.SerializedCollections;
 using Newtonsoft.Json;
 using ShopWindow;
 using UnityEngine;
@@ -11,44 +12,45 @@ namespace SavedGameData
 {
     public static class GameData
     {
-        // Initialization
-        public static List<Tuple<string, string>> Log = new();
-        public static SerializableDictionary<string, bool> Choices = new();
+        public static List<Tuple<string, string>> Log;
+        public static SerializedDictionary<string, bool> Choices;
         
-        public static string BarName = "The Chitchat";
-        public static float DailyTime = 180;
-        public static int CurrentDay = 1;
-        public static int DrunkCustomers = 0;
-        public static int MaxDrunkCustomers = 4;
+        public static string BarName;
+        public static float DailyTime;
+        public static int CurrentDay;
+        public static int DrunkCustomers;
+        public static int MaxDrunkCustomers;
     
-        public static List<PosterData> Posters = new();
-        public static List<int> Trinkets = new();
+        public static List<PosterData> Posters;
+        public static List<int> Trinkets;
     
-        public static float Savings = 100;
-        public static float TodayEarnings = 0;
-        public static int Rent = 20;
-        public static int Food = Random.Range(5, 10);
-        public static int Supplies = Random.Range(10, 15);
+        public static float Savings;
+        public static float TodayEarnings;
+        public static int Rent;
+        public static int Food;
+        public static int Supplies;
 
         public static void Initialize()
         {
             Log = new();
             Choices = new();
+            Choices["MargaretDrunk"] = false;
+            Choices["MafiaDeal"] = false;
             
             BarName = "The Chitchat";
-            DailyTime = 180;
+            DailyTime = 240;
             CurrentDay = 1;
             DrunkCustomers = 0;
-            MaxDrunkCustomers = 4;
+            MaxDrunkCustomers = 99;
         
             Posters = new();
             Trinkets = new();
         
             Savings = 100;
             TodayEarnings = 0;
-            Rent = 20;
-            Food = Random.Range(5, 10);
-            Supplies = Random.Range(10, 15);
+            Rent = 10;
+            Food = 10;
+            Supplies = 10;
         }
         
         public static void StartDay()
@@ -60,37 +62,51 @@ namespace SavedGameData
                     DailyTime = 0;
                     MaxDrunkCustomers = 99;
                     Savings = 100;
-                    Rent = 20;
-                    Food = Random.Range(5, 10);
-                    Supplies = Random.Range(10, 15);
+                    Rent = 10;
+                    Food = 10;
+                    Supplies = 10;
                     break;
                 case 2:
                     DailyTime = 240;
                     MaxDrunkCustomers = 99;
-                    Rent = 20;
-                    Food = Random.Range(5, 10);
-                    Supplies = Random.Range(10, 15);
+                    Rent = 10;
+                    Food = 10;
+                    Supplies = 10;
                     break;
                 case 3:
                     DailyTime = 270;
                     MaxDrunkCustomers = 4;
-                    Rent = 20;
-                    Food = Random.Range(5, 10);
-                    Supplies = Random.Range(15, 30);
+                    Rent = 10;
+                    Food = 10;
+                    Supplies = 20;
                     break;
                 case 4:
                     DailyTime = 270;
                     MaxDrunkCustomers = 4;
-                    Rent = 20;
-                    Food = Random.Range(5, 10);
-                    Supplies = Random.Range(15, 30);
+                    Rent = 10;
+                    Food = 10;
+                    Supplies = 30;
                     break;
-                default:
+                case 5:
                     DailyTime = 270;
                     MaxDrunkCustomers = 4;
-                    Rent = 20;
-                    Food = Random.Range(5, 10);
-                    Supplies = Random.Range(15, 30);
+                    Rent = 10;
+                    Food = 10;
+                    Supplies = 40;
+                    break;
+                case 6:
+                    DailyTime = 270;
+                    MaxDrunkCustomers = 4;
+                    Rent = 10;
+                    Food = 10;
+                    Supplies = 50;
+                    break;
+                case 7: default:
+                    DailyTime = 270;
+                    MaxDrunkCustomers = 4;
+                    Rent = 10;
+                    Food = 10;
+                    Supplies = 50;
                     break;
             }
         }

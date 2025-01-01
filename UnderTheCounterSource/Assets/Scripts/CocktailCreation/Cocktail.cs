@@ -32,6 +32,12 @@ namespace CocktailCreation
                 case CocktailType.Magazine:
                     this.description = "Step into the spotlight with Magazine: a sophisticated blend of ingredients perfectly rafted for those who love a cocktail with style and substance. With every sip, you'll feel like the headline for your own story.";
                     break;
+                case CocktailType.Palmera:
+                    this.description = "This exotic cocktail originates from South America, but it's well known around the world. Relax in its flowery aroma and spiced taste, and maybe you'll take an imaginary world trip too! Who knows?";
+                    break;
+                case CocktailType.Barber:
+                    this.description = "This cocktail got its name because it's said to be the favorite drink of barbers. The reason is clear: the neat glass, the sharp flavor and the icy feeling of mint will leave you feeling like you just got a fresh cut and a nice shave.";
+                    break;
                 default:
                     this.description = "Terrible cocktail!";
                     break;

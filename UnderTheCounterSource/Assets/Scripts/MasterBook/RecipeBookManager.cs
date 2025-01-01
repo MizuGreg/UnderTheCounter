@@ -1,9 +1,8 @@
-using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using CocktailCreation;
 using Technical;
 using TMPro;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Bar
@@ -40,7 +39,7 @@ namespace Bar
             recipeBook.GetComponent<FadeCanvas>().FadeOut();
         }
 
-        public bool isRecipeBookOpen()
+        public bool IsRecipeBookOpen()
         {
             return recipeBook.gameObject.activeSelf;
         }
@@ -81,22 +80,24 @@ namespace Bar
 
         private string RetrieveDescription(CocktailType cocktailType)
         {
-            CocktailScript[] cocktailScripts = Resources.FindObjectsOfTypeAll<CocktailScript>();
+            // CocktailScript[] cocktailScripts = Resources.FindObjectsOfTypeAll<CocktailScript>();
+            //
+            // foreach (CocktailScript script in cocktailScripts)
+            // {
+            //     if (script.cocktail.type == cocktailType)
+            //     {
+            //         return script.cocktail.description;
+            //     }
+            // }
+            // return "No description found.";
 
-            foreach (CocktailScript script in cocktailScripts)
-            {
-                if (script.cocktail.type == cocktailType)
-                {
-                    return script.cocktail.description;
-                }
-            }
-
-            return "No description found.";
+            Cocktail dummyCocktail = new Cocktail(cocktailType, false);
+            return dummyCocktail.description;
         }
 
         public string FormatCocktailName(string cocktailName)
         {
-            return System.Text.RegularExpressions.Regex.Replace(cocktailName, @"([a-z])([A-Z])", "$1 $2");
+            return Regex.Replace(cocktailName, @"([a-z])([A-Z])", "$1 $2");
         }
 
         public void ShowCurrentCocktail()

@@ -10,6 +10,8 @@ namespace CocktailCreation
         SpringBee,
         Parti,
         Magazine,
+        Palmera,
+        Barber,
         Wrong,
         None
     }

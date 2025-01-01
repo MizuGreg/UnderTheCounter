@@ -45,7 +45,7 @@ namespace Settings
             
             else if (gameObject.activeSelf) GetComponent<FadeCanvas>().FadeOut();
             
-            else if (recipeBookManager != null && recipeBookManager.isRecipeBookOpen()) recipeBookManager.CloseRecipeBook();
+            else if (recipeBookManager != null && recipeBookManager.IsRecipeBookOpen()) recipeBookManager.CloseRecipeBook();
             
             else GetComponent<FadeCanvas>().FadeIn();
         }
