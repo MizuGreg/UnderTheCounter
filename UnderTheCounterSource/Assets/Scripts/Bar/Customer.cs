@@ -9,6 +9,8 @@ namespace Bar
     public enum CustomerType
     {
         Margaret,
+        MargaretDrunk, // Margaret's sprite as drunk after scandal
+        Thomas, // Margaret's crush
         Helene,
         Charles,
         Betty,
@@ -19,7 +21,7 @@ namespace Bar
         Willie,
         Gaston,
         Ernest, // ex-bar owner
-        ErnestUnion, // Ernest's skin as member of the bartenders union
+        ErnestUnion, // Ernest's sprite as member of the bartenders union
         Howard, // inspector
         MafiaGoon,
         Unspecified

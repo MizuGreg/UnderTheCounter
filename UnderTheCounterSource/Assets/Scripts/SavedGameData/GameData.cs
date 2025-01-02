@@ -12,23 +12,23 @@ namespace SavedGameData
 {
     public static class GameData
     {
-        public static List<Tuple<string, string>> Log;
-        public static SerializedDictionary<string, bool> Choices;
+        public static List<Tuple<string, string>> Log = new();
+        public static SerializedDictionary<string, bool> Choices = new();
         
-        public static string BarName;
-        public static float DailyTime;
-        public static int CurrentDay;
-        public static int DrunkCustomers;
-        public static int MaxDrunkCustomers;
+        public static string BarName = "The Chitchat";
+        public static float DailyTime = 240;
+        public static int CurrentDay = 1;
+        public static int DrunkCustomers = 0;
+        public static int MaxDrunkCustomers = 99;
     
-        public static List<PosterData> Posters;
-        public static List<int> Trinkets;
+        public static List<PosterData> Posters = new();
+        public static List<int> Trinkets = new();
     
-        public static float Savings;
-        public static float TodayEarnings;
-        public static int Rent;
-        public static int Food;
-        public static int Supplies;
+        public static float Savings = 100;
+        public static float TodayEarnings = 0;
+        public static int Rent = 10;
+        public static int Food = 10;
+        public static int Supplies = 10;
 
         public static void Initialize()
         {

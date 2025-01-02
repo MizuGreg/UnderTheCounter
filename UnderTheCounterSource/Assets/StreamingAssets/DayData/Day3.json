@@ -68,6 +68,30 @@
             "tip": 3
         },
         {
+            "sprite": "Thomas",
+            "order": "SpringBee",
+            "tip": 4,
+            "lines": {
+                "greet": [
+                    "Hi… I was walking by and noticed this bar was still open despite everything. You're doing the good thing, nobody is actually in favor of prohibition.",
+                    "Though, I expected to find my good friend Ernest behind the counter, hah! Maybe he retired...?",
+                    "Anyway… I'm a bit nervous tonight, so I need that bit of booze… Can you make me a <b>Spring Bee</b>?"
+                ],
+                "correct": [
+                    "Perfect! <size=75%>Okay Thomas… You can do it… Just walk up to her and, uh… <size=100%> Oh! Uh, I gotta go! Here's a tip for you, thanks again and bye!"
+                ],
+                "water": [
+                    "Nice! <size=75%>Okay Thomas… You can do it… Just walk up to her and, uh… <size=100%> Uh, I gotta go! Here's a small tip for you, thanks again and bye!"
+                ],
+                "incorrect": [
+                    "Good enough, I guess! <size=75%>Okay Thomas… You can do it… <size=100%> Well, I gotta go! Thanks and bye!"
+                ],
+                "wrong": [
+                    "Oh, that's not what I expected... Well, I gotta go! Thanks and bye!"
+                ]
+            }
+        },
+        {
             "sprite": "Willie",
             "order": "SpringBee",
             "orderOnPostIt": "Ripple…???",
@@ -167,7 +191,7 @@
             "lines": {
                 "greet": [
                     "Oh, wonderful to see you again, dear bartender! My day was so busy that I almost forgot to come here.",
-                    "But it improved when I found out <i>Davidine Betty</i> will attend the ball tonight, right here in Korgis. If only I could attend too…",
+                    "But it improved when I found out <i>Eliza Davids</i> will attend the ball tonight, right here in Korgis. If only I could attend too…",
                     "May I get a <b>Palmera</b>, please? I've heard bars are still selling alcohol despite the law…"
                 ],
                 "correct": [

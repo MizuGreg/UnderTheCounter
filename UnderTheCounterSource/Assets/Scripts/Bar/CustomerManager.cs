@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using CocktailCreation;
 using Newtonsoft.Json;
@@ -98,7 +99,38 @@ namespace Bar
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + currentDay + ".json");
             
             _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
+            HandleConditionalCustomers();
             
+        }
+
+        // Handles customers that appear or not depending on some conditions, or that have specific sprites depending on conditions
+        private void HandleConditionalCustomers()
+        {
+            switch (GameData.CurrentDay)
+            {
+                case 5:
+                    if (GameData.Choices["MargaretDrunk"])
+                    {
+                        _dailyCustomers = _dailyCustomers.Where(customer => customer.sprite != CustomerType.Margaret).ToList(); // leave out normal Margaret
+                    }
+                    else
+                    {
+                        _dailyCustomers = _dailyCustomers.Where(customer => customer.sprite != CustomerType.MargaretDrunk).ToList(); // leave out drunk Margaret
+                    }
+                    break;
+                case 6:
+                    if (GameData.Choices["MafiaDeal"])
+                    {
+                        // show goon
+                    }
+                    else
+                    {
+                        _dailyCustomers = _dailyCustomers.Where(customer => customer.sprite != CustomerType.MafiaGoon).ToList(); // leave out goon
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void GreetCustomer()
