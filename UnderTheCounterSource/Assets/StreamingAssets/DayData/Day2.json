@@ -123,11 +123,11 @@
                 "correct": [
                     "THIS IS THE BEST RIPPLE I'VE EVER HAD! I'm so happy to have come here tonight! Honey, you should try it too!"
                 ],
-                "incorrect": [
+                "wrong": [
                     "Oh, not bad. I mean, it's not like the one the previous owner used to make. Thank you and bye!"
                 ],
-                "wrong": [
-                    "Oh, I like it. I mean, it's not like the one the previous owner used to make, but it's still good. Thank you and bye!"
+                "incorrect": [
+                    "Oh, I like it. I mean, it's not like the one the previous owner used to make, but it's still good! Thank you and bye!"
                 ],
                 "water": [
                     "Thank you gentle man! I like it, just a bit more alcochol and it would be PERFECT! See you soon!"
