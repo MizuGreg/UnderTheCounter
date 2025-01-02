@@ -62,5 +62,8 @@ namespace Technical
         // Game events
         public static UnityAction<int> OnTrinketObtained;
         public static UnityAction<int> OnPosterObtained;
+        
+        // Achievements events
+        public static UnityAction<string, int> OnAchievementProgress;
     }
 }

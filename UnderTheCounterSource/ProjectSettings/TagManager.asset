@@ -14,6 +14,7 @@ TagManager:
   - PosterDetail
   - WateredIcon
   - Cocktail
+  - Achievement
   layers:
   - Default
   - TransparentFX
