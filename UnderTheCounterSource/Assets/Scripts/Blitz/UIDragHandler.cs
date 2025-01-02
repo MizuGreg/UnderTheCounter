@@ -12,9 +12,8 @@ namespace Blitz
         private Canvas canvas;
         private Vector2 originalPosition;
         private Vector3 originalScale;
-        public RectTransform restrictionArea;
         private bool isPlaced = false;
-        private static bool areDropAreasEnabled = false;
+        private static bool areDropAreasEnabled = true;
 
         void Awake()
         {
@@ -38,7 +37,6 @@ namespace Blitz
             if (!areDropAreasEnabled || isPlaced) return;
 
             originalPosition = rectTransform.anchoredPosition;
-            StartCoroutine(ShakeAndGrow());
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -57,7 +55,7 @@ namespace Blitz
 
             if (IsWithinArea())
             {
-                rectTransform.SetParent(restrictionArea, false);
+                rectTransform.SetParent(GetMatchingRestrictionArea(), false);
                 rectTransform.anchoredPosition = Vector2.zero;
                 isPlaced = true;
                 EventSystemManager.OnBottlePlaced();
@@ -68,28 +66,9 @@ namespace Blitz
             }
         }
 
-        private IEnumerator ShakeAndGrow()
-        {
-            float duration = 0.2f;
-            float shakeMagnitude = 5f;
-            float growScale = 1.2f;
-            Vector3 targetScale = originalScale * growScale;
-
-            for (float t = 0; t < duration; t += Time.deltaTime)
-            {
-                float shakeOffsetX = Random.Range(-shakeMagnitude, shakeMagnitude);
-                float shakeOffsetY = Random.Range(-shakeMagnitude, shakeMagnitude);
-                rectTransform.anchoredPosition += new Vector2(shakeOffsetX, shakeOffsetY);
-                rectTransform.localScale = Vector3.Lerp(originalScale, targetScale, t / duration);
-
-                yield return null;
-            }
-
-            rectTransform.localScale = targetScale;
-        }
-
         private bool IsWithinArea()
         {
+            RectTransform restrictionArea = GetMatchingRestrictionArea();
             if (!restrictionArea) return false;
 
             Vector3[] corners = new Vector3[4];
@@ -98,5 +77,17 @@ namespace Blitz
 
             return areaRect.Contains(rectTransform.position);
         }
+
+        private RectTransform GetMatchingRestrictionArea()
+        {
+            GameObject area = GameObject.FindGameObjectWithTag(gameObject.tag);
+            RectTransform rect = area.GetComponent<RectTransform>();
+            if (rect != null)
+            {
+                return rect;
+            }
+            return null;
+        }
+
     }
 }

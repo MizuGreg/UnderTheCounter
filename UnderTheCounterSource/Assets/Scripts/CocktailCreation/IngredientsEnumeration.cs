@@ -7,6 +7,7 @@ namespace CocktailCreation
         Ferrucci,
         Gryte,
         Shaddock,
+        Càntico,
         Unspecified
     }
 }

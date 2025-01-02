@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using Bar;
 using UnityEngine.SceneManagement;
+using UnityEditor;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace Blitz
 {
@@ -16,6 +19,9 @@ namespace Blitz
 
         [SerializeField] private CanvasGroup barContainer;
         private int placedBottlesCounter;
+
+        [SerializeField] private List<GameObject> placeholderSlots;
+        
 
         private void Start()
         {
@@ -58,8 +64,45 @@ namespace Blitz
         {
             yield return new WaitForSeconds(1f);
             placedBottlesCounter = 0;
+            ShufflePlaceholders();
             blitzCanvas.GetComponent<FadeCanvas>().FadeIn();
             StartCoroutine(WaitBeforeHideMinigame());
+        }
+
+        private void ShufflePlaceholders()
+        {
+            string[] prefabGUIDs = AssetDatabase.FindAssets("", new[] { $"Assets/Resources/Prefabs/Blitz" });
+
+            List<GameObject> ingredientPrefabs = new List<GameObject>();
+            foreach (string guid in prefabGUIDs)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+                if (prefab != null)
+                {
+                    ingredientPrefabs.Add(prefab);
+                }
+            }
+
+            Shuffle(ingredientPrefabs);
+            Debug.Log(ingredientPrefabs.Count);
+
+            for (int i = 0; i < ingredientPrefabs.Count; i++)
+            {
+                placeholderSlots[i].tag = ingredientPrefabs[i].GetComponent<PlaceholderScript>().ingredientType.ToString();
+                placeholderSlots[i].GetComponent<Image>().sprite = ingredientPrefabs[i].GetComponent<PlaceholderScript>().sprite;
+            }
+        }
+
+        private void Shuffle(List<GameObject> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                int rnd = Random.Range(i, list.Count);
+                var temp = list[i];
+                list[i] = list[rnd];
+                list[rnd] = temp;
+            }
         }
 
         private IEnumerator WaitBeforeHideMinigame()
@@ -83,16 +126,17 @@ namespace Blitz
         private void IncreasePlacedBottlesCounter()
         {
             placedBottlesCounter++;
+            CheckBlitzWin();
         }
 
         private void CheckBlitzWin()
         {
-            if (placedBottlesCounter == 2) // terrible hardcoding, also the ingredients should be 3 not 2
+            Debug.Log(placedBottlesCounter);
+            if (placedBottlesCounter == AssetDatabase.FindAssets("", new[] { $"Assets/Resources/Prefabs/Blitz" }).Length) 
             {
                 blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
                 // panel needs to be not movable anymore
                 // we need some kind of confirmation to show up for the player, then wait a bit, and then fade out
-                
             }
         }
 

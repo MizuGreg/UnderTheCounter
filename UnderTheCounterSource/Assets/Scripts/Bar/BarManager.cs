@@ -17,7 +17,7 @@ namespace Bar
 
         public CanvasGroup barContainer;
 
-        [SerializeField] public int forceDay = 2;
+        [SerializeField] public int forceDay = 3;
                 
         void Start()
         {
