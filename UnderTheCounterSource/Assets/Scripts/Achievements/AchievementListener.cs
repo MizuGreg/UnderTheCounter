@@ -31,5 +31,10 @@ namespace Achievements
             EventSystemManager.OnAchievementProgress("10 cocktails", 1);
             EventSystemManager.OnAchievementProgress("50 cocktails", 1);
         }
+
+        public void NewspaperOpened()
+        {
+            EventSystemManager.OnAchievementProgress("newspaper opened", 1);
+        }
     }
 }
