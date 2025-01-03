@@ -61,8 +61,29 @@ namespace Blitz
 
             if (IsWithinArea())
             {
-                rectTransform.SetParent(GetMatchingRestrictionArea(), false);
-                rectTransform.anchoredPosition = Vector2.zero;
+                RectTransform restrictionArea = GetMatchingRestrictionArea();
+                rectTransform.SetParent(restrictionArea, false);
+                // rectTransform.anchoredPosition = Vector2.zero;
+
+                // adapt the scale to the parent
+                rectTransform.position = restrictionArea.position;
+
+                Vector2 placeholderSize = restrictionArea.sizeDelta;
+                Vector2 itemOriginalSize = rectTransform.sizeDelta;
+                float aspectRatio = itemOriginalSize.x / itemOriginalSize.y;
+
+                if (placeholderSize.x / placeholderSize.y > aspectRatio)
+                {
+                    rectTransform.sizeDelta = new Vector2(placeholderSize.y * aspectRatio, placeholderSize.y);
+                }
+                else
+                {
+                    rectTransform.sizeDelta = new Vector2(placeholderSize.x, placeholderSize.x / aspectRatio);
+                }
+
+                var image = GetComponent<Image>();
+                image.preserveAspect = true;
+
                 isPlaced = true;
                 EventSystemManager.OnBottlePlaced();
             }
