@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 66583019}
   m_Layer: 5
   m_Name: Verlan
-  m_TagString: Untagged
+  m_TagString: Verlan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3894,7 +3894,7 @@ GameObject:
   - component: {fileID: 504895727}
   m_Layer: 5
   m_Name: Ferrucci
-  m_TagString: Untagged
+  m_TagString: Ferrucci
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5794,10 +5794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e9157b10bf74bc1a5ff755c88b5dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openOffset: {x: 300, y: 0}
-  slideThresholdOpen: 100
-  slideThresholdClose: 0
-  slideSpeed: 500
 --- !u!114 &883203845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6116,7 +6112,7 @@ GameObject:
   - component: {fileID: 904480429}
   m_Layer: 5
   m_Name: "C\xE0ntico"
-  m_TagString: Untagged
+  m_TagString: "C\xE0ntico"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8080,7 +8076,7 @@ GameObject:
   - component: {fileID: 1259845481}
   m_Layer: 5
   m_Name: CaledonRidge
-  m_TagString: Untagged
+  m_TagString: Caledon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11983,7 +11979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3484263413896642004, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4026470018005492304, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag

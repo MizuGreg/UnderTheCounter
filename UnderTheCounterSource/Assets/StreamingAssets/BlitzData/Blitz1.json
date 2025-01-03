@@ -1,0 +1,26 @@
+{
+    "customers": [
+        {
+            "sprite": "Howard",
+            "order": "None",
+            "lines": {
+                "greet": [
+                    "ahah, io sono howard",
+                    "wi wo wi wo"
+                ]
+            },
+            "tip": 0
+        },
+        {
+            "sprite": "Howard",
+            "order": "None",
+            "lines": {
+                "greet": [
+                    "ahah, sono di nuovo io, howard",
+                    "wi wo wi wo"
+                ]
+            },
+            "tip": 0
+        }
+    ]
+}

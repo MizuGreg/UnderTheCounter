@@ -15,6 +15,7 @@ namespace Bar
     public class CustomerManager : MonoBehaviour
     {
         private List<Customer> _dailyCustomers;
+        private List<Customer> _dailyBlitzDialogues;
         private Customer _currentCustomer;
         private string _customerName;
         private Image _currentImage;
@@ -42,6 +43,7 @@ namespace Bar
             EventSystemManager.OnCocktailMade += ServeCustomer;
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
             EventSystemManager.OnPreparationStart += StartPreparation;
+            EventSystemManager.OnMinigameEnd += TriggerHowardDialogue;
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
@@ -55,6 +57,7 @@ namespace Bar
             EventSystemManager.OnCocktailMade -= ServeCustomer;
             EventSystemManager.OnCustomerLeave -= FarewellCustomer;
             EventSystemManager.OnPreparationStart -= StartPreparation;
+            EventSystemManager.OnMinigameEnd -= TriggerHowardDialogue;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -89,6 +92,10 @@ namespace Bar
         {
             yield return new WaitForSeconds(1.5f);
             LoadDailyCustomers(GameData.CurrentDay);
+
+            // wait a bit more to avoid race conditions
+            yield return new WaitForSeconds(1.0f);
+            LoadDailyBlitzDialogues(GameData.CurrentDay);
             GreetCustomer();
         }
 
@@ -96,9 +103,33 @@ namespace Bar
         {
             // read DailyCustomers json and create daily customers list
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + currentDay + ".json");
-            
             _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
-            
+        }
+
+        private void LoadDailyBlitzDialogues(int currentDay)
+        {
+            // read DailyBlitz json and create daily blitz list
+            int blitzDay = currentDay - 1; // blitzes are always TWO days before, this is used for debugging
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/BlitzData/Blitz" + blitzDay + ".json");
+            _dailyBlitzDialogues = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
+        }
+
+        private void TriggerHowardDialogue()
+        {
+            StartCoroutine(StartHowardDialogue());
+        }
+
+        private IEnumerator StartHowardDialogue()
+        {
+            yield return new WaitForSeconds(1.5f);
+            _currentImage.sprite = GetSpriteFromCustomerType(CustomerType.Howard);
+            customerCanvas.GetComponent<FadeCanvas>().FadeIn();
+
+            yield return new WaitForSeconds(timeBeforeDialogue);
+            Dialogue dialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["greet"]);
+            _dialogueManager.StartDialogue(dialogue, DialogueType.NoDrink);
+
+            // _dailyBlitzDialogues.RemoveAt(0);
         }
 
         public void GreetCustomer()

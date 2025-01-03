@@ -53,6 +53,12 @@ namespace Blitz
 
             rectTransform.localScale = originalScale;
 
+            if (string.IsNullOrEmpty(gameObject.tag) || gameObject.tag == "Untagged")
+            {
+                rectTransform.anchoredPosition = originalPosition;
+                return;
+            }
+
             if (IsWithinArea())
             {
                 rectTransform.SetParent(GetMatchingRestrictionArea(), false);

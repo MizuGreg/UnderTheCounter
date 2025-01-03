@@ -7,11 +7,17 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using SavedGameData;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Blitz
 {
     public class BlitzManager : MonoBehaviour
     {
+        private List<Customer> _dailyBlitzAppearances;
+        private Customer _currentAppearance;
+        private DialogueManager _dialogueManager;
         [SerializeField] private CanvasGroup blitzCanvas;
         [SerializeField] private BlitzTimer blitzTimer;
         
@@ -31,7 +37,6 @@ namespace Blitz
             EventSystemManager.OnBlitzCalled += CallBlitz;
             EventSystemManager.OnBlitzTimerEnded += LossByBlitz;
             EventSystemManager.OnBottlePlaced += IncreasePlacedBottlesCounter;
-            EventSystemManager.OnPanelClosed += CheckBlitzWin;
         }
 
         private void OnDestroy()
@@ -40,7 +45,6 @@ namespace Blitz
             EventSystemManager.OnBlitzCalled -= CallBlitz;
             EventSystemManager.OnBlitzTimerEnded -= LossByBlitz;
             EventSystemManager.OnBottlePlaced -= IncreasePlacedBottlesCounter;
-            EventSystemManager.OnPanelClosed -= CheckBlitzWin;
         }
 
         private void BlitzWarning()
@@ -85,7 +89,6 @@ namespace Blitz
             }
 
             Shuffle(ingredientPrefabs);
-            Debug.Log(ingredientPrefabs.Count);
 
             for (int i = 0; i < ingredientPrefabs.Count; i++)
             {
@@ -131,19 +134,12 @@ namespace Blitz
 
         private void CheckBlitzWin()
         {
-            Debug.Log(placedBottlesCounter);
             if (placedBottlesCounter == AssetDatabase.FindAssets("", new[] { $"Assets/Resources/Prefabs/Blitz" }).Length) 
             {
-                blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
-                // panel needs to be not movable anymore
                 // we need some kind of confirmation to show up for the player, then wait a bit, and then fade out
+                blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
+                EventSystemManager.OnMinigameEnd();
             }
-        }
-
-        private void InspectorInterrogation()
-        {
-            // start interrogation, then, if all questions answered correctly:
-            EventSystemManager.OnBlitzEnd();
         }
     }
 }
