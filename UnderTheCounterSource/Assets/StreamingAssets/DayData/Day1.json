@@ -1,24 +1,3 @@
 {
-    "customers": [
-        {
-            "sprite": "Margaret",
-            "order": "SpringBee",
-            "lines": {
-                "greet": [
-                    "<size=75%><i>*sigh* If only my life wasn't so busy… Maybe I could convince him…</i><size=100%><br>Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts.",
-                    "Would you be so kind as to get me a sweet drink, like a <b>Spring Bee</b>? Maybe that will distract me from my career…I'm an <b>actress</b>, you see."
-                ],
-                "leaveCorrect": [
-                    "Oh, how wonderful, dear bartender. I think I even tasted a little bit of romance in this drink.<br>I shall get back to work now, but thank you truly! Goodnight!"
-                ],
-                "leaveWrong": [
-                    "Oh… That wasn't what I expected. Maybe it was fate that didn't want to give me this tiny satisfaction.<br>It's alright, I'll come back another day… Goodnight, bartender!"  
-                ],
-                "leaveWater": [
-                    "Thank you, dear bartender. I thought I'd tasted a hint of love in this drink, but it was very faint…<br>I shall get back to work now, goodbye!"
-                ]
-            },
-            "tip": 5
-        }
-    ]
+    "customers": []
 }

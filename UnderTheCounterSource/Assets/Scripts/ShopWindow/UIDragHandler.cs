@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Technical;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -8,6 +9,7 @@ namespace ShopWindow
 {
     public class UIDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        private PosterPrefabScript _pps;
         private RectTransform _rectTransform;
         private Canvas _canvas;
         private Vector2 _originalPosition;
@@ -20,6 +22,7 @@ namespace ShopWindow
         private void Awake()
         {
             _rectTransform = GetComponent<RectTransform>();
+            _pps = _rectTransform.GetComponent<PosterPrefabScript>();
             _canvas = GetComponentInParent<Canvas>();
             _originalScale = _rectTransform.localScale;
             _originalParent = _rectTransform.parent;
@@ -42,11 +45,8 @@ namespace ShopWindow
         public void OnBeginDrag(PointerEventData eventData)
         {
             // Prevent drag if the poster is locked
-            var posterPrefabScript = _rectTransform.GetComponent<PosterPrefabScript>();
-            if (posterPrefabScript != null && posterPrefabScript.isLocked)
-            {
-                return; // Exit early if the poster is locked
-            }
+            if (!IsDraggable()) return;
+            
             // Set the parent to canvas and handle the size/position while dragging
             _rectTransform.SetParent(_canvas.transform, true);
             _rectTransform.localScale = _originalScale;
@@ -56,20 +56,22 @@ namespace ShopWindow
             _rectTransform.sizeDelta = new Vector2(180, 200);
 
             // Notify PosterPrefabScript that dragging has started
-            posterPrefabScript.SetIsDragging(true);
+            _pps.SetIsDragging(true);
             
             // Hide price/"owned" underneath poster
-            posterPrefabScript.TogglePosterDetails(false);
+            _pps.TogglePosterDetails(false);
+        }
+
+        private bool IsDraggable()
+        {
+            return _pps != null && !_pps.isLocked && _pps.isVisible;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             // Prevent drag if the poster is locked
-            var posterPrefabScript = _rectTransform.GetComponent<PosterPrefabScript>();
-            if (posterPrefabScript != null && posterPrefabScript.isLocked)
-            {
-                return; // Exit early if the poster is locked
-            }
+            if (!IsDraggable()) return;
+            
             var delta = eventData.delta / _canvas.scaleFactor;
             _rectTransform.anchoredPosition += delta;
         }
@@ -77,12 +79,7 @@ namespace ShopWindow
         public void OnEndDrag(PointerEventData eventData)
         {
             // Prevent drag if the poster is locked
-            var posterPrefab = _rectTransform.GetComponent<PosterPrefabScript>();
-            
-            if (posterPrefab != null && posterPrefab.isLocked)
-            {
-                return; // Exit early if the poster is locked
-            }
+            if (!IsDraggable()) return;
             
             var validArea = GetValidRestrictionArea();
             
@@ -94,39 +91,44 @@ namespace ShopWindow
                     if (lastPlacedPlaceholder != null && lastPlacedPlaceholder != validArea)
                     {
                         var lastDropTarget = lastPlacedPlaceholder.GetComponent<DropTarget>();
+                        Debug.Log($"lastDropTarget= {lastDropTarget}");
                         if (lastDropTarget != null)
                         {
                             lastDropTarget.SetOccupied(false);
                         }
                     }
 
-                    _rectTransform.SetParent(validArea, false);
-                    dropTarget.SetOccupied(true);
-                    lastPlacedPlaceholder = validArea;
-
-                    _rectTransform.anchorMin = Vector2.zero;
-                    _rectTransform.anchorMax = Vector2.one;
-                    _rectTransform.anchoredPosition = Vector2.zero;
-                    _rectTransform.sizeDelta = Vector2.zero;
-                    _rectTransform.localScale = Vector3.one;
-                    
-                    posterPrefab.AddPosterToHungPosters();
-
+                    // ACTUAL HANGING PART - would be better as its separate function, with parameters validArea, dropTarget and rectTransform
+                    Debug.Log($"dropTarget = {dropTarget}");
+                    HangPoster(validArea, dropTarget, _pps);
                 }
                 else
                 {
                     ReturnToOriginalPosition();
-
                 }
             }
             else
             {
                 ReturnToOriginalPosition();
-
             }
 
             // Reset the dragging flag after the drag ends
             _rectTransform.GetComponent<PosterPrefabScript>().SetIsDragging(false);
+        }
+
+        public void HangPoster(RectTransform validArea, DropTarget dropTarget, PosterPrefabScript posterPrefab)
+        {
+            Debug.Log($"hanging poster {posterPrefab} on placeholder {dropTarget}");
+            _rectTransform.SetParent(validArea, false);
+            dropTarget.SetOccupied(true);
+            lastPlacedPlaceholder = validArea;
+
+            _rectTransform.anchorMin = Vector2.zero;
+            _rectTransform.anchorMax = Vector2.one;
+            _rectTransform.anchoredPosition = Vector2.zero;
+            _rectTransform.sizeDelta = Vector2.zero;
+            _rectTransform.localScale = Vector3.one;
+            posterPrefab.hanged = dropTarget.ID;
         }
 
         private void ReturnToOriginalPosition()
@@ -139,7 +141,7 @@ namespace ShopWindow
                     dropTarget.SetOccupied(false);
                 }
             }
-
+            
             _rectTransform.SetParent(_originalParent, false);
             _rectTransform.anchoredPosition = _originalPosition;
             _rectTransform.sizeDelta = new Vector2(205, 253);
@@ -147,7 +149,7 @@ namespace ShopWindow
 
             var posterPrefab = _rectTransform.GetComponent<PosterPrefabScript>();
             if (posterPrefab == null) return;
-            posterPrefab.RemovePosterFromHungPosters();
+            posterPrefab.hanged = 0;
 
             posterPrefab.TogglePosterDetails(true);
         }

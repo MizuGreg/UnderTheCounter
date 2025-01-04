@@ -1,4 +1,5 @@
 using System.Collections;
+using SavedGameData;
 using Technical;
 using Tutorial;
 using UnityEngine;
@@ -10,67 +11,71 @@ namespace Bar
     {
         private TutorialManager1 _tutorialManager1;
         private CustomerManager _customerManager;
-        private RecipeBookManager _recipeBookManager;
         private TimerManager _timerManager;
         private DialogueManager _dialogueManager;
 
         public CanvasGroup barContainer;
 
-        [SerializeField] public int forceDay = 2;
+        [SerializeField] public int forceDay;
                 
         void Start()
         {
             _tutorialManager1 = GetComponent<TutorialManager1>();
             _customerManager = GetComponent<CustomerManager>();
-            _recipeBookManager = GetComponent<RecipeBookManager>();
             _timerManager = GetComponent<TimerManager>();
             _dialogueManager = GetComponent<DialogueManager>();
             _customerManager.AttachDialogueManager(_dialogueManager);
             if (_tutorialManager1 != null) _tutorialManager1.AttachDialogueManager(_dialogueManager);
         
             EventSystemManager.OnDayStart += StartDay;
-            EventSystemManager.OnDrunkCustomerLeave += CheckDrunk;
+            EventSystemManager.OnDrunkCustomer += CheckBlitzWarning;
+            EventSystemManager.OnCustomerLeft += CheckDrunk;
+            EventSystemManager.OnBlitzEnd += NextCustomer;
             EventSystemManager.OnCustomersDepleted += EndDay;
             EventSystemManager.OnTutorial1End += EndDay;
+            EventSystemManager.OnTrinketObtained += UpdateTrinkets;
+            EventSystemManager.OnPosterObtained += UnlockPoster;
         
             barContainer.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadBarView();
-            
             StartCoroutine(WaitAndStartDay());
         }
 
         private void OnDestroy()
         {
             EventSystemManager.OnDayStart -= StartDay;
-            EventSystemManager.OnDrunkCustomerLeave -= CheckDrunk;
+            EventSystemManager.OnDrunkCustomer -= CheckBlitzWarning;
+            EventSystemManager.OnCustomerLeft -= CheckDrunk;
+            EventSystemManager.OnBlitzEnd -= NextCustomer;
             EventSystemManager.OnCustomersDepleted -= EndDay;
+            EventSystemManager.OnTutorial1End -= EndDay;
         }
 
         private void PosterEffects()
         {
-            if (Day.IsPosterActive(0))
+            if (GameData.IsPosterActive(0))
             {
-                Day.DailyTime += 60;
+                GameData.DailyTime += 30;
             }
         }
 
         private IEnumerator WaitAndStartDay()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             StartDay();
         }
         
         public void StartDay()
         {
             #if UNITY_EDITOR
-            if (forceDay != 0) Day.CurrentDay = forceDay;
+            if (forceDay > 0) GameData.CurrentDay = forceDay;
             #endif
             
-            Day.StartDay();
+            GameData.StartDay();
             PosterEffects();
             _timerManager.SetTime();
             
-            if (Day.CurrentDay == 1)
+            if (GameData.CurrentDay == 1)
             {
                 _tutorialManager1.StartTutorial();
             }
@@ -98,19 +103,50 @@ namespace Bar
             SceneManager.LoadScene("EndOfDay");
         }
 
-        private void CheckDrunk()
+        private void CheckBlitzWarning()
         {
-            if (++Day.DrunkCustomers >= Day.MaxDrunkCustomers)
+            if (GameData.DrunkCustomers == GameData.MaxDrunkCustomers - 1)
             {
-                EventSystemManager.OnBlitzCalled();
-                Day.DrunkCustomers = 0;
+                EventSystemManager.OnBlitzCallWarning();
             }
         }
 
-        public void LossByBlitz()
+        private void CheckDrunk()
         {
-            // todo: display actual loss screen
-            print("Loss By Blitz");
+            if (GameData.DrunkCustomers >= GameData.MaxDrunkCustomers)
+            {
+                EventSystemManager.OnBlitzCalled();
+                GameData.DrunkCustomers = 0;
+            }
+            else 
+            {
+                NextCustomer();
+            }
+        }
+
+        private void NextCustomer()
+        {
+            StartCoroutine(_customerManager.WaitBeforeNextCustomer());
+        }
+
+        private void UpdateTrinkets(int trinketID)
+        {
+            GameData.Trinkets.Add(trinketID);
+            DisplayTrinkets();
+        }
+
+        private void DisplayTrinkets()
+        {
+            // TODO: iterate over list of game objects and show the obtained Trinkets
+            foreach (int trinketID in GameData.Trinkets)
+            {
+                print($"Displaying trinket with ID {trinketID}");
+            }
+        }
+
+        private void UnlockPoster(int posterID)
+        {
+            GameData.UnlockPoster(posterID);
         }
 
         public void BackToMainMenu()

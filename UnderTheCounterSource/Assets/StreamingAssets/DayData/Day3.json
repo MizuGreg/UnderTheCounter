@@ -2,7 +2,7 @@
     "customers": [
         {
             "sprite": "Howard",
-            "order": "Wrong",
+            "order": "None",
             "lines": {
                 "greet": [
                     "Bartender! Hope I won't see anyone drunk here! The prohibition laws have just passed, and thankfully, might I add!",
@@ -21,24 +21,25 @@
             "order": "Ripple",
             "lines": {
                 "greet": [
-                    "Good evening. I really like the poster you have outside. You know, I work in a book printing factory, so I know a good poster when I see one.", 
-                    "Anyway, good to see you again, bartender. Just heard the news about the prohibition laws. I'm glad you're still open, I was worried for you.",
+                    "[IF HAS POSTERS]Good evening. I really like the poster you have outside. You know, I work in a book printing factory, so I know a good poster when I see one.",
+                    "[IF HAS POSTERS]{POSTER 2}Here, a spare one from my workplace. We've stopped producing posters with alcoholic beverages on them now, so I don't need it anymore.",
+                    "[IF DOESN'T HAVE POSTERS]Good evening and good to see you, bartender. Just heard the news about the prohibition laws. I'm glad you're still open, I was worried for you.",
                     "May I ask you for a <b>Ripple</b>, even if it's a bit risky?"
                 ],
-                "leaveCorrect": [
-                    "A perfect Ripple, indeed. I'm glad you are still here, take care of yourself.",
+                "correct": [
+                    "A perfect Ripple, indeed. I'm impressed that you have the courage to stay open. Take care of yourself.",
                     "May I ask you for another one for my husband, Eugene? He's waiting for me at the table."
                 ],
-                "leaveWrong": [
+                "wrong": [
                     "I really understand the situation, and that you are a bit nervous, but this is not a Ripple.",
                     "By the way I won't tell anyone about this, don't worry. Oh, look, my husband is coming."
                 ],
-                "leaveWater": [
-                    "Excuse me if I asked for a Ripple, but I understand the situation. I think this one's a bit watered down though.",
+                "water": [
+                    "Excuse me if I asked for a Ripple, I understand the situation. I'm impressed you have the courage to stay open. Take care of yourself.",
                     "My husband doesn't know about the prohibition laws yet, I don't want to worry him. He's a very sensitive person."
                 ]
             },
-            "tip": 3
+            "tip": 4
         },
         {
             "sprite": "Eugene",
@@ -49,100 +50,96 @@
                     "WHAAAAT? Prohibition laws? Oh, I see. Well, I'm glad you're still open.",
                     "So can I really get a <b>Ripple</b> here? If it's not too much trouble, of course. In that case… I can just… pass."
                 ],
-                "leaveCorrect": [
+                "correct": [
                     "THIS IS A RIPPLE! <size=75%><i>Oh, I mean, this is a Ripple.</i><size=100%>",
-                    "See you soon for another cup of water, you know what I mean? <size=75%><i>wink wink</i><size=100%>"
+                    "See you soon for another cup of water, you know what I mean? <size=75%><i>*wink wink*</i><size=100%>"
                 ],
-                "leaveWrong": [
+                "incorrect": [
                     "Oh man, your drinks are always good. I mean, it's not like the one I'm used to, but alcohol is alcohol, right?"
                 ],
-                "leaveWater": [
-                    "Oh, I see. I understand if you can't make alcohol anymore. I'll just have this water then.",
-                    "And I mean, I really like it. It's a good cup of water. A very good cup of water."
+                "wrong": [
+                    "Not bad! Mayyybe not my taste though… I mean, it's not like the one I'm used to, but alcohol is alcohol, right?"
+                ],
+                "water": [
+                    "Not a bad Ripple at all! Your drinks are always nice!<br>Oh, uh, I mean…",
+                    "It's a good cup of water. A veeery good cup of water. <i>*wink*</i> Bye now!"
                 ]
             },
             "tip": 3
+        },
+        {
+            "sprite": "Thomas",
+            "order": "SpringBee",
+            "tip": 4,
+            "lines": {
+                "greet": [
+                    "Hi… I was walking by and noticed this bar was still open despite everything. You're doing the good thing, nobody is actually in favor of prohibition.",
+                    "Though, I expected to find my good friend Ernest behind the counter, hah! Maybe he retired...?",
+                    "Anyway… I'm a bit nervous tonight, so I need that bit of booze… Can you make me a <b>Spring Bee</b>?"
+                ],
+                "correct": [
+                    "Perfect! <size=75%>Okay Thomas… You can do it… Just walk up to her and, uh… <size=100%> Oh! Uh, I gotta go! Here's a tip for you, thanks again and bye!"
+                ],
+                "water": [
+                    "Nice! <size=75%>Okay Thomas… You can do it… Just walk up to her and, uh… <size=100%> Uh, I gotta go! Here's a small tip for you, thanks again and bye!"
+                ],
+                "incorrect": [
+                    "Good enough, I guess! <size=75%>Okay Thomas… You can do it… <size=100%> Well, I gotta go! Thanks and bye!"
+                ],
+                "wrong": [
+                    "Oh, that's not what I expected... Well, I gotta go! Thanks and bye!"
+                ]
+            }
         },
         {
             "sprite": "Willie",
             "order": "SpringBee",
+            "orderOnPostIt": "Ripple…???",
             "lines": {
                 "greet": [
-                    "Well hello hello there! Hope you've read the latest edition of Rogue, it's got some hefty tips on how to dress stylishly! Say, do you like ballet?",
-                    "Actually, don't answer! Mysterious is better. Besides, I shouldn't squander too much time before my next competition.",
-                    "Honey, make me a <b>Ripple</b>! Maybe with a drop of honey on the rim. And with Verlan instead of Caledon, I like the bitterness of it.",
-                    "Oh, and no Gryte... Just add some more Verlan to it."
+                    "Well hello hello there! Hope you've read the latest edition of Rogue, it's got some hefty tips on how to dress stylishly!",
+                    "At any rate, I shouldn't squander too much time before my next competition. Honey, make me a <b>Ripple</b>!",
+                    "Maybe with a drop of honey on the rim. And with Verlan instead of Caledon, I like the bitterness of it.",
+                    "Oh, and no Gryte… Just add some more Verlan to it."
                 ],
-                "leaveCorrect": [
+                "correct": [
                     "Oh my, oh my! Just how I love it. If I didn't know any better I'd think you were trying to make an impression on me!<br>Well, I'll definitely be coming back then! See you!"
                 ],
-                "leaveWrong": [
-                    "…Well, it seems you've prepared a different cocktail to gain my attention… and you've succeeded! It wasn't bad after all.<br>I'll be seeing you some other time then!"
+                "Ripple": [
+                    "Oh my! That is not what I asked at all! It tastes like a Ripple. Is it possible you were… distracted by something else?<br>Well, I'll definitely be coming back then! See you!"
                 ],
-                "leaveWater": [
+                "wrong": [
+                    "Well, it seems you've prepared a different cocktail to gain my attention… and you've succeeded! It wasn't bad after all.<br>I'll be seeing you some other time then!"
+                ],
+                "water": [
                     "Oh my! Just how I love it, though it seems you've held back on the alcohol a bit.",
                     "I'll be definitely coming back in the future then, see if your cocktails get better and better over time. See you!"
                 ]
             },
-            "tip": 5
-        },
-        {
-            "sprite": "Margaret",
-            "order": "SpringBee",
-            "lines": {
-                "greet": [
-                    "Oh, wonderful to see you again, dear bartender! My day was so busy that I almost forgot to come here.",
-                    "But it improved when I found out Davidine Betty will attend the ball tonight, right here in Korgis. If only I could attend too…",
-                    "May I get a <b>Spring Bee</b>, please? I've heard bars are still selling alcohol despite the law…"
-                ],
-                "leaveCorrect": [
-                    "Perfect cocktail, dear bartender. I wonder when this recipe was invented…<br>I shall go home now, and rehearse some lines. Goodnight!"
-                ],
-                "leaveWrong": [
-                    "Oh… I'm afraid this is not the right cocktail.<br>It's alright, I'll come back another day… Goodnight, bartender!"
-                ],
-                "leaveWater": [
-                    "Thank you, dear bartender.<br>Well, I might go home now and rehearse some lines… Goodnight!"
-                ]
-            },
-            "tip": 5
-        },
-        {
-            "sprite": "Kenneth",
-            "order": "Everest",
-            "lines": {
-                "greet": [
-                    "Welcome back, fella. Chaotic week, this one, for the government. Aaalways up to no good.<br>Well? Will you make me an <b>Everest</b>?"
-                ],
-                "leaveCorrect": [
-                    "Aaah, just how I like it. Thank you very much, and here's a tip for your work.<br>Goodnight, fella! And always learn from the adults!"
-                ],
-                "leaveWrong": [
-                    "Argh, this is terrible… Are you sure you're following the recipe?<br>I'll be off now. Goodnight."
-                ],
-                "leaveWater": [
-                    "Refreshing for sure, and I'm sure it could taste even better. You do need more experience…<br>In any case, at ease, fella! Goodnight!"
-                ]
-            },
-            "tip": 3
+            "tip": 6
         },
         {
             "sprite": "Gaston",
-            "order": "Magazine",
+            "order": "Barber",
+            "orderOnPostIt": "Something with Cántico",
             "lines": {
                 "greet": [
                     "<i>Bonsoir, barman</i>. This establishment was recommended to me by a trusted client.",
-                    "You may want to consider investing in alcohol stocks by the way… Prices have been increasing lately, what with the prohibition law.",
-                    "It's still not illegal to consume it, however.",
-                    "I would like to try out a <b>Magazine</b> now, <i>s'il vous plaît</i>."
+                    "You may want to consider investing in alcohol stocks by the way… Prices have been increasing lately with the prohibition law. It's still not illegal to consume it, however.",
+                    "Now, I would like to try out something with some fine <b>Cántico</b> in it, <i>s'il vous plaît</i>."
                 ],
-                "leaveCorrect": [
-                    "Excellent cocktail, barman. It seems I'll recommend this place to someone else in turn. <size=75%>I wonder if I could spend some bonding time with my son here…<size=100%><br><i>Bonne nuit</i>, barman."
+                "correct": [
+                    "A <b>Barber</b>. Excellent choice, barman. None other than my favorite cocktail. It seems I'll recommend this place to someone else in turn.",
+                    "{TRINKET 2}Here, a small <i>souvenir</i> from my business. It will get me some publicity if you hang it in your bar. <br>Anyway, <i>bonne nuit</i>, barman."
                 ],
-                "leaveWrong": [
+                "Palmera": [
+                    "A <b>Palmera</b>. Excellent cocktail, barman. It seems I'll recommend this place to someone else in turn.",
+                    "{TRINKET 2}Here, a small <i>souvenir</i> from my business. It will get me some publicity if you hang it in your bar. <i>Bonne nuit</i>, barman."
+                ],
+                "wrong": [
                     "I'm confused. I thought this was a different type of bar. Maybe you've made the wrong cocktail because you got afraid of me.<br>I may retry in the future. <i>Au revoir</i>."
                 ],
-                "leaveWater": [
+                "water": [
                     "Oh. A watered drink.<br>Not the best of impression, and not very polite. But as a fellow <i>entrepreneur</i> I understand the necessity. Have a good night, <i>au revoir</i>."
                 ]
             },
@@ -153,16 +150,16 @@
             "order": "Parti",
             "lines": {
                 "greet": [
-                    "Good to see you again there. It seems like this place is picking up the pace with the customers, even though you've new in the neighborhood.",
+                    "Good to see you again there. It seems like this place is picking up the pace with the customers, even though you're new in the neighborhood.",
                     "One <b>Parti</b> for me, please. And <i>shaken, not stirred</i>, if it's not too much to ask."
                 ],
-                "leaveCorrect": [
+                "correct": [
                     "A fantastic drink, no doubt. It's nice to come here after work and find this welcoming atmosphere.<br>Oh, I'm overstaying my welcome. Have a good night."
                 ],
-                "leaveWrong": [
+                "wrong": [
                     "This is hardly a Parti. I'm afraid you haven't followed the recipe that well. At any rate, farewell and have a nice day."
                 ],
-                "leaveWater": [
+                "water": [
                     "Nice drink. It's nice to come here after work to unwind a little bit. Thank you and have a good night."
                 ]
             },
@@ -176,17 +173,38 @@
                     "Well, hello again. I didn't notice it before but that plant over there is very pretty. It would fit well in my house.<br><size=75%>…or is it part of the wallpaper? I can't tell.<size=100%>",
                     "An <b>Everest</b> for me now! I don't have all day."
                 ],
-                "leaveCorrect": [
-                    "You've improved from the last time I was here! But I'll have you know you still have a long way to go.<br>Bye bye!"
+                "correct": [
+                    "The quality has improved from the last time I was here! But I'll have you know you still have a long way to go.<br>Bye bye!"
                 ],
-                "leaveWrong": [
-                    "Pah! Definitely a downgrade from last time! Heading out now!"
+                "wrong": [
+                    "Pah! Definitely a downgrade from the last time I was here! Heading out now!"
                 ],
-                "leaveWater": [
-                    "You haven't improved much from the last time I was here. I'll have you know you still have a long way to go!<br>Bye bye!"
+                "water": [
+                    "The quality hasn't improved much from the last time I was here. I'll have you know you still have a long way to go!<br>Bye bye!"
                 ]
             },
-            "tip": 2
+            "tip": 3
+        },
+        {
+            "sprite": "Margaret",
+            "order": "Palmera",
+            "lines": {
+                "greet": [
+                    "Oh, wonderful to see you again, dear bartender! My day was so busy that I almost forgot to come here.",
+                    "But it improved when I found out <i>Eliza Davids</i> will attend the ball tonight, right here in Korgis. If only I could attend too…",
+                    "May I get a <b>Palmera</b>, please? I've heard bars are still selling alcohol despite the law…"
+                ],
+                "correct": [
+                    "Perfect cocktail, dear bartender. I'd like to order another one, but I don't wish to overstay my welcome here… Maybe I'll visit another bar…<br>Goodnight!"
+                ],
+                "wrong": [
+                    "Oh… I'm afraid this is not the right cocktail.<br>It's alright, I'll come back another day… Goodnight, bartender!"
+                ],
+                "water": [
+                    "Thank you, dear bartender.<br>Well, I might go home now and rehearse some lines… Goodnight!"
+                ]
+            },
+            "tip": 5
         }
     ]
 }

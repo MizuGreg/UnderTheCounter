@@ -17,6 +17,7 @@ namespace CocktailCreation
         [SerializeField] private GameObject fullnessBar;
         [SerializeField] private GameObject trashButton;
         [SerializeField] private GameObject waterButton;
+        [SerializeField] private FadeCanvas waterDownIcon;
         [SerializeField] private GameObject serveButton;
         [SerializeField] private Recipes recipes;
 
@@ -75,7 +76,7 @@ namespace CocktailCreation
         private void ShowArea(CocktailType cocktailType)
         {
             _cocktailCreationAreaAnimator.SetBool(SlideIn, true);
-            postIt.WriteCocktail(cocktailType);
+            if (cocktailType != CocktailType.Wrong) postIt.ShowPostIt();
         }
 
         private void HideArea()
@@ -159,14 +160,16 @@ namespace CocktailCreation
             CocktailScript cocktailItem = _cocktail.GetComponent<CocktailScript>();
             EventSystemManager.OnCocktailMade(_cocktail.GetComponent<CocktailScript>().cocktail);
             
-            HideArea();
             TrashCocktail();
+            HideArea();
         }
         
         
         public void WaterDownCocktail()
         {
             _cocktail.GetComponent<CocktailScript>().WaterDownCocktail();
+            waterDownIcon.FadeIn();
+            waterButton.GetComponent<Button>().interactable = false;
         }
 
 
@@ -258,6 +261,7 @@ namespace CocktailCreation
         {
             trashButton.SetActive(val);
             waterButton.SetActive(val);
+            waterButton.GetComponent<Button>().interactable = val; // otherwise the button is still not interactable if it has been watered in the previous customer
             serveButton.SetActive(val);
         }
 
@@ -265,11 +269,21 @@ namespace CocktailCreation
         {
             ToggleCsaButtons(true);
             cocktailServingArea.GetComponent<FadeCanvas>().FadeIn();
+            waterDownIcon.gameObject.SetActive(false);
         }
 
         public void DeactivateCocktailServingArea()
         {
-            if (cocktailServingArea.gameObject.activeSelf) cocktailServingArea.GetComponent<FadeCanvas>().FadeOut();
+            if (cocktailServingArea.gameObject.activeInHierarchy)
+            {
+                if (waterDownIcon.gameObject.activeInHierarchy)
+                {
+                    waterDownIcon.FadeOut();
+                }
+                cocktailServingArea.GetComponent<FadeCanvas>().FadeOut();
+                
+            }
+            
         }
 
         private void ActivateMixButton()
