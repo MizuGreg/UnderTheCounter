@@ -1,33 +1,33 @@
     using System;
     using System.Collections.Generic;
     using AYellowpaper.SerializedCollections;
+    using Newtonsoft.Json;
     using ShopWindow;
-    using UnityEngine;
 
     namespace SavedGameData
     {
-        [Serializable]
+        [JsonObject(MemberSerialization.Fields)]
         public class Save
         {
-            [SerializeField] private List<Tuple<string, string>> Log;
-            [SerializeField] private SerializedDictionary<string, bool> Choices;
+            public List<Tuple<string, string>> Log;
+            private SerializedDictionary<string, bool> Choices;
         
-            [SerializeField] private string BarName;
-            [SerializeField] private float DailyTime;
-            [SerializeField] private int CurrentDay;
-            [SerializeField] private int DrunkCustomers;
-            [SerializeField] private int MaxDrunkCustomers;
+            private string BarName;
+            private float DailyTime;
+            private int CurrentDay;
+            private int DrunkCustomers;
+            private int MaxDrunkCustomers;
     
-            [SerializeField] private List<PosterData> Posters;
-            [SerializeField] private List<int> Trinkets;
+            private List<Poster> Posters;
+            private List<int> Trinkets;
     
-            [SerializeField] private float Savings;
-            [SerializeField] private float TodayEarnings;
-            [SerializeField] private int Rent;
-            [SerializeField] private int Food;
-            [SerializeField] private int Supplies;
+            private float Savings;
+            private float TodayEarnings;
+            private int Rent;
+            private int Food;
+            private int Supplies;
 
-            [SerializeField] private DateTime currentDateTime;
+            private DateTime currentDateTime;
 
             public Save()
             {

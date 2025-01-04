@@ -1,5 +1,6 @@
 using Bar;
 using MasterBook;
+using SavedGameData;
 using Technical;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -49,6 +50,11 @@ namespace Settings
             else if (masterBook != null && masterBook.IsMasterBookOpen()) masterBook.CloseMasterBook();
             
             else GetComponent<FadeCanvas>().FadeIn();
+        }
+
+        public void SaveGameShortcut()
+        {
+            GameData.SaveToJson();
         }
     }
 }

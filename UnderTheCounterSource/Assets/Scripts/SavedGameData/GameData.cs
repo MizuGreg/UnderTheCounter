@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using AYellowpaper.SerializedCollections;
 using Newtonsoft.Json;
 using ShopWindow;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace SavedGameData
 {
@@ -137,13 +135,18 @@ namespace SavedGameData
     
         public static void SaveToJson()
         {
-            Save save = new();
-            string saveJson = JsonConvert.SerializeObject(save);
+            Save save = new(); // creates a snapshot of GameData
+            string saveJson = JsonConvert.SerializeObject(save, Formatting.Indented, new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore // Sprites have a self-referencing variable so this ignores them
+            });
             File.WriteAllText(Application.streamingAssetsPath + "/GameData/Save.json", saveJson);
+            Debug.Log("Saved game data.");
         }
     
         public static void LoadFromJson()
         {
+            Debug.Log("Loading game data.");
             try
             {
                 string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GameData/Save.json");
