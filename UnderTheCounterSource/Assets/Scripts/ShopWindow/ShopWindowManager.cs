@@ -84,10 +84,17 @@ namespace ShopWindow
 
                 // Step 4: Update the poster's price
                 pps.posterPrice = matchingPosterData.price;
-                if (pps.posterPrice < 0) pps.isLocked = false;
                 
                 // Set poster visible/invisible
                 pps.isVisible = matchingPosterData.visible;
+                
+                // Set poster Info
+                pps.posterBuff = matchingPosterData.buff;
+                pps.posterNerf = matchingPosterData.nerf;
+                pps.posterDescription = matchingPosterData.description;
+                pps.posterImage = matchingPosterData.image;
+                pps.posterNameText = matchingPosterData.name;
+                pps.isLocked = matchingPosterData.isLocked;
 
                 // Step 5: Handle hanged logic
                 if (matchingPosterData.hanged != 0)
@@ -133,7 +140,7 @@ namespace ShopWindow
             List<PosterData> posterDataList = new List<PosterData>();
             foreach (PosterPrefabScript pps in posterPrefabs)
             {
-                posterDataList.Add(new PosterData(pps.posterID, pps.posterPrice, pps.hanged, pps.isActiveAndEnabled));
+                posterDataList.Add(new PosterData(pps.posterID, pps.posterPrice, pps.hanged, pps.isActiveAndEnabled, pps.posterImage, pps.name, pps.posterBuff, pps.posterNerf, pps.posterDescription, pps.isLocked));
             }
             GameData.Posters = posterDataList;
         }
