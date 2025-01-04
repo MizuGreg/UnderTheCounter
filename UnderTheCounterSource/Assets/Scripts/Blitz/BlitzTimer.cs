@@ -8,6 +8,16 @@ public class BlitzTimer : MonoBehaviour
     public float timerDuration;
     private float timeRemaining;
     private bool isTimerRunning;
+
+    private void Start() {
+        EventSystemManager.OnBlitzCalled += StartTimer;
+        EventSystemManager.OnBlitzEnd += ResetTimer;
+    }
+
+    private void OnDestroy() {
+        EventSystemManager.OnBlitzCalled -= StartTimer;
+        EventSystemManager.OnBlitzEnd -= ResetTimer;
+    }
     
     public void StartTimer()
     {
@@ -16,7 +26,7 @@ public class BlitzTimer : MonoBehaviour
         timerBarImage.fillAmount = 1f;  
     }
 
-    void Update()
+    public void Update()
     {
         if (isTimerRunning)
         {
@@ -30,5 +40,12 @@ public class BlitzTimer : MonoBehaviour
                 EventSystemManager.OnBlitzTimerEnded();
             }
         }
+    }
+
+    private void ResetTimer()
+    {
+        timeRemaining = timerDuration;
+        isTimerRunning = false;
+        timerBarImage.fillAmount = 1f;
     }
 }

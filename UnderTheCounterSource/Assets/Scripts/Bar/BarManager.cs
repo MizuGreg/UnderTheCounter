@@ -32,7 +32,7 @@ namespace Bar
             EventSystemManager.OnDayStart += StartDay;
             EventSystemManager.OnDrunkCustomer += CheckBlitzWarning;
             EventSystemManager.OnCustomerLeft += CheckDrunk;
-            EventSystemManager.OnBlitzEnd += NextCustomer;
+            // EventSystemManager.OnBlitzEnd += NextCustomer;
             EventSystemManager.OnCustomersDepleted += EndDay;
             EventSystemManager.OnTutorial1End += EndDay;
             EventSystemManager.OnTrinketObtained += UpdateTrinkets;
@@ -48,7 +48,7 @@ namespace Bar
             EventSystemManager.OnDayStart -= StartDay;
             EventSystemManager.OnDrunkCustomer -= CheckBlitzWarning;
             EventSystemManager.OnCustomerLeft -= CheckDrunk;
-            EventSystemManager.OnBlitzEnd -= NextCustomer;
+            // EventSystemManager.OnBlitzEnd -= NextCustomer;
             EventSystemManager.OnCustomersDepleted -= EndDay;
             EventSystemManager.OnTutorial1End -= EndDay;
         }

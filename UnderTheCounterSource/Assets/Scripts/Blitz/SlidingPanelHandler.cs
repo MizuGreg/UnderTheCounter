@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using Technical;
 
 namespace Blitz
 {
@@ -10,7 +11,17 @@ namespace Blitz
         private RectTransform rectTransform;
         private Vector2 originalPosition;
 
-        void Awake()
+        private void Start()
+        {
+            EventSystemManager.OnBlitzEnd += () => rectTransform.anchoredPosition = originalPosition;
+        }
+
+        private void OnDestroy()
+        {
+            EventSystemManager.OnBlitzEnd -= () => rectTransform.anchoredPosition = originalPosition;
+        }
+
+        private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
             originalPosition = rectTransform.anchoredPosition;
@@ -27,6 +38,7 @@ namespace Blitz
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            EventSystemManager.OnPanelOpened();
             StartCoroutine(FallOffScreen());
         }
 

@@ -9,6 +9,7 @@ using SavedGameData;
 using Technical;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Bar
 {
@@ -20,6 +21,9 @@ namespace Bar
         private string _customerName;
         private Image _currentImage;
         private DialogueManager _dialogueManager;
+
+        [SerializeField] private Button choiceButton1;
+        [SerializeField] private Button choiceButton2;
 
         [SerializeField] private CanvasGroup customerCanvas;
         
@@ -44,6 +48,7 @@ namespace Bar
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
             EventSystemManager.OnPreparationStart += StartPreparation;
             EventSystemManager.OnMinigameEnd += TriggerHowardDialogue;
+            EventSystemManager.MultipleChoiceStart += ShowChoiceButtons;
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
@@ -58,6 +63,7 @@ namespace Bar
             EventSystemManager.OnCustomerLeave -= FarewellCustomer;
             EventSystemManager.OnPreparationStart -= StartPreparation;
             EventSystemManager.OnMinigameEnd -= TriggerHowardDialogue;
+            EventSystemManager.MultipleChoiceStart -= ShowChoiceButtons;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -94,7 +100,7 @@ namespace Bar
             LoadDailyCustomers(GameData.CurrentDay);
 
             // wait a bit more to avoid race conditions
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.5f);
             LoadDailyBlitzDialogues(GameData.CurrentDay);
             GreetCustomer();
         }
@@ -127,9 +133,43 @@ namespace Bar
 
             yield return new WaitForSeconds(timeBeforeDialogue);
             Dialogue dialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["greet"]);
-            _dialogueManager.StartDialogue(dialogue, DialogueType.NoDrink);
+            _dialogueManager.StartDialogue(dialogue, DialogueType.Blitz);
 
-            // _dailyBlitzDialogues.RemoveAt(0);
+            //_dailyBlitzDialogues.RemoveAt(0);
+        }
+
+        private void ShowChoiceButtons() 
+        {
+            choiceButton1.gameObject.SetActive(true);
+            choiceButton2.gameObject.SetActive(true);
+
+            choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = _dailyBlitzDialogues[0].lines["choices"][0];
+            choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = _dailyBlitzDialogues[0].lines["choices"][1];
+
+            choiceButton1.onClick.AddListener(() => OnChoiceSelected(0));
+            choiceButton2.onClick.AddListener(() => OnChoiceSelected(1));
+        }
+
+        void OnChoiceSelected(int choiceIndex)
+        {
+            Debug.Log("Choice selected: " + choiceIndex);
+
+            choiceButton1.gameObject.SetActive(false);
+            choiceButton2.gameObject.SetActive(false);
+
+            if (choiceIndex == 0)
+            {
+                Dialogue dialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["correct"]);
+                _dialogueManager.StartDialogue(dialogue, DialogueType.NoDrink);
+            }
+            else
+            {
+                Dialogue dialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["wrong"]);
+                _dialogueManager.StartDialogue(dialogue, DialogueType.NoDrink);
+            }
+
+            _dailyBlitzDialogues.RemoveAt(0);
+            EventSystemManager.OnBlitzEnd();
         }
 
         public void GreetCustomer()

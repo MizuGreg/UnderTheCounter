@@ -37,7 +37,11 @@ namespace Technical
         public static UnityAction OnBlitzCallWarning;
         public static UnityAction OnBlitzTimerEnded;
         public static UnityAction OnBottlePlaced;
+        public static UnityAction OnPanelOpened;
         public static UnityAction OnMinigameEnd;
+
+        public static UnityAction MultipleChoiceStart;
+
         public static UnityAction OnBlitzEnd;
 
         // Scene loads

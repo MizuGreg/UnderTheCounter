@@ -11,25 +11,30 @@ namespace Blitz
         private RectTransform rectTransform;
         private Canvas canvas;
         private Vector2 originalPosition;
-        private Vector3 originalScale;
         private bool isPlaced = false;
-        private static bool areDropAreasEnabled = true;
+        private static bool areDropAreasEnabled = false;
+
+        private void Start()
+        {
+            EventSystemManager.OnPanelOpened += EnableDropAreas;
+            EventSystemManager.OnBlitzEnd += ResetBottles;
+        }
+
+        private void OnDestroy()
+        {
+            EventSystemManager.OnPanelOpened -= EnableDropAreas;
+            EventSystemManager.OnBlitzEnd -= ResetBottles;
+        }
 
         void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
             canvas = GetComponentInParent<Canvas>();
-            originalScale = rectTransform.localScale;
         }
 
         public static void EnableDropAreas()
         {
             areDropAreasEnabled = true;
-        }
-
-        public static void DisableDropAreas()
-        {
-            areDropAreasEnabled = false;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -51,8 +56,6 @@ namespace Blitz
         {
             if (!areDropAreasEnabled || isPlaced) return;
 
-            rectTransform.localScale = originalScale;
-
             if (string.IsNullOrEmpty(gameObject.tag) || gameObject.tag == "Untagged")
             {
                 rectTransform.anchoredPosition = originalPosition;
@@ -62,29 +65,12 @@ namespace Blitz
             if (IsWithinArea())
             {
                 RectTransform restrictionArea = GetMatchingRestrictionArea();
-                rectTransform.SetParent(restrictionArea, false);
-                // rectTransform.anchoredPosition = Vector2.zero;
-
-                // adapt the scale to the parent
-                rectTransform.position = restrictionArea.position;
-
-                Vector2 placeholderSize = restrictionArea.sizeDelta;
-                Vector2 itemOriginalSize = rectTransform.sizeDelta;
-                float aspectRatio = itemOriginalSize.x / itemOriginalSize.y;
-
-                if (placeholderSize.x / placeholderSize.y > aspectRatio)
-                {
-                    rectTransform.sizeDelta = new Vector2(placeholderSize.y * aspectRatio, placeholderSize.y);
-                }
-                else
-                {
-                    rectTransform.sizeDelta = new Vector2(placeholderSize.x, placeholderSize.x / aspectRatio);
-                }
-
-                var image = GetComponent<Image>();
-                image.preserveAspect = true;
+                restrictionArea.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Blitz/{gameObject.tag}_BOX");
 
                 isPlaced = true;
+                rectTransform.GetComponent<Image>().enabled = false;
+                rectTransform.anchoredPosition = originalPosition;
+
                 EventSystemManager.OnBottlePlaced();
             }
             else
@@ -114,6 +100,13 @@ namespace Blitz
                 return rect;
             }
             return null;
+        }
+
+        private void ResetBottles()
+        {
+            isPlaced = false;
+            rectTransform.GetComponent<Image>().enabled = true;
+            areDropAreasEnabled = false;
         }
 
     }
