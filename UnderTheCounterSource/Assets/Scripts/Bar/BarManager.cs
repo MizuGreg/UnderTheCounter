@@ -16,7 +16,7 @@ namespace Bar
 
         public CanvasGroup barContainer;
 
-        [SerializeField] public int forceDay = 2;
+        [SerializeField] public int forceDay;
                 
         void Start()
         {
@@ -68,7 +68,7 @@ namespace Bar
         public void StartDay()
         {
             #if UNITY_EDITOR
-            if (forceDay != 0) GameData.CurrentDay = forceDay;
+            if (forceDay > 0) GameData.CurrentDay = forceDay;
             #endif
             
             GameData.StartDay();

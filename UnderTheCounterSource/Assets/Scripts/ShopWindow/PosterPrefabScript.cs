@@ -22,8 +22,9 @@ namespace ShopWindow
     
         public GameObject posterPopUpPrefab; // Reference to the shared PosterPopUp prefab in the scene
 
-        public bool isVisible = true;
-        public bool isLocked; // Indicates if the poster is locked
+        public bool isLocked; // Indicates if the poster is locked, meaning you can't drag it around but you can open the popup
+        public bool isVisible = true; // indicated if the poster is accessible at this point of the game, meaning you can buy and own it
+        
         public int hanged;
     
         private bool _isDragging; // Track whether the item is being dragged

@@ -487,6 +487,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenPosterTab
       objectReference: {fileID: 0}
+    - target: {fileID: 2575901070501205221, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 623126691}
+    - target: {fileID: 2575901070501205221, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseMasterBook
+      objectReference: {fileID: 0}
     - target: {fileID: 3437458489612437889, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeTabManager
       value: 
@@ -10561,7 +10569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barContainer: {fileID: 1180806169}
-  forceDay: 3
+  forceDay: 2
 --- !u!114 &1725047609
 MonoBehaviour:
   m_ObjectHideFlags: 0

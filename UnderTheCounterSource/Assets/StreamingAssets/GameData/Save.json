@@ -1,1 +1,2805 @@
-{}
+{
+  "Log": [
+    {
+      "Item1": "Margaret",
+      "Item2": "<size=75%><i>*sigh* If only my life wasn't so busy… Maybe I could convince him…</i><size=100%><br>Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts."
+    },
+    {
+      "Item1": "Margaret",
+      "Item2": "Would you be so kind as to get me a sweet drink, like a <b>Spring Bee</b>? Maybe that will distract me from my career…I'm an <b>actress</b>, you see."
+    }
+  ],
+  "Choices": {},
+  "BarName": "The Chitchat",
+  "DailyTime": 270.0,
+  "CurrentDay": 2,
+  "DrunkCustomers": 0,
+  "MaxDrunkCustomers": 99,
+  "Posters": [
+    {
+      "id": 2,
+      "price": -1.0,
+      "hanged": 0,
+      "visible": true,
+      "image": {
+        "bounds": {
+          "center": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "size": {
+            "x": 7.36,
+            "y": 10.3,
+            "z": 0.2,
+            "normalized": {
+              "x": 0.5813151,
+              "y": 0.8135252,
+              "z": 0.0157966055,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 12.6609478,
+            "sqrMagnitude": 160.2996
+          },
+          "extents": {
+            "x": 3.68,
+            "y": 5.15,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.5813151,
+              "y": 0.8135252,
+              "z": 0.0157966055,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.330474,
+            "sqrMagnitude": 40.0749
+          },
+          "min": {
+            "x": -3.68,
+            "y": -5.15,
+            "z": -0.1,
+            "normalized": {
+              "x": -0.5813151,
+              "y": -0.8135252,
+              "z": -0.0157966055,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.330474,
+            "sqrMagnitude": 40.0749
+          },
+          "max": {
+            "x": 3.68,
+            "y": 5.15,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.5813151,
+              "y": 0.8135252,
+              "z": 0.0157966055,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.330474,
+            "sqrMagnitude": 40.0749
+          }
+        },
+        "rect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 368.0,
+            "y": 515.0,
+            "normalized": {
+              "x": 0.581387639,
+              "y": 0.8136267,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 632.9684,
+            "sqrMagnitude": 400649.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 736.0,
+            "y": 1030.0,
+            "normalized": {
+              "x": 0.581387639,
+              "y": 0.8136267,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1265.93677,
+            "sqrMagnitude": 1602596.0
+          },
+          "width": 736.0,
+          "height": 1030.0,
+          "size": {
+            "x": 736.0,
+            "y": 1030.0,
+            "normalized": {
+              "x": 0.581387639,
+              "y": 0.8136267,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1265.93677,
+            "sqrMagnitude": 1602596.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 736.0,
+          "yMax": 1030.0,
+          "left": 0.0,
+          "right": 736.0,
+          "top": 0.0,
+          "bottom": 1030.0
+        },
+        "border": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "texture": {
+          "format": 3,
+          "ignoreMipmapLimit": false,
+          "mipmapLimitGroup": "",
+          "activeMipmapLimit": 0,
+          "isReadable": false,
+          "vtOnly": false,
+          "streamingMipmaps": false,
+          "streamingMipmapsPriority": 0,
+          "requestedMipmapLevel": -1,
+          "minimumMipmapLevel": -1,
+          "calculatedMipmapLevel": -1,
+          "desiredMipmapLevel": -1,
+          "loadingMipmapLevel": 0,
+          "loadedMipmapLevel": 0,
+          "alphaIsTransparency": true,
+          "mipmapCount": 1,
+          "graphicsFormat": 3,
+          "width": 736,
+          "height": 1030,
+          "dimension": 2,
+          "wrapMode": 1,
+          "wrapModeU": 1,
+          "wrapModeV": 1,
+          "wrapModeW": 1,
+          "filterMode": 1,
+          "anisoLevel": 1,
+          "mipMapBias": 0.0,
+          "texelSize": {
+            "x": 0.00135869568,
+            "y": 0.0009708738,
+            "normalized": {
+              "x": 0.8136267,
+              "y": 0.581387639,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 0.00166992517,
+            "sqrMagnitude": 2.78865E-06
+          },
+          "updateCount": 0,
+          "isDataSRGB": true,
+          "imageContentsHash": {
+            "isValid": true
+          },
+          "name": "poster 3_hq",
+          "hideFlags": 8
+        },
+        "pixelsPerUnit": 100.0,
+        "spriteAtlasTextureScale": 1.0,
+        "associatedAlphaSplitTexture": null,
+        "pivot": {
+          "x": 368.0,
+          "y": 515.0,
+          "normalized": {
+            "x": 0.581387639,
+            "y": 0.8136267,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 632.9684,
+          "sqrMagnitude": 400649.0
+        },
+        "packed": false,
+        "packingMode": 0,
+        "packingRotation": 0,
+        "textureRect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 368.0,
+            "y": 515.0,
+            "normalized": {
+              "x": 0.581387639,
+              "y": 0.8136267,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 632.9684,
+            "sqrMagnitude": 400649.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 736.0,
+            "y": 1030.0,
+            "normalized": {
+              "x": 0.581387639,
+              "y": 0.8136267,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1265.93677,
+            "sqrMagnitude": 1602596.0
+          },
+          "width": 736.0,
+          "height": 1030.0,
+          "size": {
+            "x": 736.0,
+            "y": 1030.0,
+            "normalized": {
+              "x": 0.581387639,
+              "y": 0.8136267,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1265.93677,
+            "sqrMagnitude": 1602596.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 736.0,
+          "yMax": 1030.0,
+          "left": 0.0,
+          "right": 736.0,
+          "top": 0.0,
+          "bottom": 1030.0
+        },
+        "textureRectOffset": {
+          "x": 0.0,
+          "y": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "vertices": [
+          {
+            "x": -3.68,
+            "y": 5.15,
+            "normalized": {
+              "x": -0.581387639,
+              "y": 0.8136267,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.32968426,
+            "sqrMagnitude": 40.0649033
+          },
+          {
+            "x": 3.68,
+            "y": -5.15,
+            "normalized": {
+              "x": 0.581387639,
+              "y": -0.8136267,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.32968426,
+            "sqrMagnitude": 40.0649033
+          },
+          {
+            "x": 3.68,
+            "y": 5.15,
+            "normalized": {
+              "x": 0.581387639,
+              "y": 0.8136267,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.32968426,
+            "sqrMagnitude": 40.0649033
+          },
+          {
+            "x": -3.68,
+            "y": -5.15,
+            "normalized": {
+              "x": -0.581387639,
+              "y": -0.8136267,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.32968426,
+            "sqrMagnitude": 40.0649033
+          }
+        ],
+        "triangles": [
+          3,
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "uv": [
+          {
+            "x": 0.0,
+            "y": 1.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 1.0,
+            "normalized": {
+              "x": 0.707106769,
+              "y": 0.707106769,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 1.41421354,
+            "sqrMagnitude": 2.0
+          },
+          {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          }
+        ],
+        "name": "poster 3_hq",
+        "hideFlags": 0
+      },
+      "name": "Poster 3",
+      "buff": "",
+      "nerf": "",
+      "description": "Placeholder description 3",
+      "locked": false
+    },
+    {
+      "id": 3,
+      "price": 60.0,
+      "hanged": 0,
+      "visible": false,
+      "image": {
+        "bounds": {
+          "center": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "size": {
+            "x": 7.36,
+            "y": 10.54,
+            "z": 0.2,
+            "normalized": {
+              "x": 0.572452962,
+              "y": 0.819789946,
+              "z": 0.0155557869,
+              "normalized": {
+                "x": 0.572453,
+                "y": 0.81979,
+                "z": 0.0155557878,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 12.8569517,
+            "sqrMagnitude": 165.301208
+          },
+          "extents": {
+            "x": 3.68,
+            "y": 5.27,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.572452962,
+              "y": 0.819789946,
+              "z": 0.0155557869,
+              "normalized": {
+                "x": 0.572453,
+                "y": 0.81979,
+                "z": 0.0155557878,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 6.428476,
+            "sqrMagnitude": 41.3253021
+          },
+          "min": {
+            "x": -3.68,
+            "y": -5.27,
+            "z": -0.1,
+            "normalized": {
+              "x": -0.572452962,
+              "y": -0.819789946,
+              "z": -0.0155557869,
+              "normalized": {
+                "x": -0.572453,
+                "y": -0.81979,
+                "z": -0.0155557878,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 6.428476,
+            "sqrMagnitude": 41.3253021
+          },
+          "max": {
+            "x": 3.68,
+            "y": 5.27,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.572452962,
+              "y": 0.819789946,
+              "z": 0.0155557869,
+              "normalized": {
+                "x": 0.572453,
+                "y": 0.81979,
+                "z": 0.0155557878,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 6.428476,
+            "sqrMagnitude": 41.3253021
+          }
+        },
+        "rect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 368.0,
+            "y": 527.0,
+            "normalized": {
+              "x": 0.5725223,
+              "y": 0.8198892,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 642.7698,
+            "sqrMagnitude": 413153.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 736.0,
+            "y": 1054.0,
+            "normalized": {
+              "x": 0.5725223,
+              "y": 0.8198892,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1285.53955,
+            "sqrMagnitude": 1652612.0
+          },
+          "width": 736.0,
+          "height": 1054.0,
+          "size": {
+            "x": 736.0,
+            "y": 1054.0,
+            "normalized": {
+              "x": 0.5725223,
+              "y": 0.8198892,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1285.53955,
+            "sqrMagnitude": 1652612.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 736.0,
+          "yMax": 1054.0,
+          "left": 0.0,
+          "right": 736.0,
+          "top": 0.0,
+          "bottom": 1054.0
+        },
+        "border": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "texture": {
+          "format": 3,
+          "ignoreMipmapLimit": false,
+          "mipmapLimitGroup": "",
+          "activeMipmapLimit": 0,
+          "isReadable": false,
+          "vtOnly": false,
+          "streamingMipmaps": false,
+          "streamingMipmapsPriority": 0,
+          "requestedMipmapLevel": -1,
+          "minimumMipmapLevel": -1,
+          "calculatedMipmapLevel": -1,
+          "desiredMipmapLevel": -1,
+          "loadingMipmapLevel": 0,
+          "loadedMipmapLevel": 0,
+          "alphaIsTransparency": true,
+          "mipmapCount": 1,
+          "graphicsFormat": 3,
+          "width": 736,
+          "height": 1054,
+          "dimension": 2,
+          "wrapMode": 1,
+          "wrapModeU": 1,
+          "wrapModeV": 1,
+          "wrapModeW": 1,
+          "filterMode": 1,
+          "anisoLevel": 1,
+          "mipMapBias": 0.0,
+          "texelSize": {
+            "x": 0.00135869568,
+            "y": 0.0009487666,
+            "normalized": {
+              "x": 0.8198892,
+              "y": 0.5725222,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 0.00165716989,
+            "sqrMagnitude": 2.746212E-06
+          },
+          "updateCount": 0,
+          "isDataSRGB": true,
+          "imageContentsHash": {
+            "isValid": true
+          },
+          "name": "poster 4_hq",
+          "hideFlags": 8
+        },
+        "pixelsPerUnit": 100.0,
+        "spriteAtlasTextureScale": 1.0,
+        "associatedAlphaSplitTexture": null,
+        "pivot": {
+          "x": 368.0,
+          "y": 527.0,
+          "normalized": {
+            "x": 0.5725223,
+            "y": 0.8198892,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 642.7698,
+          "sqrMagnitude": 413153.0
+        },
+        "packed": false,
+        "packingMode": 0,
+        "packingRotation": 0,
+        "textureRect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 368.0,
+            "y": 527.0,
+            "normalized": {
+              "x": 0.5725223,
+              "y": 0.8198892,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 642.7698,
+            "sqrMagnitude": 413153.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 736.0,
+            "y": 1054.0,
+            "normalized": {
+              "x": 0.5725223,
+              "y": 0.8198892,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1285.53955,
+            "sqrMagnitude": 1652612.0
+          },
+          "width": 736.0,
+          "height": 1054.0,
+          "size": {
+            "x": 736.0,
+            "y": 1054.0,
+            "normalized": {
+              "x": 0.5725223,
+              "y": 0.8198892,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1285.53955,
+            "sqrMagnitude": 1652612.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 736.0,
+          "yMax": 1054.0,
+          "left": 0.0,
+          "right": 736.0,
+          "top": 0.0,
+          "bottom": 1054.0
+        },
+        "textureRectOffset": {
+          "x": 0.0,
+          "y": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "vertices": [
+          {
+            "x": -3.68,
+            "y": 5.27,
+            "normalized": {
+              "x": -0.5725222,
+              "y": 0.8198891,
+              "normalized": {
+                "x": -0.5725223,
+                "y": 0.8198892,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.0
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 6.427698,
+            "sqrMagnitude": 41.3153
+          },
+          {
+            "x": 3.68,
+            "y": -5.27,
+            "normalized": {
+              "x": 0.5725222,
+              "y": -0.8198891,
+              "normalized": {
+                "x": 0.5725223,
+                "y": -0.8198892,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.0
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 6.427698,
+            "sqrMagnitude": 41.3153
+          },
+          {
+            "x": 3.68,
+            "y": 5.27,
+            "normalized": {
+              "x": 0.5725222,
+              "y": 0.8198891,
+              "normalized": {
+                "x": 0.5725223,
+                "y": 0.8198892,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.0
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 6.427698,
+            "sqrMagnitude": 41.3153
+          },
+          {
+            "x": -3.68,
+            "y": -5.27,
+            "normalized": {
+              "x": -0.5725222,
+              "y": -0.8198891,
+              "normalized": {
+                "x": -0.5725223,
+                "y": -0.8198892,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.0
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 6.427698,
+            "sqrMagnitude": 41.3153
+          }
+        ],
+        "triangles": [
+          3,
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "uv": [
+          {
+            "x": 0.0,
+            "y": 1.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 1.0,
+            "normalized": {
+              "x": 0.707106769,
+              "y": 0.707106769,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 1.41421354,
+            "sqrMagnitude": 2.0
+          },
+          {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          }
+        ],
+        "name": "poster 4_hq",
+        "hideFlags": 0
+      },
+      "name": "Poster 4",
+      "buff": "",
+      "nerf": "",
+      "description": "Placeholder description 4",
+      "locked": true
+    },
+    {
+      "id": 4,
+      "price": -1.0,
+      "hanged": 0,
+      "visible": false,
+      "image": {
+        "bounds": {
+          "center": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "size": {
+            "x": 44.75238,
+            "y": 55.92,
+            "z": 0.2,
+            "normalized": {
+              "x": 0.624832034,
+              "y": 0.780754149,
+              "z": 0.002792397,
+              "normalized": {
+                "x": 0.6248321,
+                "y": 0.7807542,
+                "z": 0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 71.6230545,
+            "sqrMagnitude": 5129.862
+          },
+          "extents": {
+            "x": 22.37619,
+            "y": 27.96,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.624832034,
+              "y": 0.780754149,
+              "z": 0.002792397,
+              "normalized": {
+                "x": 0.6248321,
+                "y": 0.7807542,
+                "z": 0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 35.8115273,
+            "sqrMagnitude": 1282.46545
+          },
+          "min": {
+            "x": -22.37619,
+            "y": -27.96,
+            "z": -0.1,
+            "normalized": {
+              "x": -0.624832034,
+              "y": -0.780754149,
+              "z": -0.002792397,
+              "normalized": {
+                "x": -0.6248321,
+                "y": -0.7807542,
+                "z": -0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 35.8115273,
+            "sqrMagnitude": 1282.46545
+          },
+          "max": {
+            "x": 22.37619,
+            "y": 27.96,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.624832034,
+              "y": 0.780754149,
+              "z": 0.002792397,
+              "normalized": {
+                "x": 0.6248321,
+                "y": 0.7807542,
+                "z": 0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 35.8115273,
+            "sqrMagnitude": 1282.46545
+          }
+        },
+        "rect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 819.5,
+            "y": 1024.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 1311.54724,
+            "sqrMagnitude": 1720156.25
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "width": 1639.0,
+          "height": 2048.0,
+          "size": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 1639.0,
+          "yMax": 2048.0,
+          "left": 0.0,
+          "right": 1639.0,
+          "top": 0.0,
+          "bottom": 2048.0
+        },
+        "border": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "texture": {
+          "format": 4,
+          "ignoreMipmapLimit": false,
+          "mipmapLimitGroup": "",
+          "activeMipmapLimit": 0,
+          "isReadable": false,
+          "vtOnly": false,
+          "streamingMipmaps": false,
+          "streamingMipmapsPriority": 0,
+          "requestedMipmapLevel": -1,
+          "minimumMipmapLevel": -1,
+          "calculatedMipmapLevel": -1,
+          "desiredMipmapLevel": -1,
+          "loadingMipmapLevel": 0,
+          "loadedMipmapLevel": 0,
+          "alphaIsTransparency": true,
+          "mipmapCount": 1,
+          "graphicsFormat": 4,
+          "width": 1639,
+          "height": 2048,
+          "dimension": 2,
+          "wrapMode": 1,
+          "wrapModeU": 1,
+          "wrapModeV": 1,
+          "wrapModeW": 1,
+          "filterMode": 1,
+          "anisoLevel": 1,
+          "mipMapBias": 0.0,
+          "texelSize": {
+            "x": 0.0006101281,
+            "y": 0.00048828125,
+            "normalized": {
+              "x": 0.780757248,
+              "y": 0.624834538,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 0.0007814569,
+            "sqrMagnitude": 6.106749E-07
+          },
+          "updateCount": 0,
+          "isDataSRGB": true,
+          "imageContentsHash": {
+            "isValid": true
+          },
+          "name": "Poster 5",
+          "hideFlags": 8
+        },
+        "pixelsPerUnit": 36.62375,
+        "spriteAtlasTextureScale": 1.0,
+        "associatedAlphaSplitTexture": null,
+        "pivot": {
+          "x": 819.5,
+          "y": 1024.0,
+          "normalized": {
+            "x": 0.624834538,
+            "y": 0.780757248,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 1311.54724,
+          "sqrMagnitude": 1720156.25
+        },
+        "packed": false,
+        "packingMode": 0,
+        "packingRotation": 0,
+        "textureRect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 819.5,
+            "y": 1024.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 1311.54724,
+            "sqrMagnitude": 1720156.25
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "width": 1639.0,
+          "height": 2048.0,
+          "size": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 1639.0,
+          "yMax": 2048.0,
+          "left": 0.0,
+          "right": 1639.0,
+          "top": 0.0,
+          "bottom": 2048.0
+        },
+        "textureRectOffset": {
+          "x": 0.0,
+          "y": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "vertices": [
+          {
+            "x": -22.37619,
+            "y": 27.96,
+            "normalized": {
+              "x": -0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          },
+          {
+            "x": 22.37619,
+            "y": -27.96,
+            "normalized": {
+              "x": 0.624834538,
+              "y": -0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          },
+          {
+            "x": 22.37619,
+            "y": 27.96,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          },
+          {
+            "x": -22.37619,
+            "y": -27.96,
+            "normalized": {
+              "x": -0.624834538,
+              "y": -0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          }
+        ],
+        "triangles": [
+          3,
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "uv": [
+          {
+            "x": 3.72392641E-08,
+            "y": 1.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 1.0,
+            "normalized": {
+              "x": 0.707106769,
+              "y": 0.707106769,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 1.41421354,
+            "sqrMagnitude": 2.0
+          },
+          {
+            "x": 3.72392641E-08,
+            "y": 0.0,
+            "normalized": {
+              "x": 0.0,
+              "y": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "magnitude": 3.72392641E-08,
+            "sqrMagnitude": 1.38676276E-15
+          }
+        ],
+        "name": "Poster 5",
+        "hideFlags": 0
+      },
+      "name": "Poster 5",
+      "buff": "Longer shift",
+      "nerf": "Attracts attention a little bit",
+      "description": "Ernest has gifted you this poster, which allegedly comes from Turin, Italy. Its vibrant colors will give you more energy during your shift, but they might also attract unwanted attention...",
+      "locked": false
+    },
+    {
+      "id": 5,
+      "price": 100.0,
+      "hanged": 0,
+      "visible": false,
+      "image": {
+        "bounds": {
+          "center": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "size": {
+            "x": 44.75238,
+            "y": 55.92,
+            "z": 0.2,
+            "normalized": {
+              "x": 0.624832034,
+              "y": 0.780754149,
+              "z": 0.002792397,
+              "normalized": {
+                "x": 0.6248321,
+                "y": 0.7807542,
+                "z": 0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 71.6230545,
+            "sqrMagnitude": 5129.862
+          },
+          "extents": {
+            "x": 22.37619,
+            "y": 27.96,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.624832034,
+              "y": 0.780754149,
+              "z": 0.002792397,
+              "normalized": {
+                "x": 0.6248321,
+                "y": 0.7807542,
+                "z": 0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 35.8115273,
+            "sqrMagnitude": 1282.46545
+          },
+          "min": {
+            "x": -22.37619,
+            "y": -27.96,
+            "z": -0.1,
+            "normalized": {
+              "x": -0.624832034,
+              "y": -0.780754149,
+              "z": -0.002792397,
+              "normalized": {
+                "x": -0.6248321,
+                "y": -0.7807542,
+                "z": -0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 35.8115273,
+            "sqrMagnitude": 1282.46545
+          },
+          "max": {
+            "x": 22.37619,
+            "y": 27.96,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.624832034,
+              "y": 0.780754149,
+              "z": 0.002792397,
+              "normalized": {
+                "x": 0.6248321,
+                "y": 0.7807542,
+                "z": 0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 35.8115273,
+            "sqrMagnitude": 1282.46545
+          }
+        },
+        "rect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 819.5,
+            "y": 1024.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 1311.54724,
+            "sqrMagnitude": 1720156.25
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "width": 1639.0,
+          "height": 2048.0,
+          "size": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 1639.0,
+          "yMax": 2048.0,
+          "left": 0.0,
+          "right": 1639.0,
+          "top": 0.0,
+          "bottom": 2048.0
+        },
+        "border": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "texture": {
+          "format": 4,
+          "ignoreMipmapLimit": false,
+          "mipmapLimitGroup": "",
+          "activeMipmapLimit": 0,
+          "isReadable": false,
+          "vtOnly": false,
+          "streamingMipmaps": false,
+          "streamingMipmapsPriority": 0,
+          "requestedMipmapLevel": -1,
+          "minimumMipmapLevel": -1,
+          "calculatedMipmapLevel": -1,
+          "desiredMipmapLevel": -1,
+          "loadingMipmapLevel": 0,
+          "loadedMipmapLevel": 0,
+          "alphaIsTransparency": true,
+          "mipmapCount": 1,
+          "graphicsFormat": 4,
+          "width": 1639,
+          "height": 2048,
+          "dimension": 2,
+          "wrapMode": 1,
+          "wrapModeU": 1,
+          "wrapModeV": 1,
+          "wrapModeW": 1,
+          "filterMode": 1,
+          "anisoLevel": 1,
+          "mipMapBias": 0.0,
+          "texelSize": {
+            "x": 0.0006101281,
+            "y": 0.00048828125,
+            "normalized": {
+              "x": 0.780757248,
+              "y": 0.624834538,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 0.0007814569,
+            "sqrMagnitude": 6.106749E-07
+          },
+          "updateCount": 0,
+          "isDataSRGB": true,
+          "imageContentsHash": {
+            "isValid": true
+          },
+          "name": "Poster 6",
+          "hideFlags": 8
+        },
+        "pixelsPerUnit": 36.62375,
+        "spriteAtlasTextureScale": 1.0,
+        "associatedAlphaSplitTexture": null,
+        "pivot": {
+          "x": 819.5,
+          "y": 1024.0,
+          "normalized": {
+            "x": 0.624834538,
+            "y": 0.780757248,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 1311.54724,
+          "sqrMagnitude": 1720156.25
+        },
+        "packed": false,
+        "packingMode": 0,
+        "packingRotation": 0,
+        "textureRect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 819.5,
+            "y": 1024.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 1311.54724,
+            "sqrMagnitude": 1720156.25
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "width": 1639.0,
+          "height": 2048.0,
+          "size": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 1639.0,
+          "yMax": 2048.0,
+          "left": 0.0,
+          "right": 1639.0,
+          "top": 0.0,
+          "bottom": 2048.0
+        },
+        "textureRectOffset": {
+          "x": 0.0,
+          "y": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "vertices": [
+          {
+            "x": -22.37619,
+            "y": 27.96,
+            "normalized": {
+              "x": -0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          },
+          {
+            "x": 22.37619,
+            "y": -27.96,
+            "normalized": {
+              "x": 0.624834538,
+              "y": -0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          },
+          {
+            "x": 22.37619,
+            "y": 27.96,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          },
+          {
+            "x": -22.37619,
+            "y": -27.96,
+            "normalized": {
+              "x": -0.624834538,
+              "y": -0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          }
+        ],
+        "triangles": [
+          3,
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "uv": [
+          {
+            "x": 3.72392641E-08,
+            "y": 1.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 1.0,
+            "normalized": {
+              "x": 0.707106769,
+              "y": 0.707106769,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 1.41421354,
+            "sqrMagnitude": 2.0
+          },
+          {
+            "x": 3.72392641E-08,
+            "y": 0.0,
+            "normalized": {
+              "x": 0.0,
+              "y": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "magnitude": 3.72392641E-08,
+            "sqrMagnitude": 1.38676276E-15
+          }
+        ],
+        "name": "Poster 6",
+        "hideFlags": 0
+      },
+      "name": "Asti Cinzano",
+      "buff": "More tips",
+      "nerf": "Attracts attention somewhat",
+      "description": "This intriguing poster is heavily inspired by Baroque paintings, and perhaps reminds us that alcoholic beverages have always been a part of human society.",
+      "locked": true
+    },
+    {
+      "id": 6,
+      "price": -1.0,
+      "hanged": 0,
+      "visible": false,
+      "image": {
+        "bounds": {
+          "center": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "size": {
+            "x": 44.75238,
+            "y": 55.92,
+            "z": 0.2,
+            "normalized": {
+              "x": 0.624832034,
+              "y": 0.780754149,
+              "z": 0.002792397,
+              "normalized": {
+                "x": 0.6248321,
+                "y": 0.7807542,
+                "z": 0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 71.6230545,
+            "sqrMagnitude": 5129.862
+          },
+          "extents": {
+            "x": 22.37619,
+            "y": 27.96,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.624832034,
+              "y": 0.780754149,
+              "z": 0.002792397,
+              "normalized": {
+                "x": 0.6248321,
+                "y": 0.7807542,
+                "z": 0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 35.8115273,
+            "sqrMagnitude": 1282.46545
+          },
+          "min": {
+            "x": -22.37619,
+            "y": -27.96,
+            "z": -0.1,
+            "normalized": {
+              "x": -0.624832034,
+              "y": -0.780754149,
+              "z": -0.002792397,
+              "normalized": {
+                "x": -0.6248321,
+                "y": -0.7807542,
+                "z": -0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 35.8115273,
+            "sqrMagnitude": 1282.46545
+          },
+          "max": {
+            "x": 22.37619,
+            "y": 27.96,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.624832034,
+              "y": 0.780754149,
+              "z": 0.002792397,
+              "normalized": {
+                "x": 0.6248321,
+                "y": 0.7807542,
+                "z": 0.00279239728,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.9999999
+            },
+            "magnitude": 35.8115273,
+            "sqrMagnitude": 1282.46545
+          }
+        },
+        "rect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 819.5,
+            "y": 1024.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 1311.54724,
+            "sqrMagnitude": 1720156.25
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "width": 1639.0,
+          "height": 2048.0,
+          "size": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 1639.0,
+          "yMax": 2048.0,
+          "left": 0.0,
+          "right": 1639.0,
+          "top": 0.0,
+          "bottom": 2048.0
+        },
+        "border": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "texture": {
+          "format": 4,
+          "ignoreMipmapLimit": false,
+          "mipmapLimitGroup": "",
+          "activeMipmapLimit": 0,
+          "isReadable": false,
+          "vtOnly": false,
+          "streamingMipmaps": false,
+          "streamingMipmapsPriority": 0,
+          "requestedMipmapLevel": -1,
+          "minimumMipmapLevel": -1,
+          "calculatedMipmapLevel": -1,
+          "desiredMipmapLevel": -1,
+          "loadingMipmapLevel": 0,
+          "loadedMipmapLevel": 0,
+          "alphaIsTransparency": true,
+          "mipmapCount": 1,
+          "graphicsFormat": 4,
+          "width": 1639,
+          "height": 2048,
+          "dimension": 2,
+          "wrapMode": 1,
+          "wrapModeU": 1,
+          "wrapModeV": 1,
+          "wrapModeW": 1,
+          "filterMode": 1,
+          "anisoLevel": 1,
+          "mipMapBias": 0.0,
+          "texelSize": {
+            "x": 0.0006101281,
+            "y": 0.00048828125,
+            "normalized": {
+              "x": 0.780757248,
+              "y": 0.624834538,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 0.0007814569,
+            "sqrMagnitude": 6.106749E-07
+          },
+          "updateCount": 0,
+          "isDataSRGB": true,
+          "imageContentsHash": {
+            "isValid": true
+          },
+          "name": "Poster 7",
+          "hideFlags": 8
+        },
+        "pixelsPerUnit": 36.62375,
+        "spriteAtlasTextureScale": 1.0,
+        "associatedAlphaSplitTexture": null,
+        "pivot": {
+          "x": 819.5,
+          "y": 1024.0,
+          "normalized": {
+            "x": 0.624834538,
+            "y": 0.780757248,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 1311.54724,
+          "sqrMagnitude": 1720156.25
+        },
+        "packed": false,
+        "packingMode": 0,
+        "packingRotation": 0,
+        "textureRect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 819.5,
+            "y": 1024.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 1311.54724,
+            "sqrMagnitude": 1720156.25
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "width": 1639.0,
+          "height": 2048.0,
+          "size": {
+            "x": 1639.0,
+            "y": 2048.0,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 2623.09448,
+            "sqrMagnitude": 6880625.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 1639.0,
+          "yMax": 2048.0,
+          "left": 0.0,
+          "right": 1639.0,
+          "top": 0.0,
+          "bottom": 2048.0
+        },
+        "textureRectOffset": {
+          "x": 0.0,
+          "y": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "vertices": [
+          {
+            "x": -22.37619,
+            "y": 27.96,
+            "normalized": {
+              "x": -0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          },
+          {
+            "x": 22.37619,
+            "y": -27.96,
+            "normalized": {
+              "x": 0.624834538,
+              "y": -0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          },
+          {
+            "x": 22.37619,
+            "y": 27.96,
+            "normalized": {
+              "x": 0.624834538,
+              "y": 0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          },
+          {
+            "x": -22.37619,
+            "y": -27.96,
+            "normalized": {
+              "x": -0.624834538,
+              "y": -0.780757248,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 35.8113861,
+            "sqrMagnitude": 1282.45544
+          }
+        ],
+        "triangles": [
+          3,
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "uv": [
+          {
+            "x": 3.72392641E-08,
+            "y": 1.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 1.0,
+            "normalized": {
+              "x": 0.707106769,
+              "y": 0.707106769,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 1.41421354,
+            "sqrMagnitude": 2.0
+          },
+          {
+            "x": 3.72392641E-08,
+            "y": 0.0,
+            "normalized": {
+              "x": 0.0,
+              "y": 0.0,
+              "magnitude": 0.0,
+              "sqrMagnitude": 0.0
+            },
+            "magnitude": 3.72392641E-08,
+            "sqrMagnitude": 1.38676276E-15
+          }
+        ],
+        "name": "Poster 7",
+        "hideFlags": 0
+      },
+      "name": "Poster 3",
+      "buff": "",
+      "nerf": "",
+      "description": "Placeholder description 3",
+      "locked": false
+    },
+    {
+      "id": 0,
+      "price": -1.0,
+      "hanged": 1,
+      "visible": true,
+      "image": {
+        "bounds": {
+          "center": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "size": {
+            "x": 4.14,
+            "y": 5.0,
+            "z": 0.2,
+            "normalized": {
+              "x": 0.6374544,
+              "y": 0.7698725,
+              "z": 0.0307949,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 6.494582,
+            "sqrMagnitude": 42.1796
+          },
+          "extents": {
+            "x": 2.07,
+            "y": 2.5,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.6374544,
+              "y": 0.7698725,
+              "z": 0.0307949,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 3.247291,
+            "sqrMagnitude": 10.5449
+          },
+          "min": {
+            "x": -2.07,
+            "y": -2.5,
+            "z": -0.1,
+            "normalized": {
+              "x": -0.6374544,
+              "y": -0.7698725,
+              "z": -0.0307949,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 3.247291,
+            "sqrMagnitude": 10.5449
+          },
+          "max": {
+            "x": 2.07,
+            "y": 2.5,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.6374544,
+              "y": 0.7698725,
+              "z": 0.0307949,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 3.247291,
+            "sqrMagnitude": 10.5449
+          }
+        },
+        "rect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 207.0,
+            "y": 250.0,
+            "normalized": {
+              "x": 0.6377569,
+              "y": 0.770237744,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 324.5751,
+            "sqrMagnitude": 105349.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 414.0,
+            "y": 500.0,
+            "normalized": {
+              "x": 0.6377569,
+              "y": 0.770237744,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 649.1502,
+            "sqrMagnitude": 421396.0
+          },
+          "width": 414.0,
+          "height": 500.0,
+          "size": {
+            "x": 414.0,
+            "y": 500.0,
+            "normalized": {
+              "x": 0.6377569,
+              "y": 0.770237744,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 649.1502,
+            "sqrMagnitude": 421396.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 414.0,
+          "yMax": 500.0,
+          "left": 0.0,
+          "right": 414.0,
+          "top": 0.0,
+          "bottom": 500.0
+        },
+        "border": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "texture": {
+          "format": 3,
+          "ignoreMipmapLimit": false,
+          "mipmapLimitGroup": "",
+          "activeMipmapLimit": 0,
+          "isReadable": false,
+          "vtOnly": false,
+          "streamingMipmaps": false,
+          "streamingMipmapsPriority": 0,
+          "requestedMipmapLevel": -1,
+          "minimumMipmapLevel": -1,
+          "calculatedMipmapLevel": -1,
+          "desiredMipmapLevel": -1,
+          "loadingMipmapLevel": 0,
+          "loadedMipmapLevel": 0,
+          "alphaIsTransparency": true,
+          "mipmapCount": 1,
+          "graphicsFormat": 3,
+          "width": 414,
+          "height": 500,
+          "dimension": 2,
+          "wrapMode": 1,
+          "wrapModeU": 1,
+          "wrapModeV": 1,
+          "wrapModeW": 1,
+          "filterMode": 1,
+          "anisoLevel": 1,
+          "mipMapBias": 0.0,
+          "texelSize": {
+            "x": 0.002415459,
+            "y": 0.002,
+            "normalized": {
+              "x": 0.7702377,
+              "y": 0.6377569,
+              "normalized": {
+                "x": 0.770237744,
+                "y": 0.637756944,
+                "magnitude": 1.0,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 0.00313599152,
+            "sqrMagnitude": 9.834442E-06
+          },
+          "updateCount": 0,
+          "isDataSRGB": true,
+          "imageContentsHash": {
+            "isValid": true
+          },
+          "name": "poster 1_hq",
+          "hideFlags": 8
+        },
+        "pixelsPerUnit": 100.0,
+        "spriteAtlasTextureScale": 1.0,
+        "associatedAlphaSplitTexture": null,
+        "pivot": {
+          "x": 207.0,
+          "y": 250.0,
+          "normalized": {
+            "x": 0.6377569,
+            "y": 0.770237744,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 324.5751,
+          "sqrMagnitude": 105349.0
+        },
+        "packed": false,
+        "packingMode": 0,
+        "packingRotation": 0,
+        "textureRect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 207.0,
+            "y": 250.0,
+            "normalized": {
+              "x": 0.6377569,
+              "y": 0.770237744,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 324.5751,
+            "sqrMagnitude": 105349.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 414.0,
+            "y": 500.0,
+            "normalized": {
+              "x": 0.6377569,
+              "y": 0.770237744,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 649.1502,
+            "sqrMagnitude": 421396.0
+          },
+          "width": 414.0,
+          "height": 500.0,
+          "size": {
+            "x": 414.0,
+            "y": 500.0,
+            "normalized": {
+              "x": 0.6377569,
+              "y": 0.770237744,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 649.1502,
+            "sqrMagnitude": 421396.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 414.0,
+          "yMax": 500.0,
+          "left": 0.0,
+          "right": 414.0,
+          "top": 0.0,
+          "bottom": 500.0
+        },
+        "textureRectOffset": {
+          "x": 0.0,
+          "y": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "vertices": [
+          {
+            "x": -2.07,
+            "y": 2.5,
+            "normalized": {
+              "x": -0.6377568,
+              "y": 0.770237744,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 3.24575114,
+            "sqrMagnitude": 10.5349
+          },
+          {
+            "x": 2.07,
+            "y": -2.5,
+            "normalized": {
+              "x": 0.6377568,
+              "y": -0.770237744,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 3.24575114,
+            "sqrMagnitude": 10.5349
+          },
+          {
+            "x": 2.07,
+            "y": 2.5,
+            "normalized": {
+              "x": 0.6377568,
+              "y": 0.770237744,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 3.24575114,
+            "sqrMagnitude": 10.5349
+          },
+          {
+            "x": -2.07,
+            "y": -2.5,
+            "normalized": {
+              "x": -0.6377568,
+              "y": -0.770237744,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 3.24575114,
+            "sqrMagnitude": 10.5349
+          }
+        ],
+        "triangles": [
+          3,
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "uv": [
+          {
+            "x": 0.0,
+            "y": 1.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 1.0,
+            "normalized": {
+              "x": 0.707106769,
+              "y": 0.707106769,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 1.41421354,
+            "sqrMagnitude": 2.0
+          },
+          {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          }
+        ],
+        "name": "poster 1_hq",
+        "hideFlags": 0
+      },
+      "name": "Martini Vermouth",
+      "buff": "Longer shift",
+      "nerf": "Attracts attention a little bit",
+      "description": "Ernest has gifted you this poster, which allegedly comes from Turin, Italy. Its vibrant colors will give you more energy during your shift, but they might also attract unwanted attention...",
+      "locked": false
+    },
+    {
+      "id": 1,
+      "price": -1.0,
+      "hanged": 2,
+      "visible": true,
+      "image": {
+        "bounds": {
+          "center": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "size": {
+            "x": 7.36,
+            "y": 10.77,
+            "z": 0.2,
+            "normalized": {
+              "x": 0.564150333,
+              "y": 0.825529754,
+              "z": 0.0153301721,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 13.0461683,
+            "sqrMagnitude": 170.202515
+          },
+          "extents": {
+            "x": 3.68,
+            "y": 5.385,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.564150333,
+              "y": 0.825529754,
+              "z": 0.0153301721,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.523084,
+            "sqrMagnitude": 42.55063
+          },
+          "min": {
+            "x": -3.68,
+            "y": -5.385,
+            "z": -0.1,
+            "normalized": {
+              "x": -0.564150333,
+              "y": -0.825529754,
+              "z": -0.0153301721,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.523084,
+            "sqrMagnitude": 42.55063
+          },
+          "max": {
+            "x": 3.68,
+            "y": 5.385,
+            "z": 0.1,
+            "normalized": {
+              "x": 0.564150333,
+              "y": 0.825529754,
+              "z": 0.0153301721,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.523084,
+            "sqrMagnitude": 42.55063
+          }
+        },
+        "rect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 368.0,
+            "y": 538.5,
+            "normalized": {
+              "x": 0.5642166,
+              "y": 0.8256268,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 652.23175,
+            "sqrMagnitude": 425406.25
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 736.0,
+            "y": 1077.0,
+            "normalized": {
+              "x": 0.5642166,
+              "y": 0.8256268,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1304.4635,
+            "sqrMagnitude": 1701625.0
+          },
+          "width": 736.0,
+          "height": 1077.0,
+          "size": {
+            "x": 736.0,
+            "y": 1077.0,
+            "normalized": {
+              "x": 0.5642166,
+              "y": 0.8256268,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1304.4635,
+            "sqrMagnitude": 1701625.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 736.0,
+          "yMax": 1077.0,
+          "left": 0.0,
+          "right": 736.0,
+          "top": 0.0,
+          "bottom": 1077.0
+        },
+        "border": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "texture": {
+          "format": 3,
+          "ignoreMipmapLimit": false,
+          "mipmapLimitGroup": "",
+          "activeMipmapLimit": 0,
+          "isReadable": false,
+          "vtOnly": false,
+          "streamingMipmaps": false,
+          "streamingMipmapsPriority": 0,
+          "requestedMipmapLevel": -1,
+          "minimumMipmapLevel": -1,
+          "calculatedMipmapLevel": -1,
+          "desiredMipmapLevel": -1,
+          "loadingMipmapLevel": 0,
+          "loadedMipmapLevel": 0,
+          "alphaIsTransparency": true,
+          "mipmapCount": 1,
+          "graphicsFormat": 3,
+          "width": 736,
+          "height": 1077,
+          "dimension": 2,
+          "wrapMode": 1,
+          "wrapModeU": 1,
+          "wrapModeV": 1,
+          "wrapModeW": 1,
+          "filterMode": 1,
+          "anisoLevel": 1,
+          "mipMapBias": 0.0,
+          "texelSize": {
+            "x": 0.00135869568,
+            "y": 0.0009285051,
+            "normalized": {
+              "x": 0.82562685,
+              "y": 0.5642166,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 0.00164565351,
+            "sqrMagnitude": 2.70817554E-06
+          },
+          "updateCount": 0,
+          "isDataSRGB": true,
+          "imageContentsHash": {
+            "isValid": true
+          },
+          "name": "poster 2_hq",
+          "hideFlags": 8
+        },
+        "pixelsPerUnit": 100.0,
+        "spriteAtlasTextureScale": 1.0,
+        "associatedAlphaSplitTexture": null,
+        "pivot": {
+          "x": 368.0,
+          "y": 538.5,
+          "normalized": {
+            "x": 0.5642166,
+            "y": 0.8256268,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 652.23175,
+          "sqrMagnitude": 425406.25
+        },
+        "packed": false,
+        "packingMode": 0,
+        "packingRotation": 0,
+        "textureRect": {
+          "x": 0.0,
+          "y": 0.0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "center": {
+            "x": 368.0,
+            "y": 538.5,
+            "normalized": {
+              "x": 0.5642166,
+              "y": 0.8256268,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 652.23175,
+            "sqrMagnitude": 425406.25
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          },
+          "max": {
+            "x": 736.0,
+            "y": 1077.0,
+            "normalized": {
+              "x": 0.5642166,
+              "y": 0.8256268,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1304.4635,
+            "sqrMagnitude": 1701625.0
+          },
+          "width": 736.0,
+          "height": 1077.0,
+          "size": {
+            "x": 736.0,
+            "y": 1077.0,
+            "normalized": {
+              "x": 0.5642166,
+              "y": 0.8256268,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 1304.4635,
+            "sqrMagnitude": 1701625.0
+          },
+          "xMin": 0.0,
+          "yMin": 0.0,
+          "xMax": 736.0,
+          "yMax": 1077.0,
+          "left": 0.0,
+          "right": 736.0,
+          "top": 0.0,
+          "bottom": 1077.0
+        },
+        "textureRectOffset": {
+          "x": 0.0,
+          "y": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        },
+        "vertices": [
+          {
+            "x": -3.68,
+            "y": 5.385,
+            "normalized": {
+              "x": -0.5642166,
+              "y": 0.8256268,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.522318,
+            "sqrMagnitude": 42.5406265
+          },
+          {
+            "x": 3.68,
+            "y": -5.385,
+            "normalized": {
+              "x": 0.5642166,
+              "y": -0.8256268,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.522318,
+            "sqrMagnitude": 42.5406265
+          },
+          {
+            "x": 3.68,
+            "y": 5.385,
+            "normalized": {
+              "x": 0.5642166,
+              "y": 0.8256268,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.522318,
+            "sqrMagnitude": 42.5406265
+          },
+          {
+            "x": -3.68,
+            "y": -5.385,
+            "normalized": {
+              "x": -0.5642166,
+              "y": -0.8256268,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 6.522318,
+            "sqrMagnitude": 42.5406265
+          }
+        ],
+        "triangles": [
+          3,
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "uv": [
+          {
+            "x": 0.0,
+            "y": 1.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 0.0,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          {
+            "x": 1.0,
+            "y": 1.0,
+            "normalized": {
+              "x": 0.707106769,
+              "y": 0.707106769,
+              "magnitude": 1.0,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 1.41421354,
+            "sqrMagnitude": 2.0
+          },
+          {
+            "x": 0.0,
+            "y": 0.0,
+            "magnitude": 0.0,
+            "sqrMagnitude": 0.0
+          }
+        ],
+        "name": "poster 2_hq",
+        "hideFlags": 0
+      },
+      "name": "Asti Cinzano",
+      "buff": "More tips",
+      "nerf": "Attracts attention somewhat",
+      "description": "This intriguing poster is heavily inspired by Baroque paintings, and perhaps reminds us that alcoholic beverages have always been a part of human society.",
+      "locked": false
+    }
+  ],
+  "Trinkets": [],
+  "Savings": 0.0,
+  "TodayEarnings": 0.0,
+  "Rent": 10,
+  "Food": 10,
+  "Supplies": 10,
+  "currentDateTime": "2025-01-04T13:40:09.1286748+01:00"
+}

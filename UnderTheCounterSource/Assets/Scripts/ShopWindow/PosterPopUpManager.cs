@@ -69,7 +69,7 @@ namespace ShopWindow
             CloseInsufficientMoneyPopup();
         }
 
-        private void ShowInsufficientMoneyPopup()
+        public void ShowInsufficientMoneyPopup()
         {
             insufficientMoneyPopup.transform.parent.gameObject.SetActive(true);
             insufficientMoneyPopup.SetActive(true);
@@ -82,7 +82,7 @@ namespace ShopWindow
             insufficientMoneyPopup.SetActive(false);
         }
 
-        private void ShowConfirmPurchasePopup(PosterPrefabScript poster)
+        public void ShowConfirmPurchasePopup(PosterPrefabScript poster)
         {
             confirmPurchasePopup.transform.parent.gameObject.SetActive(true);
             confirmPurchasePopup.SetActive(true);
@@ -91,7 +91,7 @@ namespace ShopWindow
         }
 
         // Hiding the popup
-        private void CloseConfirmPurchasePopup()
+        public void CloseConfirmPurchasePopup()
         {
             confirmPurchasePopup.transform.parent.gameObject.SetActive(false);
             confirmPurchasePopup.SetActive(false);

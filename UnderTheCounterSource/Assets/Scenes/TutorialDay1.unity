@@ -1014,17 +1014,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133329259}
   m_CullTransparentMesh: 1
---- !u!114 &147050158 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6085025731466164585, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &147126621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,7 +1571,7 @@ Transform:
   m_Children:
   - {fileID: 1725047612}
   - {fileID: 398373401}
-  - {fileID: 623126690}
+  - {fileID: 630956959}
   - {fileID: 1181525059}
   - {fileID: 1102414066}
   - {fileID: 186804908}
@@ -1798,17 +1787,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211433498}
   m_CullTransparentMesh: 1
---- !u!114 &212241975 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 244960790492689774, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &264339056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2925,11 +2903,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442186928}
   m_CullTransparentMesh: 1
---- !u!225 &451797586 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 9145483789304418531, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &461059604
 GameObject:
   m_ObjectHideFlags: 0
@@ -4396,7 +4369,7 @@ MonoBehaviour:
   cocktail: {fileID: 1955278932}
   buttons: {fileID: 884768004}
   waitingTime: 0.3
---- !u!1 &623126689
+--- !u!1 &630956958
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4404,22 +4377,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 623126690}
-  - component: {fileID: 623126691}
+  - component: {fileID: 630956959}
+  - component: {fileID: 630956963}
+  - component: {fileID: 630956962}
+  - component: {fileID: 630956961}
+  - component: {fileID: 630956960}
   m_Layer: 0
-  m_Name: RecipeBookManager
+  m_Name: MasterBookManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &623126690
+--- !u!4 &630956959
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623126689}
+  m_GameObject: {fileID: 630956958}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -4428,31 +4404,89 @@ Transform:
   m_Children: []
   m_Father: {fileID: 182334722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &623126691
+--- !u!114 &630956960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623126689}
+  m_GameObject: {fileID: 630956958}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03ea193d9da849e6b2e80d35ee22de06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipeBook: {fileID: 2106159912}
-  currentCocktail: 5
+  currentCocktail: 0
   recipes:
-  - {fileID: 1840487221}
-  - {fileID: 1758782524}
-  - {fileID: 1898942413}
-  - {fileID: 1256339061}
-  - {fileID: 2086154186}
-  currentCocktailCanvas: {fileID: 451797586}
-  cocktailName: {fileID: 212241975}
-  cocktailSprite: {fileID: 147050158}
-  ingredientsList: {fileID: 2044242089}
-  cocktailDescription: {fileID: 1826570336}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentCocktailCanvas: {fileID: 0}
+  cocktailName: {fileID: 0}
+  cocktailSprite: {fileID: 0}
+  ingredientsList: {fileID: 0}
+  cocktailDescription: {fileID: 0}
+--- !u!114 &630956961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630956958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b358d48090574ddd9fe2666513f90694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poster1Object: {fileID: 0}
+  poster2Object: {fileID: 0}
+  ownedPostersObject: {fileID: 0}
+  hiddenPosterSprite: {fileID: 21300000, guid: 0c2246c7be5d98f44ae71bd17c95ab67, type: 3}
+--- !u!114 &630956962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630956958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d4c28cb9e241bbab69f069c40be2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayText: {fileID: 0}
+  logEntries:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &630956963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630956958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd79930aa497491ca0c82952901ae593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterBook: {fileID: 0}
+  recipeButton: {fileID: 0}
+  logButton: {fileID: 0}
+  posterButton: {fileID: 0}
+  recipePage: {fileID: 0}
+  logPage: {fileID: 0}
+  posterPage: {fileID: 0}
 --- !u!1 &635394898
 GameObject:
   m_ObjectHideFlags: 0
@@ -6961,8 +6995,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundData: {fileID: 11400000, guid: e5a519798e9682a4f81b8b8005198caf, type: 2}
-  soundEffectCooldownTime: 0.5
-  isInCooldown: 0
 --- !u!1 &1117135708
 GameObject:
   m_ObjectHideFlags: 0
@@ -7990,17 +8022,6 @@ RectTransform:
   m_AnchoredPosition: {x: 6.62, y: -54.836}
   m_SizeDelta: {x: 208.45, y: 74.664}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1256339061 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3769790240765304437, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2f9b0df7e44fbdbcccbf94c80e1598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1259845479
 GameObject:
   m_ObjectHideFlags: 0
@@ -9720,7 +9741,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 623126691}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Bar.RecipeBookManager, Assembly-CSharp
         m_MethodName: OpenRecipeBook
         m_Mode: 1
@@ -10628,17 +10649,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
   m_PrefabInstance: {fileID: 1934824083}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1758782524 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3437458489612437889, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2f9b0df7e44fbdbcccbf94c80e1598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1791701629
 GameObject:
   m_ObjectHideFlags: 0
@@ -10864,17 +10874,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1826570336 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6533059330147234913, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1837976183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3484263413896642004, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
@@ -10920,17 +10919,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
   m_PrefabInstance: {fileID: 2013713489}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1840487221 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8725338714204787728, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2f9b0df7e44fbdbcccbf94c80e1598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1856690647
 GameObject:
   m_ObjectHideFlags: 0
@@ -11320,17 +11308,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879428386}
   m_CullTransparentMesh: 1
---- !u!114 &1898942413 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4891407987545666465, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2f9b0df7e44fbdbcccbf94c80e1598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1928382039
 GameObject:
   m_ObjectHideFlags: 0
@@ -12033,17 +12010,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2044242089 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7812095989598055208, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2056734157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12385,17 +12351,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2086154186 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6610199540684983143, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2f9b0df7e44fbdbcccbf94c80e1598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2091186434
 GameObject:
   m_ObjectHideFlags: 0
@@ -12488,11 +12443,6 @@ CanvasRenderer:
 --- !u!224 &2106159910 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1990493055195594469, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
-  m_PrefabInstance: {fileID: 1584072471240668416}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &2106159912 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 3127723715216129193, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
   m_PrefabInstance: {fileID: 1584072471240668416}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2114385543 stripped
@@ -13066,11 +13016,11 @@ PrefabInstance:
     - target: {fileID: 3437458489612437889, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeBookManager
       value: 
-      objectReference: {fileID: 623126691}
+      objectReference: {fileID: 0}
     - target: {fileID: 3769790240765304437, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeBookManager
       value: 
-      objectReference: {fileID: 623126691}
+      objectReference: {fileID: 0}
     - target: {fileID: 3937855500575810203, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_Name
       value: RecipeBookCanvas
@@ -13090,7 +13040,7 @@ PrefabInstance:
     - target: {fileID: 4664701631633082586, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 623126691}
+      objectReference: {fileID: 0}
     - target: {fileID: 4664701631633082586, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -13106,15 +13056,15 @@ PrefabInstance:
     - target: {fileID: 4891407987545666465, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeBookManager
       value: 
-      objectReference: {fileID: 623126691}
+      objectReference: {fileID: 0}
     - target: {fileID: 6610199540684983143, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeBookManager
       value: 
-      objectReference: {fileID: 623126691}
+      objectReference: {fileID: 0}
     - target: {fileID: 8725338714204787728, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeBookManager
       value: 
-      objectReference: {fileID: 623126691}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -19,7 +19,7 @@ namespace SavedGameData
         public static int DrunkCustomers = 0;
         public static int MaxDrunkCustomers = 99;
     
-        public static List<PosterData> Posters = new();
+        public static List<Poster> Posters = new();
         public static List<int> Trinkets = new();
     
         public static float Savings = 100;
@@ -31,10 +31,12 @@ namespace SavedGameData
         public static void Initialize()
         {
             Log = new();
-            Choices = new();
-            Choices["MargaretDrunk"] = false;
-            Choices["MafiaDeal"] = false;
-            
+            Choices = new()
+            {
+                ["MargaretDrunk"] = false,
+                ["MafiaDeal"] = false
+            };
+
             BarName = "The Chitchat";
             DailyTime = 240;
             CurrentDay = 1;
@@ -111,18 +113,18 @@ namespace SavedGameData
 
         public static bool IsPosterActive(int posterID)
         {
-            foreach (PosterData posterData in Posters)
+            foreach (Poster poster in Posters)
             {
-                if (posterData.hanged != 0 && posterData.id == posterID) return true;
+                if (poster.hanged != 0 && poster.id == posterID) return true;
             }
             return false;
         }
         
         public static void UnlockPoster(int posterID)
         {
-            PosterData posterData = Posters.Find(p => p.id == posterID);
-            if (posterData == null) Debug.LogError("Poster to unlock not found");
-            else posterData.visible = true;
+            Poster poster = Posters.Find(p => p.id == posterID);
+            if (poster == null) Debug.LogError("Poster to unlock not found");
+            else poster.visible = true;
         }
 
         public static void EndDay(float dailyBalance)

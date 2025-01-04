@@ -41,6 +41,13 @@ namespace ShopWindow
             dayText.text = $"DAY {GameData.CurrentDay}";
             UpdateSavings();
             
+            CheckDailyPapers();
+
+            LoadPosters();
+        }
+
+        private void CheckDailyPapers()
+        {
             if (GameData.CurrentDay == 2) StartCoroutine(WaitAndStartTutorial());
             if (GameData.CurrentDay == 3)
             {
@@ -50,8 +57,6 @@ namespace ShopWindow
             {
                 newspaper.SetActive(false);
             }
-
-            LoadPosters();
         }
         
         private void OnDestroy()
@@ -67,7 +72,7 @@ namespace ShopWindow
         private void LoadPosters()
         {
             // Step 1: fetch poster data
-            List<PosterData> posterDataList = GameData.Posters;
+            List<Poster> posterDataList = GameData.Posters;
 
             // Step 2: Get all poster prefab scripts from canvasContainer
             PosterPrefabScript[] posterPrefabs = canvasContainer.GetComponentsInChildren<PosterPrefabScript>(true);
@@ -75,39 +80,39 @@ namespace ShopWindow
             // Step 3: Iterate through each poster in the prefab scripts
             foreach (PosterPrefabScript pps in posterPrefabs)
             {
-                PosterData matchingPosterData = posterDataList.Find(p => p.id == pps.posterID);
-                if (matchingPosterData == null)
+                Poster matchingPoster = posterDataList.Find(p => p.id == pps.posterID);
+                if (matchingPoster == null)
                 {
                     Debug.LogWarning($"No data found for poster ID: {pps.posterID}. PPS will fallback to default values.");
                     continue;
                 }
 
                 // Step 4: Update the poster's price
-                pps.posterPrice = matchingPosterData.price;
+                pps.posterPrice = matchingPoster.price;
                 
                 // Set poster visible/invisible
-                pps.isVisible = matchingPosterData.visible;
+                pps.isVisible = matchingPoster.visible;
                 
                 // Set poster Info
-                pps.posterBuff = matchingPosterData.buff;
-                pps.posterNerf = matchingPosterData.nerf;
-                pps.posterDescription = matchingPosterData.description;
-                pps.posterImage = matchingPosterData.image;
-                pps.posterNameText = matchingPosterData.name;
-                pps.isLocked = matchingPosterData.isLocked;
+                pps.posterBuff = matchingPoster.buff;
+                pps.posterNerf = matchingPoster.nerf;
+                pps.posterDescription = matchingPoster.description;
+                pps.posterImage = matchingPoster.image;
+                pps.posterNameText = matchingPoster.name;
+                pps.isLocked = matchingPoster.locked;
 
                 // Step 5: Handle hanged logic
-                if (matchingPosterData.hanged != 0)
+                if (matchingPoster.hanged != 0)
                 {
                     // Find DropTarget components
                     DropTarget[] dropTargets = canvasContainer.GetComponentsInChildren<DropTarget>();
                     DropTarget targetDrop = null;
 
-                    if (matchingPosterData.hanged == 1)
+                    if (matchingPoster.hanged == 1)
                     {
                         targetDrop = dropTargets[0];
                     }
-                    else if (matchingPosterData.hanged == 2)
+                    else if (matchingPoster.hanged == 2)
                     {
                         targetDrop = dropTargets[1];
                     }
@@ -126,7 +131,7 @@ namespace ShopWindow
                     }
                     else
                     {
-                        Debug.LogError($"DropTarget with ID {matchingPosterData.hanged} not found.");
+                        Debug.LogError($"DropTarget with ID {matchingPoster.hanged} not found.");
                     }
                 }
                 
@@ -137,12 +142,13 @@ namespace ShopWindow
         public void SavePosters()
         {
             PosterPrefabScript[] posterPrefabs = canvasContainer.GetComponentsInChildren<PosterPrefabScript>(true);
-            List<PosterData> posterDataList = new List<PosterData>();
+            List<Poster> posterList = new();
             foreach (PosterPrefabScript pps in posterPrefabs)
             {
-                posterDataList.Add(new PosterData(pps.posterID, pps.posterPrice, pps.hanged, pps.isActiveAndEnabled, pps.posterImage, pps.name, pps.posterBuff, pps.posterNerf, pps.posterDescription, pps.isLocked));
+                posterList.Add(new Poster(pps.posterID, pps.posterPrice, pps.hanged, pps.isLocked, pps.isVisible,
+                    pps.posterImage, pps.posterNameText, pps.posterBuff, pps.posterNerf, pps.posterDescription));
             }
-            GameData.Posters = posterDataList;
+            GameData.Posters = posterList;
         }
 
         private IEnumerator WaitAndStartTutorial()
