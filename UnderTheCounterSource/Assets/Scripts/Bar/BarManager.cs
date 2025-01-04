@@ -1,5 +1,4 @@
 using System.Collections;
-using MasterBook;
 using SavedGameData;
 using Technical;
 using Tutorial;
@@ -12,7 +11,6 @@ namespace Bar
     {
         private TutorialManager1 _tutorialManager1;
         private CustomerManager _customerManager;
-        private RecipeTabManager _recipeTabManager;
         private TimerManager _timerManager;
         private DialogueManager _dialogueManager;
 
@@ -24,7 +22,6 @@ namespace Bar
         {
             _tutorialManager1 = GetComponent<TutorialManager1>();
             _customerManager = GetComponent<CustomerManager>();
-            _recipeTabManager = GetComponent<RecipeTabManager>();
             _timerManager = GetComponent<TimerManager>();
             _dialogueManager = GetComponent<DialogueManager>();
             _customerManager.AttachDialogueManager(_dialogueManager);
