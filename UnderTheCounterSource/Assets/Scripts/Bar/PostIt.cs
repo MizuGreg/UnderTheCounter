@@ -11,8 +11,6 @@ namespace Bar
         [SerializeField] private Animator animator;
         private static readonly int IsPostItShown = Animator.StringToHash("IsPostItShown");
 
-        private string actualOrder = "";
-
         private void Awake()
         {
             animator = GetComponent<Animator>();

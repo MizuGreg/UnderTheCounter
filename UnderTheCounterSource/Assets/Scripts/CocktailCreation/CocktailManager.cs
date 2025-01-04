@@ -169,6 +169,7 @@ namespace CocktailCreation
         {
             _cocktail.GetComponent<CocktailScript>().WaterDownCocktail();
             waterDownIcon.FadeIn();
+            waterButton.GetComponent<Button>().interactable = false;
         }
 
 

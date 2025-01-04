@@ -36,7 +36,7 @@ namespace CocktailCreation
                     this.description = "This exotic cocktail originates from South America, but it's well known around the world. Relax in its flowery aroma and spiced taste, and maybe you'll take an imaginary world trip too! Who knows?";
                     break;
                 case CocktailType.Barber:
-                    this.description = "This cocktail got its name because it's said to be the favorite drink of barbers. The reason is clear: the neat glass, the sharp flavor and the icy feeling of mint will leave you feeling like you just got a fresh cut and a nice shave.";
+                    this.description = "The Barber got its name because it's said to be the favorite drink of barbers. The reason is clear: the neat glass, the sharp flavor and the icy feeling of mint will leave you feeling like you just got a fresh cut and a nice shave.";
                     break;
                 default:
                     this.description = "Terrible cocktail!";
