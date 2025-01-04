@@ -10,6 +10,10 @@ public class BlitzTimer : MonoBehaviour
     private bool isTimerRunning;
 
     private void Start() {
+        timerBarImage.fillAmount = 1f;
+        timeRemaining = timerDuration;
+        isTimerRunning = false;
+
         EventSystemManager.OnBlitzCalled += StartTimer;
         EventSystemManager.OnBlitzEnd += ResetTimer;
     }
@@ -20,10 +24,8 @@ public class BlitzTimer : MonoBehaviour
     }
     
     public void StartTimer()
-    {
-        timeRemaining = timerDuration; 
-        isTimerRunning = true;
-        timerBarImage.fillAmount = 1f;  
+    { 
+        isTimerRunning = true;  
     }
 
     public void Update()

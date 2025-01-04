@@ -150,26 +150,27 @@ namespace Bar
             choiceButton2.onClick.AddListener(() => OnChoiceSelected(1));
         }
 
-        void OnChoiceSelected(int choiceIndex)
+        private void OnChoiceSelected(int choiceIndex)
         {
             Debug.Log("Choice selected: " + choiceIndex);
 
             choiceButton1.gameObject.SetActive(false);
             choiceButton2.gameObject.SetActive(false);
 
+            Dialogue correctDialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["correct"]);
+            Dialogue wrongDialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["wrong"]);
+
             if (choiceIndex == 0)
             {
-                Dialogue dialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["correct"]);
-                _dialogueManager.StartDialogue(dialogue, DialogueType.NoDrink);
+                _dialogueManager.StartDialogue(correctDialogue, DialogueType.NoDrink);
             }
             else
             {
-                Dialogue dialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["wrong"]);
-                _dialogueManager.StartDialogue(dialogue, DialogueType.NoDrink);
+                _dialogueManager.StartDialogue(wrongDialogue, DialogueType.NoDrink);
             }
 
-            _dailyBlitzDialogues.RemoveAt(0);
             EventSystemManager.OnBlitzEnd();
+            _dailyBlitzDialogues.RemoveAt(0);
         }
 
         public void GreetCustomer()

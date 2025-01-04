@@ -11864,7 +11864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerBarImage: {fileID: 1871478029}
-  timerDuration: 100
+  timerDuration: 10
 --- !u!114 &1871478029
 MonoBehaviour:
   m_ObjectHideFlags: 0
