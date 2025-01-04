@@ -1,17 +1,16 @@
 using System.Text.RegularExpressions;
-using UnityEngine;
 using CocktailCreation;
 using Technical;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace Bar
+namespace MasterBook
 {
-    public class RecipeBookManager : MonoBehaviour
+    public class RecipeTabManager : MonoBehaviour
     {
-        [SerializeField] private CanvasGroup recipeBook;
         [SerializeField] private CocktailType currentCocktail;
-        [SerializeField] private RecipeBookItem[] recipes;
+        [SerializeField] private RecipeTabItem[] recipes;
 
         [SerializeField] private CanvasGroup currentCocktailCanvas;
         [SerializeField] private TextMeshProUGUI cocktailName;
@@ -21,27 +20,7 @@ namespace Bar
 
         void Start()
         {
-            recipeBook.gameObject.SetActive(false);
-        }
-
-        public void OpenRecipeBook()
-        {
-            if (recipeBook.GetComponent<FadeCanvas>().IsFading()) return;
-            EventSystemManager.OnRecipeBookOpened();
-            recipeBook.GetComponent<FadeCanvas>().FadeIn();
-        }
-
-        public void CloseRecipeBook()
-        {
-            print("Close recipe book");
-            if (recipeBook.GetComponent<FadeCanvas>().IsFading()) return;
-            EventSystemManager.OnRecipeBookClosed();
-            recipeBook.GetComponent<FadeCanvas>().FadeOut();
-        }
-
-        public bool IsRecipeBookOpen()
-        {
-            return recipeBook.gameObject.activeSelf;
+            
         }
 
         public void SetCurrentCocktail(CocktailType cocktailType)
@@ -102,9 +81,9 @@ namespace Bar
 
         public void ShowCurrentCocktail()
         {
-            foreach (RecipeBookItem recipe in recipes)
+            foreach (RecipeTabItem recipe in recipes)
             {
-                if (recipe.GetComponent<RecipeBookItem>().cocktailType != currentCocktail) recipe.Deselect();
+                if (recipe.GetComponent<RecipeTabItem>().cocktailType != currentCocktail) recipe.Deselect();
             }
             cocktailName.text = FormatCocktailName(currentCocktail.ToString());
             cocktailSprite.sprite = Resources.Load<Sprite>($"Sprites/Cocktails/{currentCocktail}/{currentCocktail}_tot");

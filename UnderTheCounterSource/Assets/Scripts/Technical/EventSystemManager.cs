@@ -49,8 +49,10 @@ namespace Technical
         public static UnityAction OnLoadLoseScreen;
 
         // Master book events
-        public static UnityAction OnRecipeBookOpened;
-        public static UnityAction OnRecipeBookClosed;
+        public static UnityAction OnMasterBookOpened;
+        public static UnityAction OnMasterBookClosed;
+        public static UnityAction OnTabChanged;
+        public static UnityAction OnPageTurned;
 
         // Tutorial events
         public static UnityAction NextTutorialStep;

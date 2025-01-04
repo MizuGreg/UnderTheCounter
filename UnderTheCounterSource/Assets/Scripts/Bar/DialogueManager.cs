@@ -204,6 +204,7 @@ namespace Bar
             {
                 string sentence = _sentences.Dequeue();
                 ParseEventTag(sentence);
+                GameData.Log.Add(new Tuple<string, string>(nameText.text, sentence));
                 
                 StartCoroutine(TypeSentence(sentence));
             }

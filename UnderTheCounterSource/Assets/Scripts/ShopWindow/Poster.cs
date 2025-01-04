@@ -19,9 +19,10 @@ namespace ShopWindow
         public string nerf;
         public string description;
         public int hanged;
+        public bool visible;
 
         public Poster(int posterID, Sprite image, string name, float price, string buff, string nerf,
-            string description, int hanged)
+            string description, int hanged, bool visible)
         {
             this.posterID = posterID;
             this.image = image;
@@ -31,6 +32,7 @@ namespace ShopWindow
             this.nerf = nerf;
             this.description = description;
             this.hanged = hanged;
+            this.visible = visible;
         }
     }
     

@@ -49,8 +49,8 @@ namespace Tutorial
         private void Start()
         {
             EventSystemManager.NextTutorialStep += NextStep;
-            EventSystemManager.OnRecipeBookOpened += RecipeBookOpenedFirstTime;
-            EventSystemManager.OnRecipeBookClosed += RecipeBookClosedFirstTime;
+            EventSystemManager.OnMasterBookOpened += RecipeBookOpenedFirstTime;
+            EventSystemManager.OnMasterBookClosed += RecipeBookClosedFirstTime;
             EventSystemManager.OnIngredientPoured += IngredientPoured;
             EventSystemManager.OnGarnishAdded += GarnishAdded;
             
@@ -61,8 +61,8 @@ namespace Tutorial
         private void OnDestroy()
         {
             EventSystemManager.NextTutorialStep -= NextStep;
-            EventSystemManager.OnRecipeBookOpened -= RecipeBookOpenedFirstTime;
-            EventSystemManager.OnRecipeBookClosed -= RecipeBookClosedFirstTime;
+            EventSystemManager.OnMasterBookOpened -= RecipeBookOpenedFirstTime;
+            EventSystemManager.OnMasterBookClosed -= RecipeBookClosedFirstTime;
             EventSystemManager.OnIngredientPoured -= IngredientPoured;
             EventSystemManager.OnGarnishAdded -= GarnishAdded;
         }

@@ -1,14 +1,15 @@
+using Bar;
 using CocktailCreation;
-using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Bar
+namespace MasterBook
 {
-    public class RecipeBookItem : MonoBehaviour
+    public class RecipeTabItem : MonoBehaviour
     {
         public CocktailType cocktailType;
-        [SerializeField] private RecipeBookManager recipeBookManager;
+        [FormerlySerializedAs("recipePageManager")] [FormerlySerializedAs("recipeBookManager")] [SerializeField] private RecipeTabManager recipeTabManager;
         private bool selected;
         
         private Sprite emptyTriangle;
@@ -28,7 +29,7 @@ namespace Bar
         {
             selected = true;
             HighlightName();
-            recipeBookManager.SetCurrentCocktail(cocktailType);
+            recipeTabManager.SetCurrentCocktail(cocktailType);
         }
 
         public void Deselect()

@@ -1,4 +1,5 @@
 using Bar;
+using MasterBook;
 using Technical;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,7 +10,7 @@ namespace Settings
     public class InGameMenu : MonoBehaviour
     {
         private TimerManager _timerManager;
-        [SerializeField] private RecipeBookManager recipeBookManager;
+        [SerializeField] private MasterBookManager masterBook;
         private GameObject backToMainMenuDialog;
         private GameObject creditsDialog;
     
@@ -45,7 +46,7 @@ namespace Settings
             
             else if (gameObject.activeSelf) GetComponent<FadeCanvas>().FadeOut();
             
-            else if (recipeBookManager != null && recipeBookManager.IsRecipeBookOpen()) recipeBookManager.CloseRecipeBook();
+            else if (masterBook != null && masterBook.IsMasterBookOpen()) masterBook.CloseMasterBook();
             
             else GetComponent<FadeCanvas>().FadeIn();
         }

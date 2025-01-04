@@ -11,8 +11,8 @@ namespace Technical
         
         public SoundData soundData;
         
-        [SerializeField] private float soundEffectCooldownTime = 0.5f;
-        [SerializeField] private bool isInCooldown;
+        private float soundEffectCooldownTime = 0.4f;
+        private bool isInCooldown;
 
         private void Awake()
         {
@@ -23,8 +23,11 @@ namespace Technical
             EventSystemManager.OnLoadWinScreen += OnLoadWinScreenSound;
             EventSystemManager.OnLoadLoseScreen += OnLoadLoseScreenSound;
             
-            EventSystemManager.OnRecipeBookOpened += OnRecipeBookOpenedSound;
-            EventSystemManager.OnRecipeBookClosed += OnRecipeBookClosedSound;
+            EventSystemManager.OnMasterBookOpened += OnMasterBookOpenedSound;
+            EventSystemManager.OnMasterBookClosed += OnMasterBookClosedSound;
+            EventSystemManager.OnTabChanged += OnTabChangedSound;
+            EventSystemManager.OnPageTurned += OnPageTurnedSound;
+            
             EventSystemManager.OnCustomerEnter += OnCustomerEnterSound;
             EventSystemManager.OnCustomerLeave += OnCustomerLeaveSound;
             EventSystemManager.OnDayEnd += OnDayEndSound;
@@ -39,8 +42,11 @@ namespace Technical
             EventSystemManager.OnLoadWinScreen -= OnLoadWinScreenSound;
             EventSystemManager.OnLoadLoseScreen -= OnLoadLoseScreenSound;
             
-            EventSystemManager.OnRecipeBookOpened -= OnRecipeBookOpenedSound;
-            EventSystemManager.OnRecipeBookClosed -= OnRecipeBookClosedSound;
+            EventSystemManager.OnMasterBookOpened -= OnMasterBookOpenedSound;
+            EventSystemManager.OnMasterBookClosed -= OnMasterBookClosedSound;
+            EventSystemManager.OnTabChanged -= OnTabChangedSound;
+            EventSystemManager.OnPageTurned -= OnPageTurnedSound;
+            
             EventSystemManager.OnCustomerEnter -= OnCustomerEnterSound;
             EventSystemManager.OnCustomerLeave -= OnCustomerLeaveSound;
             EventSystemManager.OnDayEnd -= OnDayEndSound;
@@ -123,14 +129,24 @@ namespace Technical
             // todo
         }
 
-        private void OnRecipeBookOpenedSound()
+        private void OnMasterBookOpenedSound()
         {
             EazySoundManager.PlaySound(soundData.bookOpenSound, 1);
         }
 
-        private void OnRecipeBookClosedSound()
+        private void OnMasterBookClosedSound()
         {
             EazySoundManager.PlaySound(soundData.bookCloseSound, 1);
+        }
+
+        private void OnTabChangedSound()
+        {
+            EazySoundManager.PlaySound(soundData.tabChangedSound, 0.75f);
+        }
+
+        private void OnPageTurnedSound()
+        {
+            EazySoundManager.PlaySound(soundData.pageTurnedSound, 1);
         }
         
         // I want to parameterize this instead of having a hundred different functions... is it overkill? probably
