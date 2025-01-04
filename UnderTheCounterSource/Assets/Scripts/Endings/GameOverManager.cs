@@ -31,13 +31,11 @@ namespace Endings
 
         public void LoadMainMenu()
         {
-            Debug.Log("Pulsante premuto! Avvio Coroutine...");
             StartCoroutine(LoadMainMenuScene());
         }
 
         public IEnumerator LoadMainMenuScene()
         {
-            Debug.Log("Inizio transizione verso MainMenu...");
             gameOverCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
             SceneManager.LoadScene("MainMenu");

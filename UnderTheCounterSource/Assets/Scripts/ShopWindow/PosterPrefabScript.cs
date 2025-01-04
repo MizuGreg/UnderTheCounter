@@ -1,4 +1,6 @@
 using System.Globalization;
+using Bar;
+using Technical;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +12,7 @@ namespace ShopWindow
         [SerializeField] private ShopWindowManager shopWindowManager;
         
         public int posterID;
-        public Sprite posterImage; // Reference to the image component for the poster
+        public Sprite posterImage; // Reference to the HIGH-QUALITY image for the poster
         public string posterNameText; // Reference to the text component for the poster name
         public float posterPrice; // Reference to the poster price
         public string posterBuff; // Reference to the poster buff percentage
@@ -19,24 +21,17 @@ namespace ShopWindow
         public Sprite currencyIcon;    // Assign the currency icon
     
         public GameObject posterPopUpPrefab; // Reference to the shared PosterPopUp prefab in the scene
+
+        public bool isLocked; // Indicates if the poster is locked, meaning you can't drag it around but you can open the popup
+        public bool isVisible = true; // indicated if the poster is accessible at this point of the game, meaning you can buy and own it
         
-        public bool isLocked; // Indicates if the poster is locked
+        public int hanged;
     
         private bool _isDragging; // Track whether the item is being dragged
         
         [SerializeField] private Image posterImageUI; // Reference to the Image UI component for poster
         [SerializeField] private CanvasGroup canvasGroup; // Reference for fading effect
-
-        // Method to set poster data
-        public void SetPosterData(Poster poster)
-        {
-            posterImage = poster.image;
-            posterNameText = poster.name;
-            posterPrice = poster.price;
-            posterBuff = poster.buff;
-            posterNerf = poster.nerf;
-            posterDescription = poster.description;
-        }
+        
         
         private void Awake()
         {
@@ -67,10 +62,11 @@ namespace ShopWindow
         }
         
 
-        private void UpdateUI()
+        public void UpdateUI()
         {
-            // Update the poster's locked state
-            SetLocked(isLocked);
+            // Update the poster's locked and visible state
+            SetLocked();
+            SetVisible();
             
             // Find the "posterImage" child first
             var posterImageTransform = transform.Find("PosterImage");
@@ -82,10 +78,17 @@ namespace ShopWindow
             var priceTextUI = posterPriceTransform.GetComponent<TextMeshProUGUI>();
             if (priceTextUI != null)
             {
-                // Update the text based on the poster price
-                priceTextUI.text = posterPrice >= 0 
+                // Update the text based on poster price and visibility
+                if (!isVisible)
+                {
+                    priceTextUI.text = "Locked";
+                }
+                else 
+                {
+                    priceTextUI.text = posterPrice >= 0 
                     ? $"{posterPrice.ToString(CultureInfo.InvariantCulture)}$" 
                     : "Owned";
+                }
             }
             else
             {
@@ -96,21 +99,33 @@ namespace ShopWindow
             var priceIconTransform = posterPriceTransform.Find("PriceIcon");
             if (priceIconTransform != null)
             {
-                // Activate or deactivate the PriceIcon based on poster price
-                priceIconTransform.gameObject.SetActive(posterPrice >= 0);
+                // Activate or deactivate the PriceIcon based on poster price and visibility
+                if (isVisible && posterPrice >= 0)
+                {
+                    priceIconTransform.gameObject.SetActive(true);
+                }
+                else
+                {
+                    priceIconTransform.gameObject.SetActive(false);
+                }
+                
             }
         }
 
-        private void SetLocked(bool locked)
+        private void SetLocked()
         {
-            isLocked = locked;
-
             // Update the UI to reflect the locked state
-            if (canvasGroup == null) return;
-            Debug.Log("canvas found");
-            canvasGroup.alpha = locked ? 0.5f : 1f; // Fade effect for locked posters
-            canvasGroup.interactable = !locked; // Disable interaction
-            canvasGroup.blocksRaycasts = !locked; // Prevent clicks on locked posters
+            canvasGroup.interactable = !isLocked; // Disable interaction
+            canvasGroup.blocksRaycasts = !isLocked; // Prevent clicks on locked posters
+        }
+
+        private void SetVisible()
+        {
+            // Update UI to reflect visible state
+            canvasGroup.interactable = !isVisible;
+            canvasGroup.blocksRaycasts = !isVisible;
+            
+            canvasGroup.alpha = isVisible ? 1f : 0.5f; // Fade effect for non-obtainable posters
         }
     
         //Hide or Show Poster Price for when in placeholder or when in menu
@@ -129,7 +144,8 @@ namespace ShopWindow
     
         public void OnPosterClicked()
         {
-            if (_isDragging || isLocked) return; // Only show popup if no drag is in progress
+            if (_isDragging) return; // Only show popup if no drag is in progress
+            if (!isVisible) return; // Only show popup if poster is obtained or obtainable
 
             // Check if the poster price is less than 0
             var displayPrice = posterPrice.ToString(CultureInfo.InvariantCulture);
@@ -148,6 +164,7 @@ namespace ShopWindow
             var popUpScript = posterPopUpPrefab.GetComponent<PosterPopUpManager>();
             if (popUpScript != null)
             {
+                popUpScript.SetCurrentPoster(this);
                 popUpScript.ShowPosterDetails(
                     posterImage,
                     posterNameText,
@@ -166,14 +183,11 @@ namespace ShopWindow
             _isDragging = value;
         }
 
-        public void AddPosterToHungPosters()
+        public void BuyPoster()
         {
-            shopWindowManager.AddPoster(posterID);
-        }
-
-        public void RemovePosterFromHungPosters()
-        {
-            shopWindowManager.RemovePoster(posterID);
+            isLocked = false;
+            posterPrice = -1; // Mark as owned
+            UpdateUI(); // Refresh the poster UI to show "Owned"
         }
     }
 }

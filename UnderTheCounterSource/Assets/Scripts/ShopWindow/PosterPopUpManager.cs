@@ -1,6 +1,9 @@
+using Bar;
+using SavedGameData;
 using Technical;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ShopWindow
@@ -17,6 +20,13 @@ namespace ShopWindow
         public TMP_Text nerfTextUI;           // Text for the nerf
         public TMP_Text priceTextUI;          // Text for the price
         public Image currencyIconUI;      // Image for the currency icon
+        [SerializeField] private GameObject insufficientMoneyPopup;
+        [SerializeField] private GameObject confirmPurchasePopup;
+        private PosterPrefabScript _currentPoster; // Track the current poster for buying
+
+        [SerializeField] private Button buyButton;
+        public Button confirmBuyButton; // Confirm buy button
+        
 
         // Method to display the pop-up with the provided details
         public void ShowPosterDetails(Sprite image, string name, string description, string buff, string nerf, string price, Sprite currency)
@@ -44,15 +54,86 @@ namespace ShopWindow
             {
                 GetComponent<FadeCanvas>().FadeIn();
             }
+            
+            // Activate or deactivate buy button
+            if (price == "Owned") buyButton.interactable = false;
+            else buyButton.interactable = true;
         }
 
         // Method to close the pop-up
         public void ClosePopUp()
         {
-            if (popUpWindow != null)
+            if (popUpWindow == null) return;
+            GetComponent<FadeCanvas>().FadeOut();
+            CloseConfirmPurchasePopup();
+            CloseInsufficientMoneyPopup();
+        }
+
+        public void ShowInsufficientMoneyPopup()
+        {
+            insufficientMoneyPopup.transform.parent.gameObject.SetActive(true);
+            insufficientMoneyPopup.SetActive(true);
+        }
+
+        // Hiding the popup
+        public void CloseInsufficientMoneyPopup()
+        {
+            insufficientMoneyPopup.transform.parent.gameObject.SetActive(false);
+            insufficientMoneyPopup.SetActive(false);
+        }
+
+        public void ShowConfirmPurchasePopup(PosterPrefabScript poster)
+        {
+            confirmPurchasePopup.transform.parent.gameObject.SetActive(true);
+            confirmPurchasePopup.SetActive(true);
+            confirmBuyButton.onClick.RemoveAllListeners(); // Clear previous listeners
+            confirmBuyButton.onClick.AddListener(() => ConfirmPurchase(poster)); // Add new listener
+        }
+
+        // Hiding the popup
+        public void CloseConfirmPurchasePopup()
+        {
+            confirmPurchasePopup.transform.parent.gameObject.SetActive(false);
+            confirmPurchasePopup.SetActive(false);
+        }
+        
+        // Method to set the current poster when opening the popup
+        public void SetCurrentPoster(PosterPrefabScript poster)
+        {
+            _currentPoster = poster;
+        }
+        
+        // Called when the Buy button is clicked in the popup
+        public void OnBuyButtonClicked()
+        {
+            Debug.Log("Buy Button clicked");
+            if (_currentPoster == null || _currentPoster.posterPrice < 0) return;
+
+            if (_currentPoster.posterPrice > GameData.Savings)
             {
-                GetComponent<FadeCanvas>().FadeOut();
+                // Show insufficient money popup
+                ShowInsufficientMoneyPopup();
             }
+            else
+            {
+                // Show confirmation popup
+                ShowConfirmPurchasePopup(_currentPoster);
+            }
+        }
+        
+        private void ConfirmPurchase(PosterPrefabScript poster)
+        {
+            // Deduct money and mark the poster as purchased
+            GameData.Savings -= poster.posterPrice;
+            ClosePopUp();
+            poster.BuyPoster();
+            EventSystemManager.OnPosterBought();
+
+            // Hide the confirmation popup
+            // confirmPurchasePopup.SetActive(false);
+
+            // Optionally update player's money UI here
+            Debug.Log($"Purchased {poster.posterNameText}. Remaining Money: {GameData.Savings}$");
         }
     }
 }

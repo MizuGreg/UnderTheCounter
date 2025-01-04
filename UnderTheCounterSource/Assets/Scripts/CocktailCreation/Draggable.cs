@@ -6,15 +6,13 @@ namespace CocktailCreation
     public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] private bool resetAfterDrop;
-        [SerializeField] private bool fixedX;
-        [SerializeField] private bool fixedY;
         
         protected Canvas Canvas;
         protected CanvasGroup CanvasGroup;
         protected RectTransform RectTransform;
         private int _originalSiblingIndex;
-        private Vector2 _actualPosition;
-        private Vector3 _initialPosition;
+        protected Vector2 ActualPosition;
+        protected Vector3 InitialPosition;
         private Quaternion _initialRotation;
 
         protected virtual void Awake()
@@ -23,10 +21,10 @@ namespace CocktailCreation
             RectTransform = GetComponent<RectTransform>();
             CanvasGroup = GetComponent<CanvasGroup>();
             _originalSiblingIndex = transform.GetSiblingIndex();
-            _initialPosition = RectTransform.anchoredPosition;
+            InitialPosition = RectTransform.anchoredPosition;
             _initialRotation = RectTransform.rotation;
 
-            _actualPosition = _initialPosition;
+            ActualPosition = InitialPosition;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -35,18 +33,9 @@ namespace CocktailCreation
             RectTransform.SetAsLastSibling();
         }
 
-        public void OnDrag(PointerEventData eventData)
+        public virtual void OnDrag(PointerEventData eventData)
         {
-            _actualPosition += eventData.delta / Canvas.scaleFactor;
-            if (fixedX)
-            {
-                _actualPosition.x = _initialPosition.x;
-            }
-            else if (fixedY)
-            {
-                _actualPosition.y = _initialPosition.y;
-            }
-            RectTransform.anchoredPosition = _actualPosition;
+            RectTransform.anchoredPosition += eventData.delta / Canvas.scaleFactor;
         }
 
         public virtual void OnEndDrag(PointerEventData eventData)
@@ -66,8 +55,8 @@ namespace CocktailCreation
 
         protected void ReturnToInitialPosition()
         {
-            _actualPosition = _initialPosition;
-            RectTransform.anchoredPosition = _initialPosition;
+            ActualPosition = InitialPosition;
+            RectTransform.anchoredPosition = InitialPosition;
             RectTransform.rotation = _initialRotation;
         }
     }

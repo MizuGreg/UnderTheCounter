@@ -28,7 +28,9 @@ namespace Technical
         public AudioClip posterTearDownSound;
         public AudioClip bookOpenSound;
         public AudioClip bookCloseSound;
-        
+        public AudioClip tabChangedSound;
+        public AudioClip pageTurnedSound;
+
 
     }
 }

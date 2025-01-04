@@ -9,6 +9,8 @@ namespace Bar
     public enum CustomerType
     {
         Margaret,
+        MargaretDrunk, // Margaret's sprite as drunk after scandal
+        Thomas, // Margaret's crush
         Helene,
         Charles,
         Betty,
@@ -19,7 +21,9 @@ namespace Bar
         Willie,
         Gaston,
         Ernest, // ex-bar owner
+        ErnestUnion, // Ernest's sprite as member of the bartenders union
         Howard, // inspector
+        MafiaGoon,
         Unspecified
         
     }
@@ -35,6 +39,7 @@ namespace Bar
     {
         public CustomerType sprite;
         public CocktailType order;
+        public string orderOnPostIt;
         
         public SerializedDictionary<string, List<string>> lines;
         

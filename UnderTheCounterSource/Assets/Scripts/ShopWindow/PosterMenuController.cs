@@ -48,6 +48,10 @@ namespace ShopWindow
             {
                 bullets[i].sprite = (i == _currentMenuIndex) ? activeSprite : inactiveSprite;
             }
+            
+            // Hide or show navigation arrows depending on the page
+            leftArrow.gameObject.SetActive(_currentMenuIndex != 0);
+            rightArrow.gameObject.SetActive(_currentMenuIndex != submenus.Length - 1);
         }
     }
 }
