@@ -12,7 +12,7 @@ namespace ShopWindow
         [SerializeField] private ShopWindowManager shopWindowManager;
         
         public int posterID;
-        public Sprite posterImage; // Reference to the image component for the poster
+        public Sprite posterImage; // Reference to the HIGH-QUALITY image for the poster
         public string posterNameText; // Reference to the text component for the poster name
         public float posterPrice; // Reference to the poster price
         public string posterBuff; // Reference to the poster buff percentage
@@ -78,10 +78,17 @@ namespace ShopWindow
             var priceTextUI = posterPriceTransform.GetComponent<TextMeshProUGUI>();
             if (priceTextUI != null)
             {
-                // Update the text based on the poster price
-                priceTextUI.text = posterPrice >= 0 
+                // Update the text based on poster price and visibility
+                if (!isVisible)
+                {
+                    priceTextUI.text = "Locked";
+                }
+                else 
+                {
+                    priceTextUI.text = posterPrice >= 0 
                     ? $"{posterPrice.ToString(CultureInfo.InvariantCulture)}$" 
                     : "Owned";
+                }
             }
             else
             {
@@ -92,8 +99,16 @@ namespace ShopWindow
             var priceIconTransform = posterPriceTransform.Find("PriceIcon");
             if (priceIconTransform != null)
             {
-                // Activate or deactivate the PriceIcon based on poster price
-                priceIconTransform.gameObject.SetActive(posterPrice >= 0);
+                // Activate or deactivate the PriceIcon based on poster price and visibility
+                if (isVisible && posterPrice >= 0)
+                {
+                    priceIconTransform.gameObject.SetActive(true);
+                }
+                else
+                {
+                    priceIconTransform.gameObject.SetActive(false);
+                }
+                
             }
         }
 

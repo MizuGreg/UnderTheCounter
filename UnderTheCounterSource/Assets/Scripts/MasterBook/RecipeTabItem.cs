@@ -17,8 +17,8 @@ namespace MasterBook
 
         private void Start()
         {
-            emptyTriangle = Resources.Load<Sprite>("Sprites/UI/Recipe book/SPRITE SELEZ OFF");
-            blackTriangle = Resources.Load<Sprite>("Sprites/UI/Recipe book/SPRITE SELEZ ON");
+            emptyTriangle = Resources.Load<Sprite>("Sprites/UI/MasterBook/RecipeTab/SPRITE SELEZ OFF");
+            blackTriangle = Resources.Load<Sprite>("Sprites/UI/MasterBook/RecipeTab/SPRITE SELEZ ON");
             
             // this ensures that the recipe book always opens up with a cocktail in the beginning:
             if (cocktailType == CocktailType.Ripple) ShowThisCocktail();

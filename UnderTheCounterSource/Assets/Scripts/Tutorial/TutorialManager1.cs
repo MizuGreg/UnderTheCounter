@@ -515,7 +515,7 @@ namespace Tutorial
             outlineObject.SetActive(true);
             Image img = outlineObject.GetComponentInChildren<Image>();
             
-            float fadeDuration = 1.0f;
+            float fadeDuration = 0.75f;
             while(true)
             {
                 yield return StartCoroutine(FadeAlpha(img, 0f, 1f, fadeDuration));
