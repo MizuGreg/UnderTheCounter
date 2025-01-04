@@ -39,7 +39,7 @@ namespace MasterBook
             else
             {
                 posterObject.transform.Find("Image").GetComponent<Image>().sprite = hiddenPosterSprite;
-                posterObject.transform.Find("PosterName").GetComponent<TextMeshProUGUI>().text = "NO POSTER HANGED";
+                posterObject.transform.Find("PosterName").GetComponent<TextMeshProUGUI>().text = "NO POSTER HUNG";
                 posterObject.transform.Find("Buff").GetComponent<TextMeshProUGUI>().text = "---";
                 posterObject.transform.Find("Nerf").GetComponent<TextMeshProUGUI>().text = "---";
             }
