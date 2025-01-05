@@ -67,7 +67,7 @@
         "tip": 3
     },
     {
-        "sprite": "Thomas",
+        "sprite": "Luke",
         "order": "SpringBee",
         "tip": 4,
         "lines": {
@@ -77,13 +77,13 @@
                 "Anyway… I'm a bit nervous tonight, so I need that bit of booze… Can you make me a <b>Spring Bee</b>?"
             ],
             "correct": [
-                "Perfect! <size=75%>Okay Thomas… You can do it… Just walk up to her and, uh… <size=100%> Oh! Uh, I gotta go! Here's a tip for you, thanks again and bye!"
+                "Perfect! <size=75%>Okay Luke… You can do it… Just walk up to her and, uh… <size=100%> Oh! Uh, I gotta go! Here's a tip for you, thanks again and bye!"
             ],
             "water": [
-                "Nice! <size=75%>Okay Thomas… You can do it… Just walk up to her and, uh… <size=100%> Uh, I gotta go! Here's a small tip for you, thanks again and bye!"
+                "Nice! <size=75%>Okay Luke… You can do it… Just walk up to her and, uh… <size=100%> Uh, I gotta go! Here's a small tip for you, thanks again and bye!"
             ],
             "incorrect": [
-                "Good enough, I guess! <size=75%>Okay Thomas… You can do it… <size=100%> Well, I gotta go! Thanks and bye!"
+                "Good enough, I guess! <size=75%>Okay Luke… You can do it… <size=100%> Well, I gotta go! Thanks and bye!"
             ],
             "wrong": [
                 "Oh, that's not what I expected... Well, I gotta go! Thanks and bye!"

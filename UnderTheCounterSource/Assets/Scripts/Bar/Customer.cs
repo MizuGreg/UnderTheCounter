@@ -10,7 +10,7 @@ namespace Bar
     {
         Margaret,
         MargaretDrunk, // Margaret's sprite as drunk after scandal
-        Thomas, // Margaret's crush
+        Luke, // Margaret's crush
         Helene,
         Charles,
         Betty,
