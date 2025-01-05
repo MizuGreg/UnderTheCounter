@@ -6,6 +6,7 @@ using Bar;
 using CocktailCreation;
 using Technical;
 using Newtonsoft.Json;
+using SavedGameData;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,14 +43,14 @@ namespace Tutorial
 
         private void Awake()
         {
-            enabled = Day.CurrentDay == 1; // goes to sleep if it's not the first day
+            enabled = GameData.CurrentDay == 1; // goes to sleep if it's not the first day
             // update: this line doesn't work...
         }
         private void Start()
         {
             EventSystemManager.NextTutorialStep += NextStep;
-            EventSystemManager.OnRecipeBookOpened += RecipeBookOpenedFirstTime;
-            EventSystemManager.OnRecipeBookClosed += RecipeBookClosedFirstTime;
+            EventSystemManager.OnMasterBookOpened += RecipeBookOpenedFirstTime;
+            EventSystemManager.OnMasterBookClosed += RecipeBookClosedFirstTime;
             EventSystemManager.OnIngredientPoured += IngredientPoured;
             EventSystemManager.OnGarnishAdded += GarnishAdded;
             
@@ -60,8 +61,8 @@ namespace Tutorial
         private void OnDestroy()
         {
             EventSystemManager.NextTutorialStep -= NextStep;
-            EventSystemManager.OnRecipeBookOpened -= RecipeBookOpenedFirstTime;
-            EventSystemManager.OnRecipeBookClosed -= RecipeBookClosedFirstTime;
+            EventSystemManager.OnMasterBookOpened -= RecipeBookOpenedFirstTime;
+            EventSystemManager.OnMasterBookClosed -= RecipeBookClosedFirstTime;
             EventSystemManager.OnIngredientPoured -= IngredientPoured;
             EventSystemManager.OnGarnishAdded -= GarnishAdded;
         }
@@ -514,7 +515,7 @@ namespace Tutorial
             outlineObject.SetActive(true);
             Image img = outlineObject.GetComponentInChildren<Image>();
             
-            float fadeDuration = 1.0f;
+            float fadeDuration = 0.75f;
             while(true)
             {
                 yield return StartCoroutine(FadeAlpha(img, 0f, 1f, fadeDuration));

@@ -9,6 +9,8 @@ namespace Bar
     public enum CustomerType
     {
         Margaret,
+        MargaretDrunk, // Margaret's sprite as drunk after scandal
+        Luke, // Margaret's crush
         Helene,
         Charles,
         Betty,
@@ -19,7 +21,9 @@ namespace Bar
         Willie,
         Gaston,
         Ernest, // ex-bar owner
+        ErnestUnion, // Ernest's sprite as member of the bartenders union
         Howard, // inspector
+        MafiaGoon,
         Unspecified
         
     }
@@ -34,7 +38,9 @@ namespace Bar
     public class Customer
     {
         public CustomerType sprite;
+        public string displayedName;
         public CocktailType order;
+        public string orderOnPostIt;
         
         public SerializedDictionary<string, List<string>> lines;
         
@@ -51,5 +57,11 @@ namespace Bar
                 return $"Error :( Exception in Customer.ToString(): {e}";
             }
         }
+    }
+
+    public class BlitzDialogue
+    {
+        public SerializedDictionary<string, List<string>> lines;
+        public int correctChoice;
     }
 }

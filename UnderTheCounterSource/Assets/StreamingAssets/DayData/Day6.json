@@ -1,0 +1,72 @@
+[
+    {
+        "sprite": "MafiaGoon",
+        "order": "None",
+        "tip": 0,
+        "lines": {
+            "greet": [
+                ""
+            ]
+        }
+    },
+    {
+        "sprite": "Kenneth",
+        "order": "Parti",
+        "tip": 4,
+        "lines": {
+            "greet": [
+                ""
+            ]
+        }
+    },
+    {
+        "sprite": "Kathryn",
+        "order": "Ripple",
+        "tip": 3,
+        "lines": {
+            "greet": [
+                ""
+            ]
+        }
+    },
+    {
+        "sprite": "Doris",
+        "order": "Ripple",
+        "tip": 0,
+        "lines": {
+            "greet": [
+                ""
+            ]
+        }
+    },
+    {
+        "sprite": "Luke",
+        "order": "SpringBee",
+        "tip": 4,
+        "lines": {
+            "greet": [
+                ""
+            ]
+        }
+    },
+    {
+        "sprite": "Helene",
+        "order": "Palmera",
+        "tip": 10,
+        "lines": {
+            "greet": [
+                ""
+            ]
+        }
+    },
+    {
+        "sprite": "MafiaGoon",
+        "order": "None",
+        "tip": 0,
+        "lines": {
+            "greet": [
+                ""
+            ]
+        }
+    }
+]

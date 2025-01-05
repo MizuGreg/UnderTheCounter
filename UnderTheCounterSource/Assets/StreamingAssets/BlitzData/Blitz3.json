@@ -1,0 +1,40 @@
+[
+    {
+        "lines": {
+            "greet": [
+                "ahah, io sono howard",
+                "wi wo wi wo"
+            ],
+            "choices": [
+                "paolo (giusta)",
+                "piero (sbagliata)"
+            ],
+            "correct": [
+                "hai scelto paolo, bravo"
+            ],
+            "wrong": [
+                "chi cavolo è piero?"
+            ]
+        },
+        "correctChoice": 0
+    },
+    {
+        "lines": {
+            "greet": [
+                "ahah, sono di nuovo io, howard",
+                "wi wo wi wo"
+            ],
+            "choices": [
+                "a (sbagliata)",
+                "b (giusta)"
+            ],
+            "correct": [
+                "paolo is the best"
+            ],
+            "wrong": [
+                "AAAAAAAAAAAAAAAAAAAAA (internal screaming in italian)"
+            ]
+        },
+        "correctChoice": 1
+    }
+]

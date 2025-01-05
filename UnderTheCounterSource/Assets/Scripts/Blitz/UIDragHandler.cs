@@ -1,98 +1,113 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using Technical;
 
-public class UIDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+namespace Blitz
 {
-    private RectTransform rectTransform;
-    private Canvas canvas;
-    private Vector2 originalPosition;
-    private Vector3 originalScale;
-    public RectTransform restrictionArea;
-    private bool isPlaced = false;
-
-    // Variabile per controllare lo stato delle aree di drop
-    private static bool areDropAreasEnabled = false;
-
-    void Awake()
+    public class UIDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        rectTransform = GetComponent<RectTransform>();
-        canvas = GetComponentInParent<Canvas>();
-        originalScale = rectTransform.localScale;
-    }
+        private RectTransform rectTransform;
+        private Canvas canvas;
+        private Vector2 originalPosition;
+        private bool isPlaced = false;
+        private static bool areDropAreasEnabled = false;
 
-    public static void EnableDropAreas()
-    {
-        areDropAreasEnabled = true;
-    }
-
-    public static void DisableDropAreas()
-    {
-        areDropAreasEnabled = false;
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        if (!areDropAreasEnabled || isPlaced) return;
-
-        originalPosition = rectTransform.anchoredPosition;
-        StartCoroutine(ShakeAndGrow());
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (!areDropAreasEnabled || isPlaced) return;
-
-        Vector2 delta = eventData.delta / canvas.scaleFactor;
-        rectTransform.anchoredPosition += delta;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (!areDropAreasEnabled || isPlaced) return;
-
-        rectTransform.localScale = originalScale;
-
-        if (IsWithinArea())
+        private void Start()
         {
-            rectTransform.SetParent(restrictionArea, false);
-            rectTransform.anchoredPosition = Vector2.zero;
-            isPlaced = true;
-        }
-        else
-        {
-            rectTransform.anchoredPosition = originalPosition;
-        }
-    }
-
-    private IEnumerator ShakeAndGrow()
-    {
-        float duration = 0.2f;
-        float shakeMagnitude = 5f;
-        float growScale = 1.2f;
-        Vector3 targetScale = originalScale * growScale;
-
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            float shakeOffsetX = Random.Range(-shakeMagnitude, shakeMagnitude);
-            float shakeOffsetY = Random.Range(-shakeMagnitude, shakeMagnitude);
-            rectTransform.anchoredPosition += new Vector2(shakeOffsetX, shakeOffsetY);
-            rectTransform.localScale = Vector3.Lerp(originalScale, targetScale, t / duration);
-
-            yield return null;
+            EventSystemManager.OnPanelOpened += EnableDropAreas;
+            EventSystemManager.OnBlitzEnd += ResetBottles;
         }
 
-        rectTransform.localScale = targetScale;
-    }
+        private void OnDestroy()
+        {
+            EventSystemManager.OnPanelOpened -= EnableDropAreas;
+            EventSystemManager.OnBlitzEnd -= ResetBottles;
+        }
 
-    private bool IsWithinArea()
-    {
-        if (!restrictionArea) return false;
+        void Awake()
+        {
+            rectTransform = GetComponent<RectTransform>();
+            canvas = GetComponentInParent<Canvas>();
+        }
 
-        Vector3[] corners = new Vector3[4];
-        restrictionArea.GetWorldCorners(corners);
-        Rect areaRect = new Rect(corners[0], corners[2] - corners[0]);
+        public static void EnableDropAreas()
+        {
+            areDropAreasEnabled = true;
+        }
 
-        return areaRect.Contains(rectTransform.position);
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            if (!areDropAreasEnabled || isPlaced) return;
+
+            originalPosition = rectTransform.anchoredPosition;
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            if (!areDropAreasEnabled || isPlaced) return;
+
+            Vector2 delta = eventData.delta / canvas.scaleFactor;
+            rectTransform.anchoredPosition += delta;
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            if (!areDropAreasEnabled || isPlaced) return;
+
+            if (string.IsNullOrEmpty(gameObject.tag) || gameObject.tag == "Untagged")
+            {
+                rectTransform.anchoredPosition = originalPosition;
+                return;
+            }
+
+            if (IsWithinArea())
+            {
+                RectTransform restrictionArea = GetMatchingRestrictionArea();
+                restrictionArea.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Blitz/{gameObject.tag}_BOX");
+
+                isPlaced = true;
+                rectTransform.GetComponent<Image>().enabled = false;
+                rectTransform.anchoredPosition = originalPosition;
+
+                EventSystemManager.OnBottlePlaced();
+            }
+            else
+            {
+                rectTransform.anchoredPosition = originalPosition;
+            }
+        }
+
+        private bool IsWithinArea()
+        {
+            RectTransform restrictionArea = GetMatchingRestrictionArea();
+            if (!restrictionArea) return false;
+
+            Vector3[] corners = new Vector3[4];
+            restrictionArea.GetWorldCorners(corners);
+            Rect areaRect = new Rect(corners[0], corners[2] - corners[0]);
+
+            return areaRect.Contains(rectTransform.position);
+        }
+
+        private RectTransform GetMatchingRestrictionArea()
+        {
+            GameObject area = GameObject.FindGameObjectWithTag(gameObject.tag);
+            RectTransform rect = area.GetComponent<RectTransform>();
+            if (rect != null)
+            {
+                return rect;
+            }
+            return null;
+        }
+
+        private void ResetBottles()
+        {
+            isPlaced = false;
+            rectTransform.GetComponent<Image>().enabled = true;
+            areDropAreasEnabled = false;
+        }
+
     }
 }

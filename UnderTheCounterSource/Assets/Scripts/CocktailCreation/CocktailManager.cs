@@ -76,7 +76,7 @@ namespace CocktailCreation
         private void ShowArea(CocktailType cocktailType)
         {
             _cocktailCreationAreaAnimator.SetBool(SlideIn, true);
-            postIt.WriteCocktail(cocktailType);
+            if (cocktailType != CocktailType.Wrong) postIt.ShowPostIt();
         }
 
         private void HideArea()
@@ -169,6 +169,7 @@ namespace CocktailCreation
         {
             _cocktail.GetComponent<CocktailScript>().WaterDownCocktail();
             waterDownIcon.FadeIn();
+            waterButton.GetComponent<Button>().interactable = false;
         }
 
 
@@ -260,6 +261,7 @@ namespace CocktailCreation
         {
             trashButton.SetActive(val);
             waterButton.SetActive(val);
+            waterButton.GetComponent<Button>().interactable = val; // otherwise the button is still not interactable if it has been watered in the previous customer
             serveButton.SetActive(val);
         }
 

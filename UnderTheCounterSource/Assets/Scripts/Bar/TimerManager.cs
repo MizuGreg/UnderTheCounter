@@ -1,4 +1,5 @@
 using System;
+using SavedGameData;
 using Technical;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +24,7 @@ namespace Bar
 
         public void SetTime()
         {
-            initialTime = Day.DailyTime;
+            initialTime = GameData.DailyTime;
             timeRemaining = initialTime;
         }
 
@@ -50,7 +51,7 @@ namespace Bar
         
         public void StartTimer()
         {
-            timeRemaining = Day.DailyTime;
+            timeRemaining = GameData.DailyTime;
             isOn = true;
             isRunning = true;
             print($"Timer started. Time remaining: {timeRemaining}");

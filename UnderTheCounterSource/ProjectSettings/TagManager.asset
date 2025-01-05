@@ -12,6 +12,13 @@ TagManager:
   - Debug
   - Placeholder
   - PosterDetail
+  - WateredIcon
+  - Cocktail
+  - Caledon
+  - Ferrucci
+  - Verlan
+  - Cantico
+  - Achievement
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,6 @@
 using System.Collections;
+using Bar;
+using SavedGameData;
 using Technical;
 using TMPro;
 using UnityEngine;
@@ -17,24 +19,27 @@ namespace IntroductionScreen
         [SerializeField] private TextMeshProUGUI text1;
         [SerializeField] private TextMeshProUGUI text2;
         [SerializeField] private TextMeshProUGUI text3;
+        [SerializeField] private FadeCanvas inputFieldCanvas;
 
         private int currentStep = 0; // 0 -> Mostra text1, 1 -> Mostra text2, 2 -> Mostra text3
 
     private void Start()
     {
-        // Inizialmente disattivo i pulsanti
+        // Inizialmente disattivo i pulsanti e l'input field
         continueButtonCanvas.alpha = 0;
         continueButtonCanvas.gameObject.SetActive(false);
 
-            startDayButtonCanvas.alpha = 0;
-            startDayButtonCanvas.gameObject.SetActive(false);
+        startDayButtonCanvas.alpha = 0;
+        startDayButtonCanvas.gameObject.SetActive(false);
+        
+        inputFieldCanvas.gameObject.SetActive(false);
 
-            text1.alpha = 0;
-            text2.alpha = 0;
-            text3.alpha = 0;
+        text1.alpha = 0;
+        text2.alpha = 0;
+        text3.alpha = 0;
 
-            StartCoroutine(StartSequence());
-        }
+        StartCoroutine(StartSequence());
+    }
 
         private IEnumerator StartSequence()
         {
@@ -47,7 +52,7 @@ namespace IntroductionScreen
 
             // Fade-in pulsante continue
             continueButtonCanvas.gameObject.SetActive(true);
-            yield return FadeCanvasGroupIn(continueButtonCanvas, 0.8f);
+            yield return FadeCanvasGroupIn(continueButtonCanvas, 0.7f);
         }
 
         public void OnContinuePressed()
@@ -60,7 +65,7 @@ namespace IntroductionScreen
             if (currentStep == 0) 
             {
                 // Fade-out text1 e pulsante continue
-                yield return FadeCanvasGroupOut(continueButtonCanvas, 0.8f);
+                yield return FadeCanvasGroupOut(continueButtonCanvas, 0.7f);
                 continueButtonCanvas.gameObject.SetActive(false);
 
                 yield return FadeTextOut(text1, 1f);
@@ -70,31 +75,41 @@ namespace IntroductionScreen
 
                 // Fade-in pulsante continue
                 continueButtonCanvas.gameObject.SetActive(true);
-                yield return FadeCanvasGroupIn(continueButtonCanvas, 0.8f);
+                yield return FadeCanvasGroupIn(continueButtonCanvas, 0.7f);
 
                 currentStep = 1;
             }
             else if (currentStep == 1)
             {
                 // Fade-out text2 e pulsante continue
-                yield return FadeCanvasGroupOut(continueButtonCanvas, 0.8f);
+                yield return FadeCanvasGroupOut(continueButtonCanvas, 0.7f);
                 continueButtonCanvas.gameObject.SetActive(false);
 
                 yield return FadeTextOut(text2, 1f);
 
                 // Fade-in text3
                 yield return FadeTextIn(text3, 1f);
+                
+                inputFieldCanvas.FadeIn();
+                yield return new WaitForSeconds(2f);
 
                 // Fade-in pulsante start day
                 startDayButtonCanvas.gameObject.SetActive(true);
-                yield return FadeCanvasGroupIn(startDayButtonCanvas, 1f);
+                yield return FadeCanvasGroupIn(startDayButtonCanvas, 0.7f);
 
                 currentStep = 2;
             }
         }
 
+        public void UpdateBarName(string newName)
+        {
+            GameData.BarName = newName == "" ? "The Chitchat" : newName;
+            print(GameData.BarName);
+        }
+
         public void OnStartDayPressed()
         {
+            print(GameData.BarName);
             StartCoroutine(LoadNextScene());
         }
 
@@ -143,6 +158,7 @@ namespace IntroductionScreen
 
         private IEnumerator FadeCanvasGroupIn(CanvasGroup cg, float duration)
         {
+            cg.interactable = false;
             float startAlpha = cg.alpha;
             float endAlpha = 1f;
             float elapsed = 0f;
@@ -154,10 +170,12 @@ namespace IntroductionScreen
                 cg.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
                 yield return null;
             }
+            cg.interactable = true;
         }
 
         private IEnumerator FadeCanvasGroupOut(CanvasGroup cg, float duration)
         {
+            cg.interactable = false;
             float startAlpha = cg.alpha;
             float endAlpha = 0f;
             float elapsed = 0f;

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using SavedGameData;
 using Technical;
 using TMPro;
 using UnityEngine;
@@ -70,16 +72,6 @@ namespace Bar
             textSpeed = speed;
         }
 
-        public void StartDialogue(Dialogue dialogue, DialogueType dialogueType)
-        {
-            //DANGER
-            _sentences.Clear();
-            //DANGER
-            
-            
-            StartCoroutine(WaitBeforeDialogueBox(dialogue, dialogueType));
-        }
-
         public void StartPopUp(Dialogue dialogue, bool isActionNeeded)
         {
             isPopupActive = true;
@@ -122,6 +114,17 @@ namespace Bar
             _isActionNeeded = false;
             EventSystemManager.NextTutorialStep();
         }
+        
+        public void StartDialogue(Dialogue dialogue, DialogueType dialogueType)
+        {
+            _sentences.Clear();
+            StartCoroutine(WaitBeforeDialogueBox(dialogue, dialogueType));
+        }
+
+        private void EndDialogue()
+        {
+            animator.SetBool(IsOpen, false);
+        }
 
         private IEnumerator WaitBeforeDialogueBox(Dialogue dialogue, DialogueType dialogueType)
         {
@@ -133,7 +136,7 @@ namespace Bar
             
             foreach (string sentence in dialogue.sentences) 
             {
-                _sentences.Enqueue(sentence);
+                ParseLineTag(sentence);
             }
             dialogueText.text = "";
             StartCoroutine(WaitBeforeFirstSentence());
@@ -166,14 +169,23 @@ namespace Bar
                 else SkipText();
             }
         }
+        
+        private void SkipText()
+        {
+            _allTextIsVisible = true;
+            dialogueText.maxVisibleCharacters = dialogueText.text.Length;
+            arrow.gameObject.SetActive(true);
+        }
 
         private void DisplayNextSentence()
         {
             arrow.gameObject.SetActive(false);
             textSpeed = normalTextSpeed;
             if (_sentences.Count == 0) {
-                isBoxActive = false;
-                EndDialogue();
+                if (_dialogueType != DialogueType.Blitz) {
+                    isBoxActive = false;
+                    EndDialogue();
+                }
                 switch (_dialogueType)
                 {
                     case DialogueType.Greet:
@@ -185,16 +197,86 @@ namespace Bar
                     case DialogueType.Tutorial:
                         EventSystemManager.NextTutorialStep();
                         break;
-                    case DialogueType.Inspector:
+                    case DialogueType.NoDrink:
                         EventSystemManager.OnCustomerLeave();
+                        break;
+                    case DialogueType.Blitz:
+                        EventSystemManager.MultipleChoiceStart();
                         break;
                 }
             }
             else
             {
                 string sentence = _sentences.Dequeue();
-                if (_typeSentenceCoroutine != null) StopCoroutine(_typeSentenceCoroutine);
+                ParseEventTag(sentence);
+                GameData.Log.Add(new Tuple<string, string>(nameText.text, sentence));
+                
                 StartCoroutine(TypeSentence(sentence));
+            }
+        }
+        
+        private void ParseLineTag(string sentence)
+        {
+            if (sentence.Contains("["))
+            {
+                string tag = sentence.Substring(sentence.IndexOf("[") + 1, sentence.IndexOf("]") - sentence.IndexOf("[") - 1); // extracts text inside brackets
+                string strippedSentence = sentence.Remove(sentence.IndexOf("["), sentence.IndexOf("]") - sentence.IndexOf("[") + 1); // removes whole tag with brackets
+                switch (tag)
+                {
+                    case "IF HAS POSTERS":
+                        if (GameData.Posters.Count > 0) _sentences.Enqueue(strippedSentence);
+                        break;
+                    case "IF DOESN'T HAVE POSTERS":
+                        if (GameData.Posters.Count == 0) _sentences.Enqueue(strippedSentence);
+                        break;
+                    case "IF MARGARET GOT DRUNK":
+                        if (GameData.Choices["MargaretDrunk"]) _sentences.Enqueue(strippedSentence);
+                        break;
+                    case "IF MARGARET DIDN'T GET DRUNK":
+                        if (!GameData.Choices["MargaretDrunk"]) _sentences.Enqueue(strippedSentence);
+                        break;
+                    case "IF MAFIA DEAL ACCEPTED":
+                        if (GameData.Choices["MafiaDeal"]) _sentences.Enqueue(strippedSentence);
+                        break;
+                    case "IF MAFIA DEAL NOT ACCEPTED":
+                        if (!GameData.Choices["MafiaDeal"]) _sentences.Enqueue(strippedSentence);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                _sentences.Enqueue(sentence);
+            }
+        }
+
+        private void ParseEventTag(string sentence)
+        {
+            if (sentence.Contains("{"))
+            {
+                string tag = sentence.Substring(sentence.IndexOf("{") + 1, sentence.IndexOf("}") - sentence.IndexOf("{") - 1); // extracts text inside brackets
+                sentence = sentence.Remove(sentence.IndexOf("{"), sentence.IndexOf("}") - sentence.IndexOf("{") + 1); // removes whole tag with brackets
+
+                if (tag.Contains("TRINKET"))
+                {
+                    int trinketID = int.Parse(Regex.Match(tag, @"\d+").Value); // extracts ID
+                    EventSystemManager.OnTrinketObtained(trinketID);
+                }
+                if (tag.Contains("POSTER"))
+                {
+                    int posterID = int.Parse(Regex.Match(tag, @"\d+").Value);
+                    EventSystemManager.OnPosterObtained(posterID);
+                }
+                if (tag == "MARGARET GETS DRUNK")
+                {
+                    GameData.Choices["MargaretDrunk"] = true;
+                }
+
+                if (tag == "MAFIA DEAL ACCEPTED")
+                {
+                    GameData.Choices["MafiaDeal"] = true;
+                }
             }
         }
 
@@ -234,33 +316,5 @@ namespace Bar
             }
             arrow.gameObject.SetActive(true);
         }
-        
-        private void SkipText()
-        {
-            _allTextIsVisible = true;
-            dialogueText.maxVisibleCharacters = dialogueText.text.Length;
-            arrow.gameObject.SetActive(true);
-        }
-
-        private void showIcon()
-        {
-            // todo: make icon visible
-        }
-
-        private void hideIcon()
-        {
-            // todo: hide icon
-        }
-
-        private void updateIcon()
-        {
-            // todo: update icon based on dialogue type
-        }
-
-        private void EndDialogue()
-        {
-            animator.SetBool(IsOpen, false);
-        }
-
     }
 }

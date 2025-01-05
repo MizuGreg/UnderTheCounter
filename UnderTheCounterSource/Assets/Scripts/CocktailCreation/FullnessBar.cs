@@ -16,9 +16,10 @@ namespace CocktailCreation
         [SerializeField] private Color ferrucciColor;
         [SerializeField] private Color gryteColor;
         [SerializeField] private Color shaddockColor;
+        [SerializeField] private Color canticoColor;
         
 
-        private List<GameObject> _slotList = new List<GameObject>();
+        private List<GameObject> _slotList = new();
         
         void Start()
         {
@@ -45,7 +46,7 @@ namespace CocktailCreation
                 case IngredientType.Shaddock:
                     return shaddockColor;
                 default:
-                    return shaddockColor;
+                    return canticoColor;
             }
         }
 
