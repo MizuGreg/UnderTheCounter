@@ -11,16 +11,25 @@ namespace Blitz
         private RectTransform rectTransform;
         private Canvas canvas;
         private Vector2 originalPosition;
-        private Vector3 originalScale;
-        public RectTransform restrictionArea;
         private bool isPlaced = false;
         private static bool areDropAreasEnabled = false;
+
+        private void Start()
+        {
+            EventSystemManager.OnPanelOpened += EnableDropAreas;
+            EventSystemManager.OnBlitzEnd += ResetBottles;
+        }
+
+        private void OnDestroy()
+        {
+            EventSystemManager.OnPanelOpened -= EnableDropAreas;
+            EventSystemManager.OnBlitzEnd -= ResetBottles;
+        }
 
         void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
             canvas = GetComponentInParent<Canvas>();
-            originalScale = rectTransform.localScale;
         }
 
         public static void EnableDropAreas()
@@ -28,17 +37,11 @@ namespace Blitz
             areDropAreasEnabled = true;
         }
 
-        public static void DisableDropAreas()
-        {
-            areDropAreasEnabled = false;
-        }
-
         public void OnBeginDrag(PointerEventData eventData)
         {
             if (!areDropAreasEnabled || isPlaced) return;
 
             originalPosition = rectTransform.anchoredPosition;
-            StartCoroutine(ShakeAndGrow());
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -53,13 +56,21 @@ namespace Blitz
         {
             if (!areDropAreasEnabled || isPlaced) return;
 
-            rectTransform.localScale = originalScale;
+            if (string.IsNullOrEmpty(gameObject.tag) || gameObject.tag == "Untagged")
+            {
+                rectTransform.anchoredPosition = originalPosition;
+                return;
+            }
 
             if (IsWithinArea())
             {
-                rectTransform.SetParent(restrictionArea, false);
-                rectTransform.anchoredPosition = Vector2.zero;
+                RectTransform restrictionArea = GetMatchingRestrictionArea();
+                restrictionArea.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Blitz/{gameObject.tag}_BOX");
+
                 isPlaced = true;
+                rectTransform.GetComponent<Image>().enabled = false;
+                rectTransform.anchoredPosition = originalPosition;
+
                 EventSystemManager.OnBottlePlaced();
             }
             else
@@ -68,28 +79,9 @@ namespace Blitz
             }
         }
 
-        private IEnumerator ShakeAndGrow()
-        {
-            float duration = 0.2f;
-            float shakeMagnitude = 5f;
-            float growScale = 1.2f;
-            Vector3 targetScale = originalScale * growScale;
-
-            for (float t = 0; t < duration; t += Time.deltaTime)
-            {
-                float shakeOffsetX = Random.Range(-shakeMagnitude, shakeMagnitude);
-                float shakeOffsetY = Random.Range(-shakeMagnitude, shakeMagnitude);
-                rectTransform.anchoredPosition += new Vector2(shakeOffsetX, shakeOffsetY);
-                rectTransform.localScale = Vector3.Lerp(originalScale, targetScale, t / duration);
-
-                yield return null;
-            }
-
-            rectTransform.localScale = targetScale;
-        }
-
         private bool IsWithinArea()
         {
+            RectTransform restrictionArea = GetMatchingRestrictionArea();
             if (!restrictionArea) return false;
 
             Vector3[] corners = new Vector3[4];
@@ -98,5 +90,24 @@ namespace Blitz
 
             return areaRect.Contains(rectTransform.position);
         }
+
+        private RectTransform GetMatchingRestrictionArea()
+        {
+            GameObject area = GameObject.FindGameObjectWithTag(gameObject.tag);
+            RectTransform rect = area.GetComponent<RectTransform>();
+            if (rect != null)
+            {
+                return rect;
+            }
+            return null;
+        }
+
+        private void ResetBottles()
+        {
+            isPlaced = false;
+            rectTransform.GetComponent<Image>().enabled = true;
+            areDropAreasEnabled = false;
+        }
+
     }
 }

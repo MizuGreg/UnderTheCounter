@@ -26,6 +26,7 @@ namespace Bar
         Greet,
         Leave,
         Tutorial,
-        NoDrink
+        NoDrink,
+        Blitz
     }
 }

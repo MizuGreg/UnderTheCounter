@@ -1,0 +1,46 @@
+{
+    "customers": [
+        {
+            "sprite": "Howard",
+            "order": "None",
+            "lines": {
+                "greet": [
+                    "ahah, io sono howard",
+                    "wi wo wi wo"
+                ],
+                "choices": [
+                    "paolo",
+                    "piero"
+                ],
+                "correct": [
+                    "hai scelto paolo, bravo"
+                ],
+                "wrong": [
+                    "chi cavolo è piero?"
+                ]
+            },
+            "tip": 0
+        },
+        {
+            "sprite": "Howard",
+            "order": "None",
+            "lines": {
+                "greet": [
+                    "ahah, sono di nuovo io, howard",
+                    "wi wo wi wo"
+                ],
+                "choices": [
+                    "paolo",
+                    "piero"
+                ],
+                "correct": [
+                    "paolo is the best"
+                ],
+                "wrong": [
+                    "AAAAAAAAAAAAAAAAAAAAA (internal screaming in italian)"
+                ]
+            },
+            "tip": 0
+        }
+    ]
+}

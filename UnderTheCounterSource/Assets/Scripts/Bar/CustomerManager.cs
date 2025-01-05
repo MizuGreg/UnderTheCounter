@@ -10,16 +10,21 @@ using SavedGameData;
 using Technical;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Bar
 {
     public class CustomerManager : MonoBehaviour
     {
         private List<Customer> _dailyCustomers;
+        private List<Customer> _dailyBlitzDialogues;
         private Customer _currentCustomer;
         private string _customerName;
         private Image _currentImage;
         private DialogueManager _dialogueManager;
+
+        [SerializeField] private Button choiceButton1;
+        [SerializeField] private Button choiceButton2;
 
         [SerializeField] private CanvasGroup customerCanvas;
         
@@ -43,6 +48,8 @@ namespace Bar
             EventSystemManager.OnCocktailMade += ServeCustomer;
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
             EventSystemManager.OnPreparationStart += StartPreparation;
+            EventSystemManager.OnMinigameEnd += TriggerHowardDialogue;
+            EventSystemManager.MultipleChoiceStart += ShowChoiceButtons;
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
@@ -56,6 +63,8 @@ namespace Bar
             EventSystemManager.OnCocktailMade -= ServeCustomer;
             EventSystemManager.OnCustomerLeave -= FarewellCustomer;
             EventSystemManager.OnPreparationStart -= StartPreparation;
+            EventSystemManager.OnMinigameEnd -= TriggerHowardDialogue;
+            EventSystemManager.MultipleChoiceStart -= ShowChoiceButtons;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -90,6 +99,10 @@ namespace Bar
         {
             yield return new WaitForSeconds(1.5f);
             LoadDailyCustomers(GameData.CurrentDay);
+
+            // wait a bit more to avoid race conditions
+            yield return new WaitForSeconds(0.5f);
+            LoadDailyBlitzDialogues(GameData.CurrentDay);
             GreetCustomer();
         }
 
@@ -97,10 +110,70 @@ namespace Bar
         {
             // read DailyCustomers json and create daily customers list
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + currentDay + ".json");
-            
             _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             HandleConditionalCustomers();
             
+        }
+
+        private void LoadDailyBlitzDialogues(int currentDay)
+        {
+            // read DailyBlitz json and create daily blitz list
+            int blitzDay = currentDay - 1; // blitzes are always TWO days before, this is used for debugging
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/BlitzData/Blitz" + blitzDay + ".json");
+            _dailyBlitzDialogues = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
+        }
+
+        private void TriggerHowardDialogue()
+        {
+            StartCoroutine(StartHowardDialogue());
+        }
+
+        private IEnumerator StartHowardDialogue()
+        {
+            yield return new WaitForSeconds(1.5f);
+            _currentImage.sprite = GetSpriteFromCustomerType(CustomerType.Howard);
+            customerCanvas.GetComponent<FadeCanvas>().FadeIn();
+
+            yield return new WaitForSeconds(timeBeforeDialogue);
+            Dialogue dialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["greet"]);
+            _dialogueManager.StartDialogue(dialogue, DialogueType.Blitz);
+
+            //_dailyBlitzDialogues.RemoveAt(0);
+        }
+
+        private void ShowChoiceButtons() 
+        {
+            choiceButton1.gameObject.SetActive(true);
+            choiceButton2.gameObject.SetActive(true);
+
+            choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = _dailyBlitzDialogues[0].lines["choices"][0];
+            choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = _dailyBlitzDialogues[0].lines["choices"][1];
+
+            choiceButton1.onClick.AddListener(() => OnChoiceSelected(0));
+            choiceButton2.onClick.AddListener(() => OnChoiceSelected(1));
+        }
+
+        private void OnChoiceSelected(int choiceIndex)
+        {
+            Debug.Log("Choice selected: " + choiceIndex);
+
+            choiceButton1.gameObject.SetActive(false);
+            choiceButton2.gameObject.SetActive(false);
+
+            Dialogue correctDialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["correct"]);
+            Dialogue wrongDialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["wrong"]);
+
+            if (choiceIndex == 0)
+            {
+                _dialogueManager.StartDialogue(correctDialogue, DialogueType.NoDrink);
+            }
+            else
+            {
+                _dialogueManager.StartDialogue(wrongDialogue, DialogueType.NoDrink);
+            }
+
+            EventSystemManager.OnBlitzEnd();
+            _dailyBlitzDialogues.RemoveAt(0);
         }
 
         // Handles customers that appear or not depending on some conditions, or that have specific sprites depending on conditions
