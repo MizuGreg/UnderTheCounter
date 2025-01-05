@@ -53,9 +53,10 @@ namespace Bar
 
         private void PosterEffects()
         {
+            // TODO
             if (GameData.IsPosterActive(0))
             {
-                GameData.DailyTime += 30;
+                
             }
         }
 
@@ -70,8 +71,8 @@ namespace Bar
             #if UNITY_EDITOR
             if (forceDay > 0) GameData.CurrentDay = forceDay;
             #endif
-            
             GameData.StartDay();
+            
             PosterEffects();
             _timerManager.SetTime();
             
@@ -159,6 +160,18 @@ namespace Bar
         {
             yield return new WaitForSeconds(1.1f);
             SceneManager.LoadScene("MainMenu");
+        }
+        
+        private void LossByBlitz()
+        {
+            barContainer.GetComponent<FadeCanvas>().FadeOut();
+            StartCoroutine(LoadLoseScreen());
+        }
+         
+        private IEnumerator LoadLoseScreen()
+        {
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene("GameOverScreen");
         }
 
         public void QuitGame()

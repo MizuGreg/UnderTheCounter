@@ -17,12 +17,13 @@ namespace Bar
     public class CustomerManager : MonoBehaviour
     {
         private List<Customer> _dailyCustomers;
-        private List<Customer> _dailyBlitzDialogues;
         private Customer _currentCustomer;
         private string _customerName;
         private Image _currentImage;
         private DialogueManager _dialogueManager;
 
+        private List<BlitzDialogue> _dailyBlitzDialogues;
+        private BlitzDialogue currentBlitzDialogue;
         [SerializeField] private Button choiceButton1;
         [SerializeField] private Button choiceButton2;
 
@@ -74,6 +75,7 @@ namespace Bar
         
         private void PosterEffects()
         {
+            // TODO
             if (GameData.IsPosterActive(1))
             {
                 earningMultiplier = 1.3f;
@@ -106,21 +108,20 @@ namespace Bar
             GreetCustomer();
         }
 
-        private void LoadDailyCustomers(int currentDay)
+        private void LoadDailyCustomers(int day)
         {
             // read DailyCustomers json and create daily customers list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + currentDay + ".json");
-            _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + day + ".json");
+            _dailyCustomers = JsonConvert.DeserializeObject<List<Customer>>(jsonString);
             HandleConditionalCustomers();
             
         }
 
-        private void LoadDailyBlitzDialogues(int currentDay)
+        private void LoadDailyBlitzDialogues(int day)
         {
             // read DailyBlitz json and create daily blitz list
-            int blitzDay = currentDay - 1; // blitzes are always TWO days before, this is used for debugging
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/BlitzData/Blitz" + blitzDay + ".json");
-            _dailyBlitzDialogues = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/BlitzData/Blitz" + day + ".json");
+            _dailyBlitzDialogues = JsonConvert.DeserializeObject<List<BlitzDialogue>>(jsonString);
         }
 
         private void TriggerHowardDialogue()
@@ -133,9 +134,11 @@ namespace Bar
             yield return new WaitForSeconds(1.5f);
             _currentImage.sprite = GetSpriteFromCustomerType(CustomerType.Howard);
             customerCanvas.GetComponent<FadeCanvas>().FadeIn();
+            EventSystemManager.OnCustomerEnter();
 
             yield return new WaitForSeconds(timeBeforeDialogue);
-            Dialogue dialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["greet"]);
+            currentBlitzDialogue = _dailyBlitzDialogues[0];
+            Dialogue dialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["greet"]);
             _dialogueManager.StartDialogue(dialogue, DialogueType.Blitz);
 
             //_dailyBlitzDialogues.RemoveAt(0);
@@ -143,33 +146,29 @@ namespace Bar
 
         private void ShowChoiceButtons() 
         {
-            choiceButton1.gameObject.SetActive(true);
-            choiceButton2.gameObject.SetActive(true);
+            choiceButton1.GetComponent<FadeCanvas>().FadeIn();
+            choiceButton2.GetComponent<FadeCanvas>().FadeIn();
 
-            choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = _dailyBlitzDialogues[0].lines["choices"][0];
-            choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = _dailyBlitzDialogues[0].lines["choices"][1];
-
-            choiceButton1.onClick.AddListener(() => OnChoiceSelected(0));
-            choiceButton2.onClick.AddListener(() => OnChoiceSelected(1));
+            choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = currentBlitzDialogue.lines["choices"][0];
+            choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = currentBlitzDialogue.lines["choices"][1];
         }
 
-        private void OnChoiceSelected(int choiceIndex)
+        public void OnChoiceSelected(int choiceIndex)
         {
             Debug.Log("Choice selected: " + choiceIndex);
 
-            choiceButton1.gameObject.SetActive(false);
-            choiceButton2.gameObject.SetActive(false);
-
-            Dialogue correctDialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["correct"]);
-            Dialogue wrongDialogue = new Dialogue("Inspector", _dailyBlitzDialogues[0].lines["wrong"]);
-
-            if (choiceIndex == 0)
+            choiceButton1.GetComponent<FadeCanvas>().FadeOut();
+            choiceButton2.GetComponent<FadeCanvas>().FadeOut();
+            
+            if (choiceIndex == currentBlitzDialogue.correctChoice)
             {
-                _dialogueManager.StartDialogue(correctDialogue, DialogueType.NoDrink);
+                Dialogue correctDialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["correct"]);
+                _dialogueManager.StartDialogue(correctDialogue, DialogueType.Leave);
             }
             else
             {
-                _dialogueManager.StartDialogue(wrongDialogue, DialogueType.NoDrink);
+                Dialogue wrongDialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["wrong"]);
+                _dialogueManager.StartDialogue(wrongDialogue, DialogueType.Leave);
             }
 
             EventSystemManager.OnBlitzEnd();
@@ -213,8 +212,24 @@ namespace Bar
             if (_dailyCustomers.Count > 0)
             {
                 _currentCustomer = _dailyCustomers[0];
-                if (_currentCustomer.sprite == CustomerType.Howard) _customerName = "Inspector";
-                else _customerName = _currentCustomer.sprite.ToString();
+                switch (_currentCustomer.sprite)
+                {
+                    case CustomerType.Howard:
+                        _customerName = "Inspector";
+                        break;
+                    case CustomerType.ErnestUnion:
+                        _customerName = "B.U. member";
+                        break;
+                    case CustomerType.MafiaGoon:
+                        _customerName = "\"Businessman\"";
+                        break;
+                    case CustomerType.MargaretDrunk:
+                        _customerName = "Disheveled Margaret";
+                        break;
+                    default:
+                        _customerName = _currentCustomer.sprite.ToString();
+                        break;
+                }
                 _dailyCustomers.RemoveAt(0);
             
                 _currentImage.sprite = GetSpriteFromCustomerType(_currentCustomer.sprite);

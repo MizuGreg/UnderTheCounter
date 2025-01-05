@@ -6,8 +6,8 @@
                 "wi wo wi wo"
             ],
             "choices": [
-                "paolo (giusta)",
-                "piero (sbagliata)"
+                "paolo",
+                "piero"
             ],
             "correct": [
                 "hai scelto paolo, bravo"
@@ -25,8 +25,8 @@
                 "wi wo wi wo"
             ],
             "choices": [
-                "a (sbagliata)",
-                "b (giusta)"
+                "paolo",
+                "piero"
             ],
             "correct": [
                 "paolo is the best"
@@ -35,6 +35,6 @@
                 "AAAAAAAAAAAAAAAAAAAAA (internal screaming in italian)"
             ]
         },
-        "correctChoice": 1
+        "correctChoice": 0
     }
 ]

@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 2813472911490348066}
   - component: {fileID: 8456033075082271292}
   - component: {fileID: 309905239109866587}
-  - component: {fileID: 3725798797038250826}
-  - component: {fileID: 5301287797234424454}
+  - component: {fileID: 8137510840070105049}
+  - component: {fileID: 7234079860473155763}
   m_Layer: 0
-  m_Name: Magazine
+  m_Name: SpringBee
   m_TagString: Cocktail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66144b44b09c4374ca3dd8fad49eff9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 121d78b14fb901a44b99cd05c9daf0d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -104,14 +104,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cocktail:
-    type: 4
+    type: 2
     isWatered: 0
-    description: 'Step into the spotlight with Magazine: a sophisticated blend of
-      ingredients perfectly rafted for those who love a cocktail with style and substance.
-      With every sip, you''ll feel like the headline for your own story.'
-  sprite: {fileID: 21300000, guid: 66144b44b09c4374ca3dd8fad49eff9f, type: 3}
-  garnish: {fileID: 6593797786935200129, guid: c67c6fe9b2b1b41a0b59ea8e84f494fd, type: 3}
---- !u!61 &3725798797038250826
+    description: Spring Bee is the best drink to lift you up when times get tough!
+      Simple, made with few ingredients and with the iconic honey rim, this sweet
+      and tangy cocktail will turn any day around and put a smile on your face.
+  sprite: {fileID: 21300000, guid: 1c9ee3deb24365f41a66238840bf7563, type: 3}
+  garnish: {fileID: 6593797786935200129, guid: f58fac330d3484681ae80fc9dc184465, type: 3}
+--- !u!61 &8137510840070105049
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 15.417999, y: 183.99615}
+  m_Offset: {x: 15.458008, y: 164.94}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -154,9 +154,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 166.17719, y: 2.9694214}
+  m_Size: {x: 334.74976, y: 5.731018}
   m_EdgeRadius: 0
---- !u!50 &5301287797234424454
+--- !u!50 &7234079860473155763
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

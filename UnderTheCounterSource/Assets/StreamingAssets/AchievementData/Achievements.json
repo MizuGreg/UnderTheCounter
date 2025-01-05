@@ -20,8 +20,8 @@
       "id": "10 cocktails",
       "title": "10 Cocktails",
       "description": "Serve 10 cocktails",
-      "isUnlocked": false,
-      "progress": 0,
+      "isUnlocked": true,
+      "progress": 10,
       "target": 10
     },
     {
@@ -29,7 +29,7 @@
       "title": "50 Cocktails",
       "description": "Serve 50 cocktails",
       "isUnlocked": false,
-      "progress": 0,
+      "progress": 16,
       "target": 50
     },
     {

@@ -38,6 +38,7 @@ namespace Bar
     public class Customer
     {
         public CustomerType sprite;
+        public string displayedName;
         public CocktailType order;
         public string orderOnPostIt;
         
@@ -56,5 +57,11 @@ namespace Bar
                 return $"Error :( Exception in Customer.ToString(): {e}";
             }
         }
+    }
+
+    public class BlitzDialogue
+    {
+        public SerializedDictionary<string, List<string>> lines;
+        public int correctChoice;
     }
 }

@@ -10,6 +10,7 @@ using UnityEngine.UI;
 using SavedGameData;
 using System.IO;
 using Newtonsoft.Json;
+using UnityEngine.Serialization;
 
 namespace Blitz
 {
@@ -18,20 +19,18 @@ namespace Blitz
         private List<Customer> _dailyBlitzAppearances;
         private Customer _currentAppearance;
         private DialogueManager _dialogueManager;
+        
         [SerializeField] private CanvasGroup blitzCanvas;
         [SerializeField] private BlitzTimer blitzTimer;
-        
-        [SerializeField] private FadeCanvas warningPlaceholder;
+        [SerializeField] private FadeCanvas warningPopup;
 
         [SerializeField] private CanvasGroup barContainer;
-        private int placedBottlesCounter;
-
         [SerializeField] private List<GameObject> placeholderSlots;
-        
+        private int placedBottlesCounter;
 
         private void Start()
         {
-            warningPlaceholder.gameObject.SetActive(false);
+            warningPopup.gameObject.SetActive(false);
             
             EventSystemManager.OnBlitzCallWarning += BlitzWarning;
             EventSystemManager.OnBlitzCalled += CallBlitz;
@@ -49,14 +48,14 @@ namespace Blitz
 
         private void BlitzWarning()
         {
-            StartCoroutine(BlinkPlaceholderText());
+            StartCoroutine(BlinkWarning());
         }
 
-        private IEnumerator BlinkPlaceholderText()
+        private IEnumerator BlinkWarning()
         {
-            warningPlaceholder.FadeIn();
+            warningPopup.FadeIn();
             yield return new WaitForSeconds(3f);
-            warningPlaceholder.FadeOut();
+            warningPopup.FadeOut();
         }
         
         public void CallBlitz()
@@ -114,18 +113,6 @@ namespace Blitz
             blitzTimer.StartTimer();
         }
 
-        private void LossByBlitz()
-        {
-            barContainer.GetComponent<FadeCanvas>().FadeOut();
-            StartCoroutine(LoadLoseScreen());
-        }
-
-        private IEnumerator LoadLoseScreen()
-        {
-            yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene("GameOverScreen");
-        }
-
         private void IncreasePlacedBottlesCounter()
         {
             placedBottlesCounter++;
@@ -140,6 +127,18 @@ namespace Blitz
                 blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
                 EventSystemManager.OnMinigameEnd();
             }
+        }
+        
+        private void LossByBlitz()
+        {
+            barContainer.GetComponent<FadeCanvas>().FadeOut();
+            StartCoroutine(LoadLoseScreen());
+        }
+         
+        private IEnumerator LoadLoseScreen()
+        {
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene("GameOverScreen");
         }
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3291556241952449028}
   - component: {fileID: 4514850919881959717}
   m_Layer: 0
-  m_Name: "C\xE0ntico"
+  m_Name: "C\xE1ntico"
   m_TagString: Cocktail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d0a1cce7d7b664536ac5e438fb16d4ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afee62ee56cf46841ba3c0179952a47d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -176,4 +176,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 5
-  sprite: {fileID: 21300000, guid: d0a1cce7d7b664536ac5e438fb16d4ce, type: 3}
+  sprite: {fileID: 21300000, guid: afee62ee56cf46841ba3c0179952a47d, type: 3}

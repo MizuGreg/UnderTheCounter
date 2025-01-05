@@ -1,171 +1,169 @@
-{
-    "customers": [
-        {
-            "sprite": "MafiaGoon",
-            "order": "None",
-            "tip": 0,
-            "lines": {
-                "greet": [
-                    "Hey, boyo! Wassup? What, you've never seen my face around here? Shucks.",
-                    "Let's just say, me and my pals, we're <i>the ones that rule around here</i>. We're honest men, helping out honest men. Ya feel me? Good.",
-                    "You opened up a bar, huh? Then you've noticed how expensive it's getting to buy your supplies. And we don't want that.",
-                    "Look, I'll get straight to the point, cause we don't wanna waste each other's time. I'm offering you a <b>deal</b>, boyo.",
-                    "From today, I'll be your alcohol supplier. Way lower prices than the ones you're paying now, for sure. Plus I get a small profit out of it, too!",
-                    "On top of that, I offer you protection from the cops. And you... you'll just keep up the good work, stay open, and help us out from time to time.",
-                    "So what do ya say?"
-                ],
-                "choice1": [
-                    "Accept deal",
-                    "Awesome, consider it done! My pal will hand you out the new supplies today.",
-                    "I'll be back. See ya!"
-                ],
-                "choice2": [
-                    "Refuse deal",
-                    "Your loss boyo, not mine... But as I said, we're honest men. We'll give you some time to reconsider the offer and we'll leave you be.",
-                    "For now at least."
-                ]
-            }
-        },
-        {
-            "sprite": "Willie",
-            "order": "Palmera",
-            "tip": 5,
-            "lines": {
-                "greet": [
-                    "Honey! How good to see you finally! How are you doing?<br>I feel daring today for some reason, so...",
-                    "My favorite album was on sale at the record store today, so I bought an extra copy. If you make me a drink exactly how I want it, the extra copy is yours!",
-                    "I'd like something <i>spiced</i>, a bit <i>fruity</i>... maybe something with a Latin American flair to it!"
-                ],
-                "correct": [
-                    "{TRINKET 4}Well ain't that just the perfect cocktail! And here's the record for grammophone, as promised. Do give it a listen!",
-                    "<i>\"Ladies with an attitude, fellas that were in the mood... don't just stand there, let's get to it, strike a pose, there's nothing to it...\"</i>"
-                ],
-                "water": [
-                    "Tasty and very, very refreshing! Almost perfect, I would say. Who knows... Maybe next time you will nail it, and this grammophone record will be yours!"
-                ],
-                "incorrect": [
-                    "Not quite there, I fear... But who knows! Maybe next time you will nail it, and this grammophone record will be yours!"
-                ],
-                "wrong": [
-                    "Honey, not even close! No spices, no fruitiness... And no grammophone record. Sorry! Maybe next time!"
-                ]
-            }
-        },
-        {
-            "sprite": "Eugene",
-            "order": "Ripple",
-            "tip": 4,
-            "lines": {
-                "greet": [
-                    "Heeeeeello bartender!! I'm so happy to be in my favorite bar once again! Did anything interesting happen lately?",
-                    "I'm doing great, but my wifey... She's really down, you know? She's running short on money since she was fired. I really want to help her in some way!",
-                    "But hey, I don't want to talk your ear off. Could you make me a <b>Ripple</b>, kind bartender?"
-                ],
-                "correct": [
-                    "YAY!!! Thank you so much as always, you're a kind person! And thank you for listening to me! And now... let's go home to Doris! Wheee!"
-                ],
-                "wrong": [
-                    "Oh! This is very different from the other Ripple you made me! Well, in any case, thank you for listening to me so patiently. And now to Doris... Bye!"
-                ],
-                "water": [
-                    "Yay! This is a bit different from the other Ripple you made me, but still tasty! In any case, thank you for listening to me so patiently. And now to Doris... Bye!"
-                ]
-            }
-        },
-        {
-            "sprite": "ErnestUnion",
-            "order": "None",
-            "tip": 0,
-            "lines": {
-                "greet": [
-                    "Look who it is! Still up and running, I see. Hopefully you will find our daily notes helpful. The union is working hard to help all bartenders in Korgis, you know?",
-                    "Hm...? <i>You've seen me somewhere</i>? You must be mistaken, young one, we only met yesterday! Ahem, in any case, uhm...",
-                    "{POSTER 5}Take this poster, and hang it outside tomorrow if you'd like. The necklace on the woman is a <b>secret code</b> among us bartenders.",
-                    "If people see the red necklace, they will know that you still serve alcohol undercover here, and will stop by to drink! More customers!",
-                    "Anyway, I'm off now, goodbye and good luck!"
-                ]
-            }
-        },
-        {
-            "sprite": "Margaret",
-            "order": "SpringBee",
-            "tip": 6,
-            "lines": {
-                "greet": [
-                    "Dear bartender! Good evening. I took tonight off from working, so I can stay a little bit longer today.",
-                    "I wanted to thank you... For yesterday. I was very anxious because of an important performance, but you and your bar's atmosphere calmed me down.",
-                    "The performance went wonderfully! And I was asked for an autograph by a very polite lady.",
-                    "What matters is that I feel better now, although I still need to work on myself. But enough talking, I would like to kindly request a <b>Spring Bee</b>!"
-                ],
-                "correct": [
-                    "Wonderful! I think this bar has been open only for a few days, but you're quite good at this, dear bartender.",
-                    "I think I will take a walk now, to clear my mind. Goodnight!"
-                ],
-                "wrong": [
-                    "This is not a Spring Bee! This bar has been open only for a few days, so there's always room for improvement, dear bartender.",
-                    "I think I will take a walk now, so goodnight!"
-                ],
-                "water": [
-                    "Wonderful! I think this bar has been open only for a few days, but you're quite good at this, dear bartender.",
-                    "And there's even some room for improvement! In any case, I think I will take a walk now, so goodnight."
-                ]
-            }
-        },
-        {
-           "sprite": "MargaretDrunk",
-            "order": "SpringBee",
-            "tip": 1,
-            "lines": {
-                "greet": [
-                    "Good evening... I hope you're doing good, dear, dear bartender...",
-                    "I don't know how to balance life and work, so yesterday I got a bit too tipsy and people noticed during my performance at the theater...",
-                    "The scandal was on all newspapers. <i>\"Margaret Brookside transgresses the law and common sense at the same time\"</i>...",
-                    "I... don't know how I will deal with the public tomorrow. But tonight I took the day off.",
-                    "I'm going to the theater during closing hours... I need to understand what the stage wants from me, and what I want from the stage.",
-                    "Could I ask for a rapid <b>Spring Bee</b> before leaving? Oh, and sorry for bothering you so much with my chatter..."
-                ],
-                "correct": [
-                    "Bartender, when everything around me rises and ebbs, I know I can count on you.",
-                    "Thank you, and I promise I will be in a more presentable state the next time we see each other."
-                ],
-                "water": [
-                    "Bartender, when everything around me rises and ebbs, I know I can count on you. And I know you care about your customers as if they were close friends.",
-                    "Thank you dearly, and I promise I will be in a more presentable state the next time we see each other."
-                ],
-                "wrong": [
-                    "... Not quite, but thank you, bartender. I need to leave now, but I promise I will be in a more presentable state the next time we see each other."
-                ]
-            } 
-        },
-        {
-            "sprite": "Gaston",
-            "order": "Magazine",
-            "tip": 8,
-            "lines": {
-                "greet": [
-                    ""
-                ]
-            }
-        },
-        {
-            "sprite": "Charles",
-            "order": "Parti",
-            "tip": 7,
-            "lines": {
-                "greet": [
-                    ""
-                ]
-            }
-        },
-        {
-            "sprite": "Kenneth",
-            "order": "Everest",
-            "tip": 3,
-            "lines": {
-                "greet": [
-                    ""
-                ]
-            }
+[
+    {
+        "sprite": "MafiaGoon",
+        "order": "None",
+        "tip": 0,
+        "lines": {
+            "greet": [
+                "Hey, boyo! Wassup? What, you've never seen my face around here? Shucks.",
+                "Let's just say, me and my pals, we're <i>the ones that rule around here</i>. We're honest men, helping out honest men. Ya feel me? Good.",
+                "You opened up a bar, huh? Then you've noticed how expensive it's getting to buy your supplies. And we don't want that.",
+                "Look, I'll get straight to the point, cause we don't wanna waste each other's time. I'm offering you a <b>deal</b>, boyo.",
+                "From today, I'll be your alcohol supplier. Way lower prices than the ones you're paying now, for sure. Plus I get a small profit out of it, too!",
+                "On top of that, I offer you protection from the cops. And you... you'll just keep up the good work, stay open, and help us out from time to time.",
+                "So what do ya say?"
+            ],
+            "choice1": [
+                "Accept deal",
+                "Awesome, consider it done! My pal will hand you out the new supplies today.",
+                "I'll be back. See ya!"
+            ],
+            "choice2": [
+                "Refuse deal",
+                "Your loss boyo, not mine... But as I said, we're honest men. We'll give you some time to reconsider the offer and we'll leave you be.",
+                "For now at least."
+            ]
         }
-    ]
-}
+    },
+    {
+        "sprite": "Willie",
+        "order": "Palmera",
+        "tip": 5,
+        "lines": {
+            "greet": [
+                "Honey! How good to see you finally! How are you doing?<br>I feel daring today for some reason, so...",
+                "My favorite album was on sale at the record store today, so I bought an extra copy. If you make me a drink exactly how I want it, the extra copy is yours!",
+                "I'd like something <i>spiced</i>, a bit <i>fruity</i>... maybe something with a Latin American flair to it!"
+            ],
+            "correct": [
+                "{TRINKET 4}Well ain't that just the perfect cocktail! And here's the record for grammophone, as promised. Do give it a listen!",
+                "<i>\"Ladies with an attitude, fellas that were in the mood... don't just stand there, let's get to it, strike a pose, there's nothing to it...\"</i>"
+            ],
+            "water": [
+                "Tasty and very, very refreshing! Almost perfect, I would say. Who knows... Maybe next time you will nail it, and this grammophone record will be yours!"
+            ],
+            "incorrect": [
+                "Not quite there, I fear... But who knows! Maybe next time you will nail it, and this grammophone record will be yours!"
+            ],
+            "wrong": [
+                "Honey, not even close! No spices, no fruitiness... And no grammophone record. Sorry! Maybe next time!"
+            ]
+        }
+    },
+    {
+        "sprite": "Eugene",
+        "order": "Ripple",
+        "tip": 4,
+        "lines": {
+            "greet": [
+                "Heeeeeello bartender!! I'm so happy to be in my favorite bar once again! Did anything interesting happen lately?",
+                "I'm doing great, but my wifey... She's really down, you know? She's running short on money since she was fired. I really want to help her in some way!",
+                "But hey, I don't want to talk your ear off. Could you make me a <b>Ripple</b>, kind bartender?"
+            ],
+            "correct": [
+                "YAY!!! Thank you so much as always, you're a kind person! And thank you for listening to me! And now... let's go home to Doris! Wheee!"
+            ],
+            "wrong": [
+                "Oh! This is very different from the other Ripple you made me! Well, in any case, thank you for listening to me so patiently. And now to Doris... Bye!"
+            ],
+            "water": [
+                "Yay! This is a bit different from the other Ripple you made me, but still tasty! In any case, thank you for listening to me so patiently. And now to Doris... Bye!"
+            ]
+        }
+    },
+    {
+        "sprite": "ErnestUnion",
+        "order": "None",
+        "tip": 0,
+        "lines": {
+            "greet": [
+                "Look who it is! Still up and running, I see. Hopefully you will find our daily notes helpful. The union is working hard to help all bartenders in Korgis, you know?",
+                "Hm...? <i>You've seen me somewhere</i>? You must be mistaken, young one, we only met yesterday! Ahem, in any case, uhm...",
+                "{POSTER 5}Take this poster, and hang it outside tomorrow if you'd like. The necklace on the woman is a <b>secret code</b> among us bartenders.",
+                "If people see the red necklace, they will know that you still serve alcohol undercover here, and will stop by to drink! More customers!",
+                "Anyway, I'm off now, goodbye and good luck!"
+            ]
+        }
+    },
+    {
+        "sprite": "Margaret",
+        "order": "SpringBee",
+        "tip": 6,
+        "lines": {
+            "greet": [
+                "Dear bartender! Good evening. I took tonight off from working, so I can stay a little bit longer today.",
+                "I wanted to thank you... For yesterday. I was very anxious because of an important performance, but you and your bar's atmosphere calmed me down.",
+                "The performance went wonderfully! And I was asked for an autograph by a very polite lady.",
+                "What matters is that I feel better now, although I still need to work on myself. But enough talking, I would like to kindly request a <b>Spring Bee</b>!"
+            ],
+            "correct": [
+                "Wonderful! I think this bar has been open only for a few days, but you're quite good at this, dear bartender.",
+                "I think I will take a walk now, to clear my mind. Goodnight!"
+            ],
+            "wrong": [
+                "This is not a Spring Bee! This bar has been open only for a few days, so there's always room for improvement, dear bartender.",
+                "I think I will take a walk now, so goodnight!"
+            ],
+            "water": [
+                "Wonderful! I think this bar has been open only for a few days, but you're quite good at this, dear bartender.",
+                "And there's even some room for improvement! In any case, I think I will take a walk now, so goodnight."
+            ]
+        }
+    },
+    {
+        "sprite": "MargaretDrunk",
+        "order": "SpringBee",
+        "tip": 1,
+        "lines": {
+            "greet": [
+                "Good evening... I hope you're doing good, dear, dear bartender...",
+                "I don't know how to balance life and work, so yesterday I got a bit too tipsy and people noticed during my performance at the theater...",
+                "The scandal was on all newspapers. <i>\"Margaret Brookside transgresses the law and common sense at the same time\"</i>...",
+                "I... don't know how I will deal with the public tomorrow. But tonight I took the day off.",
+                "I'm going to the theater during closing hours... I need to understand what the stage wants from me, and what I want from the stage.",
+                "Could I ask for a rapid <b>Spring Bee</b> before leaving? Oh, and sorry for bothering you so much with my chatter..."
+            ],
+            "correct": [
+                "Bartender, when everything around me rises and ebbs, I know I can count on you.",
+                "Thank you, and I promise I will be in a more presentable state the next time we see each other."
+            ],
+            "water": [
+                "Bartender, when everything around me rises and ebbs, I know I can count on you. And I know you care about your customers as if they were close friends.",
+                "Thank you dearly, and I promise I will be in a more presentable state the next time we see each other."
+            ],
+            "wrong": [
+                "... Not quite, but thank you, bartender. I need to leave now, but I promise I will be in a more presentable state the next time we see each other."
+            ]
+        } 
+    },
+    {
+        "sprite": "Gaston",
+        "order": "Magazine",
+        "tip": 8,
+        "lines": {
+            "greet": [
+                ""
+            ]
+        }
+    },
+    {
+        "sprite": "Charles",
+        "order": "Parti",
+        "tip": 7,
+        "lines": {
+            "greet": [
+                ""
+            ]
+        }
+    },
+    {
+        "sprite": "Kenneth",
+        "order": "Everest",
+        "tip": 3,
+        "lines": {
+            "greet": [
+                ""
+            ]
+        }
+    }
+]

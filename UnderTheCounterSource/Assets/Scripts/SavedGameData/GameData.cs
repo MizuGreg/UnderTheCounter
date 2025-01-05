@@ -68,7 +68,7 @@ namespace SavedGameData
                     break;
                 case 2:
                     DailyTime = 240;
-                    MaxDrunkCustomers = 1;
+                    MaxDrunkCustomers = 99;
                     Rent = 10;
                     Food = 10;
                     Supplies = 10;
@@ -82,7 +82,7 @@ namespace SavedGameData
                     break;
                 case 4:
                     DailyTime = 270;
-                    MaxDrunkCustomers = 4;
+                    MaxDrunkCustomers = 2; // for testing purposes
                     Rent = 10;
                     Food = 10;
                     Supplies = 30;
