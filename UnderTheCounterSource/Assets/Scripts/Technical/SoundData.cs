@@ -24,6 +24,9 @@ namespace Technical
         public AudioClip sampleSound;
         public AudioClip customerEnterSound;
         public AudioClip customerLeaveSound;
+        public AudioClip timeWarningSound;
+        public AudioClip timeUpSound;
+        public AudioClip ingredientPouredSound;
         public AudioClip posterHangSound;
         public AudioClip posterTearDownSound;
         public AudioClip bookOpenSound;

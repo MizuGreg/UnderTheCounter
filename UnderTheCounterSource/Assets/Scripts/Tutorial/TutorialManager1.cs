@@ -442,15 +442,15 @@ namespace Tutorial
             
             // Pops up "name your bar" dialog with a small delay
             StartCoroutine(FadeNameBarCanvasDelayed());
-            
-            // Hacky fix for caret position...
-            nameYourBarCanvas.transform.Find("InputField/Text Area/Text").GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.65f);
         }
 
         private IEnumerator FadeNameBarCanvasDelayed()
         {
             yield return new WaitForSeconds(0.5f);
             nameYourBarCanvas.FadeIn();
+            
+            // Hacky fix for caret position...
+            nameYourBarCanvas.transform.Find("InputField/Text Area/Text").GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.65f);
         }
 
         public void NameYourBar()

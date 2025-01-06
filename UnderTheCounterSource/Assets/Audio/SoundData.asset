@@ -21,6 +21,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1489b726891dbef4db62d00c68d7399f, type: 3}
   - {fileID: 8300000, guid: f19bd3e983894174a9ba3c32ad3abd95, type: 3}
   - {fileID: 8300000, guid: 06efbc56b835fac4dbd4942400c851d0, type: 3}
+  - {fileID: 8300000, guid: 1489b726891dbef4db62d00c68d7399f, type: 3}
+  - {fileID: 8300000, guid: f19bd3e983894174a9ba3c32ad3abd95, type: 3}
+  - {fileID: 8300000, guid: 06efbc56b835fac4dbd4942400c851d0, type: 3}
+  - {fileID: 8300000, guid: 1489b726891dbef4db62d00c68d7399f, type: 3}
+  - {fileID: 8300000, guid: f19bd3e983894174a9ba3c32ad3abd95, type: 3}
   blitzMusic: {fileID: 8300000, guid: 8851ecb3d557e1044aa2bda698608ae7, type: 3}
   endOfDayMusic: {fileID: 8300000, guid: de12a88cd51718542b368dfa1b4d96dc, type: 3}
   winMusic: {fileID: 8300000, guid: 8851ecb3d557e1044aa2bda698608ae7, type: 3}
@@ -28,8 +33,11 @@ MonoBehaviour:
   sampleSound: {fileID: 8300000, guid: 5c8311d05a062fa45852a5bf5f90b25e, type: 3}
   customerEnterSound: {fileID: 8300000, guid: 50769b5fe2613144fb876460e932e504, type: 3}
   customerLeaveSound: {fileID: 8300000, guid: 5c8311d05a062fa45852a5bf5f90b25e, type: 3}
-  posterHangSound: {fileID: 0}
-  posterTearDownSound: {fileID: 0}
+  timeWarningSound: {fileID: 8300000, guid: ee76562084e558e48850557e2db28361, type: 3}
+  timeUpSound: {fileID: 8300000, guid: 0fd652f1901849d4287be0c58c763452, type: 3}
+  ingredientPouredSound: {fileID: 8300000, guid: d9de156e598fedf4daa5dc214b50e26c, type: 3}
+  posterHangSound: {fileID: 8300000, guid: 4e13e1eacb42f6e47bcb883dc339f426, type: 3}
+  posterTearDownSound: {fileID: 8300000, guid: 048288dc6df5b1f41a46402404d10a7a, type: 3}
   bookOpenSound: {fileID: 8300000, guid: e046ca0f67a45f64892c8179307462c3, type: 3}
   bookCloseSound: {fileID: 8300000, guid: 3949b49b5a7bce449b2a37554f951093, type: 3}
   tabChangedSound: {fileID: 8300000, guid: 85bb9a1d9d7a747428b7e8963d8f115e, type: 3}

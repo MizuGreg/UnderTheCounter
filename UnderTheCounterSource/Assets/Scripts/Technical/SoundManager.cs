@@ -30,7 +30,13 @@ namespace Technical
             
             EventSystemManager.OnCustomerEnter += OnCustomerEnterSound;
             EventSystemManager.OnCustomerLeave += OnCustomerLeaveSound;
+            EventSystemManager.OnIngredientPouring += OnIngredientPouringSound;
+            EventSystemManager.OnTimeWarning += OnTimeWarningSound;
+            EventSystemManager.OnTimeUp += OnTimeUpSound;
             EventSystemManager.OnDayEnd += OnDayEndSound;
+            
+            EventSystemManager.OnPosterHung += OnPosterHungSound;
+            EventSystemManager.OnPosterRippedDown += OnPosterRippedDownSound;
         }
 
         private void OnDestroy()
@@ -49,7 +55,13 @@ namespace Technical
             
             EventSystemManager.OnCustomerEnter -= OnCustomerEnterSound;
             EventSystemManager.OnCustomerLeave -= OnCustomerLeaveSound;
+            EventSystemManager.OnIngredientPouring += OnIngredientPouringSound;
+            EventSystemManager.OnTimeWarning += OnTimeWarningSound;
+            EventSystemManager.OnTimeUp -= OnTimeUpSound;
             EventSystemManager.OnDayEnd -= OnDayEndSound;
+            
+            EventSystemManager.OnPosterHung -= OnPosterHungSound;
+            EventSystemManager.OnPosterRippedDown -= OnPosterRippedDownSound;
         }
 
         public void SetMusicVolume(float volume)
@@ -101,6 +113,7 @@ namespace Technical
         {
             AudioClip musicClip = soundData.barMusicTracks[GameData.CurrentDay-1];
             EazySoundManager.PlayMusic(musicClip, 1, true, true, 5, 3);
+            print($"Day {GameData.CurrentDay}. Now playing: {soundData.barMusicTracks[GameData.CurrentDay-1].name}.");
         }
 
         private void OnLoadWinScreenSound()
@@ -116,27 +129,43 @@ namespace Technical
 
         private void OnCustomerEnterSound()
         {
-            EazySoundManager.PlaySound(soundData.customerEnterSound, 1);
+            EazySoundManager.PlaySound(soundData.customerEnterSound);
         }
         
         private void OnCustomerLeaveSound()
         {
-            EazySoundManager.PlaySound(soundData.customerLeaveSound, 1);
+            EazySoundManager.PlaySound(soundData.customerLeaveSound);
         }
 
+        private void OnIngredientPouringSound()
+        {
+            // Commented out, sound is too annoying when repeated several times...
+            // EazySoundManager.PlaySound(soundData.ingredientPouredSound);
+        }
+
+        private void OnTimeWarningSound()
+        {
+            EazySoundManager.PlaySound(soundData.timeWarningSound, 0.70f);
+        }
+        
+        private void OnTimeUpSound()
+        {
+            EazySoundManager.PlaySound(soundData.timeUpSound);
+        }
+        
         private void OnDayEndSound()
         {
-            // todo
+            // nothing... for now
         }
 
         private void OnMasterBookOpenedSound()
         {
-            EazySoundManager.PlaySound(soundData.bookOpenSound, 1);
+            EazySoundManager.PlaySound(soundData.bookOpenSound);
         }
 
         private void OnMasterBookClosedSound()
         {
-            EazySoundManager.PlaySound(soundData.bookCloseSound, 1);
+            EazySoundManager.PlaySound(soundData.bookCloseSound, 0.75f);
         }
 
         private void OnTabChangedSound()
@@ -146,9 +175,18 @@ namespace Technical
 
         private void OnPageTurnedSound()
         {
-            EazySoundManager.PlaySound(soundData.pageTurnedSound, 1);
+            EazySoundManager.PlaySound(soundData.pageTurnedSound);
+        }
+
+        private void OnPosterHungSound()
+        {
+            EazySoundManager.PlaySound(soundData.posterHangSound);
+        }
+
+        private void OnPosterRippedDownSound()
+        {
+            EazySoundManager.PlaySound(soundData.posterTearDownSound);
         }
         
-        // I want to parameterize this instead of having a hundred different functions... is it overkill? probably
     }
 }

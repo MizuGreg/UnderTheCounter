@@ -8,10 +8,13 @@ namespace Technical
     {
         // Poster events
         public static UnityAction OnPosterBought;
+        public static UnityAction OnPosterHung;
+        public static UnityAction OnPosterRippedDown;
         
         // Day-related events
         public static UnityAction OnDayStart;
         public static UnityAction OnDayEnd;
+        public static UnityAction OnTimeWarning;
         public static UnityAction OnTimeUp;
     
         // Customer-related events

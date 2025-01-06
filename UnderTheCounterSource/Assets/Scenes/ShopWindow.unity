@@ -4111,7 +4111,7 @@ MonoBehaviour:
   dayText: {fileID: 212445431}
   savingsText: {fileID: 2121432107}
   newspaper: {fileID: 1019830298}
-  forceDay: 3
+  forceDay: 0
 --- !u!114 &1009542094
 MonoBehaviour:
   m_ObjectHideFlags: 0
