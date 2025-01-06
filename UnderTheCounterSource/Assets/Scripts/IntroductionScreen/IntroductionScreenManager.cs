@@ -1,5 +1,6 @@
 using System.Collections;
 using SavedGameData;
+using Technical;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -175,6 +176,18 @@ namespace IntroductionScreen
                 cg.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
                 yield return null;
             }
+        }
+        
+        public void BackToMainMenu()
+        {
+            mainCanvas.GetComponent<FadeCanvas>().FadeOut();
+            StartCoroutine(WaitBeforeMenu());
+        }
+        
+        private IEnumerator WaitBeforeMenu()
+        {
+            yield return new WaitForSeconds(1.1f);
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

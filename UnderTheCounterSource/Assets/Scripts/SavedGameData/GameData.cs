@@ -10,6 +10,8 @@ namespace SavedGameData
 {
     public static class GameData
     {
+        public static readonly string SaveFilePath = Application.streamingAssetsPath + "/GameData/Save.json";
+        
         public static List<Tuple<string, string>> Log = new();
         public static SerializedDictionary<string, bool> Choices = new();
         
@@ -142,7 +144,7 @@ namespace SavedGameData
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore // Sprites have a self-referencing variable so this ignores them
             });
-            File.WriteAllText(Application.streamingAssetsPath + "/GameData/Save.json", saveJson);
+            File.WriteAllText(SaveFilePath, saveJson);
             Debug.Log("Saved game data.");
         }
     
