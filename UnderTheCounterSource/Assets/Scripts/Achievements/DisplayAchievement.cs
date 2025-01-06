@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,22 +6,22 @@ namespace Achievements
 {
     public class DisplayAchievement : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI title;
-        [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private float timeBeforeDisappear;
 
         private Animator _animator;
         private static readonly int Display = Animator.StringToHash("Display");
+        private Image _image;
         
         void Start()
         {
             _animator = gameObject.GetComponent<Animator>();
+            _image = gameObject.GetComponent<Image>();
         }
 
-        public void SetPopUpValues(string t, string d)
+        public void SetPopUpValues(string path)
         {
-            title.text = t;
-            description.text = d;
+            _image.sprite = Resources.Load<Sprite>($"Sprites/Achievements/{path}");
+            DisplayPopUp();
         }
 
         public void DisplayPopUp()
@@ -36,12 +34,6 @@ namespace Achievements
         {
             yield return new WaitForSeconds(timeBeforeDisappear);
             _animator.SetBool(Display, false);
-        }
-        
-        public void ResetPopUp()
-        {
-            title.text = "";
-            description.text = "";
         }
     }
 }

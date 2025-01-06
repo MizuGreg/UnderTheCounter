@@ -21,6 +21,12 @@ namespace Achievements
             {
                 UpdateAchievement("pressed W", 1);
             }
+            
+            // Debug
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ResetAchievements();
+            }
         }
         // ------------------
 
@@ -67,8 +73,7 @@ namespace Achievements
                 {
                     achievement.isUnlocked = true;
                     Debug.Log($"Achievement Unlocked: {achievement.title}");
-                    popUp.GetComponent<DisplayAchievement>().DisplayPopUp();
-                    popUp.GetComponent<DisplayAchievement>().SetPopUpValues(achievement.title,achievement.description);
+                    popUp.GetComponent<DisplayAchievement>().SetPopUpValues(achievement.title);
                 }
 
                 // Save updated progresses in the JSON

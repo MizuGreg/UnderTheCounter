@@ -72,5 +72,17 @@ namespace Technical
         
         // Achievements events
         public static UnityAction<string, int> OnAchievementProgress;
+        public static UnityAction OnDealMade;
+        public static UnityAction OnHalfTrinketCollected;
+        public static UnityAction OnBankrupt;
+        public static UnityAction OnWin;
+        public static UnityAction OnButterfly1;
+        public static UnityAction OnButterfly2;
+        public static UnityAction OnBarBurned;
+        public static UnityAction OnDealRefused;
+        public static UnityAction OnCocktailWatered;
+        public static UnityAction OnBackstabbed;
+        public static UnityAction OnAllTrinketCollected;
+        public static UnityAction OnAllCustomersServed;
     }
 }
