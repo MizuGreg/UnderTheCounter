@@ -1376,7 +1376,7 @@ PrefabInstance:
     - target: {fileID: 4251077398112901296, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c3fcfbe850409514ab36af4b7a619ad7, type: 3}
+      objectReference: {fileID: 21300000, guid: 81d1417b48637694dac7f6290b757700, type: 3}
     - target: {fileID: 4251077398112901296, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_PreserveAspect
       value: 0
@@ -1464,7 +1464,7 @@ PrefabInstance:
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
       value: 
-      objectReference: {fileID: 21300000, guid: 26e4afdbe693ce8499fc9cb9d7a295fe, type: 3}
+      objectReference: {fileID: 21300000, guid: 2d5297a45f173354e9539525f0bac51d, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
       value: 60
@@ -1931,7 +1931,7 @@ PrefabInstance:
     - target: {fileID: 4251077398112901296, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 78b8711bea6ca934da265169c1e55510, type: 3}
+      objectReference: {fileID: 21300000, guid: 844610d3fe44577409e3f74ecb9f0f42, type: 3}
     - target: {fileID: 6232379044599659091, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2003,7 +2003,7 @@ PrefabInstance:
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
       value: 
-      objectReference: {fileID: 21300000, guid: 08198ec3fc566374db643152c320a641, type: 3}
+      objectReference: {fileID: 21300000, guid: c86fa46883a535b4b857ac81be747425, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
       value: 20
@@ -3536,7 +3536,7 @@ PrefabInstance:
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
       value: 
-      objectReference: {fileID: 21300000, guid: c940650febc3eed4e870232fa8f4af01, type: 3}
+      objectReference: {fileID: 21300000, guid: e897d5aced3a8784ca00e43425a93d1d, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
       value: -1
@@ -5083,7 +5083,7 @@ PrefabInstance:
     - target: {fileID: 4251077398112901296, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ec5b35d11bc100b40850eabd1be3a877, type: 3}
+      objectReference: {fileID: 21300000, guid: bf9571d1f5c0d994fab97883f8b2d81b, type: 3}
     - target: {fileID: 4251077398112901296, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_PreserveAspect
       value: 0
@@ -5167,7 +5167,7 @@ PrefabInstance:
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
       value: 
-      objectReference: {fileID: 21300000, guid: 28899d7f0fa815e4bbfe1387bb6b1991, type: 3}
+      objectReference: {fileID: 21300000, guid: 3206d9c6976f50443ab90843024c6af7, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
       value: 50
@@ -7598,7 +7598,7 @@ PrefabInstance:
     - target: {fileID: 4251077398112901296, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 91ea4ced278cbc34f917d7bae9c482f4, type: 3}
+      objectReference: {fileID: 21300000, guid: ae5fd34d8bc16884a843ec283d22a3a1, type: 3}
     - target: {fileID: 4251077398112901296, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: m_PreserveAspect
       value: 0
@@ -7678,7 +7678,7 @@ PrefabInstance:
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
       value: 
-      objectReference: {fileID: 21300000, guid: f9ac95cc8272d434190cf68859fd9c0b, type: 3}
+      objectReference: {fileID: 21300000, guid: f792b0d5a93eb56479f65402c3a9f326, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
       value: -1
