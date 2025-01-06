@@ -9,14 +9,14 @@ namespace Bar
 {
     public class BarManager : MonoBehaviour
     {
+        public CanvasGroup barContainer;
+        
         private TutorialManager1 _tutorialManager1;
         private CustomerManager _customerManager;
         private TimerManager _timerManager;
         private DialogueManager _dialogueManager;
 
-        public CanvasGroup barContainer;
-
-        [SerializeField] public int forceDay;
+        [SerializeField] private int forceDay;
                 
         void Start()
         {

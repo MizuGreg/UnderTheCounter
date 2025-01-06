@@ -13,18 +13,23 @@ namespace Blitz
 
         private void Start()
         {
-            EventSystemManager.OnBlitzEnd += () => rectTransform.anchoredPosition = originalPosition;
+            EventSystemManager.OnBlitzEnd += ResetPosition;
         }
 
         private void OnDestroy()
         {
-            EventSystemManager.OnBlitzEnd -= () => rectTransform.anchoredPosition = originalPosition;
+            EventSystemManager.OnBlitzEnd -= ResetPosition;
         }
 
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
             originalPosition = rectTransform.anchoredPosition;
+        }
+
+        private void ResetPosition()
+        {
+            rectTransform.anchoredPosition = originalPosition;
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -44,7 +49,7 @@ namespace Blitz
 
         private IEnumerator FallOffScreen()
         {
-            while (rectTransform.anchoredPosition.y > -Screen.height * 2f)
+            while (rectTransform.anchoredPosition.y > -Screen.height)
             {
                 rectTransform.anchoredPosition += Vector2.down * 1500f * Time.deltaTime; 
                 yield return null;
