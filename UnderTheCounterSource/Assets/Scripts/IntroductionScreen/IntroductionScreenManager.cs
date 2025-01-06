@@ -1,7 +1,5 @@
 using System.Collections;
-using Bar;
 using SavedGameData;
-using Technical;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,7 +17,6 @@ namespace IntroductionScreen
         [SerializeField] private TextMeshProUGUI text1;
         [SerializeField] private TextMeshProUGUI text2;
         [SerializeField] private TextMeshProUGUI text3;
-        [SerializeField] private FadeCanvas inputFieldCanvas;
 
         private int currentStep = 0; // 0 -> Mostra text1, 1 -> Mostra text2, 2 -> Mostra text3
 
@@ -32,8 +29,6 @@ namespace IntroductionScreen
         startDayButtonCanvas.alpha = 0;
         startDayButtonCanvas.gameObject.SetActive(false);
         
-        inputFieldCanvas.gameObject.SetActive(false);
-
         text1.alpha = 0;
         text2.alpha = 0;
         text3.alpha = 0;
@@ -90,7 +85,6 @@ namespace IntroductionScreen
                 // Fade-in text3
                 yield return FadeTextIn(text3, 1f);
                 
-                inputFieldCanvas.FadeIn();
                 yield return new WaitForSeconds(2f);
 
                 // Fade-in pulsante start day
@@ -99,12 +93,6 @@ namespace IntroductionScreen
 
                 currentStep = 2;
             }
-        }
-
-        public void UpdateBarName(string newName)
-        {
-            GameData.BarName = newName == "" ? "The Chitchat" : newName;
-            print(GameData.BarName);
         }
 
         public void OnStartDayPressed()

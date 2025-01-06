@@ -7,6 +7,7 @@ using CocktailCreation;
 using Technical;
 using Newtonsoft.Json;
 using SavedGameData;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,6 +41,8 @@ namespace Tutorial
         private int _actualStep = -1;
 
         private GameObject outline;
+        
+        [SerializeField] private FadeCanvas nameYourBarCanvas;
 
         private void Awake()
         {
@@ -102,7 +105,14 @@ namespace Tutorial
         private void NextStep()
         {
             _actualStep++;
-            _currentStep = _steps[_actualStep];
+            try
+            {
+                _currentStep = _steps[_actualStep];
+            }
+            catch
+            {
+                _currentStep = null;
+            }
             
             switch (_actualStep)
             {
@@ -142,7 +152,10 @@ namespace Tutorial
                     break;
                 case 17: Step17();
                     break;
-                case 18: EndTutorial();
+                case 18: Step18();
+                    break;
+                case 19:
+                    EndTutorial();
                     break;
                 default:
                     break;
@@ -348,6 +361,9 @@ namespace Tutorial
         {
             Debug.Log("Step 13");
             
+            // Make the water down button non interactable again (it gets activated for some reason)
+            waterButton.interactable = false;
+            
             // Deactivate mix button outline
             mixButton.transform.Find("Outline").gameObject.SetActive(false);
             
@@ -415,6 +431,37 @@ namespace Tutorial
             StartCoroutine(WaitAndGreetDialogue());
         }
         
+        // Name bar
+        private void Step18()
+        {
+            Debug.Log("Step 18");
+            
+            // Ernest leaves
+            customerCanvas.GetComponent<FadeCanvas>().FadeOut();
+            customerCocktail.GetComponent<FadeCanvas>().FadeOut();
+            
+            // Pops up "name your bar" dialog with a small delay
+            StartCoroutine(FadeNameBarCanvasDelayed());
+            
+            // Hacky fix for caret position...
+            nameYourBarCanvas.transform.Find("InputField/Text Area/Text").GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.65f);
+        }
+
+        private IEnumerator FadeNameBarCanvasDelayed()
+        {
+            yield return new WaitForSeconds(0.5f);
+            nameYourBarCanvas.FadeIn();
+        }
+
+        public void NameYourBar()
+        {
+            string name = nameYourBarCanvas.GetComponentInChildren<TMP_InputField>().text; // double-check that this is the right field to fetch
+            GameData.BarName = name is null or "" ? "The Chitchat" : name;
+            nameYourBarCanvas.FadeOut(); 
+            
+            NextStep();
+        }
+        
         private void EndTutorial()
         {
             Debug.Log("Tutorial ended");
@@ -427,12 +474,7 @@ namespace Tutorial
             trashButton.interactable = true;
             waterButton.interactable = true;
             
-            // serveButton.onClick.RemoveListener(this.CocktailServed);
-            
-            customerCanvas.GetComponent<FadeCanvas>().FadeOut();
-            customerCocktail.GetComponent<FadeCanvas>().FadeOut();
-            
-            // Start the day
+            // End the day
             EventSystemManager.OnTutorial1End();
             
         }

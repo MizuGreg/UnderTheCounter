@@ -256,6 +256,7 @@ namespace Bar
             if (sentence.Contains("{"))
             {
                 string tag = sentence.Substring(sentence.IndexOf("{") + 1, sentence.IndexOf("}") - sentence.IndexOf("{") - 1); // extracts text inside brackets
+                int tagIndex = sentence.IndexOf("{");
                 sentence = sentence.Remove(sentence.IndexOf("{"), sentence.IndexOf("}") - sentence.IndexOf("{") + 1); // removes whole tag with brackets
 
                 if (tag.Contains("TRINKET"))
@@ -272,10 +273,14 @@ namespace Bar
                 {
                     GameData.Choices["MargaretDrunk"] = true;
                 }
-
                 if (tag == "MAFIA DEAL ACCEPTED")
                 {
                     GameData.Choices["MafiaDeal"] = true;
+                }
+
+                if (tag == "BAR NAME")
+                {
+                    sentence = sentence.Insert(tagIndex, GameData.BarName);
                 }
             }
         }

@@ -149,6 +149,11 @@ namespace Bar
         {
             GameData.UnlockPoster(posterID);
         }
+        
+        public void UpdateBarName(string name)
+        {
+            GameData.BarName = name is null or "" ? "The Chitchat" : name;
+        }
 
         public void BackToMainMenu()
         {
