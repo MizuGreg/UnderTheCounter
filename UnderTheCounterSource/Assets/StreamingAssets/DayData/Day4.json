@@ -6,7 +6,7 @@
         "lines": {
             "greet": [
                 "Good evening. I found myself in the vicinity of your establishment again, since I'm on my way to the theater.",
-                "<b>Margaret Brookside</b> should perform tonight. You <i>do</i> know her, I hope. I wonder what her favorite cocktail would be...",
+                "<b>Margaret Brookside</b> should perform tonight. You <i>do</i> know her, I hope. I wonder what her favorite cocktail would be…",
                 "Perhaps a flowery <b>Palmera</b>?"
             ],
             "correct": [
@@ -51,7 +51,7 @@
         "lines": {
             "greet": [
                 "Greetings! I hope you received our slip of paper on the shop window earlier. Oh, where are my manners…",
-                "I speak to you as representative of the <b>bartenders union</b>. It is no secret that our members have been brought to their knees by the prohibition law...",
+                "I speak to you as representative of the <b>bartenders union</b>. It is no secret that our members have been brought to their knees by the prohibition law…",
                 "But we're adamant on resisting, and we will find a way to stay open. I ask for patience, young one… But in the meantime, good luck!"                        
             ]
         }
@@ -102,7 +102,7 @@
                 "Wow, not bad. This Ripple tastes very original! I'll scoot right off to Doris now, good evening!"
             ],
             "wrong": [
-                "Not bad, this Ripple tastes very... original. Anyway, I'm heading off to Doris now, good evening."
+                "Not bad, this Ripple tastes very… original. Anyway, I'm heading off to Doris now, good evening."
             ]
         }
     },
@@ -147,7 +147,7 @@
                 "Have a good night, and don't close up too late!"
             ],
             "incorrect": [
-                "Cheers, not bad. Y'know, I might even start to regret the end of my exchange period at the Korgis University... Goodnight, love."
+                "Cheers, not bad. Y'know, I might even start to regret the end of my exchange period at the Korgis University… Goodnight, love."
             ],
             "wrong": [
                 "I think I'll skip this one, love. Sorry, just not my cup of tea. Goodnight!"
@@ -160,19 +160,19 @@
         "tip": 9,
         "lines": {
             "greet": [
-                "<i>Coucou</i>! Are you still open, bartender? It is quite late, you know. Entrepreneurs like us rarely get enough sleep.",
+                "<i>Coucou</i>! Are you still open, bartender? It is quite late, you know. But entrepreneurs like us rarely get enough sleep.",
                 "A <b>Magazine</b> now, <i>s'il vous plaît</i>."           
             ],
             "correct": [
-                "This might be your best cocktail yet, bartender. Impressive. The wine you used... It reminds me of how they make them in Bordeaux.",
+                "Thank you for following the recipe exactly, bartender. The wine you used… It reminds me of how they make them in Bordeaux.",
                 "<i>Merci</i>, and goodnight."
             ],
             "water": [
-                "Impressive. The wine you used... It reminds me of a familiar taste, but I can't quite say what.",
+                "Pleasant flavour. The wine you used… It reminds me of a familiar taste, but I can't quite say what.",
                 "<i>Merci</i>, and goodnight."
             ],
             "wrong": [
-                "I'm afraid it's not what I asked, bartender. A bit disappointing. Have a nice night, nonetheless."
+                "I'm afraid it's not what I asked, bartender. A bit disappointing. But have a good night nonetheless."
             ]
         }
     }

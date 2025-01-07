@@ -5,7 +5,10 @@
         "tip": 0,
         "lines": {
             "greet": [
-                ""
+                "'Sup, boyo. Everything running smoothly, don't ya worry. Supplies have arrived an' all. Just here to warn you, though…",
+                "The government has put some funding on folks that agree to <b>snitch on bars</b> and speakeasies that still try to serve alcohol, like you.",
+                "So keep your eyes peeled, as they say, and watch out for folks that might be looking to make a quick buck, or that really really want to get drunk.",
+                "I'll be around, boyo. See ya."
             ]
         }
     },
@@ -15,7 +18,16 @@
         "tip": 4,
         "lines": {
             "greet": [
-                ""
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
             ]
         }
     },
@@ -25,7 +37,16 @@
         "tip": 3,
         "lines": {
             "greet": [
-                ""
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
             ]
         }
     },
@@ -35,7 +56,16 @@
         "tip": 0,
         "lines": {
             "greet": [
-                ""
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
             ]
         }
     },
@@ -45,7 +75,16 @@
         "tip": 4,
         "lines": {
             "greet": [
-                ""
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
             ]
         }
     },
@@ -55,7 +94,16 @@
         "tip": 10,
         "lines": {
             "greet": [
-                ""
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
             ]
         }
     },
@@ -65,7 +113,7 @@
         "tip": 0,
         "lines": {
             "greet": [
-                ""
+                "TBD"
             ]
         }
     }
