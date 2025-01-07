@@ -54,8 +54,6 @@ namespace Bar
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
-
-            PosterEffects();
         }
 
         private void OnDestroy()
@@ -75,15 +73,22 @@ namespace Bar
         
         private void PosterEffects()
         {
-            // TODO
+            if (GameData.IsPosterActive(0))
+            {
+                earningMultiplier += 0.33f;
+                _dailyCustomers.RemoveAt(_dailyCustomers.Count - 1); // takes out one customer
+            }
             if (GameData.IsPosterActive(1))
             {
-                earningMultiplier = 1.3f;
+                _dailyCustomers.RemoveAt(_dailyCustomers.Count - 1); // takes out one customer
             }
-
-            if (GameData.IsPosterActive(2))
+            if (GameData.IsPosterActive(3))
             {
-                flatEarning += 1;
+                earningMultiplier -= 0.33f;
+            }
+            if (GameData.IsPosterActive(5))
+            {
+                earningMultiplier -= 0.2f;
             }
         }
 
@@ -101,6 +106,7 @@ namespace Bar
         {
             yield return new WaitForSeconds(1.5f);
             LoadDailyCustomers(GameData.CurrentDay);
+            PosterEffects();
 
             // wait a bit more to avoid race conditions
             yield return new WaitForSeconds(0.5f);
@@ -162,11 +168,13 @@ namespace Bar
             
             if (choiceIndex == currentBlitzDialogue.correctChoice)
             {
+                GameData.BlitzSuccessful();
                 Dialogue correctDialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["correct"]);
                 _dialogueManager.StartDialogue(correctDialogue, DialogueType.Leave);
             }
             else
             {
+                GameData.BlitzFailed();
                 Dialogue wrongDialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["wrong"]);
                 _dialogueManager.StartDialogue(wrongDialogue, DialogueType.Leave);
             }

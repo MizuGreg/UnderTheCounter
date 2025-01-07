@@ -17,6 +17,7 @@ namespace Bar
         private DialogueManager _dialogueManager;
 
         [SerializeField] private int forceDay;
+        [SerializeField] private bool didBlitzHappen;
                 
         void Start()
         {
@@ -30,7 +31,7 @@ namespace Bar
             EventSystemManager.OnDayStart += StartDay;
             EventSystemManager.OnDrunkCustomer += CheckBlitzWarning;
             EventSystemManager.OnCustomerLeft += CheckDrunk;
-            // EventSystemManager.OnBlitzEnd += NextCustomer;
+            EventSystemManager.OnBlitzCalled += BlitzHappened;
             EventSystemManager.OnCustomersDepleted += EndDay;
             EventSystemManager.OnTutorial1End += EndDay;
             EventSystemManager.OnTrinketObtained += UpdateTrinkets;
@@ -46,17 +47,21 @@ namespace Bar
             EventSystemManager.OnDayStart -= StartDay;
             EventSystemManager.OnDrunkCustomer -= CheckBlitzWarning;
             EventSystemManager.OnCustomerLeft -= CheckDrunk;
-            // EventSystemManager.OnBlitzEnd -= NextCustomer;
+            EventSystemManager.OnBlitzCalled -= BlitzHappened;
             EventSystemManager.OnCustomersDepleted -= EndDay;
             EventSystemManager.OnTutorial1End -= EndDay;
         }
 
         private void PosterEffects()
         {
-            // TODO
-            if (GameData.IsPosterActive(0))
+            if (GameData.IsPosterActive(1))
             {
-                
+                GameData.DailyTime += 40;
+            }
+
+            if (GameData.IsPosterActive(3))
+            {
+                GameData.DailyTime += 30;
             }
         }
 
@@ -85,6 +90,12 @@ namespace Bar
                 _customerManager.StartDay();
                 StartTimer();
             }
+
+            if (GameData.CurrentDay == 3)
+            { // unlocks posters that have effects that influence the blitz (otherwise reading them would spoil the mechanic)
+                UnlockPoster(4);
+                UnlockPoster(6);
+            }
         }
 
         private void StartTimer()
@@ -94,6 +105,11 @@ namespace Bar
 
         private void EndDay()
         {
+            if (!didBlitzHappen) // clean day, counts as two successful blitzes
+            {
+                GameData.BlitzSuccessful();
+                GameData.BlitzSuccessful();
+            }
             barContainer.GetComponent<FadeCanvas>().FadeOut();
             StartCoroutine(WaitThenEndDay());
         }
@@ -154,7 +170,12 @@ namespace Bar
         {
             GameData.BarName = name is null or "" ? "The Chitchat" : name;
         }
-
+        
+        private void BlitzHappened()
+        {
+            didBlitzHappen = true;
+        }
+        
         public void BackToMainMenu()
         {
             barContainer.GetComponent<FadeCanvas>().FadeOut();
@@ -167,12 +188,6 @@ namespace Bar
             SceneManager.LoadScene("MainMenu");
         }
         
-        private void LossByBlitz()
-        {
-            barContainer.GetComponent<FadeCanvas>().FadeOut();
-            StartCoroutine(LoadLoseScreen());
-        }
-         
         private IEnumerator LoadLoseScreen()
         {
             yield return new WaitForSeconds(1f);

@@ -1,3 +1,4 @@
+using SavedGameData;
 using Technical;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,22 +10,29 @@ public class BlitzTimer : MonoBehaviour
     private float timeRemaining;
     private bool isTimerRunning;
 
-    private void Start() {
-        timerBarImage.fillAmount = 1f;
-        timeRemaining = timerDuration;
-        isTimerRunning = false;
-
+    private void Start()
+    {
         EventSystemManager.OnBlitzCalled += StartTimer;
         EventSystemManager.OnBlitzEnd += ResetTimer;
     }
-
-    private void OnDestroy() {
+    
+    private void OnDestroy()
+    {
         EventSystemManager.OnBlitzCalled -= StartTimer;
         EventSystemManager.OnBlitzEnd -= ResetTimer;
     }
     
+    public void SetTimer()
+    {
+        timerDuration = GameData.BlitzTime;
+        timeRemaining = timerDuration;
+        isTimerRunning = false;
+        timerBarImage.fillAmount = 1f;
+    }
+    
     public void StartTimer()
     { 
+        SetTimer();
         isTimerRunning = true;  
     }
 

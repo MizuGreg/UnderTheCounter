@@ -577,7 +577,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterDescription
-      value: Placeholder description 4
+      value: Who doesn't love orange juice? Well, apart from people allergic to orange.
+        For everyone else, this poster is a reminder that they can take it easy in
+        your bar.
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPopUpPrefab
@@ -1485,7 +1487,7 @@ PrefabInstance:
       propertyPath: posterDescription
       value: This intriguing and expensive poster is heavily inspired by Baroque
         paintings, and perhaps reminds us that alcoholic beverages have always been
-        a part of human society.
+        a part of human society, before any of the cocktails you make were invented.
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPopUpPrefab
@@ -2010,7 +2012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNameText
-      value: Lil' Gnome
+      value: Take it easy
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPriceText
@@ -2018,7 +2020,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterDescription
-      value: TBD
+      value: This little Tuscanian gnome reminds customers and staff of this bar
+        alike to stay close to nature, and to do things our own way and at our own
+        pace.
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPopUpPrefab
@@ -2259,7 +2263,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterDescription
-      value: TBD
+      value: Delicate, gracious and petite. This poster has it all, and hanging it
+        outside will let your beloved patrons know that elegance and aesthetics are
+        definitely within your expertise.
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPopUpPrefab
@@ -3551,7 +3557,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterDescription
-      value: TBD
+      value: Who would've known this poster of a local dancer from the nearby academia
+        would become the symbol of the resistance in Korgis City? And also, where
+        have you seen that bartenders' union man before? Mysteries left unsolved.
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPopUpPrefab
@@ -5048,7 +5056,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterDescription
-      value: TBD
+      value: Nobody said aperitif drinks need to be alcoholic... but the most law-abiding
+        among us will have suspicions. The party-goers, instead, will definitely
+        help you out and slow the police down.
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPopUpPrefab

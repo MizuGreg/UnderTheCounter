@@ -277,7 +277,12 @@ namespace Bar
                 {
                     GameData.Choices["MafiaDeal"] = true;
                 }
-
+                if (tag == "UNDERCOVER CATCHES YOU")
+                { // makes next blitz extremely likely
+                    GameData.BlitzFailed(); // penalizes maxDrunkCustomers and blitz time
+                    if (GameData.DrunkCustomers <= GameData.MaxDrunkCustomers - 1)
+                        GameData.DrunkCustomers = GameData.MaxDrunkCustomers - 1; // next alcoholic beverage triggers blitz
+                }
                 if (tag == "BAR NAME")
                 {
                     sentence = sentence.Insert(tagIndex, GameData.BarName);

@@ -13,18 +13,25 @@ namespace SavedGameData
         public static readonly string SaveFilePath = Application.streamingAssetsPath + "/GameData/Save.json";
         
         public static List<Tuple<string, string>> Log = new();
-        public static SerializedDictionary<string, bool> Choices = new();
+        public static SerializedDictionary<string, bool> Choices = new(){
+            ["MargaretDrunk"] = false,
+            ["MafiaDeal"] = false
+        };
         
         public static string BarName = "The Chitchat";
         public static float DailyTime = 240;
         public static int CurrentDay = 1;
+        
         public static int DrunkCustomers = 0;
         public static int MaxDrunkCustomers = 99;
+        public static float BlitzTime = 10;
+        public static int BlitzFailCounter = 0;
+        public static bool WasLastBlitzFailed = false;
     
         public static List<Poster> Posters = new();
         public static List<int> Trinkets = new();
     
-        public static float Savings = 100;
+        public static float Savings = 50;
         public static float TodayEarnings = 0;
         public static int Rent = 10;
         public static int Food = 10;
@@ -42,13 +49,17 @@ namespace SavedGameData
             BarName = "The Chitchat";
             DailyTime = 240;
             CurrentDay = 1;
+            
             DrunkCustomers = 0;
             MaxDrunkCustomers = 99;
+            BlitzTime = 10;
+            BlitzFailCounter = 0;
+            WasLastBlitzFailed = false;
         
             Posters = new();
             Trinkets = new();
         
-            Savings = 100;
+            Savings = 50;
             TodayEarnings = 0;
             Rent = 10;
             Food = 10;
@@ -63,7 +74,7 @@ namespace SavedGameData
                 case 1:
                     DailyTime = 0;
                     MaxDrunkCustomers = 99;
-                    Savings = 100;
+                    Savings = 50;
                     Rent = 10;
                     Food = 10;
                     Supplies = 10;
@@ -84,7 +95,7 @@ namespace SavedGameData
                     break;
                 case 4:
                     DailyTime = 270;
-                    MaxDrunkCustomers = 2; // for testing purposes
+                    MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
                     Supplies = 30;
@@ -111,6 +122,35 @@ namespace SavedGameData
                     Supplies = 50;
                     break;
             }
+            UpdateBlitzVariables();
+            PosterEffects();
+        }
+
+        private static void PosterEffects()
+        {
+            if (IsPosterActive(4)) Supplies += 10; // increases supplies cost if baroque poster is active
+            if (IsPosterActive(6)) BlitzTime += 3;
+        }
+
+        public static void BlitzSuccessful()
+        {
+            WasLastBlitzFailed = false;
+            if (BlitzFailCounter > 0) BlitzFailCounter--;
+            UpdateBlitzVariables();
+        }
+
+        public static void BlitzFailed()
+        {
+            WasLastBlitzFailed = true;
+            BlitzFailCounter++;
+            UpdateBlitzVariables();
+        }
+        
+        private static void UpdateBlitzVariables()
+        {
+            BlitzTime = 10 - 2 * BlitzFailCounter; // reduce proportionately to how many blitzes you've failed "lately"
+            MaxDrunkCustomers = 4 - (WasLastBlitzFailed ? 1 : 0); // reduce threshold by 1 if last blitz was failed
+            if (IsPosterActive(4)) MaxDrunkCustomers++; // increase threshold if poster with id 4 is hung
         }
 
         public static bool IsPosterActive(int posterID)
