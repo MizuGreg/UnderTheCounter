@@ -1,7 +1,7 @@
 [
     {
         "sprite": "Willie",
-        "order": "Magazine",
+        "order": "Palmera",
         "tip": 3,
         "lines": {
             "greet": [
@@ -96,7 +96,7 @@
     },
     {
         "sprite": "Luke",
-        "order": "Palmera",
+        "order": "SpringBee",
         "tip": 3,
         "lines": {
             "greet": [

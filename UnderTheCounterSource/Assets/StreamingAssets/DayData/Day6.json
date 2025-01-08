@@ -14,7 +14,7 @@
     },
     {
         "sprite": "Kenneth",
-        "order": "Parti",
+        "order": "Everest",
         "tip": 4,
         "lines": {
             "greet": [
@@ -33,7 +33,7 @@
     },
     {
         "sprite": "Kathryn",
-        "order": "Ripple",
+        "order": "Parti",
         "tip": 3,
         "lines": {
             "greet": [
@@ -71,7 +71,7 @@
     },
     {
         "sprite": "Luke",
-        "order": "SpringBee",
+        "order": "Magazine",
         "tip": 4,
         "lines": {
             "greet": [
@@ -91,6 +91,25 @@
     {
         "sprite": "Helene",
         "order": "Palmera",
+        "tip": 10,
+        "lines": {
+            "greet": [
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
+            ]
+        }
+    },
+    {
+        "sprite": "Charles",
+        "order": "Barber",
         "tip": 10,
         "lines": {
             "greet": [
