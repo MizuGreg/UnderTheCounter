@@ -5,7 +5,7 @@
         "tip": 0,
         "lines": {
             "greet": [
-                "Hey, boyo! Wassup? What, you've never seen my face around here? Shucks.",
+                "Hey, boyo! Wassup?<br>What, you've never seen my face around here? Shucks.",
                 "Let's just say, me and my pals, we're <i>the ones that rule around here</i>. We're honest men, helping out honest men. Ya feel me? Good.",
                 "You opened up a bar, huh? Then you've noticed how expensive it's getting to buy your supplies. And we don't want that.",
                 "Look, I'll get straight to the point, cause we don't wanna waste each other's time. I'm offering you a <b>deal</b>, boyo.",

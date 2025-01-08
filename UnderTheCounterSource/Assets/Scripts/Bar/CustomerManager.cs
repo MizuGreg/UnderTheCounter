@@ -158,8 +158,16 @@ namespace Bar
             choiceButton1.GetComponent<FadeCanvas>().FadeIn();
             choiceButton2.GetComponent<FadeCanvas>().FadeIn();
 
-            choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = currentBlitzDialogue.lines["choices"][0];
-            choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = currentBlitzDialogue.lines["choices"][1];
+            if (isBlitzHappening)
+            {
+                choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = currentBlitzDialogue.lines["choices"][0];
+                choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = currentBlitzDialogue.lines["choices"][1];
+            }
+            else
+            {
+                choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = _currentCustomer.lines["choices"][0];
+                choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = _currentCustomer.lines["choices"][1];
+            }
         }
 
         public void OnChoiceSelected(int choiceIndex)
@@ -192,12 +200,12 @@ namespace Bar
             {
                 if (choiceIndex == 0)
                 {
-                    Dialogue dialogue = new Dialogue(_customerName, currentBlitzDialogue.lines["choice1"]);
+                    Dialogue dialogue = new Dialogue(_customerName, _currentCustomer.lines["choice1"]);
                     _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
                 }
                 else
                 {
-                    Dialogue dialogue = new Dialogue(_customerName, currentBlitzDialogue.lines["choice2"]);
+                    Dialogue dialogue = new Dialogue(_customerName, _currentCustomer.lines["choice2"]);
                     _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
                 }
             }
