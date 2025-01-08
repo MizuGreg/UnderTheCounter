@@ -54,8 +54,15 @@ namespace EndOfDay
             nextDayButton.gameObject.SetActive(false);
             gameOverButton.gameObject.SetActive(false);
 
+            HideAllTexts();
             PopulateData();
             StartCoroutine(ShowPopup());
+        }
+
+        private void HideAllTexts()
+        {
+            foreach (var text in entryTexts) text.gameObject.SetActive(false);
+            foreach (var text in amountTexts) text.gameObject.SetActive(false);
         }
 
         private void PopulateData()
