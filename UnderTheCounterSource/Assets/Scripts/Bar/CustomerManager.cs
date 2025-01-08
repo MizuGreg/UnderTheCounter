@@ -380,6 +380,13 @@ namespace Bar
                     GameData.DrunkCustomers++;
                     EventSystemManager.OnDrunkCustomer();
                 }
+                
+                // Log cocktail
+                GameData.Log.Add(new Tuple<string, string>("Bartender", "<i>Serves a " +
+                    (cocktail.type == CocktailType.Wrong ? "messy concoction" : // special message if cocktail was wrong
+                    $"{Regex.Replace(cocktail.type.ToString(), @"([a-z])([A-Z])", "$1 $2")}") // cocktail name
+                    + (cocktail.isWatered ? ", watered down" : "") // whether it was watered down or not
+                    + "</i>"));
             }
             else
             {
