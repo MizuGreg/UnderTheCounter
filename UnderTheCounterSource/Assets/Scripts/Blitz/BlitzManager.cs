@@ -74,25 +74,14 @@ namespace Blitz
 
         private void ShufflePlaceholders()
         {
-            string[] prefabGUIDs = AssetDatabase.FindAssets("", new[] { $"Assets/Resources/Prefabs/Blitz" });
+            GameObject[] ingredientPrefabs = Resources.LoadAll<GameObject>("Prefabs/Blitz");
+            List<GameObject> shuffledPrefabs = new List<GameObject>(ingredientPrefabs);
+            Shuffle(shuffledPrefabs);
 
-            List<GameObject> ingredientPrefabs = new List<GameObject>();
-            foreach (string guid in prefabGUIDs)
+            for (int i = 0; i < shuffledPrefabs.Count; i++)
             {
-                string path = AssetDatabase.GUIDToAssetPath(guid);
-                GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-                if (prefab != null)
-                {
-                    ingredientPrefabs.Add(prefab);
-                }
-            }
-
-            Shuffle(ingredientPrefabs);
-
-            for (int i = 0; i < ingredientPrefabs.Count; i++)
-            {
-                placeholderSlots[i].tag = ingredientPrefabs[i].GetComponent<PlaceholderScript>().ingredientType.ToString();
-                placeholderSlots[i].GetComponent<Image>().sprite = ingredientPrefabs[i].GetComponent<PlaceholderScript>().sprite;
+                placeholderSlots[i].tag = shuffledPrefabs[i].GetComponent<PlaceholderScript>().ingredientType.ToString();
+                placeholderSlots[i].GetComponent<Image>().sprite = shuffledPrefabs[i].GetComponent<PlaceholderScript>().sprite;
             }
         }
 
