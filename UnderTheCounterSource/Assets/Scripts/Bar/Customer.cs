@@ -38,7 +38,6 @@ namespace Bar
     public class Customer
     {
         public CustomerType sprite;
-        public string displayedName;
         public CocktailType order;
         public string orderOnPostIt;
         

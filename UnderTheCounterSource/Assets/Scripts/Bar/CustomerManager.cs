@@ -22,6 +22,8 @@ namespace Bar
         private Image _currentImage;
         private DialogueManager _dialogueManager;
 
+
+        private bool isBlitzHappening;
         private List<BlitzDialogue> _dailyBlitzDialogues;
         private BlitzDialogue currentBlitzDialogue;
         [SerializeField] private Button choiceButton1;
@@ -132,6 +134,7 @@ namespace Bar
 
         private void TriggerHowardDialogue()
         {
+            isBlitzHappening = true;
             StartCoroutine(StartHowardDialogue());
         }
 
@@ -145,7 +148,7 @@ namespace Bar
             yield return new WaitForSeconds(timeBeforeDialogue);
             currentBlitzDialogue = _dailyBlitzDialogues[0];
             Dialogue dialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["greet"]);
-            _dialogueManager.StartDialogue(dialogue, DialogueType.Blitz);
+            _dialogueManager.StartDialogue(dialogue, DialogueType.MultipleChoice);
 
             //_dailyBlitzDialogues.RemoveAt(0);
         }
@@ -166,21 +169,38 @@ namespace Bar
             choiceButton1.GetComponent<FadeCanvas>().FadeOut();
             choiceButton2.GetComponent<FadeCanvas>().FadeOut();
             
-            if (choiceIndex == currentBlitzDialogue.correctChoice)
+            if (isBlitzHappening) // we're in a blitz choice
             {
-                GameData.BlitzSuccessful();
-                Dialogue correctDialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["correct"]);
-                _dialogueManager.StartDialogue(correctDialogue, DialogueType.Leave);
-            }
-            else
-            {
-                GameData.BlitzFailed();
-                Dialogue wrongDialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["wrong"]);
-                _dialogueManager.StartDialogue(wrongDialogue, DialogueType.Leave);
-            }
+                isBlitzHappening = false;
+                if (choiceIndex == currentBlitzDialogue.correctChoice)
+                {
+                    GameData.BlitzSuccessful();
+                    Dialogue correctDialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["correct"]);
+                    _dialogueManager.StartDialogue(correctDialogue, DialogueType.Leave);
+                }
+                else
+                {
+                    GameData.BlitzFailed();
+                    Dialogue wrongDialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["wrong"]);
+                    _dialogueManager.StartDialogue(wrongDialogue, DialogueType.Leave);
+                }
 
-            EventSystemManager.OnBlitzEnd();
-            _dailyBlitzDialogues.RemoveAt(0);
+                EventSystemManager.OnBlitzEnd();
+                _dailyBlitzDialogues.RemoveAt(0);
+            }
+            else // we're in a choice-based dialogue, probably with the mafia goon
+            {
+                if (choiceIndex == 0)
+                {
+                    Dialogue dialogue = new Dialogue(_customerName, currentBlitzDialogue.lines["choice1"]);
+                    _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
+                }
+                else
+                {
+                    Dialogue dialogue = new Dialogue(_customerName, currentBlitzDialogue.lines["choice2"]);
+                    _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
+                }
+            }
         }
 
         // Handles customers that appear or not depending on some conditions, or that have specific sprites depending on conditions
@@ -229,7 +249,7 @@ namespace Bar
                         _customerName = "B.U. member";
                         break;
                     case CustomerType.MafiaGoon:
-                        _customerName = "\"Businessman\"";
+                        _customerName = "Mafia Goon";
                         break;
                     case CustomerType.MargaretDrunk:
                         _customerName = "Disheveled Margaret";
@@ -254,11 +274,19 @@ namespace Bar
         private IEnumerator WaitAndGreetDialogue()
         {
             yield return new WaitForSeconds(timeBeforeDialogue);
-            _dialogueManager.StartDialogue(
-                new Dialogue(_customerName, _currentCustomer.lines["greet"]),
-                _currentCustomer.sprite is CustomerType.Howard or CustomerType.MafiaGoon or CustomerType.ErnestUnion
-                    ? DialogueType.NoDrink
-                    : DialogueType.Greet);
+            DialogueType dialogueType;
+            if (_currentCustomer.lines.ContainsKey("choices")) 
+            { 
+                dialogueType = DialogueType.MultipleChoice; // we have a choice-based dialogue
+            }
+            else if (_currentCustomer.sprite is CustomerType.Howard or CustomerType.MafiaGoon or CustomerType.ErnestUnion)
+            { 
+                dialogueType = DialogueType.NoDrink; // these don't order drinks
+            } else
+            { 
+                dialogueType = DialogueType.Greet; // for all other customers
+            }
+            _dialogueManager.StartDialogue(new Dialogue(_customerName, _currentCustomer.lines["greet"]), dialogueType);
         }
 
         private Sprite GetSpriteFromCustomerType(CustomerType customerType)

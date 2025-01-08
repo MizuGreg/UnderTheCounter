@@ -13,13 +13,17 @@
                 "On top of that, I offer you protection from the cops. And you… you'll just keep up the good work, stay open, and help us out from time to time.",
                 "So what do ya say?"
             ],
-            "choice1": [
+            "choices": [
                 "Accept deal",
+                "Refuse deal"
+            ],
+            "choice1": [
+                
                 "Awesome, consider it done! My pal will hand you out the new supplies today.",
                 "I'll be back. See ya!"
             ],
             "choice2": [
-                "Refuse deal",
+                
                 "Your loss boyo, not mine… But as I said, we're honest men. We'll give you some time to reconsider the offer and we'll leave you be.",
                 "For now at least."
             ]

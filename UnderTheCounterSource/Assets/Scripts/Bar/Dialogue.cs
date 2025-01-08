@@ -27,6 +27,6 @@ namespace Bar
         Leave,
         Tutorial,
         NoDrink,
-        Blitz
+        MultipleChoice
     }
 }

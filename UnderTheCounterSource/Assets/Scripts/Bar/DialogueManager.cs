@@ -182,7 +182,7 @@ namespace Bar
             arrow.gameObject.SetActive(false);
             textSpeed = normalTextSpeed;
             if (_sentences.Count == 0) {
-                if (_dialogueType != DialogueType.Blitz) {
+                if (_dialogueType != DialogueType.MultipleChoice) {
                     isBoxActive = false;
                     EndDialogue();
                 }
@@ -200,7 +200,7 @@ namespace Bar
                     case DialogueType.NoDrink:
                         EventSystemManager.OnCustomerLeave();
                         break;
-                    case DialogueType.Blitz:
+                    case DialogueType.MultipleChoice:
                         EventSystemManager.MultipleChoiceStart();
                         break;
                 }
