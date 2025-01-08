@@ -1087,7 +1087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 19c54bd630e983e41af4698300ed6678, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4e346f9ca97e8640a3f0a63baca4be4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -5201,8 +5201,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 657266448}
-  - {fileID: 283263441}
   - {fileID: 2130313119}
+  - {fileID: 283263441}
   - {fileID: 1029003390}
   - {fileID: 717617102}
   - {fileID: 1837976186}
@@ -8173,11 +8173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 650
+      value: 670.059
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 650
+      value: 670.06
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_LocalScale.x
@@ -8221,11 +8221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 564
+      value: 489
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -16
+      value: -25.7
       objectReference: {fileID: 0}
     - target: {fileID: 3206994236702880299, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8249,7 +8249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3484263413896642004, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4798246637680017835, guid: 6fde944983c0b3343b4bfa70edeb2ee6, type: 3}
       propertyPath: fadeSpeed
@@ -11395,6 +11395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barContainer: {fileID: 1180806169}
   forceDay: 0
+  didBlitzHappen: 0
 --- !u!114 &1725047609
 MonoBehaviour:
   m_ObjectHideFlags: 0
