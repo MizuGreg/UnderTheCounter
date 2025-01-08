@@ -16,7 +16,6 @@ namespace ShopWindow
         private Vector3 _originalScale;
         private Transform _originalParent;
         public List<RectTransform> restrictionAreas;
-        [FormerlySerializedAs("_lastPlacedPlaceholder")] 
         [SerializeField] private RectTransform lastPlacedPlaceholder; 
 
         private void Awake()
@@ -60,6 +59,12 @@ namespace ShopWindow
             
             // Hide price/"owned" underneath poster
             _pps.TogglePosterDetails(false);
+            
+            // Play sound, but only if we're ripping the poster from the window
+            if (lastPlacedPlaceholder != null)
+            {
+                EventSystemManager.OnPosterRippedDown();
+            }
         }
 
         private bool IsDraggable()
@@ -91,15 +96,13 @@ namespace ShopWindow
                     if (lastPlacedPlaceholder != null && lastPlacedPlaceholder != validArea)
                     {
                         var lastDropTarget = lastPlacedPlaceholder.GetComponent<DropTarget>();
-                        Debug.Log($"lastDropTarget= {lastDropTarget}");
                         if (lastDropTarget != null)
                         {
                             lastDropTarget.SetOccupied(false);
                         }
                     }
 
-                    // ACTUAL HANGING PART - would be better as its separate function, with parameters validArea, dropTarget and rectTransform
-                    Debug.Log($"dropTarget = {dropTarget}");
+                    // ACTUAL HANGING PART
                     HangPoster(validArea, dropTarget, _pps);
                 }
                 else
@@ -118,7 +121,7 @@ namespace ShopWindow
 
         public void HangPoster(RectTransform validArea, DropTarget dropTarget, PosterPrefabScript posterPrefab)
         {
-            Debug.Log($"hanging poster {posterPrefab} on placeholder {dropTarget}");
+            EventSystemManager.OnPosterHung(); // plays sound when a poster is hung on the window
             _rectTransform.SetParent(validArea, false);
             dropTarget.SetOccupied(true);
             lastPlacedPlaceholder = validArea;
@@ -139,6 +142,8 @@ namespace ShopWindow
                 if (dropTarget != null)
                 {
                     dropTarget.SetOccupied(false);
+                    // EventSystemManager.OnPosterRippedDown();
+                    lastPlacedPlaceholder = null;
                 }
             }
             

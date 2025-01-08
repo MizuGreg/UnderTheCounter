@@ -35,6 +35,9 @@ namespace Technical
             EventSystemManager.OnTimeUp += OnTimeUpSound;
             EventSystemManager.OnDayEnd += OnDayEndSound;
             
+            EventSystemManager.OnBlitzTimerWarning += OnBlitzTimerWarningSound;
+            EventSystemManager.OnBlitzTimerEnded += OnBlitzTimerEndedSound;
+            
             EventSystemManager.OnPosterHung += OnPosterHungSound;
             EventSystemManager.OnPosterRippedDown += OnPosterRippedDownSound;
         }
@@ -55,10 +58,13 @@ namespace Technical
             
             EventSystemManager.OnCustomerEnter -= OnCustomerEnterSound;
             EventSystemManager.OnCustomerLeave -= OnCustomerLeaveSound;
-            EventSystemManager.OnIngredientPouring += OnIngredientPouringSound;
-            EventSystemManager.OnTimeWarning += OnTimeWarningSound;
+            EventSystemManager.OnIngredientPouring -= OnIngredientPouringSound;
+            EventSystemManager.OnTimeWarning -= OnTimeWarningSound;
             EventSystemManager.OnTimeUp -= OnTimeUpSound;
             EventSystemManager.OnDayEnd -= OnDayEndSound;
+
+            EventSystemManager.OnBlitzTimerWarning -= OnBlitzTimerWarningSound;
+            EventSystemManager.OnBlitzTimerEnded -= OnBlitzTimerEndedSound;
             
             EventSystemManager.OnPosterHung -= OnPosterHungSound;
             EventSystemManager.OnPosterRippedDown -= OnPosterRippedDownSound;
@@ -178,9 +184,19 @@ namespace Technical
             EazySoundManager.PlaySound(soundData.pageTurnedSound);
         }
 
+        private void OnBlitzTimerWarningSound()
+        {
+            EazySoundManager.PlaySound(soundData.blitzTimerWarningSound);
+        }
+
+        private void OnBlitzTimerEndedSound()
+        {
+            EazySoundManager.PlaySound(soundData.blitzTimerEndSound);
+        }
+
         private void OnPosterHungSound()
         {
-            EazySoundManager.PlaySound(soundData.posterHangSound);
+            EazySoundManager.PlaySound(soundData.posterHungSound);
         }
 
         private void OnPosterRippedDownSound()

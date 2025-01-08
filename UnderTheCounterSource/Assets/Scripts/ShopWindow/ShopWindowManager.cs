@@ -1,21 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using Bar;
-using Newtonsoft.Json;
 using SavedGameData;
 using Technical;
 using TMPro;
 using Tutorial;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace ShopWindow
 {
-    public partial class ShopWindowManager : MonoBehaviour
+    public class ShopWindowManager : MonoBehaviour
     {
         [SerializeField] private CanvasGroup canvasContainer;
         [SerializeField] private TextMeshProUGUI dayText;
@@ -23,7 +17,7 @@ namespace ShopWindow
         private TutorialManager2 tutorialManager2;
         [SerializeField] private GameObject newspaper;
         
-        [SerializeField] public int forceDay = 2;
+        [SerializeField] public int forceDay;
 
         private void Start()
         {
@@ -46,7 +40,7 @@ namespace ShopWindow
             LoadPosters();
         }
 
-        private void CheckDailyPapers()
+        private void CheckDailyPapers() // shows newspapers and BU papers
         {
             if (GameData.CurrentDay == 2) StartCoroutine(WaitAndStartTutorial());
             if (GameData.CurrentDay == 3)

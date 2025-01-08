@@ -38,6 +38,7 @@ namespace Technical
         // Blitz-related events
         public static UnityAction OnBlitzCalled;
         public static UnityAction OnBlitzCallWarning;
+        public static UnityAction OnBlitzTimerWarning;
         public static UnityAction OnBlitzTimerEnded;
         public static UnityAction OnBottlePlaced;
         public static UnityAction OnPanelOpened;
