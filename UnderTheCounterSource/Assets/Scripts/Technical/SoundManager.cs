@@ -10,8 +10,8 @@ namespace Technical
     {
         
         public SoundData soundData;
-        
-        private float soundEffectCooldownTime = 0.4f;
+
+        private const float soundEffectCooldownTime = 0.3f;
         private bool isInCooldown;
 
         private void Awake()

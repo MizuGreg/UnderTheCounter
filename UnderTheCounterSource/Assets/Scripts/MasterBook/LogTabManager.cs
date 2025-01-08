@@ -30,7 +30,6 @@ namespace MasterBook
             {
                 try
                 {
-                    print($"i: {i}");
                     entriesToWrite.Add(GameData.Log[^i]); // retrieve log entries as a pile, starting from the last
                 }
                 catch (ArgumentOutOfRangeException)
