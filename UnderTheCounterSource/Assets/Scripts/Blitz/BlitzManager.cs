@@ -1,16 +1,11 @@
 using System.Collections;
 using Technical;
-using TMPro;
 using UnityEngine;
 using Bar;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using SavedGameData;
-using System.IO;
-using Newtonsoft.Json;
-using UnityEngine.Serialization;
 
 namespace Blitz
 {
@@ -26,6 +21,7 @@ namespace Blitz
 
         [SerializeField] private CanvasGroup barContainer;
         [SerializeField] private List<GameObject> placeholderSlots;
+        [SerializeField] private List<GameObject> placeholderPrefabs;
         private int placedBottlesCounter;
 
         private void Start()
@@ -36,6 +32,8 @@ namespace Blitz
             EventSystemManager.OnBlitzCalled += CallBlitz;
             EventSystemManager.OnBlitzTimerEnded += LossByBlitz;
             EventSystemManager.OnBottlePlaced += IncreasePlacedBottlesCounter;
+            
+            placeholderPrefabs = new List<GameObject>(Resources.LoadAll<GameObject>("Prefabs/Blitz"));
         }
 
         private void OnDestroy()
@@ -74,14 +72,12 @@ namespace Blitz
 
         private void ShufflePlaceholders()
         {
-            GameObject[] ingredientPrefabs = Resources.LoadAll<GameObject>("Prefabs/Blitz");
-            List<GameObject> shuffledPrefabs = new List<GameObject>(ingredientPrefabs);
-            Shuffle(shuffledPrefabs);
+            Shuffle(placeholderPrefabs);
 
-            for (int i = 0; i < shuffledPrefabs.Count; i++)
+            for (int i = 0; i < placeholderPrefabs.Count; i++)
             {
-                placeholderSlots[i].tag = shuffledPrefabs[i].GetComponent<PlaceholderScript>().ingredientType.ToString();
-                placeholderSlots[i].GetComponent<Image>().sprite = shuffledPrefabs[i].GetComponent<PlaceholderScript>().sprite;
+                placeholderSlots[i].tag = placeholderPrefabs[i].GetComponent<PlaceholderScript>().ingredientType.ToString();
+                placeholderSlots[i].GetComponent<Image>().sprite = placeholderPrefabs[i].GetComponent<PlaceholderScript>().sprite;
             }
         }
 
@@ -90,9 +86,7 @@ namespace Blitz
             for (int i = 0; i < list.Count; i++)
             {
                 int rnd = Random.Range(i, list.Count);
-                var temp = list[i];
-                list[i] = list[rnd];
-                list[rnd] = temp;
+                (list[i], list[rnd]) = (list[rnd], list[i]); // swaps the two objects
             }
         }
 
