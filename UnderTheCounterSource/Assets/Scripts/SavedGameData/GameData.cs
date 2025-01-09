@@ -203,7 +203,7 @@ namespace SavedGameData
             Debug.Log("Loading game data.");
             try
             {
-                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GameData/Save.json");
+                string jsonString = File.ReadAllText(SaveFilePath);
                 Save save = JsonConvert.DeserializeObject<Save>(jsonString);
                 save.SetGameData();
             }
@@ -215,6 +215,20 @@ namespace SavedGameData
                 Initialize();
             }
             
+        }
+
+        public static void DeleteSave()
+        {
+            Debug.Log("Deleting save file.");
+            try
+            {
+                File.Delete(SaveFilePath);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("Error while deleting save file:");
+                Debug.LogError(e);
+            }
         }
     }
 }
