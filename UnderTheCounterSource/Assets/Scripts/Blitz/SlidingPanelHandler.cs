@@ -49,7 +49,7 @@ namespace Blitz
 
         private IEnumerator FallOffScreen()
         {
-            while (rectTransform.anchoredPosition.y > -2 * Screen.height)
+            while (rectTransform.anchoredPosition.y > -2.5f * Screen.height)
             {
                 rectTransform.anchoredPosition += Vector2.down * 1500f * Time.deltaTime; 
                 yield return null;
