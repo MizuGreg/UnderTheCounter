@@ -104,7 +104,7 @@ namespace Blitz
 
         private void CheckBlitzWin()
         {
-            if (placedBottlesCounter == AssetDatabase.FindAssets("", new[] { $"Assets/Resources/Prefabs/Blitz" }).Length) 
+            if (placedBottlesCounter == placeholderPrefabs.Count) 
             {
                 // we need some kind of confirmation to show up for the player, then wait a bit, and then fade out
                 blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
