@@ -22,19 +22,19 @@ namespace Bar
         private Image _currentImage;
         private DialogueManager _dialogueManager;
 
-
+        [Header("Blitz-related fields")]
         private bool isBlitzHappening;
         private List<BlitzDialogue> _dailyBlitzDialogues;
         private BlitzDialogue currentBlitzDialogue;
         [SerializeField] private Button choiceButton1;
         [SerializeField] private Button choiceButton2;
 
+        [Header("Customer-related fields")]
         [SerializeField] private CanvasGroup customerCanvas;
-        
         [SerializeField] private PricePopup pricePopup;
-
         [SerializeField] private GameObject customerCocktail;
         
+        [Header("Timing-related variables")]
         [Range (0.1f, 5f)]
         public float timeBetweenCustomers = 2.5f;
         [Range(0.1f, 5f)]

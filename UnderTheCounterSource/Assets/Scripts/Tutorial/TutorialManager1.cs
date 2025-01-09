@@ -15,16 +15,24 @@ namespace Tutorial
 {
     public class TutorialManager1 : MonoBehaviour
     {
+        [Header("Canvases")]
         [SerializeField] private CanvasGroup customerCanvas;
         [SerializeField] private CanvasGroup customerCocktail;
+        
+        [Header("Images")]
         [SerializeField] private Sprite ernestSprite;
         [SerializeField] private Image postIt;
-        [SerializeField] private GameObject recipeBookIcon;
+        
+        [Header("Ingredients")]
         [SerializeField] private CanvasGroup ingredientSquare;
-        [SerializeField] private Button recipeBookClosingIcon;
         [SerializeField] private Image caledonImage;
         [SerializeField] private Image shaddockImage;
         [SerializeField] private Image gryteImage;
+        [SerializeField] private Image shakerOutline;
+        
+        [Header("Buttons")]
+        [SerializeField] private GameObject recipeBookIcon;
+        [SerializeField] private Button recipeBookClosingIcon;
         [SerializeField] private Button mixButton;
         [SerializeField] private Button resetButton;
         [SerializeField] private Button serveButton;
@@ -282,6 +290,9 @@ namespace Tutorial
             
             // Outline Caledon
             StartCoroutine(FadeOutlineContinuous(caledonImage.transform.Find("Outline").gameObject));
+            
+            // Outline shaker
+            StartCoroutine(FadeOutlineContinuous(shakerOutline.gameObject));
         }
         
         // Ernest asking to put the Caledon onto the shaker again
@@ -348,6 +359,9 @@ namespace Tutorial
             
             // Ingredient becomes not interactable
             EventSystemManager.MakeIngredientInteractable(IngredientType.Unspecified);
+            
+            // Stop all coroutines accumulated so far, including the shaker
+            StopAllCoroutines();
             
             // Ernest pop up message
             StartCoroutine(WaitAndPopUp(true));

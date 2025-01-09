@@ -9,13 +9,16 @@ namespace Bar
 {
     public class BarManager : MonoBehaviour
     {
+        [Header("Canvases")]
         public CanvasGroup barContainer;
+        [SerializeField] private CanvasGroup trinketContainer;
         
         private TutorialManager1 _tutorialManager1;
         private CustomerManager _customerManager;
         private TimerManager _timerManager;
         private DialogueManager _dialogueManager;
 
+        [Header("Debug fields")]
         [SerializeField] private int forceDay;
         [SerializeField] private bool didBlitzHappen;
                 
@@ -40,6 +43,7 @@ namespace Bar
             barContainer.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadBarView();
             StartCoroutine(WaitAndStartDay());
+            DisplayTrinkets();
         }
 
         private void OnDestroy()
@@ -158,6 +162,7 @@ namespace Bar
             foreach (int trinketID in GameData.Trinkets)
             {
                 print($"Displaying trinket with ID {trinketID}");
+                trinketContainer.transform.Find($"Trinket{trinketID}").gameObject.SetActive(true);
             }
         }
 

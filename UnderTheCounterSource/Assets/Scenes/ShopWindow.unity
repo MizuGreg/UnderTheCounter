@@ -1657,7 +1657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &388916319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3322,8 +3322,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ERNEST
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 9bf8a153a2cda704c9f674e8d2bb8f93, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96e2da2c630dc2544977e7f9ad6b4aab, type: 2}
+  m_sharedMaterial: {fileID: 1571493711251298127, guid: 96e2da2c630dc2544977e7f9ad6b4aab, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3353,7 +3353,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 17
+  m_fontStyle: 16
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3386,7 +3386,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0.6726075, z: -0.7875977, w: 0.84185416}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &758400296
@@ -5333,8 +5333,8 @@ MonoBehaviour:
     <b>shaker</b>, a guide for the dosages, and a button to mix the contents of the
     shaker.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 028b152b32fd729469f823b7242fcb58, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 9bf8a153a2cda704c9f674e8d2bb8f93, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
+  m_sharedMaterial: {fileID: 3181661542133080346, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5370,7 +5370,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 60
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

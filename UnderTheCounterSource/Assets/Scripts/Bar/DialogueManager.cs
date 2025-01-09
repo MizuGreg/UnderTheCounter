@@ -14,17 +14,18 @@ namespace Bar
     public class DialogueManager : MonoBehaviour {
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
 
-        public TextMeshProUGUI nameText;
-        public TextMeshProUGUI dialogueText;
+        [Header("Dialogue objects")]
+        [SerializeField] private TextMeshProUGUI nameText;
+        [SerializeField] private TextMeshProUGUI dialogueText;
         private TMP_TextInfo textInfo;
-        public Animator animator;
+        [SerializeField] private Animator animator;
         
         [SerializeField] private Image arrow;
         private Sprite normalArrow, makeCocktailArrow, leaveArrow;
         
-        // Pop-up messages
-        public TextMeshProUGUI popUpNameText;
-        public TextMeshProUGUI popUpDialogueText;
+        [Header("Pop-up objects")]
+        [SerializeField] private TextMeshProUGUI popUpNameText;
+        [SerializeField] private TextMeshProUGUI popUpDialogueText;
         [SerializeField] private Image popUpArrow;
         private bool isPopupActive;
         private bool _isActionNeeded;
@@ -34,17 +35,18 @@ namespace Bar
         private Coroutine _typeSentenceCoroutine;
         private bool isBoxActive;
 
+        [Header("Timing-related variables")]
         private float textSpeed;
         [Range(1f, 50.0f)]
-        public float normalTextSpeed;
+        [SerializeField] private float normalTextSpeed;
 
         [Range(5f, 50.0f)]
-        public float punctuationWaitMultiplier;
+        [SerializeField] private float punctuationWaitMultiplier;
         
         [Range(0.1f, 3.0f)]
-        public float timeBeforeDialogueBox;
+        [SerializeField] private float timeBeforeDialogueBox;
         [Range(0.1f, 3.0f)]
-        public float timeBeforeFirstSentence;
+        [SerializeField] private float timeBeforeFirstSentence;
 
         private bool _allTextIsVisible;
         
