@@ -4650,6 +4650,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3935566714580582139, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6228487217480528163, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Name
       value: MixButton
@@ -4740,11 +4744,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_text
-      value: <u>MIX</u>
+      value: MIX
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontSize
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_margin.y
+      value: 2.6089754
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_fontStyle
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontSizeBase
@@ -7735,6 +7747,7 @@ MonoBehaviour:
   - {fileID: 1970083647}
   - {fileID: 719612735}
   - {fileID: 192329243}
+  placeholderPrefabs: []
 --- !u!1 &1014868371 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6623235248041824013, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
@@ -11556,7 +11569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barContainer: {fileID: 1180806169}
-  forceDay: 4
+  forceDay: 5
   didBlitzHappen: 0
 --- !u!114 &1725047609
 MonoBehaviour:
@@ -12575,7 +12588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1860771886
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14580,6 +14593,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3935566714580582139, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6228487217480528163, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Name
       value: ResetButton
@@ -14658,11 +14675,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_text
-      value: <u>RESET</u>
+      value: RESET
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontSize
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_margin.y
+      value: 3.127758
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_fontStyle
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7295852027933824148, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_fontSizeBase

@@ -50,6 +50,7 @@ namespace Menu
         public void ContinueGame()
         {
             GameData.LoadFromJson();
+            mainMenuCanvas.GetComponent<FadeCanvas>().FadeOut();
             StartCoroutine(WaitBeforeContinueGame());
         }
 

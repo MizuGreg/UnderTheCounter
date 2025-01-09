@@ -61,11 +61,6 @@ namespace Bar
             leaveArrow = Resources.Load<Sprite>("Sprites/(Old)/UI/bottle_opener");
         }
 
-        public void SetDialogueBoxActive(bool active)
-        {
-            isBoxActive = active;
-        }
-
         public void SetNormalTextSpeed(float speed)
         {
             normalTextSpeed = speed;
@@ -202,13 +197,14 @@ namespace Bar
                         break;
                     case DialogueType.MultipleChoice:
                         EventSystemManager.MultipleChoiceStart();
+                        isBoxActive = false; // deactivates interaction with box, e.g. clicking to skip sentence
                         break;
                 }
             }
             else
             {
                 string sentence = _sentences.Dequeue();
-                ParseEventTag(sentence);
+                sentence = ParseEventTag(sentence);
                 GameData.Log.Add(new Tuple<string, string>(nameText.text, sentence));
                 
                 StartCoroutine(TypeSentence(sentence));
@@ -251,14 +247,14 @@ namespace Bar
             }
         }
 
-        private void ParseEventTag(string sentence)
+        private string ParseEventTag(string sentence)
         {
             if (sentence.Contains("{"))
             {
                 string tag = sentence.Substring(sentence.IndexOf("{") + 1, sentence.IndexOf("}") - sentence.IndexOf("{") - 1); // extracts text inside brackets
                 int tagIndex = sentence.IndexOf("{");
                 sentence = sentence.Remove(sentence.IndexOf("{"), sentence.IndexOf("}") - sentence.IndexOf("{") + 1); // removes whole tag with brackets
-
+                
                 if (tag.Contains("TRINKET"))
                 {
                     int trinketID = int.Parse(Regex.Match(tag, @"\d+").Value); // extracts ID
@@ -277,6 +273,11 @@ namespace Bar
                 {
                     GameData.Choices["MafiaDeal"] = true;
                 }
+
+                if (tag == "PIZZO PAID")
+                {
+                    GameData.Choices["PizzoPaid"] = true;
+                }
                 if (tag == "UNDERCOVER CATCHES YOU")
                 { // makes next blitz extremely likely
                     GameData.BlitzFailed(); // penalizes maxDrunkCustomers and blitz time
@@ -288,6 +289,8 @@ namespace Bar
                     sentence = sentence.Insert(tagIndex, GameData.BarName);
                 }
             }
+
+            return sentence;
         }
 
         private IEnumerator TypeSentence(string sentence) 

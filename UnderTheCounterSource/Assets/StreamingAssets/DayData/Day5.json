@@ -18,13 +18,12 @@
                 "Refuse deal"
             ],
             "choice1": [
-                
-                "Awesome, consider it done! My pal will hand you out the new supplies today.",
+                "{MAFIA DEAL ACCEPTED}Awesome, consider it done. My pal will hand you out the new supplies today.",
                 "I'll be back. See ya!"
             ],
             "choice2": [
                 
-                "Your loss boyo, not mine… But as I said, we're honest men. We'll give you some time to reconsider the offer and we'll leave you be.",
+                "{MAFIA DEAL NOT ACCEPTED}Your loss boyo, not mine… But as I said, we're honest men. We'll give you some time to reconsider the offer and we'll leave you be.",
                 "For now at least."
             ]
         }
@@ -32,6 +31,7 @@
     {
         "sprite": "Willie",
         "order": "Palmera",
+        "orderOnPostIt": "special request",
         "tip": 5,
         "lines": {
             "greet": [

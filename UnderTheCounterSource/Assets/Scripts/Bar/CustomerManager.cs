@@ -77,7 +77,7 @@ namespace Bar
         {
             if (GameData.IsPosterActive(0))
             {
-                earningMultiplier += 0.33f;
+                earningMultiplier += 0.3f;
                 _dailyCustomers.RemoveAt(_dailyCustomers.Count - 1); // takes out one customer
             }
             if (GameData.IsPosterActive(1))
@@ -106,13 +106,15 @@ namespace Bar
 
         private IEnumerator WaitAndStartDay()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             LoadDailyCustomers(GameData.CurrentDay);
             PosterEffects();
 
-            // wait a bit more to avoid race conditions
-            yield return new WaitForSeconds(0.5f);
-            LoadDailyBlitzDialogues(GameData.CurrentDay);
+            if (GameData.CurrentDay >= 3)
+            {
+                LoadDailyBlitzDialogues(GameData.CurrentDay);
+            }
+            
             GreetCustomer();
         }
 

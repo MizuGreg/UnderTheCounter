@@ -15,7 +15,8 @@ namespace SavedGameData
         public static List<Tuple<string, string>> Log = new();
         public static SerializedDictionary<string, bool> Choices = new(){
             ["MargaretDrunk"] = false,
-            ["MafiaDeal"] = false
+            ["MafiaDeal"] = false,
+            ["PizzoPaid"] = false
         };
         
         public static string BarName = "The Chitchat";
@@ -43,7 +44,8 @@ namespace SavedGameData
             Choices = new()
             {
                 ["MargaretDrunk"] = false,
-                ["MafiaDeal"] = false
+                ["MafiaDeal"] = false,
+                ["PizzoPaid"] = false
             };
 
             BarName = "The Chitchat";
@@ -68,6 +70,7 @@ namespace SavedGameData
         
         public static void StartDay()
         {
+            Debug.Log($"Day {CurrentDay}");
             DrunkCustomers = 0;
             switch (CurrentDay)
             {
@@ -148,6 +151,13 @@ namespace SavedGameData
         
         private static void UpdateBlitzVariables()
         {
+            if (CurrentDay < 3)
+            {
+                BlitzTime = 99;
+                MaxDrunkCustomers = 99;
+                return;
+            }
+            
             BlitzTime = 12 - 2 * BlitzFailCounter; // reduce proportionately to how many blitzes you've failed "lately"
             MaxDrunkCustomers = 4 - (WasLastBlitzFailed ? 1 : 0); // reduce threshold by 1 if last blitz was failed
             if (IsPosterActive(4)) MaxDrunkCustomers++; // increase threshold if poster with id 4 is hung

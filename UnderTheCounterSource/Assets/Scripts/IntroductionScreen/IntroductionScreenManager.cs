@@ -20,6 +20,8 @@ namespace IntroductionScreen
         [SerializeField] private TextMeshProUGUI text3;
 
         private int currentStep = 0; // 0 -> Mostra text1, 1 -> Mostra text2, 2 -> Mostra text3
+        private float buttonFadeDuration = 0.6f;
+        private float textFadeDuration = 0.8f;
 
     private void Start()
     {
@@ -44,11 +46,11 @@ namespace IntroductionScreen
             yield return FadeCanvasGroupIn(mainCanvas, 1f);
 
             // Fade-in text1
-            yield return FadeTextIn(text1, 1f);
+            yield return FadeTextIn(text1, textFadeDuration);
 
             // Fade-in pulsante continue
             continueButtonCanvas.gameObject.SetActive(true);
-            yield return FadeCanvasGroupIn(continueButtonCanvas, 0.7f);
+            yield return FadeCanvasGroupIn(continueButtonCanvas, buttonFadeDuration);
         }
 
         public void OnContinuePressed()
@@ -61,36 +63,36 @@ namespace IntroductionScreen
             if (currentStep == 0) 
             {
                 // Fade-out text1 e pulsante continue
-                yield return FadeCanvasGroupOut(continueButtonCanvas, 0.7f);
+                yield return FadeCanvasGroupOut(continueButtonCanvas, buttonFadeDuration);
                 continueButtonCanvas.gameObject.SetActive(false);
 
-                yield return FadeTextOut(text1, 1f);
+                yield return FadeTextOut(text1, textFadeDuration);
 
                 // Fade-in text2
-                yield return FadeTextIn(text2, 1f);
+                yield return FadeTextIn(text2, textFadeDuration);
 
                 // Fade-in pulsante continue
                 continueButtonCanvas.gameObject.SetActive(true);
-                yield return FadeCanvasGroupIn(continueButtonCanvas, 0.7f);
+                yield return FadeCanvasGroupIn(continueButtonCanvas, buttonFadeDuration);
 
                 currentStep = 1;
             }
             else if (currentStep == 1)
             {
                 // Fade-out text2 e pulsante continue
-                yield return FadeCanvasGroupOut(continueButtonCanvas, 0.7f);
+                yield return FadeCanvasGroupOut(continueButtonCanvas, buttonFadeDuration);
                 continueButtonCanvas.gameObject.SetActive(false);
 
-                yield return FadeTextOut(text2, 1f);
+                yield return FadeTextOut(text2, textFadeDuration);
 
                 // Fade-in text3
-                yield return FadeTextIn(text3, 1f);
+                yield return FadeTextIn(text3, textFadeDuration);
                 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f); // extra waiting time before the final button
 
                 // Fade-in pulsante start day
                 startDayButtonCanvas.gameObject.SetActive(true);
-                yield return FadeCanvasGroupIn(startDayButtonCanvas, 0.7f);
+                yield return FadeCanvasGroupIn(startDayButtonCanvas, buttonFadeDuration);
 
                 currentStep = 2;
             }
@@ -105,7 +107,7 @@ namespace IntroductionScreen
         private IEnumerator LoadNextScene()
         {
             // Se vuoi un fade-out del mainCanvas prima del cambio scena:
-            yield return FadeCanvasGroupOut(mainCanvas, 1f);
+            yield return FadeCanvasGroupOut(mainCanvas, 1.1f);
 
             SceneManager.LoadScene("Scenes/TutorialDay1");
         }
