@@ -217,7 +217,7 @@ namespace EndOfDay
         {
             endOfDayCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene(GameData.CurrentDay > 3 ? "VictoryScreen" : "ShopWindow");
+            SceneManager.LoadScene(GameData.CurrentDay >= 7 ? "VictoryScreen" : "ShopWindow");
         }
     }
 }
