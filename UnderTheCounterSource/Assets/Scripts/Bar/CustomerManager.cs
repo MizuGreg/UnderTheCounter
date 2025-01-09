@@ -77,7 +77,7 @@ namespace Bar
         {
             if (GameData.IsPosterActive(0))
             {
-                earningMultiplier += 0.3f;
+                earningMultiplier += 0.25f;
                 _dailyCustomers.RemoveAt(_dailyCustomers.Count - 1); // takes out one customer
             }
             if (GameData.IsPosterActive(1))
@@ -96,7 +96,15 @@ namespace Bar
 
         private void TimeoutCustomers()
         {
-            _dailyCustomers.Clear(); // depletes daily customers
+            Customer lastCustomer = _dailyCustomers[^1];
+            if (lastCustomer.sprite is CustomerType.MafiaGoon or CustomerType.Howard or CustomerType.ErnestUnion)
+            { // we keep the "last visit"
+                _dailyCustomers.Clear();
+                _dailyCustomers.Add(lastCustomer);
+            }
+            else {
+                _dailyCustomers.Clear(); // deplete all remaining daily customers
+            }
         }
 
         public void StartDay()
