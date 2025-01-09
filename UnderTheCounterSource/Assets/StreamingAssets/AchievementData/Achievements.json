@@ -4,8 +4,8 @@
       "id": "pressed W",
       "title": "A bar of your own",
       "description": "Wow you have pressed W!",
-      "isUnlocked": true,
-      "progress": 1,
+      "isUnlocked": false,
+      "progress": 0,
       "target": 1
     },
     {

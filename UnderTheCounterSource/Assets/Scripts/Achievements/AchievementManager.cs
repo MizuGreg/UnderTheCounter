@@ -96,7 +96,7 @@ namespace Achievements
             Debug.Log("Achievements saved successfully.");
         }
 
-        private void ResetAchievements()
+        public void ResetAchievements()
         {
             foreach (var a in _achievements)
             {
