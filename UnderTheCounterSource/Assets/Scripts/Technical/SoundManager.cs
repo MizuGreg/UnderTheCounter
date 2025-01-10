@@ -166,17 +166,17 @@ namespace Technical
 
         private void OnMasterBookOpenedSound()
         {
-            EazySoundManager.PlaySound(soundData.bookOpenSound);
+            EazySoundManager.PlaySound(soundData.bookOpenSound, 0.8f);
         }
 
         private void OnMasterBookClosedSound()
         {
-            EazySoundManager.PlaySound(soundData.bookCloseSound, 0.75f);
+            EazySoundManager.PlaySound(soundData.bookCloseSound, 0.55f);
         }
 
         private void OnTabChangedSound()
         {
-            EazySoundManager.PlaySound(soundData.tabChangedSound, 0.75f);
+            EazySoundManager.PlaySound(soundData.tabChangedSound, 0.55f);
         }
 
         private void OnPageTurnedSound()

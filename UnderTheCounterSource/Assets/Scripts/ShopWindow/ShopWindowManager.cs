@@ -91,7 +91,6 @@ namespace ShopWindow
                 pps.posterBuff = matchingPoster.buff;
                 pps.posterNerf = matchingPoster.nerf;
                 pps.posterDescription = matchingPoster.description;
-                pps.posterImage = matchingPoster.image;
                 pps.posterNameText = matchingPoster.name;
                 pps.isLocked = matchingPoster.locked;
 
@@ -140,7 +139,7 @@ namespace ShopWindow
             foreach (PosterPrefabScript pps in posterPrefabs)
             {
                 posterList.Add(new Poster(pps.posterID, pps.posterPrice, pps.hanged, pps.isLocked, pps.isVisible,
-                    pps.posterImage, pps.posterNameText, pps.posterBuff, pps.posterNerf, pps.posterDescription));
+                    pps.posterNameText, pps.posterBuff, pps.posterNerf, pps.posterDescription));
             }
             GameData.Posters = posterList;
         }

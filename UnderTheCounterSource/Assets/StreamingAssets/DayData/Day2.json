@@ -17,7 +17,7 @@
                 "Thank you, dear bartender. I thought I'd tasted a hint of love in this drink, but it was very faint…<br>I shall get back to work now, goodbye!"
             ]
         },
-        "tip": 5
+        "tip": 3
     },
     {
         "sprite": "Helene",
@@ -40,7 +40,7 @@
                 "The individual ingredients had a discrete quality, but I noted a lack of synergy… Charles?"
             ]
         },
-        "tip": 9
+        "tip": 5
     },
     {
         "sprite": "Charles",
@@ -61,14 +61,14 @@
                 "Hmm…<br>Not bad all in all, but hopefully it'll be better next time. Farewell."
             ]
         },
-        "tip": 4
+        "tip": 2
     },
     {
         "sprite": "Betty",
         "order": "Everest",
         "lines": {
             "greet": [
-                "Hi there, …bartender. With these old eyes I can't make out whether you're a miss or a mister.",
+                "Hi there, …miss? Mister? With these old eyes I can't make out whether you're a man or a woman.",
                 "In any case, do me a favor and stay away from men, or you'll end up like me and my ex husband. <size=75%>I did get all the money from the divorce though… hehe.<size=100%>",
                 "Give me an <b>Everest</b>. As cold as his heart."
             ],
@@ -82,7 +82,7 @@
                 "Not terrible. I'm still not sure if you're a miss or a mister, so I'll be back some other time. I'll be keeping an eye on you!<br>Bye bye!"
             ]
         },
-        "tip": 3
+        "tip": 2
     },
     {
         "sprite": "Kathryn",
@@ -91,22 +91,22 @@
         "lines": {
             "greet": [
                 "Hiya! Lovely that my adventures led me to this city, and to this very bar tonight.<br>I'm Kathryn, by the way.",
-                "Whenever I visit a bar in a new city, I always ask for the bartender's favourite drink. Sometimes it leads to a tasty discovery! My cocktail of choice is always the <b>Parti</b>, though.",
+                "Whenever I visit a bar in a new city, I always ask for the bartender's favourite drink. Sometimes it leads to a tasty discovery! My cocktail of choice is always the Parti, though.",
                 "So go ahead, love! Make me <i>your favourite</i>."
             ],
             "correct": [
-                "{TRINKET 1}Cheers! So we both have a knack for the same cocktail. You've made a good impression on me for sure, so let me give you a little something. It's a <b>souvenir</b> from my voyages.",
+                "{TRINKET 0}Cheers! So we both have a knack for the same cocktail. You've made a good impression on me for sure, so let me give you a little something. It's a <b>souvenir</b> from my voyages.",
                 "Take care, love. <i>*wink*</i>"
             ],
             "incorrect": [
-                "Cheers! Not a bad choice at all. I like the atmosphere, so I can't wait to come back.<i>*wink*</i><br>Take care, love."
+                "{TRINKET 0}Cheers! Not a bad choice at all. Here's a little something, it's a <b>souvenir</b> from my voyages. Take care, love!"
             ],
             "wrong": [
                 "Blimey! Are you positive this is your favourite cocktail? Nevermind, I can respect someone with a taste this strong, I guess.<br>Take care!"
             ],
             "water": [
                 "Cheers! A good enough Parti, and definitely better than a cheeky pint back home, you know?",
-                "{TRINKET 1}Let me give you a little something. It's a <b>souvenir</b> from my voyages.<br>Take care now, love!"
+                "{TRINKET 0}Let me give you a little something. It's a <b>souvenir</b> from my voyages.<br>Take care now, love!"
             ]
         },
         "tip": 3
@@ -132,7 +132,7 @@
                 "Thank you gentle man! I like it, just a bit more alcochol and it would be PERFECT! See you soon!"
             ]
         },
-        "tip": 4
+        "tip": 2
     },
     {
         "sprite": "Doris",
@@ -156,6 +156,6 @@
                 "Eugene, we have to go honey. You will continue dancing with me at home."
             ]
         },
-        "tip": 3
+        "tip": 2
     }
 ]

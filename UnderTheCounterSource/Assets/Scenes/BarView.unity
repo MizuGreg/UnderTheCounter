@@ -616,6 +616,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1855279175750308417, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855279175750308417, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 623126691}
@@ -5364,6 +5368,7 @@ RectTransform:
   m_Children:
   - {fileID: 657266448}
   - {fileID: 2130313119}
+  - {fileID: 1164127362}
   - {fileID: 283263441}
   - {fileID: 1029003390}
   - {fileID: 717617102}
@@ -5372,7 +5377,6 @@ RectTransform:
   - {fileID: 1138693662}
   - {fileID: 2043000088}
   - {fileID: 1083510975}
-  - {fileID: 1164127362}
   m_Father: {fileID: 1180806168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5699,6 +5703,14 @@ MonoBehaviour:
   poster1Object: {fileID: 1256403884}
   poster2Object: {fileID: 1014868371}
   ownedPostersObject: {fileID: 488950221}
+  posterSprites:
+  - {fileID: 21300000, guid: ae5fd34d8bc16884a843ec283d22a3a1, type: 3}
+  - {fileID: 21300000, guid: 844610d3fe44577409e3f74ecb9f0f42, type: 3}
+  - {fileID: 21300000, guid: 5e4f6f7bf26e69541ac18e56a5352855, type: 3}
+  - {fileID: 21300000, guid: 9a844a472774f4949930e49dcb5a116d, type: 3}
+  - {fileID: 21300000, guid: 81d1417b48637694dac7f6290b757700, type: 3}
+  - {fileID: 21300000, guid: 547fb975aacd3f646acf1978de5dfa0f, type: 3}
+  - {fileID: 21300000, guid: bf9571d1f5c0d994fab97883f8b2d81b, type: 3}
   hiddenPosterSprite: {fileID: 21300000, guid: fe044d26ad084e74a884661244f9d7c7, type: 3}
 --- !u!114 &623126693
 MonoBehaviour:
@@ -8193,6 +8205,10 @@ PrefabInstance:
     - target: {fileID: 7315047736661323258, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315047736661323258, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7315047736661323258, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -11457,6 +11473,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 623126691}
+        m_TargetAssemblyTypeName: MasterBook.MasterBookManager, Assembly-CSharp
+        m_MethodName: OpenRecipeTab
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1607710340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12609,8 +12637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -152, y: 125}
-  m_SizeDelta: {x: -391.898, y: -326.66}
+  m_AnchoredPosition: {x: -4.892029, y: 125}
+  m_SizeDelta: {x: -97.682, y: -326.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1811078171
 CanvasRenderer:
@@ -12640,7 +12668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Paolo
+  m_text: sad margaret
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96e2da2c630dc2544977e7f9ad6b4aab, type: 2}
   m_sharedMaterial: {fileID: 1571493711251298127, guid: 96e2da2c630dc2544977e7f9ad6b4aab, type: 2}

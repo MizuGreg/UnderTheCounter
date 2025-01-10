@@ -222,7 +222,7 @@ namespace Bar
                 switch (tag)
                 {
                     case "IF HAS POSTERS":
-                        if (GameData.Posters.Count > 0) _sentences.Enqueue(strippedSentence);
+                        if (GameData.HasHungPosters()) _sentences.Enqueue(strippedSentence);
                         break;
                     case "IF DOESN'T HAVE POSTERS":
                         if (GameData.Posters.Count == 0) _sentences.Enqueue(strippedSentence);
@@ -275,10 +275,9 @@ namespace Bar
                 {
                     GameData.Choices["MafiaDeal"] = true;
                 }
-
-                if (tag == "PIZZO PAID")
+                if (tag == "PAYOFF ACCEPTED")
                 {
-                    GameData.Choices["PizzoPaid"] = true;
+                    GameData.Choices["PayoffAccepted"] = true;
                 }
                 if (tag == "UNDERCOVER CATCHES YOU")
                 { // makes next blitz extremely likely

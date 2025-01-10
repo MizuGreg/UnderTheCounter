@@ -86,7 +86,7 @@ namespace Bar
             }
             if (GameData.IsPosterActive(3))
             {
-                earningMultiplier -= 0.33f;
+                earningMultiplier -= 0.2f;
             }
             if (GameData.IsPosterActive(5))
             {
@@ -270,7 +270,7 @@ namespace Bar
                         _customerName = "Mafia Goon";
                         break;
                     case CustomerType.MargaretDrunk:
-                        _customerName = "Disheveled Margaret";
+                        _customerName = "Margaret";
                         break;
                     default:
                         _customerName = _currentCustomer.sprite.ToString();

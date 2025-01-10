@@ -38,7 +38,7 @@
                 "My husband doesn't know about the prohibition laws yet, I don't want to worry him. He's a very sensitive person."
             ]
         },
-        "tip": 4
+        "tip": 1
     },
     {
         "sprite": "Eugene",
@@ -69,7 +69,7 @@
     {
         "sprite": "Luke",
         "order": "Palmera",
-        "tip": 4,
+        "tip": 3,
         "lines": {
             "greet": [
                 "Hi… I was walking by and noticed this bar was still open despite everything. You're doing the good thing, nobody is actually in favor of prohibition.",
@@ -93,7 +93,7 @@
     {
         "sprite": "Gaston",
         "order": "Magazine",
-        "tip": 7,
+        "tip": 5,
         "lines": {
             "greet": [
                 "<i>Bonsoir</i>, barman. This establishment was recommended to me by a trusted client.",
@@ -101,8 +101,12 @@
                 "Now, I would like to try out a <b>Magazine</b>, <i>s'il vous plaît</i>."
             ],
             "correct": [
+                "A discrete Ferrucci in this Magazine. I see we have similar tastes in wine.",
+                "{TRINKET 1}Here, a small <i>souvenir</i> from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
+            ],
+            "water": [
                 "An exceptional Ferrucci in this Magazine. I see we have similar tastes in wine. It's hard to find good wine in this part of the United States, unfortunately.",
-                "{TRINKET 2}Here, a small <i>souvenir</i> from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
+                "{TRINKET 1}Here, a small <i>souvenir</i> from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
             ],
             "incorrect": [
                 "Close enough, barman. I wish Americans would follow the original French recipe for the Magazine. In any case, I wish you a good night."
@@ -119,9 +123,8 @@
         "lines": {
             "greet": [
                 "Well hello hello there! Hope you've read the latest edition of Rogue, it's got some hefty tips on how to dress stylishly!",
-                "At any rate, I shouldn't squander too much time before my next competition. Honey, make me a <b>Ripple</b>!",
-                "Maybe with a drop of honey on the rim. And with Verlan instead of Caledon, I like the bitterness of it.",
-                "Oh, and no Gryte… Just add some more Verlan to it."
+                "In any case, I shouldn't squander too much time before my next competition. Honey, make me a <b>Ripple</b>!",
+                "But with Verlan instead of Caledon, I like the bitterness of it. Oh, and no Gryte… Just add some more Verlan to it."
             ],
             "correct": [
                 "Oh my, oh my! Just how I love it. If I didn't know any better I'd think you were trying to make an impression on me!<br>Well, I'll definitely be coming back then! See you!"
@@ -137,7 +140,7 @@
                 "I'll be definitely coming back in the future then, see if your cocktails get better and better over time. See you!"
             ]
         },
-        "tip": 6
+        "tip": 4
     },
     {
         "sprite": "Charles",
@@ -177,7 +180,7 @@
                 "The quality hasn't improved much from the last time I was here. I'll have you know you still have a long way to go!<br>Bye bye!"
             ]
         },
-        "tip": 3
+        "tip": 1
     },
     {
         "sprite": "Margaret",
@@ -198,6 +201,6 @@
                 "Thank you, dear bartender.<br>Well, I might go home now and rehearse some lines… Goodnight!"
             ]
         },
-        "tip": 5
+        "tip": 2
     }
 ]

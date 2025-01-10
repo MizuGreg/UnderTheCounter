@@ -1,0 +1,234 @@
+{
+  "Log": [
+    {
+      "Item1": "Ernest",
+      "Item2": "… and these are your keys, young one. That will be all! This is officially your bar now. With the energy you have, I'm sure you won't have any trouble taking good care of the place."
+    },
+    {
+      "Item1": "Ernest",
+      "Item2": "Here, let me guide you. I'll show you what you need to do during your shift."
+    },
+    {
+      "Item1": "Ernest",
+      "Item2": "Let's get hands-on and make your first cocktail now. I'm feeling young today, so make me a <b>Ripple</b>!"
+    },
+    {
+      "Item1": "Ernest",
+      "Item2": "That's all! Excellent! I will take my leave now, but while you set up the place, why don't you think of a <b>name</b> for the bar?"
+    },
+    {
+      "Item1": "Margaret",
+      "Item2": "<size=75%><i>*sigh* If only my life wasn't so busy… Maybe I could convince him…</i><size=100%><br>Oh! Sorry, good evening, dear bartender. I was a bit lost in my thoughts."
+    },
+    {
+      "Item1": "Margaret",
+      "Item2": "Would you be so kind as to get me a sweet drink, like a <b>Spring Bee</b>? Maybe that will distract me from my career…I'm an <b>actress</b>, you see."
+    },
+    {
+      "Item1": "Bartender",
+      "Item2": "<i>Serves a Spring Bee</i>"
+    },
+    {
+      "Item1": "Margaret",
+      "Item2": "Oh, how wonderful, dear bartender. I think I even tasted a little bit of romance in this drink.<br>I shall get back to work now, but thank you truly! Goodnight!"
+    },
+    {
+      "Item1": "Helene",
+      "Item2": "Good evening bartender. It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression."
+    },
+    {
+      "Item1": "Helene",
+      "Item2": "<i>Ugh</i>, how exhausting it is to not know which opera to attend tonight…"
+    },
+    {
+      "Item1": "Helene",
+      "Item2": "I'd like to order a <b>Magazine</b> now, please."
+    },
+    {
+      "Item1": "Bartender",
+      "Item2": "<i>Serves a Magazine</i>"
+    },
+    {
+      "Item1": "Helene",
+      "Item2": "Lovely cocktail, I'm sure you must've used a… a titanium mixing spoon, and you probably mixed ripe and unripe shaddocks for the juice."
+    },
+    {
+      "Item1": "Helene",
+      "Item2": "Here's a little something for the service. We will surely come back. Charles?"
+    },
+    {
+      "Item1": "Charles",
+      "Item2": "Yes, dear. We are in a bit of a hurry tonight, after all. And I shouldn't go to bed too late tonight."
+    },
+    {
+      "Item1": "Charles",
+      "Item2": "Good evening, bartender. <i>The same</i> for me, please."
+    },
+    {
+      "Item1": "Bartender",
+      "Item2": "<i>Serves a Magazine</i>"
+    },
+    {
+      "Item1": "Charles",
+      "Item2": "Hmm, an excellent Magazine indeed. Well, thank you. Farewell and have a nice day."
+    },
+    {
+      "Item1": "Betty",
+      "Item2": "Hi there, …miss? Mister? With these old eyes I can't make out whether you're a man or a woman."
+    },
+    {
+      "Item1": "Betty",
+      "Item2": "In any case, do me a favor and stay away from men, or you'll end up like me and my ex husband. <size=75%>I did get all the money from the divorce though… hehe.<size=100%>"
+    },
+    {
+      "Item1": "Betty",
+      "Item2": "Give me an <b>Everest</b>. As cold as his heart."
+    },
+    {
+      "Item1": "Bartender",
+      "Item2": "<i>Serves a Everest</i>"
+    },
+    {
+      "Item1": "Betty",
+      "Item2": "Mmm, not bad at all for an amateur. Maybe the person behind the counter is a miss after all.<br>Bye bye!"
+    },
+    {
+      "Item1": "Kathryn",
+      "Item2": "Hiya! Lovely that my adventures led me to this city, and to this very bar tonight.<br>I'm Kathryn, by the way."
+    },
+    {
+      "Item1": "Kathryn",
+      "Item2": "Whenever I visit a bar in a new city, I always ask for the bartender's favourite drink. Sometimes it leads to a tasty discovery! My cocktail of choice is always the <b>Parti</b>, though."
+    },
+    {
+      "Item1": "Kathryn",
+      "Item2": "So go ahead, love! Make me <i>your favourite</i>."
+    },
+    {
+      "Item1": "Bartender",
+      "Item2": "<i>Serves a Parti</i>"
+    },
+    {
+      "Item1": "Kathryn",
+      "Item2": "Cheers! So we both have a knack for the same cocktail. You've made a good impression on me for sure, so let me give you a little something. It's a <b>souvenir</b> from my voyages."
+    },
+    {
+      "Item1": "Kathryn",
+      "Item2": "Take care, love. <i>*wink*</i>"
+    },
+    {
+      "Item1": "Eugene",
+      "Item2": "Evening gentle bartender! I've just come back from the honeymoon with my sweetie, I'm happy to see a new face!"
+    },
+    {
+      "Item1": "Eugene",
+      "Item2": "The previous owner was suuuper nice, but you look like a really good person too! Can I kindly ask for a <b>Ripple</b>?"
+    },
+    {
+      "Item1": "Bartender",
+      "Item2": "<i>Serves a Everest</i>"
+    },
+    {
+      "Item1": "Eugene",
+      "Item2": "Oh, I like it. I mean, it's not like the one the previous owner used to make, but it's still good! Thank you and bye!"
+    }
+  ],
+  "Choices": {
+    "MargaretDrunk": false,
+    "MafiaDeal": false,
+    "PayoffAccepted": false
+  },
+  "BarName": "HI PREV!!!!!!",
+  "DailyTime": 240.0,
+  "CurrentDay": 3,
+  "DrunkCustomers": 6,
+  "MaxDrunkCustomers": 99,
+  "Posters": [
+    {
+      "id": 1,
+      "price": 20.0,
+      "hanged": 0,
+      "visible": true,
+      "name": "Take it easy",
+      "buff": "More time in a day",
+      "nerf": "Fewer customers",
+      "description": "This little Tuscanian gnome reminds customers and staff of this bar to stay close to nature, and to do things our own way and at our own pace.",
+      "locked": true
+    },
+    {
+      "id": 2,
+      "price": -1.0,
+      "hanged": 0,
+      "visible": false,
+      "name": "Aurum",
+      "buff": "<i>fancy</i>",
+      "nerf": "<i>over the top</i>",
+      "description": "Delicate, gracious and petite. This poster has it all, and hanging it outside will let your beloved patrons know that elegance and aesthetics are definitely within your expertise.",
+      "locked": false
+    },
+    {
+      "id": 3,
+      "price": 40.0,
+      "hanged": 0,
+      "visible": true,
+      "name": "Zesty",
+      "buff": "More time in a day",
+      "nerf": "Lower earnings",
+      "description": "Who doesn't love orange juice? Well, apart from people allergic to orange. For everyone else, this poster is a reminder that they can take it easy in your bar.",
+      "locked": true
+    },
+    {
+      "id": 4,
+      "price": 60.0,
+      "hanged": 0,
+      "visible": false,
+      "name": "Baroque",
+      "buff": "Harder to call blitz",
+      "nerf": "Higher expenses",
+      "description": "This intriguing and expensive poster is heavily inspired by Baroque paintings, and perhaps reminds us that alcoholic beverages have always been a part of human society, before any of the cocktails you make were invented.",
+      "locked": true
+    },
+    {
+      "id": 5,
+      "price": -1.0,
+      "hanged": 0,
+      "visible": false,
+      "name": "Sarah Ja",
+      "buff": "More customers",
+      "nerf": "Lower earnings",
+      "description": "Who would've known this poster of a local dancer from the nearby academia would become the symbol of the resistance in Korgis City? And also, where have you seen that bartenders' union man before? Mysteries left unsolved.",
+      "locked": false
+    },
+    {
+      "id": 6,
+      "price": 50.0,
+      "hanged": 0,
+      "visible": false,
+      "name": "Balsam",
+      "buff": "Slower blitzes",
+      "nerf": "Police gets suspicious",
+      "description": "Nobody said aperitif drinks need to be alcoholic... but the most law-abiding among us will have suspicions. The party-goers, instead, will definitely help you out and slow the police down.",
+      "locked": true
+    },
+    {
+      "id": 0,
+      "price": -1.0,
+      "hanged": 1,
+      "visible": true,
+      "name": "Golden Hour",
+      "buff": "Higher earnings",
+      "nerf": "Fewer customers",
+      "description": "Ernest has gifted you this poster, which allegedly comes from Turin, Italy. Its vibrant colors may scare off some reserved customers, but the ones that do enter will certainly be in a gayer mood.",
+      "locked": false
+    }
+  ],
+  "Trinkets": [
+    0
+  ],
+  "Savings": 57.0,
+  "TodayEarnings": 0.0,
+  "Rent": 10,
+  "Food": 10,
+  "Supplies": 10,
+  "currentDateTime": "2025-01-10T22:47:31.1520409+01:00"
+}

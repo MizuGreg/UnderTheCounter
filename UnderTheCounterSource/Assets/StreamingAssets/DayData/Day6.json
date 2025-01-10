@@ -7,7 +7,7 @@
             "greet": [
                 "'Sup, boyo. Everything running smoothly, don't ya worry. Supplies have arrived an' all. Just here to warn you, though…",
                 "The government has put some funding on folks that agree to <b>snitch on bars</b> and speakeasies that still try to serve alcohol, like you.",
-                "So keep your eyes peeled, as they say, and watch out for folks that might be looking to make a quick buck, or that really really want to get drunk.",
+                "So keep your eyes peeled, as they say, and watch out for folks that might be looking to make a quick buck, or that <i>really</i> want to get drunk.",
                 "I'll be around, boyo. See ya."
             ]
         }
@@ -15,19 +15,26 @@
     {
         "sprite": "Kenneth",
         "order": "Everest",
-        "tip": 4,
+        "tip": 2,
         "lines": {
             "greet": [
-                "TBD"
+                "Well, well, fella! Lovely weather tonight. The sky is clear, and one can almost see the stars and constellations.",
+                "You know, when I was serving in the army during the war, sometimes I would look up at the sky and I would see no stars, because of all the smoke.",
+                "Well, I miss some aspects of the military, but the smoke screens are not one of them. Either way, can you make me an <b>Everest</b> now?"
             ],
             "correct": [
-                "TBD"
+                "This… law that they passed, it's like a smoke screen. Alcohol will always be a part of our lives, and this law won't stop it. It's futile.",
+                "It just makes life harder for you bartenders. But thankfully, young people like you know what's right and what's not.",
+                "{TRINKET 4}This… is for you. Take good care of it. And goodnight."
             ],
             "water": [
-                "TBD"
+                "This… law that they passed, it's like a smoke screen. Alcohol will always be a part of our lives, and this law won't stop it. It's futile.",
+                "It just makes life harder for you bartenders. But thankfully, young people like you know what's right and what's not.",
+                "{TRINKET 4}This… is for you. Take good care of it. And goodnight."
             ],
             "wrong": [
-                "TBD"
+                "Still some improvement to be made with your cocktails, fella… This here is not an Everest, I think.",
+                "Well, in any case… Take good care, and goodnight."
             ]
         }
     },
@@ -72,7 +79,7 @@
     {
         "sprite": "Luke",
         "order": "Magazine",
-        "tip": 4,
+        "tip": 2,
         "lines": {
             "greet": [
                 "TBD"
@@ -91,7 +98,7 @@
     {
         "sprite": "Helene",
         "order": "Palmera",
-        "tip": 10,
+        "tip": 6,
         "lines": {
             "greet": [
                 "TBD"
@@ -110,7 +117,7 @@
     {
         "sprite": "Charles",
         "order": "Barber",
-        "tip": 10,
+        "tip": 5,
         "lines": {
             "greet": [
                 "TBD"
@@ -143,11 +150,9 @@
                 "Don't give money"
             ],
             "choice1": [
-                
-                "Awesome"
+                "{PAYOFF ACCEPTED}Awesome"
             ],
             "choice2": [
-                
                 "Get fucked"
             ]
         }

@@ -109,8 +109,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7058277360557295055, guid: fe966c60e614dc64dbcdb18948116565, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4480836528576710306}
+    - target: {fileID: 7058277360557295055, guid: fe966c60e614dc64dbcdb18948116565, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMainMenu
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7058277360557295055, guid: fe966c60e614dc64dbcdb18948116565, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -407,6 +411,10 @@ PrefabInstance:
     - target: {fileID: 6228487217480528163, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_Name
       value: SaveGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228487217480528163, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6478090358380046592, guid: 1f40ccb00fc19ad4a805d832f2d45309, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -776,6 +784,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2370177512616421992, guid: d02651d215b0efc4786db25bb0b70b13, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569635554388806759, guid: d02651d215b0efc4786db25bb0b70b13, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2635118494649251095, guid: d02651d215b0efc4786db25bb0b70b13, type: 3}
       propertyPath: m_fontSize
       value: 35
@@ -907,6 +923,10 @@ PrefabInstance:
     - target: {fileID: 7486517863689871457, guid: d02651d215b0efc4786db25bb0b70b13, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -214.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659559699430418061, guid: d02651d215b0efc4786db25bb0b70b13, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8799244298530619039, guid: d02651d215b0efc4786db25bb0b70b13, type: 3}
       propertyPath: m_PresetInfoIsWorld

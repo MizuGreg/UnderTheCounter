@@ -54,6 +54,8 @@ namespace Bar
             EventSystemManager.OnBlitzCalled -= BlitzHappened;
             EventSystemManager.OnCustomersDepleted -= EndDay;
             EventSystemManager.OnTutorial1End -= EndDay;
+            EventSystemManager.OnTrinketObtained -= UpdateTrinkets;
+            EventSystemManager.OnPosterObtained -= UnlockPoster;
         }
 
         private void PosterEffects()
@@ -162,7 +164,7 @@ namespace Bar
             foreach (int trinketID in GameData.Trinkets)
             {
                 print($"Displaying trinket with ID {trinketID}");
-                trinketContainer.transform.Find($"Trinket{trinketID}").gameObject.SetActive(true);
+                trinketContainer.transform.GetChild(trinketID).gameObject.SetActive(true);
             }
         }
 

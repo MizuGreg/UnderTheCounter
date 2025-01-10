@@ -21,7 +21,7 @@
     {
         "sprite": "Betty",
         "order": "Everest",
-        "tip": 4,
+        "tip": 2,
         "lines": {
             "greet": [
                 "TBD"
@@ -46,7 +46,7 @@
                 "TBD"
             ],
             "correct": [
-                "TBD"
+                "{TRINKET 5}TBD"
             ],
             "water": [
                 "TBD"
@@ -59,7 +59,7 @@
     {
         "sprite": "Charles",
         "order": "Ripple",
-        "tip": 0,
+        "tip": 5,
         "lines": {
             "greet": [
                 "TBD"
@@ -78,7 +78,7 @@
     {
         "sprite": "Margaret",
         "order": "SpringBee",
-        "tip": 4,
+        "tip": 3,
         "lines": {
             "greet": [
                 "TBD"
@@ -116,7 +116,7 @@
     {
         "sprite": "Kathryn",
         "order": "None",
-        "tip": 3,
+        "tip": 4,
         "lines": {
             "greet": [
                 "TBD"

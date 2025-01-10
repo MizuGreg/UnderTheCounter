@@ -354,13 +354,14 @@ namespace Tutorial
         {
             Debug.Log("Step 12");
             
-            // Deactivate Gryte outline
+            // Deactivate Gryte outline and shaker outline
             gryteImage.transform.Find("Outline").gameObject.SetActive(false);
+            shakerOutline.gameObject.SetActive(false);
             
             // Ingredient becomes not interactable
             EventSystemManager.MakeIngredientInteractable(IngredientType.Unspecified);
             
-            // Stop all coroutines accumulated so far, including the shaker
+            // Stop all coroutines accumulated so far
             StopAllCoroutines();
             
             // Ernest pop up message

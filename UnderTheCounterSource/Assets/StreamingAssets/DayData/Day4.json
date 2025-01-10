@@ -2,7 +2,7 @@
     {
         "sprite": "Helene",
         "order": "Palmera",
-        "tip": 9,
+        "tip": 5,
         "lines": {
             "greet": [
                 "Good evening. I found myself in the vicinity of your establishment again, since I'm on my way to the theater.",
@@ -42,7 +42,7 @@
                 "Refreshing, a bit too much for my taste. Maybe it's the way that the newer generations do it.<br>In any case, at ease, fella! Goodnight!"
             ]
         },
-        "tip": 3
+        "tip": 1
     },
     {
         "sprite": "ErnestUnion",
@@ -59,7 +59,7 @@
     {
         "sprite": "Margaret",
         "order": "SpringBee",
-        "tip": 5,
+        "tip": 2,
         "lines": {
             "greet": [
                 "Dearest bartender! How good to see you again! Oh, I am <i>so</i> anxious tonight… I wish I could just take a teeny, tiny break from all my chores.",
@@ -85,7 +85,7 @@
     {
         "sprite": "Eugene",
         "order": "Ripple",
-        "tip": 4,
+        "tip": 2,
         "lines": {
             "greet": [
                 "Gooooood evening! I hope you're doing good today! I stopped by for a quick <b>Ripple</b> after work.",
@@ -109,15 +109,15 @@
     {
         "sprite": "Betty",
         "order": "Barber",
-        "tip": 3,
+        "tip": 2,
         "lines": {
             "greet": [
                 "Evening. Still open, I see. Your cocktail wasn't <i>too</i> bad last time, so I decided to come by again.",
-                "Well? Can you serve me an <b>Barber</b> or no?"                  
+                "Well? Can you serve me a <b>Barber</b> or no?"                  
             ],
             "correct": [
                 "Well I'll be, this is not bad at all! Youngling, I think you might start to get the hang of it.",
-                "{TRINKET 3}Here, take this. And don't complain. It's simply a small gift. This place really needs some decorations either way.<br>I'm off now! Goodnight."
+                "{TRINKET 2}Here, take this. And don't complain. It's simply a small gift. This place really needs some decorations either way.<br>I'm off now! Goodnight."
             ],
             "water": [
                 "Not bad, not bad. I think you're starting to get the hang of it.<br> Well, I'm off now. Goodnight."
@@ -133,21 +133,21 @@
     {
         "sprite": "Kathryn",
         "order": "Parti",
-        "tip": 6,
+        "tip": 4,
         "lines": {
             "greet": [
                 "Good to see you, love! This place keeps getting better and better. And more crowded, even!<br>Alright now, can I get a <b>Parti</b>?"                
             ],
             "correct": [
-                "Terrific. Y'know, I might even start to regret the end of my exchange studies at the Korgis University. I might miss this place!",
+                "Terrific. Y'know, I might even start to regret the end of my exchange studies at the <b>Korgis University</b>. I might miss this place!",
                 "Have a good night, and don't close up too late!"
             ],
             "water": [
-                "Cheers. Y'know, I might even start to regret the end of my exchange period at the Korgis University. I might even miss this place!",
+                "Cheers. Y'know, I might even start to regret the end of my exchange period at the <b>Korgis University</b>. I might even miss this place!",
                 "Have a good night, and don't close up too late!"
             ],
             "incorrect": [
-                "Cheers, not bad. Y'know, I might even start to regret the end of my exchange period at the Korgis University… Goodnight, love."
+                "Cheers, not bad. Y'know, I might even start to regret the end of my exchange period at the <b>Korgis University</b>… Goodnight, love."
             ],
             "wrong": [
                 "I think I'll skip this one, love. Sorry, just not my cup of tea. Goodnight!"
@@ -157,7 +157,7 @@
     {
         "sprite": "Gaston",
         "order": "Magazine",
-        "tip": 9,
+        "tip": 5,
         "lines": {
             "greet": [
                 "<i>Coucou</i>! Are you still open, bartender? It is quite late, you know. But entrepreneurs like us rarely get enough sleep.",

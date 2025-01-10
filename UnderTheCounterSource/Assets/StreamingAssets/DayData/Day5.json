@@ -23,7 +23,7 @@
             ],
             "choice2": [
                 
-                "{MAFIA DEAL NOT ACCEPTED}Your loss boyo, not mine… But as I said, we're honest men. We'll give you some time to reconsider the offer and we'll leave you be.",
+                "Your loss boyo, not mine… But as I said, we're honest men. We'll give you some time to reconsider the offer and we'll leave you be.",
                 "For now at least."
             ]
         }
@@ -32,7 +32,7 @@
         "sprite": "Willie",
         "order": "Palmera",
         "orderOnPostIt": "special request",
-        "tip": 5,
+        "tip": 4,
         "lines": {
             "greet": [
                 "Honey! How good to see you finally! How are you doing?<br>I feel daring today for some reason, so…",
@@ -40,7 +40,7 @@
                 "I'd like something <i>spiced</i>, a bit <i>fruity</i>… maybe something with a Latin American flair to it!"
             ],
             "correct": [
-                "{TRINKET 4}Well ain't that just the perfect cocktail! And here's the record for grammophone, as promised. Do give it a listen!",
+                "{TRINKET 3}Well ain't that just the perfect cocktail! And here's the record for grammophone, as promised. Do give it a listen!",
                 "<i>\"Ladies with an attitude, fellas that were in the mood… don't just stand there, let's get to it, strike a pose, there's nothing to it…\"</i>"
             ],
             "water": [
@@ -57,7 +57,7 @@
     {
         "sprite": "Eugene",
         "order": "Ripple",
-        "tip": 4,
+        "tip": 2,
         "lines": {
             "greet": [
                 "Heeeeeello bartender!! I'm so happy to be in my favorite bar once again! Did anything interesting happen lately?",
@@ -92,7 +92,7 @@
     {
         "sprite": "Margaret",
         "order": "SpringBee",
-        "tip": 6,
+        "tip": 3,
         "lines": {
             "greet": [
                 "Dear bartender! Good evening. I took tonight off from working, so I can stay a little bit longer today.",
@@ -121,11 +121,11 @@
         "lines": {
             "greet": [
                 "Good evening… I hope you're doing good, dear, dear bartender…",
-                "I don't know how to balance life and work, so yesterday I got a bit too tipsy and people noticed during my performance at the theater…",
+                "Yesterday, after drinking the cocktail you served me, I got a bit too tipsy and people noticed during my performance at the theater…",
                 "The scandal was on all newspapers. <i>\"Margaret Brookside transgresses the law and common sense at the same time\"</i>…",
                 "I… don't know how I will deal with the public tomorrow. But tonight I took the day off.",
                 "I'm going to the theater during closing hours… I need to understand what the stage wants from me, and what I want from the stage.",
-                "Could I ask for a rapid <b>Spring Bee</b> before leaving? Oh, and sorry for bothering you so much with my chatter…"
+                "Could I ask for a quick <b>Spring Bee</b> before leaving? Oh, and sorry for bothering you so much with my chatter…"
             ],
             "correct": [
                 "Bartender, when everything around me rises and ebbs, I know I can count on you, like a steady cliff.",
@@ -144,7 +144,7 @@
         "sprite": "Gaston",
         "order": "Barber",
         "orderOnPostIt": "Something with Cántico",
-        "tip": 7,
+        "tip": 5,
         "lines": {
             "greet": [
                 "<i>Salut</i>, barman. If you care to listen to a fellow entrepreneur, this prohibition law will decade very soon. The government wanted it, but the people hate it.",
@@ -173,7 +173,7 @@
     {
         "sprite": "Charles",
         "order": "Parti",
-        "tip": 7,
+        "tip": 4,
         "lines": {
             "greet": [
                 "Evening, bartender. Whew… I am not usually the type to get overwhelmed easily, but I will admit, work at the bank today was almost <i>insufferable</i>.",
@@ -194,7 +194,7 @@
     {
         "sprite": "Kenneth",
         "order": "Everest",
-        "tip": 3,
+        "tip": 2,
         "lines": {
             "greet": [
                 "Ahoy! How goes it? Any news from the front? I mean the daily newspaper. Why buy it when I can ask my good bartender all the newest news? Hah hah!",

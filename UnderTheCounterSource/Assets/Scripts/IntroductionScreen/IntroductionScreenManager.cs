@@ -100,7 +100,6 @@ namespace IntroductionScreen
 
         public void OnStartDayPressed()
         {
-            print(GameData.BarName);
             StartCoroutine(LoadNextScene());
         }
 

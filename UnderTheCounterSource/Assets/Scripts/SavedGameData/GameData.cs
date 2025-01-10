@@ -16,7 +16,7 @@ namespace SavedGameData
         public static SerializedDictionary<string, bool> Choices = new(){
             ["MargaretDrunk"] = false,
             ["MafiaDeal"] = false,
-            ["PizzoPaid"] = false
+            ["PayoffAccepted"] = false
         };
         
         public static string BarName = "The Chitchat";
@@ -31,6 +31,8 @@ namespace SavedGameData
     
         public static List<Poster> Posters = new();
         public static List<int> Trinkets = new();
+
+        public static int payoffAmount = 30;
     
         public static float Savings = 50;
         public static float TodayEarnings = 0;
@@ -45,7 +47,7 @@ namespace SavedGameData
             {
                 ["MargaretDrunk"] = false,
                 ["MafiaDeal"] = false,
-                ["PizzoPaid"] = false
+                ["PayoffAccepted"] = false
             };
 
             BarName = "The Chitchat";
@@ -70,7 +72,6 @@ namespace SavedGameData
         
         public static void StartDay()
         {
-            Debug.Log($"Day {CurrentDay}");
             DrunkCustomers = 0;
             switch (CurrentDay)
             {
@@ -158,7 +159,7 @@ namespace SavedGameData
                 return;
             }
             
-            BlitzTime = 12 - 2 * BlitzFailCounter; // reduce proportionately to how many blitzes you've failed "lately"
+            BlitzTime = 10 - 2 * BlitzFailCounter; // reduce proportionately to how many blitzes you've failed "lately"
             MaxDrunkCustomers = 4 - (WasLastBlitzFailed ? 1 : 0); // reduce threshold by 1 if last blitz was failed
             if (IsPosterActive(4)) MaxDrunkCustomers++; // increase threshold if poster with id 4 is hung
         }
@@ -168,6 +169,15 @@ namespace SavedGameData
             foreach (Poster poster in Posters)
             {
                 if (poster.hanged != 0 && poster.id == posterID) return true;
+            }
+            return false;
+        }
+        
+        public static bool HasHungPosters()
+        {
+            foreach (Poster poster in Posters)
+            {
+                if (poster.hanged != 0) return true;
             }
             return false;
         }
