@@ -182,7 +182,7 @@ namespace EndOfDay
 
         private void CheckEndOfDay()
         {
-            GameData.EndDay();
+            GameData.EndDay(dailyBalance);
 
             if (GameData.Savings < 0 || (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"]))
             {
