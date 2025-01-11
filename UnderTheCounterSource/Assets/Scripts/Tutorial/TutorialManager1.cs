@@ -8,6 +8,7 @@ using Technical;
 using Newtonsoft.Json;
 using SavedGameData;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -471,6 +472,10 @@ namespace Tutorial
         public void NameYourBar()
         {
             string name = nameYourBarCanvas.GetComponentInChildren<TMP_InputField>().text; // double-check that this is the right field to fetch
+            name = name.Replace("{", "");
+            name = name.Replace("[", "");
+            name = name.Replace("}", "");
+            name = name.Replace("]", "");
             GameData.BarName = name is null or "" ? "The Chitchat" : name;
             nameYourBarCanvas.FadeOut(); 
             

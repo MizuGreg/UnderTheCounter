@@ -45,6 +45,9 @@ namespace Bar
         private float earningMultiplier = 1f;
         private float flatEarning = 5f;
 
+        private int _totalDailyCustomers;
+        private int _servedCustomers;
+
         private void Start()
         {
             EventSystemManager.OnTimeUp += TimeoutCustomers;
@@ -56,6 +59,8 @@ namespace Bar
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
+
+            _servedCustomers = 0;
         }
 
         private void OnDestroy()
@@ -132,7 +137,9 @@ namespace Bar
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + day + ".json");
             _dailyCustomers = JsonConvert.DeserializeObject<List<Customer>>(jsonString);
             HandleConditionalCustomers();
-            
+
+            _totalDailyCustomers = _dailyCustomers.Count;
+
         }
 
         private void LoadDailyBlitzDialogues(int day)
@@ -257,6 +264,9 @@ namespace Bar
             // otherwise send out lines to display to the dialogue manager
             if (_dailyCustomers.Count > 0)
             {
+                _servedCustomers++;
+                if (_servedCustomers == _totalDailyCustomers) GameData.allCustomersServed = true;
+                
                 _currentCustomer = _dailyCustomers[0];
                 switch (_currentCustomer.sprite)
                 {

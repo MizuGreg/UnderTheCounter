@@ -5,7 +5,7 @@
         "tip": 5,
         "lines": {
             "greet": [
-                "Good evening. I found myself in the vicinity of your establishment again, since I'm on my way to the theater.",
+                "Good evening. I found myself in the vicinity of {BAR NAME} again, since I'm on my way to the theater.",
                 "<b>Margaret Brookside</b> should perform tonight. You <i>do</i> know her, I hope. I wonder what her favorite cocktail would be…",
                 "Perhaps a flowery <b>Palmera</b>?"
             ],

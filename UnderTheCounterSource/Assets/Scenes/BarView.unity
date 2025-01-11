@@ -1917,6 +1917,8 @@ GameObject:
   - component: {fileID: 198898733}
   - component: {fileID: 198898735}
   - component: {fileID: 198898734}
+  - component: {fileID: 198898737}
+  - component: {fileID: 198898736}
   m_Layer: 5
   m_Name: Trinket4
   m_TagString: Untagged
@@ -1940,8 +1942,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -448, y: -391.00003}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 366, y: 39.689}
+  m_SizeDelta: {x: 117.437, y: 163.946}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198898734
 MonoBehaviour:
@@ -1963,7 +1965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 07642c35578cf4bdd8206f665f4a5809, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1981,6 +1983,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198898732}
   m_CullTransparentMesh: 1
+--- !u!114 &198898736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198898732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee87621b6181084293368ff831ceac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 198898737}
+  fadeSpeed: 1
+--- !u!225 &198898737
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198898732}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &210283184 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8888155350734233687, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
@@ -2339,6 +2367,8 @@ GameObject:
   - component: {fileID: 315998668}
   - component: {fileID: 315998670}
   - component: {fileID: 315998669}
+  - component: {fileID: 315998672}
+  - component: {fileID: 315998671}
   m_Layer: 5
   m_Name: Trinket3
   m_TagString: Untagged
@@ -2362,8 +2392,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -558, y: -391.00003}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -555.06, y: 386.55792}
+  m_SizeDelta: {x: 191.636, y: 186.678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &315998669
 MonoBehaviour:
@@ -2385,7 +2415,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8e952b74914c4488b94bbd3df95db6a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2403,6 +2433,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315998667}
   m_CullTransparentMesh: 1
+--- !u!114 &315998671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315998667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee87621b6181084293368ff831ceac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 315998672}
+  fadeSpeed: 1
+--- !u!225 &315998672
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315998667}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &318182377
 GameObject:
   m_ObjectHideFlags: 0
@@ -6525,6 +6581,8 @@ GameObject:
   - component: {fileID: 719905234}
   - component: {fileID: 719905236}
   - component: {fileID: 719905235}
+  - component: {fileID: 719905238}
+  - component: {fileID: 719905237}
   m_Layer: 5
   m_Name: Trinket0
   m_TagString: Untagged
@@ -6548,8 +6606,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -888, y: -391}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -759.3, y: 39.985}
+  m_SizeDelta: {x: 178.576, y: 248.793}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &719905235
 MonoBehaviour:
@@ -6571,7 +6629,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5e7a226458f2a4fe9a32b5985b474e27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6589,6 +6647,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719905233}
   m_CullTransparentMesh: 1
+--- !u!114 &719905237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719905233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee87621b6181084293368ff831ceac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 719905238}
+  fadeSpeed: 1
+--- !u!225 &719905238
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719905233}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &725325755
 GameObject:
   m_ObjectHideFlags: 0
@@ -10010,6 +10094,8 @@ GameObject:
   - component: {fileID: 1309218601}
   - component: {fileID: 1309218603}
   - component: {fileID: 1309218602}
+  - component: {fileID: 1309218605}
+  - component: {fileID: 1309218604}
   m_Layer: 5
   m_Name: Trinket2
   m_TagString: Untagged
@@ -10033,8 +10119,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -668, y: -391.00003}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -293.053, y: -219.47}
+  m_SizeDelta: {x: 371.774, y: 270.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1309218602
 MonoBehaviour:
@@ -10056,7 +10142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9802030e786724bbfbb4961abf485aad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10074,6 +10160,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309218600}
   m_CullTransparentMesh: 1
+--- !u!114 &1309218604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309218600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee87621b6181084293368ff831ceac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1309218605}
+  fadeSpeed: 1
+--- !u!225 &1309218605
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309218600}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1331056608
 GameObject:
   m_ObjectHideFlags: 0
@@ -11667,6 +11779,8 @@ GameObject:
   - component: {fileID: 1631271098}
   - component: {fileID: 1631271100}
   - component: {fileID: 1631271099}
+  - component: {fileID: 1631271102}
+  - component: {fileID: 1631271101}
   m_Layer: 5
   m_Name: Trinket5
   m_TagString: Untagged
@@ -11690,8 +11804,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -338, y: -391.00003}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 733.5, y: -457.8}
+  m_SizeDelta: {x: 110.586, y: 147.738}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1631271099
 MonoBehaviour:
@@ -11713,7 +11827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: df6cf35dd100f43748ab0ecd4f27a430, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11731,6 +11845,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631271097}
   m_CullTransparentMesh: 1
+--- !u!114 &1631271101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631271097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee87621b6181084293368ff831ceac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1631271102}
+  fadeSpeed: 1
+--- !u!225 &1631271102
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631271097}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1644742725
 GameObject:
   m_ObjectHideFlags: 0
@@ -14025,6 +14165,8 @@ GameObject:
   - component: {fileID: 1984893089}
   - component: {fileID: 1984893091}
   - component: {fileID: 1984893090}
+  - component: {fileID: 1984893093}
+  - component: {fileID: 1984893092}
   m_Layer: 5
   m_Name: Trinket1
   m_TagString: Untagged
@@ -14048,8 +14190,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -778, y: -391.00003}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 855, y: -269}
+  m_SizeDelta: {x: 149.103, y: 80.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984893090
 MonoBehaviour:
@@ -14071,7 +14213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 81a29cc6f679c488e807f364d238409a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14089,6 +14231,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984893088}
   m_CullTransparentMesh: 1
+--- !u!114 &1984893092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984893088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee87621b6181084293368ff831ceac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1984893093}
+  fadeSpeed: 1
+--- !u!225 &1984893093
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984893088}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1999660697
 GameObject:
   m_ObjectHideFlags: 0
