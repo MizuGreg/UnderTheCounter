@@ -160,6 +160,7 @@ namespace Bar
         private void UpdateTrinkets(int trinketID)
         {
             GameData.Trinkets.Add(trinketID);
+            DisplayTrinket(trinketID);
             if (GameData.Trinkets.Count == 3)
             {
                 EventSystemManager.OnHalfTrinketCollected();
@@ -168,16 +169,19 @@ namespace Bar
             {
                 EventSystemManager.OnAllTrinketCollected();
             }
-            DisplayTrinkets();
+        }
+
+        private void DisplayTrinket(int trinketID)
+        {
+            print($"Displaying trinket with ID {trinketID}");
+            trinketContainer.transform.GetChild(trinketID).GetComponent<FadeCanvas>().FadeIn();
         }
 
         private void DisplayTrinkets()
         {
-            // TODO: iterate over list of game objects and show the obtained Trinkets
             foreach (int trinketID in GameData.Trinkets)
             {
-                print($"Displaying trinket with ID {trinketID}");
-                trinketContainer.transform.GetChild(trinketID).gameObject.SetActive(true);
+                DisplayTrinket(trinketID);
             }
         }
 
