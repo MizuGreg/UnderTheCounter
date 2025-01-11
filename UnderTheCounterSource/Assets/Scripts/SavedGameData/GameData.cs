@@ -32,7 +32,7 @@ namespace SavedGameData
         public static List<Poster> Posters = new();
         public static List<int> Trinkets = new();
 
-        public static int payoffAmount = 30;
+        public static int payoffAmount = 50;
     
         public static float Savings = 50;
         public static float TodayEarnings = 0;

@@ -12761,6 +12761,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 611378426}
     m_Modifications:
+    - target: {fileID: 413235884271026011, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 413235884271026011, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 1677721600
+      objectReference: {fileID: 0}
+    - target: {fileID: 641622274500143394, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 641622274500143394, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 1677721600
+      objectReference: {fileID: 0}
+    - target: {fileID: 997601705744226473, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309541930625064595, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550876152827289711, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
     - target: {fileID: 1716411011823130929, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
@@ -12849,8 +12877,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2267552127352490218, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2350171766345872502, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883068238557987346, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883068238557987346, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 1677721600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068282750420667749, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Delegates.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3437458489612437889, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
@@ -12861,6 +12905,18 @@ PrefabInstance:
       propertyPath: recipeBookManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3485600955807152852, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485600955807152852, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 1677721600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659555351878448547, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3769790240765304437, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeTabManager
       value: 
@@ -12868,6 +12924,10 @@ PrefabInstance:
     - target: {fileID: 3769790240765304437, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeBookManager
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846327941891869535, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 3937855500575810203, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_Name
@@ -12876,6 +12936,10 @@ PrefabInstance:
     - target: {fileID: 3937855500575810203, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051969959154933030, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 4664701631633082586, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -12913,6 +12977,18 @@ PrefabInstance:
       propertyPath: recipeBookManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5098410168016877381, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183201700542125824, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183201700542125824, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 1677721600
+      objectReference: {fileID: 0}
     - target: {fileID: 6610199540684983143, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeTabManager
       value: 
@@ -12921,9 +12997,25 @@ PrefabInstance:
       propertyPath: recipeBookManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6632355795135578356, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632355795135578356, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 1677721600
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711914862650220721, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6988641421241492973, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_Interactable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029479763792077449, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 8503510662950188590, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeTabManager
@@ -12936,6 +13028,10 @@ PrefabInstance:
     - target: {fileID: 8725338714204787728, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeBookManager
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8820590765883487613, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 8888155350734233687, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: recipeTabManager
