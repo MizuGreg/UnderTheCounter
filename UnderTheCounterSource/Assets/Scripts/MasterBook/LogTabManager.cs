@@ -9,7 +9,19 @@ namespace MasterBook
 {
     public class LogTabManager : MonoBehaviour
     {
-        [SerializeField] private Color normalCustomerColor = new(0.1f, 0.4f, 0.5f);
+        // [SerializeField] private Color normalCustomerColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color margaretColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color kathrineColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color heleneColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color ernestColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color charlesColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color bettyColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color eugeneColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color dorisColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color willieColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color gastonColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color kennethColor = new(0.1f, 0.4f, 0.5f);
+        [SerializeField] private Color lukeColor = new(0.1f, 0.4f, 0.5f);
         [SerializeField] private Color bartenderColor = new(0f, 0f, 0f);
         [SerializeField] private Color inspectorColor = new(0.6f, 0.2f, 0f);
         [SerializeField] private Color unionColor = new(0.3f, 0.5f, 0f);
@@ -65,7 +77,18 @@ namespace MasterBook
             else if (text.Contains("Mafia")) name.color = mafiaColor;
             else if (text.Contains("Inspector") || text.Contains("Howard")) name.color = inspectorColor;
             else if (text.Contains("Union") || text.Contains("BU")) name.color = unionColor;
-            else name.color = normalCustomerColor;
+            else if (text.Contains("Margaret")) name.color = margaretColor;
+            else if (text.Contains("Kathrine")) name.color = kathrineColor;
+            else if (text.Contains("Helene")) name.color = heleneColor;
+            else if (text.Contains("Ernest")) name.color = ernestColor;
+            else if (text.Contains("Charles")) name.color = charlesColor;
+            else if (text.Contains("Betty")) name.color = bettyColor;
+            else if (text.Contains("Eugene")) name.color = eugeneColor;
+            else if (text.Contains("Doris")) name.color = dorisColor;
+            else if (text.Contains("Willie")) name.color = willieColor;
+            else if (text.Contains("Gaston")) name.color = gastonColor;
+            else if (text.Contains("Kenneth")) name.color = kennethColor;
+            else if (text.Contains("Luke")) name.color = lukeColor;
         }
 
         public void TurnPage()

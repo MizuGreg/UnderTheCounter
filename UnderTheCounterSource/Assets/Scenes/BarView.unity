@@ -5777,11 +5777,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d4c28cb9e241bbab69f069c40be2cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalCustomerColor: {r: 0.1, g: 0.4, b: 0.5, a: 1}
+  margaretColor: {r: 0.62352943, g: 0.19607843, b: 0.59607846, a: 1}
+  kathrineColor: {r: 0.32156864, g: 0.50980395, b: 0.40784314, a: 1}
+  heleneColor: {r: 0.84705883, g: 0.47843137, b: 0.2784314, a: 1}
+  ernestColor: {r: 0.19607843, g: 0.3019608, b: 0.62352943, a: 1}
+  charlesColor: {r: 0.80784315, g: 0.32941177, b: 0.29803923, a: 1}
+  bettyColor: {r: 0.2784314, g: 0.31764707, b: 0.35686275, a: 1}
+  eugeneColor: {r: 0.5176471, g: 0.2627451, b: 0.7254902, a: 1}
+  dorisColor: {r: 0.91764706, g: 0, b: 0.015686275, a: 1}
+  willieColor: {r: 0.8666667, g: 0.28235295, b: 0.5411765, a: 1}
+  gastonColor: {r: 0.5294118, g: 0.5294118, b: 0.3019608, a: 1}
+  kennethColor: {r: 0.18431373, g: 0.69411767, b: 0.7058824, a: 1}
+  lukeColor: {r: 0.56078434, g: 0.7137255, b: 0.7764706, a: 1}
   bartenderColor: {r: 0, g: 0, b: 0, a: 1}
-  inspectorColor: {r: 0.6, g: 0.2, b: 0, a: 1}
-  unionColor: {r: 0.3, g: 0.5, b: 0, a: 1}
-  mafiaColor: {r: 0.3, g: 0.1, b: 0.5, a: 1}
+  inspectorColor: {r: 0.61960787, g: 0.42745098, b: 0.25490198, a: 1}
+  unionColor: {r: 0.19607843, g: 0.3019608, b: 0.62352943, a: 1}
+  mafiaColor: {r: 0.43529412, g: 0.43529412, b: 0.4392157, a: 1}
   dayText: {fileID: 684644938}
   logEntries:
   - {fileID: 4099946}
@@ -12257,7 +12268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barContainer: {fileID: 1180806169}
   trinketContainer: {fileID: 1164127358}
-  forceDay: 4
+  forceDay: 3
   didBlitzHappen: 1
 --- !u!114 &1725047609
 MonoBehaviour:

@@ -38,6 +38,7 @@ namespace Technical
             EventSystemManager.OnBlitzTimerWarning += OnBlitzTimerWarningSound;
             EventSystemManager.OnBlitzTimerEnded += OnBlitzTimerEndedSound;
             EventSystemManager.OnBlitzCalled += OnBlitzCalledSound;
+            // EventSystemManager.OnMinigameEnd += OnLoadBarViewSound;
             
             EventSystemManager.OnPosterHung += OnPosterHungSound;
             EventSystemManager.OnPosterRippedDown += OnPosterRippedDownSound;
@@ -67,6 +68,7 @@ namespace Technical
             EventSystemManager.OnBlitzTimerWarning -= OnBlitzTimerWarningSound;
             EventSystemManager.OnBlitzTimerEnded -= OnBlitzTimerEndedSound;
             EventSystemManager.OnBlitzCalled -= OnBlitzCalledSound;
+            // EventSystemManager.OnMinigameEnd -= OnLoadBarViewSound;
             
             EventSystemManager.OnPosterHung -= OnPosterHungSound;
             EventSystemManager.OnPosterRippedDown -= OnPosterRippedDownSound;
