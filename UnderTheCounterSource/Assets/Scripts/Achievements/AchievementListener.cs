@@ -24,7 +24,7 @@ namespace Achievements
             EventSystemManager.OnCocktailWatered += ShakenStirredStretched;
             EventSystemManager.OnBackstabbed += TheBackstabber;
             EventSystemManager.OnAllTrinketCollected += UltimateCollector;
-            //EventSystemManager.OnAllCustomersServed += BeenServed;
+            EventSystemManager.OnAllCustomersServed += BeenServed;
         }
 
         private void OnDestroy()
@@ -42,8 +42,8 @@ namespace Achievements
             EventSystemManager.OnDealRefused -= PlayingItClean;
             EventSystemManager.OnCocktailWatered -= ShakenStirredStretched;
             EventSystemManager.OnBackstabbed -= TheBackstabber;
-            EventSystemManager.OnAllTrinketCollected -= UltimateCollector;
-            //EventSystemManager.OnAllCustomersServed -= BeenServed;
+            EventSystemManager.OnAllTrinketCollected -= UltimateCollector; 
+            EventSystemManager.OnAllCustomersServed -= BeenServed;
         }
 
         private void TutorialCompleted()
