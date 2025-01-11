@@ -111,6 +111,11 @@ namespace Bar
 
         private void EndDay()
         {
+            if (_timerManager.isRunning) // timer still running when the day is over, meaning we had a quick day
+            {
+                GameData.fastDay = true;
+            }
+            
             if (!didBlitzHappen) // clean day, counts as two successful blitzes
             {
                 GameData.BlitzSuccessful();

@@ -1467,7 +1467,7 @@ PrefabInstance:
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
       value: 
-      objectReference: {fileID: 21300000, guid: 2d5297a45f173354e9539525f0bac51d, type: 3}
+      objectReference: {fileID: 21300000, guid: d0d7585aa829c7d49b1d466197519274, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
       value: 60
@@ -2063,7 +2063,7 @@ PrefabInstance:
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
       value: 
-      objectReference: {fileID: 21300000, guid: c86fa46883a535b4b857ac81be747425, type: 3}
+      objectReference: {fileID: 21300000, guid: bd447dabb4e46664bbd7aca262c9c80c, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
       value: 20
@@ -5212,7 +5212,7 @@ PrefabInstance:
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
       value: 
-      objectReference: {fileID: 21300000, guid: 3206d9c6976f50443ab90843024c6af7, type: 3}
+      objectReference: {fileID: 21300000, guid: 0939f79d252d6d7469713721b92a27a6, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
       value: 50
@@ -7732,7 +7732,7 @@ PrefabInstance:
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
       value: 
-      objectReference: {fileID: 21300000, guid: f792b0d5a93eb56479f65402c3a9f326, type: 3}
+      objectReference: {fileID: 21300000, guid: 69ad00ecc09ddad4d99a950889fc1b0d, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
       value: -1

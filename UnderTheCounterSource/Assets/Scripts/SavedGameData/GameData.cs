@@ -28,11 +28,12 @@ namespace SavedGameData
         public static float BlitzTime = 10;
         public static int BlitzFailCounter = 0;
         public static bool WasLastBlitzFailed = false;
+        public static bool fastDay = false;
     
         public static List<Poster> Posters = new();
         public static List<int> Trinkets = new();
 
-        public static int payoffAmount = 30;
+        public static int payoffAmount = 50;
     
         public static float Savings = 50;
         public static float TodayEarnings = 0;
@@ -59,6 +60,7 @@ namespace SavedGameData
             BlitzTime = 10;
             BlitzFailCounter = 0;
             WasLastBlitzFailed = false;
+            fastDay = false;
         
             Posters = new();
             Trinkets = new();
@@ -73,6 +75,7 @@ namespace SavedGameData
         public static void StartDay()
         {
             DrunkCustomers = 0;
+            fastDay = false;
             switch (CurrentDay)
             {
                 case 1:
@@ -126,6 +129,8 @@ namespace SavedGameData
                     Supplies = 50;
                     break;
             }
+
+            if (Choices["MafiaDeal"]) Supplies = 20;
             UpdateBlitzVariables();
             PosterEffects();
         }

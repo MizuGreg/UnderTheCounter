@@ -188,6 +188,11 @@ namespace EndOfDay
             {
                 EventSystemManager.OnTutorialCompleted();
             }
+
+            if (GameData.fastDay)
+            {
+                EventSystemManager.OnAllCustomersServed();
+            }
         }
 
         private void CheckEndOfDay()
