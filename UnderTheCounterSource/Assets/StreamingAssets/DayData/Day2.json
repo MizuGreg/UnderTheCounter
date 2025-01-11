@@ -24,7 +24,7 @@
         "order": "Magazine",
         "lines": {
             "greet": [
-                "Good evening bartender. It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression.",
+                "Good evening bartender. It seems we've chosen a distinguished bar tonight, <b>Charles</b>. An impeccable first impression, starting from the name, {BAR NAME}.",
                 "<i>Ugh</i>, how exhausting it is to not know which opera to attend tonight…",
                 "I'd like to order a <b>Magazine</b> now, please."
             ],
