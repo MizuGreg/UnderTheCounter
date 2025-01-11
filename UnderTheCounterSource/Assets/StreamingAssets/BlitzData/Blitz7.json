@@ -2,21 +2,26 @@
   {
     "lines": {
       "greet": [
-        "ahah, io sono howard",
-        "wi wo wi wo"
+        "Caledon, gryte and verlan: if the Korgis police see you with this, you won't be having any fun!",
+        "Good morning bartenders, my department is trying to find new ways to scare the bar owners during our blitz.",
+        "Other departments are not as funny as us, even though they find more and more bartenders serving alcohol than us... those smartasses.",
+        "But we're funnier, aren't we?"
       ],
       "choices": [
-        "paolo",
-        "piero"
+        "Well, you are a police inspector, so... no?",
+        "Yes, it's always a pleasure!"
       ],
       "correct": [
-        "hai scelto paolo, bravo"
+        "I knew it, I saw it worked by looking at your petrified face when i bursted into your store eheh.",
+        "Keep up the good work, see you next time."
       ],
       "wrong": [
-        "chi cavolo è piero?"
+        "I call it insulting a public official, bartender. You can't talk to me like that...you can't talk to THE LAW like that.",
+        "<size=75%><i>so you are just like the others... sob</i><size=100%>",
+        "You're lucky I'm in a good mood today and I have other things to do, but we'll see each other again, I feel it"
       ]
     },
-    "correctChoice": 0
+    "correctChoice": 1
   },
   {
     "lines": {

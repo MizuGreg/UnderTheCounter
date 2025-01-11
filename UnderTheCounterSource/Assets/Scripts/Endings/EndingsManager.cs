@@ -21,7 +21,7 @@ namespace Endings
         private List<Ending> _endingsText;
         private List<string> stringList;
 
-        private void Start()
+        private void Awake()
         {
             EventSystemManager.OnLoadLoseScreen += LoadEnding;
             
@@ -33,6 +33,11 @@ namespace Endings
             // LoadEnding("bankrupt");
         }
 
+        private void OnDestroy()
+        {
+            EventSystemManager.OnLoadLoseScreen -= LoadEnding;
+        }
+
         public void LoadEnding(string endingType)
         {
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/EndingsData/Endings.json");
@@ -41,18 +46,20 @@ namespace Endings
 
             journal.sprite = Resources.Load<Sprite>("Sprites/Endings/" + endingType);
 
+            Debug.Log("Ending loaded: " + endingType);
+
             FadeEnding();
         }
 
         public void FadeEnding()
         {
-            endingCanvas.FadeIn();
+            SceneManager.LoadScene("EndingScene");
             StartCoroutine(ShowText());
         }
 
         public IEnumerator ShowText()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             currentText.text = stringList[0];
             currentText.GetComponent<FadeCanvas>().FadeIn();
             stringList.RemoveAt(0);

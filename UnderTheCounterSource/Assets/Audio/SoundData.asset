@@ -26,7 +26,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 06efbc56b835fac4dbd4942400c851d0, type: 3}
   - {fileID: 8300000, guid: 1489b726891dbef4db62d00c68d7399f, type: 3}
   - {fileID: 8300000, guid: f19bd3e983894174a9ba3c32ad3abd95, type: 3}
-  blitzMusic: {fileID: 8300000, guid: 8851ecb3d557e1044aa2bda698608ae7, type: 3}
+  blitzMusic: {fileID: 8300000, guid: 3845f2d3530954473aec5379a16728ec, type: 3}
   endOfDayMusic: {fileID: 8300000, guid: de12a88cd51718542b368dfa1b4d96dc, type: 3}
   winMusic: {fileID: 8300000, guid: 8851ecb3d557e1044aa2bda698608ae7, type: 3}
   loseMusic: {fileID: 8300000, guid: 73a5d17cc0e98494599805b31acc3b89, type: 3}

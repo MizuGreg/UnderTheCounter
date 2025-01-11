@@ -2,18 +2,23 @@
   {
     "lines": {
       "greet": [
-        "ahah, io sono howard",
-        "wi wo wi wo"
+        "<i>Serve a drink if you dare Korgis police you won’t spare</i>",
+        "Is that water or verlan in that glass? <size=75%><i>*holds glass up to the light*</i><size=100%>",
+        "No, OK, this is water.",
+        "I'm a bit thirsty, bartender, make me a Ripple."
       ],
       "choices": [
-        "paolo",
-        "piero"
+        "We don’t serve alcohol at all here sir!",
+        "Uhm... I don’t know if I can..."
       ],
       "correct": [
-        "hai scelto paolo, bravo"
+        "That’s a good bartender, aware of the law and respectful of the prohibition.",
+        "Who knows why drunk people were at your door"
       ],
       "wrong": [
-        "chi cavolo è piero?"
+        "Oh, so you could if you wanted, is the inspector vest that scares you?",
+        "Well it should! Who do you take me for?",
+        "Be careful with your words because next time I'll put you in jail!"
       ]
     },
     "correctChoice": 0

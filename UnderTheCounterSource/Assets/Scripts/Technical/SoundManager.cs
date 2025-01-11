@@ -37,6 +37,7 @@ namespace Technical
             
             EventSystemManager.OnBlitzTimerWarning += OnBlitzTimerWarningSound;
             EventSystemManager.OnBlitzTimerEnded += OnBlitzTimerEndedSound;
+            EventSystemManager.OnBlitzCalled += OnBlitzCalledSound;
             
             EventSystemManager.OnPosterHung += OnPosterHungSound;
             EventSystemManager.OnPosterRippedDown += OnPosterRippedDownSound;
@@ -65,6 +66,7 @@ namespace Technical
 
             EventSystemManager.OnBlitzTimerWarning -= OnBlitzTimerWarningSound;
             EventSystemManager.OnBlitzTimerEnded -= OnBlitzTimerEndedSound;
+            EventSystemManager.OnBlitzCalled -= OnBlitzCalledSound;
             
             EventSystemManager.OnPosterHung -= OnPosterHungSound;
             EventSystemManager.OnPosterRippedDown -= OnPosterRippedDownSound;
@@ -202,6 +204,11 @@ namespace Technical
         private void OnPosterRippedDownSound()
         {
             EazySoundManager.PlaySound(soundData.posterTearDownSound);
+        }
+
+        private void OnBlitzCalledSound()
+        {
+            EazySoundManager.PlayMusic(soundData.blitzMusic, 1, true, true, 3, 3);
         }
         
     }

@@ -2,18 +2,24 @@
     {
         "lines": {
             "greet": [
-                "ahah, io sono howard",
-                "wi wo wi wo"
+                "Bartendeeerrrr, I know what your doing, hands up!",
+                "oh... this seems like a normal bar tho... no alcohol to be seen. Damn those kids, they have pranked me again, they will learn to respect me, the law.",
+                "ya know, they always use this popular way of saying nowadays it was similar to <i>I have to see a man...</i>"
             ],
             "choices": [
-                "paolo (giusta)",
-                "piero (sbagliata)"
+                "<i>...picking a flower</i>",
+                "<i>...about a dog</i>"
             ],
             "correct": [
-                "hai scelto paolo, bravo"
+                "No, no, I’m sure it was something else...",
+                "Well it will came up to my mind sooner or later.",
+                "Now i have to go, the law needs me."
             ],
             "wrong": [
-                "chi cavolo è piero?"
+                "mmmmmh...",
+                "Weird that you know it bartender, this is not that common at all...",
+                "Aren’t you serving alcohol here dont’ you?",
+                "You better not... I'm keeping an eye on you"
             ]
         },
         "correctChoice": 0
@@ -21,18 +27,17 @@
     {
         "lines": {
             "greet": [
-                "ahah, sono di nuovo io, howard",
-                "wi wo wi wo"
+               "TBD"
             ],
             "choices": [
-                "a (sbagliata)",
-                "b (giusta)"
+                "TBD",
+                "TBD"
             ],
             "correct": [
-                "paolo is the best"
+                "TBD"
             ],
             "wrong": [
-                "AAAAAAAAAAAAAAAAAAAAA (internal screaming in italian)"
+                "TBD"
             ]
         },
         "correctChoice": 1

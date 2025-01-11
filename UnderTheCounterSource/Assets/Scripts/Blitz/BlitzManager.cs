@@ -18,6 +18,7 @@ namespace Blitz
         [SerializeField] private CanvasGroup blitzCanvas;
         [SerializeField] private BlitzTimer blitzTimer;
         [SerializeField] private FadeCanvas warningPopup;
+        [SerializeField] private FadeCanvas blitzIncomingPopup;
 
         [SerializeField] private CanvasGroup barContainer;
         [SerializeField] private List<GameObject> placeholderSlots;
@@ -27,6 +28,7 @@ namespace Blitz
         private void Start()
         {
             warningPopup.gameObject.SetActive(false);
+            blitzIncomingPopup.gameObject.SetActive(false);
             
             EventSystemManager.OnBlitzCallWarning += BlitzWarning;
             EventSystemManager.OnBlitzCalled += CallBlitz;
@@ -64,6 +66,9 @@ namespace Blitz
         private IEnumerator FadeInBlitz()
         {
             yield return new WaitForSeconds(1f);
+            blitzIncomingPopup.FadeIn();
+            // increase timer before fade in for music coherence
+            yield return new WaitForSeconds(2.5f);
             placedBottlesCounter = 0;
             ShufflePlaceholders();
             blitzCanvas.GetComponent<FadeCanvas>().FadeIn();
@@ -92,6 +97,7 @@ namespace Blitz
 
         private IEnumerator WaitBeforeHideMinigame()
         {
+            blitzIncomingPopup.FadeOut();
             yield return new WaitForSeconds(1f);
             blitzTimer.StartTimer();
         }
@@ -114,13 +120,16 @@ namespace Blitz
         
         private void LossByBlitz()
         {
-            barContainer.GetComponent<FadeCanvas>().FadeOut();
             StartCoroutine(LoadLoseScreen());
         }
          
         private IEnumerator LoadLoseScreen()
         {
             yield return new WaitForSeconds(2f);
+            barContainer.GetComponent<FadeCanvas>().FadeOut();
+            yield return new WaitForSeconds(2f);
+            // SceneManager.LoadScene("EndingScene");
+            Debug.Log("Blitz loss");
             EventSystemManager.OnLoadLoseScreen("blitz");
         }
     }

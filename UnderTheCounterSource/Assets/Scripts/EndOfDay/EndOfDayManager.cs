@@ -215,7 +215,7 @@ namespace EndOfDay
 
         public void GameOver()
         {
-            EventSystemManager.OnLoadLoseScreen(endingType);
+            StartCoroutine(LoadGameOverScene());
         }
 
         public void NextDay()
@@ -224,12 +224,13 @@ namespace EndOfDay
             StartCoroutine(LoadNextScene());
         }
 
-        // private IEnumerator LoadGameOverScene()
-        // {
-        //     endOfDayCanvas.FadeOut();
-        //     yield return new WaitForSeconds(1f);
-        //     SceneManager.LoadScene("GameOverScreen");
-        // }
+        private IEnumerator LoadGameOverScene()
+        {
+            endOfDayCanvas.FadeOut();
+            yield return new WaitForSeconds(1f);
+            // SceneManager.LoadScene("EndingScene");
+            EventSystemManager.OnLoadLoseScreen(endingType);
+        }
 
         private IEnumerator LoadNextScene()
         {

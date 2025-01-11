@@ -2,18 +2,22 @@
   {
     "lines": {
       "greet": [
-        "ahah, io sono howard",
-        "wi wo wi wo"
+        "KORGIS POLICE! GET YOUR HANDS OFF THAT SHAKER!",
+        "Oh... you don’t have nothing on your hands. Nevermind.",
+        "I’m looking for a man.. very tall, always dressed in shades of lack and gray, has a pointy pair of mustache, have you seen him?"
       ],
       "choices": [
-        "paolo",
-        "piero"
+        "I've never met such a person",
+        "this morning, yes, of course"
       ],
       "correct": [
-        "hai scelto paolo, bravo"
+        "All right, thanks for your time, I'll keep looking.",
+        "Have a nice day, bartender."
       ],
       "wrong": [
-        "chi cavolo è piero?"
+        "That man is mostly in contact with undercover businesses, that puts you in a very good light for a suspect in our search...",
+        "Maybe your fancy and respectable bar facade is falling off.",
+        "I have my eyes on you"
       ]
     },
     "correctChoice": 0

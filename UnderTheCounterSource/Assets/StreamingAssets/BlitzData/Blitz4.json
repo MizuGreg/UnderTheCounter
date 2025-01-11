@@ -2,21 +2,27 @@
     {
         "lines": {
             "greet": [
-                "ahah, io sono howard",
-                "wi wo wi wo"
+                "KORGIS POLICE, OPEN UP!",
+                "Ohh, good morning bartender, what are we doing here?",
+                "Glasses... water... I don't see any alcohol here... in fact, I don't see anything at all.",
+                "Can I say, I don't blame you, expenses are huge these days, I can't even afford to eat out... I was a wondering what is the biggest expense in a bar these days."
             ],
             "choices": [
-                "paolo",
-                "piero"
+                "alchol supplies",
+                "Electricity, gas and rent"
             ],
             "correct": [
-                "hai scelto paolo, bravo"
+                "I would have bet on it, I don't dare to imagine how much you spend to keep a place like this up, with all these lights...",
+                "Anyway, I must get back to my work, you never know where these crooks can hide."
             ],
             "wrong": [
-                "chi cavolo è piero?"
+                "AHAHAHAHAHHAHAH NICE CATCH! Aren’t you funny bartender?",
+                "...........",
+                "Unless... Mmmmm, when I think about it, that is a very strange thing to say... especially after the prohibitionism.",
+                "Let’s hope you were joking, the law is always watching you, bartender."
             ]
         },
-        "correctChoice": 0
+        "correctChoice": 1
     },
     {
         "lines": {
