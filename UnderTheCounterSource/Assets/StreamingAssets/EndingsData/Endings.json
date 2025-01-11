@@ -1,0 +1,26 @@
+[
+    {
+        "type": "blitz",
+        "lines": [
+            "We all knew it would happen sooner or later... everyone except you, apparently, bartender.",
+            "Too many bottles, too little time, and the inspector finally got the better of you.",
+            "Try again, you'll be luckier (or at least quicker)."
+        ]
+    },
+    {
+        "type": "bankrupt",
+        "lines": [
+            "The debts were mounting and unfortunately your savings were no use.",
+            "Running a bar with such high prices is an arduous task, you knew that from the start, but you tried anyway.",
+            "After all, capitalism and prohibitionism don't mix very well when it comes to running an undercover bar."
+        ]
+    },
+    {
+        "type": "mafia",
+        "lines": [
+            "Like every morning you go to open your bar, you find people crowded in front of the entrance, you see and smell smoke.",
+            "Your bar has gone up in flames, dreams and hopes have gone up in smoke from night to morning.",
+            "Actually, you should really invest in an ashtray"
+        ]
+    }
+]
