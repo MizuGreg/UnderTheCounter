@@ -21,7 +21,6 @@ namespace Bar
         private string _customerName;
         private Image _currentImage;
         private DialogueManager _dialogueManager;
-        private bool _timeOut;
 
         [Header("Blitz-related fields")]
         private bool isBlitzHappening;
@@ -97,7 +96,6 @@ namespace Bar
 
         private void TimeoutCustomers()
         {
-            _timeOut = true;
             Customer lastCustomer = _dailyCustomers[^1];
             if (lastCustomer.sprite is CustomerType.MafiaGoon or CustomerType.Howard or CustomerType.ErnestUnion)
             { // we keep the "last visit"
