@@ -191,7 +191,7 @@ namespace EndOfDay
                 EventSystemManager.OnTutorialCompleted();
             }
 
-            if (GameData.fastDay)
+            if (GameData.allCustomersServed)
             {
                 EventSystemManager.OnAllCustomersServed();
             }
