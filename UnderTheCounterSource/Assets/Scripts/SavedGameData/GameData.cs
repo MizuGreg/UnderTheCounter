@@ -193,7 +193,6 @@ namespace SavedGameData
         {
             Savings += dailyBalance;
             TodayEarnings = 0;
-            CurrentDay++;
             SaveToJson();
         }
     
