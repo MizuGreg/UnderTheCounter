@@ -21,24 +21,32 @@ namespace Endings
         private List<Ending> _endingsText;
         private List<string> stringList;
 
+        private string endingType;
+
         private void Awake()
         {
-            EventSystemManager.OnLoadLoseScreen += LoadEnding;
+            EventSystemManager.OnLoadLoseScreen += StartEnding;
             
             continueButton.gameObject.SetActive(false);
             backToMenuButton.gameObject.SetActive(false);
             currentText.gameObject.SetActive(false);
 
             // used for testing
-            // LoadEnding("bankrupt");
+            // StartEnding("bankrupt");
         }
 
         private void OnDestroy()
         {
-            EventSystemManager.OnLoadLoseScreen -= LoadEnding;
+            EventSystemManager.OnLoadLoseScreen -= StartEnding;
         }
 
-        public void LoadEnding(string endingType)
+        public void StartEnding(string ending)
+        {
+            endingType = ending;
+            LoadEnding();
+        }
+
+        public void LoadEnding()
         {
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/EndingsData/Endings.json");
             _endingsText = JsonConvert.DeserializeObject<List<Ending>>(jsonString).FindAll(ending => ending.type == endingType);
