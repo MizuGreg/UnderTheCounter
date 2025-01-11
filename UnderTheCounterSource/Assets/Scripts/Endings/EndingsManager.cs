@@ -30,7 +30,7 @@ namespace Endings
             currentText.gameObject.SetActive(false);
 
             // used for testing
-            LoadEnding("mafia");
+            // LoadEnding("bankrupt");
         }
 
         public void LoadEnding(string endingType)

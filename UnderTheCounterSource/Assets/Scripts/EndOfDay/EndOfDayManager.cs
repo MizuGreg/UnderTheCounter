@@ -39,6 +39,8 @@ namespace EndOfDay
         [SerializeField] private float dailyBalance;
         [SerializeField] private int payoffAmount;
 
+        private string endingType;
+
         void Start()
         {
             EventSystemManager.OnLoadEndOfDay();
@@ -201,6 +203,8 @@ namespace EndOfDay
 
             if (GameData.Savings < 0 || (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"]))
             {
+                if (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"]) endingType = "mafia";
+                else endingType = "bankrupt";
                 gameOverButton.gameObject.SetActive(true);
             }
             else
@@ -211,7 +215,7 @@ namespace EndOfDay
 
         public void GameOver()
         {
-            StartCoroutine(LoadGameOverScene());
+            EventSystemManager.OnLoadLoseScreen(endingType);
         }
 
         public void NextDay()
@@ -220,12 +224,12 @@ namespace EndOfDay
             StartCoroutine(LoadNextScene());
         }
 
-        private IEnumerator LoadGameOverScene()
-        {
-            endOfDayCanvas.FadeOut();
-            yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene("GameOverScreen");
-        }
+        // private IEnumerator LoadGameOverScene()
+        // {
+        //     endOfDayCanvas.FadeOut();
+        //     yield return new WaitForSeconds(1f);
+        //     SceneManager.LoadScene("GameOverScreen");
+        // }
 
         private IEnumerator LoadNextScene()
         {

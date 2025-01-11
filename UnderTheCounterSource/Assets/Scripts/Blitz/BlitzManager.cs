@@ -121,7 +121,7 @@ namespace Blitz
         private IEnumerator LoadLoseScreen()
         {
             yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene("GameOverScreen");
+            EventSystemManager.OnLoadLoseScreen("blitz");
         }
     }
 }
