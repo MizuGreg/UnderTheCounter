@@ -225,7 +225,7 @@ namespace Bar
                         if (GameData.HasHungPosters()) _sentences.Enqueue(strippedSentence);
                         break;
                     case "IF DOESN'T HAVE POSTERS":
-                        if (GameData.Posters.Count == 0) _sentences.Enqueue(strippedSentence);
+                        if (!GameData.HasHungPosters()) _sentences.Enqueue(strippedSentence);
                         break;
                     case "IF MARGARET GOT DRUNK":
                         if (GameData.Choices["MargaretDrunk"]) _sentences.Enqueue(strippedSentence);
