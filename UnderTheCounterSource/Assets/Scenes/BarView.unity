@@ -7595,6 +7595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuButton
       objectReference: {fileID: 0}
+    - target: {fileID: 4346587734882352416, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5420426541132744901, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7676,21 +7680,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5611393726773478079, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -0.000030518
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611393726773478079, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.000038147
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611393726773478079, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9659259
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5611393726773478079, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.258819
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611393726773478079, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611393726773478079, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 5611393726773478079, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8172650361369140799, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1018820849}
+    - target: {fileID: 8389758182678526229, guid: eeee28556b9f4f44bbf83f6f83ef4c50, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a843963ac81fc4dd19ad9ffb03d1b905, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
