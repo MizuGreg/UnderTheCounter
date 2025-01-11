@@ -270,10 +270,24 @@ namespace Bar
                 if (tag == "MARGARET GETS DRUNK")
                 {
                     GameData.Choices["MargaretDrunk"] = true;
+                    EventSystemManager.OnButterfly1();
+                }
+
+                if (tag == "MARGARET GETS ENGAGED")
+                {
+                    //GameData.Choices["MargaretEngaged"] = true;
+                    EventSystemManager.OnButterfly2();
                 }
                 if (tag == "MAFIA DEAL ACCEPTED")
                 {
                     GameData.Choices["MafiaDeal"] = true;
+                    EventSystemManager.OnDealMade();
+                }
+
+                if (tag == "MAFIA DEAL REFUSED")
+                {
+                    GameData.Choices["MafiaDeal"] = false;
+                    EventSystemManager.OnDealRefused();
                 }
                 if (tag == "PAYOFF ACCEPTED")
                 {
@@ -284,6 +298,8 @@ namespace Bar
                     GameData.BlitzFailed(); // penalizes maxDrunkCustomers and blitz time
                     if (GameData.DrunkCustomers <= GameData.MaxDrunkCustomers - 1)
                         GameData.DrunkCustomers = GameData.MaxDrunkCustomers - 1; // next alcoholic beverage triggers blitz
+
+                    EventSystemManager.OnBackstabbed();
                 }
                 if (tag == "BAR NAME")
                 {

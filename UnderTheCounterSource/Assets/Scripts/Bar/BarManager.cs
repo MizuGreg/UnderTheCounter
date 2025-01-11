@@ -155,6 +155,14 @@ namespace Bar
         private void UpdateTrinkets(int trinketID)
         {
             GameData.Trinkets.Add(trinketID);
+            if (GameData.Trinkets.Count == 3)
+            {
+                EventSystemManager.OnHalfTrinketCollected();
+            }
+            else if (GameData.Trinkets.Count == 6)
+            {
+                EventSystemManager.OnAllTrinketCollected();
+            }
             DisplayTrinkets();
         }
 

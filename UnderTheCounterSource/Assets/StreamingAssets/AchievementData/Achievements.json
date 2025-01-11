@@ -12,16 +12,16 @@
       "id": "tutorial completed",
       "title": "A bar of your own",
       "description": "You have completed the tutorial",
-      "isUnlocked": true,
-      "progress": 1,
+      "isUnlocked": false,
+      "progress": 0,
       "target": 1
     },
     {
       "id": "newspaper opened",
       "title": "Breaking news!",
       "description": "Open the newspaper",
-      "isUnlocked": true,
-      "progress": 1,
+      "isUnlocked": false,
+      "progress": 0,
       "target": 1
     },
     {

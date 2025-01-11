@@ -99,7 +99,7 @@ namespace EndOfDay
             }
 
             popupPanel.SetActive(true);
-
+            
             StartCoroutine(DisplayTextsOneByOne());
             
             yield return null;
@@ -115,6 +115,7 @@ namespace EndOfDay
         private IEnumerator DisplayTextsOneByOne()
         {
             yield return new WaitForSeconds(timeBeforeLines);
+            CheckAchievement(); // This is here as a hard fix
             for (var i = 0; i < amountTexts.Length; i++)
             {
                 entryTexts[i].enabled = true;
@@ -178,6 +179,15 @@ namespace EndOfDay
             stampImage.transform.localScale = endScale;
 
             CheckEndOfDay();
+        }
+
+        private void CheckAchievement()
+        {
+            // Achievement
+            if (GameData.CurrentDay == 1)
+            {
+                EventSystemManager.OnTutorialCompleted();
+            }
         }
 
         private void CheckEndOfDay()

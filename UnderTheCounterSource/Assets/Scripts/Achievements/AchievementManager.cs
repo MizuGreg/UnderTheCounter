@@ -31,17 +31,16 @@ namespace Achievements
         // ------------------
 
 
+        void Awake()
+        {
+            // Subscribe to events
+            EventSystemManager.OnAchievementProgress += UpdateAchievement;
+        }
+        
         private void Start()
         {
             // Load achievements status
             LoadAchievements();
-            
-            // Debug
-            //ResetAchievements();
-            //PrintAchievements();
-            
-            // Subscribe to events
-            EventSystemManager.OnAchievementProgress += UpdateAchievement;
         }
 
         private void OnDestroy()

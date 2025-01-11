@@ -7,42 +7,42 @@ namespace Achievements
     public class AchievementListener : MonoBehaviour
     {
         
-        void Start()
+        void Awake()
         {
             // Subscribe to events
             // Todo: trigger the events
-            EventSystemManager.OnTutorial1End += TutorialCompleted;
-            //EventSystemManager.OnDealMade += DealWithTheDevil;
-            //EventSystemManager.OnHalfTrinketCollected += AspiringCollector;
+            EventSystemManager.OnTutorialCompleted += TutorialCompleted;
+            EventSystemManager.OnDealMade += DealWithTheDevil;
+            EventSystemManager.OnHalfTrinketCollected += AspiringCollector;
             //EventSystemManager.OnBankrupt += Bankrupt;
             EventSystemManager.OnBlitzTimerEnded += BlitzedOut;
             //EventSystemManager.OnWin += EndOfTheLine;
-            //EventSystemManager.OnButterfly1 += EveryCloud;
-            //EventSystemManager.OnButterfly2 += HasASilverLining;
+            EventSystemManager.OnButterfly1 += EveryCloud;
+            EventSystemManager.OnButterfly2 += HasASilverLining;
             //EventSystemManager.OnBarBurned += MafiasPawn;
-            //EventSystemManager.OnDealRefused += PlayingItClean;
-            //EventSystemManager.OnCocktailWatered += ShakenStirredStretched;
-            //EventSystemManager.OnBackstabbed += TheBackstabber;
-            //EventSystemManager.OnAllTrinketCollected += UltimateCollector;
+            EventSystemManager.OnDealRefused += PlayingItClean;
+            EventSystemManager.OnCocktailWatered += ShakenStirredStretched;
+            EventSystemManager.OnBackstabbed += TheBackstabber;
+            EventSystemManager.OnAllTrinketCollected += UltimateCollector;
             //EventSystemManager.OnAllCustomersServed += BeenServed;
         }
 
         private void OnDestroy()
         {
             // Unsubscribe from events
-            EventSystemManager.OnTutorial1End -= TutorialCompleted;
-            //EventSystemManager.OnDealMade -= DealWithTheDevil;
-            //EventSystemManager.OnHalfTrinketCollected -= AspiringCollector;
+            EventSystemManager.OnTutorialCompleted -= TutorialCompleted;
+            EventSystemManager.OnDealMade -= DealWithTheDevil;
+            EventSystemManager.OnHalfTrinketCollected -= AspiringCollector;
             //EventSystemManager.OnBankrupt -= Bankrupt;
             EventSystemManager.OnBlitzTimerEnded -= BlitzedOut;
             //EventSystemManager.OnWin -= EndOfTheLine;
-            //EventSystemManager.OnButterfly1 -= EveryCloud;
-            //EventSystemManager.OnButterfly2 -= HasASilverLining;
+            EventSystemManager.OnButterfly1 -= EveryCloud;
+            EventSystemManager.OnButterfly2 -= HasASilverLining;
             //EventSystemManager.OnBarBurned -= MafiasPawn;
-            //EventSystemManager.OnDealRefused -= PlayingItClean;
-            //EventSystemManager.OnCocktailWatered -= ShakenStirredStretched;
-            //EventSystemManager.OnBackstabbed -= TheBackstabber;
-            //EventSystemManager.OnAllTrinketCollected -= UltimateCollector;
+            EventSystemManager.OnDealRefused -= PlayingItClean;
+            EventSystemManager.OnCocktailWatered -= ShakenStirredStretched;
+            EventSystemManager.OnBackstabbed -= TheBackstabber;
+            EventSystemManager.OnAllTrinketCollected -= UltimateCollector;
             //EventSystemManager.OnAllCustomersServed -= BeenServed;
         }
 
