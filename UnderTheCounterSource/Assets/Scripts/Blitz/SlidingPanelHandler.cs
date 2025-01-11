@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System.Collections;
 using Technical;
 
 namespace Blitz
@@ -8,89 +10,50 @@ namespace Blitz
     {
         private RectTransform rectTransform;
         private Vector2 originalPosition;
-        public Vector2 openOffset = new Vector2(300f, 0f);
-        public float slideThresholdOpen = 100f;
-        public float slideThresholdClose;
-        public float slideSpeed = 500f;
-        private bool isOpen = false;
 
-        private float closedLimitX;
-        private float openLimitX;
+        private void Start()
+        {
+            EventSystemManager.OnBlitzEnd += ResetPosition;
+        }
 
-        void Awake()
+        private void OnDestroy()
+        {
+            EventSystemManager.OnBlitzEnd -= ResetPosition;
+        }
+
+        private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
             originalPosition = rectTransform.anchoredPosition;
+        }
 
-            closedLimitX = originalPosition.x;
-            openLimitX = originalPosition.x + openOffset.x;
-
-            slideThresholdClose = openOffset.x - slideThresholdOpen;
+        private void ResetPosition()
+        {
+            rectTransform.anchoredPosition = originalPosition;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             float deltaX = eventData.delta.x;
+            float deltaY = eventData.delta.y;
 
-            float newX = rectTransform.anchoredPosition.x + deltaX;
-
-            if (!isOpen && newX < closedLimitX)
-            {
-                return;
-            }
-
-            if (isOpen && newX > openLimitX)
-            {
-                return;
-            }
-
-            newX = Mathf.Clamp(newX, closedLimitX, openLimitX);
-
-            rectTransform.anchoredPosition = new Vector2(newX, rectTransform.anchoredPosition.y);
+            Vector2 newPosition = rectTransform.anchoredPosition + new Vector2(deltaX, deltaY);
+            rectTransform.anchoredPosition = newPosition;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            float draggedDistance = rectTransform.anchoredPosition.x - originalPosition.x;
-
-            if (!isOpen && draggedDistance >= slideThresholdOpen)
-            {
-                SlidePanelTo(originalPosition + openOffset);
-                isOpen = true;
-                UIDragHandler.EnableDropAreas();
-            }
-            else if (isOpen && draggedDistance <= slideThresholdClose)
-            {
-                SlidePanelTo(originalPosition);
-                isOpen = false;
-                UIDragHandler.DisableDropAreas();
-                EventSystemManager.OnPanelClosed();
-            }
-            else
-            {
-                SlidePanelTo(isOpen ? originalPosition + openOffset : originalPosition);
-            }
+            EventSystemManager.OnPanelOpened();
+            StartCoroutine(FallOffScreen());
         }
 
-        private void SlidePanelTo(Vector2 targetPosition)
+        private IEnumerator FallOffScreen()
         {
-            StopAllCoroutines();
-            StartCoroutine(SlideToPosition(targetPosition));
-        }
-
-        private System.Collections.IEnumerator SlideToPosition(Vector2 targetPosition)
-        {
-            while (Vector2.Distance(rectTransform.anchoredPosition, targetPosition) > 1f)
+            while (rectTransform.anchoredPosition.y > -2.5f * Screen.height)
             {
-                rectTransform.anchoredPosition = Vector2.MoveTowards(
-                    rectTransform.anchoredPosition,
-                    targetPosition,
-                    slideSpeed * Time.deltaTime
-                );
+                rectTransform.anchoredPosition += Vector2.down * 1500f * Time.deltaTime; 
                 yield return null;
             }
-
-            rectTransform.anchoredPosition = targetPosition;
         }
     }
 }

@@ -10,6 +10,7 @@ using SavedGameData;
 using Technical;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Bar
 {
@@ -20,13 +21,21 @@ namespace Bar
         private string _customerName;
         private Image _currentImage;
         private DialogueManager _dialogueManager;
+        private bool _timeOut;
 
+        [Header("Blitz-related fields")]
+        private bool isBlitzHappening;
+        private List<BlitzDialogue> _dailyBlitzDialogues;
+        private BlitzDialogue currentBlitzDialogue;
+        [SerializeField] private Button choiceButton1;
+        [SerializeField] private Button choiceButton2;
+
+        [Header("Customer-related fields")]
         [SerializeField] private CanvasGroup customerCanvas;
-        
         [SerializeField] private PricePopup pricePopup;
-
         [SerializeField] private GameObject customerCocktail;
         
+        [Header("Timing-related variables")]
         [Range (0.1f, 5f)]
         public float timeBetweenCustomers = 2.5f;
         [Range(0.1f, 5f)]
@@ -43,11 +52,11 @@ namespace Bar
             EventSystemManager.OnCocktailMade += ServeCustomer;
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
             EventSystemManager.OnPreparationStart += StartPreparation;
+            EventSystemManager.OnMinigameEnd += TriggerHowardDialogue;
+            EventSystemManager.MultipleChoiceStart += ShowChoiceButtons;
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
-
-            PosterEffects();
         }
 
         private void OnDestroy()
@@ -56,6 +65,8 @@ namespace Bar
             EventSystemManager.OnCocktailMade -= ServeCustomer;
             EventSystemManager.OnCustomerLeave -= FarewellCustomer;
             EventSystemManager.OnPreparationStart -= StartPreparation;
+            EventSystemManager.OnMinigameEnd -= TriggerHowardDialogue;
+            EventSystemManager.MultipleChoiceStart -= ShowChoiceButtons;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -65,20 +76,37 @@ namespace Bar
         
         private void PosterEffects()
         {
+            if (GameData.IsPosterActive(0))
+            {
+                earningMultiplier += 0.25f;
+                _dailyCustomers.RemoveAt(_dailyCustomers.Count - 1); // takes out one customer
+            }
             if (GameData.IsPosterActive(1))
             {
-                earningMultiplier = 1.3f;
+                _dailyCustomers.RemoveAt(_dailyCustomers.Count - 1); // takes out one customer
             }
-
-            if (GameData.IsPosterActive(2))
+            if (GameData.IsPosterActive(3))
             {
-                flatEarning += 1;
+                earningMultiplier -= 0.2f;
+            }
+            if (GameData.IsPosterActive(5))
+            {
+                earningMultiplier -= 0.2f;
             }
         }
 
         private void TimeoutCustomers()
         {
-            _dailyCustomers.Clear(); // depletes daily customers
+            _timeOut = true;
+            Customer lastCustomer = _dailyCustomers[^1];
+            if (lastCustomer.sprite is CustomerType.MafiaGoon or CustomerType.Howard or CustomerType.ErnestUnion)
+            { // we keep the "last visit"
+                _dailyCustomers.Clear();
+                _dailyCustomers.Add(lastCustomer);
+            }
+            else {
+                _dailyCustomers.Clear(); // deplete all remaining daily customers
+            }
         }
 
         public void StartDay()
@@ -88,19 +116,111 @@ namespace Bar
 
         private IEnumerator WaitAndStartDay()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             LoadDailyCustomers(GameData.CurrentDay);
+            PosterEffects();
+
+            if (GameData.CurrentDay >= 3)
+            {
+                LoadDailyBlitzDialogues(GameData.CurrentDay);
+            }
+            
             GreetCustomer();
         }
 
-        private void LoadDailyCustomers(int currentDay)
+        private void LoadDailyCustomers(int day)
         {
             // read DailyCustomers json and create daily customers list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + currentDay + ".json");
-            
-            _dailyCustomers = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + day + ".json");
+            _dailyCustomers = JsonConvert.DeserializeObject<List<Customer>>(jsonString);
             HandleConditionalCustomers();
             
+        }
+
+        private void LoadDailyBlitzDialogues(int day)
+        {
+            // read DailyBlitz json and create daily blitz list
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/BlitzData/Blitz" + day + ".json");
+            _dailyBlitzDialogues = JsonConvert.DeserializeObject<List<BlitzDialogue>>(jsonString);
+        }
+
+        private void TriggerHowardDialogue()
+        {
+            isBlitzHappening = true;
+            StartCoroutine(StartHowardDialogue());
+        }
+
+        private IEnumerator StartHowardDialogue()
+        {
+            yield return new WaitForSeconds(1.5f);
+            _currentImage.sprite = GetSpriteFromCustomerType(CustomerType.Howard);
+            customerCanvas.GetComponent<FadeCanvas>().FadeIn();
+            EventSystemManager.OnCustomerEnter();
+
+            yield return new WaitForSeconds(timeBeforeDialogue);
+            currentBlitzDialogue = _dailyBlitzDialogues[0];
+            Dialogue dialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["greet"]);
+            _dialogueManager.StartDialogue(dialogue, DialogueType.MultipleChoice);
+
+            //_dailyBlitzDialogues.RemoveAt(0);
+        }
+
+        private void ShowChoiceButtons() 
+        {
+            choiceButton1.GetComponent<FadeCanvas>().FadeIn();
+            choiceButton2.GetComponent<FadeCanvas>().FadeIn();
+
+            if (isBlitzHappening)
+            {
+                choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = currentBlitzDialogue.lines["choices"][0];
+                choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = currentBlitzDialogue.lines["choices"][1];
+            }
+            else
+            {
+                choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = _currentCustomer.lines["choices"][0];
+                choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = _currentCustomer.lines["choices"][1];
+            }
+        }
+
+        public void OnChoiceSelected(int choiceIndex)
+        {
+            Debug.Log("Choice selected: " + choiceIndex);
+
+            choiceButton1.GetComponent<FadeCanvas>().FadeOut();
+            choiceButton2.GetComponent<FadeCanvas>().FadeOut();
+            
+            if (isBlitzHappening) // we're in a blitz choice
+            {
+                isBlitzHappening = false;
+                if (choiceIndex == currentBlitzDialogue.correctChoice)
+                {
+                    GameData.BlitzSuccessful();
+                    Dialogue correctDialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["correct"]);
+                    _dialogueManager.StartDialogue(correctDialogue, DialogueType.Leave);
+                }
+                else
+                {
+                    GameData.BlitzFailed();
+                    Dialogue wrongDialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["wrong"]);
+                    _dialogueManager.StartDialogue(wrongDialogue, DialogueType.Leave);
+                }
+
+                EventSystemManager.OnBlitzEnd();
+                _dailyBlitzDialogues.RemoveAt(0);
+            }
+            else // we're in a choice-based dialogue, probably with the mafia goon
+            {
+                if (choiceIndex == 0)
+                {
+                    Dialogue dialogue = new Dialogue(_customerName, _currentCustomer.lines["choice1"]);
+                    _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
+                }
+                else
+                {
+                    Dialogue dialogue = new Dialogue(_customerName, _currentCustomer.lines["choice2"]);
+                    _dialogueManager.StartDialogue(dialogue, DialogueType.Leave);
+                }
+            }
         }
 
         // Handles customers that appear or not depending on some conditions, or that have specific sprites depending on conditions
@@ -140,8 +260,24 @@ namespace Bar
             if (_dailyCustomers.Count > 0)
             {
                 _currentCustomer = _dailyCustomers[0];
-                if (_currentCustomer.sprite == CustomerType.Howard) _customerName = "Inspector";
-                else _customerName = _currentCustomer.sprite.ToString();
+                switch (_currentCustomer.sprite)
+                {
+                    case CustomerType.Howard:
+                        _customerName = "Inspector";
+                        break;
+                    case CustomerType.ErnestUnion:
+                        _customerName = "B.U. member";
+                        break;
+                    case CustomerType.MafiaGoon:
+                        _customerName = "Mafia Goon";
+                        break;
+                    case CustomerType.MargaretDrunk:
+                        _customerName = "Margaret";
+                        break;
+                    default:
+                        _customerName = _currentCustomer.sprite.ToString();
+                        break;
+                }
                 _dailyCustomers.RemoveAt(0);
             
                 _currentImage.sprite = GetSpriteFromCustomerType(_currentCustomer.sprite);
@@ -158,11 +294,19 @@ namespace Bar
         private IEnumerator WaitAndGreetDialogue()
         {
             yield return new WaitForSeconds(timeBeforeDialogue);
-            _dialogueManager.StartDialogue(
-                new Dialogue(_customerName, _currentCustomer.lines["greet"]),
-                _currentCustomer.sprite is CustomerType.Howard or CustomerType.MafiaGoon or CustomerType.ErnestUnion
-                    ? DialogueType.NoDrink
-                    : DialogueType.Greet);
+            DialogueType dialogueType;
+            if (_currentCustomer.lines.ContainsKey("choices")) 
+            { 
+                dialogueType = DialogueType.MultipleChoice; // we have a choice-based dialogue
+            }
+            else if (_currentCustomer.sprite is CustomerType.Howard or CustomerType.MafiaGoon or CustomerType.ErnestUnion)
+            { 
+                dialogueType = DialogueType.NoDrink; // these don't order drinks
+            } else
+            { 
+                dialogueType = DialogueType.Greet; // for all other customers
+            }
+            _dialogueManager.StartDialogue(new Dialogue(_customerName, _currentCustomer.lines["greet"]), dialogueType);
         }
 
         private Sprite GetSpriteFromCustomerType(CustomerType customerType)
@@ -284,6 +428,13 @@ namespace Bar
                     GameData.DrunkCustomers++;
                     EventSystemManager.OnDrunkCustomer();
                 }
+                
+                // Log cocktail
+                GameData.Log.Add(new Tuple<string, string>("Bartender", "<i>Serves a " +
+                    (cocktail.type == CocktailType.Wrong ? "messy concoction" : // special message if cocktail was wrong
+                    $"{Regex.Replace(cocktail.type.ToString(), @"([a-z])([A-Z])", "$1 $2")}") // cocktail name
+                    + (cocktail.isWatered ? ", watered down" : "") // whether it was watered down or not
+                    + "</i>"));
             }
             else
             {

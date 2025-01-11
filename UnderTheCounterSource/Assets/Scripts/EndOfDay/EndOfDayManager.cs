@@ -12,38 +12,32 @@ namespace EndOfDay
 {
     public class EndOfDayManager : MonoBehaviour
     {
-        public FadeCanvas endOfDayCanvas;
-        public GameObject popupPanel;
-        public TextMeshProUGUI dayText;
-        public TextMeshProUGUI messageText;
-        public TextMeshProUGUI[] entryTexts;
-        public TextMeshProUGUI[] amountTexts;
-        public Image stampImage;
+        [Header("Canvases")]
+        [SerializeField] private FadeCanvas endOfDayCanvas;
+        [SerializeField] private GameObject popupPanel;
+        
+        [Header("Entry-related objects")]
+        [SerializeField] private TextMeshProUGUI dayText;
+        [SerializeField] private TextMeshProUGUI messageText;
+        [SerializeField] private TextMeshProUGUI[] entryTexts;
+        [SerializeField] private TextMeshProUGUI[] amountTexts;
+        [SerializeField] private TextMeshProUGUI totalAmount;
+        
+        [SerializeField] private Image stampImage;
 
-        public Button nextDayButton;
+        [Header("Buttons")]
+        [SerializeField] private Button nextDayButton;
+        [SerializeField] private Button gameOverButton;
 
-        public Button gameOverButton;
+        [Header("Timing")]
+        [SerializeField] private float timeBeforeLines;
+        [SerializeField] private float timeBetweenLines;
+        [SerializeField] private float timeAfterLines;
 
-        public float timeBeforeLines;
-        public float timeBetweenLines;
-        public float timeAfterLines;
-
-        public string[] summaryMessages;
-
-        [System.Serializable]
-        public struct PopupData
-        {
-            public int day;
-            public float earnings;
-            public float savings;
-            public float rent;
-            public float food;
-            public float supplies;
-        }
-
-        public float dailyBalance;
-
-        private PopupData popupData;
+        [Header("Other")]
+        [SerializeField] private string[] summaryMessages;
+        [SerializeField] private float dailyBalance;
+        [SerializeField] private int payoffAmount;
 
         void Start()
         {
@@ -53,47 +47,59 @@ namespace EndOfDay
             popupPanel.SetActive(false);
             nextDayButton.gameObject.SetActive(false);
             gameOverButton.gameObject.SetActive(false);
-
-            PopulateData();
+            
             StartCoroutine(ShowPopup());
-        }
-
-        private void PopulateData()
-        {
-            popupData.day = GameData.CurrentDay;
-            popupData.earnings = GameData.TodayEarnings;
-            popupData.savings = GameData.Savings;
-            popupData.rent = GameData.Rent;
-            popupData.food = GameData.Food;
-            popupData.supplies = GameData.Supplies;
         }
 
         private IEnumerator ShowPopup()
         {
+            bool payoffToPay = GameData.Choices["MafiaDeal"] && GameData.Choices["PayoffAccepted"];
+            payoffAmount = GameData.payoffAmount;
+            
             stampImage.gameObject.SetActive(false);
-
-            dayText.text = "Day " + popupData.day;
-
-            string summaryMessage = summaryMessages[popupData.day-1];
+            dayText.text = "Day " + GameData.CurrentDay;
+            string summaryMessage = summaryMessages[GameData.CurrentDay - 1];
             messageText.text = summaryMessage;
 
-            foreach (TextMeshProUGUI text in amountTexts)
+            dailyBalance = GameData.TodayEarnings - GameData.Rent - GameData.Food - GameData.Supplies - (payoffToPay ? payoffAmount : 0);
+
+            // Set amounts
+            amountTexts[0].text = $"${GameData.TodayEarnings:N0}";
+            amountTexts[1].text = $"${GameData.Savings:N0}";
+            amountTexts[2].text = $"-${GameData.Rent:N0}";
+            amountTexts[3].text = $"-${GameData.Food:N0}";
+            amountTexts[4].text = $"-${GameData.Supplies:N0}";
+            if (payoffToPay)
             {
-                text.text = "";
-                text.gameObject.SetActive(false);
+                amountTexts[5].text = $"${payoffAmount}";
+            }
+            else
+            {
+                amountTexts[5].text = "you shouldn't be seeing this";
+            }
+            totalAmount.text = $"${GameData.Savings + dailyBalance:N0}";
+            
+            
+            // Disable *text components* of all objects
+            foreach (TextMeshProUGUI entryText in entryTexts)
+            {
+                entryText.enabled = false;
+            }
+            foreach (TextMeshProUGUI amountText in amountTexts)
+            {
+                amountText.enabled = false;
+            }
+            totalAmount.enabled = false;
+            
+            // If there's no payoff to be paid, we disable the payoff-related objects too (not just the text components)
+            if (!payoffToPay)
+            {
+                entryTexts[^1].gameObject.SetActive(false);
+                amountTexts[^1].gameObject.SetActive(false);
             }
 
-            dailyBalance = popupData.earnings - popupData.rent - popupData.food - popupData.supplies;
-
-            amountTexts[0].text = $"<b>${popupData.earnings:N0}</b>";
-            amountTexts[1].text = $"<b>${popupData.savings:N0}</b>";
-            amountTexts[2].text = $"<b>-${popupData.rent:N0}</b>";
-            amountTexts[3].text = $"<b>-${popupData.food:N0}</b>";
-            amountTexts[4].text = $"<b>-${popupData.supplies:N0}</b>";
-            amountTexts[5].text = $"<b>${popupData.savings + dailyBalance:N0}</b>";
-
             popupPanel.SetActive(true);
-
+            
             StartCoroutine(DisplayTextsOneByOne());
             
             yield return null;
@@ -109,20 +115,20 @@ namespace EndOfDay
         private IEnumerator DisplayTextsOneByOne()
         {
             yield return new WaitForSeconds(timeBeforeLines);
+            CheckAchievement(); // This is here as a hard fix
             for (var i = 0; i < amountTexts.Length; i++)
             {
-                entryTexts[i].gameObject.SetActive(true);
-                amountTexts[i].gameObject.SetActive(true);
+                entryTexts[i].enabled = true;
+                amountTexts[i].enabled = true;
                 yield return new WaitForSeconds(timeBetweenLines);
-                if (i == amountTexts.Length - 2) // waits a little bit more before the final entry
-                {
-                    yield return new WaitForSeconds(timeBetweenLines);
-                }
             }
+            
+            // Displays total
+            // yield return new WaitForSeconds(timeBetweenLines); // doubled waiting time
+            totalAmount.enabled = true;
 
             yield return new WaitForSeconds(timeAfterLines);
-
-            stampImage.gameObject.SetActive(true);
+            
             StartCoroutine(StampEffect());
         }
 
@@ -175,11 +181,20 @@ namespace EndOfDay
             CheckEndOfDay();
         }
 
+        private void CheckAchievement()
+        {
+            // Achievement
+            if (GameData.CurrentDay == 1)
+            {
+                EventSystemManager.OnTutorialCompleted();
+            }
+        }
+
         private void CheckEndOfDay()
         {
             GameData.EndDay(dailyBalance);
 
-            if (GameData.Savings < 0)
+            if (GameData.Savings < 0 || (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"]))
             {
                 gameOverButton.gameObject.SetActive(true);
             }
@@ -196,6 +211,7 @@ namespace EndOfDay
 
         public void NextDay()
         {
+            GameData.CurrentDay++;
             StartCoroutine(LoadNextScene());
         }
 
@@ -210,7 +226,19 @@ namespace EndOfDay
         {
             endOfDayCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene(GameData.CurrentDay > 3 ? "VictoryScreen" : "ShopWindow");
+            SceneManager.LoadScene(GameData.CurrentDay >= 7 ? "VictoryScreen" : "ShopWindow");
+        }
+        
+        public void BackToMainMenu()
+        {
+            endOfDayCanvas.FadeOut();
+            StartCoroutine(WaitBeforeMenu());
+        }
+        
+        private IEnumerator WaitBeforeMenu()
+        {
+            yield return new WaitForSeconds(1.1f);
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

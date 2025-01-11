@@ -14,17 +14,18 @@ namespace Bar
     public class DialogueManager : MonoBehaviour {
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
 
-        public TextMeshProUGUI nameText;
-        public TextMeshProUGUI dialogueText;
+        [Header("Dialogue objects")]
+        [SerializeField] private TextMeshProUGUI nameText;
+        [SerializeField] private TextMeshProUGUI dialogueText;
         private TMP_TextInfo textInfo;
-        public Animator animator;
+        [SerializeField] private Animator animator;
         
         [SerializeField] private Image arrow;
         private Sprite normalArrow, makeCocktailArrow, leaveArrow;
         
-        // Pop-up messages
-        public TextMeshProUGUI popUpNameText;
-        public TextMeshProUGUI popUpDialogueText;
+        [Header("Pop-up objects")]
+        [SerializeField] private TextMeshProUGUI popUpNameText;
+        [SerializeField] private TextMeshProUGUI popUpDialogueText;
         [SerializeField] private Image popUpArrow;
         private bool isPopupActive;
         private bool _isActionNeeded;
@@ -34,17 +35,18 @@ namespace Bar
         private Coroutine _typeSentenceCoroutine;
         private bool isBoxActive;
 
+        [Header("Timing-related variables")]
         private float textSpeed;
         [Range(1f, 50.0f)]
-        public float normalTextSpeed;
+        [SerializeField] private float normalTextSpeed;
 
         [Range(5f, 50.0f)]
-        public float punctuationWaitMultiplier;
+        [SerializeField] private float punctuationWaitMultiplier;
         
         [Range(0.1f, 3.0f)]
-        public float timeBeforeDialogueBox;
+        [SerializeField] private float timeBeforeDialogueBox;
         [Range(0.1f, 3.0f)]
-        public float timeBeforeFirstSentence;
+        [SerializeField] private float timeBeforeFirstSentence;
 
         private bool _allTextIsVisible;
         
@@ -59,11 +61,6 @@ namespace Bar
             normalArrow = Resources.Load<Sprite>("Sprites/(Old)/UI/arrow");
             makeCocktailArrow = Resources.Load<Sprite>("Sprites/(Old)/UI/glass");
             leaveArrow = Resources.Load<Sprite>("Sprites/(Old)/UI/bottle_opener");
-        }
-
-        public void SetDialogueBoxActive(bool active)
-        {
-            isBoxActive = active;
         }
 
         public void SetNormalTextSpeed(float speed)
@@ -182,8 +179,10 @@ namespace Bar
             arrow.gameObject.SetActive(false);
             textSpeed = normalTextSpeed;
             if (_sentences.Count == 0) {
-                isBoxActive = false;
-                EndDialogue();
+                if (_dialogueType != DialogueType.MultipleChoice) {
+                    isBoxActive = false;
+                    EndDialogue();
+                }
                 switch (_dialogueType)
                 {
                     case DialogueType.Greet:
@@ -198,12 +197,16 @@ namespace Bar
                     case DialogueType.NoDrink:
                         EventSystemManager.OnCustomerLeave();
                         break;
+                    case DialogueType.MultipleChoice:
+                        EventSystemManager.MultipleChoiceStart();
+                        isBoxActive = false; // deactivates interaction with box, e.g. clicking to skip sentence
+                        break;
                 }
             }
             else
             {
                 string sentence = _sentences.Dequeue();
-                ParseEventTag(sentence);
+                sentence = ParseEventTag(sentence);
                 GameData.Log.Add(new Tuple<string, string>(nameText.text, sentence));
                 
                 StartCoroutine(TypeSentence(sentence));
@@ -219,10 +222,10 @@ namespace Bar
                 switch (tag)
                 {
                     case "IF HAS POSTERS":
-                        if (GameData.Posters.Count > 0) _sentences.Enqueue(strippedSentence);
+                        if (GameData.HasHungPosters()) _sentences.Enqueue(strippedSentence);
                         break;
                     case "IF DOESN'T HAVE POSTERS":
-                        if (GameData.Posters.Count == 0) _sentences.Enqueue(strippedSentence);
+                        if (!GameData.HasHungPosters()) _sentences.Enqueue(strippedSentence);
                         break;
                     case "IF MARGARET GOT DRUNK":
                         if (GameData.Choices["MargaretDrunk"]) _sentences.Enqueue(strippedSentence);
@@ -246,13 +249,14 @@ namespace Bar
             }
         }
 
-        private void ParseEventTag(string sentence)
+        private string ParseEventTag(string sentence)
         {
             if (sentence.Contains("{"))
             {
                 string tag = sentence.Substring(sentence.IndexOf("{") + 1, sentence.IndexOf("}") - sentence.IndexOf("{") - 1); // extracts text inside brackets
+                int tagIndex = sentence.IndexOf("{");
                 sentence = sentence.Remove(sentence.IndexOf("{"), sentence.IndexOf("}") - sentence.IndexOf("{") + 1); // removes whole tag with brackets
-
+                
                 if (tag.Contains("TRINKET"))
                 {
                     int trinketID = int.Parse(Regex.Match(tag, @"\d+").Value); // extracts ID
@@ -266,13 +270,44 @@ namespace Bar
                 if (tag == "MARGARET GETS DRUNK")
                 {
                     GameData.Choices["MargaretDrunk"] = true;
+                    EventSystemManager.OnButterfly1();
                 }
 
+                if (tag == "MARGARET GETS ENGAGED")
+                {
+                    //GameData.Choices["MargaretEngaged"] = true;
+                    EventSystemManager.OnButterfly2();
+                }
                 if (tag == "MAFIA DEAL ACCEPTED")
                 {
                     GameData.Choices["MafiaDeal"] = true;
+                    EventSystemManager.OnDealMade();
+                }
+
+                if (tag == "MAFIA DEAL REFUSED")
+                {
+                    GameData.Choices["MafiaDeal"] = false;
+                    EventSystemManager.OnDealRefused();
+                }
+                if (tag == "PAYOFF ACCEPTED")
+                {
+                    GameData.Choices["PayoffAccepted"] = true;
+                }
+                if (tag == "UNDERCOVER CATCHES YOU")
+                { // makes next blitz extremely likely
+                    GameData.BlitzFailed(); // penalizes maxDrunkCustomers and blitz time
+                    if (GameData.DrunkCustomers <= GameData.MaxDrunkCustomers - 1)
+                        GameData.DrunkCustomers = GameData.MaxDrunkCustomers - 1; // next alcoholic beverage triggers blitz
+
+                    EventSystemManager.OnBackstabbed();
+                }
+                if (tag == "BAR NAME")
+                {
+                    sentence = sentence.Insert(tagIndex, GameData.BarName);
                 }
             }
+
+            return sentence;
         }
 
         private IEnumerator TypeSentence(string sentence) 

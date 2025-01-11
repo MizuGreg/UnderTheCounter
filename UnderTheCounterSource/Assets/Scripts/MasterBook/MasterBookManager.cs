@@ -88,11 +88,11 @@ namespace MasterBook
             posterButton.GetComponent<RectTransform>().localPosition = originalPosterButtonPosition;
         }
 
-        public void OpenLogTab()
+        public void OpenLogTab(bool silent = false)
         {
             if (currentlyOpenedPage == logPage) return; // stops flow early if the tab button is pressed more than once
             currentlyOpenedPage = logPage;
-            EventSystemManager.OnTabChanged();
+            if (!silent) EventSystemManager.OnTabChanged();
             
             recipePage.gameObject.SetActive(false);
             logPage.gameObject.SetActive(true);

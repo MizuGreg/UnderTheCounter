@@ -7,6 +7,8 @@ namespace CocktailCreation
         SpringBeeGarnish,
         PartiGarnish,
         MagazineGarnish,
+        PalmeraGarnish,
+        BarberGarnish,
         WrongGarnish
     }
 }

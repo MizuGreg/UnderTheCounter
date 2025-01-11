@@ -122,8 +122,8 @@ namespace ShopWindow
         private void SetVisible()
         {
             // Update UI to reflect visible state
-            canvasGroup.interactable = !isVisible;
-            canvasGroup.blocksRaycasts = !isVisible;
+            canvasGroup.interactable = isVisible; // disable interaction if not visible
+            canvasGroup.blocksRaycasts = isVisible; // prevent clicks if not visible
             
             canvasGroup.alpha = isVisible ? 1f : 0.5f; // Fade effect for non-obtainable posters
         }

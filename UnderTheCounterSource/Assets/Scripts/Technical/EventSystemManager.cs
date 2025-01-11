@@ -8,10 +8,13 @@ namespace Technical
     {
         // Poster events
         public static UnityAction OnPosterBought;
+        public static UnityAction OnPosterHung;
+        public static UnityAction OnPosterRippedDown;
         
         // Day-related events
         public static UnityAction OnDayStart;
         public static UnityAction OnDayEnd;
+        public static UnityAction OnTimeWarning;
         public static UnityAction OnTimeUp;
     
         // Customer-related events
@@ -35,9 +38,12 @@ namespace Technical
         // Blitz-related events
         public static UnityAction OnBlitzCalled;
         public static UnityAction OnBlitzCallWarning;
+        public static UnityAction OnBlitzTimerWarning;
         public static UnityAction OnBlitzTimerEnded;
         public static UnityAction OnBottlePlaced;
-        public static UnityAction OnPanelClosed;
+        public static UnityAction OnPanelOpened;
+        public static UnityAction OnMinigameEnd;
+        public static UnityAction MultipleChoiceStart;
         public static UnityAction OnBlitzEnd;
 
         // Scene loads
@@ -67,5 +73,18 @@ namespace Technical
         
         // Achievements events
         public static UnityAction<string, int> OnAchievementProgress;
+        public static UnityAction OnTutorialCompleted;
+        public static UnityAction OnDealMade;
+        public static UnityAction OnHalfTrinketCollected;
+        public static UnityAction OnBankrupt;
+        public static UnityAction OnWin;
+        public static UnityAction OnButterfly1;
+        public static UnityAction OnButterfly2;
+        public static UnityAction OnBarBurned;
+        public static UnityAction OnDealRefused;
+        public static UnityAction OnCocktailWatered;
+        public static UnityAction OnBackstabbed;
+        public static UnityAction OnAllTrinketCollected;
+        public static UnityAction OnAllCustomersServed;
     }
 }

@@ -11,7 +11,7 @@ namespace Technical
         public float backgroundMusicVolume;
         public float FXVolume;
         
-        [Header("Audio Clips/Music")]
+        [Header("Music")]
         public AudioClip mainMenuMusic;
         public AudioClip shopWindowMusic;
         public AudioClip[] barMusicTracks;
@@ -20,17 +20,29 @@ namespace Technical
         public AudioClip winMusic;
         public AudioClip loseMusic;
         
-        [Header("Audio Clips/Sound Effects")]
+        [Header("Sound effects")]
+        [Header("Technical")]
         public AudioClip sampleSound;
+        
+        [Header("Bar")]
         public AudioClip customerEnterSound;
         public AudioClip customerLeaveSound;
-        public AudioClip posterHangSound;
+        public AudioClip timeWarningSound;
+        public AudioClip timeUpSound;
+        public AudioClip ingredientPouredSound;
+        
+        [Header("Shop window")]
+        public AudioClip posterHungSound;
         public AudioClip posterTearDownSound;
+        
+        [Header("Master book")]
         public AudioClip bookOpenSound;
         public AudioClip bookCloseSound;
         public AudioClip tabChangedSound;
         public AudioClip pageTurnedSound;
-
-
+        
+        [Header("Blitz")]
+        public AudioClip blitzTimerWarningSound;
+        public AudioClip blitzTimerEndSound;
     }
 }

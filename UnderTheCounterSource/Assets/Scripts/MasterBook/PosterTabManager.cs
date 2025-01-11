@@ -14,6 +14,7 @@ namespace MasterBook
         [SerializeField] private GameObject poster2Object;
         [SerializeField] private GameObject ownedPostersObject;
         
+        [SerializeField] private List<Sprite> posterSprites;
         [SerializeField] private Sprite hiddenPosterSprite;
         
         public void PopulatePosters()
@@ -31,7 +32,7 @@ namespace MasterBook
         {
             if (poster != null)
             {
-                posterObject.transform.Find("Image").GetComponent<Image>().sprite = poster.image;
+                posterObject.transform.Find("Image").GetComponent<Image>().sprite = posterSprites[poster.id];
                 posterObject.transform.Find("PosterName").GetComponent<TextMeshProUGUI>().text = poster.name;
                 posterObject.transform.Find("Buff").GetComponent<TextMeshProUGUI>().text = poster.buff;
                 posterObject.transform.Find("Nerf").GetComponent<TextMeshProUGUI>().text = poster.nerf;
@@ -39,7 +40,7 @@ namespace MasterBook
             else
             {
                 posterObject.transform.Find("Image").GetComponent<Image>().sprite = hiddenPosterSprite;
-                posterObject.transform.Find("PosterName").GetComponent<TextMeshProUGUI>().text = "NO POSTER HANGED";
+                posterObject.transform.Find("PosterName").GetComponent<TextMeshProUGUI>().text = "NO POSTER HUNG";
                 posterObject.transform.Find("Buff").GetComponent<TextMeshProUGUI>().text = "---";
                 posterObject.transform.Find("Nerf").GetComponent<TextMeshProUGUI>().text = "---";
             }
@@ -50,10 +51,9 @@ namespace MasterBook
             int count = 0;
             foreach (Poster poster in GameData.Posters)
             {
-                print($"Setting visibility of poster object {poster.id}");
-                if (poster.visible)
+                if (poster.price < 1)
                 {
-                    ownedPostersObject.transform.Find($"Poster{poster.id}").GetComponent<Image>().sprite = poster.image;
+                    ownedPostersObject.transform.Find($"Poster{poster.id}").GetComponent<Image>().sprite = posterSprites[poster.id];
                     count++;
                 }
                 else

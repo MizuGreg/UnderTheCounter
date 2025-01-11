@@ -10,7 +10,7 @@ namespace Bar
     {
         Margaret,
         MargaretDrunk, // Margaret's sprite as drunk after scandal
-        Thomas, // Margaret's crush
+        Luke, // Margaret's crush
         Helene,
         Charles,
         Betty,
@@ -56,5 +56,11 @@ namespace Bar
                 return $"Error :( Exception in Customer.ToString(): {e}";
             }
         }
+    }
+
+    public class BlitzDialogue
+    {
+        public SerializedDictionary<string, List<string>> lines;
+        public int correctChoice;
     }
 }

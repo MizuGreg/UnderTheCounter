@@ -1,34 +1,21 @@
 {
-  "Log": [
-    {
-      "Item1": "Ernest",
-      "Item2": "… and these are your keys, young one. That will be all! This is officially your bar now. With the energy you have, I'm sure you won't have any trouble taking good care of the place."
-    },
-    {
-      "Item1": "Ernest",
-      "Item2": "Here, let me guide you. I'll show you what you need to do during your shift."
-    },
-    {
-      "Item1": "Ernest",
-      "Item2": "Let's get hands-on and make your first cocktail now. I'm feeling young today, so make me a <b>Ripple</b>!"
-    },
-    {
-      "Item1": "Ernest",
-      "Item2": "That's all! Excellent!"
-    }
-  ],
-  "Choices": {},
+  "Log": [],
+  "Choices": {
+    "MargaretDrunk": false,
+    "MafiaDeal": false,
+    "PayoffAccepted": false
+  },
   "BarName": "The Chitchat",
-  "DailyTime": 0.0,
+  "DailyTime": 240.0,
   "CurrentDay": 2,
   "DrunkCustomers": 0,
   "MaxDrunkCustomers": 99,
   "Posters": [],
   "Trinkets": [],
-  "Savings": 80.0,
+  "Savings": 20.0,
   "TodayEarnings": 0.0,
   "Rent": 10,
   "Food": 10,
   "Supplies": 10,
-  "currentDateTime": "2025-01-04T15:17:51.7277419+01:00"
+  "currentDateTime": "2025-01-11T12:54:42.302468+01:00"
 }

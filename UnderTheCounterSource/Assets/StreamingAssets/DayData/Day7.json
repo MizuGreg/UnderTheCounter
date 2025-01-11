@@ -1,0 +1,135 @@
+[
+    {
+        "sprite": "Willie",
+        "order": "Palmera",
+        "tip": 3,
+        "lines": {
+            "greet": [
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
+            ]
+        }
+    },
+    {
+        "sprite": "Betty",
+        "order": "Everest",
+        "tip": 2,
+        "lines": {
+            "greet": [
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
+            ]
+        }
+    },
+    {
+        "sprite": "Eugene",
+        "order": "Ripple",
+        "tip": 3,
+        "lines": {
+            "greet": [
+                "TBD"
+            ],
+            "correct": [
+                "{TRINKET 5}TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
+            ]
+        }
+    },
+    {
+        "sprite": "Charles",
+        "order": "Ripple",
+        "tip": 5,
+        "lines": {
+            "greet": [
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
+            ]
+        }
+    },
+    {
+        "sprite": "Margaret",
+        "order": "SpringBee",
+        "tip": 3,
+        "lines": {
+            "greet": [
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
+            ]
+        }
+    },
+    {
+        "sprite": "Luke",
+        "order": "SpringBee",
+        "tip": 3,
+        "lines": {
+            "greet": [
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
+            ]
+        }
+    },
+    {
+        "sprite": "Kathryn",
+        "order": "None",
+        "tip": 4,
+        "lines": {
+            "greet": [
+                "TBD"
+            ],
+            "correct": [
+                "TBD"
+            ],
+            "water": [
+                "TBD"
+            ],
+            "wrong": [
+                "TBD"
+            ]
+        }
+    }
+]
