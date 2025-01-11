@@ -52,7 +52,7 @@ namespace Technical
         public static UnityAction OnLoadShopWindow;
         public static UnityAction OnLoadEndOfDay;
         public static UnityAction OnLoadWinScreen;
-        public static UnityAction OnLoadLoseScreen;
+        public static UnityAction<string> OnLoadLoseScreen;
 
         // Master book events
         public static UnityAction OnMasterBookOpened;

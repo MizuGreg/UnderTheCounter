@@ -128,7 +128,7 @@ namespace Technical
 
         }
 
-        private void OnLoadLoseScreenSound()
+        private void OnLoadLoseScreenSound(string endingType)
         {
             EazySoundManager.PlayMusic(soundData.loseMusic, 1, true, true, 1, 3);
         }
