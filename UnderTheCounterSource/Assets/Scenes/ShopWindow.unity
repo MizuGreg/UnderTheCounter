@@ -4110,6 +4110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10a53ddecdf4ea1ad5b37734dab7b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextDayButton: {fileID: 1623819541}
 --- !u!1 &1010309419
 GameObject:
   m_ObjectHideFlags: 0
@@ -5715,7 +5716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4131209151927196829, guid: c8506e13e5ce69a4199526bdd3d8a758, type: 3}
       propertyPath: m_Name
-      value: StartDay
+      value: StartDayButton
       objectReference: {fileID: 0}
     - target: {fileID: 6465191977387774789, guid: c8506e13e5ce69a4199526bdd3d8a758, type: 3}
       propertyPath: m_Alpha
@@ -5811,6 +5812,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9014334454132404379, guid: c8506e13e5ce69a4199526bdd3d8a758, type: 3}
   m_PrefabInstance: {fileID: 1623819539}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1623819541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3946213279938528446, guid: c8506e13e5ce69a4199526bdd3d8a758, type: 3}
+  m_PrefabInstance: {fileID: 1623819539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1627926422 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2789064678060741216, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
