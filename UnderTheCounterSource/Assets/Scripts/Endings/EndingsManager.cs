@@ -48,18 +48,7 @@ namespace Endings
             Debug.Log("Ending loaded: " + endingType);
             
             // Achievements
-            if (ending == "blitz")
-            {
-                EventSystemManager.OnBlitzLose();
-            }
-            else if (ending == "bankrupt")
-            {
-                EventSystemManager.OnBankrupt();
-            }
-            else if (ending == "mafia")
-            {
-                EventSystemManager.OnBarBurned();
-            }
+            StartCoroutine(CheckAchievements(ending));
 
             StartEndingText();
         }
@@ -120,6 +109,24 @@ namespace Endings
             endingCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
             SceneManager.LoadScene("MainMenu");
+        }
+
+        private IEnumerator CheckAchievements(string ending)
+        {
+            yield return new WaitForSeconds(1f);
+            
+            if (ending == "blitz")
+            {
+                EventSystemManager.OnBlitzLose();
+            }
+            else if (ending == "bankrupt")
+            {
+                EventSystemManager.OnBankrupt();
+            }
+            else if (ending == "mafia")
+            {
+                EventSystemManager.OnBarBurned();
+            }
         }
     }
 }
