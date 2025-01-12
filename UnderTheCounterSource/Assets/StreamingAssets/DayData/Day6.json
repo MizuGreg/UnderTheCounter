@@ -171,7 +171,7 @@
                 "And hey, don't use up all the booze, hah! Try to water down some drinks here and there. Also keeps the police down."
             ],
             "choice2": [
-                "So… after all I've done… Ya think ya can pull this off, huh? Alright, no problem. No problem at all.",
+                "{PAYOFF REFUSED}So… after all I've done… Ya think ya can pull this off, huh? Alright, no problem. No problem at all.",
                 "Deal is off. I didn't say you could walk back from it, but that's what you're doing to me right now.",
                 "We go our separate ways, I guess. I can't assure you any protection now, boyo. Whatever happens to you, happens.",
                 "<i>Just try not to burn yourself</i>."

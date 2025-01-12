@@ -95,18 +95,18 @@
                 "So go ahead, love! Make me <i>your favourite</i>."
             ],
             "correct": [
-                "{TRINKET 0}Cheers! So we both have a knack for the same cocktail. You've made a good impression on me for sure, so let me give you a little something. It's a <b>souvenir</b> from my voyages.",
+                "{TRINKET 0}Cheers! So we both have a knack for the same cocktail. You've made a good impression on me for sure, so let me give you a little decoration. It's a <b>souvenir</b> from my voyages.",
                 "Take care, love. <i>*wink*</i>"
             ],
             "incorrect": [
-                "{TRINKET 0}Cheers! Not a bad choice at all. Here's a little something, it's a <b>souvenir</b> from my voyages. Take care, love!"
+                "{TRINKET 0}Cheers! Not a bad choice at all. Here's a little decoration, it's a <b>souvenir</b> from my voyages. Take care, love!"
             ],
             "wrong": [
                 "Blimey! Are you positive this is your favourite cocktail? Nevermind, I can respect someone with a taste this strong, I guess.<br>Take care!"
             ],
             "water": [
                 "Cheers! A good enough Parti, and definitely better than a cheeky pint back home, you know?",
-                "{TRINKET 0}Let me give you a little something. It's a <b>souvenir</b> from my voyages.<br>Take care now, love!"
+                "{TRINKET 0}Let me give you a little decoration. It's a <b>souvenir</b> from my voyages.<br>Take care now, love!"
             ]
         },
         "tip": 3
