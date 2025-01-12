@@ -202,6 +202,7 @@ namespace SavedGameData
         {
             Savings += dailyBalance;
             TodayEarnings = 0;
+            Log.Clear();
             SaveToJson();
         }
     

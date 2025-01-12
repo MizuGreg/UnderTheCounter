@@ -2430,11 +2430,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterBuff
-      value: <i>fancy</i>
+      value: Fancy
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNerf
-      value: <i>over the top</i>
+      value: Over the top
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterImage
@@ -5813,7 +5813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterBuff
-      value: Slower blitzes
+      value: Easier blitzes
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNerf

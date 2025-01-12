@@ -126,7 +126,7 @@
                 "I might be in the age of retirement, but I'm not naïve: this isn't a <b<Barber</b>. Do better next time! Goodnight!"
             ],
             "wrong": [
-                "I might be in the age of retirement, but I'm not stupid: this isn't a <b<Barber</b>, and on top of that, it tastes awful! Do better next time, goodnight!"
+                "I might be in the age of retirement, but I'm not stupid: this isn't a <b>Barber</b>, and on top of that, it tastes awful! Do better next time, goodnight!"
             ]
         }
     },
