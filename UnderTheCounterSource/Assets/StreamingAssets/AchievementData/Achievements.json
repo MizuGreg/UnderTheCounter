@@ -1,14 +1,6 @@
 {
   "achievements": [
     {
-      "id": "pressed W",
-      "title": "A bar of your own",
-      "description": "Wow you have pressed W!",
-      "isUnlocked": false,
-      "progress": 0,
-      "target": 1
-    },
-    {
       "id": "tutorial completed",
       "title": "A bar of your own",
       "description": "You have completed the tutorial",
@@ -52,8 +44,8 @@
       "id": "blitzed out",
       "title": "Blitzed out",
       "description": "Lose by blitz",
-      "isUnlocked": true,
-      "progress": 1,
+      "isUnlocked": false,
+      "progress": 0,
       "target": 1
     },
     {
@@ -68,8 +60,8 @@
       "id": "every cloud",
       "title": "Every cloud...",
       "description": "Margareth gets drunk",
-      "isUnlocked": true,
-      "progress": 1,
+      "isUnlocked": false,
+      "progress": 0,
       "target": 1
     },
     {

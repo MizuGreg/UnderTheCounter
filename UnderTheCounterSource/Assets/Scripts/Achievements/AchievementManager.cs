@@ -11,25 +11,6 @@ namespace Achievements
         [SerializeField] private GameObject popUp;
         
         private List<Achievement> _achievements;
-       
-        
-        // DEBUG
-        private void Update()
-        {
-            // Esempio: Incrementa il progresso dell'achievement "pressed W" quando premi il tasto W
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                UpdateAchievement("pressed W", 1);
-            }
-            
-            // Debug
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                ResetAchievements();
-            }
-        }
-        // ------------------
-
 
         void Awake()
         {
