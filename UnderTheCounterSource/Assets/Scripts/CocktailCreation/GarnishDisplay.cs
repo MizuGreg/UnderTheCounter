@@ -19,30 +19,29 @@ namespace CocktailCreation
         private void Start()
         {
             this.GetComponent<Image>().sprite = garnish.sprite;
-            GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
+            GetComponent<Image>().alphaHitTestMinimumThreshold = 0.0039f;
         }
         
         
         public override void OnDrag(PointerEventData eventData)
         {
+            // Calculate the vertical delta movement, ignoring the horizontal delta
+            _pointerDelta = new Vector2(0, eventData.delta.y / Canvas.scaleFactor); // Only vertical movement
+            
+            // Limit the drag speed to prevent large jumps
+            _pointerDelta.y = Mathf.Clamp(_pointerDelta.y, -10f, 10f); // Adjust the limits as needed
+            
+            // Apply the vertical delta to the current position
+            ActualPosition.y += _pointerDelta.y;
 
-            _pointerDelta = eventData.delta / Canvas.scaleFactor;
+            // Clamp the position to enforce vertical boundaries
+            ActualPosition.y = Mathf.Clamp(ActualPosition.y, _dropSlotPosition.y, InitialPosition.y);
 
-            if (ActualPosition.y + _pointerDelta.y < _dropSlotPosition.y)
-            {
-                ActualPosition.y = _dropSlotPosition.y;
-            }
-            else if (ActualPosition.y + _pointerDelta.y > InitialPosition.y)
-            {
-                ActualPosition.y = InitialPosition.y;
-            }
-            else
-            {
-                ActualPosition.y += _pointerDelta.y;
-            }
-
-            RectTransform.anchoredPosition = ActualPosition;
+            // Apply the clamped position (horizontal position remains unchanged)
+            RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, ActualPosition.y);
         }
+
+
         
 
         protected override void EndDragBehaviour()
