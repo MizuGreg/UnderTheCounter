@@ -79,6 +79,7 @@ namespace Technical
         public static UnityAction OnDealMade;
         public static UnityAction OnHalfTrinketCollected;
         public static UnityAction OnBankrupt;
+        public static UnityAction OnBlitzLose;
         public static UnityAction OnWin;
         public static UnityAction OnButterfly1;
         public static UnityAction OnButterfly2;

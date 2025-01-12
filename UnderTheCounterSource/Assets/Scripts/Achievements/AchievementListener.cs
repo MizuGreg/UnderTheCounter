@@ -10,16 +10,16 @@ namespace Achievements
         void Awake()
         {
             // Subscribe to events
-            // Todo: trigger the events
+            // Todo: trigger the event OnWin
             EventSystemManager.OnTutorialCompleted += TutorialCompleted;
             EventSystemManager.OnDealMade += DealWithTheDevil;
             EventSystemManager.OnHalfTrinketCollected += AspiringCollector;
-            //EventSystemManager.OnBankrupt += Bankrupt;
-            EventSystemManager.OnBlitzTimerEnded += BlitzedOut;
+            EventSystemManager.OnBankrupt += Bankrupt;
+            EventSystemManager.OnBlitzLose += BlitzedOut;
             //EventSystemManager.OnWin += EndOfTheLine;
             EventSystemManager.OnButterfly1 += EveryCloud;
             EventSystemManager.OnButterfly2 += HasASilverLining;
-            //EventSystemManager.OnBarBurned += MafiasPawn;
+            EventSystemManager.OnBarBurned += MafiasPawn;
             EventSystemManager.OnDealRefused += PlayingItClean;
             EventSystemManager.OnCocktailWatered += ShakenStirredStretched;
             EventSystemManager.OnBackstabbed += TheBackstabber;
@@ -33,12 +33,12 @@ namespace Achievements
             EventSystemManager.OnTutorialCompleted -= TutorialCompleted;
             EventSystemManager.OnDealMade -= DealWithTheDevil;
             EventSystemManager.OnHalfTrinketCollected -= AspiringCollector;
-            //EventSystemManager.OnBankrupt -= Bankrupt;
-            EventSystemManager.OnBlitzTimerEnded -= BlitzedOut;
+            EventSystemManager.OnBankrupt -= Bankrupt;
+            EventSystemManager.OnBlitzLose -= BlitzedOut;
             //EventSystemManager.OnWin -= EndOfTheLine;
             EventSystemManager.OnButterfly1 -= EveryCloud;
             EventSystemManager.OnButterfly2 -= HasASilverLining;
-            //EventSystemManager.OnBarBurned -= MafiasPawn;
+            EventSystemManager.OnBarBurned -= MafiasPawn;
             EventSystemManager.OnDealRefused -= PlayingItClean;
             EventSystemManager.OnCocktailWatered -= ShakenStirredStretched;
             EventSystemManager.OnBackstabbed -= TheBackstabber;
