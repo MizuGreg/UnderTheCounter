@@ -35,10 +35,9 @@ namespace Technical
             EventSystemManager.OnTimeUp += OnTimeUpSound;
             EventSystemManager.OnDayEnd += OnDayEndSound;
             
-            // EventSystemManager.OnBlitzTimerWarning += OnBlitzTimerWarningSound;
             EventSystemManager.OnBlitzTimerEnded += OnBlitzTimerEndedSound;
             EventSystemManager.OnBlitzCalled += OnBlitzCalledSound;
-            EventSystemManager.OnMinigameEnd += OnBlitzTimerEndedSound;
+            EventSystemManager.OnMinigameEnd += OnBlitzWonSound;
             EventSystemManager.OnHowardEnter += OnDoorSlamSound;
             EventSystemManager.OnHowardEnter += OnLoadBarViewSound;
             
@@ -67,10 +66,9 @@ namespace Technical
             EventSystemManager.OnTimeUp -= OnTimeUpSound;
             EventSystemManager.OnDayEnd -= OnDayEndSound;
 
-            // EventSystemManager.OnBlitzTimerWarning -= OnBlitzTimerWarningSound;
             EventSystemManager.OnBlitzTimerEnded -= OnBlitzTimerEndedSound;
             EventSystemManager.OnBlitzCalled -= OnBlitzCalledSound;
-            EventSystemManager.OnMinigameEnd -= OnBlitzTimerEndedSound;
+            EventSystemManager.OnMinigameEnd -= OnBlitzWonSound;
             EventSystemManager.OnHowardEnter -= OnDoorSlamSound;
             EventSystemManager.OnHowardEnter -= OnLoadBarViewSound;
             
@@ -192,11 +190,6 @@ namespace Technical
             EazySoundManager.PlaySound(soundData.pageTurnedSound);
         }
 
-        private void OnBlitzTimerWarningSound()
-        {
-            EazySoundManager.PlaySound(soundData.blitzTimerWarningSound);
-        }
-
         private void OnBlitzTimerEndedSound()
         {
             EazySoundManager.PlaySound(soundData.blitzTimerEndSound);
@@ -232,6 +225,11 @@ namespace Technical
         {
             yield return new WaitForSeconds(0.75f);
             EazySoundManager.PlaySound(soundData.doorSlamSound);
+        }
+
+        private void OnBlitzWonSound()
+        {
+            EazySoundManager.PlaySound(soundData.blitzWonSound);
         }
     }
 }
