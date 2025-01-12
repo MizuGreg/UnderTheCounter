@@ -1,14 +1,6 @@
 {
   "achievements": [
     {
-      "id": "pressed W",
-      "title": "A bar of your own",
-      "description": "Wow you have pressed W!",
-      "isUnlocked": false,
-      "progress": 0,
-      "target": 1
-    },
-    {
       "id": "tutorial completed",
       "title": "A bar of your own",
       "description": "You have completed the tutorial",
