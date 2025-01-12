@@ -6,13 +6,13 @@
         "lines": {
             "greet": [
                 "Honey! I'm starting to wonder if you ever get days off, you know? {BAR NAME} seems to always be open at night!",
-                "Honey, would you be so kind as to get me a <b>Palmera</b>?"
+                "Now, would you be so kind as to get me a <b>Palmera</b>?"
             ],
             "correct": [
-                "Booze, jazz music, the latest Rogue and a cute bartender right in front of me… What more can I ask for? <3<br>Bye bye for now!"
+                "Booze, jazz music, the latest Rogue and a cute bartender right in front of me… What more can I ask for? <i>*wink*</i><br>Bye bye for now!"
             ],
             "water": [
-                "Booze, jazz music, the latest Rogue and a cute bartender right in front of me… What more can I ask for? <3<br>Bye bye for now!"
+                "Booze, jazz music, the latest Rogue and a cute bartender right in front of me… What more can I ask for? <i>*wink*</i><br>Bye bye for now!"
             ],
             "wrong": [
                 "Booze, jazz music and the latest Rogue… Well, it's almost perfect. The cocktail was a bit off, but don't you worry, honey!<br>Bye bye for now!"
@@ -22,7 +22,7 @@
     {
         "sprite": "Betty",
         "order": "Everest",
-        "orderOnPostIt": "Everest/Barber",
+        "orderOnPostIt": "Everest or Barber",
         "tip": 2,
         "lines": {
             "greet": [
@@ -31,8 +31,8 @@
                 "I was FURIOUS. So get me something strong now. <i>Please</i>. An Everest or a Barber, whatever is quicker."
             ],
             "correct": [
-                "Aaaaah. Just what I asked and what I needed. And you don't even charge that much for it. After all, you could charge higher for alcohol, given that it's illegal now.",
-                "But you're honest and you don't do that. Honest. My ex husband can learn from you, tsk. Goodbye."
+                "Aaaaah. Just what I asked and what I needed. And you don't even charge that much for it. After all, you <i>could</i> charge higher for alcohol, given that it's illegal now.",
+                "But you're honest and you don't do that. <i>Honesty</i>. My ex husband can learn from you, tsk. Goodbye."
             ],
             "Barber": [
                 "Aaaah, what a nice Barber. And you don't even charge that much for it. After all, you <i>could</i> charge higher for alcohol, given that it's illegal now.",
@@ -50,7 +50,8 @@
     },
     {
         "sprite": "Eugene",
-        "order": "Orange garnish",
+        "order": "Ripple",
+        "orderOnPostIt": "Orange garnish",
         "tip": 3,
         "lines": {
             "greet": [
