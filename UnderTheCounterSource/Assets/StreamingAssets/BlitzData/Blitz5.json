@@ -8,7 +8,7 @@
       ],
       "choices": [
         "I've never met such a person",
-        "this morning, yes, of course"
+        "This morning, yes, of course"
       ],
       "correct": [
         "All right, thanks for your time, I'll keep looking.",
@@ -25,18 +25,22 @@
   {
     "lines": {
       "greet": [
-        "ahah, sono di nuovo io, howard",
-        "wi wo wi wo"
+        "Bartender's Uniooooon, your work here is done!",   
+        "What... but this is just a bar, this is the second time I come here today, what a strange coincidence.",
+        "Damn, I said Bartender's Union instead of Korgis Police when I opened the door... that's top secret information...",
+        "Ugh, so stupid of me... Well, while I'm here, bartender, since this is the second time people have signalled me to your bar, are you by any chance involved with them?"
       ],
       "choices": [
-        "paolo",
-        "piero"
+        "No, not at all sir",
+        "Well... yes, I'm in contact with them"
       ],
       "correct": [
-        "paolo is the best"
+        "Damn, now you’re a person who knows top secret information and I haven't gained anything from it.",
+        "I hope you're a person I can trust."
       ],
       "wrong": [
-        "AAAAAAAAAAAAAAAAAAAAA (internal screaming in italian)"
+        "I knew it! You're one of them, aren't you?",
+        "I need to investigate further, just so you know, you're now under the eye of the Korgis police, so be careful what you do bartender."
       ]
     },
     "correctChoice": 0

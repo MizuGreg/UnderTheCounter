@@ -8,7 +8,7 @@
                 "Can I say, I don't blame you, expenses are huge these days, I can't even afford to eat out... I was a wondering what is the biggest expense in a bar these days."
             ],
             "choices": [
-                "alchol supplies",
+                "Alchol supplies",
                 "Electricity, gas and rent"
             ],
             "correct": [
@@ -27,18 +27,22 @@
     {
         "lines": {
             "greet": [
-                "ahah, sono di nuovo io, howard",
-                "wi wo wi wo"
+                "KORGIS POLICE! PUT YOUR HANDS ON THE TABLE!",
+                "Here again? do you want to explain to me why people keep segnaling this bar?",
+                "Maybe you’ve something to hide... even if I don’t see nothing here... AGAIN.",
+                "Anyway I have to continue my job, just in case please advise me in case you see someone servong alcohol, this will be nice way to be a korgis cictizen and help the law"
             ],
             "choices": [
-                "paolo",
-                "piero"
+                "You can be sure, sir",
+                "Who does the spy is not son of Mary"
             ],
             "correct": [
-                "paolo is the best"
+                "That’s diligent citizen, respecful of the law (<i>me</i>) and the authorities."
             ],
             "wrong": [
-                "AAAAAAAAAAAAAAAAAAAAA (internal screaming in italian)"
+                "I know that way of saying things is Italian, isn't it? I bet you're one of them...",
+                "Damn those Italian, alwyas mafia, pizza, pasta, mandolino... all involved in nasty business.",
+                "Let's hope you're just saying that, otherwise I'll have to cuff you next time."
             ]
         },
         "correctChoice": 0

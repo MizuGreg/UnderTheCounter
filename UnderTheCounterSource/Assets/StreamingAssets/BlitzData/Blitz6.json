@@ -26,18 +26,22 @@
   {
     "lines": {
       "greet": [
-        "ahah, sono di nuovo io, howard",
-        "wi wo wi wo"
+        "This is the time...",
+        "KORGIS POLICE! PUT THE ALCOHOL BOTTLES ON THE FLOOR!",
+        "I see bottles, but not the ones with the devil's substance in them...",
+        "By the way, about the person I told you about yesterday... wait, was it you I told yesterday? or was it another bartender?",
+        "<size=75%><i>*My memory is falling apart from stress... sobs.*</i><size=100%> Anyway, if the Korgis Mafia came into your bar and asked you to do illegal business with them, will you tell me?"
       ],
       "choices": [
-        "paolo",
-        "piero"
+        "Absolutely yes, sir!",
+        "Uhmmmm..."
       ],
       "correct": [
-        "paolo is the best"
+        "Nice, nice... that’s good to hear. I’ll let you continue your job."
       ],
       "wrong": [
-        "AAAAAAAAAAAAAAAAAAAAA (internal screaming in italian)"
+        "Why are you hesitating, bartender, do you have something to hide? I see the beads of sweat on your temples.",
+        "Why do you bartenders always have to be so mysterious? Another reason to keep an eye on all of you."
       ]
     },
     "correctChoice": 0

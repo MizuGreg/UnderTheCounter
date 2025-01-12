@@ -3,8 +3,8 @@
         "lines": {
             "greet": [
                 "Bartendeeerrrr, I know what your doing, hands up!",
-                "oh... this seems like a normal bar tho... no alcohol to be seen. Damn those kids, they have pranked me again, they will learn to respect me, the law.",
-                "ya know, they always use this popular way of saying nowadays it was similar to <i>I have to see a man...</i>"
+                "Oh... this seems like a normal bar tho... no alcohol to be seen. Damn those kids, they have pranked me again, they will learn to respect me, the law.",
+                "Ya know, they always use this popular way of saying nowadays it was similar to <i>I have to see a man...</i>"
             ],
             "choices": [
                 "<i>...picking a flower</i>",
@@ -27,17 +27,23 @@
     {
         "lines": {
             "greet": [
-               "TBD"
+                "Good morning bartender, how are you doing here in this nasty place of a bar?",
+                "Oh, I was already here today, that's suspicious... but I didn't find anything here before.",
+                "Ugh, those kids again, they don't understand how bad it is to talk about alcohol like that, in this free way, they don't know what it did to my mother... <size=75%><i>*crickets*</i><size=100%>",
+                "Ehm ehm... anyway, what do you think about it?"
             ],
             "choices": [
-                "TBD",
-                "TBD"
+                "I don’t think alcohol is that bad at all...",
+                "Yes, it’s absoluteley dangerous sir"
             ],
             "correct": [
-                "TBD"
+                "I knew you could understand me and my pain, you’re a nice guy... girl... person!",
+                "Let's hope we meet again, maybe I'll come here for a coffee one day."
             ],
             "wrong": [
-                "TBD"
+                "That's a very strange thing to say, don't you realise you're standing in front of a police inspector?",
+                "And you say that to me after what I've told you about my mother!",
+                "Next time you make a stance like that, I'll put you in jail, so keep an eye out, bartender."
             ]
         },
         "correctChoice": 1

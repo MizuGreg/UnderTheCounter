@@ -26,18 +26,20 @@
   {
     "lines": {
       "greet": [
-        "ahah, sono di nuovo io, howard",
-        "wi wo wi wo"
+        "Damn you have very strong doors bartender, i should ask your supplier. <size=75%><i>*why I keep distracting myself with dumb stuff, anyway*</i><size=100%>",
+        "Bartender, the print is distributing fake news about some undercover people who are going to undercover bars asking for a cocktail, did you heard something about it? did you find anything weird about your customers lately? don’t you find funny that i’m for the second time here today? and i don’t want to order a coffee."
       ],
       "choices": [
-        "paolo",
-        "piero"
+        "Not really, and I'm sorry you're not ordering coffee",
+        "Yes! I've heard about it and some of them have come here."
       ],
       "correct": [
-        "paolo is the best"
+        "Bartender, I cannot drink when I am on duty, you should know it or other police ispectors are coming here during working hours? I need to check."
       ],
       "wrong": [
-        "AAAAAAAAAAAAAAAAAAAAA (internal screaming in italian)"
+        "Mhhhhhhhh.... that is suspicious.",
+        "If they came here they should have a reason, don't you serve alcohol, my tense and mysterious bartender?",
+        "We'll see... if that's the case, jail is waiting for you."
       ]
     },
     "correctChoice": 0
