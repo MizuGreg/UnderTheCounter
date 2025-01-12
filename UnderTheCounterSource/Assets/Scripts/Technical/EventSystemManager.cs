@@ -45,8 +45,7 @@ namespace Technical
         public static UnityAction OnMinigameEnd;
         public static UnityAction MultipleChoiceStart;
         public static UnityAction OnBlitzEnd;
-
-        // public static UnityAction OnChangeBlitzMusic;
+        public static UnityAction OnHowardEnter;
 
         // Scene loads
         public static UnityAction OnLoadMainMenu;

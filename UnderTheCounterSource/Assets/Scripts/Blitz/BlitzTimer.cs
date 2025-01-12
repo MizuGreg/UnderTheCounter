@@ -15,12 +15,14 @@ public class BlitzTimer : MonoBehaviour
     {
         EventSystemManager.OnBlitzCalled += StartTimer;
         EventSystemManager.OnBlitzEnd += ResetTimer;
+        EventSystemManager.OnMinigameEnd += StopTimer;
     }
     
     private void OnDestroy()
     {
         EventSystemManager.OnBlitzCalled -= StartTimer;
         EventSystemManager.OnBlitzEnd -= ResetTimer;
+        EventSystemManager.OnMinigameEnd -= StopTimer;
     }
     
     public void SetTimer()
@@ -49,7 +51,7 @@ public class BlitzTimer : MonoBehaviour
             if (timeRemaining < 3f && !warningRinged)
             {
                 warningRinged = true;
-                EventSystemManager.OnBlitzTimerWarning();
+                // EventSystemManager.OnBlitzTimerWarning();
             }
             
             if (timeRemaining <= 0f)
@@ -66,5 +68,10 @@ public class BlitzTimer : MonoBehaviour
         isTimerRunning = false;
         warningRinged = false;
         timerBarImage.fillAmount = 1f;
+    }
+
+    private void StopTimer()
+    {
+        isTimerRunning = false;
     }
 }

@@ -35,11 +35,12 @@ namespace Technical
             EventSystemManager.OnTimeUp += OnTimeUpSound;
             EventSystemManager.OnDayEnd += OnDayEndSound;
             
-            EventSystemManager.OnBlitzTimerWarning += OnBlitzTimerWarningSound;
+            // EventSystemManager.OnBlitzTimerWarning += OnBlitzTimerWarningSound;
             EventSystemManager.OnBlitzTimerEnded += OnBlitzTimerEndedSound;
             EventSystemManager.OnBlitzCalled += OnBlitzCalledSound;
-            EventSystemManager.OnMinigameEnd += OnDoorSlamSound;
-            EventSystemManager.OnMinigameEnd += OnLoadBarViewSound;
+            EventSystemManager.OnMinigameEnd += OnBlitzTimerEndedSound;
+            EventSystemManager.OnHowardEnter += OnDoorSlamSound;
+            EventSystemManager.OnHowardEnter += OnLoadBarViewSound;
             
             EventSystemManager.OnPosterHung += OnPosterHungSound;
             EventSystemManager.OnPosterRippedDown += OnPosterRippedDownSound;
@@ -66,11 +67,12 @@ namespace Technical
             EventSystemManager.OnTimeUp -= OnTimeUpSound;
             EventSystemManager.OnDayEnd -= OnDayEndSound;
 
-            EventSystemManager.OnBlitzTimerWarning -= OnBlitzTimerWarningSound;
+            // EventSystemManager.OnBlitzTimerWarning -= OnBlitzTimerWarningSound;
             EventSystemManager.OnBlitzTimerEnded -= OnBlitzTimerEndedSound;
             EventSystemManager.OnBlitzCalled -= OnBlitzCalledSound;
-            EventSystemManager.OnMinigameEnd -= OnDoorSlamSound;
-            EventSystemManager.OnMinigameEnd -= OnLoadBarViewSound;
+            EventSystemManager.OnMinigameEnd -= OnBlitzTimerEndedSound;
+            EventSystemManager.OnHowardEnter -= OnDoorSlamSound;
+            EventSystemManager.OnHowardEnter -= OnLoadBarViewSound;
             
             EventSystemManager.OnPosterHung -= OnPosterHungSound;
             EventSystemManager.OnPosterRippedDown -= OnPosterRippedDownSound;
@@ -228,7 +230,7 @@ namespace Technical
 
         private IEnumerator PlayDoorSlamSound()
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.75f);
             EazySoundManager.PlaySound(soundData.doorSlamSound);
         }
     }

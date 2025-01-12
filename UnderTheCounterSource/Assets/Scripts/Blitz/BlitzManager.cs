@@ -114,10 +114,16 @@ namespace Blitz
         {
             if (placedBottlesCounter == placeholderPrefabs.Count) 
             {
-                // we need some kind of confirmation to show up for the player, then wait a bit, and then fade out
-                blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
-                EventSystemManager.OnMinigameEnd();
+                StartCoroutine(WinByBlitz());
             }
+        }
+
+        private IEnumerator WinByBlitz()
+        {   
+            EventSystemManager.OnMinigameEnd();
+            yield return new WaitForSeconds(1f);
+            EventSystemManager.OnHowardEnter();
+            blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
         }
         
         private void LossByBlitz()
