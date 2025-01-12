@@ -702,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 7344142e78a08b54a981c7739fcd2ff9, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNameText
@@ -1604,7 +1604,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: d0d7585aa829c7d49b1d466197519274, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: currencyIcon
@@ -2200,7 +2200,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: bd447dabb4e46664bbd7aca262c9c80c, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNameText
@@ -5825,7 +5825,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 0939f79d252d6d7469713721b92a27a6, type: 3}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterPrice
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8476635146433911333, guid: 01c0f203cd20ac444929f1d95e32c567, type: 3}
       propertyPath: posterNameText

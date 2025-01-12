@@ -36,7 +36,7 @@ namespace SavedGameData
         public static List<Poster> Posters = new();
         public static List<int> Trinkets = new();
 
-        public static int payoffAmount = 50;
+        public static int payoffAmount = 40;
     
         public static float Savings = 50;
         public static float TodayEarnings = 0;
@@ -109,28 +109,28 @@ namespace SavedGameData
                     MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
-                    Supplies = 30;
+                    Supplies = 25;
                     break;
                 case 5:
                     DailyTime = 270;
                     MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
-                    Supplies = 40;
+                    Supplies = 30;
                     break;
                 case 6:
                     DailyTime = 270;
                     MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
-                    Supplies = 50;
+                    Supplies = 35;
                     break;
                 case 7: default:
                     DailyTime = 270;
                     MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
-                    Supplies = 50;
+                    Supplies = 40;
                     break;
             }
 
