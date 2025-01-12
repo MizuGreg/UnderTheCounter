@@ -19,7 +19,7 @@ namespace CocktailCreation
         private void Start()
         {
             this.GetComponent<Image>().sprite = garnish.sprite;
-            GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
+            GetComponent<Image>().alphaHitTestMinimumThreshold = 0.0039f;
         }
         
         
