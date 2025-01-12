@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using SavedGameData;
 
 namespace Endings
 {
@@ -23,45 +24,34 @@ namespace Endings
 
         private string endingType;
 
-        private void Awake()
+        private void Start()
         {
-            EventSystemManager.OnLoadLoseScreen += StartEnding;
-            
+            endingCanvas.FadeIn();
+
             continueButton.gameObject.SetActive(false);
             backToMenuButton.gameObject.SetActive(false);
             currentText.gameObject.SetActive(false);
 
-            // used for testing
-            // StartEnding("bankrupt");
+            LoadEnding(GameData.loseType);
         }
 
-        private void OnDestroy()
-        {
-            EventSystemManager.OnLoadLoseScreen -= StartEnding;
-        }
-
-        public void StartEnding(string ending)
+        public void LoadEnding(string ending)
         {
             endingType = ending;
-            LoadEnding();
-        }
-
-        public void LoadEnding()
-        {
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/EndingsData/Endings.json");
             _endingsText = JsonConvert.DeserializeObject<List<Ending>>(jsonString).FindAll(ending => ending.type == endingType);
             stringList = _endingsText[0].lines;
 
             journal.sprite = Resources.Load<Sprite>("Sprites/Endings/" + endingType);
 
+            // used for debug info
             Debug.Log("Ending loaded: " + endingType);
 
-            FadeEnding();
+            StartEndingText();
         }
 
-        public void FadeEnding()
+        public void StartEndingText()
         {
-            SceneManager.LoadScene("EndingScene");
             StartCoroutine(ShowText());
         }
 

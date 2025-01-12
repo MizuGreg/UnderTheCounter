@@ -30,6 +30,7 @@ namespace SavedGameData
         public static bool WasLastBlitzFailed = false;
         public static bool fastDay = false;
         public static bool allCustomersServed = false;
+        public static string loseType;
     
         public static List<Poster> Posters = new();
         public static List<int> Trinkets = new();

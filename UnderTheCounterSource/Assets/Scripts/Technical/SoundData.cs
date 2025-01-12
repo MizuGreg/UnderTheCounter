@@ -44,5 +44,6 @@ namespace Technical
         [Header("Blitz")]
         public AudioClip blitzTimerWarningSound;
         public AudioClip blitzTimerEndSound;
+        public AudioClip doorSlamSound;
     }
 }

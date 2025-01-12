@@ -227,9 +227,10 @@ namespace EndOfDay
         private IEnumerator LoadGameOverScene()
         {
             endOfDayCanvas.FadeOut();
-            yield return new WaitForSeconds(1f);
-            // SceneManager.LoadScene("EndingScene");
             EventSystemManager.OnLoadLoseScreen(endingType);
+            yield return new WaitForSeconds(2f);
+            GameData.loseType = endingType;
+            SceneManager.LoadScene("EndingScene");
         }
 
         private IEnumerator LoadNextScene()

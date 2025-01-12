@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
+using SavedGameData;
 
 namespace Blitz
 {
@@ -65,7 +67,7 @@ namespace Blitz
 
         private IEnumerator FadeInBlitz()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             blitzIncomingPopup.FadeIn();
             // increase timer before fade in for music coherence
             yield return new WaitForSeconds(2.5f);
@@ -127,10 +129,10 @@ namespace Blitz
         {
             yield return new WaitForSeconds(2f);
             barContainer.GetComponent<FadeCanvas>().FadeOut();
-            yield return new WaitForSeconds(2f);
-            // SceneManager.LoadScene("EndingScene");
-            Debug.Log("Blitz loss");
             EventSystemManager.OnLoadLoseScreen("blitz");
+            yield return new WaitForSeconds(2f);
+            GameData.loseType = "blitz";
+            SceneManager.LoadScene("EndingScene");
         }
     }
 }

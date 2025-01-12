@@ -46,6 +46,8 @@ namespace Technical
         public static UnityAction MultipleChoiceStart;
         public static UnityAction OnBlitzEnd;
 
+        // public static UnityAction OnChangeBlitzMusic;
+
         // Scene loads
         public static UnityAction OnLoadMainMenu;
         public static UnityAction OnLoadBarView;

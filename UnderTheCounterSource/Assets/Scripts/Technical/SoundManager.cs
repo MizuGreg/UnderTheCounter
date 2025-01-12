@@ -38,7 +38,8 @@ namespace Technical
             EventSystemManager.OnBlitzTimerWarning += OnBlitzTimerWarningSound;
             EventSystemManager.OnBlitzTimerEnded += OnBlitzTimerEndedSound;
             EventSystemManager.OnBlitzCalled += OnBlitzCalledSound;
-            // EventSystemManager.OnMinigameEnd += OnLoadBarViewSound;
+            EventSystemManager.OnMinigameEnd += OnDoorSlamSound;
+            EventSystemManager.OnMinigameEnd += OnLoadBarViewSound;
             
             EventSystemManager.OnPosterHung += OnPosterHungSound;
             EventSystemManager.OnPosterRippedDown += OnPosterRippedDownSound;
@@ -68,7 +69,8 @@ namespace Technical
             EventSystemManager.OnBlitzTimerWarning -= OnBlitzTimerWarningSound;
             EventSystemManager.OnBlitzTimerEnded -= OnBlitzTimerEndedSound;
             EventSystemManager.OnBlitzCalled -= OnBlitzCalledSound;
-            // EventSystemManager.OnMinigameEnd -= OnLoadBarViewSound;
+            EventSystemManager.OnMinigameEnd -= OnDoorSlamSound;
+            EventSystemManager.OnMinigameEnd -= OnLoadBarViewSound;
             
             EventSystemManager.OnPosterHung -= OnPosterHungSound;
             EventSystemManager.OnPosterRippedDown -= OnPosterRippedDownSound;
@@ -210,8 +212,24 @@ namespace Technical
 
         private void OnBlitzCalledSound()
         {
+            StartCoroutine(PlayBlitzMusic());
+        }
+
+        private IEnumerator PlayBlitzMusic()
+        {
+            yield return new WaitForSeconds(1.0f);
             EazySoundManager.PlayMusic(soundData.blitzMusic, 1, true, true, 3, 3);
         }
-        
+
+        private void OnDoorSlamSound()
+        {
+            StartCoroutine(PlayDoorSlamSound());
+        }
+
+        private IEnumerator PlayDoorSlamSound()
+        {
+            yield return new WaitForSeconds(1.0f);
+            EazySoundManager.PlaySound(soundData.doorSlamSound);
+        }
     }
 }
