@@ -22,5 +22,12 @@
             "Your bar has gone up in flames, dreams and hopes have gone up in smoke from night to morning.",
             "Actually, you should really invest in an ashtray"
         ]
+    },
+    {
+        "type": "good",
+        "lines": [
+            "In the end, a law was changed for the city of Korgis, we don't know who did it, but you managed to fight it to the end.",
+            "You are now free to continue your work, not that you ever stopped."
+        ]
     }
 ]
