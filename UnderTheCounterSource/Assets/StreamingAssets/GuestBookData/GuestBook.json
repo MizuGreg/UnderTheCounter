@@ -1,0 +1,170 @@
+{
+    "guests": [
+        {
+            "isUnlocked": false,
+            "index": 2,
+            "Name": "Margaret Brookside",
+            "Age": "23",
+            "Height": "170 cm",
+            "Status": "Un-reciprocated crush",
+            "Job": "Actress",
+            "Favourite Drink": "Spring Bee",
+            "Description": "A spirited young actress with stars in her eyes and a heart full of dreams. Margaret's romantic soul often tangles with her demanding career, leaving her longing for connections that elude her. She enters the bar seeking solace, only to find unrequited affection."
+
+        },
+        {
+            "isUnlocked": false,
+            "index": 6,
+            "Name": "Kathryn Lesbihonest",
+            "Age": "28",
+            "Height": "178 cm",
+            "Status": "Single",
+            "Job": "Acheologist researcher",
+            "Favourite Drink": "Parti",
+            "Description": "A worldly explorer with a sharp mind and a knack for bending rules. Kathryn's charm and resourcefulness make her a fascinating companion, though her mischievous smile hints at secrets she keeps hidden. A free spirit with a penchant for leaving hearts (and artifacts) in her wake."
+        },
+        {
+            "isUnlocked": false,
+            "index": 3,
+            "Name": "Helene Hollis",
+            "Age": "29",
+            "Height": "165 cm",
+            "Status": "Engaged with Charles",
+            "Job": "Rich housewife",
+            "Favourite Drink": "Palmera",
+            "Description": "The epitome of elegance and affluence, Helene graces establishments with her presence, and judgment. Always keen to leave a lasting impression, she bestows lavish tips with a haughty air, ensuring her refined manners shine as brightly as her wealth."
+        },
+        {
+            "isUnlocked": false,
+            "index": 0,
+            "Name": "Ernest Wade",
+            "Age": "70",
+            "Height": "179 cm",
+            "Status": "Married",
+            "Job": "Retired bartender",
+            "Favourite Drink": "Everest",
+            "Description": "A kind-hearted elder with decades of stories from behind the bar. Ernest teaches the art of mixology with a patient hand, guiding novices as a benevolent mentor. His calm demeanor and quiet encouragement make him the grandfatherly figure every aspiring bartender admires."
+        },
+        {
+            "isUnlocked": false,
+            "index": 4,
+            "Name": "Charles Doyle",
+            "Age": "35",
+            "Height": "182 cm",
+            "Status": "Engaged with Helene",
+            "Job": "Banker",
+            "Favourite Drink": "Parti",
+            "Description": "Stoic and enigmatic, Charles speaks little but observes much. His stern gaze and unwavering focus conceal depths few dare to explore. A man of duty and discretion, he keeps his cards, and his emotions, close to his chest."
+        },
+        {
+            "isUnlocked": false,
+            "index": 5,
+            "Name": "Elisabeth Sanford",
+            "Age": "You shouldn’t ask (78)",
+            "Height": "160 cm", 
+            "Status": "Insufferable cunt",
+            "Job": "Being divorced",
+            "Favourite Drink": "Barber",
+            "Description": "A sharp-tongued dowager with an axe to grind, Beatrice spares no words for those who cross her. Life has left her bitter but sharp-witted, her exacting standards ensuring no detail escapes her critical eye—or her thick spectacles."
+        },
+        { 
+            "isUnlocked": false,
+            "index": 13,
+            "Name": "Howard Preston",
+            "Age": "43",
+            "Height": "182 cm",
+            "Status": "Single",
+            "Job": "Police inspector",
+            "Favourite Drink": "Water",
+            "Description": "A man shaped by tragedy, Howard carries the weight of a promise made long ago. His resolve to rid Korgis of alcohol stems from a painful past. Serious and uncompromising, he serves the city with dedication, battling the shadows of a substance he deems malicious."
+        },
+        {
+            "isUnlocked": false,
+            "index": 7,
+            "Name": "Eugene Norris",
+            "Age": "28",
+            "Height": "185 cm",
+            "Status": "Just married with Doris",
+            "Job": "Proofreader for a book publishing house",
+            "Favourite Drink": "Ripple",
+            "Description": "Freshly married and full of optimism, Eugene radiates joy wherever he goes. Exploring the city with his bride, he views every moment as a new adventure. His lively spirit and infectious enthusiasm brighten even the dimmest corners."
+        },
+        {
+            "isUnlocked": false,
+            "index": 8,
+            "Name": "Doris Norris",
+            "Age": "30",
+            "Height": "158 cm",
+            "Status": "Just married with Eugene",
+            "Job": "Book printing factory supervisor",
+            "Favourite Drink": "Ripple",
+            "Description": "Methodical and observant, Doris notices details others overlook. Her discerning nature extends to every corner of the bar, from the quality of her drink to the upkeep of its surroundings. Practical yet warm, she balances Eugene's exuberance perfectly."
+        },
+        {
+            "isUnlocked": false,
+            "index": 11,
+            "Name": "Willie Truman",
+            "Age": "35",
+            "Height": "180 cm",
+            "Status": "Single (on purpose)",
+            "Job": "Dancer",
+            "Favourite Drink": "Palmera",
+            "Description": "Flamboyant and unapologetically himself, Willie moves through life with the confidence of a star performer. His passion for art and fashion is evident in every step he takes, lighting up the room with his vibrant personality."
+        },
+        {
+            "isUnlocked": false,
+            "index": 10,
+            "Name": "Gaston Petit",
+            "Age": "43,5",
+            "Height": "173 cm",
+            "Status": "Married",
+            "Job": "Entreprenour",
+            "Favourite Drink": "Magazine",
+            "Description": "A savvy businessman with a keen understanding of the market, Gaston’s modest demeanor belies his immense wealth. Ever the pragmatist, he values quality and fairness, though his affection for his young son remains his best-kept secret."
+        },
+        {
+            "isUnlocked": false,
+            "index": 14,
+            "Name": "Mafia Goon",
+            "Age": "55",
+            "Height": "195 cm",
+            "Status": "Single", 
+            "Job": "Mafia Goon",
+            "Favourite Drink": "Money",
+            "Description": "Looming large with a menacing presence, the Mafia Goon is muscle for hire with a penchant for enforcing loyalty—by any means necessary. His hulking frame and cold demeanor leave no room for negotiation. For him, cash is king, and everything has a price."
+        },
+        {
+            "isUnlocked": false,
+            "index": 12,
+            "Name": "Kenneth Ward",
+            "Age": "75",
+            "Height": "176 cm",
+            "Status": "Married",
+            "Job": "Ex-veteran",
+            "Favourite Drink": "Everest",
+            "Description": "A seasoned man with tales of war and a penchant for sharing them. Kenneth’s wealth of experience often translates into unsolicited advice, but his intentions are as honorable as his military past."
+        },
+        {
+            "isUnlocked": false,
+            "index": 1,
+            "Name": "Ernest Dawe", 
+            "Age": "70",
+            "Height": "179 cm",
+            "Status": "Married",
+            "Job": "Bartender’s Union member",
+            "Favourite Drink": "Everest",
+            "Description": "Donning a new alias, Ernest Dawe is more than just a friendly face behind the bar. Beneath his calm exterior lies a man entrenched in the union’s secret dealings. Whether it’s cocktails or conspiracies, Ernest serves both with finesse."
+        },
+        {
+            "isUnlocked": false,
+            "index": 9,
+            "Name": "Luke Spencer",
+            "Age": "26",
+            "Height": "180 cm",
+            "Status": "Single, but trying",
+            "Job": "Propmaker at the local theater",
+            "Favourite drink": "Any" ,
+            "Description": "A gentle soul with a craftsman’s touch, Luke is as sincere as he is talented. Though his shyness and colorblindness sometimes hold him back, his dedication to his art speaks volumes. Romantic at heart, he’s ever hopeful for love to find him."
+        }
+    ]
+}

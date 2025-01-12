@@ -1,0 +1,89 @@
+using Technical;
+using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
+using TMPro;
+
+namespace Extra {
+    public class GuestBookManager : MonoBehaviour {
+        [SerializeField] private FadeCanvas guestBook;
+        [SerializeField] private Button leftButton;
+        [SerializeField] private Button rightButton;
+        private int currentCustomerIndex;
+        private List<Guest> _guestsData;
+        private Guest currentCustomer;
+
+        private void Start() {
+            leftButton.gameObject.SetActive(false);
+            rightButton.gameObject.SetActive(true);
+            
+            guestBook.FadeIn();
+
+            LoadGuestBook();
+        }
+
+        public void LoadGuestBook() {
+            // Load guest book data
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+            _guestsData = JsonConvert.DeserializeObject<List<Guest>>(jsonString);
+            // Load first guest
+            currentCustomerIndex = 0;
+            currentCustomer = _guestsData.Find(guest => guest.index == currentCustomerIndex);
+            if (currentCustomer.isUnlocked)
+            {
+                ShowGuest();
+            }
+            else
+            {
+                ShowLockedGuest();
+            }
+        }
+
+        public void ShowGuest() {
+            guestBook.transform.Find("CustomerName").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.name;
+            guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Characters/" + currentCustomer.name);
+            guestBook.transform.Find("Name").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.name;
+            guestBook.transform.Find("Age").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.age;
+            guestBook.transform.Find("Height").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.height;
+            guestBook.transform.Find("Status").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.status;
+            guestBook.transform.Find("Job").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.job;
+            guestBook.transform.Find("FavouriteDrink").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.favouriteDrink;
+            guestBook.transform.Find("Description").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.description;
+        }
+
+        public void ShowLockedGuest() {
+            guestBook.transform.Find("CustomerName").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
+            guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/Extra/Placeholder");
+            guestBook.transform.Find("Name").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
+            guestBook.transform.Find("Age").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
+            guestBook.transform.Find("Height").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
+            guestBook.transform.Find("Status").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
+            guestBook.transform.Find("Job").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
+            guestBook.transform.Find("FavouriteDrink").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
+            guestBook.transform.Find("Description").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
+        }
+
+        public void NextGuest() {
+            currentCustomerIndex++;
+            if (currentCustomerIndex == _guestsData.Count - 1)
+            {
+                rightButton.gameObject.SetActive(false);
+            }
+            currentCustomer = _guestsData.Find(guest => guest.index == currentCustomerIndex);
+            ShowGuest();
+        }
+
+        public void PreviousGuest() {
+            currentCustomerIndex--;
+            if (currentCustomerIndex == 0)
+            {
+                leftButton.gameObject.SetActive(false);
+            }
+            currentCustomer = _guestsData.Find(guest => guest.index == currentCustomerIndex);
+            ShowGuest();
+        }
+    }
+}
