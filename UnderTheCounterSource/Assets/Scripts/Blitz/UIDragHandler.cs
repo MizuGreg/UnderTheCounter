@@ -19,6 +19,7 @@ namespace Blitz
             EventSystemManager.OnPanelOpened += EnableDropAreas;
             EventSystemManager.OnBlitzEnd += ResetBottles;
             EventSystemManager.OnBlitzTimerEnded += StopDragging;
+            EventSystemManager.OnMinigameEnd += StopDragging;
         }
 
         private void OnDestroy()
@@ -26,6 +27,7 @@ namespace Blitz
             EventSystemManager.OnPanelOpened -= EnableDropAreas;
             EventSystemManager.OnBlitzEnd -= ResetBottles;
             EventSystemManager.OnBlitzTimerEnded -= StopDragging;
+            EventSystemManager.OnMinigameEnd -= StopDragging;
         }
 
         void Awake()

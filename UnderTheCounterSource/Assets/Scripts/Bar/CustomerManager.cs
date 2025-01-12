@@ -54,7 +54,7 @@ namespace Bar
             EventSystemManager.OnCocktailMade += ServeCustomer;
             EventSystemManager.OnCustomerLeave += FarewellCustomer;
             EventSystemManager.OnPreparationStart += StartPreparation;
-            EventSystemManager.OnMinigameEnd += TriggerHowardDialogue;
+            EventSystemManager.OnHowardEnter += TriggerHowardDialogue;
             EventSystemManager.MultipleChoiceStart += ShowChoiceButtons;
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
@@ -69,7 +69,7 @@ namespace Bar
             EventSystemManager.OnCocktailMade -= ServeCustomer;
             EventSystemManager.OnCustomerLeave -= FarewellCustomer;
             EventSystemManager.OnPreparationStart -= StartPreparation;
-            EventSystemManager.OnMinigameEnd -= TriggerHowardDialogue;
+            EventSystemManager.OnHowardEnter -= TriggerHowardDialogue;
             EventSystemManager.MultipleChoiceStart -= ShowChoiceButtons;
         }
 
@@ -167,7 +167,7 @@ namespace Bar
             Dialogue dialogue = new Dialogue("Inspector", currentBlitzDialogue.lines["greet"]);
             _dialogueManager.StartDialogue(dialogue, DialogueType.MultipleChoice);
 
-            //_dailyBlitzDialogues.RemoveAt(0);
+            // _dailyBlitzDialogues.RemoveAt(0);
         }
 
         private void ShowChoiceButtons() 
