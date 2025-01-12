@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b0df26eb-48d8-4b8f-9f8c-72d57d72d036" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Achievement/SlideIn.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Achievement/SlideIn.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Achievement/SlideOut.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Achievement/SlideOut.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Achievements/AchievementListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Achievements/AchievementListener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Achievements/AchievementManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Achievements/AchievementManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Achievements/DisplayAchievement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Achievements/DisplayAchievement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/AchievementData/Achievements.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/AchievementData/Achievements.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishDisplay.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
