@@ -42,6 +42,6 @@ MonoBehaviour:
   bookCloseSound: {fileID: 8300000, guid: 3949b49b5a7bce449b2a37554f951093, type: 3}
   tabChangedSound: {fileID: 8300000, guid: 85bb9a1d9d7a747428b7e8963d8f115e, type: 3}
   pageTurnedSound: {fileID: 8300000, guid: 4c10a4f9692b8bc49a4e930914409937, type: 3}
-  blitzTimerEndSound: {fileID: 8300000, guid: 17437a7a60c734e2ba811c225f99d334, type: 3}
+  blitzTimerEndSound: {fileID: 8300000, guid: c1e2cf325d00646ea8cddbaead3447b7, type: 3}
   blitzWonSound: {fileID: 8300000, guid: cf783641045894e1b8429e1466775167, type: 3}
   doorSlamSound: {fileID: 8300000, guid: e10a81f1238684ec0a2f0b77312322c1, type: 3}
