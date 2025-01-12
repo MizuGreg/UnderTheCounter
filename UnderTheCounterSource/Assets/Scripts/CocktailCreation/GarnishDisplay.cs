@@ -29,7 +29,7 @@ namespace CocktailCreation
             _pointerDelta = new Vector2(0, eventData.delta.y / Canvas.scaleFactor); // Only vertical movement
             
             // Limit the drag speed to prevent large jumps
-            _pointerDelta.y = Mathf.Clamp(_pointerDelta.y, -30f, 30f); // Adjust the limits as needed
+            _pointerDelta.y = Mathf.Clamp(_pointerDelta.y, -80f, 80f); // Adjust the limits as needed
             
             // Apply the vertical delta to the current position
             ActualPosition.y += _pointerDelta.y;
