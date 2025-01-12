@@ -46,6 +46,20 @@ namespace Endings
 
             // used for debug info
             Debug.Log("Ending loaded: " + endingType);
+            
+            // Achievements
+            if (ending == "blitz")
+            {
+                EventSystemManager.OnBlitzLose();
+            }
+            else if (ending == "bankrupt")
+            {
+                EventSystemManager.OnBankrupt();
+            }
+            else if (ending == "mafia")
+            {
+                EventSystemManager.OnBarBurned();
+            }
 
             StartEndingText();
         }
