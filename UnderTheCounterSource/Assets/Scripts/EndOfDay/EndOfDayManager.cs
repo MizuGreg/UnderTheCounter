@@ -248,9 +248,8 @@ namespace EndOfDay
             if (GameData.CurrentDay >= 7)
             {
                 endingType = "good";
-                endOfDayCanvas.FadeOut();
-                EventSystemManager.OnLoadLoseScreen(endingType);
-                yield return new WaitForSeconds(2f);
+                EventSystemManager.OnLoadWinScreen();
+                yield return new WaitForSeconds(1.1f);
                 GameData.loseType = endingType;
                 SceneManager.LoadScene("EndingScene");
             }
