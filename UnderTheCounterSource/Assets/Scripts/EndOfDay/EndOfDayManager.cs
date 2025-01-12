@@ -203,8 +203,15 @@ namespace EndOfDay
 
             if (GameData.Savings < 0 || (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"]))
             {
-                if (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"]) endingType = "mafia";
-                else endingType = "bankrupt";
+                if (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"])
+                {
+                    endingType = "mafia";
+                }
+                else 
+                {
+                    endingType = "bankrupt";
+                }
+
                 gameOverButton.gameObject.SetActive(true);
             }
             else
@@ -237,7 +244,22 @@ namespace EndOfDay
         {
             endOfDayCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene(GameData.CurrentDay >= 7 ? "VictoryScreen" : "ShopWindow");
+
+            if (GameData.CurrentDay >= 7)
+            {
+                endingType = "good";
+                endOfDayCanvas.FadeOut();
+                EventSystemManager.OnLoadLoseScreen(endingType);
+                yield return new WaitForSeconds(2f);
+                GameData.loseType = endingType;
+                SceneManager.LoadScene("EndingScene");
+            }
+            else
+            {
+                SceneManager.LoadScene("ShopWindow");
+            }
+            
+            //SceneManager.LoadScene(GameData.CurrentDay >= 7 ? "VictoryScreen" : "ShopWindow");
         }
         
         public void BackToMainMenu()

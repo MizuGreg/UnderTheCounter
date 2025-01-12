@@ -16,7 +16,8 @@ namespace SavedGameData
         public static SerializedDictionary<string, bool> Choices = new(){
             ["MargaretDrunk"] = false,
             ["MafiaDeal"] = false,
-            ["PayoffAccepted"] = false
+            ["PayoffAccepted"] = false,
+            ["UnionSnitched"] = false
         };
         
         public static string BarName = "The Chitchat";
@@ -50,7 +51,8 @@ namespace SavedGameData
             {
                 ["MargaretDrunk"] = false,
                 ["MafiaDeal"] = false,
-                ["PayoffAccepted"] = false
+                ["PayoffAccepted"] = false,
+                ["UnionSnitched"] = false
             };
 
             BarName = "The Chitchat";
