@@ -73,6 +73,7 @@ namespace Technical
         
         // Achievements events
         public static UnityAction<string, int> OnAchievementProgress;
+        public static UnityAction OnAchievementUnlocked;
         public static UnityAction OnTutorialCompleted;
         public static UnityAction OnDealMade;
         public static UnityAction OnHalfTrinketCollected;

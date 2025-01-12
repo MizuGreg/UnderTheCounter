@@ -54,6 +54,7 @@ namespace Achievements
                     achievement.isUnlocked = true;
                     Debug.Log($"Achievement Unlocked: {achievement.title}");
                     popUp.GetComponent<DisplayAchievement>().SetPopUpValues(achievement.title);
+                    EventSystemManager.OnAchievementUnlocked();
                 }
 
                 // Save updated progresses in the JSON
