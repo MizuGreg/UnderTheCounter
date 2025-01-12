@@ -93,26 +93,35 @@
     {
         "sprite": "Gaston",
         "order": "Magazine",
+        "orderOnPostIt": "Something with Ferrucci",
         "tip": 5,
         "lines": {
             "greet": [
                 "<i>Bonsoir</i>, barman. This establishment was recommended to me by a trusted client.",
                 "You may want to consider investing in alcohol stocks by the way… Prices have been increasing lately with the prohibition law. It's still not illegal to consume it, however.",
-                "Now, I would like to try out a <b>Magazine</b>, <i>s'il vous plaît</i>."
+                "Now, I would like to try out something with <b>Ferrucci</b> in it, <i>s'il vous plaît</i>."
             ],
             "correct": [
-                "A discrete Ferrucci in this Magazine. I see we have similar tastes in wine.",
-                "{TRINKET 1}Here, a small <i>souvenir</i> from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
+                "An exceptional Ferrucci in this Magazine. I see we have similar tastes in wine. And you picked my favorite drink, even.",
+                "{TRINKET 1}Here, a little something from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
             ],
             "water": [
-                "An exceptional Ferrucci in this Magazine. I see we have similar tastes in wine. It's hard to find good wine in this part of the United States, unfortunately.",
-                "{TRINKET 1}Here, a small <i>souvenir</i> from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
+                "A discrete Ferrucci in this Magazine. I see we have similar tastes in wine. And you picked my favorite drink, even.",
+                "{TRINKET 1}Here, a little something from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
+            ],
+            "Parti": [
+                "Very, very good. A dry Parti. Two parts Verlan gin, three parts Ferrucci white wine.",
+                "{TRINKET 1}Here, a little something from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
+            ],
+            "Barber": [
+                "Quite good. A good old Barber, or <i>Coiffeur</i>. Elegant but bold, refreshing but not freezing.",
+                "{TRINKET 1}Here, a little something from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
             ],
             "incorrect": [
-                "Close enough, barman. I wish Americans would follow the original French recipe for the Magazine. In any case, I wish you a good night."
+                "Close enough, barman. But I am not sure that there's any Ferrucci in this. In any case, I wish you a good night."
             ],
             "wrong": [
-                "All wrong, barman. I wish Americans would follow the original French recipe for the Magazine. In any case, I wish you a good night."
+                "All wrong, barman. I'm sure there is not any Ferrucci in this. In any case, I wish you a good night."
             ]
         }
     },

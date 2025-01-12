@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using Bar;
 using Technical;
@@ -23,7 +24,7 @@ namespace ShopWindow
         public GameObject posterPopUpPrefab; // Reference to the shared PosterPopUp prefab in the scene
 
         public bool isLocked; // Indicates if the poster is locked, meaning you can't drag it around but you can open the popup
-        public bool isVisible = true; // indicated if the poster is accessible at this point of the game, meaning you can buy and own it
+        public bool isVisible; // indicated if the poster is accessible at this point of the game, meaning you can buy and own it
         
         public int hanged;
     
@@ -31,8 +32,7 @@ namespace ShopWindow
         
         [SerializeField] private Image posterImageUI; // Reference to the Image UI component for poster
         [SerializeField] private CanvasGroup canvasGroup; // Reference for fading effect
-        
-        
+
         private void Awake()
         {
             // If posterImageUI isn't already assigned, try to find it
@@ -124,7 +124,6 @@ namespace ShopWindow
             // Update UI to reflect visible state
             canvasGroup.interactable = isVisible; // disable interaction if not visible
             canvasGroup.blocksRaycasts = isVisible; // prevent clicks if not visible
-            
             canvasGroup.alpha = isVisible ? 1f : 0.5f; // Fade effect for non-obtainable posters
         }
     

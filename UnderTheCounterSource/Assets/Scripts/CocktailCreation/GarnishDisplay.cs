@@ -29,17 +29,22 @@ namespace CocktailCreation
             _pointerDelta = new Vector2(0, eventData.delta.y / Canvas.scaleFactor); // Only vertical movement
             
             // Limit the drag speed to prevent large jumps
-            _pointerDelta.y = Mathf.Clamp(_pointerDelta.y, -10f, 10f); // Adjust the limits as needed
-            
-            // Apply the vertical delta to the current position
-            ActualPosition.y += _pointerDelta.y;
+            _pointerDelta.y = Mathf.Clamp(_pointerDelta.y, -80f, 80f); // Increase limits for faster drag
 
-            // Clamp the position to enforce vertical boundaries
-            ActualPosition.y = Mathf.Clamp(ActualPosition.y, _dropSlotPosition.y, InitialPosition.y);
+            // Check if the mouse is moving up or down
+            if ((_pointerDelta.y > 0 && ActualPosition.y < InitialPosition.y) || (_pointerDelta.y < 0 && ActualPosition.y > _dropSlotPosition.y))
+            {
+                // Apply the vertical delta to the current position only if the movement is within valid bounds
+                ActualPosition.y += _pointerDelta.y;
 
-            // Apply the clamped position (horizontal position remains unchanged)
-            RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, ActualPosition.y);
+                // Clamp the position to enforce vertical boundaries
+                ActualPosition.y = Mathf.Clamp(ActualPosition.y, _dropSlotPosition.y, InitialPosition.y);
+
+                // Apply the clamped position (horizontal position remains unchanged)
+                RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, ActualPosition.y);
+            }
         }
+
 
 
         

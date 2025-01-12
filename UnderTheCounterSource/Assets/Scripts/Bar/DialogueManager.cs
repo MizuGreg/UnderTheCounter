@@ -281,6 +281,7 @@ namespace Bar
                 if (tag == "MAFIA DEAL ACCEPTED")
                 {
                     GameData.Choices["MafiaDeal"] = true;
+                    GameData.Choices["PayoffAccepted"] = true;
                     EventSystemManager.OnDealMade();
                 }
 
@@ -293,6 +294,10 @@ namespace Bar
                 {
                     GameData.Choices["PayoffAccepted"] = true;
                 }
+                if (tag == "PAYOFF REFUSED")
+                {
+                    GameData.Choices["PayoffAccepted"] = false;
+                } 
                 if (tag == "UNDERCOVER CATCHES YOU")
                 { // makes next blitz extremely likely
                     GameData.BlitzFailed(); // penalizes maxDrunkCustomers and blitz time

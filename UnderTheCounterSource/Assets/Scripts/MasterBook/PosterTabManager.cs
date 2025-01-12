@@ -51,7 +51,7 @@ namespace MasterBook
             int count = 0;
             foreach (Poster poster in GameData.Posters)
             {
-                if (poster.price < 1)
+                if (poster.price < 1 & poster.visible)
                 {
                     ownedPostersObject.transform.Find($"Poster{poster.id}").GetComponent<Image>().sprite = posterSprites[poster.id];
                     count++;

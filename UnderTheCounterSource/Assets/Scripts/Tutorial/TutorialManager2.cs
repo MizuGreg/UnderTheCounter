@@ -13,6 +13,8 @@ namespace Tutorial
 {
     public class TutorialManager2 : MonoBehaviour
     {
+        [SerializeField] private Button nextDayButton;
+        
         private DialogueManager _dialogueManager;
         private List<List<string>> _steps;
         private List<string> _currentStep;
@@ -39,6 +41,7 @@ namespace Tutorial
         public void StartTutorial()
         {
             Debug.Log("Tutorial 2 started");
+            nextDayButton.interactable = false;
             LoadSteps();
             NextStep();
         }
@@ -76,6 +79,7 @@ namespace Tutorial
         
         private void EndTutorial()
         {
+            nextDayButton.interactable = true;
             Debug.Log("Tutorial 2 ended");
         }
 

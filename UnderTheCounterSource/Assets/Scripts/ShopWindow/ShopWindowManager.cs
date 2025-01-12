@@ -6,6 +6,7 @@ using TMPro;
 using Tutorial;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace ShopWindow
 {
@@ -15,7 +16,10 @@ namespace ShopWindow
         [SerializeField] private TextMeshProUGUI dayText;
         [SerializeField] private TextMeshProUGUI savingsText;
         private TutorialManager2 tutorialManager2;
+        [Header("Newspaper and B.U. ticket")]
         [SerializeField] private GameObject newspaper;
+        [SerializeField] private GameObject ticketPreview;
+        [SerializeField] private Image BUTicket;
         
         [SerializeField] public int forceDay;
 
@@ -50,6 +54,16 @@ namespace ShopWindow
             else
             {
                 newspaper.SetActive(false);
+            }
+
+            if (GameData.CurrentDay >= 3 && GameData.CurrentDay <= 7) // load BU tickets
+            {
+                ticketPreview.SetActive(true);
+                BUTicket.sprite = Resources.Load<Sprite>("Sprites/UI/ShopWindow/B.U. ticket/B.U. ticket_back_Day " + GameData.CurrentDay);
+            }
+            else
+            {
+                ticketPreview.SetActive(false);
             }
         }
         
