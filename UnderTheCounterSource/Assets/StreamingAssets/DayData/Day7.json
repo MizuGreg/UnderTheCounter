@@ -5,73 +5,100 @@
         "tip": 3,
         "lines": {
             "greet": [
-                "TBD"
+                "Honey! I'm starting to wonder if you ever get days off, you know? {BAR NAME} seems to always be open at night!",
+                "Honey, would you be so kind as to get me a <b>Palmera</b>?"
             ],
             "correct": [
-                "TBD"
+                "Booze, jazz music, the latest Rogue and a cute bartender right in front of me… What more can I ask for? <3<br>Bye bye for now!"
             ],
             "water": [
-                "TBD"
+                "Booze, jazz music, the latest Rogue and a cute bartender right in front of me… What more can I ask for? <3<br>Bye bye for now!"
             ],
             "wrong": [
-                "TBD"
+                "Booze, jazz music and the latest Rogue… Well, it's almost perfect. The cocktail was a bit off, but don't you worry, honey!<br>Bye bye for now!"
             ]
         }
     },
     {
         "sprite": "Betty",
         "order": "Everest",
+        "orderOnPostIt": "Everest/Barber",
         "tip": 2,
         "lines": {
             "greet": [
-                "TBD"
+                "Bartender. Hi.",
+                "My glasses broke this morning <size=75%>(I sat on them…)<size=100%> and I had to buy new ones. DO YOU KNOW HOW EXPENSIVE THESE THINGS ARE?!? Do you know how much they charged me?!?",
+                "I was FURIOUS. So get me something strong now. <i>Please</i>. An Everest or a Barber, whatever is quicker."
             ],
             "correct": [
-                "TBD"
+                "Aaaaah. Just what I asked and what I needed. And you don't even charge that much for it. After all, you could charge higher for alcohol, given that it's illegal now.",
+                "But you're honest and you don't do that. Honest. My ex husband can learn from you, tsk. Goodbye."
+            ],
+            "Barber": [
+                "Aaaah, what a nice Barber. And you don't even charge that much for it. After all, you <i>could</i> charge higher for alcohol, given that it's illegal now.",
+                "But you're honest and you don't do that. Honest. My ex husband can learn from you, tsk. Goodbye."
             ],
             "water": [
-                "TBD"
+                "A pretty good Everest <size=75%>even though it could be better<size=100%>. And you don't even charge that much for it.",
+                "After all, you could charge higher for alcohol, given that it's illegal now. But you're honest and you don't do that. Well done."
             ],
             "wrong": [
-                "TBD"
+                "UGH! Were you listening, youngling? I asked for an Everest or a Barber! Not whatever this is!",
+                "Urgh, it's fine, it's fine. But I'm not drinking this, hell no. And I won't pay for it either! Now goodbye!"
             ]
         }
     },
     {
         "sprite": "Eugene",
-        "order": "Ripple",
+        "order": "Orange garnish",
         "tip": 3,
         "lines": {
             "greet": [
-                "TBD"
+                "Hey there!! I'm so happy to see you, kind bartender! Even happier than I was when good old Ernest was running this bar!",
+                "I'm always here alone because Doris is always out doing something… But at least you're here when I feel like coming to this bar!",
+                "Thank you, gentle bartender… For listening to my rambles! You're the only person I told about Doris and how she lost her job.",
+                "Could I kindly ask for a drink, now? Don't worry, I won't tell anyone, as always! I would like something with <b>orange</b> as garnish."
             ],
             "correct": [
-                "{TRINKET 5}TBD"
+                "Thank you! You know my favorite cocktail! Maybe it's your cocktail of choice as well?",
+                "{TRINKET 5}I made a little something for you, to remember this awesome place with an awesome bar owner!",
+                "Okay, I really have to go home now, maybe Doris will be waiting for me there! Have a good night!"
+            ],
+            "SpringBee": [
+                "Thank you very much! This is something new, but I like it!",
+                "{TRINKET 5}I made a little something for you, to remember this awesome place with an awesome bar owner!",
+                "I really have to go home now, maybe Doris will be waiting for me there! Have a good night!"
             ],
             "water": [
-                "TBD"
+                "Thank you! You know my favorite cocktail! Maybe it's yours as well? Okay, I really have to go home now, maybe Doris will be waiting for me there! Have a good night!"
             ],
             "wrong": [
-                "TBD"
+                "Oh, this tastes very different from the usual! It doesn't taste like orange, but maybe lemon… or shaddock?",
+                "I really have to go home now, maybe Doris will be waiting for me there! Have a good night!"
             ]
         }
     },
     {
         "sprite": "Charles",
-        "order": "Ripple",
+        "order": "Barber",
+        "orderOnPostIt": "Something \"leafy\"",
         "tip": 5,
         "lines": {
             "greet": [
-                "TBD"
+                "Hello, I'm back. I'm happy to say that I have received a promotion at the bank today, so as usual, I thought I would come here to celebrate.",
+                "Could you make me something aromatic, for example something with <i>leaves</i> in it?"
             ],
             "correct": [
-                "TBD"
+                "A Barber. An excellent choice. Here's a tip for you as always, for this special request of mine. Now if you will excuse me, I need to take my leave."
+            ],
+            "Everest": [
+                "An Everest. Not a bad choice. Here's a small tip for you, for this special request of mine. Now if you will excuse me, I need to take my leave."
             ],
             "water": [
-                "TBD"
+                "A good Barber, but it lacked something. Here's a small tip anyway. Now if you will excuse me, I need to take my leave."
             ],
             "wrong": [
-                "TBD"
+                "Hmm, it didn't have any leaves. It tastes a bit aromatic, though not in the way I thought. In any case, I need to take my leave now. Goodbye."
             ]
         }
     },
@@ -81,16 +108,25 @@
         "tip": 3,
         "lines": {
             "greet": [
-                "TBD"
+                "[IF MARGARET GOT DRUNK]Oh, dearest, you have no idea what happened last night! You remember about my scandal, dear bartender?",
+                "[IF MARGARET GOT DRUNK]Well, that night I went to the theater to reflect on my career, and I found someone who was still working after closing time.",
+                "[IF MARGARET GOT DRUNK]It was none other than my crush, the young man I've been wanting to talk to for <i>so</i> long…",
+                "[IF MARGARET GOT DRUNK]So we talked, talked, talked… I confessed my feelings… And he actually felt the same! We had our first date last night and… I'm so in love with him…",
+                "[IF MARGARET GOT DRUNK]<b>Luke</b> and I have decided to come here tonight, to let you know that you caused this… butterfly effect, in a way!",
+                "[IF MARGARET DIDN'T GET DRUNK]Dearest bartender, always a soothing sight… <i>*sigh*</i>, my evening feels so uneventful today…",
+                "Can I ask you for the same cocktail as always, dear bartender? A <b>Spring Bee</b>."
             ],
             "correct": [
-                "TBD"
+                "[IF MARGARET GOT DRUNK]Thank you dearly, bartender. Who could have known that drinking in this bar that night would have led me to meet my love…",
+                "[IF MARGARET DIDN'T GET DRUNK]Thank you dearly, bartender. Oh, if only coming here to this bar could change my life, turn it upside down…"
             ],
             "water": [
-                "TBD"
+                "[IF MARGARET GOT DRUNK]Thank you, bartender. Who could have known that drinking in this bar that night would have led me to meet my love…",
+                "[IF MARGARET DIDN'T GET DRUNK]Thank you, bartender. Oh, if only coming here to this bar could change my life, turn it upside down…"
             ],
             "wrong": [
-                "TBD"
+                "[IF MARGARET GOT DRUNK]Oh… thank you anyway, bartender. I think the recipe is not quite right, but it's alright.",
+                "[IF MARGARET DIDN'T GET DRUNK]Oh… thank you anyway, bartender. Oh, cruel fate, if only coming here to this bar and ordering the right cocktail could change my life, turn it upside down…"
             ]
         }
     },
@@ -100,35 +136,47 @@
         "tip": 3,
         "lines": {
             "greet": [
-                "TBD"
+                "[IF MARGARET GOT DRUNK]Did you see her?!? That's Margaret! My crush! My date from last night! Aaaah, I'm so happy I can barely contain myself!",
+                "[IF MARGARET GOT DRUNK]From what she told me yesterday, it seems like coming to this bar and ordering a cocktail led to a series of coincidences…",
+                "[IF MARGARET GOT DRUNK]… That made us meet at the theater! And now we're dating. I just need to not mess this up, keep calm… Aaah, who am I kidding! I'm so excited!!",
+                "[IF MARGARET GOT DRUNK]Bartender, can you make me the same drink as her? A <b>Spring Bee</b>?",
+                "[IF MARGARET DIDN'T GET DRUNK]… That lady who just left… No, it can't be… Right? That wasn't who I thought it was… I think…",
+                "[IF MARGARET DIDN'T GET DRUNK]Anyway, can I get a <b>Spring Bee</b>?"
             ],
             "correct": [
-                "TBD"
+                "[IF MARGARET GOT DRUNK]Thanks! Man, I gulped this down in one go, but I'm just so anxious! But a bit of booze can calm me down for sure. Heh heh!",
+                "[IF MARGARET DIDN'T GET DRUNK]Thank you! Perfect cocktail as always. <size=75%>If only I was half as skilled as talking as you are at making drinks…<size=100%>"
             ],
             "water": [
-                "TBD"
+                "[IF MARGARET GOT DRUNK]Thanks! Man, I gulped this down in one go, but I'm just so anxious!",
+                "[IF MARGARET DIDN'T GET DRUNK]Thank you! Nice cocktail as always, maybe it needed some more kick to it. <size=75%>Just like how I need more courage…<size=100%>"
             ],
             "wrong": [
-                "TBD"
+                "[IF MARGARET GOT DRUNK]Oh, it's not what I ordered. The Spring Bee has a totally different color, but I guess I didn't notice right away since I'm colorblind… Anyway, I must go now, sorry!",
+                "[IF MARGARET DIDN'T GET DRUNK]Oh, it's not what I ordered. The Spring Bee has a totally different color, but I guess I didn't notice right away since I'm colorblind… Anyway, I must go now, sorry!"
             ]
         }
     },
     {
         "sprite": "Kathryn",
-        "order": "None",
+        "order": "Parti",
         "tip": 4,
         "lines": {
             "greet": [
-                "TBD"
+                "Hi, love. It seems like I'm the last client for today. I'll admit it has gotten quite late.",
+                "Can you make me the usual? A <b>Parti</b>, of course."
             ],
             "correct": [
-                "TBD"
+                "Cheers. I don't want to drink alone, you should make yourself a cocktail too, love! You've earned it after all.",
+                "Today was a great day… I wonder what's waiting for us tomorrow. Have you ever asked yourself that? Well, there's only one true way to find out, I guess. Goodnight!"
             ],
             "water": [
-                "TBD"
+                "Cheers. I don't want to drink alone, you should make yourself a cocktail too, love! You've earned it after all.",
+                "Today was a great day… I wonder what's waiting for us tomorrow?"
             ],
             "wrong": [
-                "TBD"
+                "Well, close enough, bartender… Not quite a Parti, innit? In any case I don't want to drink alone, you should make yourself a cocktail too, love! You've earned it after all.",
+                "Today was a great day… I wonder what's waiting for us tomorrow?"
             ]
         }
     }

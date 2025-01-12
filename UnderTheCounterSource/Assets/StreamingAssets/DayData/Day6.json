@@ -88,9 +88,9 @@
         "tip": 2,
         "lines": {
             "greet": [
-                "[IF MARGARET GOT DRUNK] Hiii! Bartender, I'm so happy tonight! The girl I had a crush on… made the first move on me! And she confessed!!",
+                "[IF MARGARET GOT DRUNK]Hiii! Bartender, I'm so happy tonight! The girl I had a crush on… made the first move on me! And she confessed!!",
                 "[IF MARGARET GOT DRUNK]We have our first date tonight, and I want to celebrate with a drink at my favorite bar!",
-                "[IF MARGARET DIDN'T GET DRUNK] Hiii! Bartender, I hope everything is going smoothly here! Work today felt a little different than usual.",
+                "[IF MARGARET DIDN'T GET DRUNK]Hiii! Bartender, I hope everything is going smoothly here! Work today felt a little different than usual.",
                 "By the way, why is this bar called {BAR NAME}? Just curious, is all. It is very creative!",
                 "I work as propmaker, so creativity is essential in our field. Oh but, while I'm chatting, can I order a <b>Magazine</b>?"
             ],
@@ -113,16 +113,19 @@
         "tip": 6,
         "lines": {
             "greet": [
-                "TBD"
+                "Good evening to you, esteemed bartender. With all these people coming and going from this establishment, you must be a bit stressed out.",
+                "Perhaps not as tired as a housewife like myself, however. Oh, you know… Tell one house servant to cook, tell another to rinse the clothes, and so on.",
+                "A flowery <b>Palmera</b> is what I need now. Using a freshly picked flower from Brazil would be best, if that's possible for you, bartender.",
+                "But I'll… <i>settle</i> for something from Korgis City if you don't have that."
             ],
             "correct": [
-                "TBD"
+                "Excellent. Not that I expected any less of you. I dare say that this bar is slowly becoming our best choice. I'm sure that Charles agrees."
             ],
             "water": [
-                "TBD"
+                "It's fine. With the excellent taste in music to be found in this bar, I dare say that this is slowly becoming our best bar of choice."
             ],
             "wrong": [
-                "TBD"
+                "Not at all what I expected for a Palmera. At least, however, you have excellent taste in music. Which is why I don't mind entering this bar when I pass by."
             ]
         }
     },
@@ -132,16 +135,18 @@
         "tip": 5,
         "lines": {
             "greet": [
-                "TBD"
+                "Good evening. Bartender, I'm sure you must be very busy in the evening, but…",
+                "You should watch the latest movie in which Margaret Brookside is starring. It should be called \"A Little Lie\", if I'm not mistaken.",
+                "And I'll tell you a secret while you make me a <b>Barber</b>: both her and I are very passionate fans of Margaret."
             ],
             "correct": [
-                "TBD"
+                "Thank you. I know I can count on your discretion and on the quality of these cocktails, when I wish for a little booze. Farewell."
             ],
             "water": [
-                "TBD"
+                "Thank you. I know I can count on your discretion when I want a little booze. Farewell."
             ],
             "wrong": [
-                "TBD"
+                "I'm afraid you messed up the preparation, bartender. But no worries, no need to make it again. Farewell."
             ]
         }
     },
@@ -162,10 +167,14 @@
                 "Don't give money"
             ],
             "choice1": [
-                "{PAYOFF ACCEPTED}Awesome"
+                "{PAYOFF ACCEPTED}I <i>knew</i> I could count on a fellow businessman. Let's keep collaborating, huh?",
+                "And hey, don't use up all the booze, hah! Try to water down some drinks here and there. Also keeps the police down."
             ],
             "choice2": [
-                "Get fucked"
+                "So… after all I've done… Ya think ya can pull this off, huh? Alright, no problem. No problem at all.",
+                "Deal is off. I didn't say you could walk back from it, but that's what you're doing to me right now.",
+                "We go our separate ways, I guess. I can't assure you any protection now, boyo. Whatever happens to you, happens.",
+                "<i>Just try not to burn yourself</i>."
             ]
         }
     }
