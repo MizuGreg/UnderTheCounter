@@ -45,3 +45,4 @@ MonoBehaviour:
   blitzTimerEndSound: {fileID: 8300000, guid: c1e2cf325d00646ea8cddbaead3447b7, type: 3}
   blitzWonSound: {fileID: 8300000, guid: cf783641045894e1b8429e1466775167, type: 3}
   doorSlamSound: {fileID: 8300000, guid: e10a81f1238684ec0a2f0b77312322c1, type: 3}
+  achievementSound: {fileID: 8300000, guid: 416a22029b3d849409caf81d2571277d, type: 3}

@@ -217,7 +217,7 @@ namespace Technical
         private IEnumerator PlayBlitzMusic()
         {
             yield return new WaitForSeconds(1.0f);
-            EazySoundManager.PlayMusic(soundData.blitzMusic, 1, true, true, 3, 3);
+            EazySoundManager.PlayMusic(soundData.blitzMusic, 0.8f, true, true, 3, 3);
         }
 
         private void OnDoorSlamSound()
@@ -228,7 +228,7 @@ namespace Technical
         private IEnumerator PlayDoorSlamSound()
         {
             yield return new WaitForSeconds(0.75f);
-            EazySoundManager.PlaySound(soundData.doorSlamSound, 0.4f);
+            EazySoundManager.PlaySound(soundData.doorSlamSound, 0.3f);
         }
 
         private void OnBlitzWonSound()
