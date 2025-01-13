@@ -755,10 +755,18 @@ PrefabInstance:
       propertyPath: recipeTabManager
       value: 
       objectReference: {fileID: 623126694}
+    - target: {fileID: 6980813756007865130, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6988641421241492973, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 623126691}
+    - target: {fileID: 7192459285431596878, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8503510662950188590, guid: 13a5f742c2d556a4cbd459898f53591a, type: 3}
       propertyPath: cocktailType
       value: 6
@@ -1091,7 +1099,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f4e346f9ca97e8640a3f0a63baca4be4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15385a2586390cd49a75a7189cae0431, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

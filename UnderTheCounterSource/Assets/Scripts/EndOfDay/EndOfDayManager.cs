@@ -199,9 +199,7 @@ namespace EndOfDay
 
         private void CheckEndOfDay()
         {
-            GameData.EndDay(dailyBalance);
-
-            if (GameData.Savings < 0 || (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"]))
+            if (GameData.Savings - dailyBalance < 0 || (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"]))
             {
                 if (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"])
                 {
@@ -227,6 +225,7 @@ namespace EndOfDay
 
         public void NextDay()
         {
+            GameData.EndDay(dailyBalance);
             GameData.CurrentDay++;
             StartCoroutine(LoadNextScene());
         }

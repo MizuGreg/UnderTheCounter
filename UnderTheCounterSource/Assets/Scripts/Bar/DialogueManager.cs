@@ -308,7 +308,7 @@ namespace Bar
                 }
                 if (tag == "BAR NAME")
                 {
-                    sentence = sentence.Insert(tagIndex, GameData.BarName);
+                    sentence = sentence.Insert(tagIndex, $"<b>GameData.BarName</b>");
                 }
             }
 
