@@ -34,6 +34,12 @@ namespace ShopWindow
             UpdateMenu();
         }
 
+        public void ShowMenu(int index)
+        {
+            _currentMenuIndex = index;
+            UpdateMenu();
+        }
+
         // Method to update the active submenu and bullets
         private void UpdateMenu()
         {

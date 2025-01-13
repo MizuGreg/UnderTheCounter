@@ -15,7 +15,8 @@ namespace Endings
 
         void Start()
         {
-            EventSystemManager.OnLoadLoseScreen();
+            // deactivate because of the new EndingsManager
+            // EventSystemManager.OnLoadLoseScreen();
             
             gameOverCanvas.FadeIn();
             backToMenuButton.gameObject.SetActive(false);

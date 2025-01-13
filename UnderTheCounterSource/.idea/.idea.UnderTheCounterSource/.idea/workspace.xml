@@ -5,26 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0df26eb-48d8-4b8f-9f8c-72d57d72d036" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MasterBook.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imported/Utilities/SerializableDictionary.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imported/Utilities/SerializableDictionary.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imported/Utilities/UDictionary.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imported/Utilities/UDictionary.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/DialogueManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/RecipeBookItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MasterBook/RecipeBookItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/RecipeBookItem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MasterBook/RecipeBookItem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/RecipeBookManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MasterBook/RecipeBookManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/RecipeBookManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MasterBook/RecipeBookManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Cocktail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/Cocktail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/CocktailType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/MenuManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SavedGameData/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SavedGameData/GameData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SavedGameData/Save.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SavedGameData/Save.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/InGameMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/InGameMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/DayData/Day4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/DayData/Day4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/DayData/Day5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/DayData/Day5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishDisplay.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,4 +103,5 @@
     <option name="unityProject" value="true" />
     <option name="unityProjectFolder" value="true" />
   </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
 </project>

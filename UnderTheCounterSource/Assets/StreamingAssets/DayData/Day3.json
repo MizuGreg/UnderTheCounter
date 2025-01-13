@@ -38,7 +38,7 @@
                 "My husband doesn't know about the prohibition laws yet, I don't want to worry him. He's a very sensitive person."
             ]
         },
-        "tip": 4
+        "tip": 1
     },
     {
         "sprite": "Eugene",
@@ -68,13 +68,13 @@
     },
     {
         "sprite": "Luke",
-        "order": "SpringBee",
-        "tip": 4,
+        "order": "Palmera",
+        "tip": 3,
         "lines": {
             "greet": [
                 "Hi… I was walking by and noticed this bar was still open despite everything. You're doing the good thing, nobody is actually in favor of prohibition.",
-                "Though, I expected to find my good friend Ernest behind the counter, hah! Maybe he retired...?",
-                "Anyway… I'm a bit nervous tonight, so I need that bit of booze… Can you make me a <b>Spring Bee</b>?"
+                "Though, I expected to find my good friend Ernest behind the counter, hah! Maybe he retired…?",
+                "Anyway… I'm a bit nervous tonight, so I need that bit of booze… Can you make me a <b>Palmera</b>?"
             ],
             "correct": [
                 "Perfect! <size=75%>Okay Luke… You can do it… Just walk up to her and, uh… <size=100%> Oh! Uh, I gotta go! Here's a tip for you, thanks again and bye!"
@@ -86,7 +86,42 @@
                 "Good enough, I guess! <size=75%>Okay Luke… You can do it… <size=100%> Well, I gotta go! Thanks and bye!"
             ],
             "wrong": [
-                "Oh, that's not what I expected... Well, I gotta go! Thanks and bye!"
+                "Oh, that's not what I expected… Well, I gotta go! Thanks and bye!"
+            ]
+        }
+    },
+    {
+        "sprite": "Gaston",
+        "order": "Magazine",
+        "orderOnPostIt": "Something with Ferrucci",
+        "tip": 5,
+        "lines": {
+            "greet": [
+                "<i>Bonsoir</i>, barman. This establishment was recommended to me by a trusted client.",
+                "You may want to consider investing in alcohol stocks by the way… Prices have been increasing lately with the prohibition law. It's still not illegal to consume it, however.",
+                "Now, I would like to try out something with <b>Ferrucci</b> in it, <i>s'il vous plaît</i>."
+            ],
+            "correct": [
+                "An exceptional Ferrucci in this Magazine. I see we have similar tastes in wine. And you picked my favorite drink, even.",
+                "{TRINKET 1}Here, a little something from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
+            ],
+            "water": [
+                "A discrete Ferrucci in this Magazine. I see we have similar tastes in wine. And you picked my favorite drink, even.",
+                "{TRINKET 1}Here, a little something from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
+            ],
+            "Parti": [
+                "Very, very good. A dry Parti. Two parts Verlan gin, three parts Ferrucci white wine.",
+                "{TRINKET 1}Here, a little something from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
+            ],
+            "Barber": [
+                "Quite good. A good old Barber, or <i>Coiffeur</i>. Elegant but bold, refreshing but not freezing.",
+                "{TRINKET 1}Here, a little something from my business. It will get me some publicity if you hang it in your bar.<br>Anyway, <i>bonne nuit</i>, barman."
+            ],
+            "incorrect": [
+                "Close enough, barman. But I am not sure that there's any Ferrucci in this. In any case, I wish you a good night."
+            ],
+            "wrong": [
+                "All wrong, barman. I'm sure there is not any Ferrucci in this. In any case, I wish you a good night."
             ]
         }
     },
@@ -97,9 +132,8 @@
         "lines": {
             "greet": [
                 "Well hello hello there! Hope you've read the latest edition of Rogue, it's got some hefty tips on how to dress stylishly!",
-                "At any rate, I shouldn't squander too much time before my next competition. Honey, make me a <b>Ripple</b>!",
-                "Maybe with a drop of honey on the rim. And with Verlan instead of Caledon, I like the bitterness of it.",
-                "Oh, and no Gryte… Just add some more Verlan to it."
+                "In any case, I shouldn't squander too much time before my next competition. Honey, make me a <b>Ripple</b>!",
+                "But with Verlan instead of Caledon, I like the bitterness of it. Oh, and no Gryte… Just add some more Verlan to it."
             ],
             "correct": [
                 "Oh my, oh my! Just how I love it. If I didn't know any better I'd think you were trying to make an impression on me!<br>Well, I'll definitely be coming back then! See you!"
@@ -115,34 +149,7 @@
                 "I'll be definitely coming back in the future then, see if your cocktails get better and better over time. See you!"
             ]
         },
-        "tip": 6
-    },
-    {
-        "sprite": "Gaston",
-        "order": "Barber",
-        "orderOnPostIt": "Something with Cántico",
-        "lines": {
-            "greet": [
-                "<i>Bonsoir, barman</i>. This establishment was recommended to me by a trusted client.",
-                "You may want to consider investing in alcohol stocks by the way… Prices have been increasing lately with the prohibition law. It's still not illegal to consume it, however.",
-                "Now, I would like to try out something with some fine <b>Cántico</b> in it, <i>s'il vous plaît</i>."
-            ],
-            "correct": [
-                "A <b>Barber</b>. Excellent choice, barman. None other than my favorite cocktail. It seems I'll recommend this place to someone else in turn.",
-                "{TRINKET 2}Here, a small <i>souvenir</i> from my business. It will get me some publicity if you hang it in your bar. <br>Anyway, <i>bonne nuit</i>, barman."
-            ],
-            "Palmera": [
-                "A <b>Palmera</b>. Excellent cocktail, barman. It seems I'll recommend this place to someone else in turn.",
-                "{TRINKET 2}Here, a small <i>souvenir</i> from my business. It will get me some publicity if you hang it in your bar. <i>Bonne nuit</i>, barman."
-            ],
-            "wrong": [
-                "I'm confused. I thought this was a different type of bar. Maybe you've made the wrong cocktail because you got afraid of me.<br>I may retry in the future. <i>Au revoir</i>."
-            ],
-            "water": [
-                "Oh. A watered drink.<br>Not the best of impression, and not very polite. But as a fellow <i>entrepreneur</i> I understand the necessity. Have a good night, <i>au revoir</i>."
-            ]
-        },
-        "tip": 3
+        "tip": 4
     },
     {
         "sprite": "Charles",
@@ -182,7 +189,7 @@
                 "The quality hasn't improved much from the last time I was here. I'll have you know you still have a long way to go!<br>Bye bye!"
             ]
         },
-        "tip": 3
+        "tip": 1
     },
     {
         "sprite": "Margaret",
@@ -203,6 +210,6 @@
                 "Thank you, dear bartender.<br>Well, I might go home now and rehearse some lines… Goodnight!"
             ]
         },
-        "tip": 5
+        "tip": 2
     }
 ]

@@ -1,16 +1,13 @@
 using System.Collections;
 using Technical;
-using TMPro;
 using UnityEngine;
 using Bar;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 using SavedGameData;
-using System.IO;
-using Newtonsoft.Json;
-using UnityEngine.Serialization;
 
 namespace Blitz
 {
@@ -23,19 +20,24 @@ namespace Blitz
         [SerializeField] private CanvasGroup blitzCanvas;
         [SerializeField] private BlitzTimer blitzTimer;
         [SerializeField] private FadeCanvas warningPopup;
+        [SerializeField] private FadeCanvas blitzIncomingPopup;
 
         [SerializeField] private CanvasGroup barContainer;
         [SerializeField] private List<GameObject> placeholderSlots;
+        [SerializeField] private List<GameObject> placeholderPrefabs;
         private int placedBottlesCounter;
 
         private void Start()
         {
             warningPopup.gameObject.SetActive(false);
+            blitzIncomingPopup.gameObject.SetActive(false);
             
             EventSystemManager.OnBlitzCallWarning += BlitzWarning;
             EventSystemManager.OnBlitzCalled += CallBlitz;
             EventSystemManager.OnBlitzTimerEnded += LossByBlitz;
             EventSystemManager.OnBottlePlaced += IncreasePlacedBottlesCounter;
+            
+            placeholderPrefabs = new List<GameObject>(Resources.LoadAll<GameObject>("Prefabs/Blitz"));
         }
 
         private void OnDestroy()
@@ -65,7 +67,10 @@ namespace Blitz
 
         private IEnumerator FadeInBlitz()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
+            blitzIncomingPopup.FadeIn();
+            // increase timer before fade in for music coherence
+            yield return new WaitForSeconds(2.5f);
             placedBottlesCounter = 0;
             ShufflePlaceholders();
             blitzCanvas.GetComponent<FadeCanvas>().FadeIn();
@@ -74,25 +79,12 @@ namespace Blitz
 
         private void ShufflePlaceholders()
         {
-            string[] prefabGUIDs = AssetDatabase.FindAssets("", new[] { $"Assets/Resources/Prefabs/Blitz" });
+            Shuffle(placeholderPrefabs);
 
-            List<GameObject> ingredientPrefabs = new List<GameObject>();
-            foreach (string guid in prefabGUIDs)
+            for (int i = 0; i < placeholderPrefabs.Count; i++)
             {
-                string path = AssetDatabase.GUIDToAssetPath(guid);
-                GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-                if (prefab != null)
-                {
-                    ingredientPrefabs.Add(prefab);
-                }
-            }
-
-            Shuffle(ingredientPrefabs);
-
-            for (int i = 0; i < ingredientPrefabs.Count; i++)
-            {
-                placeholderSlots[i].tag = ingredientPrefabs[i].GetComponent<PlaceholderScript>().ingredientType.ToString();
-                placeholderSlots[i].GetComponent<Image>().sprite = ingredientPrefabs[i].GetComponent<PlaceholderScript>().sprite;
+                placeholderSlots[i].tag = placeholderPrefabs[i].GetComponent<PlaceholderScript>().ingredientType.ToString();
+                placeholderSlots[i].GetComponent<Image>().sprite = placeholderPrefabs[i].GetComponent<PlaceholderScript>().sprite;
             }
         }
 
@@ -101,14 +93,13 @@ namespace Blitz
             for (int i = 0; i < list.Count; i++)
             {
                 int rnd = Random.Range(i, list.Count);
-                var temp = list[i];
-                list[i] = list[rnd];
-                list[rnd] = temp;
+                (list[i], list[rnd]) = (list[rnd], list[i]); // swaps the two objects
             }
         }
 
         private IEnumerator WaitBeforeHideMinigame()
         {
+            blitzIncomingPopup.FadeOut();
             yield return new WaitForSeconds(1f);
             blitzTimer.StartTimer();
         }
@@ -121,24 +112,33 @@ namespace Blitz
 
         private void CheckBlitzWin()
         {
-            if (placedBottlesCounter == AssetDatabase.FindAssets("", new[] { $"Assets/Resources/Prefabs/Blitz" }).Length) 
+            if (placedBottlesCounter == placeholderPrefabs.Count) 
             {
-                // we need some kind of confirmation to show up for the player, then wait a bit, and then fade out
-                blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
-                EventSystemManager.OnMinigameEnd();
+                StartCoroutine(WinByBlitz());
             }
+        }
+
+        private IEnumerator WinByBlitz()
+        {   
+            EventSystemManager.OnMinigameEnd();
+            yield return new WaitForSeconds(1f);
+            EventSystemManager.OnHowardEnter();
+            blitzCanvas.GetComponent<FadeCanvas>().FadeOut();
         }
         
         private void LossByBlitz()
         {
-            barContainer.GetComponent<FadeCanvas>().FadeOut();
             StartCoroutine(LoadLoseScreen());
         }
          
         private IEnumerator LoadLoseScreen()
         {
-            yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene("GameOverScreen");
+            yield return new WaitForSeconds(2f);
+            barContainer.GetComponent<FadeCanvas>().FadeOut();
+            EventSystemManager.OnLoadLoseScreen("blitz");
+            yield return new WaitForSeconds(2f);
+            GameData.loseType = "blitz";
+            SceneManager.LoadScene("EndingScene");
         }
     }
 }

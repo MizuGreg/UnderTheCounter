@@ -9,14 +9,18 @@ namespace Bar
 {
     public class BarManager : MonoBehaviour
     {
+        [Header("Canvases")]
+        public CanvasGroup barContainer;
+        [SerializeField] private CanvasGroup trinketContainer;
+        
         private TutorialManager1 _tutorialManager1;
         private CustomerManager _customerManager;
         private TimerManager _timerManager;
         private DialogueManager _dialogueManager;
 
-        public CanvasGroup barContainer;
-
-        [SerializeField] public int forceDay;
+        [Header("Debug fields")]
+        [SerializeField] private int forceDay;
+        [SerializeField] private bool didBlitzHappen;
                 
         void Start()
         {
@@ -30,7 +34,7 @@ namespace Bar
             EventSystemManager.OnDayStart += StartDay;
             EventSystemManager.OnDrunkCustomer += CheckBlitzWarning;
             EventSystemManager.OnCustomerLeft += CheckDrunk;
-            // EventSystemManager.OnBlitzEnd += NextCustomer;
+            EventSystemManager.OnBlitzCalled += BlitzHappened;
             EventSystemManager.OnCustomersDepleted += EndDay;
             EventSystemManager.OnTutorial1End += EndDay;
             EventSystemManager.OnTrinketObtained += UpdateTrinkets;
@@ -39,6 +43,7 @@ namespace Bar
             barContainer.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadBarView();
             StartCoroutine(WaitAndStartDay());
+            DisplayTrinkets();
         }
 
         private void OnDestroy()
@@ -46,17 +51,23 @@ namespace Bar
             EventSystemManager.OnDayStart -= StartDay;
             EventSystemManager.OnDrunkCustomer -= CheckBlitzWarning;
             EventSystemManager.OnCustomerLeft -= CheckDrunk;
-            // EventSystemManager.OnBlitzEnd -= NextCustomer;
+            EventSystemManager.OnBlitzCalled -= BlitzHappened;
             EventSystemManager.OnCustomersDepleted -= EndDay;
             EventSystemManager.OnTutorial1End -= EndDay;
+            EventSystemManager.OnTrinketObtained -= UpdateTrinkets;
+            EventSystemManager.OnPosterObtained -= UnlockPoster;
         }
 
         private void PosterEffects()
         {
-            // TODO
-            if (GameData.IsPosterActive(0))
+            if (GameData.IsPosterActive(1))
             {
-                
+                GameData.DailyTime += 40;
+            }
+
+            if (GameData.IsPosterActive(3))
+            {
+                GameData.DailyTime += 30;
             }
         }
 
@@ -85,6 +96,12 @@ namespace Bar
                 _customerManager.StartDay();
                 StartTimer();
             }
+
+            if (GameData.CurrentDay == 3)
+            { // unlocks posters that have effects that influence the blitz (otherwise reading them would spoil the mechanic)
+                UnlockPoster(4);
+                UnlockPoster(6);
+            }
         }
 
         private void StartTimer()
@@ -94,6 +111,16 @@ namespace Bar
 
         private void EndDay()
         {
+            if (_timerManager.isRunning) // timer still running when the day is over, meaning we had a quick day
+            {
+                GameData.fastDay = true;
+            }
+            
+            if (!didBlitzHappen) // clean day, counts as two successful blitzes
+            {
+                GameData.BlitzSuccessful();
+                GameData.BlitzSuccessful();
+            }
             barContainer.GetComponent<FadeCanvas>().FadeOut();
             StartCoroutine(WaitThenEndDay());
         }
@@ -133,15 +160,28 @@ namespace Bar
         private void UpdateTrinkets(int trinketID)
         {
             GameData.Trinkets.Add(trinketID);
-            DisplayTrinkets();
+            DisplayTrinket(trinketID);
+            if (GameData.Trinkets.Count == 3)
+            {
+                EventSystemManager.OnHalfTrinketCollected();
+            }
+            else if (GameData.Trinkets.Count == 6)
+            {
+                EventSystemManager.OnAllTrinketCollected();
+            }
+        }
+
+        private void DisplayTrinket(int trinketID)
+        {
+            print($"Displaying trinket with ID {trinketID}");
+            trinketContainer.transform.GetChild(trinketID).GetComponent<FadeCanvas>().FadeIn();
         }
 
         private void DisplayTrinkets()
         {
-            // TODO: iterate over list of game objects and show the obtained Trinkets
             foreach (int trinketID in GameData.Trinkets)
             {
-                print($"Displaying trinket with ID {trinketID}");
+                DisplayTrinket(trinketID);
             }
         }
 
@@ -149,7 +189,17 @@ namespace Bar
         {
             GameData.UnlockPoster(posterID);
         }
-
+        
+        public void UpdateBarName(string name)
+        {
+            GameData.BarName = name is null or "" ? "The Chitchat" : name;
+        }
+        
+        private void BlitzHappened()
+        {
+            didBlitzHappen = true;
+        }
+        
         public void BackToMainMenu()
         {
             barContainer.GetComponent<FadeCanvas>().FadeOut();
@@ -162,12 +212,6 @@ namespace Bar
             SceneManager.LoadScene("MainMenu");
         }
         
-        private void LossByBlitz()
-        {
-            barContainer.GetComponent<FadeCanvas>().FadeOut();
-            StartCoroutine(LoadLoseScreen());
-        }
-         
         private IEnumerator LoadLoseScreen()
         {
             yield return new WaitForSeconds(1f);

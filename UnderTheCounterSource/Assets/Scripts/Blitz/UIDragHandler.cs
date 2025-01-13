@@ -18,12 +18,16 @@ namespace Blitz
         {
             EventSystemManager.OnPanelOpened += EnableDropAreas;
             EventSystemManager.OnBlitzEnd += ResetBottles;
+            EventSystemManager.OnBlitzTimerEnded += StopDragging;
+            EventSystemManager.OnMinigameEnd += StopDragging;
         }
 
         private void OnDestroy()
         {
             EventSystemManager.OnPanelOpened -= EnableDropAreas;
             EventSystemManager.OnBlitzEnd -= ResetBottles;
+            EventSystemManager.OnBlitzTimerEnded -= StopDragging;
+            EventSystemManager.OnMinigameEnd -= StopDragging;
         }
 
         void Awake()
@@ -106,6 +110,11 @@ namespace Blitz
         {
             isPlaced = false;
             rectTransform.GetComponent<Image>().enabled = true;
+            areDropAreasEnabled = false;
+        }
+
+        private void StopDragging()
+        {
             areDropAreasEnabled = false;
         }
 

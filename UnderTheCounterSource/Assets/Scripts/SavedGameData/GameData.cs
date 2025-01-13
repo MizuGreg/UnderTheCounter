@@ -10,19 +10,36 @@ namespace SavedGameData
 {
     public static class GameData
     {
+        public static readonly string SaveFilePath = Application.streamingAssetsPath + "/GameData/Save.json";
+        
         public static List<Tuple<string, string>> Log = new();
-        public static SerializedDictionary<string, bool> Choices = new();
+        public static SerializedDictionary<string, bool> Choices = new(){
+            ["MargaretDrunk"] = false,
+            ["MafiaDeal"] = false,
+            ["PayoffAccepted"] = false,
+            ["UnionSnitched"] = false
+        };
         
         public static string BarName = "The Chitchat";
         public static float DailyTime = 240;
         public static int CurrentDay = 1;
+        
         public static int DrunkCustomers = 0;
         public static int MaxDrunkCustomers = 99;
+        public static float BlitzTime = 10;
+        public static bool hasABlitzHappened = false;
+        public static int BlitzFailCounter = 0;
+        public static bool WasLastBlitzFailed = false;
+        public static bool fastDay = false;
+        public static bool allCustomersServed = false;
+        public static string loseType;
     
         public static List<Poster> Posters = new();
         public static List<int> Trinkets = new();
+
+        public static int payoffAmount = 50;
     
-        public static float Savings = 100;
+        public static float Savings = 50;
         public static float TodayEarnings = 0;
         public static int Rent = 10;
         public static int Food = 10;
@@ -34,19 +51,27 @@ namespace SavedGameData
             Choices = new()
             {
                 ["MargaretDrunk"] = false,
-                ["MafiaDeal"] = false
+                ["MafiaDeal"] = false,
+                ["PayoffAccepted"] = false,
+                ["UnionSnitched"] = false
             };
 
             BarName = "The Chitchat";
             DailyTime = 240;
             CurrentDay = 1;
+            
             DrunkCustomers = 0;
             MaxDrunkCustomers = 99;
+            BlitzTime = 10;
+            BlitzFailCounter = 0;
+            hasABlitzHappened = false;
+            WasLastBlitzFailed = false;
+            fastDay = false;
         
             Posters = new();
             Trinkets = new();
         
-            Savings = 100;
+            Savings = 50;
             TodayEarnings = 0;
             Rent = 10;
             Food = 10;
@@ -56,59 +81,94 @@ namespace SavedGameData
         public static void StartDay()
         {
             DrunkCustomers = 0;
+            fastDay = false;
             switch (CurrentDay)
             {
                 case 1:
                     DailyTime = 0;
-                    MaxDrunkCustomers = 99;
-                    Savings = 100;
+                    Savings = 50;
                     Rent = 10;
                     Food = 10;
                     Supplies = 10;
                     break;
                 case 2:
                     DailyTime = 240;
-                    MaxDrunkCustomers = 99;
                     Rent = 10;
                     Food = 10;
                     Supplies = 10;
                     break;
                 case 3:
                     DailyTime = 270;
-                    MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
                     Supplies = 20;
                     break;
                 case 4:
                     DailyTime = 270;
-                    MaxDrunkCustomers = 2; // for testing purposes
                     Rent = 10;
                     Food = 10;
                     Supplies = 30;
                     break;
                 case 5:
                     DailyTime = 270;
-                    MaxDrunkCustomers = 4;
+                    Rent = 10;
+                    Food = 10;
+                    Supplies = 35;
+                    break;
+                case 6:
+                    DailyTime = 270;
                     Rent = 10;
                     Food = 10;
                     Supplies = 40;
                     break;
-                case 6:
-                    DailyTime = 270;
-                    MaxDrunkCustomers = 4;
-                    Rent = 10;
-                    Food = 10;
-                    Supplies = 50;
-                    break;
                 case 7: default:
                     DailyTime = 270;
-                    MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
-                    Supplies = 50;
+                    Supplies = 40;
                     break;
             }
+            
+            UpdateBlitzVariables();
+            PosterEffects();
+        }
+
+        private static void PosterEffects()
+        {
+            if (IsPosterActive(4)) Supplies += 10; // increases supplies cost if baroque poster is active
+            if (IsPosterActive(6)) BlitzTime += 3;
+        }
+
+        public static void BlitzSuccessful()
+        {
+            hasABlitzHappened = true;
+            WasLastBlitzFailed = false;
+            if (BlitzFailCounter > 0) BlitzFailCounter--;
+            UpdateBlitzVariables();
+        }
+
+        public static void BlitzFailed()
+        {
+            hasABlitzHappened = true;
+            WasLastBlitzFailed = true;
+            BlitzFailCounter++;
+            UpdateBlitzVariables();
+        }
+        
+        private static void UpdateBlitzVariables()
+        {
+            if (CurrentDay < 3)
+            {
+                BlitzTime = 99;
+                MaxDrunkCustomers = 99;
+                return;
+            }
+            
+            BlitzTime = (hasABlitzHappened ? 7 : 9) // blitz lasts more if it's the first blitz ever
+                        - 2 * BlitzFailCounter // reduce proportionately to how many blitzes you've failed "lately"
+                        - (WasLastBlitzFailed ? 1 : 0); // also reduce a bit more if the last blitz was failed 
+            MaxDrunkCustomers = 4 - (WasLastBlitzFailed ? 1 : 0); // reduce threshold by 1 if last blitz was failed
+            if (IsPosterActive(4)) MaxDrunkCustomers++; // increase threshold if poster with id 4 is hung
         }
 
         public static bool IsPosterActive(int posterID)
@@ -116,6 +176,15 @@ namespace SavedGameData
             foreach (Poster poster in Posters)
             {
                 if (poster.hanged != 0 && poster.id == posterID) return true;
+            }
+            return false;
+        }
+        
+        public static bool HasHungPosters()
+        {
+            foreach (Poster poster in Posters)
+            {
+                if (poster.hanged != 0) return true;
             }
             return false;
         }
@@ -131,8 +200,7 @@ namespace SavedGameData
         {
             Savings += dailyBalance;
             TodayEarnings = 0;
-            CurrentDay++;
-            SaveToJson();
+            Log.Clear();
         }
     
         public static void SaveToJson()
@@ -142,7 +210,7 @@ namespace SavedGameData
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore // Sprites have a self-referencing variable so this ignores them
             });
-            File.WriteAllText(Application.streamingAssetsPath + "/GameData/Save.json", saveJson);
+            File.WriteAllText(SaveFilePath, saveJson);
             Debug.Log("Saved game data.");
         }
     
@@ -151,7 +219,7 @@ namespace SavedGameData
             Debug.Log("Loading game data.");
             try
             {
-                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GameData/Save.json");
+                string jsonString = File.ReadAllText(SaveFilePath);
                 Save save = JsonConvert.DeserializeObject<Save>(jsonString);
                 save.SetGameData();
             }
@@ -163,6 +231,20 @@ namespace SavedGameData
                 Initialize();
             }
             
+        }
+
+        public static void DeleteSave()
+        {
+            Debug.Log("Deleting save file.");
+            try
+            {
+                File.Delete(SaveFilePath);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("Error while deleting save file:");
+                Debug.LogError(e);
+            }
         }
     }
 }

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecd7a411d594b7c8f811325601fe5cb, type: 3}
+  m_Name: SoundData
+  m_EditorClassIdentifier: 
+  backgroundMusicVolume: 1
+  FXVolume: 1
+  mainMenuMusic: {fileID: 8300000, guid: 570d186857d018d42bc145cd5c11d6a3, type: 3}
+  shopWindowMusic: {fileID: 8300000, guid: de12a88cd51718542b368dfa1b4d96dc, type: 3}
+  barMusicTracks:
+  - {fileID: 8300000, guid: 06efbc56b835fac4dbd4942400c851d0, type: 3}
+  - {fileID: 8300000, guid: 1489b726891dbef4db62d00c68d7399f, type: 3}
+  - {fileID: 8300000, guid: f19bd3e983894174a9ba3c32ad3abd95, type: 3}
+  - {fileID: 8300000, guid: 06efbc56b835fac4dbd4942400c851d0, type: 3}
+  - {fileID: 8300000, guid: 1489b726891dbef4db62d00c68d7399f, type: 3}
+  - {fileID: 8300000, guid: f19bd3e983894174a9ba3c32ad3abd95, type: 3}
+  - {fileID: 8300000, guid: 06efbc56b835fac4dbd4942400c851d0, type: 3}
+  - {fileID: 8300000, guid: 1489b726891dbef4db62d00c68d7399f, type: 3}
+  - {fileID: 8300000, guid: f19bd3e983894174a9ba3c32ad3abd95, type: 3}
+  blitzMusic: {fileID: 8300000, guid: 3845f2d3530954473aec5379a16728ec, type: 3}
+  endOfDayMusic: {fileID: 8300000, guid: de12a88cd51718542b368dfa1b4d96dc, type: 3}
+  winMusic: {fileID: 8300000, guid: 8851ecb3d557e1044aa2bda698608ae7, type: 3}
+  loseMusic: {fileID: 8300000, guid: 73a5d17cc0e98494599805b31acc3b89, type: 3}
+  sampleSound: {fileID: 8300000, guid: 5c8311d05a062fa45852a5bf5f90b25e, type: 3}
+  customerEnterSound: {fileID: 8300000, guid: 50769b5fe2613144fb876460e932e504, type: 3}
+  customerLeaveSound: {fileID: 8300000, guid: 5c8311d05a062fa45852a5bf5f90b25e, type: 3}
+  timeWarningSound: {fileID: 8300000, guid: ee76562084e558e48850557e2db28361, type: 3}
+  timeUpSound: {fileID: 8300000, guid: 0fd652f1901849d4287be0c58c763452, type: 3}
+  ingredientPouredSound: {fileID: 8300000, guid: d9de156e598fedf4daa5dc214b50e26c, type: 3}
+  posterHungSound: {fileID: 8300000, guid: 4e13e1eacb42f6e47bcb883dc339f426, type: 3}
+  posterTearDownSound: {fileID: 8300000, guid: 048288dc6df5b1f41a46402404d10a7a, type: 3}
+  bookOpenSound: {fileID: 8300000, guid: e046ca0f67a45f64892c8179307462c3, type: 3}
+  bookCloseSound: {fileID: 8300000, guid: 3949b49b5a7bce449b2a37554f951093, type: 3}
+  tabChangedSound: {fileID: 8300000, guid: 85bb9a1d9d7a747428b7e8963d8f115e, type: 3}
+  pageTurnedSound: {fileID: 8300000, guid: 4c10a4f9692b8bc49a4e930914409937, type: 3}
+  blitzTimerEndSound: {fileID: 8300000, guid: c1e2cf325d00646ea8cddbaead3447b7, type: 3}
+  blitzWonSound: {fileID: 8300000, guid: cf783641045894e1b8429e1466775167, type: 3}
+  doorSlamSound: {fileID: 8300000, guid: e10a81f1238684ec0a2f0b77312322c1, type: 3}
+  achievementSound: {fileID: 8300000, guid: 416a22029b3d849409caf81d2571277d, type: 3}

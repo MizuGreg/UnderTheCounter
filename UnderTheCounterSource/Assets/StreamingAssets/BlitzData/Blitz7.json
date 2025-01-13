@@ -1,0 +1,49 @@
+[
+  {
+    "lines": {
+      "greet": [
+        "Good morning bartender. Caledon, Cántico and Verlan: if the Korgis police see you with this, you won't be having any fun!",
+        "Anyway, my department is trying to find new ways to scare bar owners during our blitz.",
+        "Other departments are not as funny as us, even though they find way more bartenders serving alcohol than us… <size=75%>those smartasses.<size=100%>",
+        "But we're funnier than them, aren't we?"
+      ],
+      "choices": [
+        "Well, you're a police inspector, so… no?",
+        "Yes, it's always a pleasure!"
+      ],
+      "correct": [
+        "I knew it, I saw it worked by looking at your petrified face when I bursted into your store, heheh.",
+        "Keep up the good work, see you next time. Well. Hopefully not."
+      ],
+      "wrong": [
+        "I call this insulting a public official, bartender. You can't talk to me like that… Hell, you can't talk to THE LAW like that.",
+        "<size=75%><i>so you are just like the others… Sob…</i><size=100%>",
+        "You're lucky I'm in a good mood today and I have other things to do, but we'll see each other again, I feel it."
+      ]
+    },
+    "correctChoice": 1
+  },
+  {
+    "lines": {
+      "greet": [
+        "Damn you have very strong doors bartender, I should talk to your carpenter. <size=75%><i>Why do I keep getting distracted with dumb stuff like doors, anyway…</i><size=100%>",
+        "Bartender, the print is distributing fake news about some undercover people who are going to bars asking for a cocktail, did you hear anything about it?",
+        "Did you find anything weird about your customers lately? Don’t you find funny that i’m for the second time here today? And it's not because I want to order a coffee."
+      ],
+      "choices": [
+        "Not really, and sorry you're not ordering coffee",
+        "Yes! I heard about it and some of them have come here."
+      ],
+      "correct": [
+        "Bartender, I cannot drink when I am on duty, you should know it.",
+        "Or are other police ispectors coming here during working hours and ordering coffee? Argh, I need to check on them."
+      ],
+      "wrong": [
+        "Hmmmmm… That is suspicious.",
+        "If they come here they should have a reason. You don't serve alcohol, do you now, my tense and mysterious bartender?",
+        "We'll see… If that's the case, jail is what's waiting for you. You have been warned."
+      ]
+    },
+    "correctChoice": 0
+  }
+]

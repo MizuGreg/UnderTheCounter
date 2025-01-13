@@ -1,29 +1,27 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using Bar;
-using Newtonsoft.Json;
 using SavedGameData;
 using Technical;
 using TMPro;
 using Tutorial;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ShopWindow
 {
-    public partial class ShopWindowManager : MonoBehaviour
+    public class ShopWindowManager : MonoBehaviour
     {
         [SerializeField] private CanvasGroup canvasContainer;
         [SerializeField] private TextMeshProUGUI dayText;
         [SerializeField] private TextMeshProUGUI savingsText;
         private TutorialManager2 tutorialManager2;
+        [Header("Newspaper and B.U. ticket")]
         [SerializeField] private GameObject newspaper;
+        [SerializeField] private GameObject ticketPreview;
+        [SerializeField] private Image BUTicket;
         
-        [SerializeField] public int forceDay = 2;
+        [SerializeField] public int forceDay;
 
         private void Start()
         {
@@ -46,7 +44,7 @@ namespace ShopWindow
             LoadPosters();
         }
 
-        private void CheckDailyPapers()
+        private void CheckDailyPapers() // shows newspapers and BU papers
         {
             if (GameData.CurrentDay == 2) StartCoroutine(WaitAndStartTutorial());
             if (GameData.CurrentDay == 3)
@@ -56,6 +54,16 @@ namespace ShopWindow
             else
             {
                 newspaper.SetActive(false);
+            }
+
+            if (GameData.CurrentDay >= 3 && GameData.CurrentDay <= 7) // load BU tickets
+            {
+                ticketPreview.SetActive(true);
+                BUTicket.sprite = Resources.Load<Sprite>("Sprites/UI/ShopWindow/B.U. ticket/B.U. ticket_back_Day " + GameData.CurrentDay);
+            }
+            else
+            {
+                ticketPreview.SetActive(false);
             }
         }
         
@@ -97,7 +105,6 @@ namespace ShopWindow
                 pps.posterBuff = matchingPoster.buff;
                 pps.posterNerf = matchingPoster.nerf;
                 pps.posterDescription = matchingPoster.description;
-                pps.posterImage = matchingPoster.image;
                 pps.posterNameText = matchingPoster.name;
                 pps.isLocked = matchingPoster.locked;
 
@@ -146,7 +153,7 @@ namespace ShopWindow
             foreach (PosterPrefabScript pps in posterPrefabs)
             {
                 posterList.Add(new Poster(pps.posterID, pps.posterPrice, pps.hanged, pps.isLocked, pps.isVisible,
-                    pps.posterImage, pps.posterNameText, pps.posterBuff, pps.posterNerf, pps.posterDescription));
+                    pps.posterNameText, pps.posterBuff, pps.posterNerf, pps.posterDescription));
             }
             GameData.Posters = posterList;
         }

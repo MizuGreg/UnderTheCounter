@@ -1,41 +1,121 @@
 {
   "achievements": [
     {
-      "id": "pressed W",
-      "title": "W!",
-      "description": "Wow you have pressed W!",
-      "isUnlocked": false,
-      "progress": 0,
-      "target": 1
-    },
-    {
       "id": "tutorial completed",
-      "title": "A Bar Of Your Own",
+      "title": "A bar of your own",
       "description": "You have completed the tutorial",
       "isUnlocked": false,
       "progress": 0,
       "target": 1
     },
     {
-      "id": "10 cocktails",
-      "title": "10 Cocktails",
-      "description": "Serve 10 cocktails",
-      "isUnlocked": true,
-      "progress": 10,
-      "target": 10
-    },
-    {
-      "id": "50 cocktails",
-      "title": "50 Cocktails",
-      "description": "Serve 50 cocktails",
-      "isUnlocked": false,
-      "progress": 16,
-      "target": 50
-    },
-    {
       "id": "newspaper opened",
-      "title": "Breaking News!",
+      "title": "Breaking news!",
       "description": "Open the newspaper",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "deal with the devil",
+      "title": "A Deal With The Devil",
+      "description": "Make a deal with the mafia goon",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "aspiring collector",
+      "title": "Aspiring collector",
+      "description": "Find half of the collectibles",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "bankrupt",
+      "title": "Bankrupt",
+      "description": "Can't pay day expenses",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "blitzed out",
+      "title": "Blitzed out",
+      "description": "Lose by blitz",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "end of the line",
+      "title": "End of the line",
+      "description": "Reach level 8",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "every cloud",
+      "title": "Every cloud...",
+      "description": "Margareth gets drunk",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "has a silver lining",
+      "title": "has a silver lining",
+      "description": "Margareth gets engaged",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "mafia's pawn",
+      "title": "Mafia's pawn",
+      "description": "Mafia goon burns your bar",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "playing it clean",
+      "title": "Playing it clean",
+      "description": "Refuse the deal with mafia goon",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "shaken, stirred and stretched",
+      "title": "Shaken, stirred and stretched",
+      "description": "Water down a cocktail",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "the backstabber",
+      "title": "The backstabber",
+      "description": "Trusted the undercover cop",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "ultimate collector",
+      "title": "Ultimate collector",
+      "description": "Collect all trinkets",
+      "isUnlocked": false,
+      "progress": 0,
+      "target": 1
+    },
+    {
+      "id": "you've been served",
+      "title": "You've been served",
+      "description": "Serve all the customers in a day",
       "isUnlocked": false,
       "progress": 0,
       "target": 1

@@ -2,11 +2,11 @@
     {
         "sprite": "Helene",
         "order": "Palmera",
-        "tip": 9,
+        "tip": 5,
         "lines": {
             "greet": [
-                "Good evening. I found myself in the vicinity of your establishment again, since I'm on my way to the theater.",
-                "<b>Margaret Brookside</b> should perform tonight. You <i>do</i> know her, I hope. I wonder what her favorite cocktail would be...",
+                "Good evening. I found myself in the vicinity of {BAR NAME} again, since I'm on my way to the theater.",
+                "<b>Margaret Brookside</b> should perform tonight. You <i>do</i> know her, I hope. I wonder what her favorite cocktail would be…",
                 "Perhaps a flowery <b>Palmera</b>?"
             ],
             "correct": [
@@ -30,7 +30,7 @@
             "greet": [
                 "Good evening, fella. This is a war veteran you're talking to. I'd like an <b>Everest</b> on the rocks.",
                 "You see, the correct way to make it is to shake it clockwise. And of course, pour half Caledon first, half at the end.",
-                "My drink now, fella. <b>Everest</b> on the rocks. But don't put too much ice in the glass! I know these tricks that young people do…"
+                "My drink now, fella. But don't put too much ice in the glass! I know these tricks that young people do…"
             ],
             "correct": [
                 "Aaah, how refreshing. This one's especially good, probably because you followed my advice. Hah!<br>At ease, fella! Goodnight!"
@@ -42,7 +42,7 @@
                 "Refreshing, a bit too much for my taste. Maybe it's the way that the newer generations do it.<br>In any case, at ease, fella! Goodnight!"
             ]
         },
-        "tip": 3
+        "tip": 1
     },
     {
         "sprite": "ErnestUnion",
@@ -51,7 +51,7 @@
         "lines": {
             "greet": [
                 "Greetings! I hope you received our slip of paper on the shop window earlier. Oh, where are my manners…",
-                "I speak to you as representative of the <b>bartenders union</b>. It is no secret that our members have been brought to their knees by the prohibition law...",
+                "I speak to you as representative of the <b>bartenders union</b>. It is no secret that our members have been brought to their knees by the prohibition law…",
                 "But we're adamant on resisting, and we will find a way to stay open. I ask for patience, young one… But in the meantime, good luck!"                        
             ]
         }
@@ -59,7 +59,7 @@
     {
         "sprite": "Margaret",
         "order": "SpringBee",
-        "tip": 5,
+        "tip": 2,
         "lines": {
             "greet": [
                 "Dearest bartender! How good to see you again! Oh, I am <i>so</i> anxious tonight… I wish I could just take a teeny, tiny break from all my chores.",
@@ -85,7 +85,7 @@
     {
         "sprite": "Eugene",
         "order": "Ripple",
-        "tip": 4,
+        "tip": 2,
         "lines": {
             "greet": [
                 "Gooooood evening! I hope you're doing good today! I stopped by for a quick <b>Ripple</b> after work.",
@@ -96,28 +96,28 @@
                 "WOW!! Awesome as always! Thank you so much, I'll scoot right off to Doris now! Good evening!"
             ],
             "water": [
-                "Wow, nice  as always! Thank you so much, I'll scoot right off to Doris now! Good evening!"
+                "Wow, nice as always! Thank you so much, I'll scoot right off to Doris now! Good evening!"
             ],
             "incorrect": [
                 "Wow, not bad. This Ripple tastes very original! I'll scoot right off to Doris now, good evening!"
             ],
             "wrong": [
-                "Not bad, this Ripple tastes very... original. Anyway, I'm heading off to Doris now, good evening."
+                "Not bad, this Ripple tastes very… original. Anyway, I'm heading off to Doris now, good evening."
             ]
         }
     },
     {
         "sprite": "Betty",
         "order": "Barber",
-        "tip": 3,
+        "tip": 2,
         "lines": {
             "greet": [
                 "Evening. Still open, I see. Your cocktail wasn't <i>too</i> bad last time, so I decided to come by again.",
-                "Well? Can you serve me an <b>Barber</b> or no?"                  
+                "Well? Can you serve me a <b>Barber</b> or no?"                  
             ],
             "correct": [
                 "Well I'll be, this is not bad at all! Youngling, I think you might start to get the hang of it.",
-                "{TRINKET 3}Here, take this. And don't complain. It's simply a small gift. This place really needs some decorations either way.<br>I'm off now! Goodnight."
+                "{TRINKET 2}Here, take this. And don't complain. It's simply a small gift. This place really needs some decorations either way.<br>I'm off now! Goodnight."
             ],
             "water": [
                 "Not bad, not bad. I think you're starting to get the hang of it.<br> Well, I'm off now. Goodnight."
@@ -126,28 +126,28 @@
                 "I might be in the age of retirement, but I'm not naïve: this isn't a <b<Barber</b>. Do better next time! Goodnight!"
             ],
             "wrong": [
-                "I might be in the age of retirement, but I'm not stupid: this isn't a <b<Barber</b>, and on top of that, it tastes awful! Do better next time, goodnight!"
+                "I might be in the age of retirement, but I'm not stupid: this isn't a <b>Barber</b>, and on top of that, it tastes awful! Do better next time, goodnight!"
             ]
         }
     },
     {
         "sprite": "Kathryn",
         "order": "Parti",
-        "tip": 6,
+        "tip": 4,
         "lines": {
             "greet": [
                 "Good to see you, love! This place keeps getting better and better. And more crowded, even!<br>Alright now, can I get a <b>Parti</b>?"                
             ],
             "correct": [
-                "Terrific. Y'know, I might even start to regret the end of my exchange studies at the Korgis University. I might miss this place!",
+                "Terrific. Y'know, I might even start to regret the end of my exchange studies at the <b>Korgis University</b>. I might miss this place!",
                 "Have a good night, and don't close up too late!"
             ],
             "water": [
-                "Cheers. Y'know, I might even start to regret the end of my exchange period at the Korgis University. I might even miss this place!",
+                "Cheers. Y'know, I might even start to regret the end of my exchange period at the <b>Korgis University</b>. I might even miss this place!",
                 "Have a good night, and don't close up too late!"
             ],
             "incorrect": [
-                "Cheers, not bad. Y'know, I might even start to regret the end of my exchange period at the Korgis University... Goodnight, love."
+                "Cheers, not bad. Y'know, I might even start to regret the end of my exchange period at the <b>Korgis University</b>… Goodnight, love."
             ],
             "wrong": [
                 "I think I'll skip this one, love. Sorry, just not my cup of tea. Goodnight!"
@@ -157,22 +157,22 @@
     {
         "sprite": "Gaston",
         "order": "Magazine",
-        "tip": 9,
+        "tip": 5,
         "lines": {
             "greet": [
-                "<i>Coucou</i>! Are you still open, bartender? It is quite late, you know. Entrepreneurs like us rarely get enough sleep.",
+                "<i>Coucou</i>! Are you still open, bartender? It is quite late, you know. But entrepreneurs like us rarely get enough sleep.",
                 "A <b>Magazine</b> now, <i>s'il vous plaît</i>."           
             ],
             "correct": [
-                "This might be your best cocktail yet, bartender. Impressive. The wine you used... It reminds me of how they make them in Bordeaux.",
+                "Thank you for following the recipe exactly, bartender. The wine you used… It reminds me of how they make them in Bordeaux.",
                 "<i>Merci</i>, and goodnight."
             ],
             "water": [
-                "Impressive. The wine you used... It reminds me of a familiar taste, but I can't quite say what.",
+                "Pleasant flavour. The wine you used… It reminds me of a familiar taste, but I can't quite say what.",
                 "<i>Merci</i>, and goodnight."
             ],
             "wrong": [
-                "I'm afraid it's not what I asked, bartender. A bit disappointing. Have a nice night, nonetheless."
+                "I'm afraid it's not what I asked, bartender. A bit disappointing. But have a good night nonetheless."
             ]
         }
     }

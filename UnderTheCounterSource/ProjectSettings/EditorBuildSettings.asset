@@ -19,15 +19,15 @@ EditorBuildSettings:
     guid: b62c37c5b3a714546ba827d41912d47f
   - enabled: 1
     path: Assets/Scenes/BarView.unity
-    guid: d48eba6d972e25d4a9c6d3dfc7af0afa
+    guid: 753d7554f43628441b46d3b54db52a98
   - enabled: 1
     path: Assets/Scenes/EndOfDay.unity
     guid: 436ea23e1f0350a479242e3392dfa8f0
   - enabled: 1
-    path: Assets/Scenes/GameOverScreen.unity
+    path: Assets/Scenes/EndingScene.unity
     guid: 74b5ff26a18b36e4189aee2f70fa2548
-  - enabled: 1
-    path: Assets/Scenes/VictoryScreen.unity
+  - enabled: 0
+    path: Assets/Scenes/ToBeContinuedScreen.unity
     guid: 3533816d01280c94c87803039e0c48b1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 7b736697820a8ff41814b41f148065ee, type: 3}

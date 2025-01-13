@@ -11,31 +11,17 @@ namespace Achievements
         [SerializeField] private GameObject popUp;
         
         private List<Achievement> _achievements;
-       
-        
-        // DEBUG
-        private void Update()
+
+        void Awake()
         {
-            // Esempio: Incrementa il progresso dell'achievement "pressed W" quando premi il tasto W
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                UpdateAchievement("pressed W", 1);
-            }
+            // Subscribe to events
+            EventSystemManager.OnAchievementProgress += UpdateAchievement;
         }
-        // ------------------
-
-
+        
         private void Start()
         {
             // Load achievements status
             LoadAchievements();
-            
-            // Debug
-            //ResetAchievements();
-            //PrintAchievements();
-            
-            // Subscribe to events
-            EventSystemManager.OnAchievementProgress += UpdateAchievement;
         }
 
         private void OnDestroy()
@@ -67,8 +53,8 @@ namespace Achievements
                 {
                     achievement.isUnlocked = true;
                     Debug.Log($"Achievement Unlocked: {achievement.title}");
-                    popUp.GetComponent<DisplayAchievement>().DisplayPopUp();
-                    popUp.GetComponent<DisplayAchievement>().SetPopUpValues(achievement.title,achievement.description);
+                    popUp.GetComponent<DisplayAchievement>().SetPopUpValues(achievement.title);
+                    EventSystemManager.OnAchievementUnlocked();
                 }
 
                 // Save updated progresses in the JSON
@@ -91,7 +77,7 @@ namespace Achievements
             Debug.Log("Achievements saved successfully.");
         }
 
-        private void ResetAchievements()
+        public void ResetAchievements()
         {
             foreach (var a in _achievements)
             {

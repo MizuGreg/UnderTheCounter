@@ -20,11 +20,11 @@ namespace Settings
         [Header("Other")]
         [SerializeField] private Toggle fullscreenToggle;
 
-        void Start()
+        private void Awake()
         {
             if (!PlayerPrefs.HasKey("MusicVolume")) PlayerPrefs.SetFloat("MusicVolume", 1);
             if (!PlayerPrefs.HasKey("FXVolume")) PlayerPrefs.SetFloat("FXVolume", 1);
-            if (!PlayerPrefs.HasKey("TextSpeed")) PlayerPrefs.SetFloat("TextSpeed", 20);
+            if (!PlayerPrefs.HasKey("TextSpeed")) PlayerPrefs.SetFloat("TextSpeed", 30);
             if (!PlayerPrefs.HasKey("Fullscreen")) PlayerPrefs.SetInt("Fullscreen", 1);
 
             LoadVolumesOnStartup();
@@ -78,24 +78,6 @@ namespace Settings
         {
             if (dialogueManager != null) dialogueManager.SetNormalTextSpeed(speed);
             PlayerPrefs.SetFloat("TextSpeed", speed);
-        }
-
-        public void ReduceMusicWhenUnfocused()
-        {
-            float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
-            float fxVolume = PlayerPrefs.GetFloat("FXVolume");
-            
-            SetMusicVolume(musicVolume/2);
-            SetFXVolume(fxVolume/2);
-        }
-
-        public void RevertMusicWhenUnfocused()
-        {
-            float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
-            float fxVolume = PlayerPrefs.GetFloat("FXVolume");
-            
-            SetMusicVolume(musicVolume);
-            SetFXVolume(fxVolume);
         }
         
     }
