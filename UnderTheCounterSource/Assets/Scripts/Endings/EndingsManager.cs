@@ -60,7 +60,7 @@ namespace Endings
 
         public IEnumerator ShowText()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
             currentText.text = stringList[0];
             currentText.GetComponent<FadeCanvas>().FadeIn();
             stringList.RemoveAt(0);

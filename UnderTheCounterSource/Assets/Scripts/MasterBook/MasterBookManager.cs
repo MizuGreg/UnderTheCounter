@@ -49,7 +49,6 @@ namespace MasterBook
             currentlyOpenedPage = null;
 
             logTabManager.SetDay();
-            posterTabManager.PopulatePosters();
         }
         
         public void OpenMasterBook()
@@ -90,7 +89,8 @@ namespace MasterBook
 
         public void OpenLogTab(bool silent = false)
         {
-            if (currentlyOpenedPage == logPage) return; // stops flow early if the tab button is pressed more than once
+            logTabManager.PopulateLogPages(); // refreshes log tab
+            if (currentlyOpenedPage == logPage) return; // then stops flow early if the tab button is pressed more than once
             currentlyOpenedPage = logPage;
             if (!silent) EventSystemManager.OnTabChanged();
             
@@ -107,6 +107,7 @@ namespace MasterBook
 
         public void OpenPosterTab()
         {
+            posterTabManager.PopulatePosters();
             if (currentlyOpenedPage == posterPage) return; // stops flow early if the tab button is pressed more than once
             currentlyOpenedPage = posterPage;
             EventSystemManager.OnTabChanged();

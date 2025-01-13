@@ -27,6 +27,7 @@ namespace SavedGameData
         public static int DrunkCustomers = 0;
         public static int MaxDrunkCustomers = 99;
         public static float BlitzTime = 10;
+        public static bool hasABlitzHappened = false;
         public static int BlitzFailCounter = 0;
         public static bool WasLastBlitzFailed = false;
         public static bool fastDay = false;
@@ -36,7 +37,7 @@ namespace SavedGameData
         public static List<Poster> Posters = new();
         public static List<int> Trinkets = new();
 
-        public static int payoffAmount = 40;
+        public static int payoffAmount = 50;
     
         public static float Savings = 50;
         public static float TodayEarnings = 0;
@@ -63,6 +64,7 @@ namespace SavedGameData
             MaxDrunkCustomers = 99;
             BlitzTime = 10;
             BlitzFailCounter = 0;
+            hasABlitzHappened = false;
             WasLastBlitzFailed = false;
             fastDay = false;
         
@@ -84,7 +86,6 @@ namespace SavedGameData
             {
                 case 1:
                     DailyTime = 0;
-                    MaxDrunkCustomers = 99;
                     Savings = 50;
                     Rent = 10;
                     Food = 10;
@@ -92,42 +93,36 @@ namespace SavedGameData
                     break;
                 case 2:
                     DailyTime = 240;
-                    MaxDrunkCustomers = 99;
                     Rent = 10;
                     Food = 10;
                     Supplies = 10;
                     break;
                 case 3:
                     DailyTime = 270;
-                    MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
                     Supplies = 20;
                     break;
                 case 4:
                     DailyTime = 270;
-                    MaxDrunkCustomers = 4;
-                    Rent = 10;
-                    Food = 10;
-                    Supplies = 25;
-                    break;
-                case 5:
-                    DailyTime = 270;
-                    MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
                     Supplies = 30;
                     break;
-                case 6:
+                case 5:
                     DailyTime = 270;
-                    MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
                     Supplies = 35;
                     break;
+                case 6:
+                    DailyTime = 270;
+                    Rent = 10;
+                    Food = 10;
+                    Supplies = 40;
+                    break;
                 case 7: default:
                     DailyTime = 270;
-                    MaxDrunkCustomers = 4;
                     Rent = 10;
                     Food = 10;
                     Supplies = 40;
@@ -146,6 +141,7 @@ namespace SavedGameData
 
         public static void BlitzSuccessful()
         {
+            hasABlitzHappened = true;
             WasLastBlitzFailed = false;
             if (BlitzFailCounter > 0) BlitzFailCounter--;
             UpdateBlitzVariables();
@@ -153,6 +149,7 @@ namespace SavedGameData
 
         public static void BlitzFailed()
         {
+            hasABlitzHappened = true;
             WasLastBlitzFailed = true;
             BlitzFailCounter++;
             UpdateBlitzVariables();
@@ -167,7 +164,9 @@ namespace SavedGameData
                 return;
             }
             
-            BlitzTime = 10 - 2 * BlitzFailCounter; // reduce proportionately to how many blitzes you've failed "lately"
+            BlitzTime = (hasABlitzHappened ? 7 : 9) // blitz lasts more if it's the first blitz ever
+                        - 2 * BlitzFailCounter // reduce proportionately to how many blitzes you've failed "lately"
+                        - (WasLastBlitzFailed ? 1 : 0); // also reduce a bit more if the last blitz was failed 
             MaxDrunkCustomers = 4 - (WasLastBlitzFailed ? 1 : 0); // reduce threshold by 1 if last blitz was failed
             if (IsPosterActive(4)) MaxDrunkCustomers++; // increase threshold if poster with id 4 is hung
         }

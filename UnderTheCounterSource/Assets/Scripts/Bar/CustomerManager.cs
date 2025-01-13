@@ -473,7 +473,7 @@ namespace Bar
                 customerCocktail.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Cocktails/Ripple/Ripple_tot");
                 customerCocktail.GetComponent<FadeCanvas>().FadeIn();
 
-                float earning = 10;
+                float earning = 5;
                 pricePopup.DisplayPrice(earning);
                 GameData.TodayEarnings += earning;
             }
