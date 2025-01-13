@@ -40,7 +40,7 @@
                 "I'd like something <i>spiced</i>, a bit <i>fruity</i>… maybe something with a Latin American flair to it!"
             ],
             "correct": [
-                "{TRINKET 3}Well ain't that just the perfect cocktail! And here's the record for grammophone, as promised. Do give it a listen!",
+                "{TRINKET 3}Well ain't that just the perfect cocktail! And here's the grammophone record, as promised. Do give it a listen!",
                 "<i>\"Wind, rocks,the desert night, the summer sand… Natural things, naturally, are what frontiersmen should understand…\"</i>"
             ],
             "water": [

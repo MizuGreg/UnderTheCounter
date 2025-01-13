@@ -3,23 +3,23 @@
         "lines": {
             "greet": [
                 "KORGIS POLICE, OPEN UP!",
-                "Ohh, good morning bartender, what are we doing here?",
-                "Glasses... water... I don't see any alcohol here... in fact, I don't see anything at all.",
-                "Can I say, I don't blame you, expenses are huge these days, I can't even afford to eat out... I was a wondering what is the biggest expense in a bar these days."
+                "Oooh, good morning bartender, what do we have here?",
+                "Glasses… water… I don't see any alcohol here… in fact, I don't see anything at all on the counter.",
+                "Well, I don't blame you, expenses are huge these days, I can't even afford to eat out… I was a wondering what the biggest expense is in a bar these days."
             ],
             "choices": [
-                "Alchol supplies",
-                "Electricity, gas and rent"
+                "Alchol supplies.",
+                "Electricity, gas and rent."
             ],
             "correct": [
-                "I would have bet on it, I don't dare to imagine how much you spend to keep a place like this up, with all these lights...",
+                "I'd have bet on it, I don't dare to imagine how much you spend to keep a place like this up, with all these lights…",
                 "Anyway, I must get back to my work, you never know where these crooks can hide."
             ],
             "wrong": [
-                "AHAHAHAHAHHAHAH NICE CATCH! Aren’t you funny bartender?",
-                "...........",
-                "Unless... Mmmmm, when I think about it, that is a very strange thing to say... especially after the prohibitionism.",
-                "Let’s hope you were joking, the law is always watching you, bartender."
+                "HAHAHAHAHA, NICE CATCH! Aren’t you funny, bartender?",
+                ".........",
+                "Unless… Hmm, when I think about it, that <i>is</i> a very strange thing to say… especially with prohibition.",
+                "Let’s hope you were joking, because the law is always watching you, bartender."
             ]
         },
         "correctChoice": 1
@@ -28,20 +28,22 @@
         "lines": {
             "greet": [
                 "KORGIS POLICE! PUT YOUR HANDS ON THE TABLE!",
-                "Here again? do you want to explain to me why people keep segnaling this bar?",
-                "Maybe you’ve something to hide... even if I don’t see nothing here... AGAIN.",
-                "Anyway I have to continue my job, just in case please advise me in case you see someone servong alcohol, this will be nice way to be a korgis cictizen and help the law"
+                "Here again? Do you want to explain to me why people keep pointing to this bar?",
+                "Maybe you have something to hide… even if I don’t see anything illegal here… AGAIN. Anyway, I have to continue my job.",
+                "Please warn me in case you see someone serving alcohol. This'll be a nice way in which a true Korgis citizen can help the law."
             ],
             "choices": [
-                "You can be sure, sir",
-                "Who does the spy is not son of Mary"
+                "You can be sure of that, sir.",
+                "He who does the spy is not a son of Mary."
             ],
             "correct": [
-                "That’s diligent citizen, respecful of the law (<i>me</i>) and the authorities."
+                "That’s a diligent citizen, respecful of the law (<i>me</i>) and the authorities.",
+                "See you around.",
+                "Well, actually, I hope not."
             ],
             "wrong": [
-                "I know that way of saying things is Italian, isn't it? I bet you're one of them...",
-                "Damn those Italian, alwyas mafia, pizza, pasta, mandolino... all involved in nasty business.",
+                "I know that saying. It's Italian, isn't it? I bet you're <i>one of them</i>…",
+                "Damn those Italians, it's alwyas mafia, pizza, pasta, mandolino… all involved in nasty business.",
                 "Let's hope you're just saying that, otherwise I'll have to cuff you next time."
             ]
         },

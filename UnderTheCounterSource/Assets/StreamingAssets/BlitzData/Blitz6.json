@@ -2,23 +2,23 @@
   {
     "lines": {
       "greet": [
-        "<i>Serve a drink if you dare Korgis police you won’t spare</i>",
-        "Is that water or verlan in that glass? <size=75%><i>*holds glass up to the light*</i><size=100%>",
-        "No, OK, this is water.",
+        "<i>Serve a strong cocktail if you dare, the Korgis police will be aware…</i>",
+        "Is that water or Verlan in that glass? <size=75%><i>*holds up the glass to the light*</i><size=100%>",
+        "No, okay, this is water.",
         "I'm a bit thirsty, bartender, make me a Ripple."
       ],
       "choices": [
-        "We don’t serve alcohol at all here sir!",
-        "Uhm... I don’t know if I can..."
+        "We don’t serve alcohol at all here, sir!",
+        "Uhm… I don’t know if I can…"
       ],
       "correct": [
-        "That’s a good bartender, aware of the law and respectful of the prohibition.",
-        "Who knows why drunk people were at your door"
+        "That’s a fair bar owner, aware of the law and respectful of the prohibition.",
+        "Who knows why I found drunk people at your door. Hm."
       ],
       "wrong": [
-        "Oh, so you could if you wanted, is the inspector vest that scares you?",
-        "Well it should! Who do you take me for?",
-        "Be careful with your words because next time I'll put you in jail!"
+        "Oh, so you <i>would</i> if you could! Is it the inspector vest that scares you off then?",
+        "Well it should! Who do you take me for? Be careful with your words because next time, I'll put you in jail!",
+        "There is NO alcohol serving whatsoever under MY watch!"
       ]
     },
     "correctChoice": 0
@@ -26,22 +26,22 @@
   {
     "lines": {
       "greet": [
-        "This is the time...",
-        "KORGIS POLICE! PUT THE ALCOHOL BOTTLES ON THE FLOOR!",
-        "I see bottles, but not the ones with the devil's substance in them...",
-        "By the way, about the person I told you about yesterday... wait, was it you I told yesterday? or was it another bartender?",
-        "<size=75%><i>*My memory is falling apart from stress... sobs.*</i><size=100%> Anyway, if the Korgis Mafia came into your bar and asked you to do illegal business with them, will you tell me?"
+        "This is the time…",
+        "KORGIS POLICE! PUT ALL ALCOHOL BOTTLES ON THE FLOOR!",
+        "Hmm, I see bottles, but not the ones with the devil's substance in them…",
+        "By the way, about the person I told you about yesterday… Wait, was it <i>you</i> I told yesterday? Or was it another bartender?",
+        "<size=75%><i>My memory is falling apart from the stress… *sigh.*</i><size=100%> Anyway, if the Korgis mafia came into your bar and asked you to do illegal business with them, would you tell me?"
       ],
       "choices": [
-        "Absolutely yes, sir!",
-        "Uhmmmm..."
+        "Absolutely, sir!",
+        "Uuuhm…"
       ],
       "correct": [
-        "Nice, nice... that’s good to hear. I’ll let you continue your job."
+        "Nice, nice… That’s good to hear. I’ll let you continue your job then. Which is NOT serving alcohol, I hope."
       ],
       "wrong": [
         "Why are you hesitating, bartender, do you have something to hide? I see the beads of sweat on your temples.",
-        "Why do you bartenders always have to be so mysterious? Another reason to keep an eye on all of you."
+        "Why do you bartenders always have to be so mysterious? Another reason to keep an eye on all of you. Tsk."
       ]
     },
     "correctChoice": 0

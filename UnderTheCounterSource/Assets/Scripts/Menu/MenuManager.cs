@@ -19,6 +19,11 @@ namespace Menu
         {
             mainMenuCanvas.GetComponent<FadeCanvas>().FadeIn();
             EventSystemManager.OnLoadMainMenu();
+            SetContinueButtonVisible();
+        }
+
+        public void SetContinueButtonVisible()
+        {
             continueButton.interactable = IsSaveFilePresent(); // hides continue button if there's no save file present
         }
 
