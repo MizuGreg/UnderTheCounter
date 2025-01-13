@@ -55,8 +55,10 @@ namespace EndOfDay
 
         private IEnumerator ShowPopup()
         {
-            bool payoffToPay = GameData.Choices["MafiaDeal"] && GameData.Choices["PayoffAccepted"];
+            // Mafia area
+            bool payoffToPay = GameData.Choices["MafiaDeal"] && GameData.Choices["PayoffAccepted"] && GameData.CurrentDay == 6;
             payoffAmount = GameData.payoffAmount;
+            if (GameData.Choices["MafiaDeal"]) GameData.Supplies = 20;
             
             stampImage.gameObject.SetActive(false);
             dayText.text = "Day " + GameData.CurrentDay;
@@ -73,7 +75,7 @@ namespace EndOfDay
             amountTexts[4].text = $"-${GameData.Supplies:N0}";
             if (payoffToPay)
             {
-                amountTexts[5].text = $"${payoffAmount}";
+                amountTexts[5].text = $"-${payoffAmount}";
             }
             else
             {
@@ -199,7 +201,7 @@ namespace EndOfDay
 
         private void CheckEndOfDay()
         {
-            if (GameData.Savings - dailyBalance < 0 || (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"]))
+            if (GameData.Savings + dailyBalance < 0 || (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"]))
             {
                 if (GameData.Choices["MafiaDeal"] && !GameData.Choices["PayoffAccepted"])
                 {
@@ -227,6 +229,7 @@ namespace EndOfDay
         {
             GameData.EndDay(dailyBalance);
             GameData.CurrentDay++;
+            GameData.SaveToJson();
             StartCoroutine(LoadNextScene());
         }
 

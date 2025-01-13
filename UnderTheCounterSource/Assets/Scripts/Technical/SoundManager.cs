@@ -228,7 +228,7 @@ namespace Technical
         private IEnumerator PlayDoorSlamSound()
         {
             yield return new WaitForSeconds(0.75f);
-            EazySoundManager.PlaySound(soundData.doorSlamSound, 0.3f);
+            EazySoundManager.PlaySound(soundData.doorSlamSound, 0.8f);
         }
 
         private void OnBlitzWonSound()

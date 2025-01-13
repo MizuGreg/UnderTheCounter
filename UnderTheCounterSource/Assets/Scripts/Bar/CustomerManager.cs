@@ -83,11 +83,25 @@ namespace Bar
             if (GameData.IsPosterActive(0))
             {
                 earningMultiplier += 0.25f;
-                _dailyCustomers.RemoveAt(_dailyCustomers.Count - 1); // takes out one customer
+                if (_dailyCustomers[^1].sprite is CustomerType.MafiaGoon or CustomerType.Howard or CustomerType.ErnestUnion)
+                {
+                    _dailyCustomers.RemoveAt(_dailyCustomers.Count - 2); // takes out second-to-last customer
+                }
+                else
+                {
+                    _dailyCustomers.RemoveAt(_dailyCustomers.Count - 1); // takes out last customer
+                }
             }
             if (GameData.IsPosterActive(1))
             {
-                _dailyCustomers.RemoveAt(_dailyCustomers.Count - 1); // takes out one customer
+                if (_dailyCustomers[^1].sprite is CustomerType.MafiaGoon or CustomerType.Howard or CustomerType.ErnestUnion)
+                {
+                    _dailyCustomers.RemoveAt(_dailyCustomers.Count - 2); // takes out second-to-last customer
+                }
+                else
+                {
+                    _dailyCustomers.RemoveAt(_dailyCustomers.Count - 1); // takes out last customer
+                }
             }
             if (GameData.IsPosterActive(3))
             {
@@ -101,14 +115,23 @@ namespace Bar
 
         private void TimeoutCustomers()
         {
-            Customer lastCustomer = _dailyCustomers[^1];
-            if (lastCustomer.sprite is CustomerType.MafiaGoon or CustomerType.Howard or CustomerType.ErnestUnion)
-            { // we keep the "last visit"
-                _dailyCustomers.Clear();
-                _dailyCustomers.Add(lastCustomer);
+            try
+            {
+                Customer lastCustomer = _dailyCustomers[^1];
+                if (lastCustomer.sprite is CustomerType.MafiaGoon or CustomerType.Howard or CustomerType.ErnestUnion)
+                {
+                    // we keep the "last visit"
+                    _dailyCustomers.Clear();
+                    _dailyCustomers.Add(lastCustomer);
+                }
+                else
+                {
+                    _dailyCustomers.Clear(); // deplete all remaining daily customers
+                }
             }
-            else {
-                _dailyCustomers.Clear(); // deplete all remaining daily customers
+            catch
+            {
+                // ignore timeout, we've run out of customers
             }
         }
 

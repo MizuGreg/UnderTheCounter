@@ -133,8 +133,7 @@ namespace SavedGameData
                     Supplies = 40;
                     break;
             }
-
-            if (Choices["MafiaDeal"]) Supplies = 20;
+            
             UpdateBlitzVariables();
             PosterEffects();
         }
@@ -203,7 +202,6 @@ namespace SavedGameData
             Savings += dailyBalance;
             TodayEarnings = 0;
             Log.Clear();
-            SaveToJson();
         }
     
         public static void SaveToJson()
