@@ -20,7 +20,7 @@ namespace Extra {
             leftButton.gameObject.SetActive(false);
             rightButton.gameObject.SetActive(true);
             
-            guestBook.FadeIn();
+            // guestBook.FadeIn();
 
             LoadGuestBook();
         }
@@ -28,7 +28,8 @@ namespace Extra {
         public void LoadGuestBook() {
             // Load guest book data
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
-            _guestsData = JsonConvert.DeserializeObject<List<Guest>>(jsonString);
+            GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
+            _guestsData = guestList.guests;
             // Load first guest
             currentCustomerIndex = 0;
             currentCustomer = _guestsData.Find(guest => guest.index == currentCustomerIndex);
@@ -43,7 +44,8 @@ namespace Extra {
         }
 
         public void ShowGuest() {
-            guestBook.transform.Find("CustomerName").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.name;
+            guestBook.transform.Find("CustomerName").GetComponent<TextMeshProUGUI>().text = currentCustomer.name;
+            // fix this, it since it takes firstname and lastname
             guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Characters/" + currentCustomer.name);
             guestBook.transform.Find("Name").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.name;
             guestBook.transform.Find("Age").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.age;
@@ -55,7 +57,7 @@ namespace Extra {
         }
 
         public void ShowLockedGuest() {
-            guestBook.transform.Find("CustomerName").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
+            guestBook.transform.Find("CustomerName").GetComponent<TextMeshProUGUI>().text = "???";
             guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/Extra/Placeholder");
             guestBook.transform.Find("Name").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
             guestBook.transform.Find("Age").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
@@ -72,8 +74,19 @@ namespace Extra {
             {
                 rightButton.gameObject.SetActive(false);
             }
+            else if (currentCustomerIndex != 0)
+            {
+                leftButton.gameObject.SetActive(true);
+            }
             currentCustomer = _guestsData.Find(guest => guest.index == currentCustomerIndex);
-            ShowGuest();
+            if (currentCustomer.isUnlocked)
+            {
+                ShowGuest();
+            }
+            else
+            {
+                ShowLockedGuest();
+            }
         }
 
         public void PreviousGuest() {
@@ -82,8 +95,19 @@ namespace Extra {
             {
                 leftButton.gameObject.SetActive(false);
             }
+            else if (currentCustomerIndex != _guestsData.Count - 1)
+            {
+                rightButton.gameObject.SetActive(true);
+            }
             currentCustomer = _guestsData.Find(guest => guest.index == currentCustomerIndex);
-            ShowGuest();
+            if (currentCustomer.isUnlocked)
+            {
+                ShowGuest();
+            }
+            else
+            {
+                ShowLockedGuest();
+            }
         }
     }
 }

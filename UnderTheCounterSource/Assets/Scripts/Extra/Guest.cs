@@ -7,7 +7,7 @@ namespace Extra {
     [Serializable]
     public class GuestList
     {
-        public List<Guest> endings;
+        public List<Guest> guests;
     }
 
     [Serializable]
