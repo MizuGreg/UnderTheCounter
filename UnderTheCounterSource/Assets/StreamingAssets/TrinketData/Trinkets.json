@@ -1,0 +1,34 @@
+{
+  "trinkets": [
+    {
+      "id": 0,
+      "title": "KathrineTrinket",
+      "caption": "Kathrine Trinket Caption"
+    },
+    {
+      "id": 1,
+      "title": "GastonTrinket",
+      "caption": "Gaston Trinket Caption"
+    },
+    {
+      "id": 2,
+      "title": "BettyTrinket",
+      "caption": "Betty Trinket Caption"
+    },
+    {
+      "id": 3,
+      "title": "WillieTrinket",
+      "caption": "Willie Trinket Caption"
+    },
+    {
+      "id": 4,
+      "title": "KennethTrinket",
+      "caption": "Kenneth Trinket Caption"
+    },
+    {
+      "id": 5,
+      "title": "EugeneTrinket",
+      "caption": "Eugene Trinket Caption"
+    }
+  ]
+}

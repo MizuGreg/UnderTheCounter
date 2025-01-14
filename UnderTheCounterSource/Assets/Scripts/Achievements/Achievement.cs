@@ -23,7 +23,7 @@ namespace Achievements
             }
             catch (Exception e)
             {
-                return $"Error :( Exception in Customer.ToString(): {e}";
+                return $"Error :( Exception in Achievement.ToString(): {e}";
             }
         }
     }

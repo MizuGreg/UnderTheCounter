@@ -19,6 +19,7 @@ TagManager:
   - Verlan
   - Cantico
   - Achievement
+  - Trinket
   layers:
   - Default
   - TransparentFX

@@ -260,7 +260,8 @@ namespace Bar
                 if (tag.Contains("TRINKET"))
                 {
                     int trinketID = int.Parse(Regex.Match(tag, @"\d+").Value); // extracts ID
-                    EventSystemManager.OnTrinketObtained(trinketID);
+                    //EventSystemManager.OnTrinketObtained(trinketID);
+                    EventSystemManager.OnTrinketCollected(trinketID);
                 }
                 if (tag.Contains("POSTER"))
                 {

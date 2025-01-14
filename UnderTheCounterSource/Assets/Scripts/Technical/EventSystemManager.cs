@@ -88,5 +88,9 @@ namespace Technical
         public static UnityAction OnBackstabbed;
         public static UnityAction OnAllTrinketCollected;
         public static UnityAction OnAllCustomersServed;
+        
+        // Trinkets events
+        public static UnityAction<int> OnTrinketCollected;
+        
     }
 }
