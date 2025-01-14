@@ -128,7 +128,7 @@ namespace SavedGameData
                     Supplies = 40;
                     break;
             }
-            
+            WasLastBlitzFailed = false;
             UpdateBlitzVariables();
             PosterEffects();
         }
@@ -136,7 +136,7 @@ namespace SavedGameData
         private static void PosterEffects()
         {
             if (IsPosterActive(4)) Supplies += 10; // increases supplies cost if baroque poster is active
-            if (IsPosterActive(6)) BlitzTime += 3;
+            if (IsPosterActive(6)) BlitzTime += 2;
         }
 
         public static void BlitzSuccessful()
@@ -163,10 +163,9 @@ namespace SavedGameData
                 MaxDrunkCustomers = 99;
                 return;
             }
-            
-            BlitzTime = (HasABlitzHappened ? 7 : 9) // blitz lasts more if it's the first blitz ever
-                        - 2 * BlitzFailCounter // reduce proportionately to how many blitzes you've failed "lately"
-                        - (WasLastBlitzFailed ? 1 : 0); // also reduce a bit more if the last blitz was failed 
+
+            BlitzTime = (HasABlitzHappened ? 8 : 10) // blitz lasts more if it's the first blitz ever
+                        - 2 * BlitzFailCounter; // reduce proportionately to how many blitzes you've failed "lately"
             MaxDrunkCustomers = 4 - (WasLastBlitzFailed ? 1 : 0); // reduce threshold by 1 if last blitz was failed
             if (IsPosterActive(4)) MaxDrunkCustomers++; // increase threshold if poster with id 4 is hung
         }
