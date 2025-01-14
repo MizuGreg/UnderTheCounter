@@ -27,7 +27,7 @@ namespace SavedGameData
         public static int DrunkCustomers = 0;
         public static int MaxDrunkCustomers = 99;
         public static float BlitzTime = 10;
-        public static bool hasABlitzHappened = false;
+        public static bool HasABlitzHappened = false;
         public static int BlitzFailCounter = 0;
         public static bool WasLastBlitzFailed = false;
         public static bool fastDay = false;
@@ -64,7 +64,7 @@ namespace SavedGameData
             MaxDrunkCustomers = 99;
             BlitzTime = 10;
             BlitzFailCounter = 0;
-            hasABlitzHappened = false;
+            HasABlitzHappened = false;
             WasLastBlitzFailed = false;
             fastDay = false;
         
@@ -141,7 +141,7 @@ namespace SavedGameData
 
         public static void BlitzSuccessful()
         {
-            hasABlitzHappened = true;
+            HasABlitzHappened = true;
             WasLastBlitzFailed = false;
             if (BlitzFailCounter > 0) BlitzFailCounter--;
             UpdateBlitzVariables();
@@ -149,7 +149,7 @@ namespace SavedGameData
 
         public static void BlitzFailed()
         {
-            hasABlitzHappened = true;
+            HasABlitzHappened = true;
             WasLastBlitzFailed = true;
             BlitzFailCounter++;
             UpdateBlitzVariables();
@@ -164,7 +164,7 @@ namespace SavedGameData
                 return;
             }
             
-            BlitzTime = (hasABlitzHappened ? 7 : 9) // blitz lasts more if it's the first blitz ever
+            BlitzTime = (HasABlitzHappened ? 7 : 9) // blitz lasts more if it's the first blitz ever
                         - 2 * BlitzFailCounter // reduce proportionately to how many blitzes you've failed "lately"
                         - (WasLastBlitzFailed ? 1 : 0); // also reduce a bit more if the last blitz was failed 
             MaxDrunkCustomers = 4 - (WasLastBlitzFailed ? 1 : 0); // reduce threshold by 1 if last blitz was failed
