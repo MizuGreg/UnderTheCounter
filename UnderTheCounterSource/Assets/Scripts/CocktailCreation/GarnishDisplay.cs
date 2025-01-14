@@ -13,13 +13,17 @@ namespace CocktailCreation
 
         private Vector2 _pointerDelta;
         private Vector2 _dropSlotPosition = new Vector2(0,0);
-        private bool _isInPosition;
         private bool _dropSlotSet;
+
+        private float _tolerance = 5f;
 
         private void Start()
         {
             this.GetComponent<Image>().sprite = garnish.sprite;
             GetComponent<Image>().alphaHitTestMinimumThreshold = 0.0039f;
+
+            _dropSlotPosition.y = GameObject.FindGameObjectWithTag("GarnishDropPosition").GetComponent<RectTransform>()
+                .anchoredPosition.y;
         }
         
         
@@ -45,13 +49,9 @@ namespace CocktailCreation
             }
         }
 
-
-
-        
-
         protected override void EndDragBehaviour()
         {
-            if (_isInPosition)
+            if (RectTransform.anchoredPosition.y <= _dropSlotPosition.y + _tolerance)
             {
                 EventSystemManager.OnGarnishAdded();
             }
@@ -82,26 +82,6 @@ namespace CocktailCreation
             
             CanvasGroup.blocksRaycasts = true;
         }
-
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.gameObject.CompareTag("Cocktail"))
-            {
-                _isInPosition = true;
-                if (_dropSlotPosition.y == 0)
-                {
-                    _dropSlotPosition.y = ActualPosition.y;
-                }
-            }
-        }
         
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (collision.gameObject.CompareTag("Cocktail"))
-            {
-                _isInPosition = false;
-            }
-        }
     }
 }

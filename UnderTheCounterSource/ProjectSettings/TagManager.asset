@@ -20,6 +20,7 @@ TagManager:
   - Cantico
   - Achievement
   - Trinket
+  - GarnishDropPosition
   layers:
   - Default
   - TransparentFX
