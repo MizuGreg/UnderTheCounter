@@ -44,6 +44,8 @@ namespace Extra {
             // guestBook.FadeIn();
 
             LoadGuestBook();
+
+            OpenGuestsTab(); // open guests tab by default
         }
 
         public void LoadGuestBook() {
@@ -144,7 +146,7 @@ namespace Extra {
             achievementsButton.GetComponent<RectTransform>().localPosition = originalAchievementsButtonPosition;
         }
 
-        public void OpenAchievementsTab(bool silent = false)
+        public void OpenAchievementsTab()
         {
             if (currentlyOpenedPage == achievementsPage) return;
             currentlyOpenedPage = achievementsPage;
