@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0df26eb-48d8-4b8f-9f8c-72d57d72d036" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CocktailCreation/GarnishDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Achievements/AchievementListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Achievements/AchievementListener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Endings/EndingsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Endings/EndingsManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
