@@ -48,5 +48,8 @@ namespace Technical
 
         [Header("Achievement")] 
         public AudioClip achievementSound;
+
+        [Header("Easter Egg")] 
+        public AudioClip napoliSound;
     }
 }

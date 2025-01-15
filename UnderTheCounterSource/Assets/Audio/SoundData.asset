@@ -46,3 +46,4 @@ MonoBehaviour:
   blitzWonSound: {fileID: 8300000, guid: cf783641045894e1b8429e1466775167, type: 3}
   doorSlamSound: {fileID: 8300000, guid: e10a81f1238684ec0a2f0b77312322c1, type: 3}
   achievementSound: {fileID: 8300000, guid: 416a22029b3d849409caf81d2571277d, type: 3}
+  napoliSound: {fileID: 8300000, guid: b6287a4a99ccd46b8ad069109cc254f4, type: 3}

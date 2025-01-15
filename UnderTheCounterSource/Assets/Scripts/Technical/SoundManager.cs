@@ -45,6 +45,8 @@ namespace Technical
             EventSystemManager.OnPosterRippedDown += OnPosterRippedDownSound;
 
             EventSystemManager.OnAchievementUnlocked += OnAchievementUnlockedSound;
+
+            EventSystemManager.OnNapoli += OnNapoliSound;
         }
 
         private void OnDestroy()
@@ -78,6 +80,8 @@ namespace Technical
             EventSystemManager.OnPosterRippedDown -= OnPosterRippedDownSound;
             
             EventSystemManager.OnAchievementUnlocked -= OnAchievementUnlockedSound;
+            
+            EventSystemManager.OnNapoli -= OnNapoliSound;
         }
 
         public void SetMusicVolume(float volume)
@@ -239,6 +243,11 @@ namespace Technical
         private void OnAchievementUnlockedSound()
         {
             EazySoundManager.PlaySound(soundData.achievementSound);
+        }
+
+        private void OnNapoliSound()
+        {
+            EazySoundManager.PlaySound(soundData.napoliSound);
         }
     }
 }

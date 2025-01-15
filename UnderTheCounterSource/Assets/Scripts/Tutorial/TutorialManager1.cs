@@ -477,9 +477,15 @@ namespace Tutorial
             name = name.Replace("}", "");
             name = name.Replace("]", "");
             GameData.BarName = name is null or "" ? "The Chitchat" : name;
-            nameYourBarCanvas.FadeOut(); 
             
+            if (GameData.BarName == "Napoli")
+            {
+                EventSystemManager.OnNapoli();
+            }
+            
+            nameYourBarCanvas.FadeOut(); 
             NextStep();
+            
         }
         
         private void EndTutorial()
@@ -600,33 +606,5 @@ namespace Tutorial
             c.a = endAlpha;
             img.color = c;
         }
-        
-        
-        
-        // Collegamenti:
-        // - bottone startDay -> chiama StartDay() in BarManager
-        // - StartDay() lancia l'evento -> ascoltato da TutorialManager1
-        // - tutorial che fa le sue cose
-        // - TutorialManager chiama l'evento OnTutorial1End -> ascoltato da CustomerManager
-        
-        // Altri collegamenti utili:
-        // - StartDay() in BarManager -> chiama StartDay() in CustomerManager
-        // - CustomerManager -> DialogueManager
-        // - DialogueManager -> CustomerManager -> CocktailManager
-        // - CocktailScript -> chiama OnGarnishAdded che è ascoltato da CocktailManager e chiama ServeCocktail
-        // - ServeCocktail -> chiama OnCocktailMade che è ascoltato da CustomerManager che chiama ServeCustomer()
-        // - ServeCustomer -> chiama DialogueManager
-        
-        // attualmente, i dialoghi vengono gestiti dal dialogue manager che viene chiamato da customer manager
-        // Nella funzione WaitAndGreetDialogue
-        // NB: bisogna settare la posizione dei pop-up
-        
-        // quando devi servire il cocktail chiama l'evento OnMakeCocktail(CocktailType.Everest)
-        
-        // quando finisce il tutorial 1 deve chiamare l'evento OnTutorial1End
-        
-        
-        // NB: quando fai slideIn della CCA, se chiami OnMakeCocktail con l'enum del wrong cocktail non viene mostrato il post it
-        //     (utile per i primi step del tutorial)
     }
 }
