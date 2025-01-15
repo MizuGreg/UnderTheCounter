@@ -10,13 +10,12 @@ namespace Achievements
         void Awake()
         {
             // Subscribe to events
-            // Todo: trigger the event OnWin
             EventSystemManager.OnTutorialCompleted += TutorialCompleted;
             EventSystemManager.OnDealMade += DealWithTheDevil;
             EventSystemManager.OnHalfTrinketCollected += AspiringCollector;
             EventSystemManager.OnBankrupt += Bankrupt;
             EventSystemManager.OnBlitzLose += BlitzedOut;
-            //EventSystemManager.OnWin += EndOfTheLine;
+            EventSystemManager.OnWin += EndOfTheLine;
             EventSystemManager.OnButterfly1 += EveryCloud;
             EventSystemManager.OnButterfly2 += HasASilverLining;
             EventSystemManager.OnBarBurned += MafiasPawn;
@@ -35,7 +34,7 @@ namespace Achievements
             EventSystemManager.OnHalfTrinketCollected -= AspiringCollector;
             EventSystemManager.OnBankrupt -= Bankrupt;
             EventSystemManager.OnBlitzLose -= BlitzedOut;
-            //EventSystemManager.OnWin -= EndOfTheLine;
+            EventSystemManager.OnWin -= EndOfTheLine;
             EventSystemManager.OnButterfly1 -= EveryCloud;
             EventSystemManager.OnButterfly2 -= HasASilverLining;
             EventSystemManager.OnBarBurned -= MafiasPawn;

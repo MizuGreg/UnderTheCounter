@@ -127,6 +127,10 @@ namespace Endings
             {
                 EventSystemManager.OnBarBurned();
             }
+            else if (ending == "good")
+            {
+                EventSystemManager.OnWin();
+            }
         }
     }
 }
