@@ -14,6 +14,7 @@ namespace Extra {
     public class Guest {
         public bool isUnlocked;
         public int index;
+        public string nickname;
         public string name;
         public string age;
         public string height;
@@ -24,7 +25,7 @@ namespace Extra {
 
         public override string ToString() {
             try {
-                return $"isUnlocked: {isUnlocked}, index: {index}, Name: {name}, Age: {age}, Height: {height}, Status: {status}, Job: {job}, Favourite Drink: {favouriteDrink}, Description: {description}";
+                return $"isUnlocked: {isUnlocked}, index: {index}, nickname: {nickname}, Name: {name}, Age: {age}, Height: {height}, Status: {status}, Job: {job}, Favourite Drink: {favouriteDrink}, Description: {description}";
             } catch (Exception e) {
                 return $"Error :( Exception in Guest.ToString(): {e}";
             }

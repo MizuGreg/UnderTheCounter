@@ -233,54 +233,49 @@ namespace EndOfDay
         {
             GameData.EndDay(dailyBalance);
 
-            // update guest book entries
-            UpdateGuestBook(GameData.CurrentDay);
+            // UpdateGuestBook(GameData.CurrentDay);
 
             GameData.CurrentDay++;
             GameData.SaveToJson();
             StartCoroutine(LoadNextScene());
         }
 
-        private void UpdateGuestBook(int currentDay)
-        {
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
-            GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
-            List<Guest> _guestsData = guestList.guests;
-            switch (currentDay) 
-            {
-                case 1:
-                    _guestsData.Find(guest => guest.name == "Ernest Wade").isUnlocked = true;
-                    // used for debug
-                    Debug.Log("Unlocked characters for day: " + currentDay);
-                    break;
-                case 2:
-                    _guestsData.Find(guest => guest.name == "Margaret Brookside").isUnlocked = true;
-                    _guestsData.Find(guest => guest.name == "Helene Hollis").isUnlocked = true;
-                    _guestsData.Find(guest => guest.name == "Charles Doyle").isUnlocked = true;
-                    _guestsData.Find(guest => guest.name == "Elisabeth Sanford").isUnlocked = true;
-                    _guestsData.Find(guest => guest.name == "Kathryn Lesbihonest").isUnlocked = true;
-                    _guestsData.Find(guest => guest.name == "Eugene Norris").isUnlocked = true;
-                    _guestsData.Find(guest => guest.name == "Doris Norris").isUnlocked = true;
-                    break;
-                case 3:
-                    _guestsData.Find(guest => guest.name == "Howard Preston").isUnlocked = true;
-                    _guestsData.Find(guest => guest.name == "Luke Spencer").isUnlocked = true;
-                    _guestsData.Find(guest => guest.name == "Gaston Petit").isUnlocked = true;
-                    _guestsData.Find(guest => guest.name == "Willie Truman").isUnlocked = true;
-                    break;
-                case 4:
-                    _guestsData.Find(guest => guest.name == "Kenneth Ward").isUnlocked = true;
-                    _guestsData.Find(guest => guest.name == "Ernest Dawe").isUnlocked = true;
-                    break;
-                case 5:
-                    _guestsData.Find(guest => guest.name == "Mafia Goon").isUnlocked = true;
-                    break;
-            }
-            string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
-            File.WriteAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json", updatedJson);
-            // used for debug
-            Debug.Log("GuestBook aggiornato e salvato.");
-        }
+        // private void UpdateGuestBook(int currentDay)
+        // {
+        //     string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+        //     GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
+        //     List<Guest> _guestsData = guestList.guests;
+        //     switch (currentDay) 
+        //     {
+        //         case 1:
+        //             _guestsData.Find(guest => guest.name == "Ernest Wade").isUnlocked = true;
+        //             break;
+        //         case 2:
+        //             _guestsData.Find(guest => guest.name == "Margaret Brookside").isUnlocked = true;
+        //             _guestsData.Find(guest => guest.name == "Helene Hollis").isUnlocked = true;
+        //             _guestsData.Find(guest => guest.name == "Charles Doyle").isUnlocked = true;
+        //             _guestsData.Find(guest => guest.name == "Elisabeth Sanford").isUnlocked = true;
+        //             _guestsData.Find(guest => guest.name == "Kathryn Lesbihonest").isUnlocked = true;
+        //             _guestsData.Find(guest => guest.name == "Eugene Norris").isUnlocked = true;
+        //             _guestsData.Find(guest => guest.name == "Doris Norris").isUnlocked = true;
+        //             break;
+        //         case 3:
+        //             _guestsData.Find(guest => guest.name == "Howard Preston").isUnlocked = true;
+        //             _guestsData.Find(guest => guest.name == "Luke Spencer").isUnlocked = true;
+        //             _guestsData.Find(guest => guest.name == "Gaston Petit").isUnlocked = true;
+        //             _guestsData.Find(guest => guest.name == "Willie Truman").isUnlocked = true;
+        //             break;
+        //         case 4:
+        //             _guestsData.Find(guest => guest.name == "Kenneth Ward").isUnlocked = true;
+        //             _guestsData.Find(guest => guest.name == "Ernest Dawe").isUnlocked = true;
+        //             break;
+        //         case 5:
+        //             _guestsData.Find(guest => guest.name == "Mafia Goon").isUnlocked = true;
+        //             break;
+        //     }
+        //     string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
+        //     File.WriteAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json", updatedJson);
+        // }
 
         private IEnumerator LoadGameOverScene()
         {
