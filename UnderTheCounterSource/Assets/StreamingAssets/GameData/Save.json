@@ -1,0 +1,108 @@
+{
+  "Log": [],
+  "Choices": {
+    "MargaretDrunk": false,
+    "MafiaDeal": false,
+    "PayoffAccepted": false,
+    "UnionSnitched": false
+  },
+  "BarName": "The Chitchat",
+  "DailyTime": 240.0,
+  "CurrentDay": 3,
+  "DrunkCustomers": 4,
+  "MaxDrunkCustomers": 99,
+  "BlitzTime": 99.0,
+  "HasABlitzHappened": true,
+  "BlitzFailCounter": 0,
+  "WasLastBlitzFailed": false,
+  "fastDay": true,
+  "allCustomersServed": true,
+  "loseType": null,
+  "Posters": [
+    {
+      "id": 0,
+      "price": -1.0,
+      "hanged": 0,
+      "visible": true,
+      "name": "Golden Hour",
+      "buff": "Higher earnings",
+      "nerf": "Fewer customers",
+      "description": "Ernest has gifted you this poster, which allegedly comes from Turin, Italy. Its vibrant colors may scare off some reserved customers, but the ones that do enter will certainly be in a gayer mood.",
+      "locked": false
+    },
+    {
+      "id": 1,
+      "price": 10.0,
+      "hanged": 0,
+      "visible": true,
+      "name": "Take it easy",
+      "buff": "More time in a day",
+      "nerf": "Fewer customers",
+      "description": "This little Tuscanian gnome reminds customers and staff of this bar to stay close to nature, and to do things our own way and at our own pace.",
+      "locked": true
+    },
+    {
+      "id": 2,
+      "price": -1.0,
+      "hanged": 0,
+      "visible": false,
+      "name": "Aurum",
+      "buff": "Fancy",
+      "nerf": "Over the top",
+      "description": "Delicate, gracious and petite. This poster has it all, and hanging it outside will let your beloved patrons know that elegance and aesthetics are definitely within your expertise.",
+      "locked": false
+    },
+    {
+      "id": 3,
+      "price": 20.0,
+      "hanged": 0,
+      "visible": true,
+      "name": "Zesty",
+      "buff": "More time in a day",
+      "nerf": "Lower earnings",
+      "description": "Who doesn't love orange juice? Well, apart from people allergic to orange. For everyone else, this poster is a reminder that they can take it easy in your bar.",
+      "locked": true
+    },
+    {
+      "id": 4,
+      "price": 50.0,
+      "hanged": 0,
+      "visible": false,
+      "name": "Baroque",
+      "buff": "Harder to call blitz",
+      "nerf": "Higher expenses",
+      "description": "This intriguing and expensive poster is heavily inspired by Baroque paintings, and perhaps reminds us that alcoholic beverages have always been a part of human society, before any of the cocktails you make were invented.",
+      "locked": true
+    },
+    {
+      "id": 5,
+      "price": -1.0,
+      "hanged": 0,
+      "visible": false,
+      "name": "Sarah Ja",
+      "buff": "More customers",
+      "nerf": "Lower earnings",
+      "description": "Who would've known this poster of a local dancer from the nearby academia would become the symbol of the resistance in Korgis City? And also, where have you seen that bartenders' union man before? Mysteries left unsolved.",
+      "locked": false
+    },
+    {
+      "id": 6,
+      "price": 30.0,
+      "hanged": 0,
+      "visible": false,
+      "name": "Balsam",
+      "buff": "Easier blitzes",
+      "nerf": "Police gets suspicious",
+      "description": "Nobody said aperitif drinks need to be alcoholic... but the most law-abiding among us will have suspicions. The party-goers, instead, will definitely help you out and slow the police down.",
+      "locked": true
+    }
+  ],
+  "Trinkets": [],
+  "payoffAmount": 0,
+  "Savings": 27.0,
+  "TodayEarnings": 0.0,
+  "Rent": 10,
+  "Food": 10,
+  "Supplies": 10,
+  "currentDateTime": "2025-01-15T16:08:18.870673+01:00"
+}

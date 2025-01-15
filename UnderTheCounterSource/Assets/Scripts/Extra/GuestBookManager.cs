@@ -10,15 +10,36 @@ using TMPro;
 namespace Extra {
     public class GuestBookManager : MonoBehaviour {
         [SerializeField] private FadeCanvas guestBook;
+        [SerializeField] private FadeCanvas achievementsBook;
         [SerializeField] private Button leftButton;
         [SerializeField] private Button rightButton;
         private int currentCustomerIndex;
         private List<Guest> _guestsData;
         private Guest currentCustomer;
 
+        [SerializeField] private Button guestsButton;
+        [SerializeField] private Button achievementsButton;
+
+        private Vector3 originalGuestsButtonPosition;
+        private Vector3 originalAchievementsButtonPosition;
+        private Vector3 selectedGuestsButtonPosition;
+        private Vector3 selectedAchievementsButtonPosition;
+
+        private float buttonPositionShift = -25f;
+
+        private Canvas currentlyOpenedPage;
+        
+        [SerializeField] private Canvas guestsPage;
+        [SerializeField] private Canvas achievementsPage;
+
         private void Start() {
             leftButton.gameObject.SetActive(false);
             rightButton.gameObject.SetActive(true);
+
+            originalGuestsButtonPosition = guestsButton.transform.localPosition;
+            originalAchievementsButtonPosition = achievementsButton.transform.localPosition;
+            selectedGuestsButtonPosition = originalGuestsButtonPosition + new Vector3(buttonPositionShift, 0, 0);
+            selectedAchievementsButtonPosition = originalAchievementsButtonPosition + new Vector3(buttonPositionShift, 0, 0);
             
             // guestBook.FadeIn();
 
@@ -109,6 +130,30 @@ namespace Extra {
             {
                 ShowLockedGuest();
             }
+        }
+
+        public void OpenGuestsTab()
+        {
+            if (currentlyOpenedPage == guestsPage) return;
+            currentlyOpenedPage = guestsPage;
+            
+            guestsPage.gameObject.SetActive(true);
+            achievementsPage.gameObject.SetActive(false);
+
+            guestsButton.GetComponent<RectTransform>().localPosition = selectedGuestsButtonPosition;
+            achievementsButton.GetComponent<RectTransform>().localPosition = originalAchievementsButtonPosition;
+        }
+
+        public void OpenAchievementsTab(bool silent = false)
+        {
+            if (currentlyOpenedPage == achievementsPage) return;
+            currentlyOpenedPage = achievementsPage;
+            
+            guestsPage.gameObject.SetActive(false);
+            achievementsPage.gameObject.SetActive(true);
+            
+            guestsButton.GetComponent<RectTransform>().localPosition = originalGuestsButtonPosition;
+            achievementsButton.GetComponent<RectTransform>().localPosition = selectedAchievementsButtonPosition;
         }
     }
 }

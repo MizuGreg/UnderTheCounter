@@ -4,16 +4,16 @@
       "id": "tutorial completed",
       "title": "A bar of your own",
       "description": "You have completed the tutorial",
-      "isUnlocked": false,
-      "progress": 0,
+      "isUnlocked": true,
+      "progress": 1,
       "target": 1
     },
     {
       "id": "newspaper opened",
       "title": "Breaking news!",
       "description": "Open the newspaper",
-      "isUnlocked": false,
-      "progress": 0,
+      "isUnlocked": true,
+      "progress": 1,
       "target": 1
     },
     {
@@ -116,8 +116,8 @@
       "id": "you've been served",
       "title": "You've been served",
       "description": "Serve all the customers in a day",
-      "isUnlocked": false,
-      "progress": 0,
+      "isUnlocked": true,
+      "progress": 1,
       "target": 1
     }
   ]
