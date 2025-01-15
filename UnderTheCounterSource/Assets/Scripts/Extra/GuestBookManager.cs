@@ -33,22 +33,18 @@ namespace Extra {
         [SerializeField] private Canvas achievementsPage;
 
         private void Start() {
-            leftButton.gameObject.SetActive(false);
-            rightButton.gameObject.SetActive(true);
-
             originalGuestsButtonPosition = guestsButton.transform.localPosition;
             originalAchievementsButtonPosition = achievementsButton.transform.localPosition;
             selectedGuestsButtonPosition = originalGuestsButtonPosition + new Vector3(buttonPositionShift, 0, 0);
             selectedAchievementsButtonPosition = originalAchievementsButtonPosition + new Vector3(buttonPositionShift, 0, 0);
-            
-            // guestBook.FadeIn();
 
-            LoadGuestBook();
-
-            OpenGuestsTab(); // open guests tab by default
+            // LoadGuestBook();
         }
 
         public void LoadGuestBook() {
+            // open guests tab by default
+            OpenGuestsTab();
+
             // Load guest book data
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
             GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
@@ -141,6 +137,9 @@ namespace Extra {
             
             guestsPage.gameObject.SetActive(true);
             achievementsPage.gameObject.SetActive(false);
+
+            leftButton.gameObject.SetActive(false);
+            rightButton.gameObject.SetActive(true);
 
             guestsButton.GetComponent<RectTransform>().localPosition = selectedGuestsButtonPosition;
             achievementsButton.GetComponent<RectTransform>().localPosition = originalAchievementsButtonPosition;

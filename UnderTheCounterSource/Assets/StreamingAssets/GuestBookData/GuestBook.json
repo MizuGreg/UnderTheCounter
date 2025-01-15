@@ -1,8 +1,9 @@
 {
   "guests": [
     {
-      "isUnlocked": true,
+      "isUnlocked": false,
       "index": 2,
+      "nickname": "Margaret",
       "name": "Margaret Brookside",
       "age": "23",
       "height": "170 cm",
@@ -12,8 +13,9 @@
       "description": "A spirited young actress with stars in her eyes and a heart full of dreams. Margaret's romantic soul often tangles with her demanding career, leaving her longing for connections that elude her. She enters the bar seeking solace, only to find unrequited affection."
     },
     {
-      "isUnlocked": true,
+      "isUnlocked": false,
       "index": 6,
+      "nickname": "Kathryn",
       "name": "Kathryn Lesbihonest",
       "age": "28",
       "height": "178 cm",
@@ -23,8 +25,9 @@
       "description": "A worldly explorer with a sharp mind and a knack for bending rules. Kathryn's charm and resourcefulness make her a fascinating companion, though her mischievous smile hints at secrets she keeps hidden. A free spirit with a penchant for leaving hearts (and artifacts) in her wake."
     },
     {
-      "isUnlocked": true,
+      "isUnlocked": false,
       "index": 3,
+      "nickname": "Helene",
       "name": "Helene Hollis",
       "age": "29",
       "height": "165 cm",
@@ -36,6 +39,7 @@
     {
       "isUnlocked": true,
       "index": 0,
+      "nickname": "Ernest",
       "name": "Ernest Wade",
       "age": "70",
       "height": "179 cm",
@@ -45,8 +49,9 @@
       "description": "A kind-hearted elder with decades of stories from behind the bar. Ernest teaches the art of mixology with a patient hand, guiding novices as a benevolent mentor. His calm demeanor and quiet encouragement make him the grandfatherly figure every aspiring bartender admires."
     },
     {
-      "isUnlocked": true,
+      "isUnlocked": false,
       "index": 4,
+      "nickname": "Charles",
       "name": "Charles Doyle",
       "age": "35",
       "height": "182 cm",
@@ -56,8 +61,9 @@
       "description": "Stoic and enigmatic, Charles speaks little but observes much. His stern gaze and unwavering focus conceal depths few dare to explore. A man of duty and discretion, he keeps his cards, and his emotions, close to his chest."
     },
     {
-      "isUnlocked": true,
+      "isUnlocked": false,
       "index": 5,
+      "nickname": "Betty",
       "name": "Elisabeth Sanford",
       "age": "You shouldn’t ask (78)",
       "height": "160 cm",
@@ -69,6 +75,7 @@
     {
       "isUnlocked": false,
       "index": 13,
+      "nickname": "Inspector",
       "name": "Howard Preston",
       "age": "43",
       "height": "182 cm",
@@ -78,8 +85,9 @@
       "description": "A man shaped by tragedy, Howard carries the weight of a promise made long ago. His resolve to rid Korgis of alcohol stems from a painful past. Serious and uncompromising, he serves the city with dedication, battling the shadows of a substance he deems malicious."
     },
     {
-      "isUnlocked": true,
+      "isUnlocked": false,
       "index": 7,
+      "nickname": "Eugene",
       "name": "Eugene Norris",
       "age": "28",
       "height": "185 cm",
@@ -89,8 +97,9 @@
       "description": "Freshly married and full of optimism, Eugene radiates joy wherever he goes. Exploring the city with his bride, he views every moment as a new adventure. His lively spirit and infectious enthusiasm brighten even the dimmest corners."
     },
     {
-      "isUnlocked": true,
+      "isUnlocked": false,
       "index": 8,
+      "nickname": "Doris",
       "name": "Doris Norris",
       "age": "30",
       "height": "158 cm",
@@ -102,6 +111,7 @@
     {
       "isUnlocked": false,
       "index": 11,
+      "nickname": "Willie",
       "name": "Willie Truman",
       "age": "35",
       "height": "180 cm",
@@ -113,6 +123,7 @@
     {
       "isUnlocked": false,
       "index": 10,
+      "nickname": "Gaston",
       "name": "Gaston Petit",
       "age": "43,5",
       "height": "173 cm",
@@ -124,6 +135,7 @@
     {
       "isUnlocked": false,
       "index": 14,
+      "nickname": "Mafia Goon",
       "name": "Mafia Goon",
       "age": "55",
       "height": "195 cm",
@@ -135,6 +147,7 @@
     {
       "isUnlocked": false,
       "index": 12,
+      "nickname": "Kenneth",
       "name": "Kenneth Ward",
       "age": "75",
       "height": "176 cm",
@@ -146,6 +159,7 @@
     {
       "isUnlocked": false,
       "index": 1,
+      "nickname": "B.U. member",
       "name": "Ernest Dawe",
       "age": "70",
       "height": "179 cm",
@@ -157,6 +171,7 @@
     {
       "isUnlocked": false,
       "index": 9,
+      "nickname": "Luke",
       "name": "Luke Spencer",
       "age": "26",
       "height": "180 cm",

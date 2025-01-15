@@ -11,6 +11,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Extra;
 
 namespace Tutorial
 {
@@ -178,6 +179,15 @@ namespace Tutorial
             
             _currentImage.sprite = ernestSprite;
             customerCanvas.GetComponent<FadeCanvas>().FadeIn();
+
+            // Ernest unlocked in the guest book
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+            GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
+            List<Guest> _guestsData = guestList.guests;
+            _guestsData.Find(guest => guest.name == "Ernest Wade").isUnlocked = true;
+            string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
+            File.WriteAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json", updatedJson);
+
             StartCoroutine(WaitAndGreetDialogue());
             EventSystemManager.OnCustomerEnter();
         }

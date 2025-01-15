@@ -11,6 +11,7 @@ using Technical;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Extra;
 
 namespace Bar
 {
@@ -310,6 +311,9 @@ namespace Bar
                         break;
                 }
                 _dailyCustomers.RemoveAt(0);
+
+                // update guest book json
+                UpdateGuestBook();
             
                 _currentImage.sprite = GetSpriteFromCustomerType(_currentCustomer.sprite);
                 customerCanvas.GetComponent<FadeCanvas>().FadeIn();
@@ -320,6 +324,18 @@ namespace Bar
             {
                 EventSystemManager.OnCustomersDepleted();
             }
+        }
+
+        private void UpdateGuestBook()
+        {
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+            GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
+            List<Guest> _guestsData = guestList.guests;
+
+            _guestsData.Find(guest => guest.nickname == _customerName).isUnlocked = true;
+
+            string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
+            File.WriteAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json", updatedJson);
         }
         
         private IEnumerator WaitAndGreetDialogue()
