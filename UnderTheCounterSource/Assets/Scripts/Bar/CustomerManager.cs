@@ -49,6 +49,8 @@ namespace Bar
         private int _totalDailyCustomers;
         private int _servedCustomers;
 
+        private int _trinketToDisplay = -1;
+
         private void Start()
         {
             EventSystemManager.OnTimeUp += TimeoutCustomers;
@@ -57,6 +59,7 @@ namespace Bar
             EventSystemManager.OnPreparationStart += StartPreparation;
             EventSystemManager.OnHowardEnter += TriggerHowardDialogue;
             EventSystemManager.MultipleChoiceStart += ShowChoiceButtons;
+            EventSystemManager.OnTrinketCollected += SetTrinketToDisplay;
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
@@ -72,6 +75,7 @@ namespace Bar
             EventSystemManager.OnPreparationStart -= StartPreparation;
             EventSystemManager.OnHowardEnter -= TriggerHowardDialogue;
             EventSystemManager.MultipleChoiceStart -= ShowChoiceButtons;
+            EventSystemManager.OnTrinketCollected -= SetTrinketToDisplay;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -393,6 +397,27 @@ namespace Bar
         }
 
         private void FarewellCustomer()
+        {
+            if (_trinketToDisplay >= 0)
+            {
+                // Shoot the event
+                EventSystemManager.OnTrinketDisplayed(_trinketToDisplay);
+
+                // Reset _trinketToDisplay
+                _trinketToDisplay = -1;
+            }
+            else
+            {
+                StartCoroutine(WaitBeforeFadeOut());
+            }
+        }
+
+        private void SetTrinketToDisplay(int trinketID)
+        {
+            _trinketToDisplay = trinketID;
+        }
+
+        public void FadeOut()
         {
             StartCoroutine(WaitBeforeFadeOut());
         }

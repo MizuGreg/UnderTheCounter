@@ -91,6 +91,7 @@ namespace Technical
         
         // Trinkets events
         public static UnityAction<int> OnTrinketCollected;
+        public static UnityAction<int> OnTrinketDisplayed;
         
         // Easter Egg event
         public static UnityAction OnNapoli;

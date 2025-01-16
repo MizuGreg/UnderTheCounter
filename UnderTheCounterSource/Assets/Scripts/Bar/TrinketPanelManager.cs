@@ -27,14 +27,14 @@ namespace Bar
             LoadTrinkets();
             
             // Subscribe to events
-            EventSystemManager.OnTrinketCollected += DisplayTrinket;
+            EventSystemManager.OnTrinketDisplayed += DisplayTrinket;
             
         }
 
         private void OnDestroy()
         {
             // Unsubscribe from events
-            EventSystemManager.OnTrinketCollected -= DisplayTrinket;
+            EventSystemManager.OnTrinketDisplayed -= DisplayTrinket;
         }
 
         private void LoadTrinkets()
