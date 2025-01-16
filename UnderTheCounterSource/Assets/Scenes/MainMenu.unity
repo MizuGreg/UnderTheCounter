@@ -4416,6 +4416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ultimate collector
       objectReference: {fileID: 0}
+    - target: {fileID: 1207443885828271740, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: You've been served
+      objectReference: {fileID: 0}
     - target: {fileID: 1332097343144487668, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_fontSize
       value: 26
