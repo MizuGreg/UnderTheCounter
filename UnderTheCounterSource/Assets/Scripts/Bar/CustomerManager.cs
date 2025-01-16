@@ -150,6 +150,8 @@ namespace Bar
             yield return new WaitForSeconds(1f);
             LoadDailyCustomers(GameData.CurrentDay);
             PosterEffects();
+            
+            _totalDailyCustomers = _dailyCustomers.Count;
 
             if (GameData.CurrentDay >= 3)
             {
@@ -165,9 +167,6 @@ namespace Bar
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + day + ".json");
             _dailyCustomers = JsonConvert.DeserializeObject<List<Customer>>(jsonString);
             HandleConditionalCustomers();
-
-            _totalDailyCustomers = _dailyCustomers.Count;
-
         }
 
         private void LoadDailyBlitzDialogues(int day)
