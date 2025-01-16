@@ -425,6 +425,7 @@ namespace Bar
         private IEnumerator WaitBeforeFadeOut()
         {
             yield return new WaitForSeconds(timeBeforeFadeout);
+            EventSystemManager.OnCustomerLeaveSound();
             if (customerCocktail.gameObject.activeSelf) customerCocktail.GetComponent<FadeCanvas>().FadeOut();
             customerCanvas.GetComponent<FadeCanvas>().FadeOut();
             EventSystemManager.OnCustomerLeft();

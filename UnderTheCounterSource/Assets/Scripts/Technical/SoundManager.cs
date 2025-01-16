@@ -29,7 +29,7 @@ namespace Technical
             EventSystemManager.OnPageTurned += OnPageTurnedSound;
             
             EventSystemManager.OnCustomerEnter += OnCustomerEnterSound;
-            EventSystemManager.OnCustomerLeave += OnCustomerLeaveSound;
+            EventSystemManager.OnCustomerLeaveSound += OnCustomerLeaveSound;
             EventSystemManager.OnIngredientPouring += OnIngredientPouringSound;
             EventSystemManager.OnTimeWarning += OnTimeWarningSound;
             EventSystemManager.OnTimeUp += OnTimeUpSound;
@@ -64,7 +64,7 @@ namespace Technical
             EventSystemManager.OnPageTurned -= OnPageTurnedSound;
             
             EventSystemManager.OnCustomerEnter -= OnCustomerEnterSound;
-            EventSystemManager.OnCustomerLeave -= OnCustomerLeaveSound;
+            EventSystemManager.OnCustomerLeaveSound -= OnCustomerLeaveSound;
             EventSystemManager.OnIngredientPouring -= OnIngredientPouringSound;
             EventSystemManager.OnTimeWarning -= OnTimeWarningSound;
             EventSystemManager.OnTimeUp -= OnTimeUpSound;

@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0df26eb-48d8-4b8f-9f8c-72d57d72d036" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/TrinketPanelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/TrinketPanelManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/SoundManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/AchievementData/Achievements.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/AchievementData/Achievements.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/GuestBookData/GuestBook.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/GuestBookData/GuestBook.json" afterDir="false" />
     </list>
@@ -117,7 +115,7 @@
       <workItem from="1735695124370" duration="547000" />
       <workItem from="1735747158663" duration="5039000" />
       <workItem from="1735930545433" duration="3000" />
-      <workItem from="1737019985635" duration="2369000" />
+      <workItem from="1737019985635" duration="2832000" />
     </task>
     <servers />
   </component>
