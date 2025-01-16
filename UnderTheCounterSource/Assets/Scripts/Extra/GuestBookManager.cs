@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using TMPro;
+using Achievements;
 
 namespace Extra {
     public class GuestBookManager : MonoBehaviour {
@@ -149,6 +150,8 @@ namespace Extra {
         {
             if (currentlyOpenedPage == achievementsPage) return;
             currentlyOpenedPage = achievementsPage;
+
+            LoadAchievements();
             
             guestsPage.gameObject.SetActive(false);
             achievementsPage.gameObject.SetActive(true);
@@ -156,5 +159,37 @@ namespace Extra {
             guestsButton.GetComponent<RectTransform>().localPosition = originalGuestsButtonPosition;
             achievementsButton.GetComponent<RectTransform>().localPosition = selectedAchievementsButtonPosition;
         }
+
+        public void LoadAchievements()
+        {
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/AchievementData/Achievements.json");
+            List<Achievement> _achievements = JsonConvert.DeserializeObject<AchievementList>(jsonString).achievements;
+            foreach (var achievement in _achievements)
+            {
+                GameObject targetObject = FindChildByName(achievementsPage.gameObject, achievement.title);
+                Image targetImage = targetObject.GetComponent<Image>();
+                if (achievement.isUnlocked)
+                {
+                    Color newColor = targetImage.color;
+                    newColor.a = 1f;
+                    targetImage.color = newColor;
+                }
+            }
+        }
+
+        private GameObject FindChildByName(GameObject parent, string childName)
+        {
+        foreach (Transform child in parent.transform)
+        {
+            if (child.name == childName)
+                return child.gameObject;
+
+            GameObject result = FindChildByName(child.gameObject, childName);
+            if (result != null)
+                return result;
+        }
+        return null;
+        }
+
     }
 }

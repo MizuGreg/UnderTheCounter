@@ -4320,6 +4320,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2031047699}
     m_Modifications:
+    - target: {fileID: 434368917407855417, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: Playing it clean
+      objectReference: {fileID: 0}
     - target: {fileID: 928226175490025790, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4408,6 +4412,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1069688879857512834, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: Ultimate collector
+      objectReference: {fileID: 0}
     - target: {fileID: 1332097343144487668, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_fontSize
       value: 26
@@ -4476,6 +4484,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1675424013116953712, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: Aspiring collector
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763022833927140376, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: Shaken, stirred and stretched
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136502300008411138, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: A bar of your own
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253525684441661026, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: Mafia's pawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514119727794586245, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: The backstabber
+      objectReference: {fileID: 0}
     - target: {fileID: 3966116988911848155, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -4487,6 +4515,10 @@ PrefabInstance:
     - target: {fileID: 4091794982539265697, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PreviousGuest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159619317896537838, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: End of the line
       objectReference: {fileID: 0}
     - target: {fileID: 4373905689444203606, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_IsActive
@@ -4504,6 +4536,14 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 4835501264181380014, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: Bankrupt
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870185228286016305, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: Breaking news!
+      objectReference: {fileID: 0}
     - target: {fileID: 4931583868308699916, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_fontSize
       value: 26
@@ -4515,6 +4555,10 @@ PrefabInstance:
     - target: {fileID: 4931583868308699916, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_fontSizeBase
       value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997808971826883099, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: Every cloud...
       objectReference: {fileID: 0}
     - target: {fileID: 5002695098538349478, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_fontSize
@@ -4548,6 +4592,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -453.0067
       objectReference: {fileID: 0}
+    - target: {fileID: 7447214754353321138, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: has a silver lining
+      objectReference: {fileID: 0}
     - target: {fileID: 7705409564139238681, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_fontSize
       value: 26
@@ -4571,6 +4619,14 @@ PrefabInstance:
     - target: {fileID: 8019068163852805102, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_fontSizeBase
       value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108173396508363562, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: Blitzed out
+      objectReference: {fileID: 0}
+    - target: {fileID: 8240551320443533121, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
+      propertyPath: m_Name
+      value: A Deal With The Devil
       objectReference: {fileID: 0}
     - target: {fileID: 8290830526030362624, guid: 02e047b17bd2f434ebf8f50de9ae2182, type: 3}
       propertyPath: m_fontSize
