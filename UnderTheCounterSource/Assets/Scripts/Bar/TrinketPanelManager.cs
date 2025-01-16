@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
@@ -96,6 +97,13 @@ namespace Bar
 
         private void ShowTrinketArea()
         {
+            StartCoroutine(WaitBeforeShowingTrinketArea());
+        }
+
+        private IEnumerator WaitBeforeShowingTrinketArea()
+        {
+            yield return new WaitForSeconds(1f);
+            
             gameObject.GetComponent<FadeCanvas>().FadeIn();
             _canvasGroup.blocksRaycasts = true;
             hangButton.SetActive(true);
