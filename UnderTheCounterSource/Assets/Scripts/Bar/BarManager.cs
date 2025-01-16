@@ -127,7 +127,9 @@ namespace Bar
 
         private IEnumerator WaitThenEndDay()
         {
-            yield return new WaitForSeconds(2f);
+            float secondsBeforeEnding = 2f;
+            if (GameData.CurrentDay == 1 && GameData.BarName == "Napoli") secondsBeforeEnding = 5.5f;
+            yield return new WaitForSeconds(secondsBeforeEnding);
             SceneManager.LoadScene("EndOfDay");
         }
 
