@@ -69,15 +69,13 @@ namespace IntroductionScreen
         {
             // Fade-in (Image)
             yield return FadeCanvasGroupIn(imageCanvas, 1.1f);
-
-            yield return new WaitForSeconds(1f);
             
             // Fade-in (Text)
             yield return FadeTextIn(text, 1.1f);
+
+            yield return new WaitForSeconds(0.5f);
             
-            yield return new WaitForSeconds(2f);
-            
-            // Fade-in (Button)
+            // Pop-up (Button)
             _currentButtonCanvas.alpha = 1f;
             _currentButtonCanvas.blocksRaycasts = true;
         }
