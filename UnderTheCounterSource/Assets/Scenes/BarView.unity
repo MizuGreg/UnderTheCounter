@@ -10804,7 +10804,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HANG IT ON THE WALL
+  m_text: TAKE IT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2835b03344c4d9b40b205c4a89832f4d, type: 2}
   m_sharedMaterial: {fileID: 1797366059804910348, guid: 2835b03344c4d9b40b205c4a89832f4d, type: 2}
