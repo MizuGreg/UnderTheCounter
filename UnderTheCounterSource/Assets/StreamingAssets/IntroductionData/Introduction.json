@@ -1,0 +1,24 @@
+{
+  "slides": [
+    {
+      "sprite": "Intro 1_Letter",
+      "caption": "Congratulations!"
+    },
+    {
+      "sprite": "Intro 2_Money",
+      "caption": "The Bank of Korgis has finally approved your loan application."
+    },
+    {
+      "sprite": "Intro 3_Keys",
+      "caption": "Soon you will meet with the former bar owner Ernest to receive the keys."
+    },
+    {
+      "sprite": "Intro 4_Shaker",
+      "caption": "Your dream of opening a thriving bar in the arts district has finally come true."
+    },
+    {
+      "sprite": "Intro 5_Korgis logo",
+      "caption": "Welcome to the Korgis Barkeepers League!"
+    }
+  ]
+}
