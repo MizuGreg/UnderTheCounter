@@ -205,11 +205,14 @@ namespace Extra {
 
         public void ResetGuests()
         {
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+            GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
+            _guestsData = guestList.guests;
             foreach (var guest in _guestsData)
             {
                 guest.isUnlocked = false;
             }
-            string updatedJson = JsonConvert.SerializeObject(new GuestList { guests = _guestsData }, Formatting.Indented);
+            string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
             File.WriteAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json", updatedJson);
         }
 
