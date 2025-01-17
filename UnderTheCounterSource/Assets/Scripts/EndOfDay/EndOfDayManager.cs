@@ -253,7 +253,7 @@ namespace EndOfDay
 
             if (GameData.CurrentDay > 7)
             {
-                if (GameData.Choices["UnionSnitched"] == false)
+                if (GameData.Choices["UnionSnitched"])
                 {
                     endingType = "good";
                     EventSystemManager.OnLoadWinScreen();
