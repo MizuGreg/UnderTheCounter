@@ -2,33 +2,33 @@
   "trinkets": [
     {
       "id": 0,
-      "title": "KathrineTrinket",
-      "caption": "Kathrine Trinket Caption"
+      "title": "KathrynTrinket",
+      "caption": "Kathryn has gifted you one of her precious trinkets\n"
     },
     {
       "id": 1,
       "title": "GastonTrinket",
-      "caption": "Gaston Trinket Caption"
+      "caption": "Gaston left his business card on your counter\n"
     },
     {
       "id": 2,
       "title": "BettyTrinket",
-      "caption": "Betty Trinket Caption"
+      "caption": "Betty has given you her delicious homemade cookies\n"
     },
     {
       "id": 3,
       "title": "WillieTrinket",
-      "caption": "Willie Trinket Caption"
+      "caption": "Willie has given you his favourite record\n"
     },
     {
       "id": 4,
       "title": "KennethTrinket",
-      "caption": "Kenneth Trinket Caption"
+      "caption": "Kenneth has given you one of his dusted military medals\n"
     },
     {
       "id": 5,
       "title": "EugeneTrinket",
-      "caption": "Eugene Trinket Caption"
+      "caption": "Eugene has gifted you one of his lovely drawings"
     }
   ]
 }

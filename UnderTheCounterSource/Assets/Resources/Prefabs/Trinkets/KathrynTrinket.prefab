@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1770746774217592209}
   - component: {fileID: 4106867977892417756}
   m_Layer: 5
-  m_Name: KathrineTrinket
+  m_Name: KathrynTrinket
   m_TagString: Trinket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

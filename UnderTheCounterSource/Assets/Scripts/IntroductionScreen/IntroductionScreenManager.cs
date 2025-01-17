@@ -24,9 +24,13 @@ namespace IntroductionScreen
         [Header("Slide Elements")] 
         [SerializeField] private Image image;
         [SerializeField] private TextMeshProUGUI text;
+        [SerializeField] private float typingSpeed = 0.05f;
         
         private List<Slide> _slides;
         private CanvasGroup _currentButtonCanvas;
+        
+        private string _fullText;
+        private string _currentText = "";
 
         private void Start()
         {
@@ -70,12 +74,28 @@ namespace IntroductionScreen
             // Fade-in (Image)
             yield return FadeCanvasGroupIn(imageCanvas, 1.1f);
             
-            // Fade-in (Text)
-            yield return FadeTextIn(text, 1.1f);
+            // Type text (Text)
+            yield return TypeText();
+
+            yield return new WaitForSeconds(0.5f);
             
-            // Fade-in (Button)
-            yield return FadeCanvasGroupIn(_currentButtonCanvas, 1.1f);
+            // Pop-up (Button)
+            _currentButtonCanvas.alpha = 1f;
             _currentButtonCanvas.blocksRaycasts = true;
+        }
+        
+        private IEnumerator TypeText()
+        {
+            _currentText = ""; 
+            text.text = _currentText;
+            text.alpha = 1f;
+
+            foreach (char c in _fullText)
+            {
+                _currentText += c;
+                text.text = _currentText;
+                yield return new WaitForSeconds(typingSpeed);
+            }
         }
 
         public void Continue()
@@ -109,7 +129,7 @@ namespace IntroductionScreen
             if (_slides.Count > 0)
             {
                 image.sprite = GetSpriteFromSlide(_slides[0].sprite);
-                text.text = _slides[0].caption;
+                _fullText = _slides[0].caption;
                 _slides.RemoveAt(0);
 
                 if (_slides.Count == 0)
@@ -146,41 +166,6 @@ namespace IntroductionScreen
             yield return FadeCanvasGroupOut(mainCanvas, 1.1f);
 
             SceneManager.LoadScene("Scenes/TutorialDay1");
-        }
-
-        // ----- FUNZIONI UTILI PER IL FADE -----
-
-        private IEnumerator FadeTextIn(TextMeshProUGUI text, float duration)
-        {
-            text.gameObject.SetActive(true);
-            float startAlpha = text.alpha;
-            float endAlpha = 1f;
-            float elapsed = 0f;
-
-            while (elapsed < duration)
-            {
-                elapsed += Time.deltaTime;
-                float t = elapsed / duration;
-                text.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
-                yield return null;
-            }
-        }
-
-        private IEnumerator FadeTextOut(TextMeshProUGUI text, float duration)
-        {
-            float startAlpha = text.alpha;
-            float endAlpha = 0f;
-            float elapsed = 0f;
-
-            while (elapsed < duration)
-            {
-                elapsed += Time.deltaTime;
-                float t = elapsed / duration;
-                text.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
-                yield return null;
-            }
-
-            text.gameObject.SetActive(false);
         }
 
         private IEnumerator FadeCanvasGroupIn(CanvasGroup cg, float duration)
