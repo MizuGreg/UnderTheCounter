@@ -1,7 +1,7 @@
 {
   "guests": [
     {
-      "isUnlocked": false,
+      "isUnlocked": true,
       "index": 2,
       "nickname": "Margaret",
       "name": "Margaret Brookside",
@@ -25,7 +25,7 @@
       "description": "A worldly explorer with a sharp mind and a knack for bending rules. Kathryn's charm and resourcefulness make her a fascinating companion, though her mischievous smile hints at secrets she keeps hidden. A free spirit with a penchant for leaving hearts (and artifacts) in her wake."
     },
     {
-      "isUnlocked": false,
+      "isUnlocked": true,
       "index": 3,
       "nickname": "Helene",
       "name": "Helene Hollis",
@@ -37,7 +37,7 @@
       "description": "The epitome of elegance and affluence, Helene graces establishments with her presence, and judgment. Always keen to leave a lasting impression, she bestows lavish tips with a haughty air, ensuring her refined manners shine as brightly as her wealth."
     },
     {
-      "isUnlocked": false,
+      "isUnlocked": true,
       "index": 0,
       "nickname": "Ernest",
       "name": "Ernest Wade",

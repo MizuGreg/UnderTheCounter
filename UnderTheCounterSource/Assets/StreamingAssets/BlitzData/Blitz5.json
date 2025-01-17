@@ -39,7 +39,7 @@
         "I hope you're a person I can trust."
       ],
       "wrong": [
-        "I knew it! You're one of them, aren't you?",
+        "{UNION SNITCHED}I knew it! You're one of them, aren't you?",
         "I need to investigate further, just so you know, you're now under the eye of the Korgis police, so be careful what you do, bartender."
       ]
     },

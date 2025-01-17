@@ -97,5 +97,8 @@ namespace Technical
         // Easter Egg event
         public static UnityAction OnNapoli;
 
+        // Final day event
+        public static UnityAction OnErnestReveal;
+
     }
 }

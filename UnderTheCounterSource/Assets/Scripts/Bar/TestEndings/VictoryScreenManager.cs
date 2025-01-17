@@ -25,7 +25,8 @@ namespace Endings
 
         void Start()
         {
-            EventSystemManager.OnLoadWinScreen();
+            // deactivate because of the new EndingsManager
+            // EventSystemManager.OnLoadWinScreen();
             
             thanksForPlayingCanvas.FadeIn();
             toBeContinuedCanvas.gameObject.SetActive(false);

@@ -1,0 +1,30 @@
+[
+    {
+        "sprite": "ErnestUnion",
+        "order": "None",
+        "tip": 0,
+        "lines": {
+            "greet": [
+                "Good morning bartender! Have you seen the news?",
+                "We made it, prohibition is finally over!",
+                "It was a very long hearing but it was worth it. <i>Good things come to those who wait</i>, and the Bartenders' Union has won.",
+                "I've always had my eye on you, young one, and I'm proud of you and your courage to stick it out all this time. I knew you had what it takes from the moment I left you the keys of this bar.",
+                "Indeed, all this time, behind these old glasses..."
+            ]
+        }
+    },
+    {
+        "sprite": "Ernest",
+        "order": "None",
+        "tip": 0,
+        "lines": {
+            "greet": [
+                "...it has always been me!",
+                "I know, I know, don't worry about me, I'm a master of disguise, I've been doing it for over 30 years.",
+                "I bet you didn't recognize me the second time I walked into your bar {BAR NAME}.",
+                "Now you can finally carry on the bartender's legacy in this town.", 
+                "Thank you for your perseverance. Goodbye, son."
+            ]
+        }
+    }
+]

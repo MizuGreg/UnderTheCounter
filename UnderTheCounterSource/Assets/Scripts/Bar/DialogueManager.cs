@@ -180,27 +180,37 @@ namespace Bar
             textSpeed = normalTextSpeed;
             if (_sentences.Count == 0) {
                 if (_dialogueType != DialogueType.MultipleChoice) {
-                    isBoxActive = false;
-                    EndDialogue();
+                    if (GameData.CurrentDay != 8)
+                    {
+                        isBoxActive = false;
+                        EndDialogue();
+                    }
+                    else
+                    {
+                        EventSystemManager.OnErnestReveal();
+                    }
                 }
-                switch (_dialogueType)
+                if (GameData.CurrentDay != 8)
                 {
-                    case DialogueType.Greet:
-                        EventSystemManager.OnPreparationStart();
-                        break;
-                    case DialogueType.Leave:
-                        EventSystemManager.OnCustomerLeave();
-                        break;
-                    case DialogueType.Tutorial:
-                        EventSystemManager.NextTutorialStep();
-                        break;
-                    case DialogueType.NoDrink:
-                        EventSystemManager.OnCustomerLeave();
-                        break;
-                    case DialogueType.MultipleChoice:
-                        EventSystemManager.MultipleChoiceStart();
-                        isBoxActive = false; // deactivates interaction with box, e.g. clicking to skip sentence
-                        break;
+                    switch (_dialogueType)
+                    {
+                        case DialogueType.Greet:
+                            EventSystemManager.OnPreparationStart();
+                            break;
+                        case DialogueType.Leave:
+                            EventSystemManager.OnCustomerLeave();
+                            break;
+                        case DialogueType.Tutorial:
+                            EventSystemManager.NextTutorialStep();
+                            break;
+                        case DialogueType.NoDrink:
+                            EventSystemManager.OnCustomerLeave();
+                            break;
+                        case DialogueType.MultipleChoice:
+                            EventSystemManager.MultipleChoiceStart();
+                            isBoxActive = false; // deactivates interaction with box, e.g. clicking to skip sentence
+                            break;
+                    }
                 }
             }
             else
@@ -272,12 +282,18 @@ namespace Bar
                     GameData.Choices["MargaretDrunk"] = true;
                     EventSystemManager.OnButterfly1();
                 }
-
+                
                 if (tag == "MARGARET GETS ENGAGED")
                 {
                     //GameData.Choices["MargaretEngaged"] = true;
                     EventSystemManager.OnButterfly2();
                 }
+
+                if (tag == "UNION SNITCHED")
+                {
+                    GameData.Choices["UnionSnitched"] = true;
+                }
+
                 if (tag == "MAFIA DEAL ACCEPTED")
                 {
                     GameData.Choices["MafiaDeal"] = true;
