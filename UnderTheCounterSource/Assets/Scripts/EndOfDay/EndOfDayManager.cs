@@ -291,7 +291,7 @@ namespace EndOfDay
             endOfDayCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
 
-            if (GameData.CurrentDay >= 7)
+            if (GameData.CurrentDay > 7)
             {
                 endingType = "good";
                 EventSystemManager.OnLoadWinScreen();
