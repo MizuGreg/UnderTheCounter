@@ -203,5 +203,15 @@ namespace Extra {
         return null;
         }
 
+        public void ResetGuests()
+        {
+            foreach (var guest in _guestsData)
+            {
+                guest.isUnlocked = false;
+            }
+            string updatedJson = JsonConvert.SerializeObject(new GuestList { guests = _guestsData }, Formatting.Indented);
+            File.WriteAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json", updatedJson);
+        }
+
     }
 }

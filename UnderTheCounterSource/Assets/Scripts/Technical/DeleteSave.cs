@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Achievements;
 using SavedGameData;
 using UnityEngine;
+using Extra;
 
 public class DeleteSave : MonoBehaviour
 {
@@ -10,5 +11,6 @@ public class DeleteSave : MonoBehaviour
     {
         GameData.DeleteSave();
         GetComponent<AchievementManager>().ResetAchievements();
+        GameObject.Find("GuestBookManager").GetComponent<GuestBookManager>().ResetGuests();
     }
 }
