@@ -157,7 +157,7 @@
       "description": "A seasoned man with tales of war and a penchant for sharing them. Kenneth’s wealth of experience often translates into unsolicited advice, but his intentions are as honorable as his military past."
     },
     {
-      "isUnlocked": false,
+      "isUnlocked": true,
       "index": 1,
       "nickname": "B.U. member",
       "name": "Ernest Dawe",

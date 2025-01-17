@@ -65,21 +65,33 @@ namespace Extra {
 
         public void ShowGuest() {
             guestBook.transform.Find("CustomerName").GetComponent<TextMeshProUGUI>().text = currentCustomer.name.Split(' ')[0];
-            guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char unlocked/" + currentCustomer.name.Split(' ')[0]);
+            if (currentCustomer.name == "Ernest Dawe")
+            {
+                guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char unlocked/Ernest BU");
+            }
+            else
+            {
+                guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char unlocked/" + currentCustomer.name.Split(' ')[0]);
+            }
             guestBook.transform.Find("Name").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.name;
             guestBook.transform.Find("Age").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.age;
             guestBook.transform.Find("Height").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.height;
             guestBook.transform.Find("Status").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.status;
             guestBook.transform.Find("Job").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.job;
             guestBook.transform.Find("FavouriteDrink").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.favouriteDrink;
-            // favourite drink is not being displayed
-            Debug.Log(currentCustomer.favouriteDrink);
             guestBook.transform.Find("Description").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.description;
         }
 
         public void ShowLockedGuest() {
             guestBook.transform.Find("CustomerName").GetComponent<TextMeshProUGUI>().text = "???";
+            if (currentCustomer.name == "Ernest Dawe")
+            {
+                guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char locked/Ernest BU ___");
+            }
+            else
+            {
             guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char locked/" + currentCustomer.name.Split(' ')[0] + " ___");
+            }
             guestBook.transform.Find("Name").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
             guestBook.transform.Find("Age").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
             guestBook.transform.Find("Height").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
