@@ -153,6 +153,7 @@ namespace SavedGameData
             HasABlitzHappened = true;
             WasLastBlitzFailed = true;
             BlitzFailCounter++;
+            // trigger popup blink
             EventSystemManager.OnWrongChoice();
             UpdateBlitzVariables();
         }
