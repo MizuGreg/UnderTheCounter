@@ -97,6 +97,7 @@ namespace Bar
 
         private void ShowTrinketArea()
         {
+            _canvasGroup.blocksRaycasts = true;
             StartCoroutine(WaitBeforeShowingTrinketArea());
         }
 
