@@ -1,0 +1,30 @@
+{
+  "Log": [],
+  "Choices": {
+    "MargaretDrunk": false,
+    "MafiaDeal": false,
+    "PayoffAccepted": false,
+    "UnionSnitched": false
+  },
+  "BarName": "Napoli",
+  "DailyTime": 0.0,
+  "CurrentDay": 2,
+  "DrunkCustomers": 0,
+  "MaxDrunkCustomers": 99,
+  "BlitzTime": 99.0,
+  "HasABlitzHappened": true,
+  "BlitzFailCounter": 0,
+  "WasLastBlitzFailed": false,
+  "fastDay": false,
+  "allCustomersServed": false,
+  "loseType": null,
+  "Posters": [],
+  "Trinkets": [],
+  "payoffAmount": 0,
+  "Savings": 25.0,
+  "TodayEarnings": 0.0,
+  "Rent": 10,
+  "Food": 10,
+  "Supplies": 10,
+  "currentDateTime": "2025-01-18T17:17:13.314159+01:00"
+}

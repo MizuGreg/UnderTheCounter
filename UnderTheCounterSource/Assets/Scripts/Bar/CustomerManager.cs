@@ -455,20 +455,20 @@ namespace Bar
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["water"]);
                         // earning += _currentCustomer.tip / 3;
-                        earning = 1f;
+                        earning = 1f; // watered down correct cocktail
                     }
                     else
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["correct"]);
                         // earning += _currentCustomer.tip;
-                        earning += 5f; // 5f + 3f -> 8f
+                        earning += 5f; // correct cocktail, no water
                     }
                 }
                 
                 else if (cocktail.type == CocktailType.Wrong) // completely wrong cocktail, a mess
                 {
                     dialogue = new Dialogue(_customerName, _currentCustomer.lines["wrong"]);
-                    earning = 0;
+                    earning = 0; // no tip for a completely wrong cocktail
                 }
                 
                 else // correctly executed cocktail, but not the one the customer ordered
@@ -477,17 +477,19 @@ namespace Bar
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines[cocktail.type.ToString()]);
                         // earning += _currentCustomer.tip / 2; // extra tip
+                        earning += 5f;
                     }
                     else if (_currentCustomer.lines.ContainsKey("incorrect")) // if we have a generic line for an incorrect but well-done cocktail
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["incorrect"]);
+                        earning = 0;
                     }
                     else // fallback to standard "wrong cocktail" line
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["wrong"]);
+                        earning = 0;
                     }
                     // earning += _currentCustomer.tip / 3;
-                    earning = 0;
                 }
 
                 earning = Mathf.Round(earning * earningMultiplier);
