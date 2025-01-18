@@ -53,7 +53,6 @@ namespace Bar
         {
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/UnlockedPosterData/Posters.json");
             _posters = JsonConvert.DeserializeObject<PosterList>(jsonString).posters;
-            Debug.Log(_posters);
         }
 
         private void DisplayTrinket(int id)
@@ -72,7 +71,6 @@ namespace Bar
 
         private void DisplayPoster(int id)
         {
-            Debug.Log("Displaying poster");
             _isPoster = true; // This is a poster
             UnlockedPoster poster = _posters.Find(a => a.id == id);
             if (poster != null)
