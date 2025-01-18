@@ -482,12 +482,12 @@ namespace Bar
                     else if (_currentCustomer.lines.ContainsKey("incorrect")) // if we have a generic line for an incorrect but well-done cocktail
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["incorrect"]);
-                        earning = 0;
+                        earning += 1f;
                     }
                     else // fallback to standard "wrong cocktail" line
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["wrong"]);
-                        earning = 0;
+                        earning += 1f;
                     }
                     // earning += _currentCustomer.tip / 3;
                 }

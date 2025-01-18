@@ -232,12 +232,12 @@ namespace Technical
         private IEnumerator PlayDoorSlamSound()
         {
             yield return new WaitForSeconds(0.75f);
-            EazySoundManager.PlaySound(soundData.doorSlamSound, 0.8f);
+            EazySoundManager.PlaySound(soundData.doorSlamSound, 0.9f);
         }
 
         private void OnBlitzWonSound()
         {
-            EazySoundManager.PlaySound(soundData.blitzWonSound);
+            EazySoundManager.PlaySound(soundData.blitzWonSound, 0.3f);
         }
 
         private void OnAchievementUnlockedSound()

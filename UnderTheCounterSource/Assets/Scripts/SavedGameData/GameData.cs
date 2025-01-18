@@ -5,6 +5,7 @@ using AYellowpaper.SerializedCollections;
 using Newtonsoft.Json;
 using ShopWindow;
 using UnityEngine;
+using Technical;
 
 namespace SavedGameData
 {
@@ -152,6 +153,7 @@ namespace SavedGameData
             HasABlitzHappened = true;
             WasLastBlitzFailed = true;
             BlitzFailCounter++;
+            EventSystemManager.OnWrongChoice();
             UpdateBlitzVariables();
         }
         

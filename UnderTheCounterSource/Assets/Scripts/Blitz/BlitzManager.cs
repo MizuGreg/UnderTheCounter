@@ -20,6 +20,7 @@ namespace Blitz
         [SerializeField] private CanvasGroup blitzCanvas;
         [SerializeField] private BlitzTimer blitzTimer;
         [SerializeField] private FadeCanvas warningPopup;
+        [SerializeField] private FadeCanvas wrongChoicePopup;
         [SerializeField] private FadeCanvas blitzIncomingPopup;
 
         [SerializeField] private CanvasGroup barContainer;
@@ -36,6 +37,7 @@ namespace Blitz
             EventSystemManager.OnBlitzCalled += CallBlitz;
             EventSystemManager.OnBlitzTimerEnded += LossByBlitz;
             EventSystemManager.OnBottlePlaced += IncreasePlacedBottlesCounter;
+            EventSystemManager.OnWrongChoice += WrongChoiceWarning;
             
             placeholderPrefabs = new List<GameObject>(Resources.LoadAll<GameObject>("Prefabs/Blitz"));
         }
@@ -46,6 +48,7 @@ namespace Blitz
             EventSystemManager.OnBlitzCalled -= CallBlitz;
             EventSystemManager.OnBlitzTimerEnded -= LossByBlitz;
             EventSystemManager.OnBottlePlaced -= IncreasePlacedBottlesCounter;
+            EventSystemManager.OnWrongChoice -= WrongChoiceWarning;
         }
 
         private void BlitzWarning()
@@ -58,6 +61,18 @@ namespace Blitz
             warningPopup.FadeIn();
             yield return new WaitForSeconds(3f);
             warningPopup.FadeOut();
+        }
+
+        private void WrongChoiceWarning()
+        {
+            StartCoroutine(BlinkChoiceWarning());
+        }
+
+        private IEnumerator BlinkChoiceWarning()
+        {
+            wrongChoicePopup.FadeIn();
+            yield return new WaitForSeconds(3f);
+            wrongChoicePopup.FadeOut();
         }
         
         public void CallBlitz()

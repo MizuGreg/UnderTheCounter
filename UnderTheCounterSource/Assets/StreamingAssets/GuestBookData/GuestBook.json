@@ -73,7 +73,7 @@
       "description": "A sharp-tongued dowager with an axe to grind, Beatrice spares no words for those who cross her. Life has left her bitter but sharp-witted, her exacting standards ensuring no detail escapes her critical eye—or her thick spectacles."
     },
     {
-      "isUnlocked": false,
+      "isUnlocked": true,
       "index": 13,
       "nickname": "Inspector",
       "name": "Howard Preston",
@@ -85,7 +85,7 @@
       "description": "A man shaped by tragedy, Howard carries the weight of a promise made long ago. His resolve to rid Korgis of alcohol stems from a painful past. Serious and uncompromising, he serves the city with dedication, battling the shadows of a substance he deems malicious."
     },
     {
-      "isUnlocked": false,
+      "isUnlocked": true,
       "index": 7,
       "nickname": "Eugene",
       "name": "Eugene Norris",
@@ -97,7 +97,7 @@
       "description": "Freshly married and full of optimism, Eugene radiates joy wherever he goes. Exploring the city with his bride, he views every moment as a new adventure. His lively spirit and infectious enthusiasm brighten even the dimmest corners."
     },
     {
-      "isUnlocked": false,
+      "isUnlocked": true,
       "index": 8,
       "nickname": "Doris",
       "name": "Doris Norris",
@@ -121,7 +121,7 @@
       "description": "Flamboyant and unapologetically himself, Willie moves through life with the confidence of a star performer. His passion for art and fashion is evident in every step he takes, lighting up the room with his vibrant personality."
     },
     {
-      "isUnlocked": false,
+      "isUnlocked": true,
       "index": 10,
       "nickname": "Gaston",
       "name": "Gaston Petit",
@@ -169,7 +169,7 @@
       "description": "Donning a new alias, Tenser Dawe is more than just a friendly face behind the bar. Beneath his calm exterior lies a man entrenched in the union’s secret dealings. Whether it’s cocktails or conspiracies, Tenser serves both with finesse."
     },
     {
-      "isUnlocked": false,
+      "isUnlocked": true,
       "index": 9,
       "nickname": "Luke",
       "name": "Luke Spencer",
