@@ -52,7 +52,7 @@ namespace IntroductionScreen
         
         private void LoadSlides()
         {
-            // Read Trinkets JSON and create trinkets list
+            // Read Introduction JSON and create slides list
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/IntroductionData/Introduction.json");
             
             _slides = JsonConvert.DeserializeObject<SlideList>(jsonString).slides;

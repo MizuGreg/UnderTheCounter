@@ -1,0 +1,52 @@
+{
+  "mailboxes": [
+    {
+      "day": 2,
+      "letter": true,
+      "BU": false,
+      "theater": false,
+      "newspaper": true,
+      "vote": false
+    },
+    {
+      "day": 3,
+      "letter": true,
+      "BU": true,
+      "theater": false,
+      "newspaper": true,
+      "vote": false
+    },
+    {
+      "day": 4,
+      "letter": false,
+      "BU": true,
+      "theater": true,
+      "newspaper": true,
+      "vote": false
+    },
+    {
+      "day": 5,
+      "letter": false,
+      "BU": true,
+      "theater": false,
+      "newspaper": true,
+      "vote": true
+    },
+    {
+      "day": 6,
+      "letter": true,
+      "BU": true,
+      "theater": false,
+      "newspaper": true,
+      "vote": false
+    },
+    {
+      "day": 7,
+      "letter": false,
+      "BU": true,
+      "theater": false,
+      "newspaper": true,
+      "vote": false
+    }
+  ]
+}
