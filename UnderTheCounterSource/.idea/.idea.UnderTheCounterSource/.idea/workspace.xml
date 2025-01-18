@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b0df26eb-48d8-4b8f-9f8c-72d57d72d036" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/ExtraDialog.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/ExtraDialog.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/NameYourBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/NameYourBar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/QuitGameDialog.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/QuitGameDialog.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ShopWindow.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ShopWindow.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/PosterPopUpManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/PosterPopUpManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/GuestBookData/GuestBook.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/GuestBookData/GuestBook.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +115,7 @@
       <workItem from="1735747158663" duration="5039000" />
       <workItem from="1735930545433" duration="3000" />
       <workItem from="1737019985635" duration="2832000" />
-      <workItem from="1737229021140" duration="2369000" />
+      <workItem from="1737229021140" duration="3740000" />
     </task>
     <servers />
   </component>
