@@ -39,6 +39,9 @@ namespace Extra {
             selectedGuestsButtonPosition = originalGuestsButtonPosition + new Vector3(buttonPositionShift, 0, 0);
             selectedAchievementsButtonPosition = originalAchievementsButtonPosition + new Vector3(buttonPositionShift, 0, 0);
 
+            leftButton.gameObject.SetActive(false);
+            rightButton.gameObject.SetActive(true);
+
             // LoadGuestBook();
         }
 
@@ -64,15 +67,16 @@ namespace Extra {
         }
 
         public void ShowGuest() {
-            guestBook.transform.Find("CustomerName").GetComponent<TextMeshProUGUI>().text = currentCustomer.name.Split(' ')[0];
-            if (currentCustomer.name == "Ernest Dawe")
+            // hardcode it in the case of the mafia goon
+            if (currentCustomer.name == "Mafia Goon")
             {
-                guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char unlocked/Ernest BU");
+                guestBook.transform.Find("CustomerName").GetComponent<TextMeshProUGUI>().text = currentCustomer.name;
             }
             else
             {
-                guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char unlocked/" + currentCustomer.name.Split(' ')[0]);
+                guestBook.transform.Find("CustomerName").GetComponent<TextMeshProUGUI>().text = currentCustomer.name.Split(' ')[0];
             }
+            guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char unlocked/" + currentCustomer.name.Split(' ')[0]);
             guestBook.transform.Find("Name").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.name;
             guestBook.transform.Find("Age").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.age;
             guestBook.transform.Find("Height").GetChild(0).GetComponent<TextMeshProUGUI>().text = currentCustomer.height;
@@ -84,14 +88,8 @@ namespace Extra {
 
         public void ShowLockedGuest() {
             guestBook.transform.Find("CustomerName").GetComponent<TextMeshProUGUI>().text = "???";
-            if (currentCustomer.name == "Ernest Dawe")
-            {
-                guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char locked/Ernest BU ___");
-            }
-            else
-            {
+            guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char locked/Tenser ___");
             guestBook.transform.Find("PhotoFrame").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/GuestBook/Char locked/" + currentCustomer.name.Split(' ')[0] + " ___");
-            }
             guestBook.transform.Find("Name").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
             guestBook.transform.Find("Age").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";
             guestBook.transform.Find("Height").GetChild(0).GetComponent<TextMeshProUGUI>().text = "???";

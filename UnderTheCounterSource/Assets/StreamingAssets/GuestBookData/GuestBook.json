@@ -1,7 +1,7 @@
 {
   "guests": [
     {
-      "isUnlocked": true,
+      "isUnlocked": false,
       "index": 2,
       "nickname": "Margaret",
       "name": "Margaret Brookside",
@@ -25,7 +25,7 @@
       "description": "A worldly explorer with a sharp mind and a knack for bending rules. Kathryn's charm and resourcefulness make her a fascinating companion, though her mischievous smile hints at secrets she keeps hidden. A free spirit with a penchant for leaving hearts (and artifacts) in her wake."
     },
     {
-      "isUnlocked": true,
+      "isUnlocked": false,
       "index": 3,
       "nickname": "Helene",
       "name": "Helene Hollis",
@@ -37,7 +37,7 @@
       "description": "The epitome of elegance and affluence, Helene graces establishments with her presence, and judgment. Always keen to leave a lasting impression, she bestows lavish tips with a haughty air, ensuring her refined manners shine as brightly as her wealth."
     },
     {
-      "isUnlocked": true,
+      "isUnlocked": false,
       "index": 0,
       "nickname": "Ernest",
       "name": "Ernest Wade",
@@ -92,7 +92,7 @@
       "age": "28",
       "height": "185 cm",
       "status": "Just married with Doris",
-      "job": "Proofreader for a book publishing house",
+      "job": "Proofreader",
       "favouriteDrink": "Ripple",
       "description": "Freshly married and full of optimism, Eugene radiates joy wherever he goes. Exploring the city with his bride, he views every moment as a new adventure. His lively spirit and infectious enthusiasm brighten even the dimmest corners."
     },
@@ -160,13 +160,13 @@
       "isUnlocked": false,
       "index": 1,
       "nickname": "B.U. member",
-      "name": "Ernest Dawe",
+      "name": "Tenser Dawe",
       "age": "70",
       "height": "179 cm",
       "status": "Married",
       "job": "Bartender’s Union member",
       "favouriteDrink": "Everest",
-      "description": "Donning a new alias, Ernest Dawe is more than just a friendly face behind the bar. Beneath his calm exterior lies a man entrenched in the union’s secret dealings. Whether it’s cocktails or conspiracies, Ernest serves both with finesse."
+      "description": "Donning a new alias, Tenser Dawe is more than just a friendly face behind the bar. Beneath his calm exterior lies a man entrenched in the union’s secret dealings. Whether it’s cocktails or conspiracies, Tenser serves both with finesse."
     },
     {
       "isUnlocked": false,
@@ -177,7 +177,7 @@
       "height": "180 cm",
       "status": "Single, but trying",
       "job": "Propmaker at the local theater",
-      "favouriteDrink": null,
+      "favouriteDrink": "Palmera",
       "description": "A gentle soul with a craftsman’s touch, Luke is as sincere as he is talented. Though his shyness and colorblindness sometimes hold him back, his dedication to his art speaks volumes. Romantic at heart, he’s ever hopeful for love to find him."
     }
   ]
