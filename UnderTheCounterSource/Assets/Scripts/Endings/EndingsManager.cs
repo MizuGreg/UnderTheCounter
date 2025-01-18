@@ -32,8 +32,7 @@ namespace Endings
             creditsButton.gameObject.SetActive(false);
             currentText.gameObject.SetActive(false);
 
-            // LoadEnding(GameData.loseType);
-            LoadEnding("good");
+            LoadEnding(GameData.loseType);
         }
 
         public void LoadEnding(string ending)
