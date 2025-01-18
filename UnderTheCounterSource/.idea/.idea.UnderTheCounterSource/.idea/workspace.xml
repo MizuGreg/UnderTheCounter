@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b0df26eb-48d8-4b8f-9f8c-72d57d72d036" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ShopWindow.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ShopWindow.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/PosterPopUpManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShopWindow/PosterPopUpManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Posters and more/Poster 1 HQ.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Posters and more/Poster 1 HQ.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/BarManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/BarManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/TrinketPanelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/TrinketPanelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SavedGameData/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SavedGameData/GameData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/GuestBookData/GuestBook.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/GuestBookData/GuestBook.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +35,21 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SavedGameData/GameData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/Analytics.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/SkinningModule/IMGUI/GUIWrapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/SkinningModule/MathUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/SpriteLib/SpriteLibraryEditor/DragAndDropManipulator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/SpriteLib/SpriteLibraryEditor/UI/CustomElements/GridView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/SpriteLib/SpriteLibraryEditor/UI/LabelsTab.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/Editor/SpritePostProcess.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/IK/Editor/IKEditorManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/IK/Editor/IKGizmos.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.2/IK/Editor/Inspectors/IKManager2DEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/GridPaintPaletteWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.Tests/FixedStringCultureTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/CreateSceneUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/NoActiveCameraInSceneDoesNotCrashEditor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -115,7 +133,7 @@
       <workItem from="1735747158663" duration="5039000" />
       <workItem from="1735930545433" duration="3000" />
       <workItem from="1737019985635" duration="2832000" />
-      <workItem from="1737229021140" duration="3740000" />
+      <workItem from="1737229021140" duration="11104000" />
     </task>
     <servers />
   </component>

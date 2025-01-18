@@ -12899,7 +12899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barContainer: {fileID: 1180806169}
   trinketContainer: {fileID: 1164127358}
-  forceDay: 6
+  forceDay: 3
   didBlitzHappen: 0
 --- !u!114 &1725047609
 MonoBehaviour:
