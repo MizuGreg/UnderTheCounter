@@ -315,7 +315,7 @@ MonoBehaviour:
   imageCanvas: {fileID: 889431621}
   image: {fileID: 889431619}
   text: {fileID: 573286761}
-  typingSpeed: 0.05
+  typingSpeed: 0.04
 --- !u!1001 &297637626
 PrefabInstance:
   m_ObjectHideFlags: 0
