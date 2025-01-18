@@ -454,12 +454,14 @@ namespace Bar
                     if (cocktail.isWatered)
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["water"]);
-                        earning += _currentCustomer.tip / 3;
+                        // earning += _currentCustomer.tip / 3;
+                        earning = 1f;
                     }
                     else
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["correct"]);
-                        earning += _currentCustomer.tip;
+                        // earning += _currentCustomer.tip;
+                        earning += 5f; // 5f + 3f -> 8f
                     }
                 }
                 
@@ -474,7 +476,7 @@ namespace Bar
                     if (_currentCustomer.lines.ContainsKey(cocktail.type.ToString())) // if we have a custom line for that cocktail
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines[cocktail.type.ToString()]);
-                        earning += _currentCustomer.tip / 2; // extra tip
+                        // earning += _currentCustomer.tip / 2; // extra tip
                     }
                     else if (_currentCustomer.lines.ContainsKey("incorrect")) // if we have a generic line for an incorrect but well-done cocktail
                     {
@@ -484,7 +486,8 @@ namespace Bar
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["wrong"]);
                     }
-                    earning += _currentCustomer.tip / 3;
+                    // earning += _currentCustomer.tip / 3;
+                    earning = 0;
                 }
 
                 earning = Mathf.Round(earning * earningMultiplier);

@@ -39,15 +39,15 @@ namespace Extra {
             selectedGuestsButtonPosition = originalGuestsButtonPosition + new Vector3(buttonPositionShift, 0, 0);
             selectedAchievementsButtonPosition = originalAchievementsButtonPosition + new Vector3(buttonPositionShift, 0, 0);
 
-            leftButton.gameObject.SetActive(false);
-            rightButton.gameObject.SetActive(true);
-
             // LoadGuestBook();
         }
 
         public void LoadGuestBook() {
             // open guests tab by default
             OpenGuestsTab();
+
+            leftButton.gameObject.SetActive(false);
+            rightButton.gameObject.SetActive(true);
 
             // Load guest book data
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
@@ -149,8 +149,8 @@ namespace Extra {
             guestsPage.gameObject.SetActive(true);
             achievementsPage.gameObject.SetActive(false);
 
-            leftButton.gameObject.SetActive(false);
-            rightButton.gameObject.SetActive(true);
+            // leftButton.gameObject.SetActive(false);
+            // rightButton.gameObject.SetActive(true);
 
             guestsButton.GetComponent<RectTransform>().localPosition = selectedGuestsButtonPosition;
             achievementsButton.GetComponent<RectTransform>().localPosition = originalAchievementsButtonPosition;
