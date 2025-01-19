@@ -11,6 +11,7 @@ namespace Achievements
         {
             // Subscribe to events
             EventSystemManager.OnTutorialCompleted += TutorialCompleted;
+            EventSystemManager.OnBreakingNews += BreakingNews;
             EventSystemManager.OnDealMade += DealWithTheDevil;
             EventSystemManager.OnHalfTrinketCollected += AspiringCollector;
             EventSystemManager.OnBankrupt += Bankrupt;
@@ -30,6 +31,7 @@ namespace Achievements
         {
             // Unsubscribe from events
             EventSystemManager.OnTutorialCompleted -= TutorialCompleted;
+            EventSystemManager.OnBreakingNews -= BreakingNews;
             EventSystemManager.OnDealMade -= DealWithTheDevil;
             EventSystemManager.OnHalfTrinketCollected -= AspiringCollector;
             EventSystemManager.OnBankrupt -= Bankrupt;
@@ -50,7 +52,7 @@ namespace Achievements
             EventSystemManager.OnAchievementProgress("tutorial completed", 1);
         }
 
-        public void NewspaperOpened()
+        private void BreakingNews()
         {
             EventSystemManager.OnAchievementProgress("newspaper opened", 1);
         }

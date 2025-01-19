@@ -269,7 +269,7 @@ namespace EndOfDay
             }
             else
             {
-                SceneManager.LoadScene("ShopWindow");
+                SceneManager.LoadScene("Mailbox");
             }
         }
         

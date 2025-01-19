@@ -77,6 +77,7 @@ namespace Technical
         public static UnityAction<string, int> OnAchievementProgress;
         public static UnityAction OnAchievementUnlocked;
         public static UnityAction OnTutorialCompleted;
+        public static UnityAction OnBreakingNews;
         public static UnityAction OnDealMade;
         public static UnityAction OnHalfTrinketCollected;
         public static UnityAction OnBankrupt;
