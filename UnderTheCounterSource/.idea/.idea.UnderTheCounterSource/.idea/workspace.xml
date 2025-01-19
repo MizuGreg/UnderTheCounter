@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0df26eb-48d8-4b8f-9f8c-72d57d72d036" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/GameData/Save.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/GameData/Save.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/AchievementData/Achievements.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/AchievementData/Achievements.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/GuestBookData/GuestBook.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/GuestBookData/GuestBook.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
