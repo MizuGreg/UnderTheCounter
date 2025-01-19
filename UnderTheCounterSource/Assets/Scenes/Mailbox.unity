@@ -2437,7 +2437,7 @@ PrefabInstance:
     - target: {fileID: 5518803052375945273, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2087641868}
     - target: {fileID: 5518803052375945273, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetTextSpeed
@@ -2549,7 +2549,7 @@ PrefabInstance:
     - target: {fileID: 6906683045920811130, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2087641868}
     - target: {fileID: 6906683045920811130, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetFXVolume
@@ -2601,7 +2601,7 @@ PrefabInstance:
     - target: {fileID: 7658436434825767479, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2087641868}
     - target: {fileID: 7658436434825767479, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMusicVolume
