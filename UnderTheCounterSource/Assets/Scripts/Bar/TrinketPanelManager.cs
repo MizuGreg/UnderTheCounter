@@ -15,7 +15,6 @@ namespace Bar
         [SerializeField] private TextMeshProUGUI caption;
         [SerializeField] private RectTransform spawn;
         [SerializeField] private GameObject hangButton;
-        [SerializeField] private GameObject hangPosterButton;
 
         private CanvasGroup _canvasGroup;
         private List<Trinket> _trinkets;
@@ -93,29 +92,6 @@ namespace Bar
 
             if (_isPoster)
             {
-                // // Load the poster as a Sprite
-                // string posterPath = $"Sprites/Posters and more/{prefabName}"; // Without ".png", Unity adds it automatically
-                // Sprite posterSprite = Resources.Load<Sprite>(posterPath);
-                //
-                // if (posterSprite != null)
-                // {
-                //     // Create an Image object to display the poster
-                //     GameObject newPoster = new GameObject(prefabName);
-                //     newPoster.transform.SetParent(spawn, false); // Set the spawn as parent
-                //
-                //     Image imageComponent = newPoster.AddComponent<Image>();
-                //     imageComponent.sprite = posterSprite;
-                //
-                //     // Double the size of the original sprite
-                //     RectTransform rectTransform = newPoster.GetComponent<RectTransform>();
-                //     rectTransform.sizeDelta = new Vector2(500, 625); // Expand the size
-                //     rectTransform.localScale = Vector3.one; // Ensure the scale is 1:1
-                // }
-                // else
-                // {
-                //     Debug.LogError($"Poster image '{prefabName}' not found at '{posterPath}'");
-                // }
-                
                 // Load the trinket prefab
                 string prefabDirectory = $"Prefabs/Unlocked{tag}s/{prefabName}";
                 GameObject prefab = Resources.Load<GameObject>(prefabDirectory);
@@ -130,10 +106,6 @@ namespace Bar
                 {
                     Debug.LogError($"Prefab '{prefabName}' not found at '{prefabDirectory}'");
                 }
-                
-                // Toggle visibility for posters
-                hangButton.SetActive(false);
-                hangPosterButton.SetActive(true);
             }
             else
             {
@@ -149,10 +121,6 @@ namespace Bar
                 {
                     Debug.LogError($"Prefab '{prefabName}' not found at '{prefabDirectory}'");
                 }
-                
-                // Toggle visibility for trinkets
-                hangButton.SetActive(true);
-                hangPosterButton.SetActive(false);
             }
 
             // Set the displayed item's ID
