@@ -193,6 +193,7 @@ namespace SavedGameData
         
         public static void UnlockPoster(int posterID)
         {
+            Debug.Log($"poster {posterID} unlocked");
             Poster poster = Posters.Find(p => p.id == posterID);
             if (poster == null) Debug.LogError("Poster to unlock not found");
             else poster.visible = true;

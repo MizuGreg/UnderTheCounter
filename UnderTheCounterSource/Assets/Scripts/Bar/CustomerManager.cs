@@ -50,6 +50,7 @@ namespace Bar
         private int _servedCustomers;
 
         private int _trinketToDisplay = -1;
+        private int _posterToDisplay = -1;
 
         private void Start()
         {
@@ -60,6 +61,7 @@ namespace Bar
             EventSystemManager.OnHowardEnter += TriggerHowardDialogue;
             EventSystemManager.MultipleChoiceStart += ShowChoiceButtons;
             EventSystemManager.OnTrinketCollected += SetTrinketToDisplay;
+            EventSystemManager.OnPosterObtained += SetPosterToDisplay;
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
@@ -397,6 +399,7 @@ namespace Bar
 
         private void FarewellCustomer()
         {
+            Debug.Log("Farewell called");
             if (_trinketToDisplay >= 0)
             {
                 // Shoot the event
@@ -404,6 +407,12 @@ namespace Bar
 
                 // Reset _trinketToDisplay
                 _trinketToDisplay = -1;
+            }
+            else if (_posterToDisplay > 0)
+            {
+                EventSystemManager.OnPosterDisplayed(_posterToDisplay);
+
+                _posterToDisplay = -1;
             }
             else
             {
@@ -415,14 +424,21 @@ namespace Bar
         {
             _trinketToDisplay = trinketID;
         }
+        
+        private void SetPosterToDisplay(int posterID)
+        {
+            _posterToDisplay = posterID;
+        }
 
         public void FadeOut()
         {
+            Debug.Log("fade out called");
             StartCoroutine(WaitBeforeFadeOut());
         }
 
         private IEnumerator WaitBeforeFadeOut()
         {
+            Debug.Log("waitbeforefadeout");
             yield return new WaitForSeconds(timeBeforeFadeout);
             EventSystemManager.OnCustomerLeaveSound();
             if (customerCocktail.gameObject.activeSelf) customerCocktail.GetComponent<FadeCanvas>().FadeOut();

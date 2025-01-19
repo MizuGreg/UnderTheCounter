@@ -6,23 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="b0df26eb-48d8-4b8f-9f8c-72d57d72d036" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnderTheCounterSource/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 3/B.U. ticket_back_Day 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 5/Eff farf/B.U. ticket_back_Day 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 5/Eff farf/Mask group_Day5 butt eff.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 5/Eff farf/Propaganda poster_Day 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 5/Eff farf/newspaper_effetto farfalla_Day5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 5/no effe farf/B.U. ticket_back_Day5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 5/no effe farf/Mask group_Day2 no butt eff.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 5/no effe farf/Propaganda poster_Day5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 5/no effe farf/newspaper_no effetto farfalla_Day5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 6/B.U. ticket_back_Day 6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day 7/B.U. ticket_back_Day 7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day4/B.U. ticket_back_Day 4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day4/Margaret poster_Day 4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day4/Mask group_Day4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Mailbox/Day4/newspaper_Day4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Mailbox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Mailbox.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mailbox/MailboxManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mailbox/MailboxManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BarView.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/CustomerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bar/TrinketPanelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bar/TrinketPanelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SavedGameData/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SavedGameData/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Technical/EventSystemManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/DayData/Day3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/DayData/Day3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/UnlockedPosterData/Posters.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/UnlockedPosterData/Posters.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,4 +149,15 @@
     <option name="unityProjectFolder" value="true" />
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
 </project>

@@ -15,6 +15,7 @@ namespace Bar
         [SerializeField] private TextMeshProUGUI caption;
         [SerializeField] private RectTransform spawn;
         [SerializeField] private GameObject hangButton;
+        [SerializeField] private GameObject hangPosterButton;
 
         private CanvasGroup _canvasGroup;
         private List<Trinket> _trinkets;
@@ -32,14 +33,16 @@ namespace Bar
             
             // Subscribe to events
             EventSystemManager.OnTrinketDisplayed += DisplayTrinket;
-            EventSystemManager.OnPosterObtained += DisplayPoster; // New event for posters
+            // EventSystemManager.OnPosterObtained += DisplayPoster; // New event for posters
+            EventSystemManager.OnPosterDisplayed += DisplayPoster;
         }
 
         private void OnDestroy()
         {
             // Unsubscribe from events
             EventSystemManager.OnTrinketDisplayed -= DisplayTrinket;
-            EventSystemManager.OnPosterObtained -= DisplayPoster;
+            // EventSystemManager.OnPosterObtained -= DisplayPoster;
+            EventSystemManager.OnPosterDisplayed -= DisplayPoster;
         }
 
         private void LoadTrinkets()
@@ -70,11 +73,12 @@ namespace Bar
 
         private void DisplayPoster(int id)
         {
+            Debug.Log("Display poster is called");
             _isPoster = true; // This is a poster
             UnlockedPoster poster = _posters.Find(a => a.id == id);
             if (poster != null)
             {
-                ShowItem(poster.filename, poster.caption, poster.id, "Poster");
+                ShowItem(poster.title, poster.caption, poster.id, "Poster");
             }
             else
             {
@@ -89,28 +93,47 @@ namespace Bar
 
             if (_isPoster)
             {
-                // Load the poster as a Sprite
-                string posterPath = $"Sprites/Posters and more/{prefabName}"; // Without ".png", Unity adds it automatically
-                Sprite posterSprite = Resources.Load<Sprite>(posterPath);
+                // // Load the poster as a Sprite
+                // string posterPath = $"Sprites/Posters and more/{prefabName}"; // Without ".png", Unity adds it automatically
+                // Sprite posterSprite = Resources.Load<Sprite>(posterPath);
+                //
+                // if (posterSprite != null)
+                // {
+                //     // Create an Image object to display the poster
+                //     GameObject newPoster = new GameObject(prefabName);
+                //     newPoster.transform.SetParent(spawn, false); // Set the spawn as parent
+                //
+                //     Image imageComponent = newPoster.AddComponent<Image>();
+                //     imageComponent.sprite = posterSprite;
+                //
+                //     // Double the size of the original sprite
+                //     RectTransform rectTransform = newPoster.GetComponent<RectTransform>();
+                //     rectTransform.sizeDelta = new Vector2(500, 625); // Expand the size
+                //     rectTransform.localScale = Vector3.one; // Ensure the scale is 1:1
+                // }
+                // else
+                // {
+                //     Debug.LogError($"Poster image '{prefabName}' not found at '{posterPath}'");
+                // }
+                
+                // Load the trinket prefab
+                string prefabDirectory = $"Prefabs/Unlocked{tag}s/{prefabName}";
+                GameObject prefab = Resources.Load<GameObject>(prefabDirectory);
+                
 
-                if (posterSprite != null)
+                if (prefab != null)
                 {
-                    // Create an Image object to display the poster
-                    GameObject newPoster = new GameObject(prefabName);
-                    newPoster.transform.SetParent(spawn, false); // Set the spawn as parent
-
-                    Image imageComponent = newPoster.AddComponent<Image>();
-                    imageComponent.sprite = posterSprite;
-
-                    // Double the size of the original sprite
-                    RectTransform rectTransform = newPoster.GetComponent<RectTransform>();
-                    rectTransform.sizeDelta = new Vector2(500, 625); // Expand the size
-                    rectTransform.localScale = Vector3.one; // Ensure the scale is 1:1
+                    Debug.Log(prefab);
+                    GameObject newPoster = Instantiate(prefab, spawn);
                 }
                 else
                 {
-                    Debug.LogError($"Poster image '{prefabName}' not found at '{posterPath}'");
+                    Debug.LogError($"Prefab '{prefabName}' not found at '{prefabDirectory}'");
                 }
+                
+                // Toggle visibility for posters
+                hangButton.SetActive(false);
+                hangPosterButton.SetActive(true);
             }
             else
             {
@@ -126,6 +149,10 @@ namespace Bar
                 {
                     Debug.LogError($"Prefab '{prefabName}' not found at '{prefabDirectory}'");
                 }
+                
+                // Toggle visibility for trinkets
+                hangButton.SetActive(true);
+                hangPosterButton.SetActive(false);
             }
 
             // Set the displayed item's ID
@@ -152,11 +179,7 @@ namespace Bar
             }
             
             // Trigger the appropriate event
-            if (_isPoster)
-            {
-                EventSystemManager.OnPosterObtained(_displayedId);
-            }
-            else
+            if (!_isPoster)
             {
                 EventSystemManager.OnTrinketObtained(_displayedId);
             }
@@ -184,7 +207,6 @@ namespace Bar
     {
         public int id;
         public string title;
-        public string filename;
         public string caption;
     }
 

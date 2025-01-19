@@ -21,6 +21,7 @@ TagManager:
   - Achievement
   - Trinket
   - GarnishDropPosition
+  - Poster
   layers:
   - Default
   - TransparentFX
