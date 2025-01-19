@@ -455,7 +455,7 @@ namespace Bar
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["water"]);
                         // earning += _currentCustomer.tip / 3;
-                        earning = 1f; // watered down correct cocktail
+                        earning += 1f; // watered down correct cocktail
                     }
                     else
                     {
