@@ -1442,7 +1442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You've got something in your mailbox!
+  m_text: You've got something in your mailbox, check it out!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
   m_sharedMaterial: {fileID: 3181661542133080346, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
@@ -2568,7 +2568,7 @@ PrefabInstance:
     - target: {fileID: 7315047736661323258, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 394058327}
     - target: {fileID: 7315047736661323258, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2587,7 +2587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7315047736661323258, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: IntroductionScreen.IntroductionScreenManager, Assembly-CSharp
+      value: Mailbox.MailboxManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7315047736661323258, guid: d6d4fdc28d417014790c99f9552ff9e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -2873,7 +2873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Check it out!
+  m_text: Click on the items
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}
   m_sharedMaterial: {fileID: 3181661542133080346, guid: e28e6850f6e17c84fa7913958ebf5be9, type: 2}

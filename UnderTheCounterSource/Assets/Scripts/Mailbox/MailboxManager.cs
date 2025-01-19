@@ -215,6 +215,18 @@ namespace Mailbox
             yield return FadeCanvasGroup(mainCanvas,1.1f,0f);
             SceneManager.LoadScene("ShopWindow");
         }
+
+        public void BackToMainMenu()
+        {
+            mainCanvas.GetComponent<FadeCanvas>().FadeOut();
+            StartCoroutine(WaitBeforeMenu());
+        }
+        
+        private IEnumerator WaitBeforeMenu()
+        {
+            yield return new WaitForSeconds(1.1f);
+            SceneManager.LoadScene("MainMenu");
+        }
         
     }
 }
