@@ -24,7 +24,7 @@ namespace IntroductionScreen
         [Header("Slide Elements")] 
         [SerializeField] private Image image;
         [SerializeField] private TextMeshProUGUI text;
-        [SerializeField] private float typingSpeed = 0.05f;
+        private float typingSpeed = 0.05f;
         
         private List<Slide> _slides;
         private CanvasGroup _currentButtonCanvas;
@@ -131,11 +131,12 @@ namespace IntroductionScreen
                     _currentButtonCanvas.alpha = 1f;
                     _currentButtonCanvas.blocksRaycasts = true;
                 }
-                else if (_currentButtonCanvas.blocksRaycasts)
-                {
+
+                // else if (_currentButtonCanvas.blocksRaycasts)
+                // {
                     // Se il typing è già finito, comportati come se fosse stato premuto "Continue"
-                    Continue();
-                }
+                    // Continue();
+                // }
             }
         }
 
