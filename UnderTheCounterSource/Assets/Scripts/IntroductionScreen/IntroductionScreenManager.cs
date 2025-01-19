@@ -31,6 +31,9 @@ namespace IntroductionScreen
         
         private string _fullText;
         private string _currentText = "";
+        private Coroutine _typingCoroutine;
+        private bool _isTyping = false;
+
 
         private void Start()
         {
@@ -75,26 +78,64 @@ namespace IntroductionScreen
             yield return FadeCanvasGroupIn(imageCanvas, 1.1f);
             
             // Type text (Text)
-            yield return TypeText();
+            _typingCoroutine = StartCoroutine(TypeText());
 
-            yield return new WaitForSeconds(0.5f);
-            
-            // Pop-up (Button)
-            _currentButtonCanvas.alpha = 1f;
-            _currentButtonCanvas.blocksRaycasts = true;
+            // Non mostrare subito il pulsante
         }
         
         private IEnumerator TypeText()
         {
+            _isTyping = true;
             _currentText = ""; 
             text.text = _currentText;
             text.alpha = 1f;
 
             foreach (char c in _fullText)
             {
+                if (!_isTyping)
+                {
+                    // Se il typing viene interrotto, esci e mostra il testo completo
+                    _currentText = _fullText;
+                    text.text = _currentText;
+                    break;
+                }
+
                 _currentText += c;
                 text.text = _currentText;
                 yield return new WaitForSeconds(typingSpeed);
+            }
+
+            _isTyping = false;
+
+            // Mostra il pulsante alla fine del typing
+            _currentButtonCanvas.alpha = 1f;
+            _currentButtonCanvas.blocksRaycasts = true;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (_isTyping)
+                {
+                    // Interrompi il typing e mostra immediatamente tutto il testo
+                    _isTyping = false;
+                    if (_typingCoroutine != null)
+                    {
+                        StopCoroutine(_typingCoroutine);
+                    }
+                    _currentText = _fullText;
+                    text.text = _currentText;
+
+                    // Mostra il pulsante Continue
+                    _currentButtonCanvas.alpha = 1f;
+                    _currentButtonCanvas.blocksRaycasts = true;
+                }
+                else if (_currentButtonCanvas.blocksRaycasts)
+                {
+                    // Se il typing è già finito, comportati come se fosse stato premuto "Continue"
+                    Continue();
+                }
             }
         }
 
