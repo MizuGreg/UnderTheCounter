@@ -50,9 +50,20 @@ namespace Extra {
             rightButton.gameObject.SetActive(true);
 
             // Load guest book data
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
-            GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
+            GuestList guestList;
+            if (!PlayerPrefs.HasKey("GuestBook"))
+            {
+                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+                guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
+                PlayerPrefs.SetString("GuestBook", jsonString);
+            }
+            else
+            {
+                guestList = JsonConvert.DeserializeObject<GuestList>(PlayerPrefs.GetString("GuestBook"));
+            }
+
             _guestsData = guestList.guests;
+            
             // Load first guest
             currentCustomerIndex = 0;
             currentCustomer = _guestsData.Find(guest => guest.index == currentCustomerIndex);
@@ -172,9 +183,21 @@ namespace Extra {
 
         public void LoadAchievements()
         {
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/AchievementData/Achievements.json");
-            List<Achievement> _achievements = JsonConvert.DeserializeObject<AchievementList>(jsonString).achievements;
-            foreach (var achievement in _achievements)
+            List<Achievement> achievements;
+            if (!PlayerPrefs.HasKey("Achievements"))
+            {
+                // Read Achievements JSON and create achievements list
+                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/AchievementData/Achievements.json");
+                achievements = JsonConvert.DeserializeObject<AchievementList>(jsonString).achievements;
+                PlayerPrefs.SetString("Achievements", jsonString);
+            }
+            else
+            {
+                string jsonString = PlayerPrefs.GetString("Achievements");
+                achievements = JsonConvert.DeserializeObject<AchievementList>(jsonString).achievements;
+            }
+            
+            foreach (var achievement in achievements)
             {
                 GameObject targetObject = FindChildByName(achievementsPage.gameObject, achievement.title);
                 Image targetImage = targetObject.GetComponent<Image>();
@@ -203,7 +226,7 @@ namespace Extra {
 
         public void ResetGuests()
         {
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+            string jsonString = PlayerPrefs.GetString("GuestBook");
             GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
             _guestsData = guestList.guests;
             foreach (var guest in _guestsData)
@@ -211,7 +234,7 @@ namespace Extra {
                 guest.isUnlocked = false;
             }
             string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
-            File.WriteAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json", updatedJson);
+            PlayerPrefs.SetString("GuestBook", updatedJson);
         }
 
     }

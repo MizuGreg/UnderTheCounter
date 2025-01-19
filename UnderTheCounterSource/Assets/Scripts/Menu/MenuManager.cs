@@ -35,7 +35,7 @@ namespace Menu
         
         private bool IsSaveFilePresent()
         {
-            return File.Exists(GameData.SaveFilePath);
+            return PlayerPrefs.HasKey("Save");
         }
         
         public void StartNewGame()

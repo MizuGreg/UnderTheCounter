@@ -213,7 +213,7 @@ namespace SavedGameData
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore // Sprites have a self-referencing variable so this ignores them
             });
-            File.WriteAllText(SaveFilePath, saveJson);
+            PlayerPrefs.SetString("Save", saveJson);
             Debug.Log("Saved game data.");
         }
     
@@ -222,7 +222,7 @@ namespace SavedGameData
             Debug.Log("Loading game data.");
             try
             {
-                string jsonString = File.ReadAllText(SaveFilePath);
+                string jsonString = PlayerPrefs.GetString("Save");
                 Save save = JsonConvert.DeserializeObject<Save>(jsonString);
                 save.SetGameData();
             }
@@ -241,7 +241,7 @@ namespace SavedGameData
             Debug.Log("Deleting save file.");
             try
             {
-                File.Delete(SaveFilePath);
+                PlayerPrefs.DeleteKey("Save");
             }
             catch (Exception e)
             {
