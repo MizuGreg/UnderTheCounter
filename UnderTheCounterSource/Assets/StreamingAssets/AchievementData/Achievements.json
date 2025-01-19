@@ -4,8 +4,8 @@
       "id": "tutorial completed",
       "title": "A bar of your own",
       "description": "You have completed the tutorial",
-      "isUnlocked": true,
-      "progress": 1,
+      "isUnlocked": false,
+      "progress": 0,
       "target": 1
     },
     {
@@ -44,8 +44,8 @@
       "id": "blitzed out",
       "title": "Blitzed out",
       "description": "Lose by blitz",
-      "isUnlocked": true,
-      "progress": 1,
+      "isUnlocked": false,
+      "progress": 0,
       "target": 1
     },
     {
@@ -92,8 +92,8 @@
       "id": "shaken, stirred and stretched",
       "title": "Shaken, stirred and stretched",
       "description": "Water down a cocktail",
-      "isUnlocked": true,
-      "progress": 1,
+      "isUnlocked": false,
+      "progress": 0,
       "target": 1
     },
     {
