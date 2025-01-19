@@ -27,7 +27,7 @@ namespace SavedGameData
         
         public static int DrunkCustomers = 0;
         public static int MaxDrunkCustomers = 99;
-        public static float BlitzTime = 10;
+        public static float BlitzTime = 12;
         public static bool HasABlitzHappened = false;
         public static int BlitzFailCounter = 0;
         public static bool WasLastBlitzFailed = false;
@@ -63,7 +63,7 @@ namespace SavedGameData
             
             DrunkCustomers = 0;
             MaxDrunkCustomers = 99;
-            BlitzTime = 10;
+            BlitzTime = 12;
             BlitzFailCounter = 0;
             HasABlitzHappened = false;
             WasLastBlitzFailed = false;

@@ -44,8 +44,8 @@
       "id": "blitzed out",
       "title": "Blitzed out",
       "description": "Lose by blitz",
-      "isUnlocked": false,
-      "progress": 0,
+      "isUnlocked": true,
+      "progress": 1,
       "target": 1
     },
     {
@@ -92,8 +92,8 @@
       "id": "shaken, stirred and stretched",
       "title": "Shaken, stirred and stretched",
       "description": "Water down a cocktail",
-      "isUnlocked": false,
-      "progress": 0,
+      "isUnlocked": true,
+      "progress": 1,
       "target": 1
     },
     {
