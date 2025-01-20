@@ -181,13 +181,34 @@ namespace Tutorial
             customerCanvas.GetComponent<FadeCanvas>().FadeIn();
 
             // Ernest unlocked in the guest book
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
-            GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
-            List<Guest> _guestsData = guestList.guests;
-            _guestsData.Find(guest => guest.name == "Ernest Wade").isUnlocked = true;
-            string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
-            File.WriteAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json", updatedJson);
 
+            // string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+            // GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
+            // List<Guest> _guestsData = guestList.guests;
+            // _guestsData.Find(guest => guest.name == "Ernest Wade").isUnlocked = true;
+            // string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
+            // File.WriteAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json", updatedJson);
+
+            GuestList guestList;
+            if (!PlayerPrefs.HasKey("GuestBook"))
+            {
+                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+                guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
+                PlayerPrefs.SetString("GuestBook", jsonString);
+            }
+            else
+            {
+                guestList = JsonConvert.DeserializeObject<GuestList>(PlayerPrefs.GetString("GuestBook"));
+            }
+            
+            List<Guest> _guestsData = guestList.guests;
+
+            _guestsData.Find(guest => guest.nickname == "Ernest").isUnlocked = true;
+
+            string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
+            PlayerPrefs.SetString("GuestBook", updatedJson);
+
+            // continue with the tutorial
             StartCoroutine(WaitAndGreetDialogue());
             EventSystemManager.OnCustomerEnter();
         }
