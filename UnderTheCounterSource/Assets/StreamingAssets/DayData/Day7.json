@@ -113,7 +113,7 @@
                 "[IF MARGARET GOT DRUNK]Well, that night I went to the theater to reflect on my career, and I found someone who was still working after closing time.",
                 "[IF MARGARET GOT DRUNK]It was none other than my crush, the young man I've been wanting to talk to for <i>so</i> long…",
                 "[IF MARGARET GOT DRUNK]So we talked, talked, talked… I confessed my feelings… And he actually felt the same! We had our first date last night and… I'm so in love with him…",
-                "[IF MARGARET GOT DRUNK]<b>Luke</b> and I have decided to come here tonight, to let you know that you caused this… butterfly effect, in a way!",
+                "[IF MARGARET GOT DRUNK]<b>Luke</b> and I have decided to come here tonight, to let you know that you caused this… butterfly effect, in a way!{MARGARET GETS ENGAGED}",
                 "[IF MARGARET DIDN'T GET DRUNK]Dearest bartender, always a soothing sight… <i>*sigh*</i>, my evening feels so uneventful today…",
                 "Can I ask you for the same cocktail as always, dear bartender? A <b>Spring Bee</b>."
             ],
@@ -142,11 +142,11 @@
                 "[IF MARGARET GOT DRUNK]… That made us meet at the theater! And now we're dating. I just need to not mess this up, keep calm… Aaah, who am I kidding! I'm so excited!!",
                 "[IF MARGARET GOT DRUNK]Bartender, can you make me the same drink as her? A <b>Spring Bee</b>?",
                 "[IF MARGARET DIDN'T GET DRUNK]… That lady who just left… No, it can't be… Right? That wasn't who I thought it was… I think…",
-                "[IF MARGARET DIDN'T GET DRUNK]Anyway, can I get a <b>Spring Bee</b>?"
+                "[IF MARGARET DIDN'T GET DRUNK]Anyway… Bartender, can I get a <b>Spring Bee</b>? I… really need to distract myself."
             ],
             "correct": [
                 "[IF MARGARET GOT DRUNK]Thanks! Man, I gulped this down in one go, but I'm just so anxious! But a bit of booze can calm me down for sure. Heh heh!",
-                "[IF MARGARET DIDN'T GET DRUNK]Thank you! Perfect cocktail as always. <size=75%>If only I was half as skilled as talking as you are at making drinks…<size=100%>"
+                "[IF MARGARET DIDN'T GET DRUNK]Thank you! Perfect cocktail as always. <size=75%>If only I was half as skilled as talking to my crush as you are at making drinks…<size=100%>"
             ],
             "water": [
                 "[IF MARGARET GOT DRUNK]Thanks! Man, I gulped this down in one go, but I'm just so anxious!",

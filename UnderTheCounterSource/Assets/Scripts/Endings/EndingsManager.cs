@@ -16,7 +16,7 @@ namespace Endings
     {
         public FadeCanvas endingCanvas;
         public Button continueButton;
-        public Button backToMenuButton;
+        public Button creditsButton;
         public Image journal;
         public TextMeshProUGUI currentText;
         private List<Ending> _endingsText;
@@ -29,7 +29,7 @@ namespace Endings
             endingCanvas.FadeIn();
 
             continueButton.gameObject.SetActive(false);
-            backToMenuButton.gameObject.SetActive(false);
+            creditsButton.gameObject.SetActive(false);
             currentText.gameObject.SetActive(false);
 
             LoadEnding(GameData.loseType);
@@ -96,19 +96,19 @@ namespace Endings
         public IEnumerator ShowReturnButton()
         {
             yield return new WaitForSeconds(2f);
-            backToMenuButton.GetComponent<FadeCanvas>().FadeIn();
+            creditsButton.GetComponent<FadeCanvas>().FadeIn();
         }
 
-        public void LoadMainMenu()
+        public void LoadCredits()
         {
-            StartCoroutine(LoadMainMenuScene());
+            StartCoroutine(LoadCreditsScene());
         }
 
-        public IEnumerator LoadMainMenuScene()
+        public IEnumerator LoadCreditsScene()
         {
             endingCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("CreditsScene");
         }
 
         private IEnumerator CheckAchievements(string ending)
@@ -126,6 +126,10 @@ namespace Endings
             else if (ending == "mafia")
             {
                 EventSystemManager.OnBarBurned();
+            }
+            else if (ending == "good")
+            {
+                EventSystemManager.OnWin();
             }
         }
     }

@@ -41,7 +41,7 @@
             ],
             "correct": [
                 "{TRINKET 3}Well ain't that just the perfect cocktail! And here's the grammophone record, as promised. Do give it a listen!",
-                "<i>\"Wind, rocks,the desert night, the summer sand… Natural things, naturally, are what frontiersmen should understand…\"</i>"
+                "<i>\"Wind, rocks, the desert night, the summer sand… Natural things, naturally, are what frontiersmen should understand…\"</i>"
             ],
             "water": [
                 "Tasty and very, very refreshing! Almost perfect, I would say. Who knows… Maybe next time you will nail it, and this grammophone record will be yours!"
@@ -83,9 +83,9 @@
             "greet": [
                 "Look who it is! Still up and running, I see. Hopefully you will find our daily notes helpful. The union is working hard to help all bartenders in Korgis, you know?",
                 "Hm…? <i>You've seen me somewhere</i>? You must be mistaken, young one, we only met yesterday! Ahem, in any case, uhm…",
-                "{POSTER 5}Take this poster, and hang it outside tomorrow if you'd like. The necklace on the woman is a <b>secret code</b> among us bartenders.",
+                "Take this poster, and hang it outside tomorrow if you'd like. The necklace on the woman is a <b>secret code</b> among us bartenders.",
                 "If people see the red necklace, they will know that you still serve alcohol undercover here, and will stop by to drink! More customers!",
-                "Anyway, I'm off now, goodbye and good luck!"
+                "Anyway, I'm off now, goodbye and good luck!{POSTER 5}"
             ]
         }
     },

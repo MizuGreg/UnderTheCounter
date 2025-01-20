@@ -32,10 +32,18 @@ namespace Achievements
 
         private void LoadAchievements()
         {
-            // Read Achievements JSON and create achievements list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/AchievementData/Achievements.json");
-            
-            _achievements = JsonConvert.DeserializeObject<AchievementList>(jsonString).achievements;
+            if (!PlayerPrefs.HasKey("Achievements"))
+            {
+                // Read Achievements JSON and create achievements list
+                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/AchievementData/Achievements.json");
+                _achievements = JsonConvert.DeserializeObject<AchievementList>(jsonString).achievements;
+                PlayerPrefs.SetString("Achievements", jsonString);
+            }
+            else
+            {
+                string jsonString = PlayerPrefs.GetString("Achievements");
+                _achievements = JsonConvert.DeserializeObject<AchievementList>(jsonString).achievements;
+            }
         }
 
         private void UpdateAchievement(string id, int progress)
@@ -72,7 +80,7 @@ namespace Achievements
             string jsonString = JsonConvert.SerializeObject(new AchievementList { achievements = _achievements }, Formatting.Indented);
 
             // Write in the JSON
-            File.WriteAllText(Application.streamingAssetsPath + "/AchievementData/Achievements.json", jsonString);
+            PlayerPrefs.SetString("Achievements", jsonString);
     
             Debug.Log("Achievements saved successfully.");
         }

@@ -5,6 +5,7 @@ using AYellowpaper.SerializedCollections;
 using Newtonsoft.Json;
 using ShopWindow;
 using UnityEngine;
+using Technical;
 
 namespace SavedGameData
 {
@@ -26,8 +27,8 @@ namespace SavedGameData
         
         public static int DrunkCustomers = 0;
         public static int MaxDrunkCustomers = 99;
-        public static float BlitzTime = 10;
-        public static bool hasABlitzHappened = false;
+        public static float BlitzTime = 12;
+        public static bool HasABlitzHappened = false;
         public static int BlitzFailCounter = 0;
         public static bool WasLastBlitzFailed = false;
         public static bool fastDay = false;
@@ -62,9 +63,9 @@ namespace SavedGameData
             
             DrunkCustomers = 0;
             MaxDrunkCustomers = 99;
-            BlitzTime = 10;
+            BlitzTime = 12;
             BlitzFailCounter = 0;
-            hasABlitzHappened = false;
+            HasABlitzHappened = false;
             WasLastBlitzFailed = false;
             fastDay = false;
         
@@ -128,7 +129,7 @@ namespace SavedGameData
                     Supplies = 40;
                     break;
             }
-            
+            WasLastBlitzFailed = false;
             UpdateBlitzVariables();
             PosterEffects();
         }
@@ -136,12 +137,12 @@ namespace SavedGameData
         private static void PosterEffects()
         {
             if (IsPosterActive(4)) Supplies += 10; // increases supplies cost if baroque poster is active
-            if (IsPosterActive(6)) BlitzTime += 3;
+            if (IsPosterActive(6)) BlitzTime += 2;
         }
 
         public static void BlitzSuccessful()
         {
-            hasABlitzHappened = true;
+            HasABlitzHappened = true;
             WasLastBlitzFailed = false;
             if (BlitzFailCounter > 0) BlitzFailCounter--;
             UpdateBlitzVariables();
@@ -149,9 +150,11 @@ namespace SavedGameData
 
         public static void BlitzFailed()
         {
-            hasABlitzHappened = true;
+            HasABlitzHappened = true;
             WasLastBlitzFailed = true;
             BlitzFailCounter++;
+            // trigger popup blink
+            EventSystemManager.OnWrongChoice();
             UpdateBlitzVariables();
         }
         
@@ -163,10 +166,9 @@ namespace SavedGameData
                 MaxDrunkCustomers = 99;
                 return;
             }
-            
-            BlitzTime = (hasABlitzHappened ? 7 : 9) // blitz lasts more if it's the first blitz ever
-                        - 2 * BlitzFailCounter // reduce proportionately to how many blitzes you've failed "lately"
-                        - (WasLastBlitzFailed ? 1 : 0); // also reduce a bit more if the last blitz was failed 
+
+            BlitzTime = (HasABlitzHappened ? 9 : 12) // blitz lasts more if it's the first blitz ever
+                        - 2 * BlitzFailCounter; // reduce proportionately to how many blitzes you've failed "lately"
             MaxDrunkCustomers = 4 - (WasLastBlitzFailed ? 1 : 0); // reduce threshold by 1 if last blitz was failed
             if (IsPosterActive(4)) MaxDrunkCustomers++; // increase threshold if poster with id 4 is hung
         }
@@ -191,6 +193,7 @@ namespace SavedGameData
         
         public static void UnlockPoster(int posterID)
         {
+            Debug.Log($"poster {posterID} unlocked");
             Poster poster = Posters.Find(p => p.id == posterID);
             if (poster == null) Debug.LogError("Poster to unlock not found");
             else poster.visible = true;
@@ -210,7 +213,7 @@ namespace SavedGameData
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore // Sprites have a self-referencing variable so this ignores them
             });
-            File.WriteAllText(SaveFilePath, saveJson);
+            PlayerPrefs.SetString("Save", saveJson);
             Debug.Log("Saved game data.");
         }
     
@@ -219,7 +222,7 @@ namespace SavedGameData
             Debug.Log("Loading game data.");
             try
             {
-                string jsonString = File.ReadAllText(SaveFilePath);
+                string jsonString = PlayerPrefs.GetString("Save");
                 Save save = JsonConvert.DeserializeObject<Save>(jsonString);
                 save.SetGameData();
             }
@@ -238,7 +241,7 @@ namespace SavedGameData
             Debug.Log("Deleting save file.");
             try
             {
-                File.Delete(SaveFilePath);
+                PlayerPrefs.DeleteKey("Save");
             }
             catch (Exception e)
             {

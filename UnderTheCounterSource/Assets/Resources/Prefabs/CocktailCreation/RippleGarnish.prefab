@@ -104,8 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetAfterDrop: 1
-  fixedX: 1
-  fixedY: 0
   garnish: {fileID: 11400000, guid: ce9159fc50d9b4a00872cebdae5525e2, type: 2}
 --- !u!114 &5937970560034394252
 MonoBehaviour:
@@ -153,7 +151,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -88.37175, y: 29.311874}
+  m_Offset: {x: -88.37175, y: 0.24528503}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -164,5 +162,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 144.67514, y: 88.805695}
+  m_Size: {x: 144.67514, y: 146.93887}
   m_EdgeRadius: 0

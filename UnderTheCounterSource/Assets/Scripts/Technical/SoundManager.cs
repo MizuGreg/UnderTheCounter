@@ -29,7 +29,7 @@ namespace Technical
             EventSystemManager.OnPageTurned += OnPageTurnedSound;
             
             EventSystemManager.OnCustomerEnter += OnCustomerEnterSound;
-            EventSystemManager.OnCustomerLeave += OnCustomerLeaveSound;
+            EventSystemManager.OnCustomerLeaveSound += OnCustomerLeaveSound;
             EventSystemManager.OnIngredientPouring += OnIngredientPouringSound;
             EventSystemManager.OnTimeWarning += OnTimeWarningSound;
             EventSystemManager.OnTimeUp += OnTimeUpSound;
@@ -45,6 +45,8 @@ namespace Technical
             EventSystemManager.OnPosterRippedDown += OnPosterRippedDownSound;
 
             EventSystemManager.OnAchievementUnlocked += OnAchievementUnlockedSound;
+
+            EventSystemManager.OnNapoli += OnNapoliSound;
         }
 
         private void OnDestroy()
@@ -62,7 +64,7 @@ namespace Technical
             EventSystemManager.OnPageTurned -= OnPageTurnedSound;
             
             EventSystemManager.OnCustomerEnter -= OnCustomerEnterSound;
-            EventSystemManager.OnCustomerLeave -= OnCustomerLeaveSound;
+            EventSystemManager.OnCustomerLeaveSound -= OnCustomerLeaveSound;
             EventSystemManager.OnIngredientPouring -= OnIngredientPouringSound;
             EventSystemManager.OnTimeWarning -= OnTimeWarningSound;
             EventSystemManager.OnTimeUp -= OnTimeUpSound;
@@ -78,6 +80,8 @@ namespace Technical
             EventSystemManager.OnPosterRippedDown -= OnPosterRippedDownSound;
             
             EventSystemManager.OnAchievementUnlocked -= OnAchievementUnlockedSound;
+            
+            EventSystemManager.OnNapoli -= OnNapoliSound;
         }
 
         public void SetMusicVolume(float volume)
@@ -228,17 +232,22 @@ namespace Technical
         private IEnumerator PlayDoorSlamSound()
         {
             yield return new WaitForSeconds(0.75f);
-            EazySoundManager.PlaySound(soundData.doorSlamSound, 0.8f);
+            EazySoundManager.PlaySound(soundData.doorSlamSound, 0.9f);
         }
 
         private void OnBlitzWonSound()
         {
-            EazySoundManager.PlaySound(soundData.blitzWonSound);
+            EazySoundManager.PlaySound(soundData.blitzWonSound, 0.3f);
         }
 
         private void OnAchievementUnlockedSound()
         {
             EazySoundManager.PlaySound(soundData.achievementSound);
+        }
+
+        private void OnNapoliSound()
+        {
+            EazySoundManager.PlaySound(soundData.napoliSound);
         }
     }
 }

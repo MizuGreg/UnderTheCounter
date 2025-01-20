@@ -51,7 +51,7 @@
         "lines": {
             "greet": [
                 "Greetings! I hope you received our slip of paper on the shop window earlier. Oh, where are my manners…",
-                "I speak to you as representative of the <b>bartenders union</b>. It is no secret that our members have been brought to their knees by the prohibition law…",
+                "I speak to you as representative of the <b>Bartender's Union</b>. It is no secret that our members have been brought to their knees by the prohibition law…",
                 "But we're adamant on resisting, and we will find a way to stay open. I ask for patience, young one… But in the meantime, good luck!"                        
             ]
         }
@@ -120,10 +120,10 @@
                 "{TRINKET 2}Here, take this. And don't complain. It's simply a small gift. This place really needs some decorations either way.<br>I'm off now! Goodnight."
             ],
             "water": [
-                "Not bad, not bad. I think you're starting to get the hang of it.<br> Well, I'm off now. Goodnight."
+                "Not bad, not bad. I think you're starting to get the hang of it.<br>Well, I'm off now. Goodnight."
             ],
             "incorrect": [
-                "I might be in the age of retirement, but I'm not naïve: this isn't a <b<Barber</b>. Do better next time! Goodnight!"
+                "I might be in the age of retirement, but I'm not naïve: this isn't a <b>Barber</b>. Do better next time! Goodnight!"
             ],
             "wrong": [
                 "I might be in the age of retirement, but I'm not stupid: this isn't a <b>Barber</b>, and on top of that, it tastes awful! Do better next time, goodnight!"

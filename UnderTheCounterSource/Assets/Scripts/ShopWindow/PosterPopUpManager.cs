@@ -37,7 +37,7 @@ namespace ShopWindow
             if (posterDescriptionUI != null) posterDescriptionUI.text = description;
             if (buffTextUI != null) buffTextUI.text = $"<size=150%><b>+</b><size=100%>  {buff}";
             if (nerfTextUI != null) nerfTextUI.text = $"<size=150%><b>-</b><size=100%>  {nerf}";
-            if (priceTextUI != null) priceTextUI.text = price == "Owned" ? price : $"{price}$";
+            if (priceTextUI != null) priceTextUI.text = price == "<u>Owned</u>" ? price : $"<u>{price}</u>$";
             if (currencyIconUI != null)
             {
                 if (currency != null)

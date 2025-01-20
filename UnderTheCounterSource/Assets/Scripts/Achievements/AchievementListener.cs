@@ -10,13 +10,13 @@ namespace Achievements
         void Awake()
         {
             // Subscribe to events
-            // Todo: trigger the event OnWin
             EventSystemManager.OnTutorialCompleted += TutorialCompleted;
+            EventSystemManager.OnBreakingNews += BreakingNews;
             EventSystemManager.OnDealMade += DealWithTheDevil;
             EventSystemManager.OnHalfTrinketCollected += AspiringCollector;
             EventSystemManager.OnBankrupt += Bankrupt;
             EventSystemManager.OnBlitzLose += BlitzedOut;
-            //EventSystemManager.OnWin += EndOfTheLine;
+            EventSystemManager.OnWin += EndOfTheLine;
             EventSystemManager.OnButterfly1 += EveryCloud;
             EventSystemManager.OnButterfly2 += HasASilverLining;
             EventSystemManager.OnBarBurned += MafiasPawn;
@@ -31,11 +31,12 @@ namespace Achievements
         {
             // Unsubscribe from events
             EventSystemManager.OnTutorialCompleted -= TutorialCompleted;
+            EventSystemManager.OnBreakingNews -= BreakingNews;
             EventSystemManager.OnDealMade -= DealWithTheDevil;
             EventSystemManager.OnHalfTrinketCollected -= AspiringCollector;
             EventSystemManager.OnBankrupt -= Bankrupt;
             EventSystemManager.OnBlitzLose -= BlitzedOut;
-            //EventSystemManager.OnWin -= EndOfTheLine;
+            EventSystemManager.OnWin -= EndOfTheLine;
             EventSystemManager.OnButterfly1 -= EveryCloud;
             EventSystemManager.OnButterfly2 -= HasASilverLining;
             EventSystemManager.OnBarBurned -= MafiasPawn;
@@ -51,7 +52,7 @@ namespace Achievements
             EventSystemManager.OnAchievementProgress("tutorial completed", 1);
         }
 
-        public void NewspaperOpened()
+        private void BreakingNews()
         {
             EventSystemManager.OnAchievementProgress("newspaper opened", 1);
         }

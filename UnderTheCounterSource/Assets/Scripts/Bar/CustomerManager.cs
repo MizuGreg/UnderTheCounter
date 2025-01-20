@@ -11,6 +11,7 @@ using Technical;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Extra;
 
 namespace Bar
 {
@@ -43,10 +44,13 @@ namespace Bar
         public float timeBeforeFadeout = 1f;
 
         private float earningMultiplier = 1f;
-        private float flatEarning = 5f;
+        private float flatEarning = 4f;
 
         private int _totalDailyCustomers;
         private int _servedCustomers;
+
+        private int _trinketToDisplay = -1;
+        private int _posterToDisplay = -1;
 
         private void Start()
         {
@@ -56,6 +60,8 @@ namespace Bar
             EventSystemManager.OnPreparationStart += StartPreparation;
             EventSystemManager.OnHowardEnter += TriggerHowardDialogue;
             EventSystemManager.MultipleChoiceStart += ShowChoiceButtons;
+            EventSystemManager.OnTrinketCollected += SetTrinketToDisplay;
+            EventSystemManager.OnPosterObtained += SetPosterToDisplay;
         
             _currentImage = customerCanvas.transform.Find("CustomerSprite").gameObject.GetComponent<Image>();
             pricePopup.gameObject.SetActive(true);
@@ -71,6 +77,7 @@ namespace Bar
             EventSystemManager.OnPreparationStart -= StartPreparation;
             EventSystemManager.OnHowardEnter -= TriggerHowardDialogue;
             EventSystemManager.MultipleChoiceStart -= ShowChoiceButtons;
+            EventSystemManager.OnTrinketCollected -= SetTrinketToDisplay;
         }
 
         public void AttachDialogueManager(DialogueManager dialogueManager)
@@ -145,6 +152,8 @@ namespace Bar
             yield return new WaitForSeconds(1f);
             LoadDailyCustomers(GameData.CurrentDay);
             PosterEffects();
+            
+            _totalDailyCustomers = _dailyCustomers.Count;
 
             if (GameData.CurrentDay >= 3)
             {
@@ -160,9 +169,6 @@ namespace Bar
             string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + day + ".json");
             _dailyCustomers = JsonConvert.DeserializeObject<List<Customer>>(jsonString);
             HandleConditionalCustomers();
-
-            _totalDailyCustomers = _dailyCustomers.Count;
-
         }
 
         private void LoadDailyBlitzDialogues(int day)
@@ -310,6 +316,9 @@ namespace Bar
                         break;
                 }
                 _dailyCustomers.RemoveAt(0);
+
+                // update guest book json
+                UpdateGuestBook();
             
                 _currentImage.sprite = GetSpriteFromCustomerType(_currentCustomer.sprite);
                 customerCanvas.GetComponent<FadeCanvas>().FadeIn();
@@ -320,6 +329,28 @@ namespace Bar
             {
                 EventSystemManager.OnCustomersDepleted();
             }
+        }
+
+        private void UpdateGuestBook()
+        {
+            GuestList guestList;
+            if (!PlayerPrefs.HasKey("GuestBook"))
+            {
+                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+                guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
+                PlayerPrefs.SetString("GuestBook", jsonString);
+            }
+            else
+            {
+                guestList = JsonConvert.DeserializeObject<GuestList>(PlayerPrefs.GetString("GuestBook"));
+            }
+            
+            List<Guest> _guestsData = guestList.guests;
+
+            _guestsData.Find(guest => guest.nickname == _customerName).isUnlocked = true;
+
+            string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
+            PlayerPrefs.SetString("GuestBook", updatedJson);
         }
         
         private IEnumerator WaitAndGreetDialogue()
@@ -378,12 +409,48 @@ namespace Bar
 
         private void FarewellCustomer()
         {
+            Debug.Log("Farewell called");
+            if (_trinketToDisplay >= 0)
+            {
+                // Shoot the event
+                EventSystemManager.OnTrinketDisplayed(_trinketToDisplay);
+
+                // Reset _trinketToDisplay
+                _trinketToDisplay = -1;
+            }
+            else if (_posterToDisplay > 0)
+            {
+                EventSystemManager.OnPosterDisplayed(_posterToDisplay);
+
+                _posterToDisplay = -1;
+            }
+            else
+            {
+                StartCoroutine(WaitBeforeFadeOut());
+            }
+        }
+
+        private void SetTrinketToDisplay(int trinketID)
+        {
+            _trinketToDisplay = trinketID;
+        }
+        
+        private void SetPosterToDisplay(int posterID)
+        {
+            _posterToDisplay = posterID;
+        }
+
+        public void FadeOut()
+        {
+            Debug.Log("fade out called");
             StartCoroutine(WaitBeforeFadeOut());
         }
 
         private IEnumerator WaitBeforeFadeOut()
         {
+            Debug.Log("waitbeforefadeout");
             yield return new WaitForSeconds(timeBeforeFadeout);
+            EventSystemManager.OnCustomerLeaveSound();
             if (customerCocktail.gameObject.activeSelf) customerCocktail.GetComponent<FadeCanvas>().FadeOut();
             customerCanvas.GetComponent<FadeCanvas>().FadeOut();
             EventSystemManager.OnCustomerLeft();
@@ -413,19 +480,21 @@ namespace Bar
                     if (cocktail.isWatered)
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["water"]);
-                        earning += _currentCustomer.tip / 3;
+                        // earning += _currentCustomer.tip / 3;
+                        earning += 1f; // watered down correct cocktail
                     }
                     else
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["correct"]);
-                        earning += _currentCustomer.tip;
+                        // earning += _currentCustomer.tip;
+                        earning += 5f; // correct cocktail, no water
                     }
                 }
                 
                 else if (cocktail.type == CocktailType.Wrong) // completely wrong cocktail, a mess
                 {
                     dialogue = new Dialogue(_customerName, _currentCustomer.lines["wrong"]);
-                    earning = 0;
+                    earning = 0; // no tip for a completely wrong cocktail
                 }
                 
                 else // correctly executed cocktail, but not the one the customer ordered
@@ -433,17 +502,20 @@ namespace Bar
                     if (_currentCustomer.lines.ContainsKey(cocktail.type.ToString())) // if we have a custom line for that cocktail
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines[cocktail.type.ToString()]);
-                        earning += _currentCustomer.tip / 2; // extra tip
+                        // earning += _currentCustomer.tip / 2; // extra tip
+                        earning += 5f;
                     }
                     else if (_currentCustomer.lines.ContainsKey("incorrect")) // if we have a generic line for an incorrect but well-done cocktail
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["incorrect"]);
+                        earning += 1f;
                     }
                     else // fallback to standard "wrong cocktail" line
                     {
                         dialogue = new Dialogue(_customerName, _currentCustomer.lines["wrong"]);
+                        earning += 1f;
                     }
-                    earning += _currentCustomer.tip / 3;
+                    // earning += _currentCustomer.tip / 3;
                 }
 
                 earning = Mathf.Round(earning * earningMultiplier);

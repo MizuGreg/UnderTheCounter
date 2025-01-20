@@ -7,6 +7,10 @@ using SavedGameData;
 using Technical;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using System.IO;
+using Extra;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace EndOfDay
 {
@@ -247,20 +251,26 @@ namespace EndOfDay
             endOfDayCanvas.FadeOut();
             yield return new WaitForSeconds(1f);
 
-            if (GameData.CurrentDay >= 7)
+            if (GameData.CurrentDay > 7)
             {
-                endingType = "good";
-                EventSystemManager.OnLoadWinScreen();
-                yield return new WaitForSeconds(1.1f);
-                GameData.loseType = endingType;
-                SceneManager.LoadScene("EndingScene");
+                if (GameData.Choices["UnionSnitched"])
+                {
+                    endingType = "good";
+                    EventSystemManager.OnLoadWinScreen();
+                    yield return new WaitForSeconds(1.1f);
+                    GameData.loseType = endingType;
+                    SceneManager.LoadScene("EndingScene");
+                }
+                else 
+                {
+                    yield return new WaitForSeconds(1.1f);
+                    SceneManager.LoadScene("FinalDay");
+                }
             }
             else
             {
-                SceneManager.LoadScene("ShopWindow");
+                SceneManager.LoadScene("Mailbox");
             }
-            
-            //SceneManager.LoadScene(GameData.CurrentDay >= 7 ? "VictoryScreen" : "ShopWindow");
         }
         
         public void BackToMainMenu()
@@ -274,5 +284,6 @@ namespace EndOfDay
             yield return new WaitForSeconds(1.1f);
             SceneManager.LoadScene("MainMenu");
         }
+
     }
 }

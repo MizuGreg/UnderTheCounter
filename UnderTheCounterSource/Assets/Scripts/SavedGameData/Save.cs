@@ -9,17 +9,27 @@
         [JsonObject(MemberSerialization.Fields)]
         public class Save
         {
-            public List<Tuple<string, string>> Log;
+            private List<Tuple<string, string>> Log;
             private SerializedDictionary<string, bool> Choices;
         
             private string BarName;
             private float DailyTime;
             private int CurrentDay;
+        
             private int DrunkCustomers;
             private int MaxDrunkCustomers;
+            private float BlitzTime;
+            private bool HasABlitzHappened;
+            private int BlitzFailCounter;
+            private bool WasLastBlitzFailed;
+            private bool fastDay;
+            private bool allCustomersServed;
+            private string loseType;
     
             private List<Poster> Posters;
             private List<int> Trinkets;
+
+            private int payoffAmount;
     
             private float Savings;
             private float TodayEarnings;
@@ -33,11 +43,19 @@
             {
                 Log = GameData.Log;
                 Choices = GameData.Choices;
+                
                 BarName = GameData.BarName;
                 DailyTime = GameData.DailyTime;
                 CurrentDay = GameData.CurrentDay;
+                
                 DrunkCustomers = GameData.DrunkCustomers;
                 MaxDrunkCustomers = GameData.MaxDrunkCustomers;
+                BlitzTime = GameData.BlitzTime;
+                HasABlitzHappened = GameData.HasABlitzHappened;
+                BlitzFailCounter = GameData.BlitzFailCounter;
+                fastDay = GameData.fastDay;
+                allCustomersServed = GameData.allCustomersServed;
+                loseType = GameData.loseType;
                 
                 Posters = GameData.Posters;
                 Trinkets = GameData.Trinkets;

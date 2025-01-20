@@ -19,6 +19,9 @@ TagManager:
   - Verlan
   - Cantico
   - Achievement
+  - Trinket
+  - GarnishDropPosition
+  - Poster
   layers:
   - Default
   - TransparentFX

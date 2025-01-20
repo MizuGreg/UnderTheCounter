@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 using SavedGameData;
 using Technical;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace IntroductionScreen
 {
@@ -13,89 +18,183 @@ namespace IntroductionScreen
         [SerializeField] private CanvasGroup mainCanvas;
         [SerializeField] private CanvasGroup continueButtonCanvas;
         [SerializeField] private CanvasGroup startDayButtonCanvas;
+        [SerializeField] private CanvasGroup containerCanvas;
+        [SerializeField] private CanvasGroup imageCanvas;
 
-        [Header("Texts")]
-        [SerializeField] private TextMeshProUGUI text1;
-        [SerializeField] private TextMeshProUGUI text2;
-        [SerializeField] private TextMeshProUGUI text3;
-
-        private int currentStep = 0; // 0 -> Mostra text1, 1 -> Mostra text2, 2 -> Mostra text3
-        private float buttonFadeDuration = 0.6f;
-        private float textFadeDuration = 0.8f;
-
-    private void Start()
-    {
-        // Inizialmente disattivo i pulsanti e l'input field
-        continueButtonCanvas.alpha = 0;
-        continueButtonCanvas.gameObject.SetActive(false);
-
-        startDayButtonCanvas.alpha = 0;
-        startDayButtonCanvas.gameObject.SetActive(false);
+        [Header("Slide Elements")] 
+        [SerializeField] private Image image;
+        [SerializeField] private TextMeshProUGUI text;
+        private float typingSpeed = 0.05f;
         
-        text1.alpha = 0;
-        text2.alpha = 0;
-        text3.alpha = 0;
+        private List<Slide> _slides;
+        private CanvasGroup _currentButtonCanvas;
+        
+        private string _fullText;
+        private string _currentText = "";
+        private Coroutine _typingCoroutine;
+        private bool _isTyping = false;
 
-        StartCoroutine(StartSequence());
-    }
 
-        private IEnumerator StartSequence()
+        private void Start()
         {
-            mainCanvas.alpha = 0;
-            // Fade-in scena principale
-            yield return FadeCanvasGroupIn(mainCanvas, 1f);
-
-            // Fade-in text1
-            yield return FadeTextIn(text1, textFadeDuration);
-
-            // Fade-in pulsante continue
-            continueButtonCanvas.gameObject.SetActive(true);
-            yield return FadeCanvasGroupIn(continueButtonCanvas, buttonFadeDuration);
+            // Initializations
+            _currentButtonCanvas = continueButtonCanvas;
+            mainCanvas.alpha = 0f;
+            imageCanvas.alpha = 0f;
+            text.alpha = 0f;
+            continueButtonCanvas.alpha = 0f;
+            continueButtonCanvas.blocksRaycasts = false;
+            startDayButtonCanvas.alpha = 0f;
+            startDayButtonCanvas.blocksRaycasts = false;
+            
+            // Load Slides infos from the JSON
+            LoadSlides();
+            
+            StartCoroutine(DisplayFirstSlide());
+        }
+        
+        private void LoadSlides()
+        {
+            // Read Introduction JSON and create slides list
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/IntroductionData/Introduction.json");
+            
+            _slides = JsonConvert.DeserializeObject<SlideList>(jsonString).slides;
         }
 
-        public void OnContinuePressed()
+        private IEnumerator DisplayFirstSlide()
         {
-            StartCoroutine(ContinueSequence());
+            yield return FadeCanvasGroupIn(mainCanvas, 1.1f);
+            
+            // Display first slide
+            NextSlide();
+            
+            // Progressive Fade-in
+            yield return DisplaySlideContent();
         }
 
-        private IEnumerator ContinueSequence()
+        private IEnumerator DisplaySlideContent()
         {
-            if (currentStep == 0) 
+            // Fade-in (Image)
+            yield return FadeCanvasGroupIn(imageCanvas, 1.1f);
+            
+            // Type text (Text)
+            _typingCoroutine = StartCoroutine(TypeText());
+
+            // Non mostrare subito il pulsante
+        }
+        
+        private IEnumerator TypeText()
+        {
+            _isTyping = true;
+            _currentText = ""; 
+            text.text = _currentText;
+            text.alpha = 1f;
+
+            foreach (char c in _fullText)
             {
-                // Fade-out text1 e pulsante continue
-                yield return FadeCanvasGroupOut(continueButtonCanvas, buttonFadeDuration);
-                continueButtonCanvas.gameObject.SetActive(false);
+                if (!_isTyping)
+                {
+                    // Se il typing viene interrotto, esci e mostra il testo completo
+                    _currentText = _fullText;
+                    text.text = _currentText;
+                    break;
+                }
 
-                yield return FadeTextOut(text1, textFadeDuration);
-
-                // Fade-in text2
-                yield return FadeTextIn(text2, textFadeDuration);
-
-                // Fade-in pulsante continue
-                continueButtonCanvas.gameObject.SetActive(true);
-                yield return FadeCanvasGroupIn(continueButtonCanvas, buttonFadeDuration);
-
-                currentStep = 1;
+                _currentText += c;
+                text.text = _currentText;
+                yield return new WaitForSeconds(typingSpeed);
             }
-            else if (currentStep == 1)
+
+            _isTyping = false;
+
+            // Mostra il pulsante alla fine del typing
+            _currentButtonCanvas.alpha = 1f;
+            _currentButtonCanvas.blocksRaycasts = true;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                // Fade-out text2 e pulsante continue
-                yield return FadeCanvasGroupOut(continueButtonCanvas, buttonFadeDuration);
-                continueButtonCanvas.gameObject.SetActive(false);
+                if (_isTyping)
+                {
+                    // Interrompi il typing e mostra immediatamente tutto il testo
+                    _isTyping = false;
+                    if (_typingCoroutine != null)
+                    {
+                        StopCoroutine(_typingCoroutine);
+                    }
+                    _currentText = _fullText;
+                    text.text = _currentText;
 
-                yield return FadeTextOut(text2, textFadeDuration);
+                    // Mostra il pulsante Continue
+                    _currentButtonCanvas.alpha = 1f;
+                    _currentButtonCanvas.blocksRaycasts = true;
+                }
 
-                // Fade-in text3
-                yield return FadeTextIn(text3, textFadeDuration);
-                
-                yield return new WaitForSeconds(1f); // extra waiting time before the final button
-
-                // Fade-in pulsante start day
-                startDayButtonCanvas.gameObject.SetActive(true);
-                yield return FadeCanvasGroupIn(startDayButtonCanvas, buttonFadeDuration);
-
-                currentStep = 2;
+                // else if (_currentButtonCanvas.blocksRaycasts)
+                // {
+                    // Se il typing è già finito, comportati come se fosse stato premuto "Continue"
+                    // Continue();
+                // }
             }
+        }
+
+        public void Continue()
+        {
+            _currentButtonCanvas.blocksRaycasts = false;
+            
+            StartCoroutine(DisplaySlide());
+        }
+
+        private IEnumerator DisplaySlide()
+        {
+            // Fade-out (Image, Text, Button)
+            yield return FadeCanvasGroupOut(containerCanvas, 1.1f);
+
+            imageCanvas.alpha = 0f;
+            text.alpha = 0f;
+            _currentButtonCanvas.alpha = 0f;
+
+            containerCanvas.alpha = 1f;
+            containerCanvas.interactable = true;
+            
+            // Load next slide content
+            NextSlide();
+
+            // Progressive Fade-in
+            yield return DisplaySlideContent();
+        }
+
+        private void NextSlide()
+        {
+            if (_slides.Count > 0)
+            {
+                image.sprite = GetSpriteFromSlide(_slides[0].sprite);
+                _fullText = _slides[0].caption;
+                _slides.RemoveAt(0);
+
+                if (_slides.Count == 0)
+                {
+                    _currentButtonCanvas.gameObject.SetActive(false);
+                    _currentButtonCanvas = startDayButtonCanvas;
+                    _currentButtonCanvas.gameObject.SetActive(true);
+                }
+            }
+        }
+        
+        private Sprite GetSpriteFromSlide(string sprite)
+        {
+            try
+            {
+                return Resources.Load("Sprites/Introduction/" + sprite, typeof(Sprite)) as Sprite;
+            }
+            catch (Exception e)
+            {
+                print($"Exception in getSprite: {e}");
+                return Resources.Load("Sprites/Introduction/Intro 1_Letter", typeof(Sprite)) as Sprite;
+            }
+        
         }
 
         public void OnStartDayPressed()
@@ -109,41 +208,6 @@ namespace IntroductionScreen
             yield return FadeCanvasGroupOut(mainCanvas, 1.1f);
 
             SceneManager.LoadScene("Scenes/TutorialDay1");
-        }
-
-        // ----- FUNZIONI UTILI PER IL FADE -----
-
-        private IEnumerator FadeTextIn(TextMeshProUGUI text, float duration)
-        {
-            text.gameObject.SetActive(true);
-            float startAlpha = text.alpha;
-            float endAlpha = 1f;
-            float elapsed = 0f;
-
-            while (elapsed < duration)
-            {
-                elapsed += Time.deltaTime;
-                float t = elapsed / duration;
-                text.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
-                yield return null;
-            }
-        }
-
-        private IEnumerator FadeTextOut(TextMeshProUGUI text, float duration)
-        {
-            float startAlpha = text.alpha;
-            float endAlpha = 0f;
-            float elapsed = 0f;
-
-            while (elapsed < duration)
-            {
-                elapsed += Time.deltaTime;
-                float t = elapsed / duration;
-                text.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
-                yield return null;
-            }
-
-            text.gameObject.SetActive(false);
         }
 
         private IEnumerator FadeCanvasGroupIn(CanvasGroup cg, float duration)

@@ -20,6 +20,7 @@ namespace Technical
         // Customer-related events
         public static UnityAction OnCustomerEnter;
         public static UnityAction OnCustomerLeave;
+        public static UnityAction OnCustomerLeaveSound;
         public static UnityAction OnDrunkCustomer;
         public static UnityAction OnCustomerLeft;
         public static UnityAction OnCustomersDepleted;
@@ -45,6 +46,7 @@ namespace Technical
         public static UnityAction MultipleChoiceStart;
         public static UnityAction OnBlitzEnd;
         public static UnityAction OnHowardEnter;
+        public static UnityAction OnWrongChoice;
 
         // Scene loads
         public static UnityAction OnLoadMainMenu;
@@ -75,6 +77,7 @@ namespace Technical
         public static UnityAction<string, int> OnAchievementProgress;
         public static UnityAction OnAchievementUnlocked;
         public static UnityAction OnTutorialCompleted;
+        public static UnityAction OnBreakingNews;
         public static UnityAction OnDealMade;
         public static UnityAction OnHalfTrinketCollected;
         public static UnityAction OnBankrupt;
@@ -88,5 +91,18 @@ namespace Technical
         public static UnityAction OnBackstabbed;
         public static UnityAction OnAllTrinketCollected;
         public static UnityAction OnAllCustomersServed;
+        
+        // Trinkets events
+        public static UnityAction<int> OnTrinketCollected;
+        public static UnityAction<int> OnTrinketDisplayed;
+        
+        public static UnityAction<int> OnPosterDisplayed;
+        
+        // Easter Egg event
+        public static UnityAction OnNapoli;
+
+        // Final day event
+        public static UnityAction OnErnestReveal;
+
     }
 }

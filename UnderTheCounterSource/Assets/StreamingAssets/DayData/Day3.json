@@ -21,21 +21,24 @@
         "lines": {
             "greet": [
                 "[IF HAS POSTERS]Good evening. I really like the poster you have outside. You know, I work in a book printing factory, so I know a good poster when I see one.",
-                "[IF HAS POSTERS]{POSTER 2}Here, a spare one from my workplace. We've stopped producing posters with alcoholic beverages on them now, so I don't need it anymore.",
                 "[IF DOESN'T HAVE POSTERS]Good evening and good to see you, bartender. Just heard the news about the prohibition laws. I'm glad you're still open, I was worried for you.",
-                "May I ask you for a <b>Ripple</b>, even if it's a bit risky?"
+                "[IF HAS POSTERS]May I ask you for a <b>Ripple</b>, even if it's a bit risky?{POSTER 2}",
+                "[IF DOESN'T HAVE POSTERS]May I ask you for a <b>Ripple</b>, even if it's a bit risky?"
             ],
             "correct": [
                 "A perfect Ripple, indeed. I'm impressed that you have the courage to stay open. Take care of yourself.",
-                "May I ask you for another one for my husband, Eugene? He's waiting for me at the table."
+                "May I ask you for another one for my husband, Eugene? He's waiting for me at the table.",
+                "[IF HAS POSTERS]Oh, I almost forgot, here is a replacement poster from my workplace. We've stopped making posters with alcoholic drinks on them, so I don't need it anymore."
             ],
             "wrong": [
                 "I really understand the situation, and that you are a bit nervous, but this is not a Ripple.",
-                "By the way I won't tell anyone about this, don't worry. Oh, look, my husband is coming."
+                "By the way I won't tell anyone about this, don't worry. Oh, look, my husband is coming.",
+                "[IF HAS POSTERS]Oh, I almost forgot, here is a replacement poster from my workplace. We've stopped making posters with alcoholic drinks on them, so I don't need it anymore."
             ],
             "water": [
                 "Excuse me if I asked for a Ripple, I understand the situation. I'm impressed you have the courage to stay open. Take care of yourself.",
-                "My husband doesn't know about the prohibition laws yet, I don't want to worry him. He's a very sensitive person."
+                "My husband doesn't know about the prohibition laws yet, I don't want to worry him. He's a very sensitive person.",
+                "[IF HAS POSTERS]Oh, I almost forgot, here is a replacement poster from my workplace. We've stopped making posters with alcoholic drinks on them, so I don't need it anymore."
             ]
         },
         "tip": 1
