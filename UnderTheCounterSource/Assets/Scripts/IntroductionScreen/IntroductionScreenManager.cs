@@ -114,7 +114,7 @@ namespace IntroductionScreen
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
             {
                 if (_isTyping)
                 {
