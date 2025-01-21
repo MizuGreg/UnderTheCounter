@@ -12899,7 +12899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barContainer: {fileID: 1180806169}
   trinketContainer: {fileID: 1164127358}
-  forceDay: 5
+  forceDay: 0
   didBlitzHappen: 0
 --- !u!114 &1725047609
 MonoBehaviour:
@@ -12939,6 +12939,7 @@ MonoBehaviour:
   popUpDialogueText: {fileID: 1463437685}
   popUpArrow: {fileID: 1742463898}
   normalTextSpeed: 20
+  isPaused: 0
   punctuationWaitMultiplier: 7
   timeBeforeDialogueBox: 0.1
   timeBeforeFirstSentence: 1

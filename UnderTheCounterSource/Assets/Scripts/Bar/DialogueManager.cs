@@ -39,7 +39,7 @@ namespace Bar
         private float textSpeed;
         [Range(1f, 50.0f)]
         [SerializeField] private float normalTextSpeed;
-
+        [SerializeField] private bool isPaused;
         [Range(5f, 50.0f)]
         [SerializeField] private float punctuationWaitMultiplier;
         
@@ -49,7 +49,19 @@ namespace Bar
         [SerializeField] private float timeBeforeFirstSentence;
 
         private bool _allTextIsVisible;
-        
+
+        private void Awake()
+        {
+            EventSystemManager.OnGamePaused += PauseDialogue;
+            EventSystemManager.OnGameResumed += ResumeDialogue;
+        }
+
+        private void OnDestroy()
+        {
+            EventSystemManager.OnGamePaused -= PauseDialogue;
+            EventSystemManager.OnGameResumed -= ResumeDialogue;
+        }
+
         // Initialization
         void Start() {
             if (dialogueText != null) // we initialize correctly only if we're in the proper scene
@@ -154,6 +166,7 @@ namespace Bar
 
         public void OnNextButtonPressed()
         {
+            if (isPaused) return; // ignores button if game is paused
             if (isPopupActive)
             {
                 ShowNextPopUp();
@@ -172,6 +185,16 @@ namespace Bar
             _allTextIsVisible = true;
             dialogueText.maxVisibleCharacters = dialogueText.text.Length;
             arrow.gameObject.SetActive(true);
+        }
+
+        private void PauseDialogue()
+        {
+            isPaused = true;
+        }
+
+        private void ResumeDialogue()
+        {
+            isPaused = false;
         }
 
         private void DisplayNextSentence()
@@ -349,8 +372,14 @@ namespace Bar
                     break;
                 }
                 // otherwise, get current character
-                var character = textInfo.characterInfo[currentVisibleCharIndex].character;
+                char character = textInfo.characterInfo[currentVisibleCharIndex].character;
                 dialogueText.maxVisibleCharacters++; // shows character
+                
+                while (isPaused) // loops indefinitely as long as we're pausing
+                {
+                    yield return null;
+                }
+            
                 if (character is ',' or ';')
                 {
                     yield return new WaitForSeconds(punctuationWaitMultiplier / textSpeed);
