@@ -104,7 +104,7 @@ namespace Tutorial
         private void LoadSteps()
         {
             // read Tutorial Steps json and create steps list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/TutorialData/Tutorial1.json");
+            string jsonString = Resources.Load<TextAsset>("TextAssets/TutorialData/Tutorial1").text;
             
             //_steps = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             _steps = JsonConvert.DeserializeObject<List<List<string>>>(jsonString);
@@ -185,7 +185,7 @@ namespace Tutorial
             GuestList guestList;
             if (!PlayerPrefs.HasKey("GuestBook"))
             {
-                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+                string jsonString = Resources.Load<TextAsset>("TextAssets/GuestBookData/GuestBook").text;
                 guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
                 PlayerPrefs.SetString("GuestBook", jsonString);
             }

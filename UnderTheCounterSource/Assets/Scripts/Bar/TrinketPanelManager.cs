@@ -46,13 +46,13 @@ namespace Bar
 
         private void LoadTrinkets()
         {
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/TrinketData/Trinkets.json");
+            string jsonString = Resources.Load<TextAsset>("TextAssets/TrinketData/Trinkets").text;
             _trinkets = JsonConvert.DeserializeObject<TrinketList>(jsonString).trinkets;
         }
 
         private void LoadPosters()
         {
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/UnlockedPosterData/Posters.json");
+            string jsonString = Resources.Load<TextAsset>("TextAssets/UnlockedPosterData/Posters").text;
             _posters = JsonConvert.DeserializeObject<PosterList>(jsonString).posters;
         }
 

@@ -40,7 +40,7 @@ namespace Menu
         
         public void StartNewGame()
         {
-            File.Delete(GameData.SaveFilePath);
+            GameData.DeleteSave();
             GameData.Initialize();
             mainMenuCanvas.GetComponent<FadeCanvas>().FadeOut();
             StartCoroutine(WaitBeforeNewGame());

@@ -78,7 +78,7 @@ namespace Mailbox
         private void LoadMailbox()
         {
             // Read Mailboxes JSON and create mailboxes list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/MailboxData/Mailboxes.json");
+            string jsonString = Resources.Load<TextAsset>("TextAssets/MailboxData/Mailboxes").text;
             
             _mailboxes = JsonConvert.DeserializeObject<MailboxList>(jsonString).mailboxes;
             

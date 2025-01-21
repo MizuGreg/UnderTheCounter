@@ -56,8 +56,7 @@ namespace IntroductionScreen
         private void LoadSlides()
         {
             // Read Introduction JSON and create slides list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/IntroductionData/Introduction.json");
-            
+            string jsonString = Resources.Load<TextAsset>("TextAssets/IntroductionData/Introduction").text;
             _slides = JsonConvert.DeserializeObject<SlideList>(jsonString).slides;
         }
 

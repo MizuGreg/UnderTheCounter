@@ -49,7 +49,7 @@ namespace Tutorial
         private void LoadSteps()
         {
             // read Tutorial Steps json and create steps list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/TutorialData/Tutorial2.json");
+            string jsonString = Resources.Load<TextAsset>("TextAssets/TutorialData/Tutorial2").text;
             
             //_steps = JsonConvert.DeserializeObject<CustomerList>(jsonString).customers;
             _steps = JsonConvert.DeserializeObject<List<List<string>>>(jsonString);

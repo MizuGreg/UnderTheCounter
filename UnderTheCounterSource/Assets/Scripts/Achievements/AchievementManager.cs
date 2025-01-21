@@ -35,7 +35,7 @@ namespace Achievements
             if (!PlayerPrefs.HasKey("Achievements"))
             {
                 // Read Achievements JSON and create achievements list
-                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/AchievementData/Achievements.json");
+                string jsonString = Resources.Load<TextAsset>("TextAssets/AchievementData/Achievements").text;
                 _achievements = JsonConvert.DeserializeObject<AchievementList>(jsonString).achievements;
                 PlayerPrefs.SetString("Achievements", jsonString);
             }
