@@ -10248,7 +10248,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 63
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10314,8 +10314,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.62, y: -54.836}
-  m_SizeDelta: {x: 208.45, y: 74.664}
+  m_AnchoredPosition: {x: 6.2, y: -54.4}
+  m_SizeDelta: {x: 165.985, y: 43.319}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1256403884 stripped
 GameObject:
@@ -12899,7 +12899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barContainer: {fileID: 1180806169}
   trinketContainer: {fileID: 1164127358}
-  forceDay: 3
+  forceDay: 5
   didBlitzHappen: 0
 --- !u!114 &1725047609
 MonoBehaviour:
