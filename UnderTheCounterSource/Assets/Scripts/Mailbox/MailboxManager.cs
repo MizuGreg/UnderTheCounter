@@ -49,7 +49,7 @@ namespace Mailbox
             mail.GetComponent<Image>().sprite = GetMailFromDay(_currentMailbox.day);
             mail.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.01f;
             
-            StartCoroutine(FadeCanvasGroup(containerCanvas, 1.1f, 1f));
+            StartCoroutine(FadeCanvasGroup(containerCanvas, 2f, 1f));
             
             SetCarouselElements();
         }
@@ -127,6 +127,7 @@ namespace Mailbox
         {
             StartCoroutine(FadeCanvasGroup(blackBG, 1.1f, 0.4f));
             blackBG.blocksRaycasts = true;
+            containerCanvas.transform.Find("Text1").gameObject.SetActive(false);
             
             element.gameObject.GetComponent<Image>().sprite = Resources.Load("Sprites/Mailbox/Day " + _currentMailbox.day + "/"+_carouselElements[_currentElement], typeof(Sprite)) as Sprite;
             EventSystemManager.OnMasterBookOpened(); // This is for the sound effect
