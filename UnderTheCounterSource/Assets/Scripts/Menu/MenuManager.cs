@@ -62,7 +62,7 @@ namespace Menu
         private IEnumerator WaitBeforeContinueGame()
         {
             yield return new WaitForSeconds(1.1f);
-            SceneManager.LoadScene("ShopWindow");
+            SceneManager.LoadScene("Mailbox");
         }
     
         public void QuitGame()
