@@ -182,13 +182,6 @@ namespace Tutorial
 
             // Ernest unlocked in the guest book
 
-            // string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
-            // GuestList guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
-            // List<Guest> _guestsData = guestList.guests;
-            // _guestsData.Find(guest => guest.name == "Ernest Wade").isUnlocked = true;
-            // string updatedJson = JsonConvert.SerializeObject(guestList, Formatting.Indented);
-            // File.WriteAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json", updatedJson);
-
             GuestList guestList;
             if (!PlayerPrefs.HasKey("GuestBook"))
             {
