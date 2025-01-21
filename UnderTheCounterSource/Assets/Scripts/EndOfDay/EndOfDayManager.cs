@@ -233,7 +233,10 @@ namespace EndOfDay
         {
             GameData.EndDay(dailyBalance);
             GameData.CurrentDay++;
-            GameData.SaveToJson();
+            if (GameData.CurrentDay <= 7)
+            {
+                GameData.SaveToJson();
+            }
             StartCoroutine(LoadNextScene());
         }
 
