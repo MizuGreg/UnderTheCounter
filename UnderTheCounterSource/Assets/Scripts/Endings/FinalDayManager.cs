@@ -51,7 +51,7 @@ namespace Endings
 
         private void LoadDialogues() 
         {
-            string jsonString = Resources.Load<TextAsset>("TextAssets/EndingsData/Endings").text;
+            string jsonString = Resources.Load<TextAsset>("TextAssets/EndingsData/FinalDay").text;
             _dailyCustomers = JsonConvert.DeserializeObject<List<Customer>>(jsonString);
             StartCoroutine(ShowCustomer());
         }
