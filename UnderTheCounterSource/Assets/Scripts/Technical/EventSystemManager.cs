@@ -50,6 +50,7 @@ namespace Technical
 
         // Scene loads
         public static UnityAction OnLoadMainMenu;
+        public static UnityAction OnLoadMailboxScene;
         public static UnityAction OnLoadBarView;
         public static UnityAction OnLoadShopWindow;
         public static UnityAction OnLoadEndOfDay;

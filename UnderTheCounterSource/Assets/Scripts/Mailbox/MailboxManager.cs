@@ -43,7 +43,7 @@ namespace Mailbox
         private void Start()
         {
             containerCanvas.alpha = 0f;
-            
+            EventSystemManager.OnLoadMailboxScene();
             LoadMailbox();
 
             mail.GetComponent<Image>().sprite = GetMailFromDay(_currentMailbox.day);

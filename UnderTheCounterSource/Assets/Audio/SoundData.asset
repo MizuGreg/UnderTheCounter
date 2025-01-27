@@ -15,6 +15,7 @@ MonoBehaviour:
   backgroundMusicVolume: 1
   FXVolume: 1
   mainMenuMusic: {fileID: 8300000, guid: 570d186857d018d42bc145cd5c11d6a3, type: 3}
+  mailboxMusic: {fileID: 8300000, guid: 0dd426e9822eb794fa8a63fcdeacd373, type: 3}
   shopWindowMusic: {fileID: 8300000, guid: de12a88cd51718542b368dfa1b4d96dc, type: 3}
   barMusicTracks:
   - {fileID: 8300000, guid: 06efbc56b835fac4dbd4942400c851d0, type: 3}

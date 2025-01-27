@@ -13,6 +13,7 @@ namespace Technical
         
         [Header("Music")]
         public AudioClip mainMenuMusic;
+        public AudioClip mailboxMusic;
         public AudioClip shopWindowMusic;
         public AudioClip[] barMusicTracks;
         public AudioClip blitzMusic;
