@@ -62,7 +62,7 @@ namespace IntroductionScreen
 
         private IEnumerator DisplayFirstSlide()
         {
-            yield return FadeCanvasGroupIn(mainCanvas, 1.1f);
+            yield return FadeCanvasGroupIn(mainCanvas, 1f);
             
             // Display first slide
             NextSlide();
@@ -74,7 +74,7 @@ namespace IntroductionScreen
         private IEnumerator DisplaySlideContent()
         {
             // Fade-in (Image)
-            yield return FadeCanvasGroupIn(imageCanvas, 1.1f);
+            yield return FadeCanvasGroupIn(imageCanvas, 0.5f);
             
             // Type text (Text)
             _typingCoroutine = StartCoroutine(TypeText());
@@ -149,7 +149,7 @@ namespace IntroductionScreen
         private IEnumerator DisplaySlide()
         {
             // Fade-out (Image, Text, Button)
-            yield return FadeCanvasGroupOut(containerCanvas, 1.1f);
+            yield return FadeCanvasGroupOut(containerCanvas, 0.5f);
 
             imageCanvas.alpha = 0f;
             text.alpha = 0f;
