@@ -108,10 +108,10 @@ Posters may be bought, or some may be unlocked after a certain day or after talk
 - Customers approach the bar, engage in short dialogue, and place their drink orders.
 - Patrons pay after receiving their drink, sometimes leaving a tip.
 - Special characters may also appear, including:
--- **The police inspector**
--- **Mafia goons**
--- **A Bartenders’ Union member**
--- **An undercover informant**, who will try to catch the bartender serving alcohol.
+	- **The police inspector**
+	- **Mafia goons**
+	- **A Bartenders’ Union member**
+	- **An undercover informant**, who will try to catch the bartender serving alcohol.
 Throughout the game, **trinkets** can be unlocked by serving specific drinks, adding decorative elements to the bar, such as:
 - Business cards
 - A cookie jar
