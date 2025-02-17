@@ -53,7 +53,7 @@ namespace Extra {
             GuestList guestList;
             if (!PlayerPrefs.HasKey("GuestBook"))
             {
-                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+                string jsonString = Resources.Load<TextAsset>("TextAssets/GuestBookData/GuestBook").text;
                 guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
                 PlayerPrefs.SetString("GuestBook", jsonString);
             }
@@ -187,7 +187,7 @@ namespace Extra {
             if (!PlayerPrefs.HasKey("Achievements"))
             {
                 // Read Achievements JSON and create achievements list
-                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/AchievementData/Achievements.json");
+                string jsonString = Resources.Load<TextAsset>("TextAssets/AchievementData/Achievements").text;
                 achievements = JsonConvert.DeserializeObject<AchievementList>(jsonString).achievements;
                 PlayerPrefs.SetString("Achievements", jsonString);
             }

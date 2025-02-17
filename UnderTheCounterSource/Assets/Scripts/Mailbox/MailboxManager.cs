@@ -43,13 +43,13 @@ namespace Mailbox
         private void Start()
         {
             containerCanvas.alpha = 0f;
-            
+            EventSystemManager.OnLoadMailboxScene();
             LoadMailbox();
 
             mail.GetComponent<Image>().sprite = GetMailFromDay(_currentMailbox.day);
             mail.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.01f;
             
-            StartCoroutine(FadeCanvasGroup(containerCanvas, 1.1f, 1f));
+            StartCoroutine(FadeCanvasGroup(containerCanvas, 2f, 1f));
             
             SetCarouselElements();
         }
@@ -78,7 +78,7 @@ namespace Mailbox
         private void LoadMailbox()
         {
             // Read Mailboxes JSON and create mailboxes list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/MailboxData/Mailboxes.json");
+            string jsonString = Resources.Load<TextAsset>("TextAssets/MailboxData/Mailboxes").text;
             
             _mailboxes = JsonConvert.DeserializeObject<MailboxList>(jsonString).mailboxes;
             
@@ -127,6 +127,7 @@ namespace Mailbox
         {
             StartCoroutine(FadeCanvasGroup(blackBG, 1.1f, 0.4f));
             blackBG.blocksRaycasts = true;
+            containerCanvas.transform.Find("Text1").gameObject.SetActive(false);
             
             element.gameObject.GetComponent<Image>().sprite = Resources.Load("Sprites/Mailbox/Day " + _currentMailbox.day + "/"+_carouselElements[_currentElement], typeof(Sprite)) as Sprite;
             EventSystemManager.OnMasterBookOpened(); // This is for the sound effect

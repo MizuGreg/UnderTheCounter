@@ -50,6 +50,7 @@ namespace Technical
 
         // Scene loads
         public static UnityAction OnLoadMainMenu;
+        public static UnityAction OnLoadMailboxScene;
         public static UnityAction OnLoadBarView;
         public static UnityAction OnLoadShopWindow;
         public static UnityAction OnLoadEndOfDay;
@@ -104,5 +105,8 @@ namespace Technical
         // Final day event
         public static UnityAction OnErnestReveal;
 
+        // In-game menu events
+        public static UnityAction OnGamePaused;
+        public static UnityAction OnGameResumed;
     }
 }

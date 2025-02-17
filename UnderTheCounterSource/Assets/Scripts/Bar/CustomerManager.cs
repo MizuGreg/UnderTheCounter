@@ -44,7 +44,7 @@ namespace Bar
         public float timeBeforeFadeout = 1f;
 
         private float earningMultiplier = 1f;
-        private float flatEarning = 4f;
+        private float flatEarning = 5f;
 
         private int _totalDailyCustomers;
         private int _servedCustomers;
@@ -166,7 +166,7 @@ namespace Bar
         private void LoadDailyCustomers(int day)
         {
             // read DailyCustomers json and create daily customers list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/DayData/Day" + day + ".json");
+            string jsonString = Resources.Load<TextAsset>($"TextAssets/DayData/Day{day}").text;
             _dailyCustomers = JsonConvert.DeserializeObject<List<Customer>>(jsonString);
             HandleConditionalCustomers();
         }
@@ -174,7 +174,7 @@ namespace Bar
         private void LoadDailyBlitzDialogues(int day)
         {
             // read DailyBlitz json and create daily blitz list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/BlitzData/Blitz" + day + ".json");
+            string jsonString = Resources.Load<TextAsset>($"TextAssets/BlitzData/Blitz{day}").text;
             _dailyBlitzDialogues = JsonConvert.DeserializeObject<List<BlitzDialogue>>(jsonString);
         }
 
@@ -336,7 +336,7 @@ namespace Bar
             GuestList guestList;
             if (!PlayerPrefs.HasKey("GuestBook"))
             {
-                string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/GuestBookData/GuestBook.json");
+                string jsonString = Resources.Load<TextAsset>("TextAssets/GuestBookData/GuestBook").text;
                 guestList = JsonConvert.DeserializeObject<GuestList>(jsonString);
                 PlayerPrefs.SetString("GuestBook", jsonString);
             }

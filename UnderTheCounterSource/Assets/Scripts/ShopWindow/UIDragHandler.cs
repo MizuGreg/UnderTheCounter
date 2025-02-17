@@ -91,9 +91,14 @@ namespace ShopWindow
             if (validArea != null)
             {
                 var dropTarget = validArea.GetComponent<DropTarget>();
-                if (dropTarget != null && !dropTarget.IsOccupied())
+
+                if (lastPlacedPlaceholder == validArea) // means we're re-hanging the poster in the same place
                 {
-                    if (lastPlacedPlaceholder != null && lastPlacedPlaceholder != validArea)
+                    HangPoster(validArea, dropTarget, _pps);
+                }
+                else if (dropTarget != null && !dropTarget.IsOccupied()) // we're trying to hang it somewhere else
+                {
+                    if (lastPlacedPlaceholder != null)
                     {
                         var lastDropTarget = lastPlacedPlaceholder.GetComponent<DropTarget>();
                         if (lastDropTarget != null)
@@ -119,9 +124,10 @@ namespace ShopWindow
             _rectTransform.GetComponent<PosterPrefabScript>().SetIsDragging(false);
         }
 
-        public void HangPoster(RectTransform validArea, DropTarget dropTarget, PosterPrefabScript posterPrefab)
+        public void HangPoster(RectTransform validArea, DropTarget dropTarget, PosterPrefabScript posterPrefab, bool silent = false)
         {
-            EventSystemManager.OnPosterHung(); // plays sound when a poster is hung on the window
+            if (!silent) EventSystemManager.OnPosterHung(); // plays sound when a poster is hung on the window
+
             _rectTransform.SetParent(validArea, false);
             dropTarget.SetOccupied(true);
             lastPlacedPlaceholder = validArea;

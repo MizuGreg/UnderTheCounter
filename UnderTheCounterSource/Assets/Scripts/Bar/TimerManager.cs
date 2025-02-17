@@ -22,6 +22,18 @@ namespace Bar
         [SerializeField] private Image wallClockMinute;
         private readonly float timeCoherenceRotation = 100f;
 
+        private void Awake()
+        {
+            EventSystemManager.OnGamePaused += PauseTimer;
+            EventSystemManager.OnGameResumed += ResumeTimer;
+        }
+
+        private void OnDestroy()
+        {
+            EventSystemManager.OnGamePaused -= PauseTimer;
+            EventSystemManager.OnGameResumed -= ResumeTimer;
+        }
+        
         public void SetTime()
         {
             initialTime = GameData.DailyTime;

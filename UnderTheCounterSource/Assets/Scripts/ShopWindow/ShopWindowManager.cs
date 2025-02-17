@@ -57,13 +57,13 @@ namespace ShopWindow
 
         private void LoadPosters()
         {
-            // Step 1: fetch poster data
+            // Fetch poster data
             List<Poster> posterDataList = GameData.Posters;
 
-            // Step 2: Get all poster prefab scripts from canvasContainer
+            // Get all poster prefab scripts from canvasContainer
             PosterPrefabScript[] posterPrefabs = canvasContainer.GetComponentsInChildren<PosterPrefabScript>(true);
-
-            // Step 3: Iterate through each poster in the prefab scripts
+            
+            // Iterate through each poster in the prefab scripts
             foreach (PosterPrefabScript pps in posterPrefabs)
             {
                 Poster matchingPoster = posterDataList.Find(p => p.id == pps.posterID);
@@ -73,7 +73,7 @@ namespace ShopWindow
                     continue;
                 }
 
-                // Step 4: Update the poster's price
+                // Update the poster's price
                 pps.posterPrice = matchingPoster.price;
                 
                 // Set poster visible/invisible
@@ -85,8 +85,8 @@ namespace ShopWindow
                 pps.posterDescription = matchingPoster.description;
                 pps.posterNameText = matchingPoster.name;
                 pps.isLocked = matchingPoster.locked;
-
-                // Step 5: Handle hanged logic
+                
+                // Handle hanged logic
                 if (matchingPoster.hanged != 0)
                 {
                     // Find DropTarget components
@@ -107,12 +107,13 @@ namespace ShopWindow
                         // Perform the actual hanging
                         UIDragHandler dragHandler = pps.GetComponent<UIDragHandler>();
                         RectTransform validArea = targetDrop.GetComponentInParent<RectTransform>();
+                        
                         if (dragHandler == null) Debug.LogError("Drag handler couldn't be found.");
                         if (validArea == null) Debug.LogError("validArea couldn't be found.");
+                        
                         // Place the poster in the correct DropTarget
-                        Debug.Log(targetDrop);
                         pps.TogglePosterDetails(false);
-                        dragHandler.HangPoster(validArea, targetDrop, pps);
+                        dragHandler.HangPoster(validArea, targetDrop, pps, true);
                     }
                     else
                     {

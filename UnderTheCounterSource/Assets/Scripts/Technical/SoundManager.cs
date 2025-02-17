@@ -17,6 +17,7 @@ namespace Technical
         private void Awake()
         {
             EventSystemManager.OnLoadMainMenu += OnLoadMainMenuSound;
+            EventSystemManager.OnLoadMailboxScene += OnLoadMailboxSceneSound;
             EventSystemManager.OnLoadBarView += OnLoadBarViewSound;
             EventSystemManager.OnLoadShopWindow += OnLoadShopWindowSound;
             EventSystemManager.OnLoadEndOfDay += OnLoadEndOfDaySound;
@@ -52,6 +53,7 @@ namespace Technical
         private void OnDestroy()
         {
             EventSystemManager.OnLoadMainMenu -= OnLoadMainMenuSound;
+            EventSystemManager.OnLoadMailboxScene -= OnLoadMailboxSceneSound;
             EventSystemManager.OnLoadBarView -= OnLoadBarViewSound;
             EventSystemManager.OnLoadShopWindow -= OnLoadShopWindowSound;
             EventSystemManager.OnLoadEndOfDay -= OnLoadEndOfDaySound;
@@ -117,6 +119,11 @@ namespace Technical
 
             EazySoundManager.PlayMusic(soundData.mainMenuMusic, 1, true, true, 5, 3);
 
+        }
+
+        private void OnLoadMailboxSceneSound()
+        {
+            EazySoundManager.PlayMusic(soundData.mailboxMusic, 1, true, true, 5, 5);
         }
         
         private void OnLoadShopWindowSound()

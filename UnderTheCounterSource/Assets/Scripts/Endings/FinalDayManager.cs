@@ -51,7 +51,7 @@ namespace Endings
 
         private void LoadDialogues() 
         {
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/EndingsData/FinalDay.json");
+            string jsonString = Resources.Load<TextAsset>("TextAssets/EndingsData/FinalDay").text;
             _dailyCustomers = JsonConvert.DeserializeObject<List<Customer>>(jsonString);
             StartCoroutine(ShowCustomer());
         }

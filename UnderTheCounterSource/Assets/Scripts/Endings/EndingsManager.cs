@@ -38,7 +38,7 @@ namespace Endings
         public void LoadEnding(string ending)
         {
             endingType = ending;
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/EndingsData/Endings.json");
+            string jsonString = Resources.Load<TextAsset>("TextAssets/EndingsData/Endings").text;
             _endingsText = JsonConvert.DeserializeObject<List<Ending>>(jsonString).FindAll(ending => ending.type == endingType);
             stringList = _endingsText[0].lines;
 

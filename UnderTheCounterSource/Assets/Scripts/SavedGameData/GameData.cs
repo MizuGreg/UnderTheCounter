@@ -11,7 +11,7 @@ namespace SavedGameData
 {
     public static class GameData
     {
-        public static readonly string SaveFilePath = Application.streamingAssetsPath + "/GameData/Save.json";
+        public static readonly string SaveFilePath = Application.streamingAssetsPath + "/GameData/Save.json"; // obsolete
         
         public static List<Tuple<string, string>> Log = new();
         public static SerializedDictionary<string, bool> Choices = new(){

@@ -10,27 +10,24 @@ namespace Settings
 {
     public class InGameMenu : MonoBehaviour
     {
-        private TimerManager _timerManager;
         [SerializeField] private MasterBookManager masterBook;
         private GameObject backToMainMenuDialog;
         private GameObject creditsDialog;
     
         private void Awake()
         {
-            _timerManager = GameObject.FindWithTag("BarManager")?.transform.GetComponent<TimerManager>();
-            
             backToMainMenuDialog = transform.Find("BackToMainMenuDialog").gameObject;
             creditsDialog = transform.Find("CreditsDialog").gameObject;
         }
 
         private void OnEnable()
         {
-            if (_timerManager != null) _timerManager.PauseTimer();
+            EventSystemManager.OnGamePaused?.Invoke();
         }
 
         private void OnDisable()
         {
-            if (_timerManager != null) _timerManager.ResumeTimer();
+            EventSystemManager.OnGameResumed?.Invoke();
         }
 
         public void OnEscapeButtonPressed(InputAction.CallbackContext context)

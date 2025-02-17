@@ -56,14 +56,13 @@ namespace IntroductionScreen
         private void LoadSlides()
         {
             // Read Introduction JSON and create slides list
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/IntroductionData/Introduction.json");
-            
+            string jsonString = Resources.Load<TextAsset>("TextAssets/IntroductionData/Introduction").text;
             _slides = JsonConvert.DeserializeObject<SlideList>(jsonString).slides;
         }
 
         private IEnumerator DisplayFirstSlide()
         {
-            yield return FadeCanvasGroupIn(mainCanvas, 1.1f);
+            yield return FadeCanvasGroupIn(mainCanvas, 1f);
             
             // Display first slide
             NextSlide();
@@ -75,7 +74,7 @@ namespace IntroductionScreen
         private IEnumerator DisplaySlideContent()
         {
             // Fade-in (Image)
-            yield return FadeCanvasGroupIn(imageCanvas, 1.1f);
+            yield return FadeCanvasGroupIn(imageCanvas, 0.5f);
             
             // Type text (Text)
             _typingCoroutine = StartCoroutine(TypeText());
@@ -114,7 +113,7 @@ namespace IntroductionScreen
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
             {
                 if (_isTyping)
                 {
@@ -150,7 +149,7 @@ namespace IntroductionScreen
         private IEnumerator DisplaySlide()
         {
             // Fade-out (Image, Text, Button)
-            yield return FadeCanvasGroupOut(containerCanvas, 1.1f);
+            yield return FadeCanvasGroupOut(containerCanvas, 0.5f);
 
             imageCanvas.alpha = 0f;
             text.alpha = 0f;

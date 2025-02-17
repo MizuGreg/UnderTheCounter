@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,15 @@ namespace ShopWindow
         public Sprite inactiveSprite;
 
         private int _currentMenuIndex = 0; // Tracks the currently active submenu
+
+        private void Awake()
+        {
+            // Activates all submenus, to call Awake on all posters and set them correctly
+            foreach (GameObject submenu in submenus)
+            {
+                submenu.SetActive(true);
+            }
+        }
 
         private void Start()
         {

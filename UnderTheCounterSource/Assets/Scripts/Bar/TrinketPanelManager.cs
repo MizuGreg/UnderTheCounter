@@ -46,13 +46,13 @@ namespace Bar
 
         private void LoadTrinkets()
         {
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/TrinketData/Trinkets.json");
+            string jsonString = Resources.Load<TextAsset>("TextAssets/TrinketData/Trinkets").text;
             _trinkets = JsonConvert.DeserializeObject<TrinketList>(jsonString).trinkets;
         }
 
         private void LoadPosters()
         {
-            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/UnlockedPosterData/Posters.json");
+            string jsonString = Resources.Load<TextAsset>("TextAssets/UnlockedPosterData/Posters").text;
             _posters = JsonConvert.DeserializeObject<PosterList>(jsonString).posters;
         }
 
@@ -134,8 +134,7 @@ namespace Bar
 
         public void HideTrinketArea()
         {
-            _canvasGroup.alpha = 0;
-            _canvasGroup.blocksRaycasts = false;
+            GetComponent<FadeCanvas>().FadeOut();
             hangButton.SetActive(false);
 
             // Destroy the displayed trinket or poster
@@ -155,7 +154,7 @@ namespace Bar
 
         private void ShowTrinketArea()
         {
-            _canvasGroup.blocksRaycasts = true;
+            gameObject.SetActive(true);
             StartCoroutine(WaitBeforeShowingTrinketArea());
         }
 
@@ -163,7 +162,7 @@ namespace Bar
         {
             yield return new WaitForSeconds(1f);
             
-            gameObject.GetComponent<FadeCanvas>().FadeIn();
+            GetComponent<FadeCanvas>().FadeIn();
             _canvasGroup.blocksRaycasts = true;
             hangButton.SetActive(true);
         }

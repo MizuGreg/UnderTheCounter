@@ -40,7 +40,7 @@ namespace Menu
         
         public void StartNewGame()
         {
-            File.Delete(GameData.SaveFilePath);
+            GameData.DeleteSave();
             GameData.Initialize();
             mainMenuCanvas.GetComponent<FadeCanvas>().FadeOut();
             StartCoroutine(WaitBeforeNewGame());
@@ -62,7 +62,7 @@ namespace Menu
         private IEnumerator WaitBeforeContinueGame()
         {
             yield return new WaitForSeconds(1.1f);
-            SceneManager.LoadScene("ShopWindow");
+            SceneManager.LoadScene("Mailbox");
         }
     
         public void QuitGame()
