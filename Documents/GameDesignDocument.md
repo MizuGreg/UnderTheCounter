@@ -8,49 +8,49 @@ Under the Counter is a simulation game in which you impersonate a bartender tryi
 - 1.1: updated GDD draft, highlighted uncertain sections
 - 2.0: rewrote and finalized GDD for final release
 
-## Overview and vision statement
-
-In Under the Counter you play as the owner of a bustling bar in a 20's retro-inspired city called Korgis. You will have to manage the sale of alcoholic beverages as prohibition law sets in, trying to maximize your revenue while keeping the illegal operation hidden from the authorities.
-
-The overall mood is dynamic, challenging, pressuring and clever, while the setting is 20's retro, fancy, jazzy and old-fashioned.
-
-The game is divided into several days, which are played consecutively until the last day is completed, or until the player loses. The objective of each day is to avoid going into the red by the end of the shift, and avoid getting caught serving alcohol.
-
-To reach the end of the day safely, the player needs to
-- **earn enough**: for example through tips, by serving the right drinks to customers, in order to be able to afford keeping the bar open another day
-- **avoid getting caught**: for example by not making people drink too much (because drunkards attract attention), by setting up an inconspicuous façade, and more.
-
-Choice is important in this game: the player's strategical decision will play a fundamental role in determining whether they will have what it takes to survive the day.
-
-Lastly, the focus of the development of the game is set on making the game somewhat challenging, reactive, decision-based, with an innovative and engaging gameplay each day, and of course fun.
+## Overview and Vision Statement
+Under the Counter puts you in the shoes of a bar owner in Korgis, a bustling city with a retro 1920s aesthetic. As prohibition takes effect, you'll need to navigate the underground liquor trade, maximizing your profits while keeping your illegal operations hidden from the authorities.
+The game delivers a dynamic and high-pressure experience, blending challenge, strategy, and wit. Its setting is a stylish fusion of jazz-era elegance and old-fashioned charm.
+Gameplay unfolds over multiple days, played consecutively until either the final day is reached or the player loses. Each shift presents two main objectives:
+- **Stay financially afloat**: Earn enough money through tips and strategic drink choices to keep the bar running another day.
+- **Avoid detection**: Manage intoxication levels (since drunk patrons draw unwanted attention), maintain a low profile, and survive surprise raids.
+- **Steer clear of trouble**: Certain choices may entangle the player with the mafia, forcing them to pay protection money. Refusing could lead to one of several bad endings.
+Decision-making is at the heart of the game. Every choice impacts survival, making strategy a key element in the player’s journey.
+The development focus is on crafting a **challenging**, **reactive**, and **decision-driven** experience, where each day brings fresh, engaging gameplay. The game will feature:
+- **Well-developed characters** with distinct personalities.
+- **Multiple choices with real consequences**, influencing the story’s direction.
+- **Several possible endings**, including multiple ways to lose.
+- **A newspaper system**, where the player receives daily updates via a mailbox.
+- **Collectible trinkets**, adding depth and replayability.
+- A **strong story-driven approach**, ensuring a compelling narrative experience.
 
 ---
 ---
 
 ## Characters
 
-The main character is the bartender, which we know very little of since they never speak.
+The protagonist is the Bartender, a young newcomer to Korgis hoping to build a better future. With their savings and some financial support from their family, they buy a bar and start their business.
+At the beginning of the game, an elderly former bar owner teaches the player the basics of bartending. He is also a member of the **Bartenders’ Union**, a group that supports bar owners and workers, offering guidance and protection in difficult times.
+A key recurring character is the **Inspector**, who first appears to warn the player about the enforcement of prohibition. During raids, he will enter the bar, asking questions and growing suspicious if he notices anything unusual.
+The game features a diverse cast of **well-developed characters**, each with distinct personalities and interactions. Some of them have interconnected storylines that the player can uncover based on the drinks they serve. While only a handful of customers will appear in the prototype, more will be introduced in future updates.
+**Special Customers** have unique behaviors and roles. These include:
+- **Mafia enforcers**, who might demand protection money.
+- **Undercover police informants**, who will try to catch the bartender in the act.
+- **Members of the city’s criminal organizations**, adding depth and potential threats to the gameplay.
+Characters’ drink requests will be influenced by their personalities—some will have specific preferences, while others may give vague or abstract clues, requiring the bartender to figure out the perfect cocktail for them.
 
-The former bar owner, an old man, teaches the player the basics of bartending. He is also a member of the bartenders union.
-
-Another recurring character is the inspector. They will warn the player of the instatiation of the prohibition law.
-
-There will be a few customers for the prototype, but a couple more customers are planned to be added for the next releases.
-
-Super customers, that is, customers with special interests or interactions, are planned to be added in the future.
-
-Characters belonging to the local criminal organizations may be added in the future.
 
 ## Story
 
-The main outline of the story is that the protagonist buys a new bar, but shortly after settling in, prohibition strikes, making the sale of alcohol illegal. The bartender will thus have to start operating in a more careful way while continuing to serve alcoholic beverages. Some factions in the city of Korgis may help or hinder them: among these are the bartenders union and the local mafia.
+The protagonist is a young newcomer to Korgis, hoping to build a better future. Using their savings and some financial support from their family, they purchase a bar, eager to start their business. However, soon after they settle in, prohibition takes effect, making the sale of alcohol illegal.
+Forced to adapt, the bartender must find ways to keep serving alcohol while staying under the radar. Throughout the game, different factions will either aid or oppose them, including the **Bartenders' Union** and the **local mafia**, each with their own interests in the underground liquor trade.
 
 ## World
 
 The game world does not adhere perfectly to a historical period, but it's inspired by the prohibition era of the 1920s and 30s in the United States of America. The bar is located in a city called Korgis, situated in an unspecified region of the US.
 As the game develops, various events unfold in this fictional world, first of all being a prohibition law which forbids shops from selling and distributing alcohol in any form. 
 
-The city of Korgis is a fair one, where the police protects its citizens while fighting organized crime. Prohibition breaks this balance, making police operations harsher and more frequent, while at the same time often leaving bars and pubs at the mercy of mafia clans, which try to extort money or acquire control.
+The city of Korgis is a fair one, where the police protect its citizens while fighting organized crime. Prohibition breaks this balance, making police operations harsher and more frequent, while at the same time often leaving bars and pubs at the mercy of mafia clans, which try to extort money or acquire control.
 
 Korgis is fairly multicultural, and hosts several artistic and musical events on a daily basis. The protagonist's bar will thus be visited by customers of varying social background and economic status.
 
@@ -59,56 +59,80 @@ Korgis is fairly multicultural, and hosts several artistic and musical events on
 
 ## Gameplay
 
-The game is structured in days. Days are predominantly "self-contained", in the sense that most of the decisions taken during a day don't influence the next days. Some decisions may have an outcome on the next day.
+The game is structured into **consecutive days**, each representing a new shift at the bar. While most decisions affect only the current day, certain key choices can have consequences that carry over to the following days.
+## Decision Types
+Players make **two kinds of choices** that influence the story and future events:
+- **Direct choices**, such as responding to the inspector during a raid.
+- **Indirect choices**, such as serving the right cocktails, which can impact customer relationships, unlock new storylines, or trigger future events (e.g., unlocking trinkets).
+## Daily Routine
+Each day starts with the **mailbox**, where the bartender can check **newspapers, letters, and flyers** containing valuable information. These may provide updates about Korgis, new laws, citizen sentiments, upcoming police raids, and even insights about specific customers.
+After reading the mail, the player prepares for the shift by **setting up the shop window**, choosing how to advertise the bar. Posters can be bought or swapped out, influencing gameplay with various bonuses or drawbacks. Players can decide how discreet or open they want to be about selling alcohol.
+Once the bar opens, the **night shift begins**, and customers start arriving. Throughout the night, scripted events may occur, requiring the bartender to react quickly.
+The more alcohol is sold, the **higher the risk of attracting attention**. If too many drunk customers leave the bar, suspicion will rise, increasing the likelihood of a **raid**. During a blitz, the bartender must either:
+- **Prevent suspicion** by keeping customers from getting too drunk.
+- **Hide evidence** before the authorities arrive.
+- **Handle questioning** carefully to avoid getting caught.
+At the end of the shift, players review their **earnings and expenses**, assessing whether they can afford to keep the bar running another day.
 
-Each day except the first one starts with setting up the shop window, deciding what kind of advertising the bar offers. The player may decide to be more or less overt in their distribution of alcoholic drinks. Then, the owner opens the bar to their patrons and the night begins.
 
-Scripted events will happen during the shift, which will require the player to make a decision.
 
-Based on the amount of alcoholic drinks sold, the authorities may increasingly notice that the bar is selling alcohol (by seeing drunk people come out of it), a blitz will become more and more likely this way. Arrest can be avoided if the bartender avoids getting people too drunk on their drinks (see bar mechanic below), or alternatively, if they hide evidence and successfully evade incriminating questions during the blitz.
+### Mailbox
+**Elements**: mailbox, newspaper, parents’ letter, Bartenders' Union Card, propaganda flyer, theater show advertisement.
+**Gameplay**: The player interacts with the mailbox to check their daily mail, which provides:
+- Updates on Korgis (new laws, public events, citizen sentiment).
+- Hints for handling the inspector during raids.
+- Customer-related information that may change based on past choices.
+All visual assets maintain a **1920s–30s inspired aesthetic**, reinforcing the game’s atmosphere.
 
-Lastly, when the shift ends, the player can take a glance at all the expenses and earnings of the day and gain awareness on their economical situation.
 
 ### Shop window
 
-**Elements**: posters and texts, occasionally a letter (possibly in the future: pavement sign, ...)
+**Elements**: posters, poster shop, owned posters, bartender’s savings, poster descriptions (with bonuses/maluses).
+**Gameplay**: Players can buy, remove, or display posters that influence gameplay:
+- **Direct advertising** (e.g., a Martini poster) attracts more drinkers but also more scrutiny.
+- **Covert advertising** (posters with hidden messages) subtly inform customers about the availability of alcohol.
+Each poster affects the game in different ways, such as:
+- Increased drink sales but fewer daily customers.
+- Longer shifts with fewer patrons.
+- Higher risk of raids due to increased drunk patrons.
+- More customers but lower tips.
+- Extended time to hide alcohol during raids but increased police suspicion.
 
-**Gameplay**: the player/bar owner will be able to tear down or hang posters with different purposes:
-- advertising the sale of alcohol directly (e.g. a Martini poster) or covertly (e.g. "now selling Daisies and Turnscrews", referring to the Margarita and Screwdriver cocktails)
-- using secret codes between bartenders in Korgis to let customers know that this bar sells alcohol
-- possibly more.
 
-These changes can affect
-- how easy to achieve a police blitz is (e.g. a poster advertising alcohol might make the police more alert),
-- the amount of tips left (e.g. "Tip your local barkeeper!"),
-- the difficulty and/or duration of the blitz minigame (e.g. "We respect the police in this establishment!")
-- the duration of the day (e.g. "Bar open until late today!")
 
-and possibly more.
-
-Posters may be bought; some may be unlocked after a certain day; and some will be given by customers or other individuals.
+Posters may be bought, or some may be unlocked after a certain day or after talking with a certain character on a specific day.
 
 ### Bar view
-
-**Elements**: area under the counter, counter, trinkets
-
-**Gameplay**: the customers will show up at the counter, say a couple lines and then order a drink. They will pay for the cocktail after receiving it and possibly add a variable tip.
-
-Interesting individuals may also enter the bar apart from customers: someone with special tastes in drinks, the police inspector, a mafia goon, and more.
-
-Some customers will leave trinkets under specific circumstances (e.g. if served the right drink). These gifts will be displayed immediately in the bar view and will remain visible for the rest of the gameplay.
+**Elements**: under-the-counter storage, counter, mirror, chairs, lamps, clock, wall decorations, wallpapers.
+**Gameplay**:
+- Customers approach the bar, engage in short dialogue, and place their drink orders.
+- Patrons pay after receiving their drink, sometimes leaving a tip.
+- Special characters may also appear, including:
+-- **The police inspector**
+-- **Mafia goons**
+-- **A Bartenders’ Union member**
+-- **An undercover informant**, who will try to catch the bartender serving alcohol.
+Throughout the game, **trinkets** can be unlocked by serving specific drinks, adding decorative elements to the bar, such as:
+- Business cards
+- A cookie jar
+- A medal of valor
+- A vinyl record
+- An Egyptian relic
+- A “Best Bartender” note
 
 ### Cocktail preparation
 
-**Elements**: draggable objects like alcoholic drinks (Verlan, Caledon Ridge, Ferrucci, Cántico), non-alcoholic beverages (Gryte, shaddock juice), garnishes, buttons for watering down/trashing/serving the cocktail
+**Elements**: Drag and drop objects such as alcoholic drinks (Verlan, Caledon Ridge, Ferrucci, Cantico), non-alcoholic drinks (Gryte, Shaddock Juice), shaker, placed alongside non-interactive objects such as the bar background, shaker icon display, master book (see master book section below). 
 
-**Gameplay**: in the cocktail creation area, the player will be able to create a cocktail out of the available ingredients, to satisfy each customer's request. The player may consult the recipe tab in the master book to know which ingredient(s) to use.
+**Gameplay**: In the cocktail creation area, the player will be able to create a cocktail from the available ingredients to satisfy each customer's request. The player can consult the Recipe Book section of the Master Book to know which ingredient(s) to use.
 
-- If the drink is what the customer asked for, the bartender will be payed and tipped. Preparing the cocktail in a timely manner will increase the tip.
+- If the drink is what the customer asked for, the bartender will also receive a tip. 
 
-- If the bartender makes the wrong cocktail, the customer may get angry because of the incorrect order, not pay, and leave (but they will still get drunk if the drink is alcoholic, i.e., if it's not watered down).
+- If the bartender makes the wrong cocktail, the customer may get angry, leave no tip and leave without drinking the cocktail.
 
-- Finally, serving a correct but watered down cocktail (by adding tap water) serves as a way to keep the customer from getting drunk: they will pay but not tip and leave, but without getting too upset.
+- Finally, serving a correct but watered-down cocktail (by adding tap water) is a way to keep the customer from getting drunk: they will tip less and leave without getting too upset.
+
+
 
 Summary:
 
@@ -117,6 +141,7 @@ Summary:
 | CORRECT DRINK            | customer **satisfied**        | **yes** with additional **tip**                                   | **yes**                              |   |
 | CORRECT BUT WATERED DOWN | customer **mildly satisfied** | **yes** with **no tip**                                           | **no**                               |   |
 | INCORRECT                | customer **angry/upset**      | **no**                                                            | **yes** if cocktail is **not watered down**; otherwise **no** |   |
+
 
 ### Police blitz
 
@@ -142,11 +167,16 @@ Usually, only one blitz can happen per day, but the player may get from zero up 
 
 
 ### Master book
+##Elements:
+- Recipe book (Cocktail recipes, descriptions, and illustrations)
+- Dialogue log (Current day, customer names, dialogues, and choices)
+- Active poster effects (Posters currently displayed, their effects, and owned posters)
+##Gameplay:
+ The master book is a reference book that can be accessed at almost any time in the bar view, providing an overview of the game's current status. It consists of three tabs:
+- **Recipe tab**: Displays cocktail recipes, their ingredients, appearance, and a brief description—useful for fulfilling specific customer requests.
+- **Dialogue tab**: Logs recent conversations with customers and other characters, allowing the player to review any missed details.
+- **Posters tab**: Shows which posters are currently displayed in the shop window, their active effects, and how many posters the player has collected so far.
 
-The master book is a book that can be opened at virtually any time in the bar view. It shows an interface that can help the player recap the current status of the game. It has three tabs:
-- the recipe tab, which shows the cocktails, their ingredients, their look, and a short description;
-- the dialogue tab, which shows the last dialogue lines spoken by the customers and other individuals in the bar;
-- the posters tab, which shows the currently hung posters and their active effects, and how many posters out of the total have been obtained.
 
 ## Other gameplay elements
 
@@ -173,7 +203,7 @@ Sprites:
 - old former bartender
 - bartenders' union representative
 - police inspector
-- customers (hopefully 10 in the prototype)
+- customers
 - cocktail ingredients, cocktails, garnishes, shaker
 - counter and trinkets
 - posters
@@ -184,10 +214,10 @@ Images:
 
 Sounds:
 - sound effects for
-    - master book
-    - a customer entering/leaving 
-    - posters being hung/torn down
-    - blitz events
+	- master book
+	- a customer entering/leaving
+	- posters being hung/torn down
+	- blitz events
 
 Soundtrack:
 - Main menu (medium length)
@@ -261,11 +291,23 @@ None in particular.
 - creation of Gantt chart for development until beta deadline
 
 ### Deadline (GDD and GitHub repo) - 04/11
+- with the GDD already set up, we split the workload between the programmers and identified priorities and secondary assets with the designer
 
 ### Deadline (prototype submission) - 08/12
+- the group took roughly a week off
 
 ### Deadline (all prototype feedbacks received) - 11/12
+- reviewed all feedbacks, categorized them, and discussed priorities and nice-to-haves in group
+- split workload among group members
 
-### Deadline (beta submission) - 12/01
+### Meeting - 26/12
+- follow-up meeting to identify critical bugs, missing features, and to split workload between group members
 
-### Deadline (final project submission) - 23/02
+### Deadline (beta submission) - 12/01-19/01
+- bugfixes and balancing to the game’s economy system
+- designed and implemented “mailbox view” at the beginning of every day, including newspapers and other important elements
+- implemented web build
+
+### Deadline (before final project submission) - 17/02
+- rewrote and updated GDD with latest additions
+- obtained and uploaded necessary files for deadline
