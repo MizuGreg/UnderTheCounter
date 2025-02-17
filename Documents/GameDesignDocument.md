@@ -6,6 +6,7 @@ Under the Counter is a simulation game in which you impersonate a bartender tryi
 
 - 1.0: created GDD draft
 - 1.1: updated GDD draft, highlighted uncertain sections
+- 2.0: rewrote and finalized GDD for final release
 
 ## Overview and vision statement
 
@@ -78,81 +79,90 @@ Lastly, when the shift ends, the player can take a glance at all the expenses an
 - possibly more.
 
 These changes can affect
-- how easy to achieve a police blitz is (e.g. a poster advertising alcohol will make the police far more alert),
-- the amount of tips left (e.g. "Tip your local barkeeper <3"),
+- how easy to achieve a police blitz is (e.g. a poster advertising alcohol might make the police more alert),
+- the amount of tips left (e.g. "Tip your local barkeeper!"),
 - the difficulty and/or duration of the blitz minigame (e.g. "We respect the police in this establishment!")
 - the duration of the day (e.g. "Bar open until late today!")
 
 and possibly more.
 
-Posters may be bought, or some may be unlocked after a certain day.
+Posters may be bought; some may be unlocked after a certain day; and some will be given by customers or other individuals.
 
 ### Bar view
 
-**Elements**: area under the counter, counter (decorated with various items), (according to time and feasibility: tables and chairs, door and windows)
+**Elements**: area under the counter, counter, trinkets
 
 **Gameplay**: the customers will show up at the counter, say a couple lines and then order a drink. They will pay for the cocktail after receiving it and possibly add a variable tip.
 
-In the future, interesting individuals may also enter the bar apart from customers: someone with special tastes in drinks, the police inspector, mafia goons, and more.
+Interesting individuals may also enter the bar apart from customers: someone with special tastes in drinks, the police inspector, a mafia goon, and more.
+
+Some customers will leave trinkets under specific circumstances (e.g. if served the right drink). These gifts will be displayed immediately in the bar view and will remain visible for the rest of the gameplay.
 
 ### Cocktail preparation
 
-**Elements**: clickable objects like alcoholic drinks (Verlan, Caledon Ridge, Ferrucci), non-alcoholic beverages (Gryte, shaddock juice, tap water) put alongside non-interactable objects like glasses, garnishes, recipe book
+**Elements**: draggable objects like alcoholic drinks (Verlan, Caledon Ridge, Ferrucci, Cántico), non-alcoholic beverages (Gryte, shaddock juice), garnishes, buttons for watering down/trashing/serving the cocktail
 
-**Gameplay**: in the cocktail creation area, the player will be able to create a cocktail out of the available ingredients, to satisfy each customer's request. The player may consult the recipe book to know which ingredient(s) to use.
+**Gameplay**: in the cocktail creation area, the player will be able to create a cocktail out of the available ingredients, to satisfy each customer's request. The player may consult the recipe tab in the master book to know which ingredient(s) to use.
 
-- If the drink is what the customer asked for the bartender will be also tipped. Preparing the cocktail in a timely manner will increase the tip.
+- If the drink is what the customer asked for, the bartender will be payed and tipped. Preparing the cocktail in a timely manner will increase the tip.
 
-- If the bartender makes the wrong cocktail, the customer may get angry because of the incorrect order, not tip, and leave (but they will still get drunk if the drink is alcoholic).
+- If the bartender makes the wrong cocktail, the customer may get angry because of the incorrect order, not pay, and leave (but they will still get drunk if the drink is alcoholic, i.e., if it's not watered down).
 
-- Finally, serving a correct but watered down cocktail (by adding tap water) serves as a way to keep the customer from getting drunk: they will tip less and leave, but without getting too upset.
+- Finally, serving a correct but watered down cocktail (by adding tap water) serves as a way to keep the customer from getting drunk: they will pay but not tip and leave, but without getting too upset.
 
 Summary:
 
-|                          | CUSTOMER OUTCOME              | TIP                                                               | DRUNKENNESS                          |   |
+|                          | CUSTOMER OUTCOME              | PAYMENT                                                           | DRUNKENNESS                          |   |
 |--------------------------|-------------------------------|-------------------------------------------------------------------|--------------------------------------|---|
-| CORRECT DRINK            | customer **satisfied**        | **yes**; **additional** tip if cocktail is served **fast enough** | **yes**                              |   |
-| INCORRECT                | customer **angry/upset**      | **no**                                                            | **yes** if cocktail is **alcoholic** |   |
-| CORRECT BUT WATERED DOWN | customer **mildly satisfied** | **little**                                                        | **no**                               |   |
+| CORRECT DRINK            | customer **satisfied**        | **yes** with additional **tip**                                   | **yes**                              |   |
+| CORRECT BUT WATERED DOWN | customer **mildly satisfied** | **yes** with **no tip**                                           | **no**                               |   |
+| INCORRECT                | customer **angry/upset**      | **no**                                                            | **yes** if cocktail is **not watered down**; otherwise **no** |   |
 
 ### Police blitz
 
-**Elements**: inspector, bottle-hiding minigame, dialogue with choices ...
+**Elements**: inspector, bottle-hiding minigame, multiple-choice dialogue
 
 **Gameplay**: a police blitz may happen at some point starting from the 4th day: this can be caused by:
-- the bartender selling too many alcoholic drinks to customers (each day has a scripted maximum amount of drunk people which triggers the blitz)
-- an incriminating poster outside
-- possibly more
+- the bartender selling too many alcoholic drinks to customers (each day has a maximum amount of drunk people which triggers the blitz; this threshold can be modified by certain posters, or by having already received a blitz before)
+- serving alcohol to a customer secretly working for the police.
 
 If the right conditions are satisfied the blitz will take place immediately.
 
 In this case a custom interface will appear, letting the player know they need to hide evidence of selling alcohol before the police enters the bar.
 
-1) First, the player will need to hide the alcoholic ingredients inside a safe within a specified time (a time bar will appear on screen for this purpose)
+1) First, the player will need to hide the alcoholic ingredients inside a safe within a specified time (a time bar will appear on screen for this purpose). The duration of this phase depends on various hidden factors, for example having received a blitz before.
 
-2) Then, upon entering, the inspector will ask a couple trick questions to the bartender.
+2) Then, upon entering, the inspector will ask a trick question to the bartender. The bartender can answer in two ways, one of which is correct and the other raises suspicion.
 
-If the player hasn't hidden all evidence in time, or responded wrongly to a question, the bar will be closed and the game ends. Otherwise the player has survived the blitz and can continue as usual. This will reset the blitz conditions.
+If the player hasn't hidden all evidence in time, the bar will be closed and the game ends. If the player answers wrongly to the question, the inspector gets more suspicious and a future blitz may be more likely to happen. Otherwise the player has survived the blitz and can continue as usual. Passing the inspection in this way has positive effects, which means a future blitz may be slightly less likely to happen.
 
-In either case, blitz are planned to be time-consuming, so as to make the bartender lose time (and subsequently money).
+In either case, blitzes are planned to be time-consuming, so as to make the bartender lose time (and subsequently money).
 
-An inspection will make the current customer leave and scare off future ones for a few seconds.
+Usually, only one blitz can happen per day, but the player may get from zero up to two blitzes per day with the right conditions.
+
+
+### Master book
+
+The master book is a book that can be opened at virtually any time in the bar view. It shows an interface that can help the player recap the current status of the game. It has three tabs:
+- the recipe tab, which shows the cocktails, their ingredients, their look, and a short description;
+- the dialogue tab, which shows the last dialogue lines spoken by the customers and other individuals in the bar;
+- the posters tab, which shows the currently hung posters and their active effects, and how many posters out of the total have been obtained.
 
 ## Other gameplay elements
 
 ### Dialogues
 
-The bartender will engage in very small conversations with customers, which may either reveal important information (e.g. future prohibition laws being discussed, secret codes for alcohol-serving bars, how to spot undercover cops) or just serve as a small distraction during the game. Such short dialogues can be fundamental in quickly fleshing out the customer's personality and habits.
+The bartender will engage in very small conversations with customers, which may either reveal important information (e.g. future prohibition laws being discussed, secret codes for alcohol-serving bars, how to spot undercover customers) or just serve as a small distraction during the game. Such short dialogues can be fundamental in quickly fleshing out the customer's personality and habits.
 
-Dialog lines will require a click to proceed to the next one; double click to display all the text at once.
+Dialogue lines can be sped up by clicking on the dialogue box or by pressing the spacebar. In the same way the player can proceed to the next line.
 
 ### Decisions
 
-Decisions are pragmatic in this game, in the sense that the player can make strategic decisions based on their actions. During the blitz minigame, the bartender can choose among a list of possible answers to the inspector's questions.
+Decisions are important in this game, in the sense that the player can make strategic decisions based on their actions. During the blitz minigame, the bartender can choose one of two possible answers to the inspector's questions. Additionally, the player can cause or prevent certain events in the game (like obtaining trinkets or posters, or making some customers meet each other) by fulfilling cocktail orders in a certain way (e.g. watering or not watering a drink).
 
 ### Gameplay modes and other features
 
-No additional game modes are planned at the moment.
+No additional game modes are planned.
 
 ---
 ---
@@ -161,32 +171,35 @@ No additional game modes are planned at the moment.
 
 Sprites:
 - old former bartender
+- bartenders' union representative
 - police inspector
 - customers (hopefully 10 in the prototype)
-- cocktail ingredients, cocktails, glasses, shaker
-- counter
-- possibly more in the future
+- cocktail ingredients, cocktails, garnishes, shaker
+- counter and trinkets
+- posters
+- daily newspapers, bartenders' union slips of paper, and other papers
 
 Images:
-- backgrounds for bar, shop window, menu
+- backgrounds for bar, shop window, menu, introduction screen
 
-Sound:
-- sounds effects for
-    - recipe book
-    - drinks (shaker, water/liquids pouring)
-    - posters
-    - possibly UI-related sounds
+Sounds:
+- sound effects for
+    - master book
+    - a customer entering/leaving 
+    - posters being hung/torn down
+    - blitz events
 
-OST:
-- Menu (medium length)
+Soundtrack:
+- Main menu (medium length)
+- Introduction (medium length)
 - Shop window (short/medium length)
 - Bar (high length)
 - End of day (short length)
-- Win/lose tracks (short? possibly)
+- Win/lose tracks (short length)
 
 ## Technical specifications
 
-None yet.
+None in particular.
 
 ## Team
 1. Gloria Gaggelli (project leader, game designer, artist) 
